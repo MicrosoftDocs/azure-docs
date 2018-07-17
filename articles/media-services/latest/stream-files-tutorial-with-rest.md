@@ -73,7 +73,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-ckick on the selected file and enter values that you got by following the [accing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -89,7 +89,7 @@ This section configures the Postman.
 
 ## Send requests using Postman
 
-In this section we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
+In this section, we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
 
 1. Get Azure AD Token for Service Principal Authentication
 2. Create an output asset
@@ -218,7 +218,7 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
         }
         ```
 
-The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend to use Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend using Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
