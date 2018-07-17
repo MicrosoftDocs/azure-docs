@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2018
+ms.date: 07/16/2018
 ms.author: magoedte
 ---
 
@@ -46,7 +46,7 @@ This capability relies on a containerized OMS Agent for Linux to collect perform
 >If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent.  
 >
 
-## Sign in to Azure Portal
+## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Enable container health monitoring for a new cluster
@@ -286,21 +286,41 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## View performance utilization
-When you open container health, the page immediately presents the performance utilization of your cluster nodes.  Viewing information about your AKS cluster is organized into three perspectives:
+When you open container health, the page immediately presents the performance utilization of your entire cluster.  Viewing information about your AKS cluster is organized into four perspectives:
 
+- Cluster
 - Nodes 
 - Controllers  
 - Containers
 
-The row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they are shown as the last row in the hierarchy.<br><br> ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+On the Cluster tab, the line performance charts show key performance metrics of your cluster.  
 
-You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node. If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.  **Memory RSS** is only supported for Kubernetes version 1.8 and later. Otherwise, you see values for **AVG %** showing as *NaN%*, which is a numeric data type value representing an undefined or unrepresentable value. 
+![Example performance charts on the Cluster tab](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![Container performance nodes performance view](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+The following is a breakdown of the performance metrics presented:
 
-By default, Performance data is based on the last six hours but you can change the window with the **Time Range** drop-down list found on the upper right-hand corner of the page. At this time, the page does not auto-refresh, so you need to manually refresh it. 
+- Node CPU Utilization % - This chart represents an aggregated perspective of CPU utilization for the entire cluster.  You can filter the results for the time range by selecting *Avg*, *Min*, *Max*, *50th*, *90th*, and *95th* from the percentiles selector above the chart, either individually or combined. 
+- Node memory utilization % - This chart represents an aggregated perspective of memory utilization for the entire cluster.  You can filter the results for the time range by selecting *Avg*, *Min*, *Max*, *50th*, *90th*, and *95th* from the percentiles selector above the chart, either individually or combined. 
+- Node count - This chart represents node count and status from Kubernetes.  Status of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined from the selector above the chart.    
+- Activity pod count - This chart represents pod count and status from Kubernetes.  Status of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined from the selector above the chart.  
 
-In the following example, you notice for node *aks-agentpool-3402399-0*, the value for **Containers** is 10, which is a rollup of the total number of containers deployed.<br><br> ![Rollup of containers per node example](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> It can help you quickly identify if you don't have a proper balance of containers between nodes in your cluster.  
+Switching to the Nodes tab, the row hierarchy follows the Kubernetes object model starting with a node in your cluster.  Expand the node and you see one or more pods running on the node, and if there is more than one container grouped to a pod, they are shown as the last row in the hierarchy. You are able to also see how many non-pod related workloads are running on the host in case host has processor or memory pressure.
+
+![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-health/container-health-nodes-view.png)
+
+You can select controllers or containers from the top of the page and review the status and resource utilization for those objects.  Use the dropdown boxes at the top of the screen to filter by namespace, service, and node. If instead you want to review memory utilization, from the **Metric** drop-down list select **Memory RSS** or **Memory working set**.  **Memory RSS** is only supported for Kubernetes version 1.8 and later. Otherwise, you see values for **MIN %** showing as *NaN%*, which is a numeric data type value representing an undefined or unrepresentable value. 
+
+![Container nodes performance view](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+By default, Performance data is based on the last six hours but you can change the window with the **Time Range** drop-down list found on the upper right-hand corner of the page. At this time, the page does not auto-refresh, so you need to manually refresh it. You can  also filter the results within the time range by selecting *Avg*, *Min*, *Max*, *50th*, *90th*, and *95th* from the percentile selector. 
+
+![Percentile selection for data filtering](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+In the following example, you notice for node *aks-nodepool-3977305*, the value for **Containers** is 5, which is a rollup of the total number of containers deployed.
+
+![Rollup of containers per node example](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+It can help you quickly identify if you don't have a proper balance of containers between nodes in your cluster.  
 
 The following table describes the information presented when you view Nodes.
 
@@ -308,54 +328,80 @@ The following table describes the information presented when you view Nodes.
 |--------|-------------|
 | Name | The name of the host |
 | Status | Kubernetes view of the node status |
-| AVG % | Average node percentage based on selected metric for the selected time duration. |
-| AVERAGE | Average nodes actual value based on selected metric for the selected time duration.  The Average value is measured from the CPU/Memory limit set for a node; for pods and containers it is the avg value reported by the host. |
+| AVG%, MIN%, MAX%, 50TH%, 90TH% | Average node percentage based on percentile during that time duration selected. |
+| AVG, MIN, MAX, 50TH, 90TH | Average nodes actual value based on percentile during that time duration selected.  The Average value is measured from the CPU/Memory limit set for a node; for pods and containers it is the avg value reported by the host. |
 | Containers | Number of containers. |
 | Uptime | Represents the time since a node started or was rebooted. |
-| Pod | Only for containers. It shows which pods it residing. |
 | Controllers | Only for containers and pods. It shows which controller it is residing. Not all pods will be in a controller, so some may show N/A. | 
-| Trend AVG% | Bar graph trend based on container and node avg metric %. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% | Bar graph trend presenting percentile metric % of the controller. |
 
 
-From the selector, choose **Controllers**.<br><br> ![Select controllers view](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+From the selector, choose **Controllers**.
 
-Here you can see the performance health of your controllers.<br><br> ![<Name> controllers performance view](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![Select controllers view](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-The row hierarchy starts with a controller and expands the controller and you see one or more pods, or one or more containers.  Expand a pod and the last row show the container grouped to the pod.  
+Here you can see the performance health of your controllers.
+
+![<Name> controllers performance view](./media/monitoring-container-health/container-health-controllers-view.png)
+
+The row hierarchy starts with a controller and expands the controller and you see one or  one or more containers.  Expand a pod and the last row show the container grouped to the pod.  
 
 The following table describes the information presented when you view Controllers.
 
 | Column | Description | 
 |--------|-------------|
 | Name | The name of the controller|
-| Status | Status of the containers when it has completed running with status, such as *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly presented or was not picked up by the agent and has not responded more than 30 minutes, the status will be *Unknown*. |
-| AVG % | Roll up average of the average % of each entity for the selected metric. |
-| AVERAGE | Roll up of the average CPU millicore or memory performance of the container.  The Average value is measured from the CPU/Memory limit set for a pod. |
+| Status | Rollup status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly presented or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
+| AVG%, MIN%, MAX%, 50TH%, 90TH% | Roll up average of the average % of each entity for the selected metric and percentile. |
+| AVG, MIN, MAX, 50TH, 90TH  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller or pod. |
 | Restarts | Roll up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
-| Pod | Only for containers. It shows which pods it residing. |
 | Node | Only for containers and pods. It shows which controller it is residing. | 
-| Trend AVG% | Bar graph trend presenting average metric % of the container. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH%| Bar graph trend representing percentile metric of the controller. |
 
-From the selector, choose **Containers**.<br><br> ![Select containers view](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+The icons in the status field indicate the online status of containers:
+ 
+| Icon | Status | 
+|--------|-------------|
+| ![Ready running status icon](./media/monitoring-container-health/container-health-ready-icon.png) | Running (Ready)|
+| ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
+| ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
+| ![Terminated status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
 
-Here we can see the performance health of your containers.<br><br> ![<Name> controllers performance view](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+The status icon shows a count based on what the pod provides. It shows the worse two states and when you hover over the status, it shows a roll up status from all pods in the container.  If there isn't a ready state, the status value will show a **(0)**.  
+
+From the selector, choose **Containers**.
+
+![Select containers view](./media/monitoring-container-health/container-health-containers-tab.png)
+
+Here we can see the performance health of your containers.
+
+![<Name> controllers performance view](./media/monitoring-container-health/container-health-containers-view.png)
 
 The following table describes the information presented when you view Containers.
 
 | Column | Description | 
 |--------|-------------|
 | Name | The name of the controller|
-| Status | Roll up status of the containers, if any. |
-| AVG % | Roll up average of the average % of each entity for the selected metric. |
-| AVERAGE | Roll up of the average CPU millicore or memory performance of the container. The Average value is measured from the CPU/Memory limit set for a pod. |
-| Containers | Total number of containers for the controller.|
+| Status | Status of the containers, if any. Additional details of the status icon are provided in the table below.|
+| AVG%, MIN%, MAX%, 50TH%, 90TH% | Roll up average of the average % of each entity for the selected metric and percentile. |
+| AVG, MIN, MAX, 50TH, 90TH  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile.  The Average value is measured from the CPU/Memory limit set for a pod. |
+| Pod | Container where the pod resides.| 
+| Node |  Node where the container resides. | 
 | Restarts | Represents the time since a container started. |
 | Uptime | Represents the time since a container was started or rebooted. |
-| Pod | Pod information where it resides. |
-| Node |  Node where the container resides.  | 
-| Trend AVG% | Bar graph trend presenting average metric % of the container. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% | Bar graph trend representing average metric % of the container. |
+
+The icons in the status field indicate the online status of pods:
+ 
+| Icon | Status | 
+|--------|-------------|
+| ![Ready running status icon](./media/monitoring-container-health/container-health-ready-icon.png) | Running (Ready)|
+| ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
+| ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
+| ![Terminated status icon](./media/monitoring-container-health/container-health-terminated-icon.png) | Successfully stopped or failed to stop|
+| ![Failed status icon](./media/monitoring-container-health/container-health-failed-icon.png) | Failed state |
 
 ## Container data collection details
 Container health collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
@@ -383,7 +429,9 @@ The following table shows examples of records collected by container health and 
 ## Search logs to analyze data
 Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally.  Pre-defined log searches are provided to immediately start using or to customize in order to return the information the way you want. 
 
-You can perform interactive analysis of data in the workspace by selecting the **View Log** option, available on the far right when you expand a container.  **Log Search** page appears right above the page you were on in the portal.<br><br> ![Analyze data in Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+You can perform interactive analysis of data in the workspace by selecting the **View Log** option, available on the far right when you expand a controller or container.  **Log Search** page appears right above the page you were on in the portal.
+
+![Analyze data in Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
 The container logs output forwarded to Log Analytics are STDOUT and STDERR. Because container health is monitoring Azure managed Kubernetes (AKS), Kube-system is not collected today due to the large volume of data generated.     
 
@@ -466,7 +514,9 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
     }
     ```
 
-4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
+
+    ![Container properties page](./media/monitoring-container-health/container-properties-page.png)
 
     While you are on the **Properties** page, also copy the **Workspace Resource ID**.  This value is required if you decide you want to delete the Log Analytics workspace later, which is not performed as part of this process.  
 
@@ -545,7 +595,8 @@ If container health was successfully enabled and configured but you are not seei
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and shows the version of the agent and Docker provider. To see that the agent has been onboarded successfully, run the following command: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and shows the version of the agent and 
+5.  provider. To see that the agent has been onboarded successfully, run the following command: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     The status should resemble the following:
 

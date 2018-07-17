@@ -71,6 +71,6 @@ For more information about all the Microsoft Cognitive Services available, see [
 
 For quickstart guides to using some example Cognitive Services APIs:
 
- - [Computer Vision C# quickstarts](/computer-vision/quickstarts/csharp.md)
- - [Text Analytics with Python](/text-analytics/quickstarts/python.md)
- - [Face API with JavaScript](/face/quickstarts/javascript.md)
+ - [Computer Vision C# quickstarts](computer-vision/quickstarts/csharp.md)
+ - [Text Analytics with Python](text-analytics/quickstarts/python.md)
+ - [Face API with JavaScript](face/quickstarts/javascript.md)
