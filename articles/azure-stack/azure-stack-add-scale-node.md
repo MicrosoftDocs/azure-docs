@@ -41,7 +41,7 @@ The following steps are a high-level overview of how to add a node. Don't follow
 2. Configure the correct IP Address in the baseboard management controller (BMC) and apply all BIOS settings per your OEM-provided documentation.
 3. Apply the current firmware baseline to all components by using the tools that are provided by the hardware manufacturer that run on the HLH.
 4. Run the Add node operation in the Azure Stack admin portal.
-5. Use the privileged endpoint to check the status of virtual disk jobs. The storage rebalance job can run for several hours depending on system load and consumed space.
+5. Validate that the add node operation succeeds. To do so, check the [**Status** of the Scale Unit](#monitor-add-node-operations). 
 
 ## Add the node 
 You can use the admin console or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *compute* and *storage* scale together.
@@ -81,11 +81,11 @@ Before using either of the following sample PowerShell scripts, replace the valu
   Add-AzsScaleUnitNode -NodeList @($NewNode1,$NewNode2) -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```
 
-## Monitor Add Node operation  
+## Monitor Add Node operations 
 You can use the admin portal or PowerShell to get the status of the add node operation. Add node operations can take several hours to days to complete.
 
 ### Use the admin console 
-To monitor the addition of a new node, in the admin portal review the scale unit or scale unit node objects. To do so, go to **Region management** > **Scale units**. Next, select the scale unit or scale unit node you want to review. The **Status** shows the current state of the object. 
+To monitor the addition of a new node, in the admin portal review the scale unit or scale unit node objects. To do so, go to **Region management** > **Scale units**. Next, select the scale unit or scale unit node you want to review. 
 
 ### Use PowerShell
 The status for scale unit and scale unit nodes can be retrieved using PowerShell as follows:
