@@ -62,9 +62,9 @@ The overall process for retry when connection errors are detected is:
 5.	The SDK allows the user to attach a callback to receive connection status changes. 
 
 Three retry policies are provided:
-1) **Exponential back-off with jitter**: This is the default retry policy applied.  It tends to be aggressive at the start, slows down, and then hits a maximum delay that is not exceeded.  The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-2) **Custom retry**: You can implement a custom retry policy and inject it in the RetryPolicy depending on the language you choose. You can design a retry policy that is suited for your scenario.  This is not available on the C SDK.
-3) **No retry**: There is an option to set retry policy to "no retry," which disables the retry logic.  The SDK tries to connect once and send a message once, assuming the connection is established. This policy would typically be used in cases where there are bandwidth or cost concerns.   If this option is chosen, messages that fail to send are lost and cannot be recovered. 
+- **Exponential back-off with jitter**: This is the default retry policy applied.  It tends to be aggressive at the start, slows down, and then hits a maximum delay that is not exceeded.  The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Custom retry**: You can implement a custom retry policy and inject it in the RetryPolicy depending on the language you choose. You can design a retry policy that is suited for your scenario.  This is not available on the C SDK.
+- **No retry**: There is an option to set retry policy to "no retry," which disables the retry logic.  The SDK tries to connect once and send a message once, assuming the connection is established. This policy would typically be used in cases where there are bandwidth or cost concerns.   If this option is chosen, messages that fail to send are lost and cannot be recovered. 
 
 ### Retry policy APIs
 
