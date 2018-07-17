@@ -33,9 +33,7 @@ This page is updated monthly, so revisit it regularly.
 
 ## July 2018
 
-### July 2018
-
-New Azure AD email design and sender information - End of July
+### New Azure AD email design and sender information - End of July
 
 **Type:** Plan for change  
 **Service category:** Other  
