@@ -58,7 +58,7 @@ such as Office 365 Outlook, Outlook.com, or Gmail. For other providers,
   but your UI might appear slightly different.
 
 * Download and install the 
-<a href="http://storageexplorer.com/" target="_blank">free Microsoft Azure Storage Explorer</a>. 
+<a href="https://storageexplorer.com/" target="_blank">free Microsoft Azure Storage Explorer</a>. 
 This tool helps you check that your storage container is correctly set up.
 
 ## Sign in to Azure portal
@@ -135,28 +135,38 @@ Next, connect Storage Explorer to your storage account.
 ## Set up Storage Explorer
 
 Now, connect Storage Explorer to your storage account 
-so that you can confirm that your logic app correctly 
-saves attachments as blobs in your storage container.
+so you can confirm that your logic app can correctly 
+save attachments as blobs in your storage container.
 
 1. Open Microsoft Azure Storage Explorer. 
-When Storage Explorer prompts you for a connection to Azure storage, 
-choose **Use a storage account name and key** > **Next**.
-If no prompt appears, choose **Add account** on the explorer toolbar.
 
-2. Under **Attach using Name and Key**, enter your storage account name 
-and the access key that you previously saved. Choose **Next** > **Connect**.
+   Storage Explorer prompts you for a connection to your storage account. 
 
-3. Check that your storage account and container 
-appear correctly in Storage Explorer:
+2. In the **Connect to Azure Storage** pane, 
+select **Use a storage account name and key**, and then choose **Next**. 
 
-   1. Under **Explorer**, expand **(Local and Attached)** > 
-   **Storage Accounts** > **attachmentstorageaccount** > 
-   **Blob Containers**.
+   ![Storage Explorer - Connect to storage account](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
-   2. Confirm that the "attachments" container now appears. 
-   For example:
+   > [!TIP]
+   > If no prompt appears, on the Storage Explorer toolbar, 
+   > choose **Add account**.
 
-      ![Storage Explorer - confirm storage container](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
+3. Under **Account name**, provide your storage account name. 
+Under **Account key**, provide the access key you previously saved. 
+Choose **Next**.
+
+4. Confirm your connection information, and then choose **Connect**. 
+
+   Storage Explorer creates the connection, 
+   and shows your storage account in the Explorer window 
+   under **(Local and Attached)** > **Storage Accounts**. 
+
+5. To find your blob storage container, under **Storage Accounts**, 
+expand your storage account, which is **attachmentstorageacct** here, 
+and then expand **Blob Containers** where you find the **attachments** container, 
+for example: 
+
+   ![Storage Explorer - find storage container](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
 Next, create an [Azure function](../azure-functions/functions-overview.md) 
 that removes HTML from incoming email.
