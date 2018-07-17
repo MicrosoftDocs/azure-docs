@@ -31,13 +31,15 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+---
+
 ## July 2018
 
 ### New Azure AD email design and sender information - End of July
 
 **Type:** Plan for change  
 **Service category:** Other  
-**Product capability:** Governance
+**Product capability:** Identity lifecycle management
  
 At the **end of July 2018**, you'll notice that all Azure AD emails will have an updated design, sender email address, and sender display name when sent from the following services:
 
@@ -45,7 +47,7 @@ At the **end of July 2018**, you'll notice that all Azure AD emails will have an
 - Azure AD Connect Health
 - Azure AD Provisioning Service
 - Azure AD Enterprise Application Management
-- Azure AD access reviews
+- Azure AD Access Reviews
 - Azure AD Privileged Identity Management
 
 Also at that time, email notifications will start to use the following address:
