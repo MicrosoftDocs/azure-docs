@@ -150,7 +150,7 @@
   - name: FAQ
     href: event-hubs-faq.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/event-hubs/
   - name: Pricing

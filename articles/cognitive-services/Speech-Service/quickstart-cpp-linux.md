@@ -30,7 +30,7 @@ In this article, you learn how to create a C++ console application on Linux (Ubu
 
 ## Get the Speech SDK
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The current version of the Cognitive Services Speech SDK is `0.5.0`.
 
@@ -67,7 +67,7 @@ Download and install the SDK as follows:
    It should show third-party notice and license files, as well as an `include`
    directory for headers and a `lib` directory for libraries.
 
-   [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
+   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add the sample code
 
