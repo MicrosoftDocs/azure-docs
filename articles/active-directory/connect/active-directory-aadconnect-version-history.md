@@ -913,7 +913,7 @@ Released: November 2015
 **New preview features:**
 
 * [Azure AD Connect Health for sync](../connect-health/active-directory-aadconnect-health-sync.md).
-* Support for [Azure AD Domain Services](../active-directory-passwords-update-your-own-password.md) password synchronization.
+* Support for [Azure AD Domain Services](../user-help/active-directory-passwords-update-your-own-password.md) password synchronization.
 
 **New supported scenario:**
 

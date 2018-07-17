@@ -55,7 +55,7 @@ For this feature to work, you need version 1.1.486.0 or later for Azure AD Conne
 
 ## What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
 
-If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
+If you have configured [password writeback](../user-help/active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in by using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
 If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
 
