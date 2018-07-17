@@ -83,8 +83,7 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
     IAzureMediaServicesClient client,
     string resourceGroupName,
     string accountName,
-    string contentKeyPolicyName,
-    byte[] tokenSigningKey)
+    string contentKeyPolicyName)
 {
     ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
 
