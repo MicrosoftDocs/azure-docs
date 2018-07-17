@@ -97,7 +97,7 @@ The following section provides you with a complete overview of all possible erro
 |50089|Flow token expired - Authentication Failed. Have user try signing-in again with username -password|
 |50097|Device Authentication Required - DeviceId -DeviceAltSecId claims are null OR no device corresponding to the device identifier exists|
 |50099|JWT signature is invalid. Contact the application owner.|
-|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Requested federation realm object does not exist. Contact the tenant admin.|
 |50120|Issue with JWT header. Contact the tenant admin.|
 |50124|Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy.|
