@@ -43,7 +43,7 @@ sections:
           image:
             src: media/index/i_agent.svg
           title: Projects
-        - href: storage
+        - href: attach-storage
           html: <p>You want to put it WHERE?</p>
           image:
             src: media/index/i_package.svg
