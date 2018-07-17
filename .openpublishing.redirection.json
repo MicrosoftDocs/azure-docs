@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/batch/batch-dotnet-get-started.md",
+            "redirect_url": "/azure/batch/quick-run-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/batch/batch-python-tutorial.md",
+            "redirect_url": "/azure/batch/quick-run-python",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
             "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
             "redirect_document_id": true
