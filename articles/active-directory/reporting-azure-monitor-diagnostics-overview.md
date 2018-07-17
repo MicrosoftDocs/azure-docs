@@ -28,6 +28,8 @@ You can now route Azure AD activity logs using Azure Monitor to your own storage
 * Stream your audit logs to an Azure event hub for analytics using popular SIEM tools like Splunk and QRadar
 * Integrate your audit logs with your own custom log solutions by streaming them to an event hub
 
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
 ## Supported reports
 
 You can route audit activity logs and sign-ins activity logs to your Azure storage account, Event Hub or custom solution using this feature. 
