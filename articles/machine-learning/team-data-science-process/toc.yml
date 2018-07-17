@@ -245,7 +245,7 @@
     items:
     - name: Azure AI Gallery
       href: https://gallery.azure.ai
-     - name: Cortana Intelligence publishing guide
+    - name: Cortana Intelligence publishing guide
       href: cortana-intelligence-appsource-publishing-guide.md
     - name: Cortana Intelligence solution evaluation tool
       href: cortana-intelligence-appsource-evaluation-tool.md
