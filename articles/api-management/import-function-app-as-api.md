@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
 
 ---
@@ -30,7 +30,8 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is a Function App in your subscription. For more information, see [Create a Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Make sure there is a Azure Function App in your subscription. For more information, see [Create a Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ [Create OpenAPI definition](../azure-functions/functions-openapi-definition.md) of your Azure Function App
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -1,95 +1,60 @@
 ---
 title: Troubleshoot two-step verification - Azure AD | Microsoft Docs
-description: This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication.
+description: Provides instructions for users about what to do if they run into an issue with Azure Multi-Factor Authentication and two-step verification.
 services: multi-factor-authentication
-keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
+
 ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2017
+ms.date: 07/16/2018
 ms.author: lizross
-ms.reviewer: richagi
-ms.custom: end-user
-experimental: true
-experiment_id: 34685ebc-9bdb-4e 
+ms.reviewer: kexia
 ---
 
 # Get help with two-step verification
-This article answers the most common questions that people ask about two-step verification.
 
-## Why do I have to perform two-step verification? Can I turn it off?
+Two-step verification is a security feature your organization is using to protect your accounts. Two-step verification is more secure than just a password because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password, while the something you have with you is your phone or a device. Using two-step verification can help to stop malicious hackers from signing in as you, even if they get your password.
 
-Two-step verification is a security feature that your organization chose to use to protect your accounts. It's more secure than just a password, because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password. The something you have with you is a phone or device that you commonly have with you. When your account is protected with two-step verification, that means that a malicious hacker can't sign in as you if they get your password somehow because they don't have access to your phone, too.
+While Microsoft offers two-step verification, it's your organization that decides whether you use the feature. You can't opt out if your organization requires it, just like you can't opt out of using a password to protect your account.
 
-Microsoft offers two-step verification, but your organization chooses to use the feature. You can't opt out if your company support requires it of you, just like you can't opt out of using a password to protect your account.
+>[!Note]
+>If you're looking for more info about using two-step verification with your personal Microsoft account, see the [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) article.
 
-If you have two-step verification turned on for your personal Microsoft account and want to change your settings, read [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) instead.
+## Why do I need to use another verification method?
 
-## I don't have my phone with me today
+There are several reasons why you might need to use an alternate verification method with your account. For example:
 
-Some days you leave your phone at home, but still need to sign in at work. The first thing you should try is signing in with a different verification method. When you registered for two-step verification, did you set up more than one phone number? To try signing in with a different method, follow these steps:
+- **You forgot your phone or device.** Some days you leave your phone at home, but still need to sign in at work. First, you should try signing in using a different method that doesn't need your phone.
 
-1. Sign in as you normally would.
-2. When the two-step verification page opens, choose **Use a different verification option**.
+- **You lost your phone or got a new phone number.** If you've lost your phone or gotten a new number, you can either sign in using a different method or ask your administrator to clear your settings. We strongly recommend letting your administrator know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-step verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
 
-   ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+- **Not getting the authentication text or phone call.** There are several reasons why you might not get the text or phone call. If you've successfully gotten texts or phone calls in the past, this is probably an issue with the phone provider, not your account. If you often have delays due to a bad signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your mobile device. This app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.<br><br>If you're trying to receive a text message, ask a friend to text you as a test to make sure you can get one, and if you've gotten several messages, make sure you're using the code from the most current one.
 
-3. Select the verification option you want to use.
-4. Continue with two-step verification.
+- **Your app passwords aren't working.** App passwords replace your normal password for older desktop applications that don't support two-step verification. First, make sure you typed the password correctly. If that doesn't fix it, try signing in to [create a new app password](multi-factor-authentication-end-user-app-passwords.md) or contacting your administrator to [delete your existing app passwords](../authentication/howto-mfa-userdevicesettings.md) so you can create a new one.
 
-If you don't see the **Use a different verification option** link, then that means you didn't set up alternative methods when you first registered for two-step verification. Contact your company support to get help signing in to your account. Once you're signed in, make sure to [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to add additional verification methods for next time.
+## Sign in using another verification method
 
-If you do see the **Use a different verification option** link, but you don't have access to your alternative methods either, contact your company support to get help signing in to your account.
+1. Sign into your account normally and choose the **Sign in another way** link on the **Two-step verification** page.
 
-## I lost my phone or got a new number
-There are two ways to get back in to your account. The first is to sign in using your alternate authentication phone number, if you have set one up. The second is to ask your company support to clear your settings.
+    ![Change sign in verification method](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
-If your phone was lost or stolen, we also recommend that you tell your company support so they can reset your app passwords and clear any remembered devices.
+    >[!Note]
+    >If you don't see the **Sign in another way** link, it means that you haven't set up any other verification methods. You'll have to contact your administrator for help signing into your account. After you sign in, make sure you add additional verification methods. For more info about adding verification methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.<br><br>If you see the link, but still don't see any other verification methods, you'll have to contact your administrator for help signing in to your account.
 
-### Use an alternate phone number
-If you have set up multiple verification options, including a secondary phone number or an authenticator app on a different device, you can use one of them to sign in.
+2. Choose your alternative verification method, and continue with the two-step verification process.
 
-To sign in using the alternate phone number, follow these steps:
+3. After you're back in your account, you can update your verification methods (if necessary). For more info about add or changing your methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
 
-1. Sign in as you normally would.
-2. When prompted to further verify your account, choose **Use a different verification option**.
+## I didn't find an answer to my problem
 
-   ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-
-3. Select the phone number or device that you have access to.
-4. After you're back in your account, [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
-
-### Clear your settings
-If you have not configured a secondary authentication phone number, you have to contact your company support for help. Have them clear your settings so the next time you sign in, you will be prompted to [register for two-step verification](multi-factor-authentication-end-user-first-time.md) again.
-
-## I am not receiving a text or call on my phone
-There are several reasons why you may try to sign in, but not receive the text or phone call. If you've successfully received texts or phone calls to your phone in the past, then this is probably an issue with the phone provider, not your account. Make sure that you have good cell signal, and if you are trying to receive a text message make sure that you are able to recieve text messages. Ask a friend to call you or text you as a test.
-
-If you've waited several minutes for a text or call, the fastest way to get into your account is to try a different option.
-
-1. Select **Use a different verification option** on the page that's waiting for your verification.
-
-    ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-2. Select the phone number or delivery method you want to use.
-
-    If you received multiple verification codes, use the newest one.
-
-If you don’t have another method configured, contact your company support and ask them to clear your settings. The next time you sign in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
-
-If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
-
-## App passwords are not working
-First, make sure that you have entered the app password correctly. The generated app password replaces your normal password, but only for older desktop applications that don't support two-step verification. If it still isn't working, try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your company support and have them [delete your existing app passwords](../authentication/howto-mfa-userdevicesettings.md) and then you can create a new one.
-
-## I didn't find an answer to my problem.
-If you've tried these troubleshooting steps but are still running into problems, contact your company support. They should be able to assist you.
+If you've tried these steps but are still running into problems, contact your administrator for more help.
 
 ## Related topics
-* [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)  
+
+* [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
+
 * [Microsoft Authenticator application FAQ](microsoft-authenticator-app-faq.md)
