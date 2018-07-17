@@ -1,6 +1,6 @@
 ---
-title: HTTP Application Routing add-on on Azure Container Service (AKS)
-description: Use HTTP Application Routing add-on on Azure Container Service (AKS)
+title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
+description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -13,26 +13,26 @@ ms.author: laevenso
 
 # HTTP application routing
 
-The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the solution configures an ingress controller in your AKS cluster. Additionally, as applications are deployed, the  solution also creates publically accessible DNS names for application endpoints.
+The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publically accessible DNS names for application endpoints.
 
-Enabling this add-on creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
+When the add-on is enabled, it creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
 
 ## HTTP routing solution overview
 
-The add-on deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
+The add-on deploys two components: a [Kubernetes Ingress controller][ingress] and an [External-DNS][external-dns] controller.
 
-- **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources][ingress-resource], which creates routes to application endpoints.
-- **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
+- **Ingress controller**: The Ingress controller is exposed to the internet by using a Kubernetes service of type LoadBalancer. The Ingress controller watches and implements [Kubernetes Ingress resources][ingress-resource], which creates routes to application endpoints.
+- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 
-## Deploy HTTP routing - CLI
+## Deploy HTTP routing: CLI
 
-The HTTP Application Routing add-on can be enabled with the Azure CLI when deploying and AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument.
+The HTTP application routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument.
 
 ```azurecli
 az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
 ```
 
-Once the cluster has been deployed, used the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed when deploying applications to the AKS cluster.
+After the cluster is deployed, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ```azurecli
 $ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -42,26 +42,26 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## Deploy HTTP routing - portal
+## Deploy HTTP routing: Portal
 
-The HTTP Application Routing add-on can be enabled through the Azure portal when deploying an AKS cluster.
+The HTTP application routing add-on can be enabled through the Azure portal when deploying an AKS cluster.
 
 ![Enable the HTTP routing feature](media/http-routing/create.png)
 
-Once the cluster has been deployed, browse to the auto-created AKS resource group and select the DNS zone. Take note of the DNS zone name. This name is needed when deploying applications to the AKS cluster.
+After the cluster is deployed, browse to the auto-created AKS resource group and select the DNS zone. Take note of the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ![Get the DNS zone name](media/http-routing/dns.png)
 
 ## Use HTTP routing
 
-The HTTP Application routing solution may only be triggered on Ingress resources that are annotated as follows:
+The HTTP application routing solution may only be triggered on Ingress resources that are annotated as follows:
 
 ```
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Create a file named `samples-http-application-routing.yaml` and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the last step of this document.
+Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the last step of this article.
 
 
 ```yaml
@@ -123,7 +123,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Use cURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file. The application may take up to one minute before it's available via the internet.
+Use cURL or a browser to navigate to the hostname specified in the host section of the samples-http-application-routing.yaml file. The application can take up to one minute before it's available via the internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -146,9 +146,9 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## Troubleshooting
+## Troubleshoot
 
-Use the [kubectl logs][kubectl-logs] command to view the application logs for the External-DNS application. The logs should confirm that an A and TXT DNS record has been created successfully.
+Use the [kubectl logs][kubectl-logs] command to view the application logs for the External-DNS application. The logs should confirm that an A and TXT DNS record were created successfully.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -161,7 +161,7 @@ These records can also be seen on the DNS zone resource in the Azure portal.
 
 ![Get the DNS records](media/http-routing/clippy.png)
 
-Use the [kubectl logs][kubectl-logs] command to view the application logs for the Nginx Ingress Controller. The logs should confirm the CREATE of an Ingress resource and the reload of the controller. All HTTP activity will be logged.
+Use the [kubectl logs][kubectl-logs] command to view the application logs for the Nginx Ingress controller. The logs should confirm the `CREATE` of an Ingress resource and the reload of the controller. All HTTP activity is logged.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -200,9 +200,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## Cleanup
+## Clean up
 
-Remove the associated Kubernetes objects created in this step.
+Remove the associated Kubernetes objects created in this article.
 
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -214,7 +214,7 @@ ingress "party-clippy" deleted
 
 ## Next steps
 
-For information on installing an HTTPS secured Ingress controller in AKS, see [HTTPS Ingress on Azure Container Service (AKS)][ingress-https]
+For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
