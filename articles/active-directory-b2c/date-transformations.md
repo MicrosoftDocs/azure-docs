@@ -64,7 +64,7 @@ Converts a `Date` ClaimType to a `DateTime` ClaimTpye. The claims transformation
 | InputClaim | inputClaim | date | The ClaimType to be converted. |
 | OutputClaim | outputClaim | dateTime | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-The follwing example demonstrates the conversion of the claim 'dateOfBirth' (date data type) to another claim 'dateOfBirthWithTime' (dateTime data type).
+The follwing example demonstrates the conversion of the claim `dateOfBirth` (date data type) to another claim `dateOfBirthWithTime` (dateTime data type).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
