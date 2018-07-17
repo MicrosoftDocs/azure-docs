@@ -93,7 +93,7 @@
     - name: Node.js
       href: how-to-develop-node-module.md
     - name: C
-      href: how-to-debelop-c-module.md
+      href: how-to-develop-c-module.md
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
     - name: Develop multiple modules
