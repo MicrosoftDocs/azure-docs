@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -24,29 +24,21 @@ The following sections show you how to use the Azure portal to configure the lon
 
 You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-1. In the Azure portal, select your SQL server and then click **Long-term backup retention**.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the database on which you want to set or modify long-term backup retention policies.
 
-   ![long-term backup retention link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. On the **Configure policies** tab, select the database on which you want to set or modify long-term backup retention policies.
-
-   ![select database](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each. 
+2. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each. 
 
    ![configure policies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. When complete, click **Apply**.
+3. When complete, click **Apply**.
 
 ### View backups and restore from a backup using Azure portal
 
 View the backups that are retained for a specific database with a LTR policy, and restore from those backups. 
 
-1. In the Azure portal, select your SQL server and then click **Long-term backup retention**.
-
-   ![long-term backup retention link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. On the **Available backups** tab, select the database for which you want to see available backups.
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
 
    ![select database](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

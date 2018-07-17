@@ -1,7 +1,7 @@
 ---
 title: Scale services in an Azure Service Fabric Mesh application | Microsoft Docs
 description: Learn how to independently scale services within an application running on Service Fabric Mesh using the Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -51,16 +51,16 @@ Create your application in the resource group using the `deployment create` comm
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-The preceding command deploys a Linux using [mesh_rp.base.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). If you want to deploy a Windows application, use [mesh_rp.base.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
+The preceding command deploys a Linux application using [mesh_rp.base.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). If you want to deploy a Windows application, use [mesh_rp.base.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
 In a few minutes, your command should return with:
 
 `visualObjectsApp has been deployed successfully on visualObjectsNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with one triangle moving through the space.
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It displays a web page with one triangle moving through the space.
 
-The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint. 
  
 The network resource name for this application is `visualObjectsNetwork`, fetch information about it using the following command. 
 

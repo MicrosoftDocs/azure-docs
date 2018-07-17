@@ -56,7 +56,7 @@ After running for a while, your newly created Android Studio project should come
 
 ## Configure your project for the Speech SDK
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The current version of the Cognitive Services Speech SDK is `0.5.0`.
 
