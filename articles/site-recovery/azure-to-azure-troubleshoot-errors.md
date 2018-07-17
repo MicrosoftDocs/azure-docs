@@ -175,8 +175,10 @@ If the problem persists, contact support.
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
 Azure Site Recovery currently mandated that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection.
 
- **Cause 2: Stale Configuration**
+**Cause 2: Resource group is not part of selected subscription** <br>
+You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
 
+ **Cause 2: Stale Configuration** <br>
 If you don't see the VM you want to enable for replication, it might be because of a stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
