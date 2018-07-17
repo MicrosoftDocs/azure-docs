@@ -12,14 +12,14 @@ manager: carmonm
 ---
 # Migrate your OMS Update Deployments to Azure
 
-The Operations Management Suite (OMS) portal is being [deprecated](../log-analytics/log-analytics-oms-portal-transition.md). All functionality that was available in the OMS portal is available in Update Management in the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../log-analytics/log-analytics-oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
 
-## Important information
+## Key information
 
 * Existing deployments will continue to work. Once you have recreated the deployment in Azure, you can delete your old deployment from OMS.
 * All existing features you had in OMS are available in Azure, to learn more about Update Management, see [Update Management overview](automation-update-management.md).
 
-## How to access the Azure portal
+## Access the Azure portal
 
 From your OMS workspace, click **Open in Azure**. This navigates to the Log Analytics workspace that OMS used.
 
@@ -63,6 +63,8 @@ For Machines to update, select the saved search used by the existing OMS deploym
 Click **Scheduled update deployments** to view the status of the newly created update deployment.
 
 ![new update deployment](media/migrate-oms-update-deployments/new-update-deployment.png)
+
+As mentioned previously, once your new deployments are configured through the Azure portal, the existing deployments can be removed from the OMS portal.
 
 ## Next steps
 
