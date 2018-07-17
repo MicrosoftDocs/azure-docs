@@ -88,5 +88,5 @@ For examples of claims tranformations, see the following reference pages:
 - [General](general-transformations.md)
 - [Social account](social-transformations.md)
 - [String](string-transformations.md)
-- [StringCollection](stringcollection-transformation.md)
+- [StringCollection](stringcollection-transformations.md)
 
