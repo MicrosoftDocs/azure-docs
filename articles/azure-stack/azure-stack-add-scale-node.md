@@ -29,7 +29,7 @@ To add a scale unit node, you act in Azure Stack and run tooling from your hardw
 
 The following flow diagram shows the general process to add a scale unit node.
 
-![Add scale unit flow](\media\azure-stack-add-scale-node\add-node-flow.png)
+![Add scale unit flow](media/azure-stack-add-scale-node/add-node-flow.png)
 &#42; *Whether your OEM hardware vendor enacts the physical server rack placement and updates the firmware varies based on your support contract.*
 
 The operation to add a new node can take several hours or days to complete.
@@ -49,13 +49,13 @@ You can use the admin console or PowerShell to add new nodes. The add node opera
 ### Use the admin console
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
 2. Navigate to **Region management** > **Scale units**, and then select the scale unit that you want to expand capacity for.  
-   ![Select scale unit](\media\azure-stack-add-scale-node\select-node1.png)
+   ![Select scale unit](media/azure-stack-add-scale-node/select-node1.png)
 
-   ![View scale unit details](\media\azure-stack-add-scale-node\select-node2.png)
+   ![View scale unit details](media/azure-stack-add-scale-node/select-node2.png)
  
 3. The following parameters are required:  
    - **BMC IP ADDRESS** for each scale unit node you add. (One IP address per line.)
-   ![Add node](\media\azure-stack-add-scale-node\add-node.png)
+   ![Add node](media/azure-stack-add-scale-node/add-node.png)
 
 ### Use PowerShell
 
