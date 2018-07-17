@@ -175,7 +175,7 @@ In this part of the tutorial, you learned:
 
 Now that you have completed publishing a Service Fabric Mesh application to Azure, try the following:
 
-* Explore the [Voting app sample](https://github.com/Azure/service-fabric-mesh-preview-pr/tree/master/samples/src/votingapp) to see another example of service-to-service communication.
+* Explore the [Voting app sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) to see another example of service-to-service communication.
 * Read [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
 * Read about the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
