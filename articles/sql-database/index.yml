@@ -39,7 +39,7 @@ sections:
           src: media/index/i_managed.svg
         title: Fully managed
       - href: /azure/sql-database/sql-database-service-tiers
-        html: <p>Tailor price/performance ratio to your needs with flexible performance tiers that span from affordable 5$/month to powerfull 80 core databases.</p>
+        html: <p>Tailor price/performance ratio to your needs with flexible performance tiers that span from affordable $5/month to powerful 80-core databases.</p>
         image:
           src: media/index/i_perftier.svg
         title: Price/performance tiers
@@ -82,7 +82,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Azure SQL Database enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quick-start samples:'
+    text: 'Azure SQL Database enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quickstart samples:'
   - type: table
     style: dataMatrix
     columns:
