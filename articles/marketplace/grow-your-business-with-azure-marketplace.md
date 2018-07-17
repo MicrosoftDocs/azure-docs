@@ -226,13 +226,13 @@ As a Microsoft partner, you can associate Azure usage with any Azure resources y
 
 <ul>2. Azure Resource Manager (ARM) APIs: partners can call the ARM APIs directly to either deploy an ARM template or to generate the API calls to directly provision Azure services. </ul>
 
-## Method 1: ARM Templates 
+## Method 1: Azure Resource Manager (ARM) Templates 
 Today many partner solutions are deployed on a customer’s subscription using ARM templates.  If you already have a ARM template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an ARM template today here are a few links to help you better understand ARM templates and how to create one: 
 
 *	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 *	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
-## Instructions: add a GUID to your existing ARM template
+## Instructions: add a GUID to your existing Azure Resource Manager (ARM) template
 
 Adding the GUID is a single modification of the main template file:
 <ul>1. Create a GUID, let's say that the generated value is eb7927c8-dd66-43e1-b0cf-c346a422063</ul>
@@ -266,7 +266,7 @@ Adding the GUID is a single modification of the main template file:
 
 ```
 
-## Method 2: ARM APIs
+## Method 2: Azure Resource Manager (ARM) APIs
 
 In some cases, partners prefer to make calls directly against the ARM REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
