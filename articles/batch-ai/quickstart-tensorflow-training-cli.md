@@ -58,7 +58,7 @@ To create a Batch AI cluster, use the [az batchai cluster create](/cli/azure/bat
 
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
 * Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
-* Adds a user account named *my username*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*) in your local environment. 
+* Adds a user account named *myusername*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*) in your local environment. 
 * Automatically creates (through the `--use-auto-storage` option) an associated storage account, to store files for training jobs. Batch AI mounts a file share and storage container in that account on each cluster node.  
 
 ```azurecli-interactive
