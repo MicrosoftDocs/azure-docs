@@ -18,7 +18,7 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
 ---
 
-# Tutorial: Debug a Service Fabric Mesh application running locally
+# Tutorial: Debug a Service Fabric Mesh application
 
 This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh web application on your local development cluster.
 
