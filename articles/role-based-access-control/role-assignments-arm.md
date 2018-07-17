@@ -19,13 +19,6 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure Resource Manager templates.
 
-## Prerequisites
-
-To manage access, you one of the following need:
-
-* [Bash in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure CLI](/cli/azure)
-
 ## Grant access
 
 In RBAC, to grant access, you create a role assignment.
@@ -90,7 +83,7 @@ The following template demonstrates:
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
-1. Sign in to Azure PowerShell.
+1. Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 1. Get the GUID id of a user, group, or application. For example, you can use the [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) command to list Azure AD users.
 
@@ -150,7 +143,7 @@ The following template demonstrates:
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
-1. Sign in to Azure CLI.
+1. Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Get the GUID id of a user, group, or application. For example, you can use the [az ad user list](/cli/azure/ad/user#az-ad-user-list) command to list Azure AD users.
 
