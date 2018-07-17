@@ -414,38 +414,50 @@ items:
           href: cassandra-import-data.md
   - name: How To Guides
     items:
-    - name: Keys and consistency
-      href: manage-account.md
-    - name: Throughput
-      href: set-throughput.md
-    - name: Firewall support
-      href: firewall-support.md
-    - name: Setup virtual network service endpoint
-      href: vnet-service-endpoint.md
-    - name: Metrics
-      href: use-metrics.md
-    - name: Monitor SLAs
-      href: monitor-accounts.md
-    - name: Back up and restore
-      href: online-backup-and-restore.md
-    - name: Regional failover
-      href: regional-failover.md
-    - name: Diagnostic logging
-      href: logging.md
-    - name: Stored procedures, triggers, and UDFs
-      href: programming.md
-    - name: BulkExecutor overview
+    - name : Manage
+      items:
+      - name: Manage using PowerShell
+        href: manage-account-with-powershell.md
+      - name: Manage using Storage Explorer
+        href: storage-explorer.md
+      - name: Manage using data explorer
+        href: data-explorer.md
+      - name: Manage keys and consistency levels
+        href: manage-account.md
+      - name: Throughput
+        href: set-throughput.md
+      - name: Expire data automatically
+        href: time-to-live.md
+      - name: Diagnostic logging
+        href: logging.md
+    - name : Secure data
+      items:
+      - name: Firewall support
+        href: firewall-support.md
+      - name: Setup virtual network service endpoint
+        href: vnet-service-endpoint.md
+    - name : Monitor
+      items:
+      - name: Monitor with metrics
+        href: use-metrics.md
+      - name: Monitor SLAs
+        href: monitor-accounts.md
+    - name : Backup and restore
+      items:
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
+      - name: Regional failover
+        href: regional-failover.md
+    - name : Automate
+      items:
+      - name: Stored procedures, triggers, and UDFs
+        href: programming.md
+      - name: Multi-master setup
+        href: multi-master-workaround.md
+    - name: Bulk executor library
       href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
-    - name: Expire data automatically
-      href: time-to-live.md
-    - name: Manage using PowerShell
-      href: manage-account-with-powershell.md
-    - name: Manage using Storage Explorer
-      href: storage-explorer.md
-    - name: Multi-master setup
-      href: multi-master-workaround.md
   - name: Resources
     items:
     - name: Query cheat sheet
