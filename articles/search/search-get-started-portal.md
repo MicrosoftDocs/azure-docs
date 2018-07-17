@@ -130,7 +130,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
 + The **search** parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
-+ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility of the entire document is an important use case, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
++ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility of the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
 
 + Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 

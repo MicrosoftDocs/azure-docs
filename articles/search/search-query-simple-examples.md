@@ -11,7 +11,7 @@ ms.date: 07/16/2018
 ms.author: heidist
 ---
 
-# Simple query syntax examples for building queries in Azure Search
+# Simple syntax query examples for building queries in Azure Search
 
 [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is the default query parser for constructing full text search queries against an Azure Search index. The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, which sometimes take additional time to process. 
 
@@ -81,4 +81,4 @@ Try specifying the Lucene Query Parser in your code. The following links explain
 
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
 + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
-+ [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Full Lucene query](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

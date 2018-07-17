@@ -11,7 +11,7 @@ ms.date: 07/16/2018
 ms.author: liamca
 ---
 
-# Lucene query syntax examples for building queries in Azure Search
+# Lucene syntax query examples for building advanced queries in Azure Search
 When constructing queries for Azure Search, you can replace the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) with the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) to formulate specialized and advanced query definitions. 
 
 The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements. In this article, you can step through examples demonstrating query operations available when using the full syntax.

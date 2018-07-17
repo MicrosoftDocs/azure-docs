@@ -179,11 +179,11 @@
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
-    - name: Simple query examples
+    - name: Simple syntax query examples
       href: search-query-simple-examples.md
-    - name: Full Lucene query examples
+    - name: Full syntax query examples
       href: search-query-lucene-examples.md
-      name: Query reference
+    - name: Query reference
       items:
       - name: Simple query syntax
         href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
