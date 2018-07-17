@@ -57,7 +57,7 @@ You need:
 Once data appears in the event hub, you can access it in two ways.
 
 * **Configure a supported SIEM tool to read the data**: Most tools require the event hub connection string and certain permissions to your Azure subscription to read data from the event hub. Here is a non-exhaustive list of tools with Azure Monitor integration:
-    1. **Splunk**: For more information on how to integrate Azure AD logs with Splunk, see [How to integrate Azure Active Directory logs with Splunk using Azure Monitor](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md).
+    1. **Splunk**: For more information on how to integrate Azure AD logs with Splunk, see [How to integrate Azure Active Directory logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md).
     
     2. **IBM QRadar**: The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from the [IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
