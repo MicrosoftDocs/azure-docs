@@ -59,7 +59,7 @@ When you create a domain-joined HDInsight cluster, you must supply the following
     > [!IMPORTANT]
     > Please enter the complete url including the ldaps:// and port number (:636)
 
-- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
+- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by semicolon ‘;’.
  
 The following screenshot shows the configurations in the Azure portal:
 
