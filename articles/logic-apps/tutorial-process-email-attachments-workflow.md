@@ -660,8 +660,8 @@ and then select this action:
 ```Create blob for each email attachment```
 
 4. In the **Create blob for each email attachment** action, 
-provide this information, and select the parameters to 
-create each blob as shown and described:
+provide this information, and select the properties for each 
+blob you want to create as shown and described:
 
    ![Provide blob information](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
@@ -722,10 +722,11 @@ choose **Add an action**.
 
    ![Add action under "for each" loop](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
-2. Under **Choose an action**, search for "send email", 
-then select the "send email" action for the email provider that you want. 
-To filter the actions list to a specific service, 
-you can select the connector first under **Connectors**.
+2. In the search box, enter "send email" as your filter, 
+and then select the "send email" action for your email provider. 
+
+   To filter the actions list to a specific service, 
+   you can select the connector first.
 
    ![Select "send email" action for your email provider](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
@@ -741,26 +742,23 @@ so that Logic Apps creates a connection to your email account.
 ```Send email for review```
 
 5. Provide the information for this action and select the fields 
-that you want to include in the email as shown and described. 
+you want to include in the email as shown and described. 
 To add blank lines in an edit box, press Shift + Enter.  
-
-   For example, if you're working with the dynamic content list:
 
    ![Send email notification](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
-   If you can't find an expected field in the list, 
-   choose **See more** next to **When a new email arrives** 
-   in the dynamic content list or at the end of the parameters list.
+   If you can't find an expected field in the dynamic content list, 
+   choose **See more** next to **When a new email arrives**. 
 
    | Setting | Value | Notes | 
    | ------- | ----- | ----- | 
+   | **Body** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
+   | **Subject**  | ```ASAP - Review applicant for position: ``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. | 
    | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. | 
-   | **Subject**  | ```ASAP - Review applicant for position: ``` **Subject** | The email subject that you want to include. From either the parameter list or dynamic content list, select the **Subject** field under **When a new email arrives**. | 
-   | **Body** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | The content for the email body. From either the parameter list or dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
    |||| 
 
    > [!NOTE] 
-   > When you select a field that contains an array, 
+   > If you select a field that contains an array, 
    > such as the **Content** field, which is an array that contains attachments, 
    > the designer automatically adds a "For each" loop 
    > around the action that references that field. 
@@ -771,7 +769,7 @@ To add blank lines in an edit box, press Shift + Enter.
      
 6. Save your logic app. 
 
-Next, test your logic app, which now looks like this example:
+Now, test your logic app, which now looks like this example:
 
 ![Finished logic app](./media/tutorial-process-email-attachments-workflow/complete.png)
 
@@ -831,9 +829,12 @@ tasks across different Azure services and calls some custom code.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group that contains your logic app and related resources. 
-On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app. 
-Choose **Delete resource group**. Enter the resource group name as confirmation, and choose **Delete**.
+When no longer needed, delete the resource group 
+that contains your logic app and related resources. 
+On the main Azure menu, go to **Resource groups**, 
+and then select the resource group for your logic app. 
+Choose **Delete resource group**. Enter the resource 
+group name as confirmation, and choose **Delete**.
 
 ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 
