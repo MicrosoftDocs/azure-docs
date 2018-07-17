@@ -149,21 +149,25 @@ The following snippets are all taken from the Program.cs file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. From the [Azure portal](http://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
+ 
+   **.Net SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
 
-    Copy the first portion of the URI value.
+   **Gremlin Endpoint** - This value is used when when you connect to the graph account by using Gremlin.Net library.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-dotnet/keys.png)
+    ![Copy the endpoint](./media/create-graph-dotnet/endpoint.png)
+
+   To run this sample, copy the **Gremlin Endpoint** value, delete the port number at the end, that is the URI becomes `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. In Program.cs paste the value over `your-endpoint` in the `hostname` variable in line 19. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     The endpoint value should now look like this:
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copy your **PRIMARY KEY** value from the portal, and paste it in the `authkey` variable, replacing the `"your-authentication-key"` placeholder in line 21. 
+3. Next, navigate to the **Keys** tab and copy **PRIMARY KEY** value from the portal, and paste it in the `authkey` variable, replacing the `"your-authentication-key"` placeholder in line 21. 
 
     `private static string authKey = "your-authentication-key";`
 
