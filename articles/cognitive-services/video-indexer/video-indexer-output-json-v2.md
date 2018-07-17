@@ -86,7 +86,7 @@ This section shows the summary of the insights.
 |audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
-|statistics | May contain zero or more statostocs. For more detailed information, see [statistics](#statistics).|
+|statistics | For more detailed information, see [statistics](#statistics).|
 
 ## videos
 
@@ -189,15 +189,7 @@ Example:
 Attribute | Description
 ---|---
 id|ID of the block.
-lines|May contain one or more [lines](#lines)
-sentimentIds|The **sentimentIds** attribute is reserved for future use.
-thumbnailIds|The **thumbnailIds** attribute is reserved for future use.
-sentiment|The sentiment in the block (0-1, negative to positive).
-faces|May contain one or more [faces](#faces).
-ocrs|May contain one or more [ocrs](#ocrs).
-audioEffectInstances|May contain one or more [audioEffectInstances](#audioEffectInstances).
-scenes|May contain one or more [scenes](#scenes).
-annotations|May contain zero or more [annotations](#annotations).
+instances||A list of time ranges of this block.|
 
 #### transcript
 
@@ -596,6 +588,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 |id|The sentiment ID.|
 |averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
 |instances|A list of time ranges where this sentiment appeared.|
+|sentimentType |The type can be 'Positive', 'Neutral', or 'Negative'.|
 
 ```json
 "sentiments": [
