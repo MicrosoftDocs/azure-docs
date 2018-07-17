@@ -16,10 +16,15 @@ ms.author: nolachar
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
 
-1. Create a new Python project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-nodejs.md).
+
+1. Create a new Node project in your favorite IDE.
+1. Add the code provided below.
+1. Replace the `subscriptionKey` value with a valid subscription key.
+1. Replace the `kb` value with a valid knowledge base ID. Find this value by going to one of your [QnA Maker knowledge bases](https://www.qnamaker.ai/Home/MyServices). Select the knowledge base you want to publish. Once on that page, find the 'kdid=' in the URL as shown below. Use its value for your code sample.
+
+    ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+1. Run the program.
 
 ``` Node.js
 'use strict';
@@ -108,6 +113,16 @@ var path = service + method + kb;
 publish_kb (path, '', function (result) {
     console.log (pretty_print(result));
 });
+```
+
+## Understand what QnA Maker returns
+
+A successful response is returned in JSON, as shown in the following example:
+
+```json
+{
+  "result": "Success."
+}
 ```
 
 ## Next steps
