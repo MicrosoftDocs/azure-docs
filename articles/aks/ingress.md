@@ -1,6 +1,6 @@
 ---
 title: Configure ingress with Azure Kubernetes Service (AKS) cluster
-description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
+description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic SSL certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -12,7 +12,7 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# HTTPS Ingress on Azure Kubernetes Service (AKS)
+# Deploy an HTTPS ingress controller on Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
@@ -125,7 +125,7 @@ clusterissuer.certmanager.k8s.io/letsencrypt-prod created
 
 ## Create a certificate object
 
-Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see, [cert-manager certificates][cert-manager-certificates].
+Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see [cert-manager certificates][cert-manager-certificates].
 
 Create the certificate resource, such as `certificates.yaml`, with the following example manifest. Update the *dnsNames* and *domains* to the DNS name you created in a previous step.
 
@@ -185,7 +185,7 @@ Both applications are now running on your Kubernetes cluster, however they're co
 
 In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you created in a previous step.
 
-Create a file name `hello-world-ingress.yaml` and copy in the following example YAML:
+Create a file named `hello-world-ingress.yaml` and copy in the following example YAML:
 
 ```yaml
 apiVersion: extensions/v1beta1
