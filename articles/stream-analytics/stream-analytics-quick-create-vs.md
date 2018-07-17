@@ -68,6 +68,10 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
    ![Create a Stream Analytics project](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
 
+Notice the elements that are included in an Azure Stream Analytics project.
+
+   ![Stream Analytics project structure](./media/stream-analytics-quick-create-vs/stream-analytics-project.png)
+
 ## Choose the required subscription
 
 1. In Visual Studio, on the **View** menu, select **Server Explorer**.
