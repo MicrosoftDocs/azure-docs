@@ -222,9 +222,9 @@ Microsoft is creating a new method to help partners better track Azure usage tha
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable this, there are two approaches available:
 
-<ul>1. ARM Templates: ARM templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create ARM template that defines the infrastructure and configuration of your Azure solution. Creating an ARM template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. </ul>
+<ul>1. Azure Resource Manager (ARM) Templates: ARM templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create ARM template that defines the infrastructure and configuration of your Azure solution. Creating an ARM template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. </ul>
 
-<ul>2. ARM APIs: partners can call the ARM APIs directly to either deploy an ARM template or to generate the API calls to directly provision Azure services. </ul>
+<ul>2. Azure Resource Manager (ARM) APIs: partners can call the ARM APIs directly to either deploy an ARM template or to generate the API calls to directly provision Azure services. </ul>
 
 ## Method 1: ARM Templates 
 Today many partner solutions are deployed on a customer’s subscription using ARM templates.  If you already have a ARM template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an ARM template today here are a few links to help you better understand ARM templates and how to create one: 
@@ -237,18 +237,19 @@ Today many partner solutions are deployed on a customer’s subscription using A
 Adding the GUID is a single modification of the main template file:
 <ul>1. Create a GUID, let's say that the generated value is eb7927c8-dd66-43e1-b0cf-c346a422063</ul>
 <ul>2. Open the ARM template</ul>
-<ul>3. Add a new resource in the main template file (screenshot below).  The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates. </ul>
+<ul>3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates. </ul>
 <ul>4. Enter the GUID after the “pid-” as shown above. </ul>
 
-<ul>	It should look something like this example:  </ul>
- - “pid-eb7927c8-dd66-43e1-b0cf-c346a422063”
+<ul>	It should look something like this example:  
+  “pid-eb7927c8-dd66-43e1-b0cf-c346a422063” </ul>
 
 <ul>5. Check template for any errors </ul>
 <ul>6. Republish the template in the appropriate repositories</ul>
 
 ## Sample Template Code
+
 ```
-...
+
 { // add this resource to the mainTemplate.json (do not add the entire file)
       "apiVersion": "2018-02-01",
       "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
@@ -262,7 +263,7 @@ Adding the GUID is a single modification of the main template file:
         }
       }
     } // remove all comments from the file when done
-...
+
 ```
 
 ## Method 2: ARM APIs
@@ -280,15 +281,17 @@ pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // enter your GUID after the “pid-
 
 The format of the string is important. If the prefix “pid-” is not included we will not be able to query the data. Different SDKs do this differently.  To implement this method you will need to review the support and approach for your preferred Azure SDK. 
 
->[!Example using the Python SDK:]
->For Python, you need to use the “config” attribute. You can only add to a UserAgent (we still want some kind of control). This would be:
+**Example using the Python SDK:**
+For Python, you need to use the “config” attribute. You can only add to a UserAgent (we still want some kind of control). This would be:
+
 ```python
-...
+
 client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
         client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 
-...
+
 ```
+
 >This has to be done for each client, there is no global static configuration (You may choose to do a client factory to be sure every client is doing it. 
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
 
@@ -298,20 +301,21 @@ How to tag a deployment using the Azure PowerShell or the Azure CLI:
 If you deploy resources via AzurePowerShell you can append your GUID by using the following method:
 
 ```
-...
+
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 
-...
+
 ```
 
 To append your GUID when using the Azure CLI, set the AZURE_HTTP_USER_AGENT environment variable.  You can set this within the scope of a script or to set globally, for shell scope use:
 
 ```
-...
+
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
-...
+
 ```
+
 ## Registering GUIDs/Offers
 
 In order for the GUID to be included in our tracking it must be registered.  
@@ -337,8 +341,9 @@ Log in to Azure and select the subscription that contains the deployment you wan
 The GUID and resourceGroup name of the deployment are required params.
 
 You can find the original script [here](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1).
+
 ```
-...
+
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
     [string][Parameter(Mandatory=$true)]$resourceGroupName'
@@ -363,7 +368,7 @@ foreach ($deployment in $deployments){
 
 }
 
-...
+
 ```
 
 ## Guidance on creating GUIDS
@@ -399,11 +404,11 @@ For assistance, please follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.**
 
->For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
+For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page.  
  
->[!Important:] 
+>[!Important] 
 >Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**.
 
 ## FAQs
