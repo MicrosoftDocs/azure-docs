@@ -25,7 +25,7 @@
 ## [SAP HANA file level backup](sap-hana-backup-file-level.md)
 ## [SAP HANA storage snapshot backups](sap-hana-backup-storage-snapshots.md)
 # SAP NetWeaver and Business One on Azure Virtual Machines
-## [SAP Business One on Azure virtual Machines](business_one_azure.md)
+## [SAP Business One on Azure Virtual Machines](business_one_azure.md)
 ## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver on Azure Linux VMs](suse-quickstart.md)
 ## [Plan and implement SAP NetWeaver on Azure](planning-guide.md)
