@@ -127,7 +127,7 @@ Notice that both intents have the same count of errors:
 
 ![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-The utterances corresponding the top point in the **False positive** section are `Can I apply for any database jobs with this resume?` and `Can I apply for any database jobs with this resume?`. For the first utterance, the word `resume` has only been used in **ApplyForJob**. For the second utterance, the word `apply` has only be used in the **ApplyForJob** intent.
+The utterances corresponding the top point in the **False positive** section are `Can I apply for any database jobs with this resume?` and `Can I apply for any database jobs with this resume?`. For the first utterance, the word `resume` has only been used in **ApplyForJob**. For the second utterance, the word `apply` has only been used in the **ApplyForJob** intent.
 
 ## Fix the app based on batch results
 The goal of this section is to have all the utterances correctly predicted for **GetJobInformation** by fixing the app. 
@@ -167,7 +167,7 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
     |I have a masters in library and archive management. Any new positions?|
     |Are there any babysitting jobs for 13 year olds in the city today?|
 
-    Do not label the **Job** entity in the utterances. This will happen in a step later in the tutorial.
+    Do not label the **Job** entity in the utterances. This happens in a step later in the tutorial.
 
 4. Train the app by selecting **Train** in the top right navigation.
 
@@ -183,18 +183,18 @@ In order to verify that the utterances in the batch test are correctly predicted
     ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## Create batch file with entities 
-In order to verify entities in a batch test, the entities need to be labeled in the batch. Only simple and composite entities (the machine-learned entities) are used. The non-machine-learned entities do not need to be tested because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch. Only simple and composite entities (the machine-learned entities) are used. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
 The variation in entity for total word count can impact the prediction quality. Make sure the training date supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
-When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
+When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names, which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
 
 The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If your human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
 
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
 
 
-2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This will cause an error during the batch file import.  
+2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token-based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This causes an error during the batch file import.  
 
     ```JSON
     [
@@ -331,7 +331,7 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 ## Fix the app based on entity batch results
 Fixing the app requires LUIS to correctly determine the variations of SQL jobs. There are several options for that fix. 
 
-* Explicitly add more example utterances which use SQL and label those words as a Job entity. 
+* Explicitly add more example utterances, which use SQL and label those words as a Job entity. 
 * Explicitly add more SQL jobs to the phrase list
 
 These tasks are left for you to do.
