@@ -218,33 +218,33 @@ To promote your offer or app, use the following table to access more benefits an
 
 As a software partner for Azure your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when an partner solution is deployed by the customer and uses Azure resources provisioned by the customer, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth for alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
 
-Microsoft is creating a new method to help partners better track Azure usage that is a result of a customer deploying your software on Azure. This new method is based on using Azure Resource Manager (ARM) to orchestrate deployment of Azure services.
+Microsoft is creating a new method to help partners better track Azure usage that is a result of a customer deploying your software on Azure. This new method is based on using Azure Resource Manager to orchestrate deployment of Azure services.
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable this, there are two approaches available:
 
-<ul>1. Azure Resource Manager (ARM) Templates: ARM templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create ARM template that defines the infrastructure and configuration of your Azure solution. Creating an ARM template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. </ul>
+ 1. Azure Resource Manager Templates: Azure Resource Managertemplates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Managertemplate allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
 
-<ul>2. Azure Resource Manager (ARM) APIs: partners can call the ARM APIs directly to either deploy an ARM template or to generate the API calls to directly provision Azure services. </ul>
+ 2. Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Managertemplate or to generate the API calls to directly provision Azure services. 
 
-## Method 1: Azure Resource Manager (ARM) Templates 
-Today many partner solutions are deployed on a customer’s subscription using ARM templates.  If you already have a ARM template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an ARM template today here are a few links to help you better understand ARM templates and how to create one: 
+## Method 1: Azure Resource Manager Templates 
+Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Managertemplate available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
 
 *	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 *	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
-## Instructions: add a GUID to your existing Azure Resource Manager (ARM) template
+## Instructions: add a GUID to your existing Azure Resource Manager template
 
 Adding the GUID is a single modification of the main template file:
-<ul>1. Create a GUID, let's say that the generated value is eb7927c8-dd66-43e1-b0cf-c346a422063</ul>
-<ul>2. Open the ARM template</ul>
-<ul>3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates. </ul>
-<ul>4. Enter the GUID after the “pid-” as shown above. </ul>
+ 1. Create a GUID, let's say that the generated value is eb7927c8-dd66-43e1-b0cf-c346a422063
+ 2. Open the Azure Resource Manager template
+ 3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates.
+ 4. Enter the GUID after the “pid-” as shown above.
 
-<ul>	It should look something like this example:  
+<ul>It should look something like this example:  
   “pid-eb7927c8-dd66-43e1-b0cf-c346a422063” </ul>
 
-<ul>5. Check template for any errors </ul>
-<ul>6. Republish the template in the appropriate repositories</ul>
+ 5. Check template for any errors
+ 6. Republish the template in the appropriate repositories
 
 ## Sample Template Code
 
@@ -266,13 +266,13 @@ Adding the GUID is a single modification of the main template file:
 
 ```
 
-## Method 2: Azure Resource Manager (ARM) APIs
+## Method 2: Azure Resource Manager APIs
 
-In some cases, partners prefer to make calls directly against the ARM REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
+In some cases, partners prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
-If you are using an ARM template, you should tag your solution using the instructions above.  If you are not using an ARM template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
+If you are using an Azure Resource Managertemplate, you should tag your solution using the instructions above.  If you are not using an Azure Resource Manager template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
 
-**How to tag a deployment using the ARM APIs:**
+**How to tag a deployment using the Azure Resource Manager APIs:**
 For this approach, when designing your API calls you will include a GUID in the user agent header in the request. The GUID should be added for each Offer or SKU.  The string will need to be formatted with the prefix pid- and then include the partner generated GUID.   
 
 >[!Note] 
@@ -334,7 +334,7 @@ Once you have added the GUID to your template or in the user agent and registere
 
 After you have modified your template and performed a test deployment, you can use the following PowerShell script to retrieve the resrouces that were deployed and tagged. 
 
-You can use it to verify if the GUID has been added to your ARM template successfully. It does not apply to ARM API deployment.
+You can use it to verify if the GUID has been added to your Azure Resource Manager template successfully. It does not apply to Azure Resource Manager API deployment.
 
 Log in to Azure and select the subscription that contains the deployment you want to verify before running the script. It must be run within the subscription context of the deployment.
 
@@ -388,9 +388,9 @@ You can also choose to track GUIDs at a more granular level i.e. SKU (where SKUs
 
 ## Guidance on privacy and data collection
 
-Partners should provide messaging to inform their customers that deployments that include the ARM GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. In addition, partners should ensure this aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
+Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. In addition, partners should ensure this aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
 
-**For ARM template deployments**
+**For Azure Resource Manager template deployments**
 
 When deploying this template Microsoft will be able identify the installation of our [insert partner software name] software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/en-us/trustcenter. 
 
