@@ -34,7 +34,7 @@ The following example installs the controller in the `kube-system` namespace. Yo
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
-During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the `kubectl get service` command. It may take some time for the IP address to be assigned to the service.
+During the installation, an Azure public IP address is created for the ingress controller. To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
@@ -44,13 +44,13 @@ eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
-No ingress rules have been created yet. If you browse to the public IP address, you are routed to the NGINX ingress controllers default 404 page, as shown in the following example:
+No ingress rules have been created yet. If you browse to the public IP address, you are routed to the NGINX ingress controller's default 404 page, as shown in the following example:
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
 ## Configure DNS name
 
-For the HTTPS certificates to work correctly, you need to configure an FQDN name for the ingress controller IP address. Update the following script with the IP address of your ingress controller and a unique name that you would like to use for the FQDN:
+For the HTTPS certificates to work correctly, configure an FQDN for the ingress controller IP address. Update the following script with the IP address of your ingress controller and a unique name that you would like to use for the FQDN:
 
 ```console
 #!/bin/bash
@@ -75,9 +75,9 @@ The ingress controller is now accessible through the FQDN.
 The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This article demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
 > [!NOTE]
-> This article uses the `staging` environment for Let's Encrypt due to rate limits on the service. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
+> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
 
-To install the cert-manager controller in an RBAC-enabled cluster, use the following Helm install command:
+To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
 
 ```console
 helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
@@ -159,21 +159,21 @@ certificate.certmanager.k8s.io/tls-secret created
 
 ## Run application
 
-At this point, an ingress controller and a certificate management solution have been configured. Now run a few applications in your AKS cluster. In this example, Helm is used to run multiple instances of a simple hello world application.
+At this point, an ingress controller and a certificate management solution have been configured. Now let's run two demo applications in your AKS cluster. In this example, Helm is used to deploy two instances of a simple 'Hello world' application.
 
-Before running the application, add the Azure samples Helm repository on your development system as follows:
+Before you can install the sample Helm charts, add the Azure samples repository to your Helm environment as follows:
 
 ```console
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
-Create the first AKS hello world chart with the following command:
+Create the first demo application from a Helm chart with the following command:
 
 ```console
 helm install azure-samples/aks-helloworld
 ```
 
-Now install a second instance of the hello world application. For the second instance, specify a new title so that the two applications are visually distinct. You also need to specify a unique service name:
+Now install a second instance of the demo application. For the second instance, you specify a new title so that the two applications are visually distinct. You also specify a unique service name:
 
 ```console
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
@@ -181,7 +181,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## Create ingress route
 
-Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make them available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
+Both applications are now running on your Kubernetes cluster, however they have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
 In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you created in a previous step.
 
@@ -225,9 +225,9 @@ ingress.extensions/hello-world-ingress created
 
 ## Test the ingress configuration
 
-Browse to the FQDN of your Kubernetes ingress controller, such as *demo-aks-ingress.eastus.cloudapp.azure.com*.
+Open a web browser to the FQDN of your Kubernetes ingress controller, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
 
-As these examples use `letsencrypt-staging`, the issued SSL certificate is not trusted by the browser. Accept the warning prompt to continue to your application. The certificate information shows that this *Fake LE Intermediate X1* certificate is issued by Let's Encrypt, which shows that `cert-managed` processed the request correctly:
+As these examples use `letsencrypt-staging`, the issued SSL certificate is not trusted by the browser. Accept the warning prompt to continue to your application. The certificate information shows that this *Fake LE Intermediate X1* certificate is issued by Let's Encrypt. This fake certificate indicates that `cert-manager` processed the request correctly and received a certificate from the provider:
 
 ![Let's Encrypt staging certificate](media/ingress/staging-certificate.png)
 
@@ -235,17 +235,17 @@ When you change Let's Encrypt to use `prod` rather than `staging`, a trusted cer
 
 ![Let's Encrypt certificate](media/ingress/certificate.png)
 
-The default hello world application is shown in the web browser:
+The demo application is shown in the web browser:
 
 ![Application example one](media/ingress/app-one.png)
 
-Now browse to the FQDN of the ingress controller with the */hello-world-two* path, and the hello world application with the custom title is shown:
+Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. The second demo application with the custom title is shown:
 
 ![Application example two](media/ingress/app-two.png)
 
 ## Next steps
 
-Learn more about the software demonstrated in this document.
+This article included some external components to AKS. To learn more about these components, see the following project pages:
 
 - [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
@@ -262,3 +262,4 @@ Learn more about the software demonstrated in this document.
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
+[azure-cli-install]: /cli/azure/install-azure-cli
