@@ -55,6 +55,8 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2332636 - IS -->  Update to this version no longer resets the default owner of the default provider subscription to the built-in CloudAdmin user.
 
+- <!-- 2360715 |  ASDK, IS -->  When you set up datacenter integration, you no longer access the AD FS metadata file from a share. For more information, see [Setting up AD FS integration by providing federation metadata file](azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 
