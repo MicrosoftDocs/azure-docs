@@ -331,8 +331,8 @@ Java SDK supports the following connection settings:
 |connectionmode   |  Sets the connection mode that the internal DocumentClient should use to communicate with Azure Cosmos DB. Allowed values are **DirectHttps** (default value) and **Gateway**. The DirectHttps connection mode routes the requests directly to the CosmosDB partitions and provides some latency advantage.       |
 |connectionmaxpoolsize   |  Sets the value of connection pool size that is used by internal DocumentClient. The default value is 100.       |
 |connectionidletimeout  |  Sets the timeout value for idle connections in seconds. The default value is 60.       |
-|query_maxretryattemptsonthrottledrequests    |  Sets the maximum number of retries. This value is used in case of a request failure due to rate limiting on the client. If it's not specified, the default value is 9.       |
-|query_maxretrywaittimeinseconds   |  Sets the maximum retry time in seconds. By default, it is 30 seconds.       |
+|query_maxretryattemptsonthrottledrequests    |  Sets the maximum number of retries. This value is used in case of a request failure due to rate limiting on the client. If it's not specified, the default value is 1000 retry attempts.       |
+|query_maxretrywaittimeinseconds   |  Sets the maximum retry time in seconds. By default, it is 1000 seconds.       |
 
 ### Write twitter data to Azure Cosmos DB 
 
