@@ -41,7 +41,7 @@ New Azure AD email design and sender information - End of July
 **Service category:** Other  
 **Product capability:** Governance
  
-At the end of July 2018, you'll notice that all Azure AD emails will have an updated design, sender email address, and sender display name when sent from the following services:
+At the **end of July 2018**, you'll notice that all Azure AD emails will have an updated design, sender email address, and sender display name when sent from the following services:
 
 - Azure AD Identity Protection
 - Azure AD Connect Health
