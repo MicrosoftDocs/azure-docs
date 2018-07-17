@@ -34,9 +34,9 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 > [!NOTE] 
 > The complete Go solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/endpoint-api-samples/go).
 
+## Create LUIS endpoint key
 <a name="create-luis-subscription-key">
 
-## Create LUIS endpoint key
 1. You first need to create a [Language Understanding API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 2. Log in to the Azure portal at https://portal.azure.com. 
@@ -81,29 +81,29 @@ Replace `<add-your-endpoint-key>` with the value of your endpoint key.
 
 The command prompt response is: 
 
-    ```cmd
-    appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
-    endpointKey has value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    region has value westus
-    utterance has value turn on the bedroom light
-    response
-    {
-        "query": "turn on the bedroom light",
-        "topScoringIntent": {
-            "intent": "HomeAutomation.TurnOn",
-            "score": 0.809439957
-        },
-        "entities": [
-            {
-            "entity": "bedroom",
-            "type": "HomeAutomation.Room",
-            "startIndex": 12,
-            "endIndex": 18,
-            "score": 0.8065475
-            }
-        ]
-    }
-    ```
+```CMD
+appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
+endpointKey has value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+region has value westus
+utterance has value turn on the bedroom light
+response
+{
+    "query": "turn on the bedroom light",
+    "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOn",
+        "score": 0.809439957
+    },
+    "entities": [
+        {
+        "entity": "bedroom",
+        "type": "HomeAutomation.Room",
+        "startIndex": 12,
+        "endIndex": 18,
+        "score": 0.8065475
+        }
+    ]
+}
+```
 
 ## Clean up resources
 The two resources created in this quickstart are the LUIS endpoint key and the Go project. Delete the LUIS endpoint key from the Azure portal. Close the Go file and remove it from the file system. 

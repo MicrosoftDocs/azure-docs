@@ -2,6 +2,7 @@
 title: Quickstart learning how to add utterances to a LUIS app using Go | Microsoft Docs
 description: In this quickstart, you learn to call a LUIS app using Go.
 services: cognitive-services
+titleSuffix: Microsoft Cognitive Services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
