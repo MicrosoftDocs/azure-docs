@@ -48,7 +48,7 @@ No ingress rules have been created yet. If you browse to the public IP address, 
 
 ![Default NGINX backend](media/ingress/default-back-end.png)
 
-## Configure DNS name
+## Configure a DNS name
 
 For the HTTPS certificates to work correctly, configure an FQDN for the ingress controller IP address. Update the following script with the IP address of your ingress controller and a unique name that you would like to use for the FQDN:
 
@@ -95,7 +95,7 @@ helm install stable/cert-manager \
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
 
-## Create CA cluster issuer
+## Create a CA cluster issuer
 
 Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. These Kubernetes resources are identical in functionality, however `Issuer` works in a single namespace, and `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
@@ -123,7 +123,7 @@ $ kubectl create -f cluster-issuer.yaml
 clusterissuer.certmanager.k8s.io/letsencrypt-prod created
 ```
 
-## Create certificate object
+## Create a certificate object
 
 Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see, [cert-manager certificates][cert-manager-certificates].
 
@@ -157,7 +157,7 @@ $ kubectl create -f certificates.yaml
 certificate.certmanager.k8s.io/tls-secret created
 ```
 
-## Run application
+## Run demo applications
 
 An ingress controller and a certificate management solution have been configured. Now let's run two demo applications in your AKS cluster. In this example, Helm is used to deploy two instances of a simple 'Hello world' application.
 
@@ -179,7 +179,7 @@ Now install a second instance of the demo application. For the second instance, 
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
-## Create ingress route
+## Create an ingress route
 
 Both applications are now running on your Kubernetes cluster, however they're configured with a service of type `ClusterIP`. As such, the applications aren't accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
