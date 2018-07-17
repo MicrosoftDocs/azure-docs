@@ -35,7 +35,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use Ansible to create and manage Azure compute, networking and storage infrastructure.
+    text: Learn how to use Ansible to create and manage Azure compute, network and storage infrastructure.
   - type: list
     style: unordered
     items:
