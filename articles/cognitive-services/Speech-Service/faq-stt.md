@@ -52,7 +52,7 @@ When the processing is complete, the status will be "Succeeded".
 
 The old and new data sets must be combined in a single .zip (if it is acoustic data) or a .txt file if it is language data. Once adaptation is done the new updated model needs to be de-deployed to obtain a new endpoint
 
-**Question**: What if I need higher concurrency for my deloyed model than what is offered in the portal. 
+**Question**: What if I need higher concurrency for my deployed model than what is offered in the portal. 
 
 **Answer**: You can scale up your model in increments of 20 concurrent requests. 
 
@@ -85,7 +85,7 @@ If the vast majority of the utterances in an acoustic or language data set (for 
 
 **Question**: How much acoustic data do I need?
 
-**Answer**: We recommend starting with 30 minutes to one hour of acoustic data
+**Answer**: We recommend starting with 30 minutes to one hour of acoustic data.
 
 **Question**: What data should I collect?
 
@@ -113,19 +113,19 @@ use crowdsourcing or do the transcriptions themselves.
 
 **Answer**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
 
-**Question**: What is Word Error Rate and how is it computed?
+**Question**: What is Word Error Rate (WER) and how is it computed?
 
-**Answer**: Word Error Rate is the evaluation metric for speech recognition. It is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. Mode details [here](https://en.wikipedia.org/wiki/Word_error_rate)
+**Answer**: Word Error Rate (WER) is the evaluation metric for speech recognition. It is counted as the total number of errors,
+which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. More details [here](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Question**: How do I determine if the results of an accuracy test is good?
 
 **Answer**: The results show a comparison between the baseline model and the one you customized.
-You should aim to beat the baseline model to make the customization worthwhile
+You should aim to beat the baseline model to make the customization worthwhile.
 
-**Question**: How do I figure out the WER of the base models, so I can see if there was improvement? 
+**Question**: How do I figure out the Word Error Rate of the base models, so I can see if there was improvement? 
 
-**Answer**: The offline test results show accuracy of baseline accuracy of the custom model and the improvement over baseline
+**Answer**: The offline test results show accuracy of baseline accuracy of the custom model and the improvement over baseline.
 
 ## Creating LM
 
