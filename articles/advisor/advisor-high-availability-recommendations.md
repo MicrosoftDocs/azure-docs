@@ -46,6 +46,9 @@ If your disks do not require high IOPS, you can limit costs by maintaining them 
 ## Protect your virtual machine data from accidental deletion
 Setting up virtual machine backup ensures the availability of your business-critical data and offers protection against accidental deletion or corruption.  Advisor identifies virtual machines where backup is not enabled, and it recommends enabling backup. 
 
+## Ensure you have access to Azure cloud experts when you need it
+When running a business-critical workload, it's important to have access to technical support when needed. Advisor identifies potential business-critical subscriptions that do not have technical support included in their support plan and recommends upgrading to an option that includes technical support.
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

@@ -45,21 +45,12 @@ If you're upgrading from v6.x or older to v7.x or newer, all components change f
 
 If you have the User Portal on multiple servers, repeat the installation on all of them. 
 
-
 ## Upgrade the Mobile App Web Service
 
-1. Make a backup of the web.config file that is in the virtual directory of the Mobile App Web Service installation location (for example, C:\inetpub\wwwroot\app or C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Copy the MultiFactorAuthenticationMobileAppWebServiceSetup64.msi file from the install location of the MFA Servers and put it onto the Mobile App registration web server.
-3. Run the installer. 
-
-  If an error occurs stating that Microsoft Visual C++ 2015 Redistributable Update 1 or higher is required, download and install the latest update package from the [Microsoft Download Center](https://www.microsoft.com/download/). Install both the x86 and x64 versions.
-
-4. After the updated Mobile App Web Service software installs, compare the web.config file that was backed up in step 1 with the new web.config file. If no new attributes exist in the new web.config, you can copy your saved web.config back into the virtual directory and overwrite the new one. Another option is to copy/paste the appSettings values and the Web Service SDK URL from the backup file into the new web.config.
-
-If you have the Mobile App Web Service on multiple servers, repeat the installation on all of them. 
+> [!NOTE]
+> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ that the mobile app web service can be uninstalled after the upgrade
 
 ## Upgrade the AD FS Adapters
-
 
 ### If MFA runs on different servers than AD FS
 

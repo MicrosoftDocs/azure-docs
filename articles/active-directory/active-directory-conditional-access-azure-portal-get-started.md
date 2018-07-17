@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

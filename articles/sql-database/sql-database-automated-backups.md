@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: "Active"
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -37,7 +37,7 @@ You can use these backups to:
 > 
 
 ## How long are backups kept?
-Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
+Each SQL Database backup has a default retention period that is based on the service tier of the database, and differs between the  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). You can update the backup retention period for a database. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
@@ -56,11 +56,6 @@ The default retention period for a database created using the DTU-based purchasi
 If you reduce the current PITR retention period, all existing backups older than the new retention period will no longer be available. 
 
 If you increase the current PITR retention period, SQL Database will keep the existing backups until the longer retention period is reached.
-
-### PITR Retention for the vCore-based service tiers (preview)
-
-During preview, the PITR retention period for databases created using the vCore-based purchasing model is set to 7 days. The associated storage is included for free.    
-
 
 ## How often do backups happen?
 ### Backups for point-in-time restore
@@ -98,9 +93,9 @@ You can change the default retention using REST API or PowerShell. The supported
 Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 > [!IMPORTANT]
-> This APIs is included in Azure PowerShell starting from version 4.6.0-preview. 
+> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview). 
 
-### Change PTR retention period using REST API
+### Change PITR retention period using REST API
 **Sample Request**
 ```http
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
@@ -126,7 +121,7 @@ Status code: 200
   }
 }
 ```
-See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backups) for more details.
+See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) for more details.
 
 ## Next steps
 

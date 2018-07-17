@@ -1,5 +1,5 @@
 ---
-title: Access the Azure Media Services API - CLI 2.0 | Microsoft Docs
+title: Access the Azure Media Services API - Azure CLI | Microsoft Docs
 description: Follow the steps of this how-to to access the Azure Media Services API.
 services: media-services
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 03/19/2018
 ms.author: juliako
 ---
 
-# Access Azure Media Services API with CLI 2.0
+# Access Azure Media Services API with the Azure CLI
  
 You should use the Azure AD service principal authentication to connect to the Azure Media Services API. Your application needs to request an Azure AD token that has the following parameters:
 
@@ -24,7 +24,7 @@ You should use the Azure AD service principal authentication to connect to the A
 * Resource URI for REST Media Services
 * Azure AD application values: the client ID and client secret
 
-This article shows you how to use CLI 2.0 to create an Azure AD application and service principal and get the values that are needed to access Azure Media Services resources.
+This article shows you how to use the Azure CLI to create an Azure AD application and service principal and get the values that are needed to access Azure Media Services resources.
 
 ## Prerequisites 
 
@@ -36,7 +36,7 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -47,4 +47,4 @@ If you choose to install and use the CLI locally, this topic requires the Azure 
 
 ## See also
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

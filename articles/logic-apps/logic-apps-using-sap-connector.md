@@ -1,9 +1,9 @@
 ---
 # required metadata
 title: Connect to SAP systems - Azure Logic Apps | Microsoft Docs
-description: How to access SAP systems with automated workflows in Azure Logic Apps
+description: How to access and manage SAP resources by automating workflows with Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -16,12 +16,12 @@ ms.suite: integration
 tags: connectors
 ---
 
-# Access resources in SAP systems by automating workflows in Azure Logic Apps
+# Connect to SAP systems from Azure Logic Apps
 
-This article shows how you can connect to on-premises SAP systems from inside a 
-logic app by using the SAP Application Server and SAP Message Server connectors. 
-That way, you can automate tasks, processes, and workflows that access and manage 
-resources in your SAP systems. 
+This article shows how you can access your SAP resources from inside a logic 
+app by using the SAP Application Server and SAP Message Server connectors. 
+That way, you can automate tasks, processes, and workflows that manage your 
+SAP data and resources by creating logic apps.
 
 This example uses a logic app that you can trigger with an HTTP request. 
 The logic app sends an Intermediate Document (IDoc) to an SAP server, 
@@ -149,7 +149,7 @@ so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
-   1. For **Gateways**, select **Connect via on-premise data gateway** 
+   1. For **Gateways**, select **Connect via on-premises data gateway** 
    so that the on-premises connection properties appear.
 
    2. Provide the connection information for your SAP server. 

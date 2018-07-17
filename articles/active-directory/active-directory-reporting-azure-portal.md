@@ -4,19 +4,19 @@ title: Azure Active Directory reporting | Microsoft Docs
 description: Provides a general overview of Azure Active Directory reporting.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk  
 ---
 # Azure Active Directory reporting
@@ -109,7 +109,7 @@ If you want to know more about the various report types in Azure Active Director
 - [Audit logs report](active-directory-reporting-activity-audit-logs.md)
 - [Sign-ins logs report](active-directory-reporting-activity-sign-ins.md)
 
-If you want to know more about accessing the the reporting data using the reporting API, see: 
+If you want to know more about accessing the reporting data using the reporting API, see: 
 
 - [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
 

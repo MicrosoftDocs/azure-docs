@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Switching to a B2C tenant | Microsoft Docs'
-description: How to switch into the context of your Active Directory B2C tenant
+title: Switching to a B2C tenant in Azure Active Directory B2C | Microsoft Docs
+description: How to switch into the context of your Active Directory B2C tenant.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Switching to your Azure AD B2C tenant

@@ -1,21 +1,13 @@
 ---
-title: Log alerts in Azure Monitor - Alerts | Microsoft Docs
+title: Log alerts in Azure Monitor
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the analytic query conditions you specify are met for Azure Alerts .
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # Log alerts in Azure Monitor - Alerts 
 This article provides details of Log alerts are one of the types of alerts supported within the new [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.. For details of Metric Alerts using Logs, refer to [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
@@ -123,7 +115,7 @@ APIs provided for Log alerts are RESTful and can be accessed via the Azure Resou
 
 For details as well as examples on using REST API, kindly refer to:
 - [Log Analytics Alert REST API](../log-analytics/log-analytics-api-alerts.md) -  to create and manage log search alert rules for Azure Log Analytics
-- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
+- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
 
 ### Azure Resource Manager Template
 Users can also use the flexibility provided by [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create and update resources - for creating or updating Log alerts.

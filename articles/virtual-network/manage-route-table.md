@@ -91,7 +91,7 @@ A subnet can have zero or one route table associated to it. A route table can be
 4. Select the subnet you want to associate the route table to.
 5. Select **Route table**, select the route table you want to associate to the subnet, then select **Save**.
 
-If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so prevents the gateway from functioning properly. For more information about using 0.0.0.0/0 in a route, see [Virtual network traffic routing](virtual-networks-udr-overview.md#default-route).
+If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For more information about using 0.0.0.0/0 in a route, see [Virtual network traffic routing](virtual-networks-udr-overview.md#default-route).
 
 **Commands**
 
@@ -209,7 +209,7 @@ The effective routes for each network interface attached to a virtual machine ar
 **Commands**
 
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## Validate routing between two endpoints
 

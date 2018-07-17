@@ -1,20 +1,18 @@
 ---
+# required metadata
 title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
-documentationcenter: 
 author: ecfan
-manager: cfowler
-editor: 
-
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 05/14/2018
+manager: jeconnoc
 ms.author: estfan
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -64,8 +62,8 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-You can change this limit to a value between seven days and 90 days. 
-However, to exceed the maximum limit, 
+You can change this limit to a value between 7 days and 90 days. 
+To go above the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
@@ -87,7 +85,7 @@ Here are the limits for a single logic app run:
 | ---- | ----- | ----- | 
 | Until iterations | 5,000 | | 
 | ForEach items | 100,000 | You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed. | 
-| ForEach Parallelism | 50 | The default is 20. <p>To set a specific level of parallelism in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
+| ForEach Parallelism | 50 | The default is 20. <p>To change this default level in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
 | SplitOn items | 100,000 | | 
 |||| 
 
@@ -99,15 +97,15 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ----- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across multiple apps as necessary. | 
-| Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across multiple apps as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes| 45,000 |Can distribute workload across multiple apps as needed. | 
+| Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across more than one app as needed. | 
+| Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across more than one app as needed. | 
+| Runtime endpoint: Invoke calls per 5 minutes| 45,000 | Can distribute workload across more than one app as needed. | 
 |||| 
 
-To exceed these limits in normal processing, 
-or run load testing that might exceed these limits, 
+To go above these limits in normal processing, 
+or run load testing that might go above these limits, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
@@ -133,7 +131,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
-| Message size with chunking | 1 GB | This limit applies to actions that either natively support chunking or can have chunking support enabled in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Message size with chunking | 1 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. | 
 |||| 
 
@@ -167,9 +165,12 @@ Here are the limits for custom connectors that you can create from web APIs.
 ### Artifact limits per integration account
 
 Here are the limits on the number of artifacts for each integration account. 
-For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Free tier*
+
+Use the free tier only for exploratory scenarios, not production scenarios. 
+This tier restricts throughput and usage, and has no service-level agreement (SLA).
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
@@ -216,10 +217,10 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 | ---- | ----- | ----- | 
 | Schema | 8 MB | To upload files larger than 2 MB, use the [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Map (XSLT file) | 2 MB | | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
-| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can decrease the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -241,16 +242,18 @@ Here are the limits that apply to B2B protocols:
 
 ### Azure Logic Apps service
 
-All logic apps in a region use the same range of IP addresses.
-The calls that logic apps directly make with 
+All logic apps in a region use the same ranges of IP addresses. 
+To support the calls that logic apps directly make with 
 [HTTP](../connectors/connectors-native-http.md), 
-[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 
-or other HTTP requests, come from IP addresses in this list. 
+[HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
+and other HTTP requests, set up your firewall configurations so 
+they include these outbound and inbound IP addresses, 
+based on where your logic apps exist:
 
 | Logic Apps region | Outbound IP |
 |-------------------|-------------|
-| Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| Australia Southeast | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | Canada Central | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
 | Canada East | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
@@ -276,7 +279,7 @@ or other HTTP requests, come from IP addresses in this list.
 | | |
 
 | Logic Apps region | Inbound IP |
-|-------------------|-------------|
+|-------------------|------------|
 | Australia East | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -305,38 +308,46 @@ or other HTTP requests, come from IP addresses in this list.
 
 ### Connectors
 
-The calls that [connectors](../connectors/apis-list.md) 
-make come from the IP addresses in this list.
+To support the calls that [connectors](../connectors/apis-list.md) make, 
+set up your firewall configurations so they include these outbound IP addresses, 
+based on the regions where your logic apps exist.
 
-| Logic Apps region | Outbound IP |
-|-------------------|-------------|
-| Australia East | 40.126.251.213 |
-| Australia Southeast | 40.127.80.34 |
-| Brazil South | 191.232.38.129 |
-| Canada Central | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Canada East | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| Central India | 104.211.98.164 |
-| Central US | 40.122.49.51 |
-| East Asia | 23.99.116.181 |
-| East US | 191.237.41.52 |
-| East US 2 | 104.208.233.100 |
-| Japan East | 40.115.186.96 |
-| Japan West | 40.74.130.77 |
-| North Central US | 65.52.218.230 |
-| North Europe | 104.45.93.9 |
-| South Central US | 104.214.70.191 |
-| South India | 104.211.227.225 |
-| Southeast Asia | 13.76.231.68 |
-| West Europe | 40.115.50.13 |
-| West India | 104.211.161.203 |
-| West US | 104.40.51.248 |
-| UK South | 51.140.80.51 |
-| UK West | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> If you have existing configurations, please update them 
+> **as soon as possible before September 1, 2018** so they 
+> include and match the IP addresses in this list for the 
+> regions where your logic apps exist. 
+
+| Logic Apps region | Outbound IP | 
+|-------------------|-------------|  
+| Australia East | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Australia Southeast | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Brazil South | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Canada Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Canada East | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Central India | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Central US | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| East Asia | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| East US | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| East US 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Japan East | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Japan West | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| North Central US | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| North Europe | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| South Central US | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| South India | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Southeast Asia | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| West Central US | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| West Europe | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| West India | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| West US | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| West US 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| UK South | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| UK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## Next steps  
 
-* [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Video: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Video: Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* Learn how to [create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Learn about [common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)

@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: conceptual
+ms.date: 06/13/2018
 ms.author: mbullwin
 
 ---
@@ -22,16 +22,14 @@ Search is a feature of [Application Insights](app-insights-overview.md) that you
 (For more complex queries over your data, use [Analytics](app-insights-analytics-tour.md).)
 
 ## Where do you see Search?
+
 ### In the Azure portal
+
 You can open diagnostic search explicitly from the Application Insights Overview blade of your application:
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/001.png)
 
-It also opens when you click through some charts and grid items. In this case, its filters are pre-set to focus on the type of item you selected. 
-
-For example, on the Overview blade, there's a bar chart of requests classified by response time. Click through a performance range to see a list of individual requests in that response time range:
-
-![Click through request performance](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+![Screenshot of diagnostic search graphs](./media/app-insights-diagnostic-search/002.png)
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
 
@@ -52,9 +50,14 @@ The Search window has features similar to the web portal:
 The Track Operation tab is available when you open a request or a page view. An 'operation' is a sequence of events that is associated with to a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The Track Operation tab shows graphically the timing and duration of these events in relation to the request or page view. 
 
 ## Inspect individual items
-Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/10-detail.png)
+Select any telemetry item to see key fields and related items.
+
+![Screenshot of an individual dependency request](./media/app-insights-diagnostic-search/003.png)
+
+This will launch the end-to-end transaction details view:
+
+![Screenshot of end-to-end transaction details view.](./media/app-insights-diagnostic-search/004.png)
 
 ## Filter event types
 Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
@@ -87,14 +90,10 @@ In this example, it's clear that the 'Rpt/Employees' request results in most of 
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-
-
-
 ## Find events with the same property
 Find all the items with the same property value:
 
 ![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
-
 
 ## Search the data
 
@@ -124,14 +123,10 @@ Here are the search expressions you can use:
 | `apple OR banana`<br/>`apple banana` |Find events that contain either word. Use "OR", not "or".<br/>Short form. |
 | `apple NOT banana` |Find events that contain one word but not the other. |
 
-
-
 ## Sampling
 If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events. 
 
 [Learn about sampling](app-insights-sampling.md).
-
-
 
 ## Create work item
 You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
@@ -150,8 +145,6 @@ When you've set all the filters you want, you can save the search as a favorite.
 ![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
 
 To see the search again, **go to the overview blade** and open Favorites:
-
-![Favorites tile](./media/app-insights-diagnostic-search/09-favorite-get.png)
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time. (If 'Relative' isn't available when you want to save a favorite, click Time Range in the header, and set a time range that isn't a custom range.)
 

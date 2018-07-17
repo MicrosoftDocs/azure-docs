@@ -16,7 +16,7 @@ ms.reviewer: sahenry
 ---
 # Password writeback overview
 
-With password writeback, you can configure Azure Active Directory (Azure AD) to write passwords back to your on-premises Active Directory. Password writeback removes the need to set up and manage a complicated on-premises self-service password reset (SSPR) solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory editions](../active-directory-whatis.md).
+With password writeback, you can configure Azure Active Directory (Azure AD) to write passwords back to your on-premises Active Directory. Password writeback removes the need to set up and manage a complicated on-premises self-service password reset (SSPR) solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 Password writeback provides the following features:
 
@@ -126,7 +126,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 ## Licensing requirements for password writeback
 
-For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md#licenses-required-for-password-writeback) or the following sites:
+For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md) or the following sites:
 
 * [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -213,8 +213,8 @@ The size of each of the message described previously is typically under 1 KB. Ev
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

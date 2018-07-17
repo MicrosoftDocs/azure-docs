@@ -200,10 +200,10 @@ For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
 ## Permissions
 
-### How can I implement Role-Based Access for Cloud Services?
-Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
+### How can I implement role-based access for Cloud Services?
+Cloud Services doesn't support the role-based access control (RBAC) model, as it's not an Azure Resource Manager based service.
 
-See [Azure RBAC vs. classic subscription administrators](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## Remote desktop
 

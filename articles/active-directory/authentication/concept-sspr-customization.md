@@ -36,7 +36,7 @@ The contact email is sent to the following recipients in the following order:
 
 In all cases, a maximum of 100 recipients are notified.
 
-To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 ### Disable "Contact your administrator" emails
 
@@ -66,7 +66,7 @@ The graphics you choose are shown in the following circumstances:
     * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
     * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../customize-branding.md).
+Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 
 ### Directory name
 
@@ -78,8 +78,8 @@ You can change the directory name attribute under **Azure Active Directory** > *
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

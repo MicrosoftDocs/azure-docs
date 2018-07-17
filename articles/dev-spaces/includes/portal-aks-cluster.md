@@ -12,21 +12,18 @@ ms.topic: "include"
 manager: "douge"
 ---
 
-## Sign in to the Azure portal
-
-Sign in to the Azure portal at http://portal.azure.com.
-
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1.  Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+1. Sign in to the Azure portal at http://portal.azure.com.
+1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-    Complete the following steps under each heading of the create AKS cluster form.
+   Complete the following steps under each heading of the create AKS cluster form.
 
     - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS or CanadaEast), version, and DNS name prefix for the AKS cluster.
+    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, Central US, WestEurope, WestUS2, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
     - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
 
-   Make sure to choose Kubernetes version 1.9.6 or later.
+   Make sure to choose Kubernetes version 1.10.3 or later.
 
    ![Kubernetes configuration settings](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
@@ -38,5 +35,9 @@ Sign in to the Azure portal at http://portal.azure.com.
 
     > [!IMPORTANT]
     > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
+
+1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+
+    ![RBAC setting](../media/common/k8s-RBAC.PNG)
 
 1. Select **Review + create** and then **Create** when complete.

@@ -232,7 +232,7 @@ This control designates whether users who visit the password reset portal should
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
    * **Users from a partner organization with an existing Azure AD tenant**: If the organization you're partnering with has an existing Azure AD tenant, we *respect whatever password reset policies are enabled on that tenant*. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers, and it can be enabled by following the steps in our [Get started with password management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-   * **Users who sign up through** self-service sign-up: If the organization you're partnering with used the [self-service sign-up](../active-directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
+   * **Users who sign up through** self-service sign-up: If the organization you're partnering with used the [self-service sign-up](../users-groups-roles/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
    * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
@@ -245,8 +245,8 @@ To test this scenario, go to http://passwordreset.microsoftonline.com with one o
 The following articles provide additional information regarding password reset through Azure AD:
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

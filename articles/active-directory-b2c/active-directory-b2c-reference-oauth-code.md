@@ -1,19 +1,18 @@
 ---
-title: 'Authorization code flow - Azure AD B2C | Microsoft Docs'
+title: Authorization code flow in Azure Active Directory B2C | Microsoft Docs
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: OAuth 2.0 authorization code flow
 You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries.

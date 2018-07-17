@@ -4,19 +4,19 @@ title: Get started with the Azure AD reporting API | Microsoft Docs
 description: How to get started with the Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -44,6 +44,13 @@ To access the reporting API, even if you are planning on accessing the API using
  
 For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
+## APIs with Graph Explorer
+
+You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **Tasks.ReadWrite** and **Directory.ReadAll** permissions for your tenant as shown.   
+
+![Graph Explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modify permissions UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## Recommendation 
 

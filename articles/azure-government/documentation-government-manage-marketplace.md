@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/20/2017
+ms.date: 07/13/2018
 ms.author: gsacavdm
 
 ---
@@ -25,7 +25,7 @@ The Azure Government Marketplace helps connect government agencies and partners 
 
 ## Variations
 The Azure Government Marketplace differs from the Azure Marketplace in the following ways:
-* Only Bring Your Own License (BYOL) images are available.
+* Only Bring Your Own License (BYOL) and Pay-as-you-Go (PayGo) images are available.
 * A different set of images is available. You can find the list of available images [here](../azure-government-image-gallery.md) 
 
 > [!NOTE]

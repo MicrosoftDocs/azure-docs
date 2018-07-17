@@ -38,7 +38,7 @@ After creating a zone and delegating it to Azure DNS, you can then create record
 
 ## 1. Create an A record for your custom domain
 
-An A record is used to map a name to its IP address. In the following example we will assign @ as an A record to an IPv4 address:
+An A record is used to map a name to its IP address. In the following example we will assign \@ as an A record to an IPv4 address:
 
 ### Step 1
 
@@ -50,7 +50,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### Step 2
 
-Add the IPv4 value to the previously created record set "@" using the $rs variable assigned. The IPv4 value assigned will be the IP address for your web app.
+Add the IPv4 value to the previously created record set "\@" using the $rs variable assigned. The IPv4 value assigned will be the IP address for your web app.
 
 To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 

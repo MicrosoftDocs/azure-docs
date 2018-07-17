@@ -3,7 +3,7 @@
 title: Connect to Office 365 Users - Azure Logic Apps | Microsoft Docs
 description: Manage user profiles with Office 365 Users REST APIs and Azure Logic Apps 
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/18/2016
 ms.topic: article

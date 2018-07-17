@@ -80,7 +80,7 @@ Follow the on-screen instructions to complete the sign-in process. Make sure tha
 
 ### Run a local deployment
 
-Use the following command to start the local deployment. This will create the required azure resources and print out environemnt variables to teh console. 
+Use the following command to start the local deployment. This will create the required azure resources and print out environment variables to the console. 
 
 ```cmd/pcs
 pcs -s local

@@ -68,6 +68,6 @@ For more information about how Microsoft can help you with the GDPR, see [Get St
 
 For inquiries related to Azure Security and Compliance Blueprints, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
-[Microsoft Trust Center](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
+[Microsoft Trust Center](https://microsoft.com/en-us/trustcenter)
 
 [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)

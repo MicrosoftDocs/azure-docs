@@ -2,12 +2,12 @@
 title: Data model for Azure Backup
 description: This article talks about Power BI data model details for Azure Backup reports.
 services: backup
-author: JPallavi
-manager: vijayts
+author: adiganmsft
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: pajosh
+ms.author: adigan
 ms.custom: H1Hack27Feb2017
 ---
 # Data model for Azure Backup reports

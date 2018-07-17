@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ---
 
@@ -53,7 +53,7 @@ Windows Server 2016 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 R2 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure
-Windows Server 2003-2008 R2 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
+Windows Server 2003-2008 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with Visual Studio subscription only. | Conditionally ready for Azure
 Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
@@ -128,7 +128,7 @@ An assessment may not have all the data points available due to one of the follo
 After sizing recommendations are complete, Azure Migrate calculates post-migration compute and storage costs.
 
 - **Compute cost**: Using the recommended Azure VM size, Azure Migrate uses the Billing API to calculate
-the monthly cost for the VM. The calculation takes the operating system, software assurance, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
+the monthly cost for the VM. The calculation takes the operating system, software assurance, reserved instances, VM uptime, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
 - **Storage cost**: The monthly storage cost for a machine is calculated by aggregating the monthly cost of
 all disks attached to the machine. Azure Migrate calculates the total monthly storage costs by aggregating the storage costs of all machines. Currently, the calculation doesn't take offers specified in the assessment settings into account.
 

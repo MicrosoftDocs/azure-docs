@@ -11,11 +11,12 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -35,7 +36,7 @@ The scenario in this article shows how to migrate a classic policy that requires
 
 The migration process consist of the following steps:
 
-1. [Open the classic policy](#open-a-classic-policy) to get the the configuration settings.
+1. [Open the classic policy](#open-a-classic-policy) to get the configuration settings.
 2. Create a new Azure AD conditional access policy to replace your classic policy. 
 3. Disable the classic policy.
 
@@ -99,8 +100,6 @@ The migration process consist of the following steps:
 
 6. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
 
-    ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
 8. On the **Cloud apps** page, perform the following steps:
 
     ![Conditional access](./media/active-directory-conditional-access-migration/08.png)
@@ -147,6 +146,6 @@ To disable your classic policy, click **Disable** in the **Details** view.
 - For more information about the classic policy migration, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
 
 
-- If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

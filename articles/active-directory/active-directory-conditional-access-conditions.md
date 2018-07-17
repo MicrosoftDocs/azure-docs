@@ -1,6 +1,6 @@
 ---
-title: Conditions in Azure Active Directory conditional access | Microsoft Docs
-description: Learn how assignments are used in Azure Active Directory conditional access to trigger a policy.
+title: What are conditions in Azure Active Directory conditional access? | Microsoft Docs
+description: Learn how conditions are used in Azure Active Directory conditional access to trigger a policy.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -10,17 +10,20 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+#Customer intent: As a IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
+
 ---
 
-# Conditions in Azure Active Directory conditional access 
+# What are conditions in Azure Active Directory conditional access? 
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
 
@@ -136,7 +139,7 @@ Common use cases for this condition are policies that:
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md).
+For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md)
 
 
 ## Client apps
@@ -164,7 +167,7 @@ Common use cases for this condition are policies that:
 
 In addition to using web SSO and modern authentication protocols, you can apply this condition to mail applications that use Exchange ActiveSync, like the native mail apps on most smartphones. Currently, client apps using legacy protocols need to be secured using AD FS.
 
-You can only select this condition if **Office 365 Exchange Online is the only cloud app you have selected.
+You can only select this condition if **Office 365 Exchange Online** is the only cloud app you have selected.
 
 ![Cloud apps](./media/active-directory-conditional-access-conditions/32.png)
 
@@ -187,26 +190,17 @@ Applying this condition only to supported platforms is the equivalent to all dev
 
 ### Legacy authentication  
 
-Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like “block access from other clients”. 
+Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like **block access from other clients**.
 
 
-#### How to get started
-
- To enforce policies for legacy authentication flows, follow the steps below:
-1.	Go to Conditional access and create a new policy.
-
-2.	Select the users and cloud apps and conditions as appropriate. We recommend testing the policy with a small set of users to understand the usage of “Other clients” in your organization.
-
-3.	Navigate to the client app condition and select "Other clients"
-
-     ![Supported platforms](./media/active-directory-conditional-access-conditions/140.png)
+![Legacy authentication](./media/active-directory-conditional-access-conditions/160.png)
  
-4.	Select the access control you want to enforce for "Other clients". (Any control selection will lead to block access since the other clients are not able to enforce controls like MFA, device compliance, etc.).
+
 
 
 #### Known issues
 
-- Configuring policy for “Other clients” will lead to blocking the entire organization from certain clients like SPConnect. This is due to these older clients authenticating in unexpected ways. This issue does not apply to the major Office applications like the older Office clients. 
+- Configuring a policy for **Other clients** blocks the entire organization from certain clients like SPConnect. This is due to these older clients authenticating in unexpected ways. This issue does not apply to the major Office applications like the older Office clients. 
 
 - It can take up to 24 hours for the policy to take effect. 
 
@@ -218,11 +212,11 @@ Conditional access now applies to older Office clients that do not support moder
 It depends on the authentication protocol that EWS is using. If the EWS application is using modern authentication, it will be covered by the "Mobile apps and desktop clients" client app. If the EWS application is using basic authentication, it will be covered by the “Other clients” client app.
 
 
-**What controls can I use for "Other clients**
+**What controls can I use for Other clients**
 
 Any control can be configured for "Other clients". However, the end user experience will be block access for all cases. "Other clients" do not support controls like MFA, compliant device, domain join, etc. 
  
-**What conditions can I use for "Other clients?"**
+**What conditions can I use for Other clients?**
 
 Any conditions can be configured for "Other clients".
 
@@ -240,13 +234,13 @@ No. Here is the summary of Exchange ActiveSync (EAS) support:
 
 **Do the policies apply to all client apps by default going forward?**
 
-No. There is no change in the default policy behavior. The policies will continue to apply to browser and mobile applications/desktop clients by default.
+No. There is no change in the default policy behavior. The policies continue to apply to browser and mobile applications/desktop clients by default.
 
 
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

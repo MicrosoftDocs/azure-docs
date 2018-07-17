@@ -8,7 +8,7 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
 
@@ -135,7 +135,7 @@ With SSMS, use the following steps to restore the Wide World Importers database 
 
     ![file list](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. Use the following script to restore the Adventure Works 2012 database from a backup file - providing the URL for the container with the backup file:
+4. Use the following script to restore the Wide World Importers database from a backup file - providing the URL for the container with the backup file:
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

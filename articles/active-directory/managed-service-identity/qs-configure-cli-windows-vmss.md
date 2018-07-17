@@ -10,7 +10,7 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
@@ -172,10 +172,10 @@ The response contains details for the user assigned identity created, similar to
    }
    ```
 
-2. Assign the user assigned identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY ID>` will be the user assigned identity's resource `id` property, as created in the previous step:
+2. Assign the user assigned identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY ID>` will be the user assigned identity's resource `id` property, as created in the previous step:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### Remove a user assigned identity from an Azure VMSS
@@ -183,15 +183,15 @@ The response contains details for the user assigned identity created, similar to
 > [!NOTE]
 >  Removing all user assigned identities from a Virtual Machine Scale Set is currently not supported, unless you have a system assigned identity. 
 
-If your VMSS has multiple user assigned identities, you can remove all but the last one using [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` is the user assigned identity's name property, which can be found by in the identity section of the VM using `az vm show`:
+If your VMSS has multiple user assigned identities, you can remove all but the last one using [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<MSI NAME>` is the user assigned identity's name property, which can be found by in the identity section of the VM using `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 If your VMSS has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## Next steps

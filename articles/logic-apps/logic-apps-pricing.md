@@ -3,7 +3,7 @@ title: Pricing & billing - Azure Logic Apps | Microsoft Docs
 description: Learn how pricing and billing works for Azure Logic Apps
 services: logic-apps
 author: kevinlam1
-manager: cfowler
+manager: jeconnoc
 editor: 
 documentationcenter: 
 

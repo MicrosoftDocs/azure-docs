@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -23,9 +23,7 @@ This tutorial shows you how to migrate Azure VMs to another region. In this tuto
 
 This tutorial presumes you already have an Azure subscription. If you don't, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
->[!NOTE]
->
-> Site Recovery replication for Azure VMs is currently in preview.
+
 
 
 

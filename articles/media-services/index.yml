@@ -27,36 +27,31 @@ sections:
         - href: /azure/media-services/latest/
           html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
           image:
-            src: media/index/media-services-v3.png
+            src: media/index/AMSIcons-media_servicesV3.svg
           title: Azure Media Services v3 (preview)
         - href: /azure/media-services/previous/
           html: <p>Learn how to encode, stream on-demand, and broadcast live videos with Media Services v2.</p>
           image:
-            src: media/index/media-services-v2.png
+            src: media/index/AMSIcons-media_servicesV2.svg
           title: Azure Media Services v2 (GA)
 
   - title: 5-Minute Quickstarts
     items:
     - type: paragraph
-      text: 'Learn how to stream live and on demand with Media Services:'
+      text: 'Learn how to encode and stream with Media Services:'
     - type: table
       style: dataMatrix
       columns:
         - image:
-            src: media/index/stream.png
-          title: Stream live
-        - image:
-            src: media/index/stream.png
+            src: media/index/AMSIcons-encoding.svg
           title: Stream files
       rows:
         - title: Media Services v3
           values:
-          - href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live
           - href: /azure/media-services/latest/stream-files-dotnet-quickstart
         - title: Media Services v2
           values:
-            - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
-            - href: /azure/media-services/previous/media-services-portal-vod-get-started
+          - href: /azure/media-services/previous/media-services-portal-vod-get-started
   - title: Step-by-Step Tutorials
     items:
     - type: paragraph
@@ -65,17 +60,22 @@ sections:
       style: dataMatrix
       columns:
         - image:
-            src: media/index/encode.png
+            src: media/index/AMSIcons-encoding.svg
           title: Encode and stream
         - image:
-            src: media/index/analyze.png
+            src: media/index/AMSIcons-live.svg
+          title: Stream live          
+        - image:
+            src: media/index/AMSIcons-media_analytics.svg
           title: Analyze videos
       rows:
         - title: Media Services v3
           values:
           - href: /azure/media-services/latest/stream-files-tutorial-with-api
+          - href: /azure/media-services/latest/stream-live-tutorial-with-api
           - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
         - title: Media Services v2
           values:
-            - href: /azure/media-services/previous/media-services-dotnet-get-started
-            - href:  
+          - href: /azure/media-services/previous/media-services-dotnet-get-started
+          - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
+          - href:  

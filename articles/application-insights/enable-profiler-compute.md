@@ -9,9 +9,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: ramach; mbullwin
+ms.reviewer: ramach
+ms.author: mbullwin
 
 ---
 
@@ -208,7 +209,7 @@ To set up your environment, do the following:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. If the intended application is running through [IIS](https://www.microsoft.com/web/platform/server.aspx), enable the `IIS Http Tracing` Windows feature by doing the following:  
+2. If the intended application is running through [IIS](https://www.microsoft.com/web/downloads/platform.aspx), enable the `IIS Http Tracing` Windows feature by doing the following:  
 
    a. Establish remote access to the environment, and then use the [Add Windows features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
 

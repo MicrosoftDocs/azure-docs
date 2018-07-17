@@ -1,21 +1,13 @@
 ---
-title: Create a log alert with a Resource Manager template | Microsoft Docs
-description:  Learn how to create log alert by using an Azure Resource Manager template and API.
+title: Create a log alert with a Resource Manager template
+description: Learn how to create log alert by using an Azure Resource Manager template and API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 
 # Create a log alert with a Resource Manager template

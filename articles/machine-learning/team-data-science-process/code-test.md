@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -122,7 +123,7 @@ Use the following steps to set up and run code testing and an automated build by
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts).
+	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
 	
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 

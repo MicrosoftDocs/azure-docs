@@ -4,7 +4,7 @@ description: Azure File Sync on-premises network configuration
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 
 ms.assetid: 
@@ -47,9 +47,17 @@ The Azure File Sync agent has no requirements regarding special channels like [E
 Azure File Sync will work through any means available that allow reach into Azure, automatically adapting to various network characteristics like bandwidth, latency as well as offering admin control for fine-tuning. Not all features are available at this time. If you would like to configure specific behavior, let us know via [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## Proxy
-Azure File Sync currently supports machine-wide proxy settings. This proxy setting is transparent to the Azure File Sync agent as the entire traffic of the server is routed through this proxy.
+Azure File Sync supports app-specific and machine-wide proxy settings.
 
-App-specific proxy settings are currently under development and will be supported in a future release of the Azure File Sync agent. This will allow configuration of a proxy specifically for Azure File Sync traffic.
+Machine-wide proxy settings are transparent to the Azure File Sync agent as the entire traffic of the server is routed through the proxy.
+
+App-specific proxy settings allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+
+PowerShell commands to configure app-specific proxy settings:
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## Firewall
 As mentioned in a previous section, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required.
@@ -61,7 +69,7 @@ The following table describes the required domains for communication:
 | **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure File Share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
+| **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
 | **Azure File Sync** | &ast;.one.microsoft.com | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
 
 > [!Important]

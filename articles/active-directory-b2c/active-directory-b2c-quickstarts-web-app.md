@@ -4,15 +4,15 @@ description: Run a sample ASP.NET web app that uses Azure Active Directory B2C t
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Quickstart: Set up sign-in for an ASP.NET application using Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
@@ -120,4 +120,4 @@ In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign 
 Continue to the tutorial to learn how to configure the sample ASP.NET to use your own Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate users with Azure Active Directory B2C in an ASP.NET web app](active-directory-b2c-tutorials-web-app.md)
+> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)

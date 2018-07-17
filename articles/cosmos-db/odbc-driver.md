@@ -60,7 +60,7 @@ Now lets get started with the ODBC driver.
 4. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 5. Click **Advanced Options** and set the following values:
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
-    - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
+    - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
         - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
@@ -117,7 +117,7 @@ The following steps create a schema for the data in one or more collections usin
 You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
 
 1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
-2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and connect to the server. 
 3. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with the name of your system data source.
 
     ```sql

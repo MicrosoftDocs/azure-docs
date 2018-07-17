@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -34,6 +34,7 @@ To learn more about routing in a virtual network, read [User-defined routes and 
 If you want to route your ASE outbound traffic somewhere other than directly to the internet, you have the following choices:
 
 * Enable your ASE to have direct internet access
+* Configure your ASE subnet to ignore BGP routes
 * Configure your ASE subnet to use Service Endpoints to Azure SQL and Azure Storage
 * Add your own IPs to the ASE Azure SQL firewall
 
@@ -55,8 +56,22 @@ If the network is already routing traffic on premises, then you need to create t
 
 ![Direct internet access][1]
 
+## Configure your ASE subnet to ignore BGP routes ## 
+
+You can configure your ASE subnet to ignore all BGP routes.  When this is configured the ASE will be able to access its dependencies without any problems.  You will need to create UDRs however to enable your apps to access on premises resources.
+
+To configure your ASE subnet to ignore BGP routes:
+
+* create a UDR and assign it to your ASE subnet if you did not have one already.
+* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set BGP route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
+
+After you do this, your apps will no longer be able to reach on premises. To solve that, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
+
 
 ## Configure your ASE with Service Endpoints ##
+
+ > [!NOTE]
+   > Service endpoints with SQL does not work with ASE in the US Government regions.  The following information is only valid in the Azure public regions.  
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
@@ -138,3 +153,4 @@ In addition to simply breaking communication, you can adversely affect your ASE 
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

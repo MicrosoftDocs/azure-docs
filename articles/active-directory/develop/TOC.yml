@@ -21,8 +21,6 @@
       href: active-directory-devquickstarts-dotnet.md
     - name: .NET (Xamarin)
       href: active-directory-devquickstarts-xamarin.md
-    - name: Cordova
-      href: active-directory-devquickstarts-cordova.md
     - name: OAuth 2.0
       href: active-directory-protocols-oauth-code.md
   - name: Web apps
@@ -259,6 +257,8 @@
         href: active-directory-v2-protocols-oauth-on-behalf-of.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
+      - name: Oauth 2.0 sample code
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Tokens
       href: active-directory-v2-tokens.md
     - name: Scopes & Consent

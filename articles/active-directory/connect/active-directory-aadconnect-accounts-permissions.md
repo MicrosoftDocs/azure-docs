@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -182,9 +182,9 @@ The account is also granted permissions to files, registry keys, and other objec
 ### Azure AD service account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
 
-![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is FABRIKAMCON. If you have staging servers, each server has its own account.
+The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is DC1. If you have staging servers, each server has its own account.
 
 The service account is created with a long complex password that does not expire. It is granted a special role **Directory Synchronization Accounts** that has only permissions to perform directory synchronization tasks. This special built-in role cannot be granted outside of the Azure AD Connect wizard. The Azure portal shows this account with the role **User**.
 

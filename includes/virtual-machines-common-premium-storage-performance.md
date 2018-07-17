@@ -239,7 +239,7 @@ It is important to enable cache on the right set of disks. Whether you should en
 | **Disk Type** | **Default Cache Setting** |
 | --- | --- |
 | OS disk |ReadWrite |
-| Data disk |None |
+| Data disk |ReadOnly |
 
 Following are the recommended disk cache settings for data disks,
 

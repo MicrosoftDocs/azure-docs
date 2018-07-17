@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Data Factory scheduling and execution
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [pipeline execution and triggers](../concepts-pipeline-execution-triggers.md) article.
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [pipeline execution and triggers](../concepts-pipeline-execution-triggers.md) article.
 
 This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets. For basic concepts of Azure Data Factory, see the following articles:
 

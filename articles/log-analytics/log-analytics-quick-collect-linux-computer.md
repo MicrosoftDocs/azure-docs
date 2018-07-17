@@ -3,7 +3,7 @@ title: Collect data from on-premises Linux computers with Azure Log Analytics | 
 description: Learn how to deploy the Log Analytics agent for Linux and enable collection of data from that OS with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: na
 ---
 
 # Collect data from Linux computer hosted in your environment

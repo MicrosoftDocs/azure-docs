@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Create a Media Services account
 
-You first need to create a Media Services account. This section shows what you need for the acount creation using CLI 2.0.
+You first need to create a Media Services account. This section shows what you need for the acount creation using the Azure CLI.
 
 ### Create a resource group
 

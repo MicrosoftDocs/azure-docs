@@ -15,7 +15,9 @@
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
-    href: cdn-add-to-web-app.md    
+    href: cdn-add-to-web-app.md
+  - name: Access blobs using a custom domain over HTTPS
+    href: cdn-storage-custom-domain-https.md    
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
   - name: Configure HTTPS on a custom domain
@@ -33,7 +35,11 @@
   - name: China content delivery
     href: cdn-china-delivery.md   
   - name: HTTP/2 support
-    href: cdn-http2.md     
+    href: cdn-http2.md 
+  - name: Retrieve Verizon POP list
+    href: cdn-pop-list-api.md        
+  - name: Migrate from Standard Verizon Standard to Premium Verizon  
+    href: cdn-migrate.md
 - name: How-to guides
   items:
   - name: Optimize content
@@ -47,6 +53,8 @@
       href: cdn-dynamic-site-acceleration.md
   - name: Manage
     items:
+    - name: Create an endpoint
+      href: cdn-create-endpoint-how-to.md   
     - name: Manage with Azure PowerShell
       href: cdn-manage-powershell.md
     - name: Restrict access by country
@@ -83,6 +91,8 @@
       href: cdn-resource-health.md
     - name: Override behavior with rules
       href: cdn-rules-engine.md
+    - name: Use Traffic Manager
+      href: cdn-traffic-manager.md      
   - name: Analyze
     href: cdn-log-analysis.md
     items:
@@ -116,6 +126,8 @@
       href: cdn-troubleshoot-endpoint.md
     - name: File compression
       href: cdn-troubleshoot-compression.md
+    - name: Allowed certificate authorities
+      href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
   - name: Rules engine reference

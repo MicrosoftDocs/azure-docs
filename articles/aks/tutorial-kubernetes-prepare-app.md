@@ -2,19 +2,19 @@
 title: Kubernetes on Azure tutorial  - Prepare App
 description: AKS tutorial - Prepare App
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
 # Tutorial: Prepare application for Azure Kubernetes Service (AKS)
 
-In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:
+In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub

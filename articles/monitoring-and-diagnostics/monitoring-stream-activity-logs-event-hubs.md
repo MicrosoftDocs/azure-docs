@@ -1,21 +1,13 @@
 ---
-title: Stream the Azure Activity Log to Event Hubs | Microsoft Docs
+title: Stream the Azure Activity Log to Event Hubs
 description: Learn how to stream the Azure Activity Log to Event Hubs.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2018
 ms.author: johnkem
-
+ms.component: activitylog
 ---
 # Stream the Azure Activity Log to Event Hubs
 You can stream the [Azure Activity Log](monitoring-overview-activity-logs.md) in near real time to any application by either:
@@ -80,7 +72,7 @@ If a log profile already exists, you first need to remove the existing log profi
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```

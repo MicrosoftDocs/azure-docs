@@ -8,6 +8,7 @@ editor: ''
 tags: ''
 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/15/2017

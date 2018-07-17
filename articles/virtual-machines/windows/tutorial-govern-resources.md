@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Govern Azure virtual machines with Azure PowerShell | Microsoft Docs
 description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-windows
@@ -53,7 +53,7 @@ For managing virtual machine solutions, there are three resource-specific roles 
 * [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
 The following example creates an Azure Active Directory group named *VMDemoContributors* with a mail nickname of *vmDemoGroup*. The mail nickname serves as an alias for the group.
 
@@ -192,7 +192,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) command:
+To find resources with a tag name and value, use the [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) command:
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

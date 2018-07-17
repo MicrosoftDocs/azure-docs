@@ -1,21 +1,13 @@
 ---
-title:  Azure Monitor Metrics Explorer | Microsoft Docs
+title: Azure Monitor metrics explorer
 description: Learn about new features in Azure Monitor Metrics Explorer
 author: vgorbenko
-manager: Victor.Mushkatin
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-
+ms.component: metrics
 ---
 
 # Azure Monitor Metrics Explorer

@@ -79,7 +79,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 For object detection project you need to upload image, regions, and tags. The region is in normalized coordiantes and specifies the location of the tagged object.
 
-To add the images, region, and tags to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code.
+To add the images, region, and tags to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates.
 
 ```Python
 

@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API cURL quickstart analyze image | Microsoft Docs
+title: Computer Vision API cURL quickstart analyze a remote image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with cURL in Cognitive Services.
+description: In this quickstart, you analyze a remote image using Computer Vision with cURL in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with cURL
+# Quickstart: Analyze a remote image with cURL
 
-In this quickstart, you analyze an image to extract visual features using Computer Vision.
+In this quickstart, you analyze a remote image to extract visual features using Computer Vision. To analyze a local image, see [Analyze a local image with cURL](curl-disk.md).
 
 ## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze Image request
+## Analyze a remote image
 
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 
@@ -33,7 +33,7 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-1. Copy the following code into an editor, such as Notepad.
+1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.
@@ -43,6 +43,8 @@ To run the sample, do the following steps:
 
 >[!NOTE]
 >You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
+## Analyze Image request
 
 ```json
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: asteen
 ---
 
 # Links on the page don't work for an Application Proxy application

@@ -1,6 +1,6 @@
 ---
-title: Azure network security overview | Microsoft Docs
-description: Learn about security options for controlling the flow of network traffic between Azure resources.
+title: Azure security groups overview | Microsoft Docs
+description: Learn about network and application security groups. Security groups help you filter network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,13 +17,13 @@ ms.date: 09/19/2017
 ms.author: jdial
 
 ---
-# Network security
+# Network and application security groups
 
-You can limit network traffic to resources in a virtual network using a network security group. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
+You can limit network traffic to resources in a virtual network using network and application security groups. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. An application security group allows you to group together virtual machines that have similar functions, such as web servers. You can specify an application security group as the source or destination in a network security group rule.
 
 ## Network security groups
 
-Each network interface has zero, or one, associated network security group. Each network interface exists in a [virtual network](virtual-networks-overview.md) subnet. A subnet can also have zero, or one, associated network security group. 
+Each network interface has zero, or one, associated network security group. Each network interface exists in a [virtual network](virtual-networks-overview.md) subnet. A subnet can also have zero, or one, associated network security group.
 
 When applied to a subnet, security rules are applied to all resources in the subnet. In addition to network interfaces, you may have instances of other Azure services such as HDInsight, Virtual Machine Scale Sets, and Application Service Environments deployed in the subnet.
 
@@ -163,10 +163,10 @@ Application security groups have the following constraints:
 
      - **Enterprise Agreement**: Outbound port 25 communication is allowed. You are able to send outbound email directly from virtual machines to external email providers, with no restrictions from the Azure platform. 
      - **Pay-as-you-go:** Outbound port 25 communication is blocked from all resources. If you need to send email from a virtual machine directly to external email providers (not using an authenticated SMTP relay), you can make a request to remove the restriction. Requests are reviewed and approved at Microsoft's discretion and are only granted after anti-fraud checks are performed. To make a request, open a support case with the issue type *Technical*, *Virtual Network Connectivity*, *Cannot send e-mail (SMTP/Port 25)*. In your support case, include details about why your subscription needs to send email directly to mail providers, instead of going through an authenticated SMTP relay. If your subscription is exempted, only virtual machines created after the exemption date are able to communicate outbound over port 25.
-     - **Cloud service provider (CSP), MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests are not granted. If you must send email from your virtual machine, you must use an SMTP relay service.
+     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests are not granted. If you must send email from your virtual machine, you must use an SMTP relay service.
+     - **Cloud service provider**: Customers that are consuming Azure resources via a cloud service provider can create a support case with their cloud service provider, and request that the provider create an unblock case on their behalf, if a secure SMTP relay cannot be used.
 
-  If Azure allows you to send email over port 25, Microsoft cannot guarantee email providers will accept inbound email from your virtual machine. If a specific provider rejects mail from your virtual machine, you must work directly with the provider to resolve any message delivery or spam filtering issues, or use an authenticated SMTP relay service. 
-
+  If Azure allows you to send email over port 25, Microsoft cannot guarantee email providers will accept inbound email from your virtual machine. If a specific provider rejects mail from your virtual machine, you must work directly with the provider to resolve any message delivery or spam filtering issues, or use an authenticated SMTP relay service.
 
 ## Next steps
 

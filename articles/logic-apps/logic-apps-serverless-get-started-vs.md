@@ -4,7 +4,7 @@ description: Get started with your first serverless app with this guide on creat
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: asteen
 
 ---
 
@@ -67,9 +67,9 @@ Both of these images show the same symptom: SSO failure. User access to the appl
 
 How you troubleshoot depends on the issue and the symptoms you observe. Before you go any farther, explore the following articles. They provide useful troubleshooting information:
 
--   [Troubleshoot Application Proxy problems and error messages](active-directory-application-proxy-troubleshoot.md)
+-   [Troubleshoot Application Proxy problems and error messages](manage-apps/application-proxy-troubleshoot.md)
 
--   [Kerberos errors and symptoms](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
+-   [Kerberos errors and symptoms](manage-apps/application-proxy-troubleshoot.md#kerberos-errors)
 
 -   [Working with SSO when on-premises and cloud identities aren't identical](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
