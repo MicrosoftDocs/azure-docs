@@ -44,13 +44,16 @@ The following examples demonstrate two ways to create a container group with a s
 
 ### Deploy with Azure CLI
 
-To deploy with the Azure CLI, specify the `--log-analytics-workspace` and `--log-analytics-workspace-key` parameters in the [az container create][az-container-create] command.
+To deploy with the Azure CLI, specify the `--log-analytics-workspace` and `--log-analytics-workspace-key` parameters in the [az container create][az-container-create] command. Replace the two workspace values with the values you obtained in the previous step (and update the resource group name) before running the following command.
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name mycontainer --log-analytics-workspace <WORKSPACE_ID> --log-analytics-workspace-key <WORKSPACE_KEY>
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
 ```
-
-Omit the `--log-analytics-workspace-key` parameter if your workspace is in the same subscription as the authenticated Azure CLI session running the command. You can also omit the key parameter if the workspace is in another subscription and you've defined the subscription with the global `--subscription` parameter.
 
 ### Deploy with YAML
 
