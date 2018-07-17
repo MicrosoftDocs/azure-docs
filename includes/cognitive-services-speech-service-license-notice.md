@@ -14,4 +14,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> By downloading any of the Cognitive Services Speech SDK components on this page, you acknowledge its license, see [Speech SDK license agreement](../license.md).
+> By downloading any of the Cognitive Services Speech SDK components on this page, you acknowledge its license, see [Speech SDK license agreement](~/articles/cognitive-services/speech-service/license.md).
