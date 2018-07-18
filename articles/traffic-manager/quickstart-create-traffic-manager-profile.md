@@ -1,6 +1,6 @@
 ---
 title: Quickstart:Create a Traffic Manager profile in Azure portal| Microsoft Docs
-description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
+description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web applications.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
