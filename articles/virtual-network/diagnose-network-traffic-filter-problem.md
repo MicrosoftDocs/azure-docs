@@ -67,9 +67,9 @@ The steps that follow assume you have an existing VM to view the effective secur
 
    Unlike the **myVMVMNic** network interface, the **myVMVMNic2** network interface does not have a network security group associated to it. Each network interface and subnet can have zero, or one, NSG associated to it. The NSG associated to each network interface or subnet can be the same, or different. You can associate the same network security group to as many network interfaces and subnets as you choose.
 
-Though effective security rules were viewed through the VM, you can also view effective security rules through an:
-- **Individual network interface**: Learn how to [view a network interface](virtual-network-network-interface.md#view-network-interface-settings).
-- **Individual NSG**: Learn how to [view an NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+Though effective security rules were viewed through the VM, you can also view effective security rules through an individual:
+- **Network interface**: Learn how to [view a network interface](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: Learn how to [view an NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## Diagnose using PowerShell
 
