@@ -143,9 +143,9 @@
 ## Manage passwords
 ### [Passwords overview](authentication/active-directory-passwords-overview.md)
 ### User documents
-#### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+#### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
-#### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+#### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR How it works](authentication/concept-sspr-howitworks.md)
 ### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
 ### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
-#### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
+#### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)

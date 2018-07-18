@@ -175,11 +175,11 @@ You can use the Immutable Storage feature with any existing GPv2 accounts or on 
 
 **What happens if I try to delete a container with a *locked* time-based retention policy or legal hold?**
 
-The Delete Container operation will fail if it is at least one blob with a locked  time-based retention policy or a legal hold. The Delete Container operation will succeed if there is no blob with an active retention interval and there are no legal holds. You must first delete the blobs before you can delete the container.
+The Delete Container operation will fail if it is at least one blob with a locked time-based retention policy or a legal hold. This is true even if the data is [soft deleted](storage-blob-soft-delete.md).The Delete Container operation will succeed if there is no blob with an active retention interval and there are no legal holds. You must first delete the blobs before you can delete the container. 
 
 **What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  All WORM containers must be deleted before the storage account can be deleted.  See question #2 for information on container deletion.
+The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  All WORM containers must be deleted before the storage account can be deleted.  See the preceding question for information on container deletion.
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 

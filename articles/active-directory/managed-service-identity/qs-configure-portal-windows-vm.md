@@ -55,7 +55,7 @@ To enable the system assigned identity on a VM that was originally provisioned w
     > [!NOTE]
     > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
 
-   ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## Remove Managed Service Identity from an Azure VM
 
@@ -70,7 +70,7 @@ If you have a Virtual Machine that no longer needs the system assigned identity:
     > [!NOTE]
     > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
 
-   ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## Related content
 

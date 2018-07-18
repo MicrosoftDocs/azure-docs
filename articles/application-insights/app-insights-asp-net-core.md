@@ -183,7 +183,7 @@ To automate requests against your app with synthetic transactions.
 
 1. Run your app by clicking IIS Express ![Screenshot of Visual Studio IIS Express icon](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. Copy the url from the browser address bar. It is in the format http://localhost:{random port number}
+2. Copy the url from the browser address bar. It is in the format `http://localhost:{random port number}`
 
    ![Screenshot of browser url address bar](./media/app-insights-asp-net-core/0013-copy-url.png)
 
