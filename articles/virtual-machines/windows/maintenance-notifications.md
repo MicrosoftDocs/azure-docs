@@ -103,31 +103,57 @@ You can also get the maintenance status for all VMs in a resource group by using
 Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
-The following PowerShell function takes your subscription ID and prints out a list of VMs that are scheduled for maintenance.
+The following PowerShell function prints out a list of VMs and their maintenance status. By default it will list all VMs for all Subscriptions, but you can use the SubscriptionName parameter to output VMs for the specified subscription.
 
 ```powershell
 
-function MaintenanceIterator
+function Get-VmMaintenanceIterator
 {
-    Select-AzureRmSubscription -SubscriptionId $args[0]
+    [CmdletBinding()]
 
-    $rgList= Get-AzureRmResourceGroup 
+    param([string]$SubscriptionName)
 
-    for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
+    #set the begin time
+    $begin = Get-Date
+
+    try
     {
-        $rg = $rgList[$rgIdx]        
-	$vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
-        for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
+        $InitialSubscription = Get-AzureRmContext -ErrorAction Stop
+        if ($SubscriptionName)
         {
-            $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
-              if ($vmDetails.MaintenanceRedeployStatus )
-            {
-                Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
-            }
-          }
+            $SubscriptionList = Get-AzureRmSubscription -SubscriptionName $SubscriptionName -ErrorAction Stop
+        }
+        else
+        {
+            $SubscriptionList = Get-AzureRmSubscription -ErrorAction Stop
+        }
     }
-}
+    catch
+    {
+        throw $_
+    }
+    foreach ($Subscription in $SubscriptionList)
+    {
+        Write-Verbose "Analyzing subscription: $($Subscription.Name)"
+        $null = Select-AzureRmSubscription -SubscriptionId $Subscription.Id
+
+        $vmStatus = Get-AzureRmVM -Status
+        foreach ($vmItem in $vmStatus)
+        {
+            [PSCustomObject]@{
+                            Subscription = $Subscription.Name
+                            ResourceGroup = $vmItem.ResourceGroupName 
+                            VM = $vmItem.Name
+                            NeedsUpdate = $vmItem.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed
+                            LastOperationMessage = $vmItem.MaintenanceRedeployStatus.LastOperationMessage
+                            }
+        } #end foreach vmItem in vmStatus
+
+    } #end foreach Subscription in SubscriptionList
+    $null = Set-AzureRmContext -Subscription ($InitialSubscription.Subscription)
+    $elapsed = (Get-Date) - $begin
+    Write-Verbose "Time elapsed: $elapsed"
+} #end function Get-VmMaintenanceIterator
 
 ```
 
