@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
