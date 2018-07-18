@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/17/2018
 ms.author: nberdy
 ---
 
@@ -41,7 +41,12 @@ The payload for method requests and responses is a JSON document up to 128 KB.
 ### Method invocation
 Direct method invocations on a device are HTTPS calls that comprise:
 
-* The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/`)
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * The POST *method*
 * *Headers* that contain the authorization, request ID, content type, and content encoding
 * A transparent JSON *body* in the following format:
@@ -58,6 +63,25 @@ Direct method invocations on a device are HTTPS calls that comprise:
     ```
 
 Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+
+#### Example
+
+See below for a barebone example using `curl`. 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### Response
 The back-end app receives a response that comprises:
