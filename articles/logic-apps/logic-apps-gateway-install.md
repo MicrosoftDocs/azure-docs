@@ -481,12 +481,13 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **Q**: What if I block outbound connections? What do I need to open? <br/>
 **A**: See the ports and hosts that the gateway uses.
 
-**Q**: What is the actual Windows service called?<br/>
-**A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
+**Q**: What is the actual Windows service called? <br/>
+**A**: In Services, the gateway's name is "On-premises data gateway service" 
+or "PBIEgwService" (Power BI Enterprise Gateway Service). The Windows service 
+uses "NT SERVICE\PBIEgwService" as the Service SID (SSID).
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
-**A**: No, the Windows service has to have a valid Windows account. By default, 
-the service runs with the Service SID, NT SERVICE\PBIEgwService.
+**A**: No, the Windows service must have a valid Windows account.
 
 ### Disaster recovery
 
