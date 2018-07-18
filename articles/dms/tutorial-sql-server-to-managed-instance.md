@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/12/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance using DMS

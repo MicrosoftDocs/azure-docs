@@ -68,7 +68,7 @@ Use the following steps to access the page where you can view and manage user st
 
 5. Confirm your selection in the pop-up window that opens. 
 
-After you enable users, notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. You can also include a link to the [Azure MFA end-user guide](end-user/current/multi-factor-authentication-end-user.md) to help them get started.
+After you enable users, notify them via email. Tell them that they'll be asked to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. You can also include a link to the [Azure MFA end-user guide](../user-help/multi-factor-authentication-end-user.md) to help them get started.
 
 ### Use PowerShell
 To change the user state by using [Azure AD PowerShell](/powershell/azure/overview), change `$st.State`. There are three possible states:

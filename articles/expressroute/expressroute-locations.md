@@ -93,7 +93,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Paris, Singapore, Washington DC |
 | **Internet2** |Supported |Supported |Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
-| **Internet Solutions - Cloud Connect** |Supported |Supported |Amsterdam, London |
+| **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported |Cape Town, Johannesburg, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Dublin, London, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Supported |Supported | Silicon Valley, Toronto |
 | **Jisc** |Supported |Supported |London |
@@ -102,7 +102,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Newport, Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supported |Supported |Busan, Seoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Supported |Supported |Cape Town, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Denver, Dublin, Hong Kong, Las Vegas, London, Los Angeles, Melbourne, Miami, New York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Denver, Dublin, Hong Kong, Las Vegas, London, Los Angeles, Melbourne, Miami, New York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Sydney, Toronto, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Supported |Supported |Dallas, Miami, Sao Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
