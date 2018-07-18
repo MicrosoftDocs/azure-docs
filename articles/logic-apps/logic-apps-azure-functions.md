@@ -13,7 +13,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Add and run custom code snippets in Azure Logic Apps with Azure Functions
+# Add and run custom code snippets in ALA with Azure Functions
 
 When you want to create and run only enough code 
 that addresses a specific problem in your logic apps, 
