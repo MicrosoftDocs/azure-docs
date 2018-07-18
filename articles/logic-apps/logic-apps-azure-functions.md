@@ -1,5 +1,4 @@
 ---
-# required metadata
 title: Add and run custom code in Azure Logic Apps with Azure Functions | Microsoft Docs
 description: Learn how to add and run custom code snippets in Azure Logic Apps with Azure Functions
 services: logic-apps
@@ -10,7 +9,6 @@ manager: jeconnoc
 ms.topic: article
 ms.date: 07/07/18
 
-# optional metatada
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
