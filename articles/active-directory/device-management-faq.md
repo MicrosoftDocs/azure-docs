@@ -99,6 +99,11 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 ---
 
+**Q: How to I connect to remote Azure AD Joined device?**
+**A:** Refer to the following article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc for details.
+
+---
+
 **Q: Why do I see duplicate device entries in Azure portal?**
 
 **A:**
