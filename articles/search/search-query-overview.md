@@ -1,23 +1,54 @@
 ---
-title: Queries in Azure Search | Microsoft Docs
+title: Basic query construction in Azure Search | Microsoft Docs
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+author: HeidiSteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 07/13/2018
 
 ---
-# Queries in Azure Search
-> [!div class="op_single_selector"]
-> * [Overview](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# Basic query construction in in Azure Search
+
+Query strings provide instructions that determine the type of query (term or phrase query), what parts of the index are searched, what to search for, and how to handle results. Syntactically, it's all of the name-value pairs in the other side of the **search=** parameter.
+
+ 
+
+
+## Scope
+
+Query execution is always against one index. You cannot join indexes or create custom or temporary data structures as a query target. 
+
+Query scope is primarily formulated on the query string. Unspecified, a query runs against all searchable fields. However, because the index schema is user-defined, you control through attributes whether fields are searchable, how text content is analyzed, . 
+
+## Query syntax: query string or JSON body on a GET command
+
+Interactive
+
+.NET
+
+REST
+
+## Code examples
+
+The following example functions and methods are derived from current samples.
+
+## Requirements
+
++ Service endpoint and index documents collection
++ API version
++ query or admin api-key
++ queryType (specifies the parser and associated syntax)
++ query string determines the type of query that occurs: full text, geo-search, fuzzy search
+
+
+## Query string examples
+
+
+
+## Original
 
 When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the [full-text search experience](search-lucene-query-architecture.md).
 
@@ -59,3 +90,9 @@ The best way to understand syntax differences is by submitting queries and revie
 + Use [Search explorer](search-explorer.md) in the Azure portal. By deploying [the sample index](search-get-started-portal.md), you can query the index in minutes using tools in the portal.
 
 + Use Telerik Fiddler or Chrome Postman to submit queries to an index that you have uploaded to your search service. Both tools support REST calls to an HTTP endpoint. 
+
+## See also
+
++ [Search explorer](search-explorer.md)
++ [How to query in .NET](search-query-dotnet.md)
++ [How to query in REST](search-query-rest-api.md)

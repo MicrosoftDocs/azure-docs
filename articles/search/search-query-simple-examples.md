@@ -47,7 +47,7 @@ As a verification step, paste the following request into GET and click **Send**.
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
-Results are returned as verbose JSON documents. 
+Results are returned as verbose JSON documents. The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
 
 Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (2802 in the case of NYC Jobs).
 
@@ -57,7 +57,7 @@ For interactive queries, you don't have to specify anything: simple is the defau
 
 ## Example 1: field-scoped query
 
-The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON reponse. For brevity, the query specifies only business titles are returned. 
+The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON reponse. For brevity, the query specifies only business titles are returned. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
@@ -70,6 +70,17 @@ Response for this query should look similar to the following screenshot.
   ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
 
 You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
+
+## Example 2: Lookup a specific document
+
+This example is a bit atypical, but when testing your indexing code, verification that a specific document is loaded in the index is a common requirement. The way to fully validate whether a document is indexed is to do a lookup by ID.
+
+```http
+ TBD
+ ```
+
+
+## Example 3: Em
 
 ## Next steps
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
