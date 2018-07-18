@@ -740,9 +740,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-howto-assign-access-powershell.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-how-to-use-vm-sdk.md",
@@ -780,6 +790,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-portal-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-qs-configure-portal-windows-vmss.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vmss",
             "redirect_document_id": true
@@ -790,6 +805,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-powershell-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-powershell-windows-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-qs-configure-sdk-windows-vm.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-sdk-windows-vm",
             "redirect_document_id": true
@@ -798,6 +818,11 @@
             "source_path": "articles/active-directory/msi-qs-configure-template-windows-vm.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vm",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-template-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-qs-configure-template-windows-vmss.md",
@@ -815,12 +840,27 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-nonaad.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage-sas.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": false
         },
@@ -835,9 +875,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-datalake.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-nonaad.md",
@@ -845,9 +895,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-sql.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-sql.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage-sas.md",
@@ -855,9 +915,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage-sas",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
@@ -24817,7 +24887,12 @@
         },
         {
             "source_path": "articles/active-directory/pp/index.md",
-            "redirect_url": "/azure/active-directory/pp/msi-tutorial-linux-vm-access-storage",
+            "redirect_url": "/azure/active-directory/managed-service-identity/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage",
             "redirect_document_id": false
         },
         {
@@ -26329,6 +26404,11 @@
             "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
             "redirect_document_id": false
-        }     
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+        "redirect_document_id": true
+        }       
     ]
 }
