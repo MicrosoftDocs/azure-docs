@@ -6,8 +6,8 @@ author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
-ms.topic: article
-ms.date: 07/11/2018
+ms.topic: conceptual
+ms.date: 07/18/2018
 ---
 
 # Azure Database for PostgreSQL migration partners
