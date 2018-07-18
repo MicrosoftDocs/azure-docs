@@ -93,6 +93,7 @@ To create a cloud endpoint, your user account must have the following Microsoft 
 The following built-in roles have the required Microsoft Authorization permissions:  
 * Owner
 * User Access Administrator
+
 To determine whether your user account role has the required permissions:  
 1. In the Azure portal, select **Resource Groups**.
 2. Select the resource group where the storage account is located, and then select **Access control (IAM)**.
@@ -191,10 +192,10 @@ PerItemErrorCount: 1006.
 ### How do I know if my servers are in sync with each other?
 # [Portal](#tab/portal1)
 For each server in a given sync group, make sure:
-1. The timestamps for the Last Attempted Sync for both upload and download are recent.
-2. The status is green for both upload and download.
-3. The Sync Activity field shows very few or no files remaining to sync.
-4. The Files Not Syncing field is 0 for both upload and download.
+- The timestamps for the Last Attempted Sync for both upload and download are recent.
+- The status is green for both upload and download.
+- The Sync Activity field shows very few or no files remaining to sync.
+- The Files Not Syncing field is 0 for both upload and download.
 
 # [Server](#tab/server)
 Look at the completed sync sessions, which are marked by 9102 events in the telemetry event log for each server (in the Event Viewer, go to `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 

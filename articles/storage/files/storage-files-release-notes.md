@@ -22,22 +22,22 @@ The following versions are supported for the Azure File Sync agent:
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
 | General availability | 3.1 | July 12, 2018 | Supported (recommended version) |
-| June update rollup | 3.0.13.0 | June 29, 2018 | Agent version will expire on 9/4/2018 |
-| Refresh 2 | 3.0.12.0 | May 22, 2018 | Agent version will expire on 9/4/2018 |
-| April update rollup | 2.3.0.0 | May 8, 2018 | Agent version will expire on 9/4/2018 |
-| March update rollup | 2.2.0.0 | March 12, 2018 | Agent version will expire on 9/4/2018 |
-| February update rollup | 2.1.0.0 | February 28, 2018 | Agent version will expire on 9/4/2018 |
-| Refresh 1 | 2.0.11.0 | February 8, 2018 | Agent version will expire on 9/4/2018 |
-| January update rollup | 1.4.0.0 | January 8, 2018 | Agent version will expire on 9/4/2018 |
-| November update rollup | 1.3.0.0 | November 30, 2017 | Agent version will expire on 9/4/2018 |
-| October update rollup | 1.2.0.0 | October 31, 2017 | Agent version will expire on 9/4/2018 |
-| Initial preview release | 1.1.0.0 | September 26, 2017 | Agent version will expire on 9/4/2018 |
+| June update rollup | 3.0.13.0 | June 29, 2018 | Agent version will expire on September 4, 2018 |
+| Refresh 2 | 3.0.12.0 | May 22, 2018 | Agent version will expire on September 4, 2018 |
+| April update rollup | 2.3.0.0 | May 8, 2018 | Agent version will expire on September 4, 2018 |
+| March update rollup | 2.2.0.0 | March 12, 2018 | Agent version will expire on September 4, 2018 |
+| February update rollup | 2.1.0.0 | February 28, 2018 | Agent version will expire on September 4, 2018 |
+| Refresh 1 | 2.0.11.0 | February 8, 2018 | Agent version will expire on September 4, 2018 |
+| January update rollup | 1.4.0.0 | January 8, 2018 | Agent version will expire on September 4, 2018 |
+| November update rollup | 1.3.0.0 | November 30, 2017 | Agent version will expire on September 4, 2018 |
+| October update rollup | 1.2.0.0 | October 31, 2017 | Agent version will expire on September 4, 2018 |
+| Initial preview release | 1.1.0.0 | September 26, 2017 | Agent version will expire on September 4, 2018 |
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Agent version 3.1
-The following release notes are for version 3.1 of the Azure File Sync agent (released July, 12 2018).
+The following release notes are for version 3.1 of the Azure File Sync agent (released July 12, 2018).
 
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
