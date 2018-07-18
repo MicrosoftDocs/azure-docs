@@ -135,7 +135,7 @@
     - name: Database backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
-      itmes:
+      items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
       - name: Configure long-term backup retention - SQL storage

@@ -109,6 +109,9 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
 
 1. Under the `resources` element, add the following entry to assign a user assigned identity to your VMSS.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
 
+   > [!Important]
+   > The `<USERASSIGNEDIDENTITYNAME>` value shown in the following example must be stored in a variable.  Also, for the currently supported implementation of assigning user assigned identities to a virtual machine in a Resource Manager template, the api version must match the version in the following example. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -117,7 +120,7 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 
