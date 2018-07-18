@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: ergreenl
 
 ---
@@ -93,7 +93,7 @@ The managed domain will only stay in a suspended state for a maximum of 15 days.
 You will see an [alert](active-directory-ds-troubleshoot-alerts.md) on the Azure AD Domain Services Health page in the Azure portal that declares the domain suspended. In addition, the state of the domain shows "Suspended".
 
 
-## How do I restore a suspended domain?
+## Restore a suspended domain?
 To restore a domain in the 'Suspended' state, complete the following steps:
 
 1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) on the Azure portal
@@ -103,10 +103,6 @@ To restore a domain in the 'Suspended' state, complete the following steps:
 5. Click on the resolution link provided in the alert and follow the steps to resolve the alert.
 
 Your domain can only be restored to the date of last backup. The date of your last backup is displayed on the Health page of your managed domain. Any changes that occurred after the last backup will not be restored. Backups for a managed domain are stored for up to 30 days. Backups older than 30 days are deleted.
-
-
-## Deleting domains
-If the domain is suspended for more than 15 days, Azure AD Domain Services deletes the managed domain due to inactivity and the inability to service the domain. You will no longer be billed for Azure AD Domain Services. At this point, you cannot restore your managed domain and need to recreate it.
 
 
 ## Next steps
