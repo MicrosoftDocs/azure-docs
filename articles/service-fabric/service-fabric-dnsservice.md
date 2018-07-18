@@ -20,7 +20,15 @@ ms.author: msfussell
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
 
-Many services, especially containerized services, can have an existing URL name, and being able to resolve them using the standard DNS protocol (rather than the Naming Service protocol) is desirable, particularly in "lift and shift" scenarios. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. 
+Many services, especially containerized services, can addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol (rather than the Service Fabric Naming Service protocol) is desirable. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portablity of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service. 
+
+Beginning with version 6.3 and later, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. It is now possible to resolve specific partition IP address using a combination of stateful service DNS name and the partition name.  Now all three partitioning schemes are supported for DNS names:
+
+- Named partitioning
+- Ranged partitioning
+- Singleton partitioning
+
+You can now use the DNS service to provide the same kind of portability to your stateful Service Fabric services as was previously available to stateless services. 
 
 The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation.
 
