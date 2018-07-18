@@ -36,9 +36,9 @@ If the Azure File Sync agent installation fails, at an elevated command prompt, 
 StorageSyncAgent.msi /l*v AFSInstaller.log
 ```
 
-Review installer.log to determine the cause of the installation failure. 
+Review installer.log to determine the cause of the installation failure.
 
-<a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller** 
+<a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
 If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
@@ -130,6 +130,9 @@ Set-AzureRmStorageSyncServerEndpoint `
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
+<a id="serverendpoint-pending"></a>**Server endpoint health is in a pending state for several hours**  
+This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change enumeration job that scans for changes in the Azure file share must complete before files can sync between the cloud and server endpoints. The time to complete the job is dependent on the size of the namespace in the Azure file share. The server endpoint health should update once the change enumeration job completes.
+
 ### <a id="broken-sync"></a>How do I monitor sync health?
 # [Portal](#tab/portal1)
 Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If this is not the case, see below for a list of common sync errors and how to handle files that are not syncing. 
@@ -217,7 +220,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
@@ -430,7 +433,17 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error commonly occurs because the server time is incorrect. If the server's time is correct, create a support request and we will contact you to help you resolve this issue.
+This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to delete the expired certificate (if expired) and reset the server registration state:
+
+1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
+2. Delete the client authentication certificate if expired and close the Certificates MMC snap-in.
+3. Open Regedit and delete the ServerSetting key in the registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
+4. Run the following PowerShell commands on the server:
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+5. Re-register the server by running ServerRegistration.exe (the default location is C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 | | |
@@ -459,11 +472,6 @@ This error occurs because there are changes on the Azure file share directly and
 
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
-> [!NOTE]
-> Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
-    
-Azure File Sync currently does not support resource move to another subscription or, moving to a different Azure AD tenant. If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be reused) and recreate the sync group.
-
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Sync failed due to problems with many individual files.**  
 | | |
 |-|-|
@@ -483,6 +491,9 @@ Azure File Sync currently does not support resource move to another subscription
 | **Remediation required** | Yes |
 
 In cases where there are many per file sync errors, sync sessions may begin to fail. To troubleshoot this state, see [Troubleshooting per file/directory sync errors](#troubleshooting-per-file-directory-sync-errors).
+
+> [!NOTE]
+> Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
 
 <a id="-2134376423"></a>**Sync failed due to a problem with the server endpoint path.**  
 | | |
@@ -727,10 +738,32 @@ There are two main classes of failures that can happen via either failure path:
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
+<a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**
+
+To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
+
+Event ID 9002 provides ghosting statistics for a server endpoint. For example, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+
+Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
+
+Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
+
+Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
+
+<a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**
+
+To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
+
+Event ID 9005 provides recall reliability for a sever endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+
+Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
+
+Event ID 9007 provides recall performance for a sever endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:
 
-1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code).
+1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
     1. Verify the files exist in the Azure file share.
 
     > [!NOTE]
@@ -740,14 +773,20 @@ If files fail to tier to Azure Files:
     3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
+> [!NOTE]
+> An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
+
 <a id="files-fail-recall"></a>**Troubleshoot files that fail to be recalled**  
 If files fail to be recalled:
-1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code).
+1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
     1. Verify the files exist in the Azure file share.
     2. Verify the server has internet connectivity. 
     3. Open the Services MMC snap-in and verify the Storage Sync Agent service (FileSyncSvc) is running.
     4. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
+
+> [!NOTE]
+> An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
 
 <a id="files-unexpectedly-recalled"></a>**Troubleshoot files unexpectedly recalled on a server**  
 Antivirus, backup, and other applications that read large numbers of files cause unintended recalls unless they respect the skip offline attribute and skip reading the content of those files. Skipping offline files for products that support this option helps avoid unintended recalls during operations like antivirus scans or backup jobs.
