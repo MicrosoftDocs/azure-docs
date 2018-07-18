@@ -6,14 +6,15 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+
 ms.topic: article
 ms.date: 07/07/18
-
 ms.reviewer: klam, LADocs
 ms.suite: integration
+
 ---
 
-# Run custom code snippets in ALA with AzureFunctions
+# Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
 When you want to create and run only enough code 
 that addresses a specific problem in your logic apps, 
