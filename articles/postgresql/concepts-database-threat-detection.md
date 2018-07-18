@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 07/18/2018
 ms.author: mbolz
 
 ---
@@ -34,4 +34,4 @@ Advanced Threat Detection for Azure Database for PostgreSQL detects anomalous ac
 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * For more information on pricing, see the [Azure Database for PostgreSQL Pricing page](https://azure.microsoft.com/en-us/pricing/details/postgresql/) 
-* Configure [Azure Database for PostgreSQL Advanced Threat Detection]() using the Azure portal  
+* Configure [Azure Database for PostgreSQL Advanced Threat Detection](howto-database-threat-detection-using-portal.md) using the Azure portal  
