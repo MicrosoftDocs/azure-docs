@@ -249,6 +249,12 @@ featureFlags:
                                                             Ansible
                                                         </a>
                                                     </li>
+													<li>
+                                                        <a class="barLink" href="/azure/devops-project/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Azure DevOps Project
+                                                        </a>
+                                                    </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/chef">
                                                             <img src="chef/media/Chef_Regular.svg" alt="">
