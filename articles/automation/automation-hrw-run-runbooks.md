@@ -159,7 +159,7 @@ Jobs are handled slightly different on Hybrid Runbook Workers than they are when
 Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to setup your Hybrid Runbook Workers to run signed runbooks and how to sign your runbooks.
 
 > [!NOTE]
-> Once you have configured the Hybrid Runbook workers to run signed runbooks, runbooks that have **not** been signed will fail to execute.
+> Once you have configured a Hybrid Runbook Worker to run only signed runbooks, runbooks that have **not** been signed will fail to execute on the worker.
 
 ### Create Signing Certificate
 
