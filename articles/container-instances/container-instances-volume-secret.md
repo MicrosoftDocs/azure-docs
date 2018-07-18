@@ -13,16 +13,12 @@ ms.author: marsma
 
 # Mount a secret volume in Azure Container Instances
 
-Learn how to mount a *secret* volume in your container instances. Store and retrieve sensitive data in your containers without putting it into your application code.
-
-> [!NOTE]
-> Mounting a *secret* volume is currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
-
-## secret volume
-
-Use a *secret* volume to supply sensitive information to the containers in a container group. The *secret* volume stores your secrets in files within the volume, accessible by the containers in the container group. By using secrets in a *secret* volume, you can avoid adding sensitive data like SSH keys or database credentials to your application code.
+Use a *secret* volume to supply sensitive information to the containers in a container group. The *secret* volume stores your secrets in files within the volume, accessible by the containers in the container group. By storing secrets in a *secret* volume, you can avoid adding sensitive data like SSH keys or database credentials to your application code.
 
 All *secret* volumes are backed by [tmpfs][tmpfs], a RAM-backed filesystem; their contents are never written to non-volatile storage.
+
+> [!NOTE]
+> *Secret* volumes are currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## Mount secret volume - Azure CLI
 
