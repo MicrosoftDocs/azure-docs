@@ -89,7 +89,11 @@ A: Encryption is enabled by default, and there is no provision to disable encryp
 
 **Q: Is Storage Service Encryption permitted only in specific regions?**
 
-A: Storage Service Encryption is available in all regions for all services. 
+A: Storage Service Encryption is available in all regions for all services.
+
+**Q: Is Storage Service Encryption FIPS 140-2 compliant?**
+
+A: Yes, Storage Service Encryption is FIPS 140-2 compliant.
 
 **Q: How do I contact someone if I have any problems or want to provide feedback?**
 

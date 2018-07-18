@@ -537,11 +537,11 @@ The following steps assume that you have a repository called **lightbulb** in yo
 
     The scripts added the **testing** tag to the image.
 
-1. Use SSH to connect to your solution's virtual machine in Azure. Then navigate to the **App** folder and edit the **docker-compose.yaml** file:
+1. Use SSH to connect to your solution's virtual machine in Azure. Then navigate to the **App** folder and edit the **docker-compose.yml** file:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Edit the entry for the device simulation service to use your docker image:

@@ -2,8 +2,8 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: How to search for an address using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to search for an address using the Azure Maps Search service
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -41,7 +41,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/maps/searchservice/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 

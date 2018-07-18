@@ -94,7 +94,7 @@ Create a new Event Source to connect to your IoT hub. Make sure that you use the
 1. Click **Create**.
 
 > [!NOTE]
-> If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
+> If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## Time Series Insights Explorer
 
@@ -140,4 +140,4 @@ The Time Series Insights explorer is a web app that helps you create visualizati
 
 ## Next Steps
 
-To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-dashboard.png).
+To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

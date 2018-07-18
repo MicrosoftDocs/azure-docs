@@ -5,10 +5,10 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for out organization.
+#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
 
 ---
 # What is Azure Analysis Services?
@@ -68,39 +68,41 @@ This tier is for mission-critical production applications that require elastic u
 
 ## Availability by region
 
-Azure Analysis Services is supported in regions throughout the world. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in several regions. Supported tiers and query replicas depend on the region you choose. 
+Azure Analysis Services is supported in regions throughout the world. Supported plans and query replica availability depend on the region you choose. Plan and query replica availability can change depending on need and available resources for each region. 
 
 ### Americas
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|East US 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|East US 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|West US     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|West US2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|West US     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|West US2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### Europe
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
-|North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|West Europe     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|West Europe     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### Asia Pacific 
 
-|Region  | Supported tiers | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* S8, S9 plans in the Standard tier support one query replica.
 
 ## Scale to your needs
 
@@ -112,7 +114,7 @@ Go up, down, or pause your server. Use the Azure portal or have total control on
 
 With scale out, client queries are distributed among multiple *query replicas* in a query pool. Query replicas have synchronized copies of your tabular models. By spreading the query workload, response times during high query workloads can be reduced. Model processing operations can be separated from the query pool, ensuring client queries are not adversely affected by processing operations. 
 
-You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
+You can create a query pool with up to seven additional query replicas (eight total, including your server). The number of query replicas you can have in your pool depend on your chosen plan and region. Query replicas cannot be spread outside your server's region. Query replicas are billed at the same rate as your server.
 
 Just like with changing tiers, you can scale out query replicas according to your needs. Configure scale out in the portal or by using REST APIs. To learn more, see [Azure Analysis Services scale out](analysis-services-scale-out.md).
 

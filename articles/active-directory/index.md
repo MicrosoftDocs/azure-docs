@@ -129,7 +129,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Apps</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">App management</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">App discovery</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">App migration</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise apps</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Access to apps</a>
                         </p>

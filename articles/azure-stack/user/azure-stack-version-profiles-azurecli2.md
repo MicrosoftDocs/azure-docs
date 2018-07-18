@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
 ---
 # Use API version profiles with Azure CLI 2.0 in Azure Stack
 
-You can follow the steps in this article to set up the the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit resources from Linux, Mac, and Windows client platforms.
+You can follow the steps in this article to set up the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit resources from Linux, Mac, and Windows client platforms.
 
 ## Install CLI
 
@@ -52,7 +52,7 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### Set the path for a development machine outside the cloud
 
-If you are running CLI from a machine **outside** the Azure Sack environment:  
+If you are running CLI from a machine **outside** the Azure Stack environment:  
 
 1. You must set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md).
 

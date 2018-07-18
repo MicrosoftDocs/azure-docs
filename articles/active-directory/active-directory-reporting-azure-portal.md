@@ -109,7 +109,7 @@ If you want to know more about the various report types in Azure Active Director
 - [Audit logs report](active-directory-reporting-activity-audit-logs.md)
 - [Sign-ins logs report](active-directory-reporting-activity-sign-ins.md)
 
-If you want to know more about accessing the the reporting data using the reporting API, see: 
+If you want to know more about accessing the reporting data using the reporting API, see: 
 
 - [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
 

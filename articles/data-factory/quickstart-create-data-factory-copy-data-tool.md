@@ -16,16 +16,13 @@ ms.author: jingwang
 ---
 # Use the Copy Data tool to copy data 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Version 2 - Preview](quickstart-create-data-factory-copy-data-tool.md)
+> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Current version](quickstart-create-data-factory-copy-data-tool.md)
 
 In this quickstart, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from a folder in Azure Blob storage to another folder. 
 
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
->
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the service, which is in general availability (GA), see [Get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -48,7 +45,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
    - Select **Create new**, and enter the name of a resource group.   
          
    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. For **Version**, select **V2 (Preview)**.
+4. For **Version**, select **V2**.
 5. For **Location**, select the location for the data factory. 
 
    The list shows only supported locations. The data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can be in other locations/regions.
@@ -81,7 +78,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
     ![Select blob storage from gallery](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. On the **Specify the Azure Blob storage account** page, select your storage account from the **Storage account name** list, and then select **Next**. 
+    c. On the **Specify the Azure Blob storage account** page, select your storage account from the **Storage account name** list, and then select **Finish**. 
 
    ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 

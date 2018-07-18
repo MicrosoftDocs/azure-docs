@@ -50,7 +50,7 @@ This solution doesn't support an Operations Management Suite (OMS) Agent for Lin
 
 In the Azure portal, open your Automation account, and then select **Update management**.
 
-Select **Add Azure VM**.
+Select **Add Azure VMs**.
 
 ![Add Azure VM tab](./media/manage-update-multi/update-onboard-vm.png)
 

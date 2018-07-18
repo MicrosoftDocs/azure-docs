@@ -57,7 +57,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 
 ## Set up the template 
-A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Publish the template to public to make instances of the template VM available to your lab users. 
+A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Publish the template to make instances of the template VM available to your lab users. 
 
 ### Set title and description
 1. In the **Template** section, select **Edit** (pencil icon) for the template. 
@@ -92,8 +92,8 @@ When you publish a template, Azure Lab Services creates VMs in the lab by using 
 2. Now, select the **Publish** button. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
     
     > [!IMPORTANT]
-    > Once a template is publicly available, its access can't be changed to private. 
-4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
+    > Once a template is published, it can't be unpublished. 
+4. Switch to the **Virtual machines** page, and confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 

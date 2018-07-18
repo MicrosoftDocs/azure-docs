@@ -39,7 +39,7 @@ As you develop code for your service, and before you're ready to check it in, co
 > [!Note]
 > Before you proceed, close all VS Code windows for both services, and then run `azds up -d` in each of the service's root folders. (This is a Preview limitation.)
 
-Let's take a closer look at where the services are currently running. Run the `azds list` command, and you'll see output similar to the following:
+Let's take a closer look at where the services are currently running. Run the `azds list-up` command, and you'll see output similar to the following:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
@@ -50,13 +50,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 The Space column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
 
-### Create a space
+### Create a dev space
 To run your own version of `mywebapi` in a space other than `default`, you can create your own space by using the following command:
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+When prompted, select `default` as the **parent dev space**. This means our new space, `default/scott`, will derive from the space `default`. We'll shortly see how this will help us with testing. 
 
 In the example above, I've used my name for the new space so that it is identifiable to my peers that it's the space I'm working in, but you can call it anything you like and be flexible about what it means, like 'sprint4' or 'demo.'
 
-Run the `azds space list` command to see a list of all the spaces in the dev environment. An asterisk (*) appears next to the currently selected space. In your case, the space named 'scott' was automatically selected when it was created. You can select another space at any time with the `azds space select` command.
+Run the `azds space list` command to see a list of all the spaces in the dev environment. An asterisk (*) appears next to the currently selected space. In your case, the space named 'default/scott' was automatically selected when it was created. You can select another space at any time with the `azds space select` command.

@@ -17,8 +17,9 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-
+ms.reviewer: elisol
 ---
+
 # Azure Active Directory developer glossary
 This article contains definitions for some of the core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
 

@@ -87,7 +87,7 @@ When you configure both SSTP and IKEv2 in a mixed environment (consisting of Win
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
-Azure supports only Windows and Mac for P2S VPN.
+Azure supports Windows, Mac and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 

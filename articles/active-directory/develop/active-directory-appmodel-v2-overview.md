@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-
 ---
+
 # Sign in Microsoft Account and Azure Active Directory users in a single application
 In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory had to integrate with two separate systems. The Azure Active Directory (Azure AD) v2.0 endpoint introduces a new authentication API version that simplifies this process. The Azure AD v2.0 endpoint enables sign-in from both types of accounts by using a single integration. Applications that use the Azure AD v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
 

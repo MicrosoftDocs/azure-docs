@@ -160,7 +160,7 @@ The following gets contextual examples of how to use a term in the dictionary us
 
 1. Create a new Node.js project in your favorite code editor.
 2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
+3. Replace the `subscriptionKey` value with an access key valid for your subscription.
 4. Run the program.
 
 ```javascript

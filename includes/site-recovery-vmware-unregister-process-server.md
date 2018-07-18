@@ -12,7 +12,7 @@ The steps to unregister a process server differs depending on its connection sta
 > [!WARNING]
 > Use the below steps should be used if there is no way to revive the virtual machine on which the Process Server was installed.
 
-1. Log on to your configuration server as an Administrator.
+1. Sign in to your configuration server as an Administrator.
 2. Open an Administrative command prompt and browse to the directory `%ProgramData%\ASR\home\svsystems\bin`.
 3. Now run the command.
 

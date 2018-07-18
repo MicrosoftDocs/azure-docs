@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Run a streaming job
       href: apache-spark-eventhub-streaming.md
-    - name: Ceate a machine learning application
+    - name: Create a machine learning app
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Create a spark application using IntelliJ
+    - name: Create a spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: How to
   items:
@@ -159,9 +159,6 @@
         maintainContext: true
       - name: Use Hue
         href: ../hdinsight-hadoop-hue-linux.md
-        maintainContext: true
-      - name: Use R
-        href: ../hdinsight-hadoop-r-scripts-linux.md
         maintainContext: true
       - name: Use Solr
         href: ../hdinsight-hadoop-solr-install-linux.md
@@ -426,6 +423,10 @@
     - name: Release notes
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+      - name: Archived release notes
+        href: ../hdinsight-release-notes-archive.md
+        maintainContext: true
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
     - name: Get help on the forum

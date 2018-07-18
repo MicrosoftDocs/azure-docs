@@ -84,7 +84,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 2. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
+    Replace the value of the `s_connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.cs** file.
 
 3. In the terminal window, run the following commands to install the required packages for simulated device application:
 
@@ -112,9 +112,9 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of previously. |
-    | `eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of previously. |
-    | `iotHubSasKey`                | Replace the value of the variable with the iothubowner primary key you made a note of previously. |
+    | `s_eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of previously. |
+    | `s_eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of previously. |
+    | `s_iotHubSasKey`                | Replace the value of the variable with the iothubowner primary key you made a note of previously. |
 
 3. In the terminal window, run the following commands to install the required libraries for the back-end application:
 

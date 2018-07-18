@@ -60,7 +60,7 @@ You inspect details of the test result in the **Inspect** panel.
 
 ## View sentiment results
 
-If **Sentiment analysis** is configured on the **[Publish](publishapp.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
 ![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -124,5 +124,5 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

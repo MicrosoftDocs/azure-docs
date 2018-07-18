@@ -3,18 +3,19 @@ title: Install the application access panel browser extension - Azure | Microsof
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/4/18
-ms.author: asteen
-ms.reviewer: japere
+ms.author: barbkess
+ms.reviewer: japere,asteen
 ---
 
 # Install the access panel browser extension

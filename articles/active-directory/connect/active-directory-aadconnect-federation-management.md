@@ -4,7 +4,7 @@ description: AD FS management with Azure AD Connect and customization of user AD
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 
@@ -184,7 +184,7 @@ The following sections provide details about some of the common tasks that you m
 To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
 > [!NOTE]
-> The recommended dimensions for the logo are 260 x 35 @ 96 dpi with a file size no greater than 10 KB.
+> The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
@@ -241,31 +241,8 @@ In this rule, you're simply checking the temporary flag **idflag**. You decide w
 > The sequence of these rules is important.
 
 ### SSO with a subdomain UPN
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain). You must modify the user principal name (UPN) claim so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
 
-By default, the claim rule for issuer ID is set as:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Default issuer ID claim](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-The default rule simply takes the UPN suffix and uses it in the issuer ID claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD. The default issuer ID claim rule in AD FS handles it in the following manner:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Claim value:**  http://sub.contoso.com/adfs/services/trust/
-
-To have only the root domain in the issuer claim value, change the claim rule to match the following:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect version 1.1.553.0 and latest creates the correct claim rule for issuerID automatically. If you cannot use Azure AD Connect version 1.1.553.0 or latest, it is recommended that [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool is used to generate and set correct claim rules for the Azure AD relying party trust.
 
 ## Next steps
 Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md).

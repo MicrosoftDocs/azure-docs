@@ -4,8 +4,8 @@ description: How to set up continuous deployment from a Docker container registr
 keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
+ms.date: 06/29/2018
+ms.author: msangapu
 
 ---
 # Continuous deployment with Web App for Containers
@@ -50,7 +50,7 @@ Obtain the webhook URL by using [Azure CLI](https://docs.microsoft.com/cli/azure
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-For the webhook URL, you need the following endpoint: 
+Make a note of the webhook URL. You'll need it in the next section.
 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 You can obtain your `publishingusername` and `publishingpwd` by downloading the web app publish profile using the Azure portal.
@@ -59,29 +59,10 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 
 ## Add a webhook
 
-### Azure Container Registry
+To add a webhook, follow the steps in these guides:
 
-1. On your registry portal page, select **Webhooks**.
-2. To create a new webhook, select **Add**. 
-3. In the **Create webhook** pane, give your webhook a name. For the webhook URI, provide the URL obtained in the preceding section.
-
-Make sure you define the scope as the repo that contains your container image.
-
-![Screenshot of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-When you update the image, the web app is updated automatically with the new image.
-
-### Docker Hub
-
-On your Docker Hub page, select **Webhooks**, and then **CREATE A WEBHOOK**.
-
-![Screenshot of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-For the webhook URL, provide the URL that you obtained earlier.
-
-![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-When you update the image, the web app is updated automatically with the new image.
+- [Azure Container Registry](../../container-registry/container-registry-webhook.md) using the webhook URL
+- [Webhooks for Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
 
 ## Next steps
 

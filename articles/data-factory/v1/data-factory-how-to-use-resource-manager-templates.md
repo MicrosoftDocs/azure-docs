@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Use templates to create Azure Data Factory entities
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). 
+> This article applies to version 1 of Data Factory. 
 
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.

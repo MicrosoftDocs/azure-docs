@@ -84,7 +84,7 @@ You can also create a node.js webhook function from the designer.
 First, select **Azure Functions in my Region,** 
 and then choose a container for your function. 
 If you don't yet have a container, you need to create one from the 
-[Azure Functions portal](https://functions.azure.com/signin). 
+[Azure Functions portal](https://functions.azure.com/). 
 Then select **Create New**.  
 
 To generate a template based on the data that you want to compute, 

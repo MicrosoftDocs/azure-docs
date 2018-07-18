@@ -3,17 +3,18 @@ title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -86,4 +87,4 @@ Once you complete Self-service application configuration, users can navigate to 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approver access to the application.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+[Setting up Azure Active Directory for self-service group management](users-groups-roles/groups-self-service-management.md)
