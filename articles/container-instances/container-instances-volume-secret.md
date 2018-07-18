@@ -110,11 +110,17 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## Next steps
 
+### Volumes
+
 Learn how to mount other volume types in Azure Container Instances:
 
 * [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md)
 * [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md)
 * [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md)
+
+### Secure environment variables
+
+Another method for providing sensitive information to containers (including Windows containers) is through the use of [secure environment variables](container-instances-environment-variables.md#secure-values).
 
 <!-- LINKS - External -->
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs
