@@ -26,8 +26,7 @@ You have passwords, connection strings, and other pieces of information that are
 
 Key Vault allows you to create multiple secure containers, called vaults. These vaults are backed by hardware security modules (HSMs). Vaults help reduce the chances of accidental loss of security information by centralizing the storage of application secrets. Key Vaults also control and log the access to anything stored in them. Azure Key Vault can handle requesting and renewing Transport Layer Security (TLS) certificates, providing the features required for a robust certificate lifecycle management solution.
 
- Azure Key vault is designed to support application keys and secrets. Key Vault is not intended to be used as a store for user passwords.
-
+ Azure Key vault is designed to support any type of secret. By this we mean Key Vault can be used to store passwords, database credentials, API keys and certificates which can be either software protected or HSM protected
 ## Why use Azure Key Vault?
 
 ### Centralize application secrets
