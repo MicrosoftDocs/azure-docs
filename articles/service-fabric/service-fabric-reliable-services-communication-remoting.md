@@ -62,7 +62,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
+     return this.CreateServiceRemotingInstanceListeners();
     }
 }
 ```
@@ -101,7 +101,13 @@ If transient exceptions occur, the proxy retries the call.
 
 Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
-You can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
+Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
+User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
+
+## How to use Remoting V2 stack
+With 2.8 NuGet Remoting package, you have the option to use Remoting V2 stack. Remoting V2 stack is more performant and provides features like custom serialization and more pluggable Api's.
+By default, if you don't do following changes, it continues to use Remoting V1 Stack.
+Remoting V2 is not compatible with V1(previous Remoting stack), so follow below article on how to upgrade from V1 to V2 without impacting service availability.
 
 ## How to use the Remoting V2 stack
 
@@ -137,7 +143,7 @@ These steps change template code to use the V2 Stack using an assembly attribute
 3. Mark the assembly containing the remoting interfaces with a `FabricTransportServiceRemotingProvider` attribute.
 
   ```csharp
-  [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
+  [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 No code changes are required in the client project.
@@ -187,7 +193,7 @@ These steps change template code to use the V2 Stack using explicit V2 classes.
 ## How to upgrade from Remoting V1 to Remoting V2.
 In order to upgrade from V1 to V2, 2-step upgrades are required. Following steps to be executed in the sequence listed.
 
-1. Upgrade the V1 Service to V2 Service by using CompactListener Attribute.
+1. Upgrade the V1 Service to V2 Service by using below Attribute.
 This change makes sure that service is listening  on V1 and V2 Listener.
 
     a)  Add an Endpoint Resource with name as "ServiceEndpointV2" in the service manifest.
@@ -208,9 +214,9 @@ This change makes sure that service is listening  on V1 and V2 Listener.
     }
     ```
 
-    c)  Add Assembly Attribute on Remoting Interfaces to use CompatListener and V2 Client.
+    c)  Add Assembly Attribute on Remoting Interfaces to use V1 and V2 Listener and V2 Client.
     ```csharp
-    [assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.CompatListener, RemotingClient = RemotingClient.V2Client)]
+    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2|RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2)]
 
       ```
 2. Upgrade the V1 Client to  V2 Client by using V2 Client Attribute.
@@ -221,156 +227,288 @@ No Change in Client Project/Service is required. Building Client projects with u
 This step makes sure that service is listening only on V2 Listener.
 
 ```csharp
-[assembly: FabricTransportServiceRemotingProvider(RemotingListener = RemotingListener.V2Listener, RemotingClient = RemotingClient.V2Client)]
+[assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
 ```
 
-## How to use Custom Serialization with Remoting V2.
-Following example uses Json Serialization with Remoting V2.
+
+## How to use Remoting V2(InterfaceCompatible) stack
+ Remoting V2(InterfaceCompatible aka V2_1) stack has all the features of V2 Remoting stack besides it is interface compatible stack to Remoting V1 stack but is not backward compatible with V2 and V1. In order to do the upgrade from V1 to V2_1 without impacting service availability, follow below article[how to upgrade from V1 to V2(InterfaceCompatible)](#how-to-upgrade-from-remoting-v1-to-remoting-v2(InterfaceCompatible)).
+
+
+### Using Assembly Attribute to use Remoting V2(InterfaceCompatible) stack.
+
+Here are the steps to follow to change to V2_1 Stack.
+
+1. Add an Endpoint Resource with name as "ServiceEndpointV2_1" in the service manifest.
+
+  ```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpointV2_1" />  
+    </Endpoints>
+  </Resources>
+  ```
+
+2.  Use Remoting Extension Method to create Remoting Listener.
+
+  ```csharp
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return this.CreateServiceRemotingInstanceListeners();
+    }
+  ```
+
+3.  Add [Assembly Attribute](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on Remoting Interfaces.
+
+  ```csharp
+ 	[assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
+
+  ```
+No Changes are required in Client Project.
+Build the  Client assembly with interface assembly, to makes sure that above assembly attribute is being used.
+
+### Using Explicit Remoting Classes to create Listener/ ClientFactory for V2(InterfaceCompatible) version.
+Here are the steps to follow.
+1.  Add an Endpoint Resource with name as "ServiceEndpointV2_1" in the service manifest.
+
+  ```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpointV2_1" />  
+    </Endpoints>
+  </Resources>
+  ```
+
+2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2_1" and must be defined in Service Manifest.
+
+  ```csharp
+  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return new[]
+        {
+            new ServiceInstanceListener((c) =>
+            {
+                var settings = new FabricTransportRemotingListenerSettings();
+                settings.UseWrappedMessage = true;
+                return new FabricTransportServiceRemotingListener(c, this,settings);
+
+            })
+        };
+    }
+  ```
+
+3. Use V2 [Client Factory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+  ```csharp
+  var proxyFactory = new ServiceProxyFactory((c) =>
+          {
+            var settings = new FabricTransportRemotingSettings();
+            settings.UseWrappedMessage = true;
+            return new FabricTransportServiceRemotingClientFactory(settings);
+          });
+  ```
+
+## How to upgrade from Remoting V1 to Remoting V2(InterfaceCompatible).
+In order to upgrade from V1 to V2(InterfaceCompatible aka V2_1), 2-step upgrades are required. Following steps to be executed in the sequence listed.
+
+1. Upgrade the V1 Service to V2_1 Service by using following Attribute.
+This change makes sure that service is listening  on V1 and V2_1 Listener.
+
+    a)  Add an Endpoint Resource with name as "ServiceEndpointV2_1" in the service manifest.
+      ```xml
+      <Resources>
+        <Endpoints>
+          <Endpoint Name="ServiceEndpointV2_1" />  
+        </Endpoints>
+      </Resources>
+      ```
+
+    b)  Use Following Extension Method to Create Remoting Listener.
+
+    ```csharp
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return this.CreateServiceRemotingInstanceListeners();
+    }
+    ```
+
+    c)  Add Assembly Attribute on Remoting Interfaces to use V1,V2_1 Listener and V2_1 Client.
+    ```csharp
+   [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
+
+      ```
+2. Upgrade the V1 Client to  V2_1 Client by using V2_1 Client Attribute.
+This step makes sure Client is using V2_1 stack.
+No Change in Client Project/Service is required. Building Client projects with updated interface assembly is sufficient.
+
+3. This step is optional. Remove V1 Listener Version from Attribute and then Upgrade the V2 Service.
+This step makes sure that service is listening only on V2 Listener.
+
+```csharp
+[assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1, RemotingClientVersion = RemotingClientVersion.V2_1)]
+```
+
+### How to use Custom Serialization with Remoting Wrapped Message.
+In Remoting Wrapped Message , we create single wrapped object with all the parameters as a field in it.
+Here are the steps :
+
 1. Implement IServiceRemotingMessageSerializationProvider interface to provide implementation for custom serialization.
     Here is the code-snippet on how implementation looks like.
 
- ```csharp
-    public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
+```csharp
+  public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
     {
-        public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType,
-            IEnumerable<Type> requestBodyTypes)
-        {
-            return new ServiceRemotingRequestJsonMessageBodySerializer(serviceInterfaceType, requestBodyTypes);
-        }
-
-        public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType,
-            IEnumerable<Type> responseBodyTypes)
-        {
-            return new ServiceRemotingResponseJsonMessageBodySerializer(serviceInterfaceType, responseBodyTypes);
-        }
-
         public IServiceRemotingMessageBodyFactory CreateMessageBodyFactory()
         {
             return new JsonMessageFactory();
+        }
+
+        public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType, IEnumerable<Type> requestWrappedType, IEnumerable<Type> requestBodyTypes = null)
+        {
+            return new ServiceRemotingRequestJsonMessageBodySerializer();
+        }
+
+        public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType, IEnumerable<Type> responseWrappedType, IEnumerable<Type> responseBodyTypes = null)
+        {
+            return new ServiceRemotingResponseJsonMessageBodySerializer();
         }
     }
 
     class JsonMessageFactory : IServiceRemotingMessageBodyFactory
     {
-        public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName,
-            int numberOfParameters)
+
+        public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName, int numberOfParameters, object wrappedRequestObject)
         {
-            return new JsonRemotingRequestBody();
+            return new JsonBody(wrappedRequestObject);
         }
 
-        public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName)
+        public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName, object wrappedRequestObject)
         {
-            return new JsonRemotingResponseBody();
+            return new JsonBody(wrappedRequestObject);
         }
     }
 
     class ServiceRemotingRequestJsonMessageBodySerializer : IServiceRemotingRequestMessageBodySerializer
     {
-        public ServiceRemotingRequestJsonMessageBodySerializer(Type serviceInterfaceType,
-            IEnumerable<Type> parameterInfo)
+        private JsonSerializer serializer;
+
+        public ServiceRemotingRequestJsonMessageBodySerializer()
         {
+            serializer = JsonSerializer.Create(new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            });
         }
 
-        public OutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
+        public IOutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
         {
             if (serviceRemotingRequestMessageBody == null)
             {
                 return null;
             }
 
-            var writeStream = new MemoryStream();
-            var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream));
 
-            var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+            using (var writeStream = new MemoryStream())
             {
-                TypeNameHandling = TypeNameHandling.All
-            });
-            serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
+                using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
+                {
+                    serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
+                    jsonWriter.Flush();
+                    var bytes = writeStream.ToArray();
+                    var segment = new ArraySegment<byte>(bytes);
+                    var segments = new List<ArraySegment<byte>> { segment };
+                    return new OutgoingMessageBody(segments);
+                }
+            }
 
-            jsonWriter.Flush();
-            var segment = new ArraySegment<byte>(writeStream.ToArray());
-            var segments = new List<ArraySegment<byte>> { segment };
-            return new OutgoingMessageBody(segments);
         }
 
-        public IServiceRemotingRequestMessageBody Deserialize(IncomingMessageBody messageBody)
+        public IServiceRemotingRequestMessageBody Deserialize(IIncomingMessageBody messageBody)
         {
             using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
-            using (JsonReader reader = new JsonTextReader(sr))
             {
-                var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+                using (JsonReader reader = new JsonTextReader(sr))
                 {
-                    TypeNameHandling = TypeNameHandling.All
-                });
-
-                return serializer.Deserialize<JsonRemotingRequestBody>(reader);
+                    var ob = serializer.Deserialize<JsonBody>(reader);
+                    return ob;
+                }
             }
         }
     }
 
     class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
     {
-        public ServiceRemotingResponseJsonMessageBodySerializer(Type serviceInterfaceType,
-            IEnumerable<Type> parameterInfo)
-        {
-        }
+        private JsonSerializer serializer;
 
-        public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
+        public ServiceRemotingResponseJsonMessageBodySerializer()
         {
-            var json = JsonConvert.SerializeObject(responseMessageBody, new JsonSerializerSettings()
+            serializer = JsonSerializer.Create(new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.All
             });
-            var bytes = Encoding.UTF8.GetBytes(json);
-            var segment = new ArraySegment<byte>(bytes);
-            var list = new List<ArraySegment<byte>> { segment };
-            return new OutgoingMessageBody(list);
         }
 
-        public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
+        public IOutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
         {
-            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
-            using (var reader = new JsonTextReader(sr))
+            if (responseMessageBody == null)
             {
-                var serializer = JsonSerializer.Create(new JsonSerializerSettings()
-                {
-                    TypeNameHandling = TypeNameHandling.All
-                });
+                return null;
+            }
 
-                return serializer.Deserialize<JsonRemotingResponseBody>(reader);
+            using (var writeStream = new MemoryStream())
+            {
+                using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
+                {
+                    serializer.Serialize(jsonWriter, responseMessageBody);
+                    jsonWriter.Flush();
+                    var bytes = writeStream.ToArray();
+                    var segment = new ArraySegment<byte>(bytes);
+                    var segments = new List<ArraySegment<byte>> { segment };
+                    return new OutgoingMessageBody(segments);
+                }
             }
         }
+
+        public IServiceRemotingResponseMessageBody Deserialize(IIncomingMessageBody messageBody)
+        {
+
+            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
+            {
+                using (var reader = new JsonTextReader(sr))
+                {
+                    var obj = serializer.Deserialize<JsonBody>(reader);
+                    return obj;
+                }
+            }
+
+        }
     }
 
-    internal class JsonRemotingResponseBody : IServiceRemotingResponseMessageBody
+    class JsonBody : WrappedMessage, IServiceRemotingRequestMessageBody, IServiceRemotingResponseMessageBody
     {
-        public object Value;
-
-        public void Set(object response)
+        public JsonBody(object wrapped)
         {
-            this.Value = response;
+            this.Value = wrapped;
         }
-
-        public object Get(Type paramType)
-        {
-            return this.Value;
-        }
-    }
-
-    class JsonRemotingRequestBody : IServiceRemotingRequestMessageBody
-    {
-        public readonly Dictionary<string, object> parameters = new Dictionary<string, object>();        
 
         public void SetParameter(int position, string parameName, object parameter)
-        {
-            this.parameters[parameName] = parameter;
+        {  //Not Needed if you are using WrappedMessage
+            throw new NotImplementedException();
         }
 
         public object GetParameter(int position, string parameName, Type paramType)
         {
-            return this.parameters[parameName];
+			//Not Needed if you are using WrappedMessage
+            throw new NotImplementedException();
+        }
+
+        public void Set(object response)
+        { //Not Needed if you are using WrappedMessage
+            throw new NotImplementedException();
+        }
+
+        public object Get(Type paramType)
+        {  //Not Needed if you are using WrappedMessage
+            throw new NotImplementedException();
         }
     }
  ```
@@ -400,9 +538,7 @@ Following example uses Json Serialization with Remoting V2.
                     serializationProvider: new ServiceRemotingJsonSerializationProvider());
             });
   ```
-
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
-
