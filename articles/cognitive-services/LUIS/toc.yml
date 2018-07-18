@@ -224,7 +224,7 @@
       - name: View endpoint usage with PowerShell
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
-        href: traffic-manager.md  
+        href: luis-traffic-manager.md  
 
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
