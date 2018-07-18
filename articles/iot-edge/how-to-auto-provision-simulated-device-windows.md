@@ -83,12 +83,6 @@ sleep 5
 Start-Service iotedge
 ```
 
-Check to see that the IoT Edge runtime is running. 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned and is ready to run IoT Edge modules. 

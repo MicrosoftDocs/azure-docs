@@ -63,6 +63,8 @@
       href: devtest-lab-create-first-vm.md
     - name: Set policies for the lab
       href: devtest-lab-get-started-with-lab-policies.md 
+    - name: Store secrets in Azure Key Vault
+      href: devtest-lab-store-secrets-in-key-vault.md
     - name: Use VMs in a lab
       items: 
       - name: Create VMs

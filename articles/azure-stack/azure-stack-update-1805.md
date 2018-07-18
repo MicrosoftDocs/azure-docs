@@ -75,7 +75,7 @@ This update includes the following improvements for Azure Stack.
 ### Known issues with the update process   
 - During installation of the 1805 update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after the update to 1805 completes.   
 
-- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, seSe [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Post-update steps

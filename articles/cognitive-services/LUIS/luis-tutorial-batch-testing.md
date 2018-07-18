@@ -47,7 +47,7 @@ Requirements for batch testing:
 * Entity types allowed: simple and composite.
 
 ## Create a batch file with utterances
-1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) from the LUIS-Samples Github repository.
+1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
 2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
 
