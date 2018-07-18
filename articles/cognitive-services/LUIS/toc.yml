@@ -17,6 +17,8 @@
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
+      - name: Go
+        href: luis-get-started-go-get-intent.md
       - name: Java
         href: luis-get-started-java-get-intent.md
       - name: JavaScript
@@ -33,6 +35,8 @@
       items: 
       - name: C#
         href: luis-get-started-cs-add-utterance.md
+      - name: Go
+        href: luis-get-started-go-add-utterance.md
       - name: Java
         href: luis-get-started-java-add-utterance.md
       - name: JavaScript
