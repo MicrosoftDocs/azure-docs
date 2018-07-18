@@ -24,7 +24,7 @@ ms.author: vturecek
 >
 >
 
-For services that arn't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
+For services that aren't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
 
 ## Set up Remoting on a Service
 Setting up remoting for a service is done in two simple steps:
@@ -89,7 +89,7 @@ ServiceProxy creation is a lightweight operation, so you can create as many as y
 
 ### ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the api `ServiceProxy.Create` for creating proxy, then the framework creates a singleton ServiceProxy.
-It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) properties.
+It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
 Factory creation is an expensive operation. ServiceProxyFactory maintains an internal cache of communication client.
 Best practice is to cache ServiceProxyFactory for as long as possible.
 

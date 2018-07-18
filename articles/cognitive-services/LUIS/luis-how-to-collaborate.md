@@ -27,6 +27,8 @@ To allow collaborators to edit your LUIS app, on the **Settings** page of your L
 * Collaborators can sign in and edit your LUIS app at the same time you are working on the app. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
 * Collaborators cannot add other collaborators.
 
+See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+
 ## Set application as public
 See [Public app endpoint access](luis-concept-security.md#public-app-endpoint-access) for more information.
 

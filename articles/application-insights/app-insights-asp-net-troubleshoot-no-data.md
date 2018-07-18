@@ -37,7 +37,7 @@ ms.author: mbullwin
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
 
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](app-insights-windows-desktop.md).
-* Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
+* Make sure you have [Visual Studio 2013 Update 3 or later](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
 * Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
 

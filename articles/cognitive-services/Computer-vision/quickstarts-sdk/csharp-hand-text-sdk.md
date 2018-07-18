@@ -82,11 +82,11 @@ namespace ImageHandText
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
+            Console.WriteLine("Images being analyzed ...");
             var t1 = ExtractRemoteHandTextAsync(computerVision, remoteImageUrl);
             var t2 = ExtractLocalHandTextAsync(computerVision, localImagePath);
 
-            Task.WhenAll(t1, t2).Wait();
-
+            Task.WhenAll(t1, t2).Wait(5000);
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -95,6 +95,13 @@ namespace ImageHandText
         private static async Task ExtractRemoteHandTextAsync(
             ComputerVisionAPI computerVision, string imageUrl)
         {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
             // Start the async process to recognize the text
             RecognizeTextHeaders textHeaders = await computerVision.RecognizeTextAsync(
                     imageUrl, TextRecognitionMode.Handwritten);
@@ -109,7 +116,7 @@ namespace ImageHandText
             if (!File.Exists(imagePath))
             {
                 Console.WriteLine(
-                    "\n{0} doesn't exist or you don't have read permission\n", imagePath);
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
                 return;
             }
 
@@ -165,7 +172,9 @@ namespace ImageHandText
 
 ## RecognizeTextAsync response
 
-A successful response displays the lines of recognized text for each image, for example:
+A successful response displays the lines of recognized text for each image.
+
+See [API Quickstarts: Extract handwritten text with C#](../QuickStarts/CSharp-hand-text.md#recognize-text-response) for an example of raw JSON output.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

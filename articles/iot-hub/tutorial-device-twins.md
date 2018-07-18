@@ -101,7 +101,7 @@ You use desired properties to send state information from a back-end application
 
 To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
-The following sections describe the the code that runs on the simulated device that responds to desired property changes sent from the back end application:
+The following sections describe the code that runs on the simulated device that responds to desired property changes sent from the back end application:
 
 ### Retrieve the device twin object
 

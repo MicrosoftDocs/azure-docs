@@ -13,7 +13,7 @@ metadata:
   ms.date: 05/14/2018
   ms.author: sethm
 abstract:
-  description: Azure Event Hubs is a data streaming platform and event processing service, capable of receiving and processing millions of events per second. The service supports HTTPS and AMQP 1.0 protocols for event publishing.
+  description: Azure Event Hubs is a data streaming platform and event processing service, capable of receiving and processing millions of events per second. The service supports HTTPS and AMQP 1.0 protocols, and the Apache Kafka ecosystem, for event publishing.
   aside:
     image:
       alt: 

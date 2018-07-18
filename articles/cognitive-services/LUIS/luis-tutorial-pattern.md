@@ -27,7 +27,7 @@ In this tutorial, use patterns to increase intent and entity prediction.
 * How to add a role to an entity to find contextually-based entities
 * How to add a Pattern.any to find free-form entities
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Import HumanResources app
 This tutorial imports a HumanResources app. The app has three intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. The app has two entities: Prebuilt number and Employee. The Employee entity is a simple entity to extract an employee's name. 
@@ -243,11 +243,9 @@ The Pattern.any entity allows for entities of varying length. It only works in a
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use phrase list to improve prediction](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Learn best practices for LUIS apps](luis-concept-best-practices.md)

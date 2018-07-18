@@ -83,7 +83,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 5. Do the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
 
 ### Assign RBAC roles to users
-Once a tenant administrator has elevated access, they can assign an RBAC role to relevant users on the root management group level. The recommended role to assign is [**Reader**](../role-based-access-control/built-in-roles.md#reader). This role is required to provide tenant-level visibility. The assigned role will be automatically propagated to all management groups and subscriptions under the root management group. For more information about RBAC roles, see [Available roles](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+Once a tenant administrator has elevated access, they can assign an RBAC role to relevant users on the root management group level. The recommended role to assign is [**Reader**](../role-based-access-control/built-in-roles.md#reader). This role is required to provide tenant-level visibility. The assigned role will be automatically propagated to all management groups and subscriptions under the root management group. For more information about RBAC roles, see [Available roles](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 1. Install [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Run the following commands: 

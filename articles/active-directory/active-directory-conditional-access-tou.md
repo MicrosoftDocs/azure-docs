@@ -261,4 +261,5 @@ When no longer needed, delete the test user and the conditional access policy:
 
 > [!div class="nextstepaction"]
 > [Require MFA for specific apps](./active-directory-conditional-access-app-based-mfa.md)
+> [Block access when a session risk is detected](./active-directory-conditional-access-app-sign-in-risk.md)
 

@@ -287,7 +287,7 @@ The following table shows the operation progress that occurs when you disable HT
 
     For both **Azure CDN from Verizon** and **Azure CDN from Microsoft**, a dedicated/single certificate provided by Digicert is used for your custom domain. 
 
-2. Do you use IP-based or SNI TLS/SSL?
+2. *Do you use IP-based or SNI TLS/SSL?*
 
     Both **Azure CDN from Verizon** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
 

@@ -14,13 +14,13 @@ ms.author: shvija
 
 ---
 
-# Create Kafka enabled Event Hubs
+# Create Kafka enabled event hubs
 
 Azure Event Hubs is a Big Data streaming Platform as a Service (PaaS) that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
-Azure Event Hubs for Kafka ecosystems provides you with an endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your Event Hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs for Kafka ecosystems supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
+Azure Event Hubs for Kafka ecosystems provides you with an endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs for Kafka ecosystems supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
 
-This article describes how to create an Event Hubs namespace and get the connection string required to connect Kafka applications to Kafka enabled Event Hubs.
+This article describes how to create an Event Hubs namespace and get the connection string required to connect Kafka applications to Kafka-enabled event hubs.
 
 ## Prerequisites
 
@@ -28,17 +28,17 @@ If you do not have an Azure subscription, create a [free account](https://azure.
 
 ## Create a Kafka enabled Event Hubs namespace
 
-1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
+1. Sign in to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
 
 2. Search for Event Hubs and select the options shown here:
     
     ![Search for Event Hubs in the portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. **Create namespace**, by providing an unique name and enable Kafka on the namespace. Click **Create**.
+3. Provide a unique name and enable Kafka on the namespace. Click **Create**.
     
     ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Once the namespace is created, on the **Settings** tab, click **Shared access policies** to get the connection string.
+4. Once the namespace is created, on the **Settings** tab click **Shared access policies** to get the connection string.
 
     ![Click Shared access policies](./media/event-hubs-create/create-event-hub7.png)
 

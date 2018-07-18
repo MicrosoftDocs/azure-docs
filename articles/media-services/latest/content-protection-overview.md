@@ -41,8 +41,11 @@ To successfully complete your "content protection" system/application design, yo
   > [!NOTE]
   > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
-  The following article show steps for encrypting content with AES: [Protect with AES encryption](protect-with-aes128.md)
- 
+  The following articles show steps for encrypting content with AES and/or DRM: 
+  
+  * [Protect with AES encryption](protect-with-aes128.md)
+  * [Protect with DRM](protect-with-drm.md)
+
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
   * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS
@@ -50,9 +53,9 @@ To successfully complete your "content protection" system/application design, yo
   
     You can create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-    For testing AES or CENC (Widevine + PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check AES and provide the token.
+    For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on maOS for FairPlay.
+    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
@@ -86,7 +89,7 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 
 In Media Services v3, a content key is associated with StreamingLocator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you should auto generate the content key. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 ## AES-128 clear key vs. DRM
 
@@ -118,49 +121,14 @@ With a token-restricted content key policy, the content key is sent only to a cl
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-## Streaming URLs
-
-If your asset was encrypted with more than one DRM, use an encryption tag in the streaming URL: (format='m3u8-aapl', encryption='xxx').
-
-The following considerations apply:
-
-* Encryption type doesn't have to be specified in the URL if only one encryption was applied to the asset.
-* Encryption type is case insensitive.
-* The following encryption types can be specified:
-  * **cenc**: For PlayReady or Widevine (common encryption)
-  * **cbcs-aapl**: For FairPlay (AES CBC encryption)
-  * **cbc**: For AES envelope encryption
-
-## Troubleshooting tips
-
-Use the following troubleshooting information for help with implementation issues.
-
-* The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
-
-  ```
-  <add key="ida:audience" value="[Application Client ID GUID]" />
-  <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
-  ```
-
-* Add permissions to the application in Azure AD on the **Configure** tab of the application. Permissions are required for each application, both local and deployed versions.
-* Use the correct issuer when you set up dynamic CENC protection.
-
-  ```
-  <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
-  ```
-
-  The following doesn't work:
-
-  ```
-  <add key="ida:issuer" value="https://username.onmicrosoft.com/" />
-  ```
-
-  The GUID is the Azure AD tenant ID. The GUID can be found in the **Endpoints** pop-up menu in the Azure portal.
-
-* Grant group membership claims privileges. Make sure the following is in the Azure AD application manifest file: 
-
-    "groupMembershipClaims": "All"    (the default value is null)
 
 ## Next steps
 
-[Protect with AES encryption](protect-with-aes128.md)
+Check out the following articles:
+
+  * [Protect with AES encryption](protect-with-aes128.md)
+  * [Protect with DRM](protect-with-drm.md)
+
+Additional information can be found in [DRM reference design and implementation](../previous/media-services-cenc-with-multidrm-access-control.md)
+
+

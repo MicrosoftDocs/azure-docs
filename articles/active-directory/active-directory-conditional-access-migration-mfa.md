@@ -36,7 +36,7 @@ The scenario in this article shows how to migrate a classic policy that requires
 
 The migration process consist of the following steps:
 
-1. [Open the classic policy](#open-a-classic-policy) to get the the configuration settings.
+1. [Open the classic policy](#open-a-classic-policy) to get the configuration settings.
 2. Create a new Azure AD conditional access policy to replace your classic policy. 
 3. Disable the classic policy.
 

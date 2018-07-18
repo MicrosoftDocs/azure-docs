@@ -1,6 +1,6 @@
 ---
-title: Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for protecting your applications from data loss.
+title: Quickstart - Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
+description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -17,7 +17,7 @@ ms.date: 04/04/2018
 ms.author: hrushib
 
 ---
-# Periodic backup and restore in Azure Service Fabric (Preview)
+# Quickstart: Periodic backup and restore in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -219,13 +219,14 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## Preview Limitation/ Caveats
+## Preview limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric CLI.
-- No support for automated backup purging. Requires manual clean-up of backups.
+- No support for automated backup purging. [Backup retention script](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) may be referred to setup up script based external automation for purging backups.
 - No support for Service Fabric clusters on Linux.
 
-## Next Steps
+## Next steps
+- [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

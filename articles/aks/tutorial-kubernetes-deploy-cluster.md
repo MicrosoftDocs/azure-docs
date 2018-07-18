@@ -99,7 +99,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, use [az aks get-credentials][]. The following example gets credentials for the AKS cluster name *myAKSCluster* in the *myResourceGroup*:
 
 ```azurecli
-az aks get-credentials --name myAKSCluster --resource-group myResourceGroup \
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.

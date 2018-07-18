@@ -23,7 +23,7 @@ After deployment, many organizations want to know how or if self-service passwor
 The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](../active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -171,8 +171,8 @@ The following list explains this activity in detail:
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

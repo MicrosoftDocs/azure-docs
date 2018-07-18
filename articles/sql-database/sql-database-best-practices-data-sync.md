@@ -2,7 +2,7 @@
 title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: "sql-database"
 author: "allenwux"
@@ -79,6 +79,7 @@ SQL Data Sync has the following limitations on autoprovisioning:
 -   CHECK constraints aren't provisioned.  
 -   Existing triggers on the source tables aren't provisioned.  
 -   Views and stored procedures aren't created on the destination database.
+-   ON UPDATE CASCADE and ON DELETE CASCADE actions on foreign key constraints aren't recreated in the destination tables.
 
 #### Recommendations
 

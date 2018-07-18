@@ -47,13 +47,17 @@ See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-
 ### Should variations of an example utterance include punctuation? 
 Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
 
+### Does LUIS currently support Cortana?
+
+Cortana prebuilt apps were deprecated in 2017. They are no longer supported. 
+
 ## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Publish](luis-how-to-publish-app.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
@@ -177,7 +181,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
 |Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
-|Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
+|Improve prediction accuracy with a [phrase list](luis-quickstart-primary-and-secondary-data.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
 |[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
@@ -188,7 +192,7 @@ The following features were released at the Build 2018 Conference:
 |--|--|
 |Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
 |Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
-|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](publishapp.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of [speech priming](publishapp.md#enable-speech-priming) in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
+|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of [speech priming](luis-how-to-publish-app.md#enable-speech-priming) in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
 |Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
 Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
@@ -207,5 +211,3 @@ Projects:
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

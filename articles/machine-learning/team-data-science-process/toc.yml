@@ -218,8 +218,6 @@
       items:
       - name: Overview
         href: create-features.md
-      - name: Use Pandas
-        href: create-features-blob.md
       - name: Use SQL+Python
         href: create-features-sql-server.md
       - name: Use Hive queries
@@ -245,8 +243,8 @@
     maintainContext: true
   - name: Cortana Intelligence Partner Solutions
     items:
-    - name: Cortana Intelligence Gallery
-      href: https://gallery.cortanaintelligence.com
+    - name: Azure AI Gallery
+      href: https://gallery.azure.ai
     - name: Cortana Intelligence publishing guide
       href: cortana-intelligence-appsource-publishing-guide.md
     - name: Cortana Intelligence solution evaluation tool
