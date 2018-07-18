@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 07/18/2018
 ms.author: dobett
 ---
 
@@ -60,11 +60,11 @@ Property names and values are limited to ASCII characters, so the length of the 
 
 For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling][lnk-quotas].
 
-To learn how to create and read IoT Hub messages in various programming languages, see the [Get started][lnk-get-started] tutorials.
+To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts][lnk-get-started].
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

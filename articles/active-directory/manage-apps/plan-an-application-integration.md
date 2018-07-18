@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
 
@@ -59,7 +59,7 @@ Maybe you don't have the answers to all of these questions up front but that's o
 ## Application integration with Azure AD
 ### Finding unsanctioned cloud applications with Cloud Discovery
 As mentioned above, there may be applications that haven't been managed by your organization until now.  As part of the inventory process, it is possible to find unsanctioned cloud applications. See
-[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
+[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ### Authentication Types
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).

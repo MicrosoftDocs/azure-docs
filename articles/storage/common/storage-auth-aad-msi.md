@@ -28,7 +28,7 @@ This article shows how to authenticate to Azure Storage with MSI from an Azure V
 
 Before you can use MSI to authenticate to Azure Storage from your VM, you must first enable MSI on the VM. To learn how to enable MSI, see one of these articles:
 
-- [Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager Template](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)

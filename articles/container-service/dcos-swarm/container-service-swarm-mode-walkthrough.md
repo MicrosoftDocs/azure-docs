@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom:
 ---
@@ -26,10 +26,10 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
+The following example creates a resource group named *myResourceGroup* in the *westus2* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Output:
@@ -37,7 +37,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -49,12 +49,12 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. 
+Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. For information on region availaiblity of Docker CE, see [ACS regions for Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
