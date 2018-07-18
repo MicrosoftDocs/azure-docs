@@ -1,8 +1,25 @@
-## Cluster Autoscaler
+---
+title: Kubernetes on Azure - Cluster Autoscaler
+description: AKS tutorial - Cluster Autoscaler
+services: container-service
+author: sakthivetrivel
+manager: seanmckenna
 
-The cluster autoscaler on AKS scales agent nodes within a specific node pool. This runs as a deployment in your AKS cluster. This walkthough will go over the neccessary steps to get the cluster autoscaler up and running on an existing cluster. Note that in order to use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. 
+ms.service: container-service
+ms.topic: tutorial
+ms.date: 07/18/18
+ms.author: sakthivetrivel
+ms.custom: mvc
+---
 
-Create a file named `aks-cluster-autoscaler.yaml` and copy into it the following YAML code.
+# Cluster Autoscaler on Azure Kubernetes Service
+
+The cluster autoscaler on Azure Kubernetes Service (AKS) scales agent nodes within a specific node pool. The autoscaler runs as a deployment in your AKS cluster. This walkthrough will go over the necessary steps to get the cluster autoscaler up and running on an existing cluster. To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. 
+
+## Create a Deployment Chart
+
+Create a file named `aks-cluster-autoscaler.yaml`, and copy into it the following YAML code.
+
 
 ```yaml
 ---
@@ -204,46 +221,48 @@ spec:
       restartPolicy: Always
 ```
 
+## Gather information
+
 Generate a set of Azure credentials by running the following command:
 
-```sh
+```console
 # replace <subscription-id> with yours.
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
 ```
 
-The App ID, App Password, and Tenant ID will be your clientID, clientSecret and tenantID in the following steps.
+The App ID, App Password, and Tenant ID will be your clientID, clientSecret, and tenantID in the following steps.
 
-Get the name of your node pool by running the following command and extracting the value of the label **agentpool**. The default value for the node pool of a cluster is nodepool1. 
+Get the name of your node pool by running the following command. Then. extract the value of the label **agentpool**. The default value for the node pool of a cluster is nodepool1. 
 
-  ```sh
+  ```console
   kubectl get nodes --show-labels
   ```
 
-To get the name of your node resource group, we extract the value of the label **kubernetes.azure.com<span></span>/cluster** from the result of running the above command. This is generally of the form MC_[resource-group]\_[cluster-name]_[location].
+To get the name of your node resource group, extract the value of the label **kubernetes.azure.com<span></span>/cluster**. The node resource group name is generally of the form MC_[resource-group]\_[cluster-name]_[location].
 
-The vmType parameter determines the kind of service we are interacting with. Since we're using AKS, use the following base64 encoded value:
+The vmType parameter refers to the service being used, which here, is AKS, so use the following base64 encoded value:
 
-```sh
+```console
 $ echo AKS | base64
 QUtTCg==
 ```
 
-Edit the values of cluster-autoscaler-azure secret in **cluster-autoscaler-containerservice.yaml** to include the values we have just obtained, such as:
+Edit the values of cluster-autoscaler-azure secret in **cluster-autoscaler-containerservice.yaml** to include the values found in the previous steps, such as:
 
 - ClientID: `<base64-encoded-client-id>`
 - ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (Note: Please use lower case)
+- ResourceGroup: `<base64-encoded-resource-group>` (Use lower case)
 - SubscriptionID: `<base64-encode-subscription-id>`
 - TenantID: `<base64-encoded-tenant-id>`
 - VMType: `<base64-encoded-vm-type>`
 - ClusterName: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (Note: Use the label's value verbatim. Case sensitive)
+- NodeResourceGroup: `<base64-encoded-node-resource-group>` (Use the label's value verbatim. Case sensitive)
 
-Note that all of the data above should be encoded with base64.
+All of the data above should be encoded with base64.
 
-Next, to set the range of nodes with the range of nodes, fill in the argument for `--nodes` under `command` with the range in the form MIN:MAX, followed by the node pool name obtained from pre-requirements steps above. For example: `--nodes=3:10:nodepool1` sets the minimum number of nodes to 3, the maximum number of nodes to 10, where nodepool1 designates the node pool being autoscaled.
+Next, to set the range of nodes, fill in the argument for `--nodes` under `command` in the form MIN:MAX:NODE_POOL_NAME. For example: `--nodes=3:10:nodepool1` sets the minimum number of nodes to 3, the maximum number of nodes to 10, and the node pool name to nodepool1.
 
-Fill in the image field under **containers** to reflect the version of the cluster autoscaler you would like to use. AKS requires v1.2.2 or newer. The example here uses v1.2.2.
+Then, fill in the image field under **containers** with the version of the cluster autoscaler you want to use. AKS requires v1.2.2 or newer. The example here uses v1.2.2.
 
 The resulting section should look like:
 
@@ -260,9 +279,7 @@ spec:
   selector:
     matchLabels:
       app: cluster-autoscaler
-
-        # other details skipped...
-
+      # other details skipped...
       containers:
       - image: k8s.gcr.io/cluster-autoscaler:v1.2.2
         imagePullPolicy: Always
@@ -280,30 +297,39 @@ spec:
         - --logtostderr=true
         - --cloud-provider=azure
         - --skip-nodes-with-local-storage=false
-        - --nodes=3:10:nodepool1
-    
+        - --nodes=3:10:nodepool1    
 ```
 
+## Deployment
 
-Then deploy cluster-autoscaler by running
+Deploy cluster-autoscaler by running
 
-```sh
-$ kubectl create -f cluster-autoscaler-containerservice.yaml
+```console
+kubectl create -f cluster-autoscaler-containerservice.yaml
 ```
 
-To ensure the cluster autoscaler is running, use the following command and verify there is a pod prefixed with "cluster-autoscaler" running. 
+To check if the cluster autoscaler is running, use the following command and check the list of pods. If there's a pod prefixed with "cluster-autoscaler" running, your cluster autoscaler has been deployed.
 
-```sh
-$ kubectl -n kube-system get pods
+```console
+kubectl -n kube-system get pods
 ```
-
 
 To view the status of the cluster autoscaler, run
 
-```sh
-$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+```console
+kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
 
+## Next steps
+
+Learn more about deploying and managing AKS with the AKS tutorials.
+
+> [!div class="nextstepaction"]
+> [AKS Tutorial][aks-tutorial-prepare-app]
+
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 
 <!-- LINKS - external -->
 [cluster-autoscale]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md
