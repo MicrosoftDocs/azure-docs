@@ -15,6 +15,10 @@ ms.author: v-jaswel
 # How to use multi-value entities with a Conversation Learner model
 This tutorial shows the "multi-value" property of entities.
 
+## Video
+
+[![Tutorial 6 Preview](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
+
 ##Requirements
 This tutorial requires that the general tutorial bot is running
 

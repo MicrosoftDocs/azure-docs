@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial demonstrates the "negatable" property of entities.
 
+## Video
+
+[![Tutorial 5 Preview](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

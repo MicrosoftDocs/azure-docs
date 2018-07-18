@@ -15,6 +15,10 @@ ms.author: v-jaswel
 # How to add pre-built entities
 This tutorial shows how to add "pre-built" entities to your Conversation Learner model.
 
+## Video
+
+[![Tutorial 7 Preview](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

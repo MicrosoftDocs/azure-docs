@@ -19,6 +19,10 @@ This demo illustrates a pizza ordering bot. It supports ordering of a single piz
 - checking if pizza toppings are in stock or out of stock, and responding appropriately
 - remembering pizza toppings from a previous order, and offering to - start a new order with the same toppings
 
+## Video
+
+[![Demo Pizza Preview](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+
 ## Requirements
 This tutorial requires that the pizza order bot is running
 

@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This demo illustrates a virtual reality model launcher, supporting commands like "start Skype and put in on the wall." A user needs to say an app name and location in order to launch the app. Model launching is handled by an API call. When an app name is recognized from the user, the entityDetectionCallback checks whether the requested app matches one or more apps in the list of installed apps. It handles the case where the requested app is not installed, and where the app name is ambiguous (matches more than one installed app).
 
+## Video
+
+[![Demo VR App Preview](http://aka.ms/cl-demo-vrapp-preview)](http://aka.ms/blis-demo-vrapp)
+
 ## Requirements
 
 This tutorial requires that the VRAppLauncher bot is running

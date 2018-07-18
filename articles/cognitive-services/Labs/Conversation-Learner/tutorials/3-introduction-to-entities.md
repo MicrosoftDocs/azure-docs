@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial introduces entities, and shows how to use the "Disqualifying entities" and "Required entities" fields in actions.
 
+## Video
+
+[![Tutorial 3 Preview](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+
 ## Requirements
 
 This tutorial requires that the general tutorial bot is running

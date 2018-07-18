@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows how to use the "alternative inputs" field for user input in the teaching interface.
 
+## Video
+
+[![Tutorial 8 Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

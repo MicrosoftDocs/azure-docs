@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows the difference between wait actions and non-wait actions in the Conversation Learner.
 
+## Video
+
+[![Tutorial 2 Preview](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

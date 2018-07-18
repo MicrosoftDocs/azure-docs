@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial covers how to use Conversation Learner with other bot building technologies and how memory (or state) can be shared between these technologies 
 
+## Video
+
+[![Tutorial 15 Preview](http://aka.ms/cl-tutorial-15-preview)](http://aka.ms/blis-tutorial-15)
+
 ## Requirements
 This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI.  
 

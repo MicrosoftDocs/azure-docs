@@ -16,6 +16,11 @@ ms.author: v-jaswel
 
 This tutorial shows how to get started with Conversation Learner, including creating actions, teaching interactively, and making corrections of logged dialogs from end users.
 
+## Video
+
+[![Tutorial 1 Preview](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
+
 ## Requirements
 If you haven't already, first ensure all setup steps have been completed, including creating a `.env` file with your LUIS authoring key.  See [Quickstart](https://github.com/Microsoft/ConversationLearner-Samples) for details.
 

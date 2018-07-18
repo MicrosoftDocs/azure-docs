@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows the entity detection callback, and illustrates a common pattern for resolving entities.
 
+## Video
+
+[![Tutorial 10 Preview](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+
 ## Requirements
 This tutorial requires that the "tutorialEntityDetectionCallback" bot is running.
 

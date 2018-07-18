@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows how to do end-user testing within the Conversation Learner interface; how dialogs are logged; and how to make corrections to logged dialogs in order to improve your model.
 
+## Video
+
+[![Tutorial 9 Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows how to add API calls to your model. API calls are functions that you define and write in your bot, and which Conversation Learner can call.
 
+## Video
+
+[![Tutorial 12 Preview](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
+
 ## Requirements
 This tutorial requires that the "tutorialAPICalls.ts" bot is running.
 

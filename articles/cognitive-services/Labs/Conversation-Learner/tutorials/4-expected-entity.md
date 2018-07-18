@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial demonstrates the "expected entity" field of actions.
 
+## Video
+
+[![Tutorial 4 Preview](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 

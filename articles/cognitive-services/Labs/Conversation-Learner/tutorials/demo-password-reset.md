@@ -17,6 +17,10 @@ This demo illustrates a simple technical support bot that can help with password
 
 It shows how Conversation Learner can learn non-trivial dialog flows, multi-turn sequences, including an out-of-domain class. This demonstration does not use any code or entities.
 
+## Video
+
+[![Demo Password Preview](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+
 ## Requirements
 This tutorial requires that the password reset bot is running
 
