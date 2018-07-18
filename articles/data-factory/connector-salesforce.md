@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 07/18/2018
 ms.author: jingwang
 
 ---
@@ -298,15 +298,15 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Double |
+| Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
 | Id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Double |
-| Percent |Double |
+| Number |Decimal |
+| Percent |Decimal |
 | Phone |String |
 | Picklist |String |
 | Text |String |
