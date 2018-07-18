@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud Alerts and Notifications | Microsoft Docs
 description: View or customize alerts and notifications within Azure CycleCloud.
-keywords: clusters alerts notifications
 services: azure cyclecloud
 author: KimliW
-manager: bob.nordlund
-
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual

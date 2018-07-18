@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Cluster-Init | Microsoft Docs
+description: Customize nodes using Cluster-Init within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Cluster Init
 
 Azure CyleCloud's Cluster Init provides cluster developers a very simple means of customizing nodes at startup without requiring custom Chef recipes. Cluster Init is a phase of the node provisioning process in every CycleCloud cluster. It allows you to install software and data onto your cluster in a variety of different ways.
