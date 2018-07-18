@@ -32,9 +32,9 @@ Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 1
 - ASP.NET and web development
 - Azure Development
 
-If you are using Windows Server 2016, skip ahead to the [Windows 2016 install instructions](#windows-server-2016-install-instructions).
+If you are using Windows Server 2016, skip ahead to the [Windows Server 2016 install instructions](#windows-server-2016-install-instructions).
 
-## Windows 10 installation instructions
+## Windows 10 - Install Docker
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker] to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
@@ -42,7 +42,7 @@ During installation, select **Use Windows containers instead of Linux containers
 
 Skip ahead to [SDK and tools](#sdk-and-tools) installation.
 
-## Windows Server 2016 installation instructions
+## Windows Server 2016 - Install Docker
 
 Open PowerShell as an administrator and run the following command to install Hyper-V and Docker. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
 
