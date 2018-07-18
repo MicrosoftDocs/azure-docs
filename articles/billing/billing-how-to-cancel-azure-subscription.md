@@ -28,7 +28,7 @@ Before you cancel your subscription:
 * Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
-If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/plans/), you are still billed monthly for the rest of the 6-months term.
+Azure support plans require commitment for the duration of the subscription term. Cancellation will not result in a pro-rated refund. 
 
 ## Cancel subscription using the Azure portal
 
