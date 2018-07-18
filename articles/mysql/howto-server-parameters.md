@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 07/18/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -69,7 +69,10 @@ Other server parameters that are not listed here are set to their MySQL out-of-b
 
 ## Populating the time zone tables
 
-The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure.
+The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
+
+> [!NOTE]
+> If you are running the `az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
@@ -81,10 +84,18 @@ To view available time zone values, run the following command:
 SELECT name FROM mysql.time_zone_name;
 ```
 
-Use the `SET time_zone` command to set the server's time zone parameter. The example below sets the time zone to the Helsinki time zone.  
+### Setting the global level time zone
+
+The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
+
+![Set time zone parameter](./media/howto-server-parameters/timezone.png)
+
+### Setting the session level time zone
+
+The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.
 
 ```sql
-SET time_zone = 'Europe/Helsinki';
+SET time_zone = 'US/Pacific';
 ```
 
 Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
