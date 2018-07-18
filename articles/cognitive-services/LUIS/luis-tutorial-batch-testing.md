@@ -158,7 +158,7 @@ In order to verify that the utterances in the batch test are correctly predicted
     ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## Create batch file with entities 
-In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
 The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
@@ -199,7 +199,7 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 
     ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-    The chart changs to display the entity predictions. 
+    The chart changes to display the entity predictions. 
 
 2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard combination control + E to switch into the token view. 
 
