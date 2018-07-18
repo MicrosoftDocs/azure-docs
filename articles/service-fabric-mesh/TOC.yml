@@ -9,17 +9,17 @@
   items:
   - name: Deploy Hello World
     href: service-fabric-mesh-quickstart-deploy-container.md
-  - name: Create and deploy a web application
+  - name: Create and deploy a web app to Azure Service Fabric Mesh
     href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Create and deploy a multi-service web app
+  - name: Create, debug and deploy a multi-service Service Fabric Mesh web app
     items:
-    - name: 1- Build an ASP.NET Core application
+    - name: 1- Build a Service Fabric Mesh web app
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
-    - name: 2- Debug the application
+    - name: 2- Debug a Service Fabric Mesh web app
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-    - name: 3- Deploy the application
+    - name: 3- Deploy a Service Fabric Mesh web app
       href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Concepts
   items:
