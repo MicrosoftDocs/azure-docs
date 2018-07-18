@@ -6,10 +6,10 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-
 ms.topic: article
 ms.date: 07/07/18
-ms.reviewer: klam, LADocs
+ms.author: ecfan
+ms.reviewer: klam
 ms.suite: integration
 
 ---
