@@ -1173,7 +1173,13 @@ featureFlags:
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
-                                    </ul>
+										<li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Project</p>
+                                            </a>
+                                        </li>
+									</ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
