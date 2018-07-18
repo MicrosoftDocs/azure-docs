@@ -59,7 +59,7 @@ In this section, you create a storage account using the Azure portal. Before you
 
     These values are what you configured in the previous section. Using both the template and the parameters files, you can create an Azure storage account.
 
-5. One the top of the tabs, there are three menu items:
+5. On the top of the tabs, there are three menu items:
 
     - **Download**: Download the template and the parameters file to your local computer.
     - **Add to library**: Add the template to the library to be reused in the future.
@@ -77,7 +77,7 @@ In this section, you create a storage account using the Azure portal. Before you
 
 In this section, you open the saved template from the template library, edit the template inside the portal, and deploy the revised template. To edit a more complex template, consider using Visual Studio Code which provides richer edit functionalities.
 
-1. From the Azure portal, select **All services** from the left menu, enter **template** in the filter box, and then select **Template (PREVIEW)**.
+1. In the Azure portal, select **All services** from the left menu, enter **template** in the filter box, and then select **Template (PREVIEW)**.
 
     ![Azure Resource Manager templates](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
 2. Select the template you saved in the last section. The name used on the screenshot is *mystorage0626*.
@@ -179,10 +179,10 @@ In this section, you open the saved template from the template library, edit the
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-1. From the Azure portal, select **Resource group** from the left menu.
+1. In the Azure portal, select **Resource group** on the left menu.
 2. Enter the resource group name in the **Filter by name** field.
 3. Select the resource group name.  You shall see the storage account in the resource group.
-4. Select **Delete resource group** from the top menu.
+4. Select **Delete resource group** in the top menu.
 
 ## Next steps
 
