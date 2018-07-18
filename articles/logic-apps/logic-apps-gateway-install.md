@@ -49,8 +49,8 @@ in Azure Logic Apps for these data sources:
 For information about how to use the gateway with other services, see these articles:
 
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="requirements"></a>
@@ -69,7 +69,7 @@ If you don't have an Azure subscription yet,
 * Here are requirements for your local computer:
 
   **Minimum requirements**
-  * .NET 4.5 Framework
+  * .NET Framework 4.5.2
   * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
   **Recommended requirements**
@@ -135,7 +135,7 @@ If you don't have an Azure subscription yet,
 
 <a name="install-gateway"></a>
 
-## Install the data gateway
+## Install data gateway
 
 1. [Download, save, and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
@@ -363,27 +363,50 @@ and communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 
 The gateway doesn't require inbound ports. Learn more about 
 [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| Domain names | Outbound ports | Description |
-| ------------ | -------------- | ----------- |
+The gateway uses these fully qualified domain names:
+
+| Domain names | Outbound ports | Description | 
+| ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
-| *.login.windows.net | 443 | HTTPS | 
-| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
-| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
-| *.frontend.clouddatahub.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
-| login.microsoftonline.com | 443 | HTTPS | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.microsoftonline-p.com | 443 | Used for authentication depending on configuration. | 
 | *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. | 
+| *.servicebus.windows.net | 443, 9350-9354 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
+| *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
+| login.microsoftonline.com | 443 | HTTPS | 
 ||||
 
-If you must approve IP addresses instead of the domains, 
+In some cases, Azure Service Bus connections are made 
+with IP addresses rather than fully qualified domain names. 
+So, you might want to whitelist IP addresses for your data region in your firewall. 
+To whitelist IP addresses rather than domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
-In some cases, the Azure Service Bus connections are made 
-with IP Address rather than fully qualified domain names.
+The IP addresses in this list are in 
+[Classless Inter-Domain Routing (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 
+notation.
+
+### Force HTTPS communication with Azure Service Bus
+
+You can force the gateway to communicate with 
+Azure Service Bus over HTTPS rather than TCP, 
+but doing so can greatly reduce performance. 
+To update the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file, 
+change the value from **AutoDetect** to **Https**. 
+You can find this file typically at this location: 
+```C:\Program Files\On-premises data gateway```
+
+```html
+<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
+    <value>Https</value>
+</setting>
+```
 
 ## Tenant level administration 
 
 Currently, there's no single place where tenant administrators can 
-manage all the gateways that other users have installed and configured.  
+manage all the gateways that other users have installed and configured. 
 If you're a tenant administrator, you might want to have the users in 
 your organization add you as an administrator for every gateway they install. 
 This way, you can manage all the gateways in your organization 
@@ -517,6 +540,9 @@ Check that you're signed in with the same identity that installed the gateway.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
+**Q**: Where are the gateway logs? <br/>
+**A**: See the [**Logs** section](#logs) later in this article.
+
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
 Remember to change query tracing back to the original value when done troubleshooting. 
@@ -524,9 +550,6 @@ Leaving query tracing turned on creates larger logs.
 
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
-
-**Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this article.
 
 ### Update to the latest version
 
@@ -541,32 +564,66 @@ and see if you can reproduce the issue.
 You might get this error if you try to install the gateway on a domain controller, 
 which isn't supported. Make sure you deploy the gateway on a machine that isn't a domain controller.
 
-## Tools
+<a name="logs"></a>
 
-### Collect logs from the gateway configurer
+### Logs
 
-You can collect several logs for the gateway. Always start with the logs!
+To help you troubleshoot, always start by collecting and reviewing the gateway logs. 
+You have several ways for collecting the logs, but the simplest option after you 
+install the gateway is through the gateway installer's user interface. 
 
-#### Installer logs
+1. On your computer, open the on-premises data gateway installer.
+2. On the left menu, select **Diagnostics**.
+3. Under **Gateway logs**, select **Export logs**.
 
-`%localappdata%\Temp\Power_BI_Gateway_–Enterprise.log`
+   ![Export logs from gateway installer](./media/logic-apps-gateway-install/export-logs.png)
 
-#### Configuration logs
+Here are other locations where you can find various logs:
 
-`%localappdata%\Microsoft\Power BI Enterprise Gateway\GatewayConfigurator.log`
+| Log type | Location | 
+|----------|----------| 
+| **Installer logs** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
+| **Configuration logs** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 
+| **Enterprise gateway service logs** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway<*yyyymmdd*>.<*number*>.log | 
+||| 
 
-#### Enterprise gateway service logs
+**Event logs**
 
-`C:\Users\PBIEgwService\AppData\Local\Microsoft\Power BI Enterprise Gateway\EnterpriseGateway.log`
+To find the event logs for the gateway, follow these steps:
 
-#### Event logs
+1. On the computer with the gateway installation, open the **Event Viewer**. 
 
-You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
+2. Expand **Event Viewer (Local)** > **Applications and Services Logs**. 
 
-### Fiddler Trace
+3. Select **On-premises data gateway service**.
+
+   ![View event logs for gateway](./media/logic-apps-gateway-install/event-viewer.png)
+
+### Telemetry
+
+For additional monitoring and troubleshooting, you can turn on and collect telemetry. 
+
+1. Browse to the location for the on-premises data gateway client, 
+which is usually here: ```C:\Program Files\On-premises data gateway\```
+
+   Or, you can open the Services console and check the path to the executable: 
+
+2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll**
+
+3. Change the **SendTelemetry** setting to **true**:
+
+   ```html
+   <setting name="SendTelemetry" serializeAs="String">
+      <value>true</value>
+   </setting>
+   ```
+
+4. Save your changes, and then restart the Windows service.
+
+### Trace traffic with Fiddler
 
 [Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
-You can see this traffic with the Power BI service from the client machine. 
+You can review this traffic with the Power BI service from the client machine. 
 This service might show errors and other related information.
 
 ## Next steps
