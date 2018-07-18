@@ -23,7 +23,7 @@ ms.author: cynthn
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](premium-storage.md#pricing-and-billing).
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](premium-storage.md#pricing-and-billing).
 >
 >
 
@@ -34,7 +34,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 
 You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.
 
-In this example, we are move the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet. Then, you update update the state of the virtual machine, using the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet, to complete the process of removing the data disk.
+In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet, to complete the process of removing the data disk.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -42,7 +42,7 @@ Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
 Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
-The disk remains in storage but is no longer attached to a virtual machine.
+The disk stays in storage but is no longer attached to a virtual machine.
 
 
 ## Detach a data disk using the portal
@@ -55,6 +55,7 @@ The disk remains in storage but is no longer attached to a virtual machine.
 5. After the disk has been removed, click **Save** on the top of the pane.
 6. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
 
+The disk stays in storage but is no longer attached to a virtual machine.
 
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

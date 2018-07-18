@@ -23,7 +23,7 @@ ms.author: cynthn
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. In this article, we are working with an Ubuntu LTS 16.04 distribution. If you are using a different distribution, the instructions for unmounting the disk might be different.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../windows/premium-storage.md#pricing-and-billing). 
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../windows/premium-storage.md#pricing-and-billing). 
 > 
 > 
 
@@ -106,7 +106,7 @@ az vm disk detach \
 	-n myDataDisk
 ```
 
-The disk remains in storage but is no longer attached to a virtual machine.
+The disk stays in storage but is no longer attached to a virtual machine.
 
 
 ## Detach a data disk using the portal
@@ -119,7 +119,7 @@ The disk remains in storage but is no longer attached to a virtual machine.
 5. After the disk has been removed, click Save on the top of the pane.
 6. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
 
-The disk remains in storage but is no longer attached to a virtual machine.
+The disk stays in storage but is no longer attached to a virtual machine.
 
 
 
