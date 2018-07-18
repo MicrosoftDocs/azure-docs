@@ -55,16 +55,16 @@ You must use one of the methods described below to identify the correctly VM siz
 ## Next steps 
 The Reserved Instance discount is applied automatically to the number of SQL Database instances that match the Reserved Instance scope and attributes. You can update the scope of the Reserved Instance through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
-To learn how to manage a reserved instance, see [Manage reserved instances in Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reserved instance, see [Manage reserved instances in Azure](../billing/billing-manage-reserved-vm-instance.md).
 
 To learn more about Azure reserved instances, see the following articles:
 
-- [What are Azure Reserved Instances?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Manage reserved instances in Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Understand how the reserved instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [Understand reserved instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Understand reserved instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with reserved instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [What are Azure Reserved Instances?](../billing/billing-save-compute-costs-reservations.md)
+- [Manage reserved instances in Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Understand how the reserved instance discount is applied](../billing/billing-understand-vm-reservation-charges.md)
+- [Understand reserved instance usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)
+- [Understand reserved instance usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with reserved instances](../billing/billing-reserved-instance-windows-software-costs.md)
 - [Reserved instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact support
