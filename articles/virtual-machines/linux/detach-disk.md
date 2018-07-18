@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 07/18/2018
 ms.author: cynthn
 
 ---
 # How to detach a data disk from a Linux virtual machine
 
-When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. In this article, we are working with an Ubuntu LTS 16.04 distribution. 
+When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. In this article, we are working with an Ubuntu LTS 16.04 distribution. If you are using a different distribution, the instructions for unmounting the disk might be different.
 
 > [!WARNING]
 > If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../windows/premium-storage.md#pricing-and-billing). 
@@ -32,10 +32,12 @@ If you want to use the existing data on the disk again, you can reattach it to t
 
 ## Connect to the VM to unmount the disk
 
-To unmount your disk, SSH into your VM. The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*: 
+Before you can detach the disk using either CLI or the portal, you need to unmount the disk and removed references to if from your fstab file.
+
+Connect to the VM. In this example, the public IP address of the VM is *10.0.1.4* with the username *azureuser*: 
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.0.1.4
 ```
 
 First, find the data disk that you want to detach. The following example uses dmesg to filter on SCSI disks:
@@ -95,6 +97,8 @@ sudo umount /dev/sdc1 /datadrive
 
 ## Detach a data disk using CLI 2.0
 
+This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
+
 ```azurecli
 az vm disk detach \
     -g myResourceGroup \
@@ -106,6 +110,7 @@ The disk remains in storage but is no longer attached to a virtual machine.
 
 
 ## Detach a data disk using the portal
+
 1. In the left menu, select **Virtual Machines**.
 2. Select the virtual machine that has the data disk you want to detach and click **Stop** to deallocate the VM.
 3. In the virtual machine pane, select **Disks**.
