@@ -1,5 +1,5 @@
 ---
-title: Manage your keys in LUIS | Microsoft Docs
+title: Manage your endpoint keys in LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys.
 titleSuffix: Azure
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 03/21/2018
 ms.author: v-geberr
 ---
 
-# Manage your LUIS keys
+# Manage your LUIS endpoint keys
 A key allows you to author and publish your LUIS app, or query your endpoint. 
 
 <a name="programmatic-key" ></a>

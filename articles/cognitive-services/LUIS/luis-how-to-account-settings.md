@@ -8,11 +8,11 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/08/2018
 ms.author: v-geberr
 ---
 
-# Manage your LUIS account
+# Manage account and authoring key
 The two key pieces of information for a LUIS account are the user account and the authoring key. Your login information is managed at [account.microsoft.com](https://account.microsoft.com). Your authoring key is managed from the [LUIS](luis-reference-regions.md) website **Settings** page. 
 
 ## Authoring key

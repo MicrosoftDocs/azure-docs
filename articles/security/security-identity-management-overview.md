@@ -130,9 +130,9 @@ With Azure AD Privileged Identity Management, you can:
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Roles in Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-roles.md)
-* [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Roles in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
+* [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## Identity protection
 Azure AD Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities that affect your organization’s identities. Identity Protection takes advantage of existing Azure AD anomaly-detection capabilities, which are available through Azure AD Anomalous Activity reports. Identity Protection also introduces new risk event types that can detect anomalies in real time.

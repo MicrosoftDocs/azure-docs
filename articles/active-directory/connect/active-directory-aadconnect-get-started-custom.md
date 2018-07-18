@@ -62,7 +62,7 @@ This account is only used to create a service account in Azure AD and is not use
 If your global admin account has MFA enabled, then you need to provide the password again in the sign-in popup and complete the MFA challenge. The challenge could be a providing a verification code or a phone call.  
 ![User Sign in MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-The global admin account can also have [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) enabled.
+The global admin account can also have [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) enabled.
 
 If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 

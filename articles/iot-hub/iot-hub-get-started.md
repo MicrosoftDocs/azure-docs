@@ -7,20 +7,13 @@ keywords: azure iot hub tutorial
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
 ---
 
 # Azure IoT Hub get started with real devices
 
-You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions:
-
-* Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
-* Use an IoT gateway in more complex IoT scenarios. For example, where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to implement a gateway that connects devices to your IoT hub.
-
-## What the How-to articles cover
-
-These articles introduce you to Azure IoT Hub and the device SDKs. The articles cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The articles also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the articles, you use real IoT devices.
+These how-to articles introduce you to Azure IoT Hub and running the device SDKs on real devices.
 
 ## Set up your device
 

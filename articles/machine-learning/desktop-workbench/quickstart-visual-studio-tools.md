@@ -19,7 +19,7 @@ Visual Studio Tools for AI is a development extension to build, test, and deploy
  
 ## Getting started 
 To get started, you first need to download and install [Visual Studio](https://www.visualstudio.com/downloads/). Once you have Visual Studio open, do the following steps:
-1. Click on the menu bar in Visual Studio and select "Extensions and Updates..."
+1. Click "Tools" on the menu bar in Visual Studio and select "Extensions and Updates..."
 2. Click on "Online" tab and select "Search Visual Studio Marketplace."
 3. Search for "Visual Studio for AI." 
 3. Click on the **Download** button. 
