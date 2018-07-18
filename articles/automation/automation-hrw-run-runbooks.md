@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -154,13 +154,16 @@ Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a
 
 Jobs are handled slightly different on Hybrid Runbook Workers than they are when they run on Azure sandboxes. One key difference is that there is no limit on job duration on Hybrid Runbook Workers. Runbooks ran in Azure sandboxes are limited to 3 hours due to [fair share](automation-runbook-execution.md#fair-share). If you have a long-running runbook you want to ensure that it is resilient to possible restart, for example if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. If a runbook job is restarted more than 3 times, then it is suspended.
 
-## Signing runbooks (Windows)
+## Run only signed Runbooks
 
 Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to setup your Hybrid Runbook Workers to run signed runbooks and how to sign your runbooks.
 
+> [!NOTE]
+> Once you have configured the Hybrid Runbook workers to run signed runbooks, runbooks that have **not** been signed will fail to execute.
+
 ### Create Signing Certificate
 
-The following example creates a self signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is later imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this is used later to reference the certificate.
+The following example creates a self signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this is used later to reference the certificate.
 
 ```powershell
 # Create a self signed runbook that can be used for code signing
