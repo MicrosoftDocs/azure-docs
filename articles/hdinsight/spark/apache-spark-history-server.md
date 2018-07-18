@@ -86,11 +86,11 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 
 ## Open the Graph tab from Spark History Server
-Select job ID then click **Graph** on the tool menu to get the graph view.
+Select job ID then click **Graph** on the tool menu to get the job graph view.
 
-+ Take an overview of your job by the generated graph. 
++ Take an overview of your job by the generated job graph. 
 
-+ Filter by **Job ID** or check the graph for all jobs that is default view.
++ Filter by **Job ID** or check the job graph for all jobs that is default view.
 
     ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
 
@@ -112,7 +112,7 @@ Select job ID then click **Graph** on the tool menu to get the graph view.
     > Note: Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
 
 
-+ Mouse scrolls to zoom in/out the graph, or click **Zoom to fit** to make it fit to screen.
++ Mouse scrolls to zoom in/out the job graph, or click **Zoom to fit** to make it fit to screen.
  
     ![graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
@@ -120,7 +120,7 @@ Select job ID then click **Graph** on the tool menu to get the graph view.
 
     ![graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
 
-+ The graph node will display the following information of each stage.
++ The job graph node will display the following information of each stage.
     + ID.
     + Name or description.
     + Total task number.
@@ -130,7 +130,7 @@ Select job ID then click **Graph** on the tool menu to get the graph view.
     + Row count, the sum of input records, output records, shuffle read records and shuffle write records.
     + Progress.
 
-    >Note: By default the graph node will display information from last attempt of each stage (except for stage execution time), but during playback stage node will show information of each attempt.
+    >Note: By default the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback stage node will show information of each attempt.
 
     >Note: For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
@@ -164,7 +164,7 @@ To revert to community version, follow the steps:
 
 **upload_shs_log.sh** is used for upload history server log to the blob storage specified by us(who is working on investigating the history server issues).
 
-   ```python
+   ```bash
     #!/usr/bin/env bash
 
     # Copyright (C) Microsoft Corporation. All rights reserved.
@@ -227,7 +227,7 @@ For **SAS_query_string**, you can get it from ASE:
 
 **upgrade_spark_enhancement.sh** is used for upgrade our **spark-enhancement*.jar** for hotfix scenario.
 
-   ```python
+   ```bash
     #!/usr/bin/env bash
 
     # Copyright (C) Microsoft Corporation. All rights reserved.
@@ -241,7 +241,7 @@ For **SAS_query_string**, you can get it from ASE:
     fi
 
     jar_path=$1
-    jars_folder="/usr/hdp/current/spark2-client/jars/"
+    jars_folder="/usr/hdp/current/spark2-client/jars"
 
     rm -f ${jars_folder}/spark-enhancement*
     wget -P ${jars_folder} "$jar_path" 
@@ -251,4 +251,6 @@ For **SAS_query_string**, you can get it from ASE:
 
 `upgrade_spark_enhancement.sh https://${jar_path}`
 
+**Example**:
 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-2.3.0-bin-custom-spark-${version}.tgz` 
