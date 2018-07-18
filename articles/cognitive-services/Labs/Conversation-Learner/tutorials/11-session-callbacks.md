@@ -21,7 +21,7 @@ This tutorial illustrates the onSessionStart and onSessionEnd callbacks.
 [![Tutorial 11 Preview](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
 
 ## Requirements
-This tutorial requires that the "tutorialSessionCallbacks.ts" bot is running.
+This tutorial requires that the `tutorialSessionCallbacks` bot is running.
 
 	npm run tutorial-session-callbacks
 
@@ -38,15 +38,15 @@ In the Model list, click on Tutorial-11-SessionCallbacks.
 
 ### Entities
 
-We have defined four entities in the model.
+Four entities are defined in the model.
 
 ![](../media/tutorial11_entities.PNG)
 
-One thing to note is that BotName is a Programmatic Entity.  This will be set by the bot at session start time.
+One thing to note is that BotName is a Programmatic Entity.  This entity will be set by the bot at session start time.
 
 ### Actions
 
-We have created four actions. 
+Four actions are defined in the model.
 
 ![](../media/tutorial11_actions.PNG)
 

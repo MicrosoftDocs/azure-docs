@@ -71,7 +71,7 @@ Now you have two actions.
 1. Click Train Dialogs, then New Train Dialog.
 2. Type 'hello'.
 3. Click Score Actions, and Select 'What's your name?'
-	- Note that the response 'Hello $name' cannot be selected, because it requies the entity $name to be defined, and $name is not in bot's memory.
+	- Note that the response 'Hello $name' cannot be selected, because it requires the entity $name to be defined, and $name is not in bot's memory.
 2. Enter 'david'. 
 	- Note that the name is highlighted as an entity. This is because of the heuristic we set up above to select the response as the entity.
 5. Click Score Actions

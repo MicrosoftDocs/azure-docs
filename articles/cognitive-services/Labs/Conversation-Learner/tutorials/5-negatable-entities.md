@@ -46,7 +46,7 @@ Concretely, if the "negatable" property of an entity is set:
 1. Click Entities, then New Entity.
 2. In Entity Name, enter name.
 3. Check Negatable.
-	- This indicates the user will be able to provide a value for the entity, or say something is *not* the value of the entity. In the latter case, this will result in deleting a matching value of the entity.
+	- This property indicates the user will be able to provide a value for the entity, or say something is *not* the value of the entity. In the latter case, this will result in deleting a matching value of the entity.
 3. Click Create.
 
 ![](../media/tutorial5_entities.PNG)
@@ -76,7 +76,7 @@ Now you have two actions.
 	- Notice that is getting a 100% score because it is the only valid action.
 2. Enter 'my name is david'
 3. Select 'david', and choose the label '+name'
-	- Notice there are two instances of 'name': '+name' and '-name'.  Plus means that we are providing that value. Minus means we are telling the system that something is not the value.
+	- Notice there are two instances of 'name': '+name' and '-name'.  (+) Plus adds or overwrites the value. (-) Minus removes the value.
 5. Click Score Actions
 	- Note name value is now in the bot's memory.
 	- 'I know your name. It is $name' is the only available response. 
@@ -85,7 +85,7 @@ Now you have two actions.
 Let's try clearing the negatable entity:
 
 7. Enter 'my name is not david'.
-	- Notice 'not' is selected as name based on the previous pattern. That is incorrect.
+	- Notice 'not' is selected as name based on the previous pattern. This label is incorrect.
 2. Click on 'not', then the red x. 
 3. Click on 'david'.
 	- This is now a negative entity communicating that this is not the value of the name entity.

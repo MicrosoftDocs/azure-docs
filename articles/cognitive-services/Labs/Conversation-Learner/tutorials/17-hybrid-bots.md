@@ -29,16 +29,16 @@ This tutorial requires that the hybrid tutorial bot is running:
 
 ## Details
 
-While Conversation Learner is in control, all state relative to the Conversation Learner Session must be stored in the Conversation Learner’s memory manager. This is necessary as the machine learning uses the state to determine how to drive the conversation. External state can be passed into the Conversation Learner in the OnSessionStartCallback which is called when the session begins. Internal can be returned out by the OnSessionEndCallback when the session terminates.
+While Conversation Learner is in control, all state relative to the Conversation Learner Session must be stored in the Conversation Learner’s memory manager. This is necessary as the machine learning uses the state to determine how to drive the conversation. External state can be passed into the Conversation Learner in the OnSessionStartCallback that is called when the session begins. Internal can be returned out by the OnSessionEndCallback when the session terminates.
 
 You can almost think of Conversation Learner as a function call that takes some initial state and returns values.
 
 In our example bot, we’ll create a hybrid bot using two different systems:
-1. A Conversation Learner Model
-Uses conversation learner model to determine the next action of the bot based on the current session
+1. A Conversation Learner Model <br />
+Uses conversation learner model to determine the next action of the bot based on the current session.
 This will take one piece of initial state `isOpen` (whether a store is open or closed) and will return another piece of state `purchaseItem` (the name of an item the user purchases)
 
-2. Text matching
+2. Text matching <br />
 Simply looks at incoming text for specific strings and responds
 This part of the bot manages the Bots' other storage mechanisms and is responsible for starting the CL session. Specifically it manages three variables `usingConversationLearner`, `storeIsOpen`, and `purchaseItem`
 
@@ -68,28 +68,28 @@ Now let's look at the Actions
 
 Notice the model has four actions.
 
-The intended rules for the actions is as follows:
+The intended rules for the actions are as follows:
 
-- If the “isOpen” entity is set, the Bot will ask “What would you like to buy?” and store that in the “purchaseItem” slot
-- If “isOpen” isn’t set, the Bot will say “I’m sorry we’re closed”
-- The other two Actions are of the type “END_SESSION”.
+- If the `isOpen` entity is set, the Bot will ask "What would you like to buy?" and store that in the `puchaseItem` slot
+- If `isOpen` isn’t set, the Bot will say "I’m sorry we’re closed"
+- The other two Actions are of the type `END_SESSION`.
 - The END_SESSION Action indicates to ConversationLearner that the conversation has completed.
 
 ### Overall Bot Logic
 
-First you see that if the Bot state’s “usingConversationLearner” flag has been set, we pass control to Conversation Learner. If not, we pass control to something else.  In this example, we’re showing simple text matching, but this could be any other Bot technology including LUIS, QnA maker and even another instance of Conversation Learner.
+First you see that if the Bot state’s `usingConversationLearner` flag has been set, we pass control to Conversation Learner. If not, we pass control to something else.  In this example, we’re showing simple text matching, but this could be any other Bot technology including LUIS, QnA maker and even another instance of Conversation Learner.
 
-We need a way for the user to open and close the store, so we do a string compare with “open store” and “close store” and set the “storeIsOpen” flag.
+We need a way for the user to open and close the store, so we do a string compare with "open store" and "close store" and set the "storeIsOpen" flag.
 
-Next, we need a way to trigger handing control over to our Conversation Learner Model. When we match to the “shop” string we do the following:
-- Set the “usingConversationLearner” flag in the Bot’s memory.
-- Call the “StartSession” method on our Conversation Learner Model.  This will trigger the “onSessionStartCallback” which will initialize the “isOpen” entity value
+Next, we need a way to trigger handing control over to our Conversation Learner Model. When we match to the "shop" string we do the following:
+- Set the `usingConversationLearner` flag in the Bot’s memory.
+- Call the "StartSession" method on our Conversation Learner Model.  This will trigger the "onSessionStartCallback" which will initialize the `isOpen` entity value
 
 See below:
 
 ![](../media/tutorial17_useConversationLearner.PNG)
 
-We also do a text match to “history” which will display that last purchase item.
+We also do a text match to "history" which will display that last purchase item.
 Finally, if anything else is typed, we display the available user commands
 
 ## Train Dialog
@@ -107,7 +107,7 @@ Unlike single Conversation Leaner model bots you won’t be able to test this in
 
 ### Configure the emulator
 
-- Open the emulator and ensure the urls is targeting the same port your bot is running on. Likely: `http://localhost:3978/api/messages`
+- Open the emulator and ensure the URL is targeting the same port your bot is running on. Likely: `http://localhost:3978/api/messages`
 
 ### Test 
 
