@@ -164,6 +164,16 @@
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
   items:
+  - name: FedRAMP
+    items:
+    - name: Data analytics
+      href: ./blueprints/fedramp-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/fedramp-datawarehouse-overview.md
+    - name: IaaS web application
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
     items:
     - name: Data analytics
@@ -184,20 +194,10 @@
       href: ./blueprints/gdpr-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/gdpr-paaswa-overview.md
-  - name: FedRAMP
+  - name: HIPAA/HITRUST
     items:
-    - name: Data analytics
-      href: ./blueprints/fedramp-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/fedramp-datawarehouse-overview.md
-    - name: IaaS web application
-      href: ./blueprints/fedramp-iaaswa-overview.md
-    - name: PaaS web application
-      href: ./blueprints/fedramp-paaswa-overview.md
-  - name: TIC
-    items:
-    - name: Trusted Internet Connection with Azure
-      href: ./compliance/compliance-tic.md
+    - name: Health Data and AI
+      href: ./blueprints/azure-health.md
   - name: PCI DSS
     items:
     - name: Data analytics
@@ -208,6 +208,10 @@
       href: ./blueprints/pcidss-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/pcidss-paaswa-overview.md
+  - name: TIC
+    items:
+    - name: Trusted Internet Connection with Azure
+      href: ./compliance/compliance-tic.md
   - name: UK NHS
     items:
       - name: Data analytics
@@ -218,13 +222,10 @@
         href: ./blueprints/uknhs-iaaswa-overview.md
       - name: PaaS web application
         href: ./blueprints/uknhs-paaswa-overview.md
-  - name: UK-OFFICIAL
-    href: ./blueprints/uk-official-three-tier-applications-overview.md
+  - name: UK OFFICIAL
     items:
-    - name: Principles overview
-      href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
-  - name: HIPAA/HITRUST Health Data and AI
-    href: ./blueprints/azure-health.md
+    - name: IaaS web application
+      href: ./blueprints/ukofficial-iaaswa-overview.md
 - name: White papers
   href: security-white-papers.md
 - name: Azure security services
