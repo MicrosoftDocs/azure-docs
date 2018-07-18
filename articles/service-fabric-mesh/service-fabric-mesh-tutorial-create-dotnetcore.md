@@ -1,6 +1,6 @@
 ---
-title: Tutorial- Create and deploy a multi-service app to Service Fabric Mesh | Microsoft Docs
-description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
+title: Tutorial-Create, debug, and deploy a multi-service web application to Service Fabric Mesh | Microsoft Docs
+description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
 
-# Tutorial: Create and deploy a multi-service app to Service Fabric Mesh
+# Tutorial: Create, debug, and deploy a multi-service web application to Service Fabric Mesh
 
 This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric Mesh application that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh application running in Azure Service Fabric Mesh.
 
-If you don't want to manually create the to-do app, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
+If you don't want to manually create the to-do application, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In part one of the series, you learn how to:
 
@@ -265,7 +265,7 @@ public class ToDoController : Controller
 }
 ```
 
-This tutorial does not implement add, delete, and so on to keep the focus on communicating with another service.
+This tutorial does not implement add, delete, and so on, to keep the focus on communicating with another service.
 
 ## Create the web page that displays to-do items
 
@@ -383,4 +383,4 @@ In this part of the tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Debug the application](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Debug a Service Fabric Mesh application running locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
