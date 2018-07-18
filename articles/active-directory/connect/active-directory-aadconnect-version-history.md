@@ -45,8 +45,9 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 - Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
 - New troubleshooting tooling helps troubleshoot changing primary email address and hiding account from global address list
 - Azure AD Connect was updated to include the latest SQL Server 2012 Native Client
+- When you switch user sign-in to Password Hash Synchronization or Pass-through Authentication in the "Change user sign-in" task, the Seamless Single Sign-On checkbox is enabled by default.
 - Added support for Windows Server Essentials 2019
-- The Azure AD Connect Health agent was updated to the latest version
+- The Azure AD Connect Health agent was updated to the latest version 3.1.7.0
 - During an upgrade, if the installer detects changes to the default sync rules, the admin is prompted with a warning before overwriting the modified rules. This will allow the user to take corrective actions and resume later. Old Behavior: If there was any modified out-of-box rule then manual upgrade was overwriting those rules without giving any warning to the user and sync scheduler was disabled without informing user. New Behavior: User will be prompted with warning before overwriting the modified out-of-box sync rules. User will have choice to stop the upgrade process and resume later after taking corrective action.
 - Updated Azure AD PowerShell and Azure AD Connect to use ADAL V3 
 - Provide a better handling of a FIPS compliance issue, providing an error message for MD5 hash generation in a FIPS compliant environment and a link to documentation that provides a work around for this issue.
