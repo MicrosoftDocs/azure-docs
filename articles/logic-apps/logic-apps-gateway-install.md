@@ -18,12 +18,14 @@ ms.suite: integration
 # Install the on-premises data gateway for Azure Logic Apps
 
 Before you can connect your logic apps to on-premises data sources, 
-you must download and install the on-premises data gateway on a local computer. 
-The gateway works as a bridge that provides quick data transfer and 
-encryption between data sources on premises and your logic apps. 
-This article shows how you can download, install, 
-and set up your on-premises data gateway. Learn more about 
-[how the data gateway works](#gateway-cloud-service).
+download and install the on-premises data gateway on a local computer. 
+The gateway works as a bridge that provides quick data transfer and encryption 
+between data sources on premises (not in the cloud) and your logic apps. 
+This article shows how you can download, install, and set up your on-premises data gateway. 
+
+You can use the same gateway installation with other services, 
+such as Power BI, Microsoft Flow, PowerApps, and Azure Analysis Services. 
+Learn more about [how the data gateway works](#gateway-cloud-service).
 
 <a name="supported-connections"></a>
 
@@ -73,13 +75,14 @@ If you don't have an Azure subscription yet,
   **Recommended requirements**
   * 8 Core CPU
   * 8 GB Memory
-  * 64-bit version of Windows 2012 R2 (or later)
+  * 64-bit version of Windows Server 2012 R2 (or later)
 
 * **Important considerations**
 
-  * You can only install the on-premises data gateway on a local computer, 
+  * You can install the on-premises data gateway only on a local computer, 
   not a domain controller. However, you don't have to install the gateway 
-  on the same computer as your data source.
+  on the same computer as your data source. Also, you need only one gateway 
+  for all your data sources, so no need to install the gateway for each data source.
 
     > [!TIP]
     > To minimize latency, you can install the gateway as close 
@@ -90,11 +93,12 @@ If you don't have an Azure subscription yet,
   or connect to the Internet. The gateway can't run under these conditions. 
   Gateway performance might also suffer over a wireless network.
 
-  * During installation, you must sign in with a 
+  * During installation, you can only sign in with a 
   [work or school account](../active-directory/sign-up-organization.md) 
-  that's managed by Azure Active Directory (Azure AD) and not a Microsoft account.
-  You must then use the same sign-in account in the Azure portal 
-  when you create a gateway resource for your gateway installation. 
+  that's managed by Azure Active Directory (Azure AD) and not a Microsoft account. 
+  Also, make sure this account isn't an Azure B2B (guest) account. 
+  You must then use the same sign-in account in the Azure portal when you register 
+  your gateway installation by creating an Azure resource for your gateway. 
   You can then select this gateway resource when you create the 
   connection from your logic app to your on-premises data source. 
   [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
@@ -113,22 +117,21 @@ If you don't have an Azure subscription yet,
   > then give that user access to your subscription. 
   > You can then sign in during gateway installation with this username and password.
 
-  * The region you select for your gateway determines the location 
-  where you later create the Azure resource for your gateway. 
-  When you create this resource in Azure, you must select the same location 
-  as your gateway installation. The default region is the same location 
-  as your Azure AD tenant, which manages your Azure account, 
+  * The region you select for your gateway installation determines the location 
+  where you later register your gateway in Azure by creating an Azure resource. 
+  When you create this gateway resource in Azure, you must select the *same* 
+  location as your gateway installation. The default region is the same 
+  location as your Azure AD tenant, which manages your Azure account, 
   but you can change the location during gateway installation.
 
-  * If you have an existing gateway that you set up with an installer 
-  that's earlier than version 14.16.6317.4, you can't change your 
-  gateway's location by running the latest installer. However, 
-  you can use the latest installer to set up a new gateway 
-  with the location you want instead.
+  * If you already have a gateway that you set up with an installer 
+  earlier than version 14.16.6317.4, you can't change your gateway's 
+  location by running the latest installer. However, you can use the 
+  latest installer to set up a new gateway with the location you want instead.
   
     If you have a gateway installer that's earlier than 
     version 14.16.6317.4, but you haven't installed your 
-    gateway yet, you can download and use the latest installer.
+    gateway yet, you can download and use the latest installer instead.
 
 <a name="install-gateway"></a>
 
@@ -149,7 +152,7 @@ and then choose **Install**.
 provide the email address for your work or school account, 
 and choose **Sign in**.
 
-   ![Sign in with Azure work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+   ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
 5. Choose **Register a new gateway on this computer** > **Next**, 
 which registers your gateway installation with the 
@@ -190,7 +193,7 @@ and Azure Service Bus that's used by your gateway installation.
    For example, to reduce latency, you might change your 
    gateway's region to the same region as your logic app. 
    Or, you might select the region closest to your on-premises data source. 
-   Your gateway resource in Azure and your logic app can have different locations.
+   Your *gateway resource in Azure* and your logic app can have different locations.
 
 8. To accept the default region, choose **Configure**. 
 Or, to change the default region, follow these steps:
@@ -210,11 +213,14 @@ Or, to change the default region, follow these steps:
 
    ![Finished gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-10. Now you can [create an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
+10. Now register your gateway in Azure by 
+[creating an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
 
-## High availability clusters
+## Enable high availability
 
-If you have an existing gateway when you create another gateway, 
+The on-premises data gateway supports high availability when you 
+have more than one gateway installation and set them up as clusters. 
+If you have an existing gateway when you go to create another gateway, 
 you can optionally create high availability clusters. 
 These clusters organize gateways into groups that can 
 help avoid single points of failure. To use this capability, 
@@ -252,7 +258,7 @@ In the programs list, select **On-premises data gateway**, and then choose **Uni
 
 2. [Reinstall the on-premises data gateway](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
-3. After the installer opens, sign in with the same Azure work 
+3. After the installer opens, sign in with the same work 
 or school account that was previously used to install the gateway.
 
 4. Select **Migrate, restore, or takeover an existing gateway**, 
@@ -284,7 +290,7 @@ the Windows service account must have at least **Contributor** permissions.
 > [!NOTE]
 > The Windows service account differs from the account 
 > used for connecting to on-premises data sources, 
-> and from the Azure work or school account used to sign in to cloud services.
+> and from the work or school account used to sign in to cloud services.
 
 <a name="restart-gateway"></a>
 
@@ -392,8 +398,9 @@ The data gateway facilitates quick and secure communication between your logic a
 the gateway cloud service, and your on-premises data source. The gateway cloud 
 service encrypts and stores your data source credentials and gateway details. 
 The service also routes queries and their results between your logic app, 
-the on-premises data gateway, and your data source on premises.
+the on-premises data gateway, and your data source on premises. 
 
+The gateway works with firewalls and uses only outbound connections. 
 All traffic originates as secure outbound traffic from the gateway agent. 
 The gateway relays data from on-premises sources on encrypted channels 
 through the Azure Service Bus. This service bus creates a channel between 
@@ -440,8 +447,8 @@ the capability to connect to the server name that was provided.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Why must I use an Azure work or school account to sign in? <br/>
-**A**: You can only use an Azure work or school account when 
+**Q**: Why must I use a work or school account to sign in? <br/>
+**A**: You can only use an work or school account when 
 you install the on-premises data gateway. Your sign-in account 
 is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
@@ -491,6 +498,21 @@ When you install the gateway, specify the recovery key.
 **A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
 ## Troubleshooting
+
+**Q**: Why don't I see my gateway installation when I create the gateway resource in Azure? </br>
+**A**: This issue can happen for these reasons:<br/>
+
+* Your gateway installation is already registered 
+and claimed by another gateway resource in Azure. 
+Gateway installations don't appear in the instances 
+list after gateway resources are created for them.
+To check your gateway registrations in the Azure portal, 
+review all your Azure resources with the **On-premises Data Gateways** 
+type for *all* Azure subscriptions. 
+
+* The Azure AD identity for the person who installed the gateway 
+differs from the person who signed in to the Azure portal. 
+Check that you're signed in with the same identity that installed the gateway.
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
