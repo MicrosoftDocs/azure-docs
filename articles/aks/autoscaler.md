@@ -26,7 +26,6 @@ This document assumes that you have an RBAC-enabled AKS cluster. If you need an 
 
 The following table lists all of the information you must provide in the autoscaler definition.
 
-
 Get your subscription ID with: 
 
 ``` console
@@ -54,6 +53,7 @@ $ kubectl get nodes --show-labels
 ```
 
 Output:
+
 ```console
 NAME                       STATUS    ROLES     AGE       VERSION   LABELS
 aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=eastus,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
@@ -115,10 +115,10 @@ data:
   NodeResourceGroup: <base64-encoded-node-resource-group>
 ---
 ```
+
 ## Create a Deployment Chart
 
 Create a file named `aks-cluster-autoscaler.yaml`, and copy into it the following YAML code.
-
 
 ```yaml
 apiVersion: v1
@@ -310,7 +310,6 @@ Next, to set the range of nodes, fill in the argument for `--nodes` under `comma
 
 Then, fill in the image field under **containers** with the version of the cluster autoscaler you want to use. AKS requires v1.2.2 or newer. The example here uses v1.2.2.
 
-
 ## Deployment
 
 Deploy cluster-autoscaler by running
@@ -339,7 +338,6 @@ Learn more about deploying and managing AKS with the AKS tutorials.
 
 > [!div class="nextstepaction"]
 > [AKS Tutorial][aks-tutorial-prepare-app]
-
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
