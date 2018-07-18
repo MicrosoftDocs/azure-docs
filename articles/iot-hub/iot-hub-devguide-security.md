@@ -87,7 +87,7 @@ HTTPS implements authentication by including a valid token in the **Authorizatio
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): 
+Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)): 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
@@ -265,7 +265,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, Python-based [The IoT extension for Azure CLI 2.0][lnk-IoT-extension-CLI-2.0] command-line utility.
+> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool or the cross-platform, Python-based [The IoT extension for Azure CLI 2.0][lnk-IoT-extension-CLI-2.0] command-line utility or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### Use a shared access policy
 
