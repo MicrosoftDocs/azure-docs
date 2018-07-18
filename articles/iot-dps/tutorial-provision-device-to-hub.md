@@ -64,14 +64,15 @@ Now you enroll the device with your Device Provisioning Service instance, using 
 
 After enrollment, the provisioning service then waits for the device to boot and connect with it at any later point in time. When your device boots for the first time, the client SDK library interacts with your chip to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
 
-## Start the device
+## Start the IoT device
 
-At this point, the following setup is ready for device registration:
+Your Iot device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device it will be assigned to an IoT hub. 
 
-1. Your device or group of devices are enrolled to your Device Provisioning service, and 
-2. Your device is ready with attestation mechanism configured and accessible through the application using the Device Provisioning Service client SDK.
+Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python. For example, a simulated device using TPM and the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) would follow the process covered in the [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) section. The same device using X.509 certificate attestation would refer to this [boot sequence](quick-create-simulated-device-x509#simulate-first-boot-sequence-for-the-device) section.
 
-Start the device to allow your client application to start the registration with your Device Provisioning service.  
+Refer to the [How-to guide for the MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit) as an example for a real device.
+
+Start the device to allow your device's client application to start the registration with your Device Provisioning service.  
 
 ## Verify the device is registered
 
