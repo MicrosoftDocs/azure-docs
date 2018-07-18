@@ -48,7 +48,9 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 This code resets the **slow\_query\_log** configuration to the default value **OFF**. 
 
-## Populating the time zone tables
+## Working with the time zone parameter
+
+### Populating the time zone tables
 
 The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
 

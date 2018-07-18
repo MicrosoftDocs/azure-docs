@@ -67,7 +67,9 @@ These additional server parameters are not configurable in the system:
 
 Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## Populating the time zone tables
+## Working with the time zone parameter
+
+### Populating the time zone tables
 
 The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
 
