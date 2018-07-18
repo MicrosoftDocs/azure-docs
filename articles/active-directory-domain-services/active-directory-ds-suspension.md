@@ -19,14 +19,14 @@ ms.author: ergreenl
 
 ---
 # Suspended domains
-When Azure AD Domain Services is unable to service a managed domain for a long period of time, the managed domain is put into a suspended state. This article will explain why managed domains are suspended, the length of suspension, and how to remediate a suspended domain.
+When Azure AD Domain Services is unable to service a managed domain for a long period of time, the managed domain is put into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
 
 
 ## States your managed domain can be in
 
 ![Suspended domain timeline](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
 
-The preceding graphic outlines how a domain is suspended, how long it will be suspended, and ultimately, the deletion of a managed domain. The following sections detail the reasons why a domain can be suspended and how to unsuspend a managed domain.
+The preceding graphic outlines the possible states an Azure AD Domain Services managed domain can be in.
 
 ### 'Running' state
 A managed domain that is configured correctly and operating regularly is in the **Running** state.
@@ -66,12 +66,15 @@ A managed domain is put in the **Suspended** state for the following reasons:
 Managed domains are suspended when Microsoft is unable to manage, monitor, patch, or backup the domain on an ongoing basis.
 
 **What you can expect:**
-* Domain controllers for your managed domain are de-provisioned and are not reachable within the virtual network.
+* Domain controllers for your managed domain are de-provisioned and aren't reachable within the virtual network.
 * Secure LDAP access to the managed domain over the internet (if enabled) stops working.
-* You notice failures in authenticating to the managed domain, logging on to domain joined virtual machines, connecting over LDAP/LDAPS etc.
+* You notice failures in authenticating to the managed domain, logging on to domain joined virtual machines, and connecting over LDAP/LDAPS.
 * Backups for your managed domain are no longer taken.
+* Synchronization with Azure AD stops.
 * Resolve the alert causing your managed domain to be in the 'Suspended' state and then contact support.
-* Support may restore your managed domain, only if there is an existing backup that is less than 30 days old.
+* Support may restore your managed domain, only if a backup that is less than 30 days old exists.
+
+The managed domain will only stay in a suspended state for 15 days. To recover your managed domain, Microsoft recommends you resolve critical alerts immediately.
 
 
 ### 'Deleted' state
@@ -80,20 +83,14 @@ A managed domain that stays in the 'Suspended' state for 15 days is **Deleted**.
 **What you can expect:**
 * All resources and backups for the managed domain are deleted.
 * You can't restore the managed domain and need to create a new managed domain to use Azure AD Domain Services.
-* You aren't billed for the managed domain, after it is deleted.
-
-
-## What happens when a managed domain is suspended?
-When a domain is suspended, Azure AD Domain Services stops and de-provisions the domain controllers for your managed domain. As a result, backups are no longer taken, users are unable to sign in to your domain, and synchronization with Azure AD stops.
-
-The managed domain will only stay in a suspended state for a maximum of 15 days. To ensure a timely recovery, it is recommended you resolve critical alerts immediately.
+* Once deleted, you aren't billed for the managed domain.
 
 
 ## How do you know if your managed domain is suspended?
 You see an [alert](active-directory-ds-troubleshoot-alerts.md) on the Azure AD Domain Services Health page in the Azure portal that declares the domain suspended. The state of the domain also shows "Suspended".
 
 
-## Restore a suspended domain?
+## Restore a suspended domain
 To restore a domain in the 'Suspended' state, complete the following steps:
 
 1. Navigate to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) on the Azure portal
