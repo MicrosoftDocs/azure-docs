@@ -259,7 +259,7 @@ public static class AsyncExample
 }
 ```
 
-You can't use `out` parameters in async functions. For output bindings, use the [function return value](#binding-to-method-return-value) or a [collector object](writing-multiple-output-values) instead.
+You can't use `out` parameters in async functions. For output bindings, use the [function return value](#binding-to-method-return-value) or a [collector object](#writing-multiple-output-values) instead.
 
 ## Cancellation tokens
 
