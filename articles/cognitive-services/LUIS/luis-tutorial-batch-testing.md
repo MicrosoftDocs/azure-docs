@@ -36,48 +36,23 @@ If you want to keep the original Human Resources app, clone the version on the [
 Train the app.
 
 ## Purpose of batch testing
-Batch testing allows you to validate a model's state with a known set of  labeled utterances and entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
+Batch testing allows you to validate the active, trained model's state with a known set of labeled utterances and entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. -->
-For this tutorial, make sure you are not using the example utterances already added to an intent. 
-
-To verify your batch test utterances against the example utterances, [export](luis-how-to-start-new-app.md#export-app) the app. Compare the app example utterance's to the batch test utterances. 
+When using an app other than this tutorial, make sure you are *not* using the example utterances already added to an intent. To verify your batch test utterances against the example utterances, [export](luis-how-to-start-new-app.md#export-app) the app. Compare the app example utterance's to the batch test utterances. 
 
 Requirements for batch testing:
 
 * Maximum of 1000 utterances per test. 
 * No duplicates. 
-* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities of simple, hierarchical (parent-only), and composite. Batch testing is only useful for machined-learned intents and entities.
 
 ## Create a batch file with utterances
 1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) from the LUIS-Samples Github repository.
 
 2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
 
-    ```JSON
-    [
-        {
-        "text": "Are there any janitorial jobs currently open?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "I would like a fullstack typescript programming with azure job",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Is there a database position open in Los Colinas?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Please find database jobs open today in Seattle",
-        "intent": "GetJobInformation",
-        "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## Run the batch
 
@@ -110,7 +85,7 @@ Requirements for batch testing:
     [ ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## Review batch results
-The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a section of the chart or a point within the chart, the associated utterance(s) display below the chart. 
+The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together. 
 
@@ -123,7 +98,7 @@ The **GetJobInformation** test results displayed in the filter show that 2 of th
 
 Why are two of the utterances predicted as **ApplyForJob**, instead of the correct intent **GetJobInformation**? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
 
-Notice that both intents have the same count of errors: 
+Notice that both intents have the same count of errors. An incorrect prediction in one intent affects the other intent as well. They both have errors because the utterances were incorrectly predicted for one intent, and also incorrectly not predicted for another intent. 
 
 ![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
@@ -147,7 +122,7 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
 
     [ ![Screenshot of LUIS with Test button highlighted](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume` and `c.v.`:
+3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume`, `c.v.`, and `apply`:
 
     |Example utterances for **GetJobInformation** intent|
     |--|
@@ -167,7 +142,7 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
     |I have a masters in library and archive management. Any new positions?|
     |Are there any babysitting jobs for 13 year olds in the city today?|
 
-    Do not label the **Job** entity in the utterances. This happens in a step later in the tutorial.
+    Do not label the **Job** entity in the utterances. This section of the tutorial is focused on intent prediction only.
 
 4. Train the app by selecting **Train** in the top right navigation.
 
@@ -183,120 +158,29 @@ In order to verify that the utterances in the batch test are correctly predicted
     ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## Create batch file with entities 
-In order to verify entities in a batch test, the entities need to be labeled in the batch. Only simple and composite entities (the machine-learned entities) are used. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
-The variation in entity for total word count can impact the prediction quality. Make sure the training date supplied to the intent with labeled utterances includes a variety of lengths of entity. 
+The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
 When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names, which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
 
-The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If your human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
+The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If _your own_ human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
 
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
 
 
 2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token-based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This causes an error during the batch file import.  
 
-    ```JSON
-    [
-        {
-            "text": "I'm a registered nurse. Here is my resume.",
-            "intent": "ApplyForJob",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 6,
-            "endPos": 21
-            }]
-        },
-        {
-            "text": "I'm a database analyst. Here is my resume.",
-            "intent": "ApplyForJob",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 6,
-            "endPos": 21
-            }]
-        },
-        {
-            "text": "I'm a SQL Server programmer. Here is my resume.",
-            "intent": "ApplyForJob",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 6,
-            "endPos": 26
-            }]
-        },
-        {
-            "text": "I'm a registered nurse. Are there any open jobs.",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 6,
-            "endPos": 21
-            }]
-        },
-        {
-            "text": "I'm a database analyst. Are there any open jobs.",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 6,
-            "endPos": 21
-            }]
-        },
-        {
-            "text": "Are there any open jobs for a SQL Server programmer?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 30,
-            "endPos": 50
-            }]
-        },
-        {
-            "text": "Is there any open positions for a costume designer?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 34,
-            "endPos": 49
-            }]
-        },
-        {
-            "text": "Are there any open jobs for a SQL programmer?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 30,
-            "endPos": 42
-            }]
-        }
-        ,
-        {
-            "text": "Are there any open jobs with SQL?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 29,
-            "endPos": 31
-            }]
-        }
-    ]
-    ```
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 <!--TBD: when will the patterns fix be in for batch testing? -->
 ## Run the batch with entities
 
 1. Select **Test** in the top navigation bar. 
 
-    [ ![Screenshot of LUIS app with Test highlighted in top, right navigation bar](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Select **Batch testing panel** in the right-side panel. 
 
-    [ ![Screenshot of LUIS app with Batch test panel highlighted](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
-
 3. Select **Import dataset**.
-
-    [ ![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. Choose the file system location of the `HumanResources-entities-batch.json` file.
 
@@ -308,11 +192,6 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 7. Select **See results**.
 
-8. Review entity prediction results in the graph and legend.
-
-    ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-entities-batch-results.png)
-
-
 ## Review entity batch results
 The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
 
@@ -320,7 +199,7 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 
     ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-    The chart changed to display the entity predictions. 
+    The chart changs to display the entity predictions. 
 
 2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard combination control + E to switch into the token view. 
 
