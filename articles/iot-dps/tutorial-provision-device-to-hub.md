@@ -86,6 +86,7 @@ Once your device boots, the following actions should take place. See the TPM sim
 
     ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
+
 ## Next steps
 In this tutorial, you learned how to:
 
