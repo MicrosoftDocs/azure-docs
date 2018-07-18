@@ -45,7 +45,7 @@ This step involves adding the device's unique security artifacts to the Device P
 There are two ways to enroll the device to the Device Provisioning Service:
 
 - **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. See [Security](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates), for more information Identity attestation for enrollment groups.
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. For more information on Identity attestation for enrollment groups, see [Security](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Add group enrollment for X.509 attestation in the portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
@@ -66,17 +66,17 @@ After enrollment, the provisioning service then waits for the device to boot and
 
 ## Start the IoT device
 
-Your Iot device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device it will be assigned to an IoT hub. 
+Your Iot device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device, it will be assigned to an IoT hub. 
 
-Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python. For example, a simulated device using TPM and the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) would follow the process covered in the [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) section. The same device using X.509 certificate attestation would refer to this [boot sequence](quick-create-simulated-device-x509#simulate-first-boot-sequence-for-the-device) section.
+Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python. For example, a simulated device using TPM and the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) would follow the process covered in the [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) section. The same device using X.509 certificate attestation would refer to this [boot sequence](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) section.
 
-Refer to the [How-to guide for the MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit) as an example for a real device.
+Refer to the [How-to guide for the MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit.md) as an example for a real device.
 
 Start the device to allow your device's client application to start the registration with your Device Provisioning service.  
 
 ## Verify the device is registered
 
-Once your device boots, the following actions should take place. See the TPM simulator sample application [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) for more details. 
+Once your device boots, the following actions should take place:
 
 1. The device sends a registration request to your Device Provisioning service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 
@@ -86,6 +86,7 @@ Once your device boots, the following actions should take place. See the TPM sim
 
     ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
+For more information, see the TPM simulator sample application, [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
 
 ## Next steps
 In this tutorial, you learned how to:
