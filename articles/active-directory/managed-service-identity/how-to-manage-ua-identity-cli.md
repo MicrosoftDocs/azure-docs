@@ -40,7 +40,7 @@ In this article, you learn how to create, list and delete a user assigned identi
 
 ## Create a user assigned managed identity 
 
-To create a user assigned identity, use the [az identity create](/cli/azure/identity#az-identity-create) command. The `-g` parameter specifies the resource group where to create the user assigned identity, and the `-n` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
+To create a user assigned identity, use the [az identity create](/cli/azure/identity#az-identity-create) command. The `-g` parameter specifies the resource group where to create the user assigned identity, and the `-n` parameter specifies its name. Ensure the account you're using to create the user assigned identity has the permissions of the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role or higher. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
