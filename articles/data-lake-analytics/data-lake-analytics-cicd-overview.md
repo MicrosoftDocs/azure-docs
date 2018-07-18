@@ -407,7 +407,6 @@ Follow below steps to set up database deployment task in Visual Studio Team Serv
     Expand-Archive Newtonsoft.Json.6.0.8.zip -DestinationPath Newtonsoft.Json.6.0.8 -Force
     Expand-Archive USQLSDK.zip -DestinationPath USQLSDK -Force
 
-
     echo "Copy required DLLs to output folder..."
 
     mkdir $AzureSDK -Force
