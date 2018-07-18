@@ -1,6 +1,6 @@
 ---
-title: Tutorial- Create an Azure Service Fabric Mesh application | Microsoft Docs
-description: Learn how to create an Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure Service Fabric Mesh.
+title: Tutorial- Deploy a Service Fabric Mesh application to Service Fabric Mesh | Microsoft Docs
+description: Learn how to publish an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -18,9 +18,9 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
-# Tutorial: Publish an Service Fabric Mesh application to Service Fabric Mesh
+# Tutorial: Deploy a Service Fabric Mesh web application
 
-This tutorial is part three of a series and shows you how to deploy an Service Fabric Mesh application to Azure Service Fabric Mesh in Azure directly from Visual Studio. 
+This tutorial is part three of a series and shows you how to publish an Azure Service Fabric Mesh web application directly from Visual Studio.
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -32,11 +32,11 @@ In this tutorial you learn how to:
 
 In this tutorial series, you learn how to:
 > [!div class="checklist"]
-> * [Build a Service Fabric Mesh application](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Build a Service Fabric Mesh web application](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Publish the app to Azure
 
-You'll learn how to create an Azure Service Fabric Mesh app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates how to make a service-to-service call in a Service Fabric Mesh application.
+You'll learn how to create an Azure Service Fabric Mesh app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates how to make a service-to-service call in a Service Fabric Mesh web application.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ If you did not build the to-do sample application in [part two of this tutorial 
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-The application is under the `basicservicefabricmeshapp` directory.
+The application is under the `src\todolistapp` directory.
 
 ## Publish to Azure
 
@@ -70,7 +70,7 @@ Under **Resource group**, select **\<Create New Resource Group...>**. A dialog a
 
 ![Visual studio Service Fabric Mesh new resource group dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this tutorial uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, e.g. **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this tutorial uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, for example, **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
 
 ![Visual studio Service Fabric Mesh new resource group dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -151,7 +151,7 @@ az mesh code-package-log get --resource-group $rg --application-name ServiceMesh
 
 ## Clean up resources
 
-When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group which will delete all of the associated resources.
+When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group, which will delete all of the associated resources.
 
 ```azurecli
 az group delete --resource-group sfmeshTutorial1RG
@@ -178,6 +178,5 @@ Now that you have completed publishing a Service Fabric Mesh application to Azur
 * Explore the [Voting app sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) to see another example of service-to-service communication.
 * Read [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
 * Read about the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
-
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
