@@ -82,7 +82,7 @@ Once your device boots, the following actions should take place. See the TPM sim
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 
 3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID, and the encrypted key back to the device. 
 4. The IoT Hub client application on the device then connects to your hub. 
-5. On successful connection to the hub, you should see the device appear in the IoT hub's **Device Explorer**. 
+5. On successful connection to the hub, you should see the device appear in the IoT hub's **IoT Devices** explorer. 
 
     ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
