@@ -54,7 +54,7 @@ Notice in the `OnSessionStartCallback` we copy the value of `storeIsOpen` from B
 
 ![](../media/tutorial17_sessionstart.PNG)
 
-Likewise, in the `OnSessionEndCallback` (if the session was ended due to a learned activity and not merely a timeout) we copy the value of entity `purchaseItem` out to BoBuilder storage `purchaseItem`. See code below:
+Likewise, in the `OnSessionEndCallback` (if the session was ended due to a learned activity and not merely a timeout) we copy the value of entity `purchaseItem` out to BotBuilder storage `purchaseItem`. See code below:
 
 ![](../media/tutorial17_sessionend.PNG)
 
