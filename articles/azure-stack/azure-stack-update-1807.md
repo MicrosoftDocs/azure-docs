@@ -23,7 +23,7 @@ ms.reviewer: justini
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the improvements and fixes in the 1807 update package, known issues for this version, and where to download the update. Known issues are divided into issues directly related to the update process and issues with the build (post-installation).
+This article describes the contents of the 1807 update package. This update includes improvements, fixes, and known issues for this version of Azure Stack, and where to download the update. Known issues are divided into issues directly related to the update process and issues with the build (post-installation).
 
 > [!IMPORTANT]        
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
@@ -39,7 +39,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2496385 | ASDK, IS --> **Added data transfer time into the total backup time.**
 
--	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously hard-code to 10 GB.)
+-	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.)
 
 - <!-- 2508488 |  IS   -->   Expand capacity by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
 
@@ -67,7 +67,7 @@ This update includes the following improvements for Azure Stack.
 ## Before you begin    
 
 ### Prerequisites
-- Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update.  There is no update 1806.  
+- Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update.  There was no update 1806.  
 
 - Before you start installation of update 1807, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action.
 
@@ -159,7 +159,7 @@ The following are post-installation known issues for this build version.
 
   As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
 
-  You can then try to redownload the VM image that previously failed.
+  You can then retry the download of the VM image that previously failed.
 
 - <!-- TBD - IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
@@ -169,16 +169,6 @@ The following are post-installation known issues for this build version.
 ### Networking  
 
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
-
-- <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
-
-  Currently, you must use only new public IP addresses for new VMs you create.
-
-  This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the original VM, and not to the new one.
-
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased.
-
-  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. For more information, see how to [make an add-on plan available](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 - <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription.
 

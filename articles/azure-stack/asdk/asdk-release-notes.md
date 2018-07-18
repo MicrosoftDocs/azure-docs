@@ -37,7 +37,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2496385 | ASDK, IS --> **Added data transfer time into the total backup time.**
 
--	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Currently hard-code to 10 GB.)
+-	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.)
  
 ### Fixed issues
 
@@ -123,7 +123,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
   As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
 
-  You can then try to redownload the VM image that previously failed.
+  You can then retry the download of the VM image that previously failed.
 
 - <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
@@ -132,19 +132,7 @@ This build includes the following improvements and fixes for Azure Stack.
 #### Networking
 - <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
-- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
-
-  Currently, you must use only new public IP addresses for new VMs you create.
-
-  This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the original VM, and not to the new one.
-
-
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased.
-
-  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. For more information, see how to [make an add-on plan available](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
-
 - <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription.
-
 
 - <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
@@ -288,7 +276,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
   As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
 
-  You can then try to redownload the VM image that previously failed.
+  You can then retry the download of the VM image that previously failed.
 
 - <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
@@ -420,7 +408,7 @@ The following are now available, but don't require Azure Stack update 1804.
 
   As a workaround, create a new VM image with a dummy VHD that can be created through Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB). This process should fix the problem that prevents deleting the failed item. Then, 15 minutes after creating the dummy image, you can successfully delete it.
 
-  You can then try to redownload the VM image that previously failed.
+  You can then retry the download of the VM image that previously failed.
 
 - <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
