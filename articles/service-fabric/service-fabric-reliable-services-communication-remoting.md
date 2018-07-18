@@ -104,11 +104,6 @@ Default retry parameters are provied by [OperationRetrySettings](https://docs.mi
 Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 
-## How to use Remoting V2 stack
-With 2.8 NuGet Remoting package, you have the option to use Remoting V2 stack. Remoting V2 stack is more performant and provides features like custom serialization and more pluggable Api's.
-By default, if you don't do following changes, it continues to use Remoting V1 Stack.
-Remoting V2 is not compatible with V1(previous Remoting stack), so follow below article on how to upgrade from V1 to V2 without impacting service availability.
-
 ## How to use the Remoting V2 stack
 
 As of the NuGet Remoting package version 2.8, you have the option to use the Remoting V2 stack. The Remoting V2 stack is more performant and provides features like custom serialization and more pluggable API's.
@@ -232,7 +227,7 @@ This step makes sure that service is listening only on V2 Listener.
 
 
 ## How to use Remoting V2(InterfaceCompatible) stack
- Remoting V2(InterfaceCompatible aka V2_1) stack has all the features of V2 Remoting stack besides it is interface compatible stack to Remoting V1 stack but is not backward compatible with V2 and V1. In order to do the upgrade from V1 to V2_1 without impacting service availability, follow below article[how to upgrade from V1 to V2(InterfaceCompatible)](#how-to-upgrade-from-remoting-v1-to-remoting-v2(InterfaceCompatible)).
+ Remoting V2(InterfaceCompatible aka V2_1) stack has all the features of V2 Remoting stack besides it is interface compatible stack to Remoting V1 stack but is not backward compatible with V2 and V1. In order to do the upgrade from V1 to V2_1 without impacting service availability, follow below article[how to upgrade from V1 to V2(InterfaceCompatible)](#how-to-upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
 
 
 ### Using Assembly Attribute to use Remoting V2(InterfaceCompatible) stack.
