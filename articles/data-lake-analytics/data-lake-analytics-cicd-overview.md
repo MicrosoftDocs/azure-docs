@@ -23,7 +23,7 @@ In this document, you learn how to set up CI/CD pipeline for U-SQL jobs and U-SQ
 
 ## CI/CD for U-SQL job
 
-Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you orgnize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes the further CI/CD scenarios easily.
+Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you organize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes the further CI/CD scenarios easily.
 
 ## Build U-SQL project
 
@@ -88,7 +88,7 @@ The arguments definition and values are:
 
 Besides the command line, customers can also use Visual Studio Build or MSBuild task to build U-SQL projects in Visual Studio Team Service. To set up build task, make sure:
 
-1.	Add NuGet restore task to get the solution referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced > Destination directory** as `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample diretly in step 2.
+1.	Add NuGet restore task to get the solution referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced > Destination directory** as `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
     ![Data Lake Set CI CD MSBuild task for U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -323,7 +323,7 @@ The arguments `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refers to the in
 
 Besides the command line, customers can also use **Visual Studio Build** or **MSBuild task** to build U-SQL database projects in Visual Studio Team Service. To set up build task, make sure:
 
-1.	Add NuGet restore task to get the solution referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced > Destination directory** as `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample diretly in step 2.
+1.	Add NuGet restore task to get the solution referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced > Destination directory** as `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
     ![Data Lake Set CI CD MSBuild task for U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
