@@ -45,7 +45,7 @@ This step involves adding the device's unique security artifacts to the Device P
 There are two ways to enroll the device to the Device Provisioning Service:
 
 - **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant. See [Security](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates), for more information Identity attestation for enrollment groups.
 
     [![Add group enrollment for X.509 attestation in the portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
