@@ -1,12 +1,12 @@
 ---
 title: Kubernetes on Azure - Cluster Autoscaler
-description: AKS tutorial - Cluster Autoscaler
+description: Kubernetes on Azure - Cluster Autoscaler
 services: container-service
 author: sakthivetrivel
-manager: seanmckenna
+manager: jeconnoc
 
 ms.service: container-service
-ms.topic: tutorial
+ms.topic: article
 ms.date: 07/18/18
 ms.author: sakthivetrivel
 ms.custom: mvc
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Cluster Autoscaler on Azure Kubernetes Service
 
-The cluster autoscaler on Azure Kubernetes Service (AKS) scales agent nodes within a specific node pool. The autoscaler runs as a deployment in your AKS cluster. This walkthrough will go over the necessary steps to get the cluster autoscaler up and running on an existing cluster. To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. 
+The cluster autoscaler on Azure Kubernetes Service (AKS) scales agent nodes within a specific node pool. The autoscaler runs as a deployment in your AKS cluster. This walkthrough will go over the necessary steps to get the cluster autoscaler up and running on an existing cluster. To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled.
 
 ## Create a Deployment Chart
 
@@ -322,6 +322,8 @@ kubectl -n kube-system describe configmap cluster-autoscaler-status
 
 ## Next steps
 
+To use the cluster autoscaler with the horizontal pod autoscaler, check out [scaling Kubernetes application and infrastructure][aks-tutorial-scale].
+
 Learn more about deploying and managing AKS with the AKS tutorials.
 
 > [!div class="nextstepaction"]
@@ -330,6 +332,7 @@ Learn more about deploying and managing AKS with the AKS tutorials.
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 
 <!-- LINKS - external -->
 [cluster-autoscale]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md
