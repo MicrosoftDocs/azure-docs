@@ -31,7 +31,33 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+---
+
 ## July 2018
+
+### New Azure AD email design and sender information - End of July
+
+**Type:** Plan for change  
+**Service category:** Other  
+**Product capability:** Identity lifecycle management
+ 
+At the **end of July 2018**, you'll notice that all Azure AD emails will have an updated design, sender email address, and sender display name when sent from the following services:
+
+- Azure AD Identity Protection
+- Azure AD Connect Health
+- Azure AD Provisioning Service
+- Azure AD Enterprise Application Management
+- Azure AD Access Reviews
+- Azure AD Privileged Identity Management
+
+Also at that time, email notifications will start to use the following address:
+
+- Display name: Microsoft Azure
+- Email address: azure-noreply@microsoft.com
+
+For an example of some of the new e-mail designs, see [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
 
 ### View legacy authentications through Sign-ins activity logs
 
