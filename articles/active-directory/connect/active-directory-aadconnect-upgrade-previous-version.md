@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
 
