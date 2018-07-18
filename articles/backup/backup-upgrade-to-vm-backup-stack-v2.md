@@ -15,7 +15,7 @@ ms.author: trinadhk
 The Resource Manager deployment model for the upgrade to virtual machine (VM) backup stack provides the following feature enhancements:
 * Ability to see snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore. Also, this ability eliminates the additional storage requirement for backing up premium VMs, except for the first backup.  
 
-* Reduction in backup and restore times by retaining snapshots locally for seven days.
+* Reduces backup and restore times by retaining snapshots locally, for seven days.
 
 * Support for disk sizes up to 4 TB.
 
@@ -36,15 +36,16 @@ A recovery point is considered created only after phases 1 and 2 are done. As pa
 By default, snapshots are kept for seven days. This feature allows the restore to finish faster from these snapshots. It reduces the time that's required to copy data back from the vault to the customer's storage account. 
 
 ## Considerations before upgrade
-* The upgrade of the VM backup stack is one directional. So all backups go into this flow. Because it's enabled at the subscription level, all VMs go into this flow. All new feature additions are based on the same stack. Ability to control this at policy level is coming in future releases.
 
-* Snapshots are stored locally to boost recovery point creation and also to speed up restore operations. Therefore, you see storage costs that correspond to snapshots during the seven-day period.
+* The upgrade of the VM backup stack is one directional, all backups go into this flow. Because the change occurs at the subscription level, all VMs go into this flow. All new feature additions are based on the same stack. Currently you can't control the stack at policy level.
 
-* Incremental snapshots are stored as page blobs. All customers that use unmanaged disks are charged for the seven days the snapshots are stored in the customer's local storage account. According to the current pricing model, there is no cost for customers on managed disks.
+* Snapshots are stored locally to boost recovery point creation and also to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during the seven-day period.
 
-* If you do a restore from a snapshot recovery point for a premium VM, you see a temporary storage location that is used while the VM is created as part of the restore.
+* Incremental snapshots are stored as page blobs. All customers that use unmanaged disks are charged for the seven days the snapshots are stored in the customer's local storage account. According to the current pricing model, there's no cost for customers on managed disks.
 
-* For premium storage accounts, the snapshots that are taken for instant recovery will count towards the limit of 10 TB of allocated space.
+* If you restore a premium VM from a snapshot recovery point, a temporary storage location is used while the VM is created.
+
+* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 
 ## Upgrade
 ### The Azure portal
@@ -91,11 +92,11 @@ The following questions and answers have been collected from forums and customer
 
 ### Will upgrading to V2 impact current backups
 
-If you upgrade to V2, there is no impact to your current backups, and no need to reconfigure your environment. You can upgrade and everything in your backup environment continues to work as it has.
+If you upgrade to V2, there's no impact to your current backups, and no need to reconfigure your environment. Upgrade and your backup environment continues to work as it has.
 
 ### What does it cost to upgrade to Azure Backup stack v2
 
-There is no direct cost to upgrade to Azure Backup stack v2. Snapshots are stored locally to boost recovery point creation, and to speed up restore operations. Therefore, you will see storage costs that correspond to the snapshots taken during the seven-day period.
+There is no cost to upgrade to Azure Backup stack v2. Snapshots are stored locally to speed up recovery point creation, and restore operations. As a result, you'll see storage costs that correspond to the snapshots taken during the seven-day period.
 
 ### Does upgrading to stack v2 increase the premium storage account snapshot limit by 10 TB
 
@@ -105,9 +106,9 @@ No.
 
 Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy 10 TB of allocated space.
 
-### How does the snapshot work for 7 days 
+### How does the snapshot work during the seven-day period 
 
-For seven days, a new snapshot is taken each day. There are seven individual snapshots. The service does **not** take a copy on the first day, and add changes for the next six days.
+Each day a new snapshot is taken. There are seven individual snapshots. The service does **not** take a copy on the first day, and add changes for the next six days.
 
 ### What happens if the default resource group is deleted accidentally
 
@@ -115,8 +116,8 @@ If the resource group is deleted, the instant recovery points for all protected 
 
 ### Can I delete the default resource group created for instant recovery points
 
-The resource group is a managed resource group created by the Azure Backup service. Currently, you can't change or modify the resource group. You should not make changes, or lock the resource group. This guidance is not just for the V2 stack.
+Azure Backup service creates the managed resource group. Currently, you can't change or modify the resource group. Also, you should not lock the resource group. This guidance is not just for the V2 stack.
  
 ### Is a v2 snapshot an incremental snapshot or full snapshot
 
-For unmanaged disks, the snapshot is an incremental snapshot. For managed disks, the snapshot is a full snapshot.
+Incremental snapshots are used for unmanaged disks. For managed disks, the snapshot is a full snapshot.
