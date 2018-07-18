@@ -19,14 +19,14 @@ and other identity management tasks to your mobile and desktop apps. This articl
 
 <!-- TODO: Need link to libraries -->
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most app types, including [web apps](active-directory-b2c-apps.md#web-apps) and [natively installed apps](active-directory-b2c-apps.md#mobile-and-native-apps). You can use the OAuth 2.0 authorization code flow to securely acquire *access tokens* for your apps, which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics).
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](active-directory-b2c-apps.md), including web applications and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens for your applicationss, which can be used to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md).
 
-This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop apps, and essentially any application that runs on a device and needs to get access tokens. 
+This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. 
 
 > [!NOTE]
 > To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) instead of OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [policy parameter](active-directory-b2c-reference-policies.md). With built-in policies, you can use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and policies to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [policy parameter](active-directory-b2c-reference-policies.md). With built-in policies, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and policies to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
 
 In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our sample application and policies. You can try the requests yourself by using these values, or you can replace them with your own values.
 Learn how to [get your own Azure AD B2C directory, application, and policies](#use-your-own-azure-ad-b2c-directory).
@@ -186,7 +186,7 @@ POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required? | Description |
