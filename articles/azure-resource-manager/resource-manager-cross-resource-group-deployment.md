@@ -35,7 +35,7 @@ To specify a different resource group and subscription, use:
 ```json
 "resources": [
     {
-        "apiVersion": "2017-05-10",
+        "apiVersion": "2018-05-01",
         "name": "nestedTemplate",
         "type": "Microsoft.Resources/deployments",
         "resourceGroup": "[parameters('secondResourceGroup')]",
@@ -76,7 +76,7 @@ The following example deploys two storage accounts - one in the resource group s
     },
     "resources": [
         {
-            "apiVersion": "2017-05-10",
+            "apiVersion": "2018-05-01",
             "name": "nestedTemplate",
             "type": "Microsoft.Resources/deployments",
             "resourceGroup": "[parameters('secondResourceGroup')]",
@@ -109,7 +109,7 @@ The following example deploys two storage accounts - one in the resource group s
         {
             "type": "Microsoft.Storage/storageAccounts",
             "name": "[variables('firstStorageName')]",
-            "apiVersion": "2017-06-01",
+            "apiVersion": "2018-02-01",
             "location": "[resourceGroup().location]",
             "sku":{
                 "name": "Standard_LRS"
@@ -131,7 +131,7 @@ For cross resource group deployments, the [resourceGroup()](resource-group-templ
 If you embed one template within another template, the functions in the nested template resolve to the parent resource group and subscription. An embedded template uses the following format:
 
 ```json
-"apiVersion": "2017-05-10",
+"apiVersion": "2018-05-01",
 "name": "embeddedTemplate",
 "type": "Microsoft.Resources/deployments",
 "resourceGroup": "crossResourceGroupDeployment",
@@ -147,7 +147,7 @@ If you embed one template within another template, the functions in the nested t
 If you link to a separate template, the functions in the linked template resolve to the nested resource group and subscription. A linked template uses the following format:
 
 ```json
-"apiVersion": "2017-05-10",
+"apiVersion": "2018-05-01",
 "name": "linkedTemplate",
 "type": "Microsoft.Resources/deployments",
 "resourceGroup": "crossResourceGroupDeployment",
