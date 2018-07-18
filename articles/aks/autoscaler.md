@@ -18,9 +18,9 @@ Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed 
 
 ## Prerequisites
 
-This document assumes that you have an RBAC-enabled AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart](aks-quick-start).
+This document assumes that you have an RBAC-enabled AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
- To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. To upgrade your cluster, see the article on [upgrading an AKS cluster](aks-upgrade).
+ To use the cluster autoscaler, your cluster must be using Kubernetes v1.10.X or higher and must be RBAC-enabled. To upgrade your cluster, see the article on [upgrading an AKS cluster][aks-upgrade].
 
 ## Gather information
 
@@ -340,6 +340,7 @@ Learn more about deploying and managing AKS with the AKS tutorials.
 > [AKS Tutorial][aks-tutorial-prepare-app]
 
 <!-- LINKS - internal -->
+[aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
