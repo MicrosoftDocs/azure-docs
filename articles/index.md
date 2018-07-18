@@ -4603,7 +4603,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DevOps Project</h3>
-                                                    <p>Services for teams to quickly deploy services to Azure</p>
+                                                    <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>
                                         </div>
