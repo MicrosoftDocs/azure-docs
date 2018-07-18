@@ -179,7 +179,7 @@ Function SubmitAnalyticsJob()
     {
         $scriptName = "[Release].[$([System.IO.Path]::GetFileNameWithoutExtension($usqlFile.fullname))]"
 
-        Write-Output "Submitting job for '{$usqlFile}'"bmitting job for '{$usqlFile}'"
+        Write-Output "Submitting job for '{$usqlFile}'"
 
         $jobToSubmit = Submit-AzureRmDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
         
