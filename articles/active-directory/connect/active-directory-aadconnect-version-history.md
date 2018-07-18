@@ -32,7 +32,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## 1.2.0.0
+## 1.1.879.0
 
 ### Release status
 
