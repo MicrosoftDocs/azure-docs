@@ -92,34 +92,34 @@ If it says "Registered," then your subscription is upgraded to VM backup stack R
 
 The following questions and answers have been collected from forums and customer questions.
 
-### Will upgrading to V2 impact current backups
+### Will upgrading to V2 impact current backups?
 
 If you upgrade to V2, there's no impact to your current backups, and no need to reconfigure your environment. Upgrade and your backup environment continues to work as it has.
 
-### What does it cost to upgrade to Azure Backup stack v2
+### What does it cost to upgrade to Azure Backup stack v2?
 
 There is no cost to upgrade to Azure Backup stack v2. Snapshots are stored locally to speed up recovery point creation, and restore operations. As a result, you'll see storage costs that correspond to the snapshots taken during the seven-day period.
 
-### Does upgrading to stack v2 increase the premium storage account snapshot limit by 10 TB
+### Does upgrading to stack v2 increase the premium storage account snapshot limit by 10 TB?
 
 No.
 
-### In Premium Storage accounts, do snapshots taken for instant recovery point occupy the 10 TB snapshot limit
+### In Premium Storage accounts, do snapshots taken for instant recovery point occupy the 10 TB snapshot limit?
 
 Yes, for premium storage accounts, the snapshots taken for instant recovery point, occupy the allocated 10 TB of space.
 
-### How does the snapshot work during the seven-day period 
+### How does the snapshot work during the seven-day period? 
 
 Each day a new snapshot is taken. There are seven individual snapshots. The service does **not** take a copy on the first day, and add changes for the next six days.
 
-### What happens if the default resource group is deleted accidentally
+### What happens if the default resource group is deleted accidentally?
 
 If the resource group is deleted, the instant recovery points for all protected VMs in that region, are lost. When the next backup occurs, the resource group is created again, and the backups continue as expected. This functionality is not exclusive to instant recovery points.
 
-### Can I delete the default resource group created for instant recovery points
+### Can I delete the default resource group created for instant recovery points?
 
 Azure Backup service creates the managed resource group. Currently, you can't change or modify the resource group. Also, you should not lock the resource group. This guidance is not just for the V2 stack.
  
-### Is a v2 snapshot an incremental snapshot or full snapshot
+### Is a v2 snapshot an incremental snapshot or full snapshot?
 
 Incremental snapshots are used for unmanaged disks. For managed disks, the snapshot is a full snapshot.
