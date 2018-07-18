@@ -132,7 +132,7 @@ $vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
 # Stop and deallocate the VM before changing the storage type
 Stop-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
 
-$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Update the storage type
 $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
