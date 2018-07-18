@@ -60,7 +60,7 @@ To resolve this, review if the fastq files submitted to the workflow are actuall
 
 
 ### Error uploading .bam file. Output blob already exists and the overwrite option was set to False.
-If you see the folowing error message, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, the output folder already contains an output file with the same name.  Either delete the existing output file or turn on the overwrite option in the config file. Then, resubmit your workflow.
+If you see the following error message, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, the output folder already contains an output file with the same name.  Either delete the existing output file or turn on the overwrite option in the config file. Then, resubmit your workflow.
 
 ### When to contact Microsoft Genomics support
 If you see the following error messages, an internal error occurred. 
