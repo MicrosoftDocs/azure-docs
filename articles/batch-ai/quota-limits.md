@@ -18,7 +18,7 @@ ms.custom: mvc
 
 As with other Azure services, there are limits on certain resources associated with the Batch AI service. In Batch AI, these limits are default quotas applied at the subscription level for each region. This article discusses those defaults, and how you can request quota increases.
 
-Keep these quotas in mind as you design and scale up your Batch AI resources. For example, if your cluster doesn't reach the target number of compute nodes you specified, you might have reached the core quota limit for your Batch AI subscription.
+Keep these quotas in mind as you design and scale up your Batch AI resources. For example, if your cluster doesn't reach the target number of compute nodes you specified, then you might have reached the core quota limit for your Batch AI subscription.
 
 If you plan to run production workloads in Batch AI, you may need to increase one or more of the quotas above the default.
 
@@ -48,18 +48,18 @@ In Batch AI, there is a default quota limit on both the number of cores and numb
 
 ## Other limits
 
-The following are strict limits which cannot be exceeded once hit.
+The following are strict limits, which cannot be exceeded once hit.
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
-| Maxiumum workspaces per resource group | 800 |
+| Maximum workspaces per resource group | 800 |
 | Maximum cluster size | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
 | Maximum job lifetime | 7 days<sup>1</sup> |
 | Maximum parameter servers per node | 1 |
 
-<sup>1</sup> The maximum lifetime refers to the time which a job begins running and when it completes. Completed jobs persist indefinitely; data for jobs not completed within the maximum lifetime is not accessible.
+<sup>1</sup> The maximum lifetime refers to the time that a job begins running and when it completes. Completed jobs persist indefinitely; data for jobs not completed within the maximum lifetime is not accessible.
 
 ## View Batch AI Quotas
 
@@ -105,7 +105,7 @@ Follow these steps to request a quota increase for your Batch AI subscription us
    
     Click **Create** to submit the support request.
 
-Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
+Once you've submitted your support request, Azure support will contact you. Completing the request can take up to 2 business days.
 
 [portal]: https://portal.azure.com
 [support_sev]: http://aka.ms/supportseverity
