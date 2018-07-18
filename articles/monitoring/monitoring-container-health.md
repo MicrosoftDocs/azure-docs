@@ -74,7 +74,7 @@ Perform the following steps to enable monitoring of your AKS container from the 
 4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->If you want to create a new Log Analytics workspace to store the monitoring data from the cluster, follow the steps in [Cretae a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) and be sure to create the workspace in the same subscription that the AKS container is deployed to.  
+>If you want to create a new Log Analytics workspace to store the monitoring data from the cluster, follow the steps in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) and be sure to create the workspace in the same subscription that the AKS container is deployed to.  
 >
  
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster. 
