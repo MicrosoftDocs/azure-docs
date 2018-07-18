@@ -46,7 +46,7 @@ It's easier to place both the Azure AD DS instance and the HDInsight cluster in 
 When you create a domain-joined HDInsight cluster, you must supply the following parameters:
 
 - **Domain name**: The domain name that's associated with Azure AD DS. An example is contoso.onmicrosoft.com.
-- **Domain user name**: The service account in the managed domain that you created in the previous section. An example is hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
+- **Domain user name**: The service account in the Azure ADDS DC managed domain that you created in the previous section. An example is hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
 - **Domain password**: The password of the service account.
 - **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster. An example is OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. If this OU does not exist, the HDInsight cluster tries to create the OU by using the privileges that the service account has. For example, if the service account is in the Azure AD DS Administrators group, it has the right permissions to create an OU. Otherwise, you might need to create the OU first and give the service account full control over that OU. For more information, see [Create an OU on an Azure AD DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 

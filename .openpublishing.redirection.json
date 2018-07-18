@@ -191,7 +191,7 @@
         },
         {
             "source_path": "articles/marketplace-consumer/mytemplates-getstarted.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": true
         },
         {
@@ -1786,7 +1786,7 @@
         },
         {
             "source_path": "articles/resource-manager-template-walkthrough.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -1806,7 +1806,7 @@
         },
         {
             "source_path": "articles/resource-manager-vs-code.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -6921,7 +6921,7 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-template-walkthrough.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -6956,12 +6956,22 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-vs-code.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-resource-manager/solution-dev-test-environments.md",
             "redirect_url": "/azure/devtest-lab/devtest-lab-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-create-first-template.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-vscode-extension.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -17532,7 +17542,7 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
