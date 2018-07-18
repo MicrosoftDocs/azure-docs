@@ -34,7 +34,12 @@
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author":
+      {
+        "**.md": "Kimli"
+      }
+    },
     "template": [],
     "dest": "cycle_docs_v1"
   }
