@@ -157,8 +157,8 @@
       href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: Reference
   items:
-  - name: Template format
-    href: /azure/templates/
+  - name: Template reference
+    href: template-ref-toc.yml
   - name: Template functions
     href: resource-group-template-functions.md
     items:

@@ -1,0 +1,844 @@
+- name: Reference
+  items:
+  - name: AKS
+    items:
+    - name: Managed Clusters
+      href: /azure/templates/Microsoft.ContainerService/managedClusters.md
+      maintainContext: true
+  - name: Analysis Services
+    items:
+    - name: Servers
+      href: /azure/templates/Microsoft.AnalysisServices/servers.md
+  - name: API Management
+    maintainContext: true
+    items:
+    - name: Service
+      href: /azure/templates/Microsoft.ApiManagement/service.md
+      items:
+      - name: APIs
+        href: /azure/templates/Microsoft.ApiManagement/service/apis.md
+        items:
+        - name: Diagnostics
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics.md
+          items:
+          - name: Loggers
+            href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics/loggers.md
+        - name: Issues
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/issues.md
+          items:
+          - name: Attachments
+            href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/attachments.md
+          - name: Comments
+            href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/comments.md
+        - name: Operations
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/operations.md
+          items:
+          - name: Policies
+            href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/policies.md
+          - name: Tags
+            href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/tags.md
+        - name: Policies
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/policies.md
+        - name: Releases
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/releases.md
+        - name: Schemas
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/schemas.md
+        - name: Tag Descriptions
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/tagDescriptions.md
+        - name: Tags
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/tags.md
+      - name: API Version Sets
+        href: /azure/templates/Microsoft.ApiManagement/service/api-version-sets.md
+      - name: Authorization Servers
+        href: /azure/templates/Microsoft.ApiManagement/service/authorizationServers.md
+      - name: Backends
+        href: /azure/templates/Microsoft.ApiManagement/service/backends.md
+      - name: Certificates
+        href: /azure/templates/Microsoft.ApiManagement/service/certificates.md
+      - name: Diagnostics
+        href: /azure/templates/Microsoft.ApiManagement/service/diagnostics.md
+        items:
+        - name: Loggers
+          href: /azure/templates/Microsoft.ApiManagement/service/diagnostics/loggers.md
+      - name: Groups
+        href: /azure/templates/Microsoft.ApiManagement/service/groups.md
+        items:
+        - name: Users
+          href: /azure/templates/Microsoft.ApiManagement/service/groups/users.md
+      - name: Identity Providers
+        href: /azure/templates/Microsoft.ApiManagement/service/identityProviders.md
+      - name: Loggers
+        href: /azure/templates/Microsoft.ApiManagement/service/loggers.md
+      - name: Notifications
+        href: /azure/templates/Microsoft.ApiManagement/service/notifications.md
+        items:
+        - name: Recipient Emails
+          href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientEmails.md
+        - name: Recipient Users
+          href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientUsers.md
+      - name: OpenID Connect Providers
+        href: /azure/templates/Microsoft.ApiManagement/service/openidConnectProviders.md
+      - name: Policies
+        href: /azure/templates/Microsoft.ApiManagement/service/policies.md
+      - name: Products
+        href: /azure/templates/Microsoft.ApiManagement/service/products.md
+        items:
+        - name: APIs
+          href: /azure/templates/Microsoft.ApiManagement/service/products/apis.md
+        - name: Groups
+          href: /azure/templates/Microsoft.ApiManagement/service/products/groups.md
+        - name: Policies
+          href: /azure/templates/Microsoft.ApiManagement/service/products/policies.md
+        - name: Tags
+          href: /azure/templates/Microsoft.ApiManagement/service/products/tags.md
+      - name: Properties
+        href: /azure/templates/Microsoft.ApiManagement/service/properties.md
+      - name: Subscriptions
+        href: /azure/templates/Microsoft.ApiManagement/service/subscriptions.md
+      - name: Tags
+        href: /azure/templates/Microsoft.ApiManagement/service/tags.md
+      - name: Templates
+        href: /azure/templates/Microsoft.ApiManagement/service/templates.md
+      - name: Users
+        href: /azure/templates/Microsoft.ApiManagement/service/users.md
+  - name: Authorization
+    items:
+    - name: Locks
+      href: /azure/templates/Microsoft.Authorization/locks.md
+  - name: Automation
+    items:
+    - name: Automation Accounts
+      href: /azure/templates/Microsoft.Automation/automationAccounts.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.Automation/automationAccounts/certificates.md
+      - name: Compilation Jobs
+        href: /azure/templates/Microsoft.Automation/automationAccounts/compilationjobs.md
+      - name: Configurations
+        href: /azure/templates/Microsoft.Automation/automationAccounts/configurations.md
+      - name: Connections
+        href: /azure/templates/Microsoft.Automation/automationAccounts/connections.md
+      - name: Connection Types
+        href: /azure/templates/Microsoft.Automation/automationAccounts/connectionTypes.md
+      - name: Credentials
+        href: /azure/templates/Microsoft.Automation/automationAccounts/credentials.md
+      - name: Jobs
+        href: /azure/templates/Microsoft.Automation/automationAccounts/jobs.md
+      - name: Job Schedules
+        href: /azure/templates/Microsoft.Automation/automationAccounts/jobSchedules.md
+      - name: Modules
+        href: /azure/templates/Microsoft.Automation/automationAccounts/modules.md
+      - name: Node Configurations
+        href: /azure/templates/Microsoft.Automation/automationAccounts/nodeConfigurations.md
+      - name: Runbooks
+        href: /azure/templates/Microsoft.Automation/automationAccounts/runbooks.md
+      - name: Schedules
+        href: /azure/templates/Microsoft.Automation/automationAccounts/schedules.md
+      - name: Software Update Configurations
+        href: /azure/templates/Microsoft.Automation/automationAccounts/softwareUpdateConfigurations.md
+      - name: Source Controls
+        href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls.md
+        items:
+        - name: Source Controls Sync Jobs
+          href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs.md
+      - name: Variables
+        href: /azure/templates/Microsoft.Automation/automationAccounts/variables.md
+      - name: Webhooks
+        href: /azure/templates/Microsoft.Automation/automationAccounts/webhooks.md
+  - name: Batch
+    items:
+    - name: Batch Accounts
+      href: /azure/templates/Microsoft.Batch/batchAccounts.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.Batch/batchAccounts/certificates.md
+      - name: Pools
+        href: /azure/templates/Microsoft.Batch/batchAccounts/pools.md
+  - name: Batch AI
+    items:
+    - name: Clusters
+      href: /azure/templates/Microsoft.BatchAI/clusters.md
+    - name: File Servers
+      href: /azure/templates/Microsoft.BatchAI/fileServers.md
+    - name: Jobs
+      href: /azure/templates/Microsoft.BatchAI/jobs.md
+  - name: Cache
+    items:
+    - name: Redis
+      href: /azure/templates/Microsoft.Cache/Redis.md
+      items:
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.Cache/redis/firewallRules.md
+      - name: Linked Servers
+        href: /azure/templates/Microsoft.Cache/redis/linkedServers.md
+  - name: CDN
+    items:
+    - name: Profiles
+      href: /azure/templates/Microsoft.Cdn/profiles.md
+      items:
+      - name: Endpoints
+        href: /azure/templates/Microsoft.Cdn/profiles/endpoints.md
+        items:
+        - name: Custom Domains
+          href: /azure/templates/Microsoft.Cdn/profiles/endpoints/customDomains.md
+  - name: Certificate Registration
+    items:
+    - name: Certificate Orders
+      href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders/certificates.md
+  - name: Cognitive Services
+    items:
+    - name: Accounts
+      href: /azure/templates/Microsoft.CognitiveServices/accounts.md
+  - name: Compute
+    items:
+    - name: Availability Sets
+      href: /azure/templates/Microsoft.Compute/availabilitySets.md
+    - name: Disks
+      href: /azure/templates/Microsoft.Compute/disks.md
+    - name: Galleries
+      href: /azure/templates/Microsoft.Compute/galleries.md
+      items:
+      - name: Images
+        href: /azure/templates/Microsoft.Compute/galleries/images.md
+        items:
+        - name: Versions
+          href: /azure/templates/Microsoft.Compute/galleries/images/versions.md
+    - name: Images
+      href: /azure/templates/Microsoft.Compute/images.md
+    - name: Snapshots
+      href: /azure/templates/Microsoft.Compute/snapshots.md
+    - name: Virtual Machines
+      href: /azure/templates/Microsoft.Compute/virtualMachines.md
+      items:
+      - name: Extensions
+        href: /azure/templates/Microsoft.Compute/virtualMachines/extensions.md
+    - name: Virtual Machine Scale Sets
+      href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets.md
+      items:
+      - name: Extensions
+        href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/extensions.md
+      - name: Virtual Machines
+        href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/virtualmachines.md
+  - name: Container Instance
+    items:
+    - name: Container Groups
+      href: /azure/templates/Microsoft.ContainerInstance/containerGroups.md
+  - name: Container Registry
+    items:
+    - name: Registries
+      href: /azure/templates/Microsoft.ContainerRegistry/registries.md
+      items:
+      - name: Replications
+        href: /azure/templates/Microsoft.ContainerRegistry/registries/replications.md
+      - name: WebHooks
+        href: /azure/templates/Microsoft.ContainerRegistry/registries/webhooks.md
+  - name: Container Service
+    items:
+    - name: Container Services
+      href: /azure/templates/Microsoft.ContainerService/containerServices.md
+  - name: Cosmos DB
+    items:
+    - name: Database Accounts
+      href: /azure/templates/Microsoft.DocumentDB/databaseAccounts.md
+  - name: Customer Insights
+    items:
+    - name: Hubs
+      href: /azure/templates/Microsoft.CustomerInsights/hubs.md
+      items:
+      - name: Authorization Policies
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/authorizationPolicies.md
+      - name: Connectors
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors.md
+        items:
+        - name: Mappings
+          href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors/mappings.md
+      - name: Interactions
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/interactions.md
+      - name: KPI
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/kpi.md
+      - name: Links
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/links.md
+      - name: Predictions
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/predictions.md
+      - name: Profiles
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/profiles.md
+      - name: Relationship Links
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/relationshipLinks.md
+      - name: Relationships
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/relationships.md
+      - name: Role Assignments
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/roleAssignments.md
+      - name: Views
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/views.md
+  - name: Data Catalog
+    items:
+    - name: Catalogs
+      href: /azure/templates/Microsoft.DataCatalog/catalogs.md
+  - name: Data Factory
+    items:
+    - name: Factories
+      href: /azure/templates/Microsoft.DataFactory/factories.md
+      items:
+      - name: Datasets
+        href: /azure/templates/Microsoft.DataFactory/factories/datasets.md
+      - name: Integration Runtimes
+        href: /azure/templates/Microsoft.DataFactory/factories/integrationRuntimes.md
+      - name: Linked Services
+        href: /azure/templates/Microsoft.DataFactory/factories/linkedservices.md
+      - name: Pipelines
+        href: /azure/templates/Microsoft.DataFactory/factories/pipelines.md
+      - name: Triggers
+        href: /azure/templates/Microsoft.DataFactory/factories/triggers.md
+  - name: Data Lake Analytics
+    items:
+    - name: Accounts
+      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts.md
+      items:
+      - name: Compute Policies
+        href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/computePolicies.md
+      - name: Data Lake Store Accounts
+        href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts.md
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/firewallRules.md
+      - name: Storage Accounts
+        href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/StorageAccounts.md
+  - name: Data Lake Store
+    items:
+    - name: Accounts
+      href: /azure/templates/Microsoft.DataLakeStore/accounts.md
+      items:
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.DataLakeStore/accounts/firewallRules.md
+      - name: TrustedID Providers
+        href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders.md
+  - name: Devices
+    items:
+    - name: Iot Hubs
+      href: /azure/templates/Microsoft.Devices/IotHubs.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.Devices/IotHubs/certificates.md
+      - name: Consumer Groups
+        href: /azure/templates/Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups.md
+    - name: Provisioning Services
+      href: /azure/templates/Microsoft.Devices/provisioningServices.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.Devices/provisioningServices/certificates.md
+  - name: DevTest Labs
+    items:
+    - name: Labs
+      href: /azure/templates/Microsoft.DevTestLab/labs.md
+      items:
+      - name: Artifact Sources
+        href: /azure/templates/Microsoft.DevTestLab/labs/artifactsources.md
+      - name: Costs
+        href: /azure/templates/Microsoft.DevTestLab/labs/costs.md
+      - name: Custom Images
+        href: /azure/templates/Microsoft.DevTestLab/labs/customimages.md
+      - name: Formulas
+        href: /azure/templates/Microsoft.DevTestLab/labs/formulas.md
+      - name: Notification Channels
+        href: /azure/templates/Microsoft.DevTestLab/labs/notificationchannels.md
+      - name: Policies
+        href: /azure/templates/Microsoft.DevTestLab/labs/policysets/policies.md
+      - name: Schedules
+        href: /azure/templates/Microsoft.DevTestLab/labs/schedules.md
+      - name: Service Runners
+        href: /azure/templates/Microsoft.DevTestLab/labs/servicerunners.md
+      - name: Users
+        href: /azure/templates/Microsoft.DevTestLab/labs/users.md
+        items:
+        - name: Disks
+          href: /azure/templates/Microsoft.DevTestLab/labs/users/disks.md
+        - name: Environments
+          href: /azure/templates/Microsoft.DevTestLab/labs/users/environments.md
+        - name: Secrets
+          href: /azure/templates/Microsoft.DevTestLab/labs/users/secrets.md
+      - name: Virtual Machines
+        href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines.md
+        items:
+        - name: Schedules
+          href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines/schedules.md
+      - name: Virtual Networks
+        href: /azure/templates/Microsoft.DevTestLab/labs/virtualnetworks.md
+    - name: Schedules
+      href: /azure/templates/Microsoft.DevTestLab/schedules.md
+  - name: Domain Registration
+    items:
+    - name: Domains
+      href: /azure/templates/Microsoft.DomainRegistration/domains.md
+      items:
+      - name: Domain Ownership Identifiers
+        href: /azure/templates/Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers.md
+  - name: Event Grid
+    items:
+    - name: Event Subscriptions
+      href: /azure/templates/Microsoft.EventGrid/eventSubscriptions.md
+    - name: Topics
+      href: /azure/templates/Microsoft.EventGrid/topics.md
+  - name: Event Hub
+    items:
+    - name: Namespaces
+      href: /azure/templates/Microsoft.EventHub/namespaces.md
+      items:
+      - name: Authorization Rules
+        href: /azure/templates/Microsoft.EventHub/namespaces/AuthorizationRules.md
+      - name: Disaster Recovery Configs
+        href: /azure/templates/Microsoft.EventHub/namespaces/disasterRecoveryConfigs.md
+      - name: Event Hubs
+        href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/authorizationRules.md
+        - name: Consumer Groups
+          href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/consumergroups.md
+  - name: HDInsight
+    items:
+    - name: Clusters
+      href: /azure/templates/Microsoft.HDInsight/clusters.md
+      items:
+      - name: Applications
+        href: /azure/templates/Microsoft.HDInsight/clusters/applications.md
+      - name: Extensions
+        href: /azure/templates/Microsoft.HDInsight/clusters/extensions.md
+  - name: Import Export
+    items:
+    - name: Jobs
+      href: /azure/templates/Microsoft.ImportExport/jobs.md
+  - name: Insights
+    items:
+    - name: Action Groups
+      href: /azure/templates/Microsoft.insights/actionGroups.md
+    - name: Activity Log Alerts
+      href: /azure/templates/Microsoft.insights/activityLogAlerts.md
+    - name: Alert Rules
+      href: /azure/templates/Microsoft.insights/alertrules.md
+    - name: Autoscale Settings
+      href: /azure/templates/Microsoft.insights/autoscalesettings.md
+    - name: Components
+      href: /azure/templates/Microsoft.insights/components.md
+    - name: Web Tests
+      href: /azure/templates/Microsoft.insights/webtests.md
+  - name: Key Vault
+    items:
+    - name: Vaults
+      href: /azure/templates/Microsoft.KeyVault/vaults.md
+  - name: Location Based Services
+    items:
+    - name: Accounts
+      href: /azure/templates/Microsoft.LocationBasedServices/accounts.md
+  - name: Logic
+    items:
+    - name: Integration Accounts
+      href: /azure/templates/Microsoft.Logic/integrationAccounts.md
+      items:
+      - name: Agreements
+        href: /azure/templates/Microsoft.Logic/integrationAccounts/agreements.md
+      - name: Certificates
+        href: /azure/templates/Microsoft.Logic/integrationAccounts/certificates.md
+      - name: Maps
+        href: /azure/templates/Microsoft.Logic/integrationAccounts/maps.md
+      - name: Partners
+        href: /azure/templates/Microsoft.Logic/integrationAccounts/partners.md
+      - name: Schemas
+        href: /azure/templates/Microsoft.Logic/integrationAccounts/schemas.md
+    - name: Workflows
+      href: /azure/templates/Microsoft.Logic/workflows.md
+  - name: Machine Learning
+    items:
+    - name: Commitment Plans
+      href: /azure/templates/Microsoft.MachineLearning/commitmentPlans.md
+    - name: Web Services
+      href: /azure/templates/Microsoft.MachineLearning/webServices.md
+  - name: Media
+    items:
+    - name: Media Services
+      href: /azure/templates/Microsoft.Media/mediaservices.md
+  - name: MySQL
+    items:
+    - name: Servers
+      href: /azure/templates/Microsoft.DBforMySQL/servers.md
+      items:
+      - name: Configurations
+        href: /azure/templates/Microsoft.DBforMySQL/servers/configurations.md
+      - name: Databases
+        href: /azure/templates/Microsoft.DBforMySQL/servers/databases.md
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules.md
+  - name: Network
+    items:
+    - name: Application Gateways
+      href: /azure/templates/Microsoft.Network/applicationGateways.md
+    - name: Application Security Groups
+      href: /azure/templates/Microsoft.Network/applicationSecurityGroups.md
+    - name: Connections
+      href: /azure/templates/Microsoft.Network/connections.md
+    - name: DNS Zones
+      href: /azure/templates/Microsoft.Network/dnsZones.md
+      items:
+      - name: A
+        href: /azure/templates/Microsoft.Network/dnsZones/A.md
+      - name: AAAA
+        href: /azure/templates/Microsoft.Network/dnsZones/AAAA.md
+      - name: CAA
+        href: /azure/templates/Microsoft.Network/dnsZones/CAA.md
+      - name: CNAME
+        href: /azure/templates/Microsoft.Network/dnsZones/CNAME.md
+      - name: MX
+        href: /azure/templates/Microsoft.Network/dnsZones/MX.md
+      - name: NS
+        href: /azure/templates/Microsoft.Network/dnsZones/NS.md
+      - name: PTR
+        href: /azure/templates/Microsoft.Network/dnsZones/PTR.md
+      - name: SOA
+        href: /azure/templates/Microsoft.Network/dnsZones/SOA.md
+      - name: SRV
+        href: /azure/templates/Microsoft.Network/dnsZones/SRV.md
+      - name: TXT
+        href: /azure/templates/Microsoft.Network/dnsZones/TXT.md
+    - name: Express Route Circuits
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits.md
+      items:
+      - name: Authorizations
+        href: /azure/templates/Microsoft.Network/expressRouteCircuits/authorizations.md
+      - name: Peerings
+        href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings.md
+    - name: Load Balancers
+      href: /azure/templates/Microsoft.Network/loadBalancers.md
+      items:
+      - name: Inbound Nat Rules
+        href: /azure/templates/Microsoft.Network/loadBalancers/inboundNatRules.md
+    - name: Local Network Gateways
+      href: /azure/templates/Microsoft.Network/localNetworkGateways.md
+    - name: Network Interfaces
+      href: /azure/templates/Microsoft.Network/networkInterfaces.md
+    - name: Network Security Groups
+      href: /azure/templates/Microsoft.Network/networkSecurityGroups.md
+      items:
+      - name: Security Rules
+        href: /azure/templates/Microsoft.Network/networkSecurityGroups/securityRules.md
+    - name: Network Watchers
+      href: /azure/templates/Microsoft.Network/networkWatchers.md
+      items:
+      - name: Packet Captures
+        href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures.md
+    - name: Public IP Addresses
+      href: /azure/templates/Microsoft.Network/publicIPAddresses.md
+    - name: Route Filters
+      href: /azure/templates/Microsoft.Network/routeFilters.md
+      items:
+      - name: Route Filters Rules
+        href: /azure/templates/Microsoft.Network/routeFilters/routeFilterRules.md
+    - name: Route Tables
+      href: /azure/templates/Microsoft.Network/routeTables.md
+      items:
+      - name: Routes
+        href: /azure/templates/Microsoft.Network/routeTables/routes.md
+    - name: Traffic Manager Profiles
+      href: /azure/templates/Microsoft.Network/trafficmanagerprofiles.md
+    - name: Virtual Network Gateways
+      href: /azure/templates/Microsoft.Network/virtualNetworkGateways.md
+    - name: Virtual Networks
+      href: /azure/templates/Microsoft.Network/virtualNetworks.md
+      items:
+      - name: Subnets
+        href: /azure/templates/Microsoft.Network/virtualNetworks/subnets.md
+      - name: Virtual Network Peerings
+        href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings.md
+  - name: Notification Hubs
+    items:
+    - name: Namespaces
+      href: /azure/templates/Microsoft.NotificationHubs/namespaces.md
+      items:
+      - name: Authorization Rules
+        href: /azure/templates/Microsoft.NotificationHubs/namespaces/AuthorizationRules.md
+      - name: Notification Hubs
+        href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs/AuthorizationRules.md
+  - name: Operational Insights
+    items:
+    - name: Workspaces
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces.md
+      items:
+      - name: Data Sources
+        href: /azure/templates/Microsoft.OperationalInsights/workspaces/dataSources.md
+      - name: Linked Services
+        href: /azure/templates/Microsoft.OperationalInsights/workspaces/linkedServices.md
+      - name: Machine Groups
+        href: /azure/templates/Microsoft.OperationalInsights/workspaces/features/machineGroups.md
+      - name: Saved Searches
+        href: /azure/templates/Microsoft.OperationalInsights/workspaces/savedSearches.md
+      - name: Storage Insight
+        href: /azure/templates/Microsoft.OperationalInsights/workspaces/storageInsightConfigs.md
+  - name: PostgreSQL
+    items:
+    - name: Servers
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers.md
+      items:
+      - name: Configurations
+        href: /azure/templates/Microsoft.DBforPostgreSQL/servers/configurations.md
+      - name: Databases
+        href: /azure/templates/Microsoft.DBforPostgreSQL/servers/databases.md
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules.md
+  - name: Power BI
+    items:
+    - name: Workspace Collections
+      href: /azure/templates/Microsoft.PowerBI/workspaceCollections.md
+  - name: Power BI Dedicated
+    items:
+    - name: Capacities
+      href: /azure/templates/Microsoft.PowerBIDedicated/capacities.md
+  - name: Recovery Services
+    items:
+    - name: Vaults
+      href: /azure/templates/Microsoft.RecoveryServices/vaults.md
+      items:
+      - name: Certificates
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/certificates.md
+      - name: Backup Protection Intent
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent.md
+      - name: Replication Alert Settings
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationAlertSettings.md
+      - name: Replication Fabrics
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics.md
+        items:
+        - name: Replication Network Mappings
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings.md
+        - name: Replication Protection Containers
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers.md
+          items:
+          - name: Replication Protected Items
+            href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems.md
+          - name: Replication Protection Container Mappings
+            href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings.md
+        - name: Replication Storage Classification Mappings
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings.md
+        - name: Replication vCenters
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters.md
+      - name: Replication Policies
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationPolicies.md
+      - name: Replication Recovery Plans
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationRecoveryPlans.md
+  - name: Resources
+    items:
+    - name: Deployments
+      href: /azure/templates/Microsoft.Resources/deployments.md
+  - name: Relay
+    items:
+    - name: Namespaces
+      href: /azure/templates/Microsoft.Relay/namespaces.md
+      items:
+      - name: Authorization Rules
+        href: /azure/templates/Microsoft.Relay/namespaces/AuthorizationRules.md
+      - name: Hybrid Connections
+        href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections/authorizationRules.md
+      - name: WCF Relays
+        href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays/authorizationRules.md
+  - name: Scheduler
+    items:
+    - name: Job Collections
+      href: /azure/templates/Microsoft.Scheduler/jobCollections.md
+      items:
+      - name: Jobs
+        href: /azure/templates/Microsoft.Scheduler/jobCollections/jobs.md
+  - name: Search
+    items:
+    - name: Search Services
+      href: /azure/templates/Microsoft.Search/searchServices.md
+  - name: Server Management
+    items:
+    - name: Gateways
+      href: /azure/templates/Microsoft.ServerManagement/gateways.md
+    - name: Nodes
+      href: /azure/templates/Microsoft.ServerManagement/nodes.md
+      items:
+      - name: Sessions
+        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions.md
+        items:
+        - name: PS Sessions
+          href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions.md
+  - name: Service Bus
+    items:
+    - name: Namespaces
+      href: /azure/templates/Microsoft.ServiceBus/namespaces.md
+      items:
+      - name: Authorization Rules
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/AuthorizationRules.md
+      - name: Disaster Recovery Configs
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs.md
+      - name: Queues
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/queues.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.ServiceBus/namespaces/queues/authorizationRules.md
+      - name: Topics
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/topics.md
+        items:
+        - name: Authorization Rules
+          href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/authorizationRules.md
+        - name: Subscriptions
+          href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions.md
+          items:
+          - name: Rules
+            href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions/rules.md
+  - name: Service Fabric
+    items:
+    - name: Clusters
+      href: /azure/templates/Microsoft.ServiceFabric/clusters.md
+  - name: SQL
+    items:
+    - name: Managed Instances
+      href: /azure/templates/Microsoft.Sql/managedInstances.md
+      items:
+      - name: Databases
+        href: /azure/templates/Microsoft.Sql/managedInstances/databases.md
+    - name: Servers
+      href: /azure/templates/Microsoft.Sql/servers.md
+      items:
+      - name: Databases
+        href: /azure/templates/Microsoft.Sql/servers/databases.md
+        items:
+        - name: Audting Settings
+          href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings.md
+        - name: Backup Long Term Retention Policies
+          href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies.md
+        - name: Transparent Data Encryption
+          href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption.md
+      - name: Elastic Pools
+        href: /azure/templates/Microsoft.Sql/servers/elasticPools.md
+      - name: Encryption Protector
+        href: /azure/templates/Microsoft.Sql/servers/encryptionProtector.md
+      - name: Failover Groups
+        href: /azure/templates/Microsoft.Sql/servers/failoverGroups.md
+      - name: Firewall Rules
+        href: /azure/templates/Microsoft.Sql/servers/firewallRules.md
+      - name: Keys
+        href: /azure/templates/Microsoft.Sql/servers/keys.md
+      - name: Virtual Network Rules
+        href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules.md
+  - name: Storage
+    items:
+    - name: Storage Accounts
+      href: /azure/templates/Microsoft.Storage/storageAccounts.md
+  - name: StorSimple
+    items:
+    - name: Managers
+      href: /azure/templates/Microsoft.StorSimple/managers.md
+      items:
+      - name: Access Control Records
+        href: /azure/templates/Microsoft.StorSimple/managers/accessControlRecords.md
+      - name: Bandwidth Settings
+        href: /azure/templates/Microsoft.StorSimple/managers/bandwidthSettings.md
+      - name: Storage Account Credentials
+        href: /azure/templates/Microsoft.StorSimple/managers/storageAccountCredentials.md
+      - name: Devices
+        items:
+        - name: Backup Policies
+          href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies.md
+          items:
+          - name: Schedules
+            href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies/schedules.md
+        - name: Volume Containers
+          href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers.md
+          items:
+          - name: Volumes
+            href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers/volumes.md
+  - name: Stream Analytics
+    items:
+    - name: Streaming Jobs
+      href: /azure/templates/Microsoft.StreamAnalytics/streamingJobs.md
+      items:
+      - name: Functions
+        href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/functions.md
+      - name: Inputs
+        href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/inputs.md
+      - name: Outputs
+        href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/outputs.md
+      - name: Transformations
+        href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/transformations.md
+  - name: Web
+    items:
+    - name: Certificates
+      href: /azure/templates/Microsoft.Web/certificates.md
+    - name: Connection Gateways
+      href: /azure/templates/Microsoft.Web/connectionGateways.md
+    - name: Connections
+      href: /azure/templates/Microsoft.Web/connections.md
+    - name: Custom APIs
+      href: /azure/templates/Microsoft.Web/customApis.md
+    - name: Hosting Environments
+      href: /azure/templates/Microsoft.Web/hostingEnvironments.md
+      items:
+      - name: Worker Pools
+        href: /azure/templates/Microsoft.Web/hostingEnvironments/workerPools.md
+    - name: Server Farms
+      href: /azure/templates/Microsoft.Web/serverfarms.md
+    - name: Gateways
+      href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/gateways.md
+    - name: Routes
+      href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/routes.md
+    - name: Sites
+      href: /azure/templates/Microsoft.Web/sites.md
+      items:
+      - name: Deployments
+        href: /azure/templates/Microsoft.Web/sites/deployments.md
+      - name: Domain Ownership Identifiers
+        href: /azure/templates/Microsoft.Web/sites/domainOwnershipIdentifiers.md
+      - name: Functions
+        href: /azure/templates/Microsoft.Web/sites/functions.md
+      - name: Host Name Bindings
+        href: /azure/templates/Microsoft.Web/sites/hostNameBindings.md
+      - name: Hybrid Connection
+        href: /azure/templates/Microsoft.Web/sites/hybridconnection.md
+      - name: Hybrid Connection Namespaces Relays
+        href: /azure/templates/Microsoft.Web/sites/hybridConnectionNamespaces/relays.md
+      - name: Premier Add Ons
+        href: /azure/templates/Microsoft.Web/sites/premieraddons.md
+      - name: Public Certificates
+        href: /azure/templates/Microsoft.Web/sites/publicCertificates.md
+      - name: Site Extensions
+        href: /azure/templates/Microsoft.Web/sites/siteextensions.md
+      - name: Slots
+        href: /azure/templates/Microsoft.Web/sites/slots.md
+        items:
+        - name: Deployments
+          href: /azure/templates/Microsoft.Web/sites/slots/deployments.md
+        - name: Domain Ownership Identifiers
+          href: /azure/templates/Microsoft.Web/sites/slots/domainOwnershipIdentifiers.md
+        - name: Functions
+          href: /azure/templates/Microsoft.Web/sites/slots/functions.md
+        - name: Host Name Bindings
+          href: /azure/templates/Microsoft.Web/sites/slots/hostNameBindings.md
+        - name: Hybrid Connection
+          href: /azure/templates/Microsoft.Web/sites/slots/hybridconnection.md
+        - name: Hybrid Connection Namespaces Relays
+          href: /azure/templates/Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays.md
+        - name: Premier Add Ons
+          href: /azure/templates/Microsoft.Web/sites/slots/premieraddons.md
+        - name: Public Certificates
+          href: /azure/templates/Microsoft.Web/sites/slots/publicCertificates.md
+        - name: Site Extensions
+          href: /azure/templates/Microsoft.Web/sites/slots/siteextensions.md
+        - name: Virtual Network Connections
+          href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections.md
+          items:
+          - name: Gateways
+            href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections/gateways.md
+      - name: Virtual Network Connections
+        href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections.md
+        items:
+        - name: Gateways
+          href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections/gateways.md
