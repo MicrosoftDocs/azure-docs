@@ -7,59 +7,63 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 07/19/2018
 ms.author: marsma
 ---
 
 # Mount a secret volume in Azure Container Instances
 
-Learn how to mount a *secret* volume in your container instances for the storage and retrieval of sensitive information by the containers in your container groups.
+Learn how to mount a *secret* volume in your container instances. Store and retrieve sensitive data in your containers without putting it into your application code.
 
 > [!NOTE]
-> Mounting a *secret* volume is currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting a *secret* volume is currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we're working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## secret volume
 
-You can use a *secret* volume to provide sensitive information to the containers in a container group. The *secret* volume stores your specified secrets in files within the volume, which the containers in your container group can then access. By using secrets in a *secret* volume, you can avoid placing sensitive data like SSH keys or database credentials in your application code.
+Use a *secret* volume to supply sensitive information to the containers in a container group. The *secret* volume stores your secrets in files within the volume, accessible by the containers in the container group. By using secrets in a *secret* volume, you can avoid adding sensitive data like SSH keys or database credentials to your application code.
 
 All *secret* volumes are backed by [tmpfs][tmpfs], a RAM-backed filesystem; their contents are never written to non-volatile storage.
 
 ## Mount secret volume - Azure CLI
 
-To deploy a container with one or more secrets by using the Azure CLI, include the `--secrets` and `--secrets-mount-path` parameters in the [az container create][az-container-create] command. This example mounts a *secret* volume, "secretvolume1," consisting of two Base64-encoded secrets, "mysecret1" and "mysecret2":
+To deploy a container with one or more secrets by using the Azure CLI, include the `--secrets` and `--secrets-mount-path` parameters in the [az container create][az-container-create] command. This example mounts a *secret* volume consisting of two secrets, "mysecret1" and "mysecret2," at `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
-    --name volume-demo-secret \
+    --name secret-volume-demo \
     --image microsoft/aci-helloworld \
-    --secrets mysecret1="TXkgZmlyc3Qgc2VjcmV0IEZPTwo=" mysecret2="TXkgc2Vjb25kIHNlY3JldCBCQVIK" \
-    --secrets-mount-path /secretvolume1
+    --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
+    --secrets-mount-path /mnt/secrets
 ```
 
-You can use [az container exec][az-container-exec] to verify the mounting of the secrets volume. In the following output, the files are verified to exist in the secret volume, and their contents are then decoded:
+The following [az container exec][az-container-exec] output shows opening a shell in the running container, listing the files within the secret volume, then displaying their contents:
 
 ```console
-$ az container exec --resource-group myResourceGroup --name volume-demo-secret --exec-command "/bin/sh"
-/usr/src/app # ls -1 /secretvolume1/
+$ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+/usr/src/app # ls -1 /mnt/secrets
 mysecret1
 mysecret2
-/usr/src/app # cat /secretvolume1/mysecret1
-TXkgZmlyc3Qgc2VjcmV0IEZPTwo=
-/usr/src/app # cat /secretvolume1/mysecret1 | base64 -d
+/usr/src/app # cat /mnt/secrets/mysecret1
 My first secret FOO
-/usr/src/app # cat /secretvolume1/mysecret2 | base64 -d
+/usr/src/app # cat /mnt/secrets/mysecret2
 My second secret BAR
+/usr/src/app # exit
+Bye.
 ```
 
 ## Mount secret volume - YAML
 
-To mount a *secret* volume in a container instance, you can deploy the container group using the Azure CLI and a YAML file. This YAML defines a container group with a single container that mounts a *secret* volume, "secretvolume1," consisting of two Base64-encoded secrets, "mysecret1" and "mysecret2":
+You can also deploy container groups with the Azure CLI and a [YAML template](container-instances-multi-container-yaml.md). Deploying by YAML template is the preferred method when deploying container groups consisting of multiple containers.
+
+When you deploy with a YAML template, the secret values must be **Base64-encoded** in the template. However, the secret values appear in plaintext within the files in the container.
+
+The following YAML template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two secrets, "mysecret1" and "mysecret2."
 
 ```yaml
 apiVersion: '2018-06-01'
 location: eastus
-name: volume-demo-secret
+name: secret-volume-demo
 properties:
   containers:
   - name: aci-tutorial-app
@@ -88,16 +92,19 @@ type: Microsoft.ContainerInstance/containerGroups
 To deploy with the YAML template, save the preceding YAML to a file named `deploy-aci.yaml`, then execute the [az container create][az-container-create] command with the `--file` parameter:
 
 ```azurecli-interactive
+# Deploy with YAML template
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 ## Mount secret volume - Resource Manager
 
-To mount a *secret* volume in a container instance, you can deploy the container group using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+In addition to CLI and YAML deployment, you can deploy a container group using an Azure [Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
 
-First, populate the `volumes` array in the container group `properties` section of the template. Next, for each container in the container group in which you'd like to mount the *secret* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
+First, populate the `volumes` array in the container group `properties` section of the template. When you deploy with a Resource Manager template, the secret values must be **Base64-encoded** in the template. However, the secret values appear in plaintext within the files in the container.
 
-For example, the following Resource Manager template creates a container group consisting of a single container. The container mounts a *secret* volume consisting of two Base64-encoded secrets.
+Next, for each container in the container group in which you'd like to mount the *secret* volume, populate the `volumeMounts` array in the `properties` section of the container definition.
+
+The following Resource Manager template defines a container group with one container that mounts a *secret* volume at `/mnt/secrets`. The secret volume has two secrets, "mysecret1" and "mysecret2."
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
@@ -105,6 +112,7 @@ For example, the following Resource Manager template creates a container group c
 To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az group deployment create][az-group-deployment-create] command with the `--template-file` parameter:
 
 ```azurecli-interactive
+# Deploy with Resource Manager template
 az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
