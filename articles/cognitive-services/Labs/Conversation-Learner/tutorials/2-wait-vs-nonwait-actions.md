@@ -42,7 +42,7 @@ This tutorial requires that the general tutorial bot is running
 1. Click Actions, then New Action.
 2. In Response, enter 'Which animal do you want?'.
 	- This is a Wait action, so leave the Wait for Response box checked.
-3. click Done.
+3. Click Create.
 
 ### Create a Non-Wait action
 
