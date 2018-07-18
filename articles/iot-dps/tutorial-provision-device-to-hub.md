@@ -66,7 +66,7 @@ After enrollment, the provisioning service then waits for the device to boot and
 
 ## Start the IoT device
 
-Your Iot device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device, it will be assigned to an IoT hub. 
+Your IoT device can be a real device, or a simulated device. Since the IoT device has now been enrolled with a Device Provisioning Service instance, the device can now boot up, and call the provisioning service to be recognized using the attestation mechanism. Once the provisioning service has recognized the device, it will be assigned to an IoT hub. 
 
 Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python. For example, a simulated device using TPM and the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) would follow the process covered in the [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) section. The same device using X.509 certificate attestation would refer to this [boot sequence](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) section.
 
