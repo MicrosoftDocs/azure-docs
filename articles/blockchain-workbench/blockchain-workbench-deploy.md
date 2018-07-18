@@ -234,7 +234,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http or https and ends with a port number. For example, `https://chain.contoso.com:8545` |
+    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http:// and ends with a port number. For example, `http://contoso-chain.onmicrosoft.com:8545` |
     | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
     | Virtual machine size | Choose the preferred VM size for your blockchain network. |
 
