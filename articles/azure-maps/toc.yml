@@ -22,8 +22,16 @@
   items:
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Supported search categories
-    href: supported-search-categories.md
+  - name: Service coverage
+    items:
+    - name: Geocoding
+      href: geocoding-coverage.md
+    - name: Traffic
+      href: traffic-coverage.md
+    - name: Render
+      href: render-coverage.md
+    - name: Routing
+      href: routing-coverage.md
   - name: Supported languages
     href: supported-languages.md
 - name: How-to guides
@@ -64,22 +72,14 @@
       href: map-accessibility.md
 - name: Reference
   items:
-  - name: Service coverage
-    items:
-    - name: Geocoding
-      href: geocoding-coverage.md
-    - name: Traffic
-      href: traffic-coverage.md
-    - name: Render
-      href: render-coverage.md
-    - name: Routing
-      href: routing-coverage.md
   - name: API and parameter extensions
     items:
     - name: Vehicle consumption model
       href: consumption-model.md
     - name: Extend GeoJSON format
       href: extend-geojson.md
+    - name: Supported search categories
+      href: supported-search-categories.md
   - name: REST
     items:
     - name: Render service
