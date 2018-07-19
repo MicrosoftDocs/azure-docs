@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
 ---
 
