@@ -72,7 +72,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## Use the persistent volume
 
-Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a pod that uses the persistent volume claim *azure-managed-disk* to mount the Azure disk at the `/mnt/azure` path.
+Once the persistent volume claim has been created, and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim *azure-managed-disk* to mount the Azure disk at the `/mnt/azure` path.
 
 Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
@@ -104,9 +104,9 @@ pod/mypod created
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
 
-## Back up a persistent volumes
+## Back up a persistent volume
 
-The persistent volume is created as an Azure managed disk. To back up the data in your persistent volume, take a snapshot of the managed disk.
+Persistent volumes are created as Azure managed disks. To back up the data in your persistent volume, take a snapshot of the managed disk. You can then use this snapshot to create disks and attach to pods as a means of restoring the data.
 
 First, get the volume name with the `kubectl get pvc` command, such as for the PVC named *azure-managed-disk*:
 
@@ -117,7 +117,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-This volume name forms the underlying Azure disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, such as:
+This volume name forms the underlying Azure disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, as shown in the following example:
 
 ```
 $ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -125,7 +125,7 @@ $ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Use the disk ID to take a snapshot of the disk with [az snapshot create][az-snapshot-create]. In the following example, the snapshot is created in the same resource group as the AKS cluster. You may encounter permission issues if you snapshot and restore disks in resource groups that the AKS cluster does not have access to.
+Use the disk ID to create a snapshot disk with [az snapshot create][az-snapshot-create]. In the following example, a snapshot named *pvcSnapshot* is created in the same resource group as the AKS cluster (*MC_myResourceGroup_myAKSCluster_eastus*). You may encounter permission issues if you snapshot and restore disks in resource groups that the AKS cluster does not have access to.
 
 ```azurecli
 $ az snapshot create \
@@ -136,19 +136,19 @@ $ az snapshot create \
 
 ## Restore and use a snapshot
 
-To restore the disk and use it with a Kubernetes pod, use the snapshot as a source when creating a new disk with [az disk create][az-disk-create]. This operation preserves the original snapshot if you need to access the original data snapshot.
+To restore the disk and use it with a Kubernetes pod, use the snapshot as a source when creating a new disk with [az disk create][az-disk-create]. This operation preserves the original resource if you then need to access the original data snapshot. The following example creates a disk named *pvcRestored* from the snapshot named *pvcSnapshot*:
 
 ```azurecli
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
-To use the restored disk with a pod, specify the ID of the disk in the manifest. Get the disk ID with the [az disk show][az-disk-show] command, as shown in the following example:
+To use the restored disk with a pod, specify the ID of the disk in the manifest. Get the disk ID with the [az disk show][az-disk-show] command. The following example gets the disk ID for *pvcRestored* created in the previous step:
 
 ```azurecli
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Create a pod manifest named `azure-restored.yaml` and specify the disk URI obtained in the previous step:
+Create a pod manifest named `azure-restored.yaml` and specify the disk URI obtained in the previous step. The following example again creates a basic NGINX web server, with the restored disk mounted as a volume at */mnt/azure*:
 
 ```yaml
 kind: Pod
