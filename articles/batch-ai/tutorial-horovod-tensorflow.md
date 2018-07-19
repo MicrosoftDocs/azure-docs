@@ -12,7 +12,7 @@ ms.author: t-jowu
 ms.custom: mvc
 ---
 
-# Tutorial: How train a distributed model with Horovod using the Azure Batch AI Service and Azure Command-Line Interface.
+# Tutorial: How to train a distributed model with Horovod using the Azure Batch AI Service and Azure Command-Line Interface.
 
 Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates an example on how to train a distributed model by parallelizing it across multiple nodes in a cluster. A common Batch AI workflow will be introduced along with how to interact with Batch AI resources through the Azure Command-Line Interface. Topics that will be covered include:
 
@@ -26,7 +26,7 @@ Batch AI is a managed service for training machine learning models at scale on c
 > * Retrieving the training results
 > * Deleting resources
 
-[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow and will be used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficently on a distributed system using just a few lines of code. An object detection model will be trained on the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) for this tutorial.
+[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow and will be used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. An object detection model will be trained on the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) for this tutorial.
 
 ## Prerequisites
 
@@ -54,19 +54,19 @@ az group create \
 
 This resource group will be used for the remainder of the tutorial.
 
-## Understanding the Batch AI hierachy
+## Understanding the Batch AI hierarchy
 
-Before continuing the tutorial, it is important to review the Batch AI resource hierachy. Batch AI resources include workspaces, clusters, file servers, experiments, and jobs which are organized using the hierachy shown below. The resource group that was just created will keep track of a collection of *workspaces*. The workspaces each contain a mix of *clusters*, *file servers*, and *experiments*. All experiments encapsulate a group of *jobs*. The following goes into more detail about each resource.
+Before continuing the tutorial, it is important to review the Batch AI resource hierarchy. Batch AI resources include workspaces, clusters, file servers, experiments, and jobs that are organized using the hierarchy shown below. The resource group that was created will keep track of a collection of *workspaces*. The workspaces each contains a mix of *clusters*, *file servers*, and *experiments*. All experiments encapsulate a group of *jobs*. The following list goes into more detail about each resource.
 
-* **Workspace** - A workspace in Batch AI is a top-level collection of the rest of the Batch AI resources. Workspaces usually separate work belonging to different groups or projects. For example, there might be a development and a test workspace. 
+* **Workspace** - A workspace in Batch AI is a top-level collection of the rest of the Batch AI resources. Workspaces separate work belonging to different groups or projects. For example, there might be a development and a test workspace. 
 
 * **Cluster** - Clusters in Batch AI describe the compute requirements and offer many different options for creating clusters that are customized to different needs. Typically, a different cluster will be set up to for each category of processing power needed to complete the project. These clusters can then be scaled up and down based on demand and budget.
 
-* **File Server** - A file server in Batch AI is needed for storage of data, training scripts, and output logs. Batch AI provides functionality to mount these file servers to each node in the cluster in order create an easy and centrally accessible storage location. For most cases, only one file server is needed in a workspace where different data is seperated into its own directory. 
+* **File Server** - A file server in Batch AI is needed for storage of data, training scripts, and output logs. Batch AI provides functionality to mount these file servers to each node in the cluster in order to create an easy and centrally accessible storage location. For most cases, only one file server is needed in a workspace where different data is separated into its own directory. 
 
 * **Experiment** - Experiments group a collection of related jobs that can be queried and managed together. Each workspace might have multiple experiments where each one is attempting to solve one specific problem. 
 
-* **Jobs** - A job is a single task or script that needs to be executed on Batch AI. Each job executes a specific script in the file server and on a specified cluster in the workspace. Each experiment likely will have multiple jobs that are very similar with a few changes to different parameters.
+* **Jobs** - A job is a single task or script that needs to be executed on Batch AI. Each job executes a specific script in the file server and on a specified cluster in the workspace. Each experiment likely will have multiple jobs that are similar with a few changes to different parameters.
 
 The following image shows an example resource hierarchy for Batch AI. 
 
@@ -98,15 +98,15 @@ The next few sections will consist of instructions for creating all the necessar
 
 The next step will be to provision a GPU Cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options that need to be considered both for functional and budgeting purposes when choosing configurations for the cluster:
 
-* **VM Size** - Azure contains many options for [GPU-Enabled VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine will be used, which contains one NVIDIA Tesla K80 GPU. This is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
+* **VM Size** - Azure contains many options for [GPU-Enabled VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine will be used, which contains one NVIDIA Tesla K80 GPU. This VM is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
 
 * **Priority** - Azure offers dedicated VMs in addition to a [low priority VM](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of jobs being interrupted by higher priority tasks. For this experiment, a `low priority` option will be selected in order to save computing costs.
 
-* **Target** - The number of nodes which should be allocated can be defined at the creation of a cluster or an [auto-scale](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-auto-scale) option can be selected. For this experiment, the target will be manually set to `4 nodes` in order to demonstrate the distributed training performance.
+* **Target** - The number of nodes that should be allocated can be defined at the creation of a cluster or an [auto-scale](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-auto-scale) option can be selected. For this experiment, the target will be manually set to `4 nodes` in order to demonstrate the distributed training performance.
 
 * **VM Image** - The VMs in the cluster can be provisioned with the default OS or with a preconfigured Azure Image, such as a [Data Science Virtual Machine](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/). For this experiment, the default Ubuntu Server image will be used as it is designed to host container-based applications, such as Docker, which will be used for the experiment.
 
-* **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto storage option which automatically creates a file share and storage container in that account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in once central location which can be accessed by all VMs. This tutorial will utilize this autostorage option.
+* **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto storage option that automatically creates a file share and storage container in that account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in once central location, which can be accessed by all VMs. This tutorial will utilize this autostorage option.
 
 The [az batchai cluster create](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) command will be used to create the cluster. The following command creates a new cluster called `nc6cluster` with the above configurations under the workspace and resource group created earlier.
 
@@ -121,7 +121,7 @@ az batchai cluster create \
     --use-auto-storage \
     --generate-ssh-keys
 ```
-The `--use-auto-storage` options creates a storage account in a new or existing resource group named **batchaiautostorage**.
+The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
 It will also create an Azure File Share and Azure Blob Storage Container with the names **batchaishare** and **batchaicontainer** respectively. They will be mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
 
 The `--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys in order to be able to ssh into the cluster nodes. 
@@ -140,7 +140,7 @@ az batchai cluster show \
 
 ## Accessing auto storage
 
-During creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used again to do this. The following command queries the storage account name from the cluster.
+During creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used again to perform this action. The following command queries the storage account name from the cluster.
 
 ```azurecli-interactive
 az batchai cluster show \
@@ -165,7 +165,7 @@ az storage directory create \
     --share-name batchaishare \
     --account-name <STORAGE ACCOUNT NAME>
 ```
-The next step will be to prepare the actual training script which will then be uploaded to the newly created directory.
+The next step will be to prepare the actual training script, which will then be uploaded to the newly created directory.
 
 ## Creating the training script
 
@@ -325,9 +325,9 @@ print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 ```
 
-As shown above, it is very easy to modify a model to enable distributed training using the horovod framework. More information can be found on their website on how to use Horovod with other machine learning libraries.
+As shown above, it is easy to modify a model to enable distributed training using the horovod framework. More information can be found on their website on how to use Horovod with other machine learning libraries.
 
-A note to keep in mind moving forward is that this script uses a relatively small model and dataset for demo purposes, therefore a distributed model will not necesaarily show a substantial improvement. In order to truly see the power of distributed training, a much larger model and dataset must be used. 
+A note to keep in mind moving forward is that this script uses a relatively small model and dataset for demo purposes, therefore a distributed model will not necessarily show a substantial improvement. In order to truly see the power of distributed training, a much larger model, and dataset must be used. 
 
 ## Uploading the training script
 
@@ -368,17 +368,17 @@ If everything has been set up properly up to this point, a job can then be creat
 ```
 Going through each of the properties:
 
-* **nodeCount** - This defines the number of nodes to dedicate for the job. In this experiment, the job will be run in parallel on `4` different nodes. 
+* **nodeCount** - This field defines the number of nodes to dedicate for the job. In this experiment, the job will be run in parallel on `4` different nodes. 
 
-* **horovodSettings** - This `pythonScriptFilePath` field defines the path to the horovod script that needs to be run which is located in the `cifar` directory created. The `commandLineArgs` field are the command line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to as explained earlier. 
+* **horovodSettings** - The `pythonScriptFilePath` field defines the path to the horovod script that needs to be run, which is located in the `cifar` directory created. The `commandLineArgs` field is the command line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to as explained earlier. 
 
-* **stdOutErrPathPrefix** - This defines the path on where to store the job outputs and logs which will be stored in the same `cifar` directory. Once again, `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to.
+* **stdOutErrPathPrefix** - This field defines the path on where to store the job outputs and logs, which will be stored in the same `cifar` directory. Once again, `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to.
 
-* **jobPreparation** - This defines any special instructions for preparing the environment for running the job. In this experiment, installation of `mpi, keras, and horovod packages` are required.
+* **jobPreparation** - This field defines any special instructions for preparing the environment for running the job. In this experiment, installation of the defined packaged are required.
 
-* **containerSettings** - This defines the settings on the type of container which the job should be run on. For this experiment, a docker container built with `tensorflow` will be used.
+* **containerSettings** - This field defines the settings on the type of container that the job should be run on. For this experiment, a docker container built with `tensorflow` will be used.
 
-Using the configuration, the job can then be executed using the [az batchai job create command](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create). The following command executes a new job called `cifar_distributed` using all the resources that have been setup to this point.
+Using the configuration, the job can then be executed using the [az batchai job create command](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create). The following command executes a new job called `cifar_distributed` using all the resources that have been set up to this point.
 
 ```azurecli-interactive
 az batchai job create \
@@ -403,7 +403,7 @@ az batchai cluster show \
     --query "nodeStateCounts"
 ```
 
-The output should be similar to the following, which shows all 4 nodes in a running state. This shows that all 4 nodes are currently being utilized in the distributed training.
+The output should be similar to the following example, which shows all four in a running state. This shows that all four nodes are currently being utilized in the distributed training.
 
 ```
 {
@@ -473,7 +473,7 @@ az storage file download \
 
 ## Deleting the resources
 
-Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This can be done using the [az batchai cluster resize](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. The same command can also be used to reallocate the nodes in the future.
+Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This action can be performed using the [az batchai cluster resize](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. The same command can also be used to reallocate the nodes in the future.
 
 ```azurecli interactive 
 az batchai cluster resize \
@@ -482,12 +482,12 @@ az batchai cluster resize \
     --target 0 \
     --workspace batchaidev
 ```
-If there are no more plans to use the workspace in the future, the resource group can be deleted using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleing a resource group will delete all resources that are part of that group as a result.
+If there are no more plans to use the workspace in the future, the resource group can be deleted using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group will delete all resources that are part of that group as a result.
 
 ```azurecli interactive 
 az group delete --name batchai.horovod
 ```
-Note, this will not delete the auto storage that was created with the cluster as that was created using a different resource group. The auto storage and all its content can be deleted by using the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto storage options will use this existing storage instead of creating a new one.
+Note, this command will not delete the auto storage that was created with the cluster as that was created using a different resource group. The auto storage and all its content can be deleted by using the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto storage options will use this existing storage instead of creating a new one.
 
 ```azurecli interactive 
 az group delete --name batchaiautostorage
