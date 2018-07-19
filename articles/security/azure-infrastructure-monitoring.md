@@ -23,7 +23,7 @@ ms.author: terrylan
 ## Configuration and change management
 Azure reviews and updates configuration settings and baseline configurations of hardware, software, and network devices annually. Changes are developed, tested, and approved prior to entering the production environment from a development and/or test environment.
 
-The baseline configurations that are required for Azure-based services are reviewed by the Azure security and Compliance team and by service teams. A service team review is part of the testing that occurs before the deployment of their production service.
+The baseline configurations that are required for Azure-based services are reviewed by the Azure security and compliance team and by service teams. A service team review is part of the testing that occurs before the deployment of their production service.
 
 ## Vulnerability management
 Security update management helps protect systems from known vulnerabilities. Azure uses integrated deployment systems to manage the distribution and installation of security updates for Microsoft software. Azure is also able to draw on the resources of the Microsoft Security Response Center (MSRC). The MSRC identifies, monitors, responds to, and resolves security incidents and cloud vulnerabilities around the clock, every day of the year.
@@ -43,7 +43,7 @@ If Microsoft becomes aware of unauthorized access to customer data that's stored
 - Promptly investigates the security incident and provides customers detailed information about the security incident.
 - Takes reasonable and prompt steps to mitigate the effects and minimize any damage resulting from the security incident.
 
-An incident management framework has been established that defines roles and allocates responsibilities. The Azure security incident management (WASIM) team is responsible for managing security incidents, including escalation, and ensuring the involvement of specialist teams when necessary. Azure operations managers are responsible for overseeing the investigation and resolution of security and privacy incidents.
+An incident management framework has been established that defines roles and allocates responsibilities. The Azure security incident management team is responsible for managing security incidents, including escalation, and ensuring the involvement of specialist teams when necessary. Azure operations managers are responsible for overseeing the investigation and resolution of security and privacy incidents.
 
 ## Next steps
 To learn more about what Microsoft does to secure the Azure infrastructure, see:
