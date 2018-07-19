@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI 2.0 | Microsoft Docs
-description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI 2.0
+title: Troubleshoot Azure Virtual Network Gateway and Connections - Azure CLI | Microsoft Docs
+description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.author: jdial
 
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher Azure CLI 2.0
+# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -28,9 +28,7 @@ ms.author: jdial
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
-This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
-
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
