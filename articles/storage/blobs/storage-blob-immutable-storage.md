@@ -37,7 +37,7 @@ The feature enables:
 
 - **Container-level configuration**: You can configure time-based retention policies and legal hold tags at the container level. You can use simple container-level settings to create and lock time-based retention policies; extend retention intervals; set and clear legal holds; and more. These policies apply to all the blobs in the container, both existing and new.
 
-- **Audit logging support**: Each container contains an audit log. It shows up to five time-based retention commands for locked time-based retention policies, with a maximum of three logs for retention interval extensions. For time-based retention, the log contains the user ID, command type, timestamps, and retention interval. For legal holds, the log contains the user ID, command type, timestamps, and legal hold tags. This log is retained for the lifetime of the container, in accordance with the SEC 17a-4(f) regulatory guidelines. You can find a more comprehensive log of all the control plane activities in the [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+- **Audit logging support**: Each container includes an audit log. It shows up to five time-based retention commands for locked time-based retention policies, with a maximum of three logs for retention interval extensions. For time-based retention, the log contains the user ID, command type, timestamps, and retention interval. For legal holds, the log contains the user ID, command type, timestamps, and legal hold tags. This log is retained for the lifetime of the container, in accordance with the SEC 17a-4(f) regulatory guidelines. You can find a more comprehensive log of all the control plane activities in the [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It's the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
 The feature is enabled in all Azure public regions.
 
@@ -50,7 +50,7 @@ When a time-based retention policy or legal hold is applied on a container, all 
 > [!IMPORTANT]
 > A time-based retention policy must be *locked* for the blob to be in an immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. We recommend that you lock the policy in a reasonable amount of time, typically within 24 hours. We don't recommend using the *unlocked* state for any purpose other than short-term feature trials.
 
-When a time-based retention policy is applied on a container, all blobs in the container will remain in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. 
+When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. 
 
 For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can change the retention interval, Immutable Storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
@@ -65,9 +65,9 @@ For new blobs, the effective retention period is equal to the user-specified ret
 
 ### Legal holds
 
-When you set a legal hold, all existing and new blobs remain in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#Getting-started) section.
+When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#Getting-started) section.
 
-A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container remain in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob remains in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
+A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
 The following table shows the types of blob operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
@@ -167,7 +167,7 @@ The following client library releases support the Immutable Storage feature:
 - For a container, the maximum number of legal hold tags is 10.
 - The maximum length of a legal hold tag is 23 alphanumeric characters. The minimum length is three characters.
 - For a container, the maximum number of allowable retention interval extensions for locked immutable policies is three.
-- For a container with a locked immutable policy, there is a maximum of five time-based retention policy logs and a maximum of 10 legal hold policy logs that are retained for the duration of the container.
+- For a container with a locked immutable policy, a maximum of five time-based retention policy logs and a maximum of 10 legal hold policy logs are retained for the duration of the container.
 
 ## FAQ
 
@@ -193,11 +193,11 @@ Yes, you can use the Set Blob Tier command to move data across the blob tiers wh
 
 **What happens if I fail to pay and my retention interval has not expired?**
 
-In case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft.
+In the case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft.
 
 **Do you offer a trial or grace period for just trying out the feature?**
 
-Yes. When a time-based retention policy is first created, it's in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it remains locked forever, preventing deletion. Also, the retention interval can no longer be decreased when the policy is locked. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
+Yes. When a time-based retention policy is first created, it's in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked forever, preventing deletion. Also, the retention interval can no longer be decreased when the policy is locked. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
 
 **Is the feature available in national and government clouds?**
 
