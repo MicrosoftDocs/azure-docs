@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -23,7 +23,7 @@ This article addresses frequently asked questions about Azure Active Directory (
 
 ## Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS), should I choose?
 
-It depends on your on-premises environment and organizational requirements. Review the [Azure AD Connect user sign-in options](active-directory-aadconnect-user-signin.md) article for a comparison of the various Azure AD sign-in methods.
+Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ## Is Pass-through Authentication a free feature?
 
@@ -87,12 +87,7 @@ If you check the Pass-through Authentication blade on the [Azure Active Director
 
 ## I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
 
-If you have configured AD FS as your method to sign in through the Azure AD Connect wizard, change the method that the user uses to sign in to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and converts _all_ your federated domains into managed domains. Pass-through Authentication handles all subsequent requests to sign in to your tenant. Currently, there is no supported way within Azure AD Connect to use a combination of AD FS and Pass-through Authentication across different domains.
-
-If AD FS was configured as the method to sign in _outside_ the Azure AD Connect wizard, change the user sign-in method to Pass-through Authentication. You can make this change from the **Do not configure** option. This change enables Pass-through Authentication on the tenant, but all your federated domains will continue to use AD FS for sign-in. Use PowerShell to manually convert some or all of these federated domains to managed domains. After you make that change, *only* Pass-through Authentication handles all requests to sign in to the managed domains.
-
->[!IMPORTANT]
->Pass-through Authentication doesn't handle sign in for cloud-only Azure AD users.
+If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## Can I use Pass-through Authentication in a multi-forest Active Directory environment?
 
