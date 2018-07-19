@@ -27,183 +27,62 @@ In this tutorial, use the pattern.any entity to increase intent and entity predi
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [pattern roles](luis-tutorial-pattern-roles.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of pattern.any
+The pattern.any entity allows you to find free form data where the wording of the entity makes it difficult to determine the end of the entity from the rest of the utterance. 
+
+This Human Resources app helps employees find company forms. Forms were added in the [regular expression tutorial](luis-quickstart-intents-regex-entity.md). The form names from that tutorial used a regular expression to extract a form name that was well-formatted such as the form names in bold in the following utterance table:
+
+|Utterance|
+|--|
+|Where is **HRF-123456**?|
+|Who authored **HRF-123234**?|
+|**HRF-456098** is published in French?|
+
+However, each form has both a formatted name, used in the above table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`. 
+
+Utterances with the friendly form name look like:
+
+|Utterance|
+|--|
+|Where is **Request relocation from employee new to the company 2018 version 5**?|
+|Who authored **"Request relocation from employee new to the company 2018 version 5"**?|
+|**Request relocation from employee new to the company 2018 version 5** is published in French?|
+
+The varying length includes phrases that may confuse LUIS about where the entity, form name, ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
 
-Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
-
-## Create new intent and example utterances
-
-4. Add example utterances to the intent.
-
-    |Example utterances|
-    |--|
-    |Who is John W. Smith the subordinate of?|
-    |Who does John W. Smith report to?|
-    |Who is John W. Smith's manager?|
-    |Who does Jill Jones directly report to?|
-    |Who is Jill Jones supervisor?|
-
-    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
-
-
-## Caution about example utterance quantity
-The quantity of example utterances in these intents are not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
-
-## Train the LUIS app
-The new intent and utterances require training. 
-
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Image of training button](./media/luis-tutorial-pattern/hr-train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained-inline.png)
-
-## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
-
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-    [ ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
-
-## Query the endpoint with a different utterance
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    [ ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
-
-
-2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
-
-    ```JSON
-    {
-        "query": "who is the boss of jill jones?",
-        "topScoringIntent": {
-            "intent": "OrgChart-Manager",
-            "score": 0.353984952
-        },
-        "intents": [
-            {
-                "intent": "OrgChart-Manager",
-                "score": 0.353984952
-            },
-            {
-                "intent": "OrgChart-Reports",
-                "score": 0.214128986
-            },
-            {
-                "intent": "EmployeeFeedback",
-                "score": 0.08434003
-            },
-            {
-                "intent": "MoveEmployee",
-                "score": 0.019131
-            },
-            {
-                "intent": "GetJobInformation",
-                "score": 0.004819009
-            },
-            {
-                "intent": "Utilities.Confirm",
-                "score": 0.0043958663
-            },
-            {
-                "intent": "Utilities.StartOver",
-                "score": 0.00312064588
-            },
-            {
-                "intent": "Utilities.Cancel",
-                "score": 0.002265454
-            },
-            {
-                "intent": "Utilities.Help",
-                "score": 0.00133465114
-            },
-            {
-                "intent": "None",
-                "score": 0.0011388344
-            },
-            {
-                "intent": "Utilities.Stop",
-                "score": 0.00111166481
-            },
-            {
-                "intent": "FindForm",
-                "score": 0.0008900076
-            },
-            {
-                "intent": "ApplyForJob",
-                "score": 0.0007836131
-            }
-        ],
-        "entities": [
-            {
-                "entity": "jill jones",
-                "type": "Employee",
-                "startIndex": 19,
-                "endIndex": 28,
-                "resolution": {
-                    "values": [
-                        "Employee-45612"
-                    ]
-                }
-            },
-            {
-                "entity": "boss of jill jones",
-                "type": "builtin.keyPhrase",
-                "startIndex": 11,
-                "endIndex": 28
-            }
-        ]
-    }
-    ```
-
-Did this query succeed? 
-
-Use patterns to make the improve intent's score. 
-
-## Use a Pattern.any entity to find free-form entities in a pattern
-This HumanResources app also helps employees find company forms. Many of the forms have titles that are varying in length. The varying length includes phrases that may confuse LUIS about where the form name ends. Using a **Pattern.any** entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name. 
-
 ### Create a new intent for the form
-Create a new intent for utterances that are looking for forms.
+Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
 
-1. Select **Intents** from left navigation.
+1. Select **Build** from the top navigation, then select **Intents** from left navigation.
 
-2. Select **Create new intent**.
+2. Select **FindForm** from the intents list.
 
-3. Name the new intent `FindForm`.
+3. Add some example utterances:
 
-4. Add an example utterance.
+    |Example utterance|
+    |--|
+    |Where is the form **What to do when a fire breaks out in the Lab** and who needs to sign it after I read it?|
+    |Where is **Request relocation from employee new to the company** on the server?|
+    |Who authored "**Health and wellness requests on the main campus**" and what is the most current version?|
+    |I'm looking for the form named "**Office move request including physical assets**". |
 
-    ```
-    `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
-    ```
+    Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
-    ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
-
-    The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand where the form title ends and extract the form title as an entity of the utterance.
 
 ### Create a Pattern.any entity for the form title
-The Pattern.any entity allows for entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
 
 1. Select **Entities** in the left navigation.
 
-2. Select **Create new entity**. 
+2. Select **Create new entity**, enter the name `FormName` and select **Pattern.any** as the type. Select **Done**. 
 
-3. Name the entity `FormName` with type **Pattern.any**. For this specific tutorial, you do not need to add any roles to the entity.
-
-    ![Image of dialog box for entity name and entity type](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
+    You can't label the entity in the intent because a Pattern.any is only valid in a pattern. 
 
 ### Add a pattern that uses the Pattern.any
 
@@ -211,11 +90,18 @@ The Pattern.any entity allows for entities of varying length. It only works in a
 
 2. Select the **FindForm** intent.
 
-3. Enter a template utterance using the new entity `Where is the form {FormName} and who needs to sign it after I read it?`
+3. Enter the following template utterances which use the new entity:
 
-    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
+    |Template utterances|
+    |--|
+    Where is the form ["]{FormName}["] and who needs to sign it after I read it[?]|
+    |Where is ["]{FormName}["] on the server[?]|
+    |Who authored ["]{FormName}["] and what is the most current version[?]|
+    |I'm looking for the form named ["]{FormName}["][.]|
 
-4. Train the app for the new intent, entity, and pattern.
+    If you want to account for variations of the form such as single quotes instead of double quotes or a period instead of a question mark, create a new pattern for each variation.
+
+4. Train the app.
 
 ### Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
@@ -224,9 +110,9 @@ The Pattern.any entity allows for entities of varying length. It only works in a
 
 3. Select **Inspect** under the result to see the test results for entity and intent.
 
-    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/test-pattern.any-results.png)
+    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern-any/test-pattern.any-results.png)
 
-    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
+    The entity `FormName` is found first, then the pattern is found, determining the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
 
