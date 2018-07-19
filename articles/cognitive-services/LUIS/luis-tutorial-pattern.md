@@ -85,6 +85,8 @@ OrgChart-Manager(employee){
 
     [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
+    Don't worry if the keyPhrase entity is labeled in the utterances of the intent instead of the employee entity. Both are correctly predicted in the Test pane and at the endpoint. 
+
 5. Select **Intents** in the left navigation.
 
 6. Select **Create new intent**. 

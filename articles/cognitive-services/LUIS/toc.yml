@@ -81,6 +81,8 @@
       href: luis-tutorial-pattern.md
     - name: With roles
       href: luis-tutorial-pattern-roles.md
+    - name: With Pattern.any entity
+      href: luis-tutorial-pattern-any.md
 - name: Samples
   items:
   - name: Code samples

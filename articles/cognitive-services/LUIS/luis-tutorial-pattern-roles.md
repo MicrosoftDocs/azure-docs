@@ -28,25 +28,29 @@ In this tutorial, use a simple entity with roles combined with patterns to incre
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [pattern](luis-tutorial-pattern.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [pattern](luis-tutorial-pattern.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of roles
 The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
-When using patterns, any entities in the pattern must be detected _before_ the pattern matches the utterance. When a pattern is added, the first step is to select the intent for the pattern. By selecting the intent, if the pattern matches, the correct intent is returned. The template utterance can contain entities and entity roles, along with ignorable text.
+When using patterns, any entities in the pattern must be detected _before_ the pattern matches the utterance. 
+
+When you create a pattern, the first step is to select the intent for the pattern. By selecting the intent, if the pattern matches, the correct intent is always returned with a high score ( usually 99-100%). 
 
 ### Compare hierarchical entity to simple entity with roles
 
 In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
 
-In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. 
+In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are similar but solved with different LUIS abilities.
 
-|Tutorial|Example utterance|
-|--|--|
-|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from a-2349 to b-1298|
-|This tutorial (with roles)|Move Billy Patterson from Yuma to Denver.|
+|Tutorial|Example utterance|Origin and destination locations|
+|--|--|--|
+|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
+|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
+You can't use the hierarchical entity in the pattern because only hierarchical parents are used in parents. In order to return the named locations of origin and destination, you muse use a pattern.
 
 ### Simple entity for new employee name
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
@@ -56,7 +60,7 @@ The **Employee** list was created in the [list tutorial](luis-quickstart-intent-
 The **NewEmployee** entity is a simple entity with no roles. 
 
 ### Simple entity with roles for relocation cities
-The new employee and family need to be moved from the current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered.
+The new employee and family need to be moved from the current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered. A set list such as a list entity would not work because only the cities in the list would be extracted.
 
 The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
 
@@ -114,7 +118,9 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
 
     The employee name has a variety of prefix, word count, syntax, and suffix. This is important for LUIS to understand the variations of a new employee name. The city names also have a variety of word count and syntax. This variety is important to teach LUIS how these entities may appear in a user's utterance. 
     
-    If either entity had been of the same word count and no other variations, you would teach LUIS that this entity only has that word count and no other variations. LUIS would not be able to correctly predict a broader set of variations because it was no shown any. 
+    If either entity had been of the same word count and no other variations, you would teach LUIS that this entity only has that word count and no other variations. LUIS would not be able to correctly predict a broader set of variations because it was not shown any. 
+
+    If you removed the keyPhrase entity, add it back to the app now.
 
 ## Train the LUIS app
 The new intent and utterances require training. 
