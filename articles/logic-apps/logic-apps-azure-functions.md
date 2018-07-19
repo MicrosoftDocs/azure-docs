@@ -7,11 +7,9 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/07/18
-ms.author: ecfan
-ms.reviewer: klam
+ms.date: 07/20/18
+ms.reviewer: klam, LADocs
 ms.suite: integration
-
 ---
 
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
@@ -33,12 +31,12 @@ performing tasks such as these examples:
 
 You can also [call logic apps from inside an Azure function](#call-logic-app).
 
-If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
-
 ## Prerequisites
 
 To follow this article, here are the items you need:
+
+* If you don't have an Azure subscription yet, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * The logic app where you want to add the function
 
@@ -54,14 +52,16 @@ as the first step in your logic app
 
 * An Azure function app, which is a container for Azure functions, 
 and your Azure function. Your function app must belong to the same 
-Azure subscription as your logic app. 
+Azure subscription as your logic app. Also, when you include a Swagger 
+description with your function, the Logic Apps Designer can provide 
+a richer experience for you when working with function parameters.
 
   If you don't have a function app, you must 
   [create your function app first](../azure-functions/functions-create-first-azure-function.md). 
   You can then create your function either 
   [separately outside your logic app](#create-function-external), 
   or [from inside your logic app](#create-function-designer) 
-  in the Logic App Designer. 
+  in the Logic App Designer.
 
 <a name="create-function-external"></a>
 
@@ -87,8 +87,8 @@ type from your logic app:
 
   ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
 
-* After you create your function, check that the **Mode** 
-and **Webhook type** properties are set correctly.
+* After you create your Azure function, check that the 
+**Mode** and **Webhook type** properties are set correctly.
 
   1. In the **Function Apps** list, expand your function, 
   and select **Integrate**. 
@@ -99,27 +99,35 @@ and **Webhook type** properties are set correctly.
 
      ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
-  Webhook functions can accept HTTP requests as input payloads and pass 
-  the requests' content to other functions through a `data` variable. 
-  To access the input properties, you can use dot (.) notation: 
+### Access property values inside HTTP requests
 
-  `data.<some-function>`
+Webhook functions can accept HTTP requests as input payloads and pass 
+the content in those requests to other functions through a `data` variable. 
+To access the input properties, you can use dot (.) notation with that variable 
+by following this format: 
 
-  For example, this basic JavaScript function converts a 
-  DateTime value from the request body to a DateString 
-  value by calling the ToDateString() function:
- 
-  ```javascript
-  function convertToDateString(request, response){
-     var data = request.body;
-     response = {
-        body: data.date.ToDateString();
-     }
-  }
-  ```
+`data.<property-name>.<function-name>`
 
-After you create your Azure function, 
-follow the steps for how to [add functions to logic apps](#add-function-logic-app).
+Although Logic Apps provides [functions for converting DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
+this example shows how a basic JavaScript function uses dot notation 
+to access the `body` object inside the input `request` object that's 
+passed in as function input. The example then assigns the `body` object 
+to the `data` variable and can now access the `date` property value 
+through the `data` variable, converting that value to a DateString 
+value by calling the `ToDateString()` function:
+
+```javascript
+function convertToDateString(request, response){
+   var data = request.body;
+   response = {
+      body: data.date.ToDateString();
+   }
+}
+```
+
+Now that you've created your Azure function, 
+follow the steps for how to 
+[add functions to logic apps](#add-function-logic-app).
 
 <a name="create-function-designer"></a>
 
@@ -141,13 +149,13 @@ choose **New step** > **Add an action**.
 
 3. In the search box, enter "azure functions" as your filter.
 From the actions list, select this action: 
-**Azure Functions - Choose an Azure function** 
+**Choose an Azure function - Azure Functions** 
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 4. From the function apps list, select your function app. 
 After the functions list opens, select this action: 
-**Azure Functions - Create New Function**
+**Create New Function  - Azure Functions**
 
    ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -156,9 +164,10 @@ After the functions list opens, select this action:
    1. In the **Function name** box, 
    provide a name for your function. 
 
-   2. In the **Code** box, enter your function's code, 
-   including the response and payload you want returned 
-   to your logic app after your function finishes running. 
+   2. In the **Code** box, replace the default template 
+   code with your function's code, including the response 
+   and payload you want returned to your logic app after 
+   your function finishes running. 
    
    3. When you're done, choose **Create**. 
 
@@ -201,7 +210,7 @@ request headers, or query parameters, choose **Show advanced options**.
 
 To call existing Azure functions from your logic apps, 
 you can add Azure functions like any other action 
-in the Logic App Designer.
+in the Logic App Designer. 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in the Logic App Designer. 
@@ -211,7 +220,7 @@ choose **New step** > **Add an action**.
 
 3. In the search box, enter "azure functions" as your filter.
 From the actions list, select this action: 
-**Azure Functions - Choose an Azure function** 
+**Choose an Azure function - Azure Functions** 
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
