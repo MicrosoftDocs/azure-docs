@@ -10,7 +10,9 @@ The full list of prerequisites is available on the QuickStart Overview.
 
 Run this command to list all available Azure subscription IDs:
 
+      ```azurecli-interactive
       $ az account list -o table
+      ```
 
 ### Service Principal
 
