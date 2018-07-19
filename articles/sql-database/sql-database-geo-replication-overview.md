@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 
 ---
-# Overview: Failover groups and active geo-replication
+# Overview: Active geo-replication and auto-failover groups
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery in case of a data center scale outage.  If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, which can also be used for read-only access. The failover must be initiated manually by the application of the user. After failover, the new primary has a different connection end point. 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
 >  
-Failover groups is an extension of the active geo-replication designed for managing failover of multiple geo-replicated databases sumultaneously using an application initiated failover or by delegating faiover to SQL Database service based on a user defined criteria. The latter allows the customers to automatically recover multiple related databases in the secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, they can use the readable secondary databases to offload read-only workloads.  Because auto-failover groups involve multiple databases, they must be configured on the primary server. Both primary and secondary servers must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is an extension of the active geo-replication designed for managing failover of multiple geo-replicated databases sumultaneously using an application initiated failover or by delegating faiover to SQL Database service based on a user defined criteria. The latter allows the customers to automatically recover multiple related databases in the secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, they can use the readable secondary databases to offload read-only workloads.  Because auto-failover groups involve multiple databases, they must be configured on the primary server. Both primary and secondary servers must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!NOTE]
 > Use active geo-replication if multiple secondaries are required.
