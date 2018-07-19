@@ -64,5 +64,5 @@ The AzureStack-Tools repository contains PowerShell modules that support the fol
 
 ## Next steps
 
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
-* [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)
+- [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+- [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)
