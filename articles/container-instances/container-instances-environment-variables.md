@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/19/2018
 ms.author: marsma
 ---
 # Set environment variables
@@ -20,7 +20,7 @@ For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container i
 
 *MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
 
-If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) secure values for both Windows and Linux containers.
+If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
 ## Azure CLI example
 
@@ -151,9 +151,10 @@ To view the container's logs, under **SETTINGS** select **Containers**, then **L
 ![Portal showing container log output][portal-env-vars-02]
 
 ## Secure values
+
 Objects with secure values are intended to hold sensitive information like passwords or keys for your application. Using secure values for environment variables is both safer and more flexible than including it in your container's image. Another option is to use secret volumes, described in [Mount a secret volume in Azure Container Instances](container-instances-volume-secret.md).
 
-Secure environment variables with secure values won't reveal the secure value in your container's properties so the value can only be accessed from within your container. For example, container properties viewed in the Azure portal or Azure CLI won't display an environment variable with a secure value.
+Environment variables with secure values aren't visible in your container's properties--their values can be accessed only from within the container. For example, container properties viewed in the Azure portal or Azure CLI display only a secure variable's name, not its value.
 
 Set a secure environment variable by specifying the `secureValue` property instead of the regular `value` for the variable's type. The two variables defined in the following YAML demonstrate the two variable types.
 
@@ -163,17 +164,17 @@ Create a `secure-env.yaml` file with the following snippet.
 
 ```yaml
 apiVersion: 2018-06-01
-location: westus
+location: eastus
 name: securetest
 properties:
   containers:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
         - "name": "NOTSECRET"
           "value": "my-exposed-value"
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
       image: nginx
       ports: []
       resources:
@@ -186,43 +187,50 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Run the following command to deploy the container group with YAML.
+Run the following command to deploy the container group with YAML (adjust the resource group name as necessary):
 
 ```azurecli-interactive
-az container create --resource-group myRG --name securetest -f secure-env.yaml
+az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
 ### Verify environment variables
 
-Run the following command to query for your container's environment variables.
+Run the [az container show][az-container-show] command to query your container's environment variables:
 
 ```azurecli-interactive
-az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-The JSON response with details for this container will show only the non-secure environment variable and secure environment variable's key.
+The JSON response shows both the insecure environment variable's key and value, but only the name of the secure environment variable:
 
 ```json
-  "environmentVariables": [
+[
+  [
     {
       "name": "NOTSECRET",
+      "secureValue": null,
       "value": "my-exposed-value"
     },
     {
-      "name": "SECRET"
+      "name": "SECRET",
+      "secureValue": null,
+      "value": null
     }
+  ]
+]
 ```
 
-You can review the secure environment variable is set with the `exec` command which enables executing a command from within a running container. 
+With the [az container exec][az-container-exec] command, which enables executing a command in a running container, you can verify that the secure environment variable has been set. Run the following command to start an interactive bash session in the container:
 
-Run the following command to start an interactive bash session with the container.
 ```azurecli-interactive
-az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-From within your container, print your environment variable with the following bash command.
-```bash
-echo $SECRET
+Once you've opened an interactive shell within the container, you can access the `SECRET` variable's value:
+
+```console
+root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
+my-secret-value
 ```
 
 ## Next steps
@@ -238,6 +246,7 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
