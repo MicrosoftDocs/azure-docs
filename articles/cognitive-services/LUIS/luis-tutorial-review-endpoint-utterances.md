@@ -112,9 +112,11 @@ In order to get the updated model of the LUIS app in a chatbot or other applicat
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-2. Select the Production slot and the **Publish** button.
+2. If you imported this app, you need to select **Sentiment analysis**. 
 
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+3. Select the Production slot and the **Publish** button.
+
+4. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with an utterance
 Try an utterance close to the corrected utterance. 

@@ -224,6 +224,8 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Convert a template to managed disks
       href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Planned maintenance
+      href: virtual-machine-scale-sets-maintenance-notifications.md
   - name: Troubleshoot
     items:
     - name: Autoscale
