@@ -23,7 +23,7 @@ ms.author: terrylan
 ## Software installation
 All components in the software stack that are installed in the Azure environment are custom built following the Microsoft Security Development Lifecycle (SDL) process. All software components, including operating system (OS) images and SQL Database, are deployed as part of the change management and release management process. The OS that runs on all nodes is a customized version of Windows Server 2008 or Windows Server 2012. The exact version is chosen by the fabric controller (FC) according to the role it intends for the OS to play. In addition, the host OS does not allow installation of any unauthorized software components.
 
-Some Azure components (for example, the RedDog Front End (RDFE), the Azure portal, and so forth) are deployed as Azure customers on a guest VM running on a guest OS.
+Some Azure components are deployed as Azure customers on a guest VM running on a guest OS.
 
 ## Virus scans on builds
 Azure software component (including OS) builds have to undergo a virus scan that uses the Endpoint Protection anti-virus tool. Each virus scan creates a log within the associated build directory, detailing what was scanned and the results of the scan. The virus scan is part of the build source code for every component within Azure. Code is not moved to production without having a clean and successful virus scan. If any issues are noted, the build is frozen and then goes to the security teams within Microsoft Security to identify where the "rogue" code entered the build.
@@ -40,8 +40,8 @@ Access-control lists (ACLs) and firewalls between the service platform and the M
 ## ACLs and firewalls between nodes in a SQL Database cluster
 As an additional protection, as part of the defense-in depth-strategy, ACLs and a firewall have been implemented between nodes in a SQL Database cluster. All communication inside the Windows Fabric platform cluster as well as all running code is trusted.
 
-## Custom MAs (watchdogs)
-SQL Database employs custom MAs called watchdogs to monitor the health of the SQL Database cluster.
+## Custom monitoring agents
+SQL Database employs custom monitoring agents (MAs), also called watchdogs, to monitor the health of the SQL Database cluster.
 
 ## Web protocols
 
