@@ -33,7 +33,7 @@ If you don't have the Human Resources app from the [pattern](luis-tutorial-patte
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of roles
-The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city and destination city values are related to each other and use common language to denote each location. 
+The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
 When using patterns, any entities in the pattern must be detected _before_ the pattern matches the utterance. When a pattern is added, the first step is to select the intent for the pattern. By selecting the intent, if the pattern matches, the correct intent is returned. The template utterance can contain entities and entity roles, along with ignorable text.
 
@@ -41,7 +41,7 @@ When using patterns, any entities in the pattern must be detected _before_ the p
 
 In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
 
-In this tutorial, the Human Resources app will detect utterances about moving new employees from one city to another. 
+In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. 
 
 |Tutorial|Example utterance|
 |--|--|
@@ -49,21 +49,21 @@ In this tutorial, the Human Resources app will detect utterances about moving ne
 |This tutorial (with roles)|Move Billy Patterson from Yuma to Denver.|
 
 ### Simple entity for new employee name
-The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name needs to be detected first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
+The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
 
 The **Employee** list was created in the [list tutorial](luis-quickstart-intent-and-list-entity.md).
 
 The **NewEmployee** entity is a simple entity with no roles. 
 
 ### Simple entity with roles for relocation cities
-The new employee and his family need to be moved from his current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered.
+The new employee and family need to be moved from the current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered.
 
 The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
 
 ### Simple entities need enough examples to be detected
 Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected.  
 
-**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
+**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
 If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
 
@@ -233,7 +233,7 @@ The intent prediction score is only about 50%. If your client application requir
 
 4. Enter the following pattern: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
-    If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utteranes with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
+    If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utterances with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
 
 ## Create a phrase list for Cities
 Cities, like people's names are tricky in that they can be any mix of words and punctuation. But the cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning. 
@@ -255,7 +255,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
     Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. 
 
-    Make sure to keep **These values are interchangeable** seleted. These means the words on the list on treated as synonyms. This is exactly how they should be treated in the pattern.
+    Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms. This is exactly how they should be treated in the pattern.
 
     Remember [the last time](luis-quickstart-primary-and-secondary-data.md) the tutorial series created a phrase list was also to boost entity detection of a simple entity.  
 
