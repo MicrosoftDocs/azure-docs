@@ -97,7 +97,7 @@ If you don't have an Azure subscription yet,
   [work or school account](../active-directory/sign-up-organization.md) 
   that's managed by Azure Active Directory (Azure AD) and not a Microsoft account. 
   Also, make sure this account isn't an Azure B2B (guest) account. 
-  You must then use the same sign-in account in the Azure portal when you register 
+  You must also use the same sign-in account in the Azure portal when you register 
   your gateway installation by creating an Azure resource for your gateway. 
   You can then select this gateway resource when you create the 
   connection from your logic app to your on-premises data source. 
@@ -364,7 +364,7 @@ over HTTPS rather than direct TCP, but doing so can greatly reduce performance.
 To perform this task, follow these steps:
 
 1. Browse to the location for the on-premises data gateway client, 
-which is usually here: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
+which you can usually find here: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
 
    Otherwise, to find the client location, 
    open the Services console on the same computer, 
@@ -483,7 +483,7 @@ the capability to connect to the server name that was provided.
 <a name="why-azure-work-school-account"></a>
 
 **Q**: Why must I use a work or school account to sign in? <br/>
-**A**: You can only use an work or school account when 
+**A**: You can only use a work or school account when 
 you install the on-premises data gateway. Your sign-in account 
 is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
@@ -518,7 +518,7 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 
 **Q**: What is the actual Windows service called? <br/>
 **A**: On the Services tab in Task Manager, 
-the service name is "PBIEgwService" (Power BI Enterprise Gateway Service). 
+the service name is "PBIEgwService", or Power BI Enterprise Gateway Service. 
 In the Services console, the service name is "On-premises data gateway service". 
 The Windows service uses "NT SERVICE\PBIEgwService" as the Service SID (SSID).
 
@@ -623,7 +623,7 @@ To find the event logs for the gateway, follow these steps:
 For additional monitoring and troubleshooting, you can turn on and collect telemetry. 
 
 1. Browse to the location for the on-premises data gateway client, 
-which is usually here: ```C:\Program Files\On-premises data gateway```
+which you can usually find here: ```C:\Program Files\On-premises data gateway```
 
    Otherwise, to find the client location, 
    open the Services console on the same computer, 
@@ -653,7 +653,7 @@ for example, adjust indexes for SQL Server queries.
 To determine the duration for a query, follow these steps:
 
 1. Browse to the same location as the gateway client, 
-which is usually here: ```C:\Program Files\On-premises data gateway```
+which you can usually find here: ```C:\Program Files\On-premises data gateway```
 
    Otherwise, to find the client location, 
    open the Services console on the same computer, 
@@ -703,6 +703,33 @@ which is usually here: ```C:\Program Files\On-premises data gateway```
      > make sure you turn off **Additional logging** in the gateway installer 
      > or reset TracingVerbosity to **4** again in the configuration file, 
      > rather than leave this setting on for the long term.
+
+3. To find the duration for a query, follow these steps:
+
+   1. [Export](#logs) and open the gateway log.
+
+   2. To find a query, search for an activity type, for example: 
+
+      | Activity type | Description | 
+      |---------------|-------------| 
+      | MGEQ | Queries that run over ADO.NET. | 
+      | MGEO | Queries that run over OLEDB. | 
+      | MGEM | Queries that run from the Mashup engine. | 
+      ||| 
+
+   3. Note the second GUID, which is the Request ID.
+
+   4. Continue searching for the activity type until you find an entry named 
+   "FireActivityCompletedSuccessfullyEvent" that has a duration in milliseconds. 
+   Confirm the entry has the same Request ID, for example:
+
+      ```text 
+      DM.EnterpriseGateway Verbose: 0 : 2016-09-26T23:08:56.7940067Z DM.EnterpriseGateway    baf40f21-2eb4-4af1-9c59-0950ef11ec4a    5f99f566-106d-c8ac-c864-c0808c41a606    MGEQ    21f96cc4-7496-bfdd-748c-b4915cb4b70c    B8DFCF12 [DM.Pipeline.Common.TracingTelemetryService] Event: FireActivityCompletedSuccessfullyEvent (duration=5004)
+      ```
+
+      > [!NOTE] 
+      > The "FireActivityCompletedSuccessfullyEvent" entry is a verbose entry 
+      > and is not logged unless the "TracingVerbosity" setting is at level 5.
 
 ### Trace traffic with Fiddler
 
