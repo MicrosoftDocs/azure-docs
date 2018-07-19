@@ -101,7 +101,7 @@ If transient exceptions occur, the proxy retries the call.
 
 Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
-Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
+Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings?view=azure-dotnet)
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 
 ## How to use the Remoting V2 stack
@@ -253,7 +253,7 @@ Here are the steps to follow to change to V2_1 Stack.
     }
   ```
 
-3.  Add [Assembly Attribute](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on Remoting Interfaces.
+3.  Add [Assembly Attribute](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on Remoting Interfaces.
 
   ```csharp
  	[assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -274,7 +274,7 @@ Here are the steps to follow.
   </Resources>
   ```
 
-2. Use [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2_1" and must be defined in Service Manifest.
+2. Use [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Default Service Endpoint Resource name used is "ServiceEndpointV2_1" and must be defined in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -292,7 +292,7 @@ Here are the steps to follow.
     }
   ```
 
-3. Use V2 [Client Factory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Use V2 [Client Factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {
