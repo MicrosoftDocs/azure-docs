@@ -115,9 +115,9 @@ Directories | These directories (if set up as separate partitions/file-systems) 
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
-**VM/Disk management**
+## VM/Disk management
 
-**Action** | **Details||
+**Action** | **Details**
 --- | ---
 Resize disk on replicated VM | Supported.
 Add disk on replicated VM | Disable replication for the VM, add the disk, and then reenable replication. Adding a disk on a replicating VM isn't currently supported.
