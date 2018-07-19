@@ -26406,9 +26406,19 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
-            "redirect_document_id": true
-        }       
+        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/find-region-csharp.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-csharp",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
+        "redirect_document_id": true
+        }         
     ]
 }

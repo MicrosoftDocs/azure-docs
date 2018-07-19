@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
 ---
 
@@ -215,11 +215,9 @@ To support the failover integration between geo-redundant storage and Azure File
 | Canada Central      | Canada East        |
 | Canada East         | Canada Central     |
 | Central US          | East US 2          |
-| Central US EUAP     | East US 2 EUAP     |
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
-| East US 2 EUAP      | Central US EUAP    |
 | North Europe        | West Europe        |
 | Southeast Asia      | East Asia          |
 | UK South            | UK West            |
