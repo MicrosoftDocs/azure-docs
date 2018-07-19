@@ -12,4 +12,6 @@ ms.author: victorh
 
 # Azure Firewall FAQ (Preview)
 
+[!INCLUDE [Azure Firewall Preview](../../includes/firewall-preview-notice.md)]
+
 [!INCLUDE [Azure Firewall FAQ](../../includes/firewall-faq-include.md)]
