@@ -110,8 +110,6 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 3. Select **Inspect** under the result to see the test results for entity and intent.
 
-    ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern-any/test-pattern.any-results.png)
-
     The entity `FormName` is found first, then the pattern is found, determining the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
