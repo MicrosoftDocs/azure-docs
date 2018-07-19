@@ -44,7 +44,7 @@ Including the --no-owner parameter causes all objects created during the restore
 > [!NOTE]
 > If your PostgreSQL server requires SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with SSL.
 >
-> On the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
+> In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 >
 
 In this example, restore the data from the dump file **testdb.dump** into the database **mypgsqldb** on target server **mydemoserver.postgres.database.azure.com**. 
