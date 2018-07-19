@@ -46,15 +46,14 @@ Then proceed to the next section for details on enabling Managed Service Identit
 
 To enable the system assigned identity on a VM that was originally provisioned without it:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. At a minimum, your account needs to be assigned the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor
-) role to enable system assigned identity on a VM.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
 2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 
 3. Enable the system assigned identity on the VM by selecting "Yes" under "Managed service identity" and then click **Save**. This operation can take 60 seconds or more to complete:
 
-    > [!NOTE]
-    > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
+   > [!NOTE]
+   > Adding a user assigned identity to a VM is not currently supported via the Azure Portal.
 
    ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -62,8 +61,7 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
 If you have a Virtual Machine that no longer needs the system assigned identity:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. At a minimum, your account needs to be assigned the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor
-) role to remove system assigned identity from a VM.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
 2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 

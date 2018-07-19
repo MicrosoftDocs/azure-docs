@@ -29,9 +29,10 @@ In this article, you learn how to create, list and delete a user assigned identi
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create read (list), update, and delete a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to read (list) the properties of a user assigned identity.
 - To run the CLI script examples, you have three options:
-
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
     - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user assigned identity.
