@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Cluster Autoscaler on Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed Kubernetes cluster in Azure. As demand for resource increases, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods. It scans the cluster periodically to check for pending pods or empty nodes and increased the size if possible. By default, the CA scans for pending pods every 10 seconds and removes a node if it's unneeded for more than 10 minutes. When used with the horizontal pod autoscaler (HPA), the HPA will update pod replicas and resources as per demand. If there are not enough nodes or unneeded nodes following this pod scaling, the CA will respond and schedule the pods on the new set of nodes.
+Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed Kubernetes cluster in Azure. As resource demands increase, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods. It scans the cluster periodically to check for pending pods or empty nodes and increases the size if possible. By default, the CA scans for pending pods every 10 seconds and removes a node if it's unneeded for more than 10 minutes. When used with the horizontal pod autoscaler (HPA), the HPA will update pod replicas and resources as per demand. If there are not enough nodes or unneeded nodes following this pod scaling, the CA will respond and schedule the pods on the new set of nodes.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The following table lists all of the information you must provide in the autosca
 
 Get your subscription ID with: 
 
-``` console
+``` azurecli
 az account show --query id
 ```
 
@@ -59,7 +59,7 @@ NAME                       STATUS    ROLES     AGE       VERSION   LABELS
 aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=eastus,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
  ```
 
-Then. extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
+Then, extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
 
 To get the name of your node resource group, extract the value of the label **kubernetes.azure.com<span></span>/cluster**. The node resource group name is generally of the form MC_[resource-group]\_[cluster-name]_[location].
 
@@ -76,7 +76,7 @@ Now, you should have the following information:
 - NodeResourceGroup
 - VMType
 
-Next, to encode the values with base64, repeat the following step for each value:
+Next, encode all of these values with base64. For example, to encode the VMType value with base64:
 
 ```console
 $ echo AKS | base64
