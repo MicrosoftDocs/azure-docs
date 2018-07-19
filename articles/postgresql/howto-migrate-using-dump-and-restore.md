@@ -41,6 +41,11 @@ pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@s
 ```
 Including the --no-owner parameter causes all objects created during the restore to be owned by the user specified with --username. For more information, see the official PostgreSQL documentation on [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
+> [!NOTE]
+> If your PostgreSQL server requires SSL (on by default), set an environment variable `PGSSLMODE=require` on the console for the pg_restore tool to connect with SSL.
+> On the Windows command line, `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash `export PGSSLMODE=require` before running the pg_restore command.
+>
+
 In this example, restore the data from the dump file **testdb.dump** into the database **mypgsqldb** on target server **mydemoserver.postgres.database.azure.com**. 
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
