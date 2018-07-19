@@ -59,7 +59,7 @@ To copy an application, navigate to the **Application Settings** page and click 
 
 ![Application Settings page](media\howto-administer\appCopy1.png)
 
-Clicking the **Copy** button will open a dialog in which you can select a name, URL, AAD directory, subscription and Azure region for the new application that will be created by copying your application. Select values for each of those fields and then click the **Copy** button to confirm that you want to proceed.
+Clicking the **Copy** button will open a dialog in which you can select a name, URL, AAD directory, subscription and Azure region for the new application that will be created by copying your application. Select values for each of those fields and then click the **Copy** button to confirm that you want to proceed. You can learn more about what to enter for those values in the article about [how to create an application](howto-create-application.md).
 
 ![Application Settings page](media\howto-administer\appCopy2.png)
 
