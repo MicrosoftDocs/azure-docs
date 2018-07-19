@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 07/10/2018
+ms.date: 07/19/2018
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -153,83 +153,85 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Update the DNA name for the public and test endpoints. When a Kubernetes cluster is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
+1. Update the DNS name for the public and test endpoints. When a Kubernetes cluster is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
     is created with the naming patter of **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
 
     Locate the public ip's in the resource group
 
-    ![Public IP](./media/jenkins-aks-blue-green-deployment/publicip.png)
+    ![Public IP in the resource group](./media/jenkins-aks-blue-green-deployment/publicip.png)
 
-    For each of the services, find the external IP address by running:
+    For each of the services, find the external IP address by running the following command:
     
-    ```
-    kubectl get service todoapp-service
-    ```
+        ```bash
+        kubectl get service todoapp-service
+        ```
     
-    Update the DNS name for the corresponding IP address:
+    Update the DNS name for the corresponding IP address with the following command:
 
-    ```
-    az network public-ip update --dns-name aks-todoapp --ids /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    ```
+        ```bash
+        az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
+        ```
 
-    Repeat for `todoapp-test-blue` and `todoapp-test-green`:
-    ```
-    az network public-ip update --dns-name todoapp-blue --ids /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+    Repeat the call for `todoapp-test-blue` and `todoapp-test-green`:
 
-    az network public-ip update --dns-name todoapp-green --ids /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-    ```
-    Note the DNS name needs to be unique in your subscription. `&lt;your-dns-name-suffix>` can be used to ensure the uniqueness.
+        ```bash
+        az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
+        az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
+        ```
+
+    The DNS name needs to be unique in your subscription. `&lt;your-dns-name-suffix>` can be used to ensure the uniqueness.
 
 ### Create Azure Container Registry
 
-1. Run below command to create an Azure Container Registry.
-    After creation, use `login server` as Docker registry URL in the next section.
+1. Run the `az acr create` command to create an Azure Container Registry. After the Azure Container Registry creation, use `login server` as the Docker registry URL in the next section.
 
     ```bash
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
-1. Run below command to show your Azure Container Registry credentials.
-    You will use Docker registry username and password in the next section.
+1. Run the `az acr credential` command to show your Azure Container Registry credentials. Note the Docker registry username and password as they are used in the next section.
 
     ```bash
     az acr credential show -n <your-registry-name>
     ```
 
-## Prepare Jenkins server
-1. Deploy a Jenkins Master on Azure [https://aka.ms/jenkins-on-azure]
+## Prepare the Jenkins server
 
-1. Connect to the server with SSH and install the build tools on the server where you will run your build:
+1. Deploy a [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
+
+1. Connect to the server via SSH, and install the build tools on the server where you run your build.
    
-   ```
+   ```bash
    sudo apt-get install git maven 
    ```
    
-   Install Docker by following the steps [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
-   Make sure the user `jenkins` has permission to run the `docker` commands.
+1. [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce). Ensure the user `jenkins` has permission to run the `docker` commands.
 
-1. Install additional tools needed for this example:
+1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-   * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 
-   * [jq](https://stedolan.github.io/jq/download/)
+1. [Download jq](https://stedolan.github.io/jq/download/).
 
-   ```
+1. Install jq with the following command:
+
+   ```bash
    sudo apt-get install jq
    ```
    
-1. Install the plugins in Jenkins. Click 'Manage Jenkins' -> 'Manage Plugins' -> 'Available', 
-    then search and install the following plugins: Azure Container Service Plugin.
+1. Install the plugins in Jenkins by performing the following steps within the Jenkins dashboard:
 
-1. Add dd a Credential in type "Microsoft Azure Service Principal" with your service principal.
+    1. Select **Manage Jenkins > Manage Plugins > Available**.
+    1. Search for and install the Azure Container Service Plugin.
 
-1. Add a Credential in type "Username with password" with your account of docker registry.
+1. Add a credential in the type "Microsoft Azure Service Principal" using your service principal.
+
+1. Add a credential in the type "Username with password" using your Docker registry account.
 
 ## Edit the Jenkinsfile
 
-1. In your own repo, navigate to /deploy/aks/ and open `Jenkinsfile`
+1. In your own repo, navigate to `/deploy/aks/` and open `Jenkinsfile`
 
-2. Update:
+2. Update the file as follows:
 
     ```groovy
     def servicePrincipalId = '<your-service-principal>'
@@ -249,27 +251,27 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     def dockerCredentialId = '<your-acr-credential-id>'
     ```
 
-## Create job
-1. Add a new job in type "Pipeline".
+## Create the job
+1. Add a new job in type **Pipeline**.
 
-1. Choose "Pipeline script from SCM" in "Pipeline" -> "Definition".
+1. Select **Pipeline > Definition > Pipeline script from SCM**.
 
 1. Fill in the SCM repo url `your forked repo` and script path `deploy/aks/Jenkinsfile`
 
+## Run the job
 
-## Run it
-1. Verify you can run your project successfully in your local environment. ([Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it))
+1. Verify that you can run your project successfully in your local environment. [Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it)
 
 1. Run the Jenkins job. When running the Jenkins job the first time, Jenkins will deploy the todo app to the Blue environment, which is the default inactive environment. 
 
-1. To verify, open the urls:
+1. To verify that the job ran, browse to the urls:
     - Public end point: `http://aks-todoapp<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
     - Blue end point - `http://aks-todoapp-blue<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
     - Green end point - `http://aks-todoapp-green<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
 
 The public and the Blue test end points have the same update while the Green end point shows the default tomcat image. 
 
-If you run the build more than once, it will cycle through Blue and Green deployments. In other words, if the current environment is Blue, the job will deploy/test the Green environment and then update the application public endpoint to route traffic to the Green environment if all is good with testing.
+If you run the build more than once, it cycles through Blue and Green deployments. In other words, if the current environment is Blue, the job will deploy/test to the Green environment and then update the application public endpoint to route traffic to the Green environment if all is good with testing.
 
 ## Additional information
 
@@ -277,11 +279,15 @@ For more on zero-downtime deployment, check out this [quickstart template](https
 
 ## Clean up resources
 
-Delete the Azure resources you created in this tutorial.
+When no longer needed, delete the Azure resources you created in this tutorial.
 
-```bash
-az group delete -y --no-wait -n <your-resource-group-name>
-```
+    ```bash
+    az group delete -y --no-wait -n <your-resource-group-name>
+    ```
+
+## Troubleshooting
+
+If you encounter any bugs with our plugins, please file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 
