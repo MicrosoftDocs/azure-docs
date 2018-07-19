@@ -42,7 +42,7 @@ This Human Resources app helps employees find company forms. Forms were added in
 |Who authored **HRF-123234**?|
 |**HRF-456098** is published in French?|
 
-However, each form has both a formatted name, used in the above table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`. 
+However, each form has both a formatted name, used in the preceding table, as well as a friendly name, such as `Request relocation from employee new to the company 2018 version 5`. 
 
 Utterances with the friendly form name look like:
 
@@ -54,7 +54,7 @@ Utterances with the friendly form name look like:
 
 The varying length includes phrases that may confuse LUIS about where the entity, form name, ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
 
-**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
+**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
 ### Create a new intent for the form
 Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
@@ -80,7 +80,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 1. Select **Entities** in the left navigation.
 
-2. Select **Create new entity**, enter the name `FormName` and select **Pattern.any** as the type. Select **Done**. 
+2. Select **Create new entity**, enter the name , and select **Pattern.any** as the type. Select **Done**. 
 
     You can't label the entity in the intent because a Pattern.any is only valid in a pattern. 
 
@@ -90,11 +90,11 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 2. Select the **FindForm** intent.
 
-3. Enter the following template utterances which use the new entity:
+3. Enter the following template utterances, which use the new entity:
 
     |Template utterances|
     |--|
-    Where is the form ["]{FormName}["] and who needs to sign it after I read it[?]|
+    |Where is the form ["]{FormName}["] and who needs to sign it after I read it[?]|
     |Where is ["]{FormName}["] on the server[?]|
     |Who authored ["]{FormName}["] and what is the most current version[?]|
     |I'm looking for the form named ["]{FormName}["][.]|
