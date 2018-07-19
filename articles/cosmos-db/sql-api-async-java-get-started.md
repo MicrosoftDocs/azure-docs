@@ -31,7 +31,7 @@ Azure Cosmos DB is a globally distributed multi-model database. This tutorial sh
 We cover:
 
 * Creating and connecting to an Azure Cosmos DB account
-* Configuring your Visual Studio Solution
+* Configuring your Solution
 * Creating a collection
 * Creating JSON documents
 * Querying the collection
@@ -46,7 +46,7 @@ Make sure you have the following:
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads).
-* [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## Step 1: Create an Azure Cosmos DB account
@@ -57,7 +57,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 ## <a id="GitClone"></a>Step 2: Clone the GitHub project
 You can get started by cloning the GitHub repository for [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
-```
+```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started.git
 
 cd azure-cosmos-db-sql-api-async-java-getting-started
@@ -67,11 +67,11 @@ cd azure-cosmosdb-get-started
 The directory contains a `pom.xml` for the project and a `src/main/java/com/microsoft/azure/cosmosdb/sample` folder containing Java source code including `Main.java` which shows how perform simple operations with Azure Cosmos DB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [Azure Cosmos DB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
 ```
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-documentdb</artifactId>
-        <version>LATEST</version>
-    </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-documentdb</artifactId>
+  <version>2.0.0</version>
+</dependency>
 ```
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
@@ -80,21 +80,18 @@ Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your
 In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI and the PRIMARY KEY from the portal and paste it into the `AccountSettings.java` file. 
 
 ```java
-public class AccountSettings {
-    // Replace MASTER_KEY and HOST with values from your Azure Cosmos DB account.
+public class AccountSettings 
+{
+  // Replace MASTER_KEY and HOST with values from your Azure Cosmos DB account.
     
-    // <!--[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine")]-->
-    public static String MASTER_KEY =
-            System.getProperty("ACCOUNT_KEY", 
-                    StringUtils.defaultString(StringUtils.trimToNull(
-                            System.getenv().get("ACCOUNT_KEY")),
-                            "<Fill your Azure Cosmos DB account key>"));
+  // <!--[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine")]-->
+  public static String MASTER_KEY = System.getProperty("ACCOUNT_KEY", 
+          StringUtils.defaultString(StringUtils.trimToNull(
+          System.getenv().get("ACCOUNT_KEY")), "<Fill your Azure Cosmos DB account key>"));
 
-    public static String HOST =
-            System.getProperty("ACCOUNT_HOST",
-                    StringUtils.defaultString(StringUtils.trimToNull(
-                            System.getenv().get("ACCOUNT_HOST")),
-                            "<Fill your Azure Cosmos DB URI>"));
+  public static String HOST = System.getProperty("ACCOUNT_HOST",
+           StringUtils.defaultString(StringUtils.trimToNull(
+           System.getenv().get("ACCOUNT_HOST")),"<Fill your Azure Cosmos DB URI>"));
 }
 ```
 
@@ -105,11 +102,11 @@ Initialize the client object by using the host URI and primary key values define
 
 ```java
 client = new AsyncDocumentClient.Builder()
-                .withServiceEndpoint(AccountSettings.HOST)
-                .withMasterKey(AccountSettings.MASTER_KEY)
-                .withConnectionPolicy(ConnectionPolicy.GetDefault())
-                .withConsistencyLevel(ConsistencyLevel.Session)
-                .build();
+         .withServiceEndpoint(AccountSettings.HOST)
+         .withMasterKey(AccountSettings.MASTER_KEY)
+         .withConnectionPolicy(ConnectionPolicy.GetDefault())
+         .withConsistencyLevel(ConsistencyLevel.Session)
+         .build();
 ```
 
 ## <a id="CreateDatabase"></a>Step 5: Create a database
@@ -117,7 +114,9 @@ client = new AsyncDocumentClient.Builder()
 Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created by using the createDatabaseIfNotExists() method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
 
 ```java
-private void createDatabaseIfNotExists() throws Exception {
+private void createDatabaseIfNotExists() throws Exception 
+{
+    
     writeToConsoleAndPromptToContinue("Check if database " + databaseName + " exists.");
 
     String databaseLink = String.format("/dbs/%s", databaseName);
@@ -125,24 +124,21 @@ private void createDatabaseIfNotExists() throws Exception {
     Observable<ResourceResponse<Database>> databaseReadObs = client.readDatabase(databaseLink, null);
 
     Observable<ResourceResponse<Database>> databaseExistenceObs = databaseReadObs
-                .doOnNext(x -> {System.out.println("database " + databaseName + " already exists.");
-                }).onErrorResumeNext(e -> {
-                    // if the database doesn't already exists
-                    // readDatabase() will result in 404 error
-                    if (e instanceof DocumentClientException) {
-                      DocumentClientException de = (DocumentClientException) e;
-                      // if database 
-                      if (de.getStatusCode() == 404) {
-                      // if the database doesn't exist, create it.
-                       System.out.println("database " + databaseName + " doesn't existed,"
-                       + " creating it...");
-
-                       Database dbDefinition = new Database();
-                       dbDefinition.setId(databaseName);
-
-                       return client.createDatabase(dbDefinition, null);
-                       }
-                       }
+                .doOnNext(x -> {System.out.println("database " + databaseName + " already exists.");}).onErrorResumeNext(e -> {
+   // if the database doesn't already exists
+   // readDatabase() will result in 404 error
+   if (e instanceof DocumentClientException) 
+   {
+       DocumentClientException de = (DocumentClientException) e;
+       // if database 
+       if (de.getStatusCode() == 404) {
+       // if the database doesn't exist, create it.
+       System.out.println("database " + databaseName + " doesn't existed," + " creating it...");
+       Database dbDefinition = new Database();
+       dbDefinition.setId(databaseName);
+       return client.createDatabase(dbDefinition, null);
+     }
+     }
 
     // some unexpected failure in reading database happened.
     // pass the error up.
@@ -150,10 +146,10 @@ private void createDatabaseIfNotExists() throws Exception {
         return Observable.error(e);     
     });
 
-// wait for completion
-databaseExistenceObs.toCompletable().await();
+   // wait for completion
+   databaseExistenceObs.toCompletable().await();
 
-System.out.println("Checking database " + databaseName + " completed!\n");
+   System.out.println("Checking database " + databaseName + " completed!\n");
 }
 ```
 
@@ -166,37 +162,37 @@ System.out.println("Checking database " + databaseName + " completed!\n");
 A collection can be created by using the createDocumentCollectionIfNotExists() method of the DocumentClient class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 ```java
-private void createDocumentCollectionIfNotExists() throws Exception {
-        writeToConsoleAndPromptToContinue(
-                "Check if collection " + collectionName + " exists.");
+private void createDocumentCollectionIfNotExists() throws Exception 
+{
+    
+    writeToConsoleAndPromptToContinue("Check if collection " + collectionName + " exists.");
 
-        // query for a collection with a given id
-        // if it exists nothing else to be done
-        // if the collection doesn't exist, create it.
+    // query for a collection with a given id
+    // if it exists nothing else to be done
+    // if the collection doesn't exist, create it.
 
-        String databaseLink = String.format("/dbs/%s", databaseName);
+    String databaseLink = String.format("/dbs/%s", databaseName);
 
-        client.queryCollections(databaseLink, 
-                new SqlQuerySpec("SELECT * FROM r where r.id = @id", 
-                        new SqlParameterCollection(
-                                new SqlParameter("@id", collectionName))), null)
-        .single() // we know there is only single page of result (empty or with a match)
-        .flatMap(page -> {
+    // we know there is only single page of result (empty or with a match)
+    client.queryCollections(databaseLink, new SqlQuerySpec("SELECT * FROM r where r.id = @id", 
+            new SqlParameterCollection(new SqlParameter("@id", collectionName))), null).single() 
+            .flatMap(page -> {
             if (page.getResults().isEmpty()) {
-                // if there is no matching collection create the collection.
-                DocumentCollection collection = new DocumentCollection();
-                collection.setId(collectionName);
-                System.out.println("Creating collection " + collectionName);
+             // if there is no matching collection create the collection.
+             DocumentCollection collection = new DocumentCollection();
+             collection.setId(collectionName);
+             System.out.println("Creating collection " + collectionName);
 
-                return client.createCollection(databaseLink, collection, null);
-            } else {
-                // collection already exists, nothing else to be done.
-                System.out.println("Collection " + collectionName + "already exists");
-                return Observable.empty();
+             return client.createCollection(databaseLink, collection, null);
+            } 
+            else {
+              // collection already exists, nothing else to be done.
+              System.out.println("Collection " + collectionName + "already exists");
+              return Observable.empty();
             }
-        }).toCompletable().await();
+      }).toCompletable().await();
 
-        System.out.println("Checking collection " + collectionName + " completed!\n");
+ System.out.println("Checking collection " + collectionName + " completed!\n");
     }
 ```
 
@@ -206,17 +202,17 @@ A [document](sql-api-resources.md#documents) can be created by using the createD
 
 ```java
 public static Family getJohnsonFamilyDocument() {
-        Family andersenFamily = new Family();
-        andersenFamily.setId("Johnson" + System.currentTimeMillis());
-        andersenFamily.setLastName("Johnson");
+     Family andersenFamily = new Family();
+     andersenFamily.setId("Johnson" + System.currentTimeMillis());
+     andersenFamily.setLastName("Johnson");
 
-        Parent parent1 = new Parent();
-        parent1.setFirstName("John");
+      Parent parent1 = new Parent();
+      parent1.setFirstName("John");
 
-        Parent parent2 = new Parent();
-        parent2.setFirstName("Lili");
+      Parent parent2 = new Parent();
+      parent2.setFirstName("Lili");
 
-        return andersenFamily;
+      return andersenFamily;
     }
 ```
 
@@ -225,34 +221,33 @@ public static Family getJohnsonFamilyDocument() {
 Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) method.
 
 ```java
-private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) {
-        // Set some common query options
-        FeedOptions queryOptions = new FeedOptions();
-        queryOptions.setMaxItemCount(100);
-        queryOptions.setEnableCrossPartitionQuery(true);
+private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 
+{
+    // Set some common query options
+    FeedOptions queryOptions = new FeedOptions();
+    queryOptions.setMaxItemCount(100);
+    queryOptions.setEnableCrossPartitionQuery(true);
 
-        String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-        Observable<FeedResponse<Document>> queryObservable = 
-                client.queryDocuments(collectionLink,
-                        "SELECT * FROM Family WHERE Family.lastName = 'Andersen'", queryOptions);
+    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
+    Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(collectionLink,
+           "SELECT * FROM Family WHERE Family.lastName = 'Andersen'", queryOptions);
 
-        queryObservable.subscribe(
-                queryResultPage -> {
-                    System.out.println("Got a page of query result with " +
-                            queryResultPage.getResults().size() + " document(s)"
-                            + " and request charge of " + queryResultPage.getRequestCharge());
-                },
-                // terminal error signal
-                e -> {
-                    e.printStackTrace();
-                    completionLatch.countDown();
-                },
+    queryObservable.subscribe(queryResultPage -> {
+            System.out.println("Got a page of query result with " +
+            queryResultPage.getResults().size() + " document(s)"
+            + " and request charge of " + queryResultPage.getRequestCharge());
+    },
+   // terminal error signal
+        e -> {
+          e.printStackTrace();
+          completionLatch.countDown();
+        },
 
-                // terminal completion signal
-                () -> {
-                    completionLatch.countDown();
-                });
-    }
+   // terminal completion signal
+         () -> {
+            completionLatch.countDown();
+         });
+}
 ```
 
 ## <a id="Run"></a>Step 9: Run your Java console application all together!
