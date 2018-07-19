@@ -34,7 +34,7 @@ In this article, you learn how to create, list and delete a user assigned identi
 
 ## Create a user assigned identity
 
-To create a user assigned identity, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the user assigned identity, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
+To create a user assigned identity, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the user assigned identity, and the `-Name` parameter specifies its name. At a minimum, your account needs to be assigned the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -43,7 +43,7 @@ New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER A
 ```
 ## List user assigned identities
 
-To list user assigned identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created.  Replace the `<RESOURCE GROUP>` with your own value:
+To list user assigned identities, use the [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created. At a minimum, your account needs to be assigned the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to list the properties of a user assigned identity. Replace the `<RESOURCE GROUP>` with your own value:
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
@@ -54,7 +54,7 @@ In the response, user identities have `"Microsoft.ManagedIdentity/userAssignedId
 
 ## Delete a user assigned identity
 
-To delete a user identity, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created and the `-Name` parameter specifies its name.  Replace the `<RESOURCE GROUP>` and the `<USER ASSIGNED IDENTITY NAME>` parameters values with your own values:
+To delete a user identity, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created and the `-Name` parameter specifies its name. At a minimum, your account needs to be assigned the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to delete a user assigned identity. Replace the `<RESOURCE GROUP>` and the `<USER ASSIGNED IDENTITY NAME>` parameters values with your own values:
 
  ```azurecli-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
