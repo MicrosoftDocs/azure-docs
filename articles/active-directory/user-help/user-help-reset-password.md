@@ -93,8 +93,8 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
 
     3. Type and confirm your new password, and then select **Finish**.
 
-4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
-
+    4. After you get the message saying that your password has been reset, you can sign in to your account using your new password.
+        
     If you still can't access your account, you should contact your organization's administrator for more help.
 
 After resetting your password, you might get a confirmation email that comes from an account like, "Microsoft on behalf of \<*your_organization*>." If you get a similar email, but you didn't recently reset your password, you must contact your organization's administrator immediately.
