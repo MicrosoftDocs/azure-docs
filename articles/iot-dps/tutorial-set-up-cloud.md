@@ -45,9 +45,9 @@ Follow these steps to create a new Device Provisioning Service instance.
 
    ![Enter basic information about your DPS in the portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Click **Create**.
-6. The *ID scope* is used to identify registration IDs, and provides a guarantee that the registration ID is unique. To obtain this value, click **Overview** to open the **Essentials** page for the Device Provisioning Service. Copy the **ID Scope** value to a temporary location for later use.
-7. Also make a note of the **Service endpoint** value, or copy it to a temporary location for later use. 
+5. Click **Create**. After a few moments the Device Provisioning Service instance is created and the **Overview** tab is displayed.
+6. On the **Overview** tab for the new service instance, copy the value for the **ID scope** for use later. That value is used to identify registration IDs, and provides a guarantee that the registration ID is unique.
+7. Also copy the **Service endpoint** value for later use. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
