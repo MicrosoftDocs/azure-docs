@@ -99,7 +99,7 @@ Continue the following steps to upload the training script and create the traini
 Use the storage account associated with the cluster to store your training script and training output. To simplify the CLI commands to work with the storage account, first set the following environment variables in your shell:
 
 ```bash
-export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query 'nodeSetup.mountVolumes.azureFileShares[0].accountName' | sed s/\"//g)
+export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query "nodeSetup.mountVolumes.azureFileShares[0].accountName" | sed s/\"//g)
 
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
 ```
