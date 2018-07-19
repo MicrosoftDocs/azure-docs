@@ -9,7 +9,7 @@ ms.date: 1/11/2018
 > [!NOTE]
 > If your add-in is not a SharePoint Add-in that requires OAuth authentication, this does not apply to you. 
  
-Office 365 operated by [21Vianet](http://www.en.21vianet.com/) is powered by the technology that Microsoft has licensed to 21Vianet.
+Office 365 operated by [21Vianet](http://www.21vianet.com) is powered by the technology that Microsoft has licensed to 21Vianet. 
 
 Microsoft does not operate the service itself; 21Vianet operates, provides, and manages delivery of the service. 21Vianet is the largest carrier-neutral Internet data center services provider in China. It provides hosting, managed network services, and cloud computing infrastructure services. Microsoft licenses Office 365 to 21Vianet, who then uses it to set up Office 365 data centers for their users in China. 21Vianet operates local Office 365 data centers and provides Office 365 services to users in China while keeping their data within China. 21Vianet also provides user subscription and billing services, as well as support. 
  
