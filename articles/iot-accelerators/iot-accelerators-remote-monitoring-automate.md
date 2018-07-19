@@ -32,29 +32,17 @@ In this tutorial, you:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Prerequisites
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
-
-If you haven't deployed the Remote Monitoring solution accelerator yet, you should complete the [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) quickstart.
-
-## View the existing rules
+## Review the existing rules
 
 The **Rules** page in the solution accelerator displays a list of all the current rules:
 
 [![Rules page](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-To view only the rules that apply to chiller devices, apply a filter:
-
-[![Filter the list of rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-You can view more information about a rule and edit it when you select it in the list:
+To view only the rules that apply to chiller devices, apply a filter. You can view more information about a rule and edit it when you select it in the list:
 
 [![View rule details](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-To disable or enable one or more rules, select one or more rules in the list:
-
-[![Select multiple rules](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## Create a rule
 
@@ -79,7 +67,7 @@ You can see when the rule is triggered on the **Rules** page or on the **Dashboa
 
 [![Warning rule triggered](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## Create a rule with multiple conditions
+## Create an advanced rule
 
 To create a rule with multiple conditions that generates a critical alert when, over the last five minutes for a chiller device, the average humidity is greater than 80% and the average temperature is greater than 75 degrees fahrenheit, click **New rule**. Use the following values to create the rule:
 
@@ -126,12 +114,6 @@ To temporarily switch off a rule, you can disable it in the list of rules. Choos
 [![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
-
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
 ## Clean up resources
 
