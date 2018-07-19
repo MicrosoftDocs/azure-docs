@@ -120,6 +120,8 @@ items:
               href: sql-api-dotnetcore-get-started.md
             - name: Java
               href: sql-api-java-get-started.md
+            - name: Async Java
+              href: sql-api-async-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
           - name: Build a web app
