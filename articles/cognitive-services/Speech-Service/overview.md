@@ -14,12 +14,12 @@ ms.author: v-jerkin
 ---
 # What is the Speech service (preview)?
 
-The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.
+The Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.  This same service is available to any customer as a Cognitive Service. 
 
 > [!NOTE]
 > The Speech service is currently in public preview. Return here regularly for updates to documentation, additional code samples, and more.
 
-With one subscription, the unified Speech service gives developers an easy way to give their applications powerful speech-enabled features. Your apps can now feature voice command, transcription, dictation, speech synthesis, and translation.
+With one subscription, our Speech service gives developers an easy way to give their applications powerful speech-enabled features. Your apps can now feature voice command, transcription, dictation, speech synthesis, and translation.
 
 |Function|Description|
 |-|-|

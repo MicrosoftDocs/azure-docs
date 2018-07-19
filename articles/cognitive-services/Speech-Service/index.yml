@@ -1,9 +1,11 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service Documentation (Preview)
+title: Speech Service and API Documentation (Preview)
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: |
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, 
+    such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -17,12 +19,17 @@ metadata:
   ms.author: nolachar
 
 abstract:
-  description: The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, including voice command control, transcription, dictation, and translation using a <a href="rest-apis">REST API</a> or a <a href="speech-sdk">C#, C++, or Java SDK</a>.<p>The Speech service lets you customize <a href="how-to-customize-speech-models">Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. Customized <a href="https://cris.ai/Home/customvoice">Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">Speech Translation</a> are also available.<p>For more details, see <a href="overview">What is the Speech service?</a>
+  description: |
+    The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, 
+    including voice command control, transcription, dictation, and translation using an SDK or REST API (see table below).
+    <p>Microsoft and its partners also offers an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; 
+    the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
+    <p>For more details of what the service can do for you, see <a href="overview">What is the Speech service?</a>
 sections:
-- title: 10-Minute Quickstarts
+- title: 10-minute download and quickstarts for the Speech SDK
   items:
   - type: paragraph
-    text: 'Learn how to install the Speech SDK and get started:'
+    text: 'Learn how to download, install, and use the Speech SDK.  Click on the arrow link in the table cell below that correspnds to your desired environment.'
   - type: table
     style: dataMatrix
     columns:
@@ -41,7 +48,7 @@ sections:
       - image:
           src: media/index/logo_rest_tts.svg
     rows:
-      - title: Windows
+      - title: Windows (x86/x64)
         values:
         - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
@@ -50,14 +57,14 @@ sections:
         - href:
         - href:
         - href:
-      - title: Linux
+      - title: Linux (x86/x64)
         values:
         - href:
         - href:
         - href: quickstart-cpp-linux
         - href:
         - href:
-      - title: Android SDK
+      - title: Android SDK (ARM)
         values:
         - href:
         - href:
@@ -66,7 +73,7 @@ sections:
         - href: quickstart-java-android
         - href:
         - href:
-      - title: Devices SDK
+      - title: Devices SDK (ARM)
         values:
         - href:
         - href:
@@ -85,7 +92,7 @@ sections:
         - href: rest-apis
         - href: rest-apis
 
-- title: Samples and Reference
+- title: Samples and reference
   items:
   - type: list
     style: cards
@@ -94,9 +101,14 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (including UWP and .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a> for Speech SDK<br>and Speech Devices SDK</li></ul>
+      html: |
+        <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></li>
+        <li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a></li></ul>
 
-- title: Speech Devices SDK
+- title: Customizing speech with your own data
   items:
   - type: paragraph
-    text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Suitable for developing ambient devices for all types of applications, this SDK allows you to define a custom <I>wake word</I> unique to your brand. The hardware provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming."
+    text: |
+      The Speech service lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
+      <a href="https://cris.ai/Home/customvoice">customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
+
