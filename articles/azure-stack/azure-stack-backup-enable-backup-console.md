@@ -36,8 +36,10 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Type the path to the **Backup storage location**. Use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data after a disaster, the  device should be in a separate location.
+
     > [!Note]  
     > If your environment supports name resolution from the Azure Stack infrastructure network to your enterprise environment, you can use an FQDN rather than the IP.
+    
 4. Type the **Username** using the domain and username with sufficient access to read and write files. For example, `Contoso\backupshareuser`.
 5. Type the **Password** for the user.
 6. Type the password again to **Confirm Password**.
