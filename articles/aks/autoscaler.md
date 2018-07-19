@@ -99,19 +99,8 @@ $ echo AKS | base64
 QUtTCg==
 ```
 
-## Create Secret
-Using this data, create a secret for the deployment using the values found in the previous steps, such as:
-
-- ClientID: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (Use lower case)
-- SubscriptionID: `<base64-encode-subscription-id>`
-- TenantID: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- ClusterName: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (Use the label's value verbatim. Case sensitive)
-
-in the following format:
+## Create secret
+Using this data, create a secret for the deployment using the values found in the previous steps in the following format:
 
 ```yaml
 ---
@@ -132,7 +121,7 @@ data:
 ---
 ```
 
-## Create a Deployment Chart
+## Create a deployment chart
 
 Create a file named `aks-cluster-autoscaler.yaml`, and copy into it the following YAML code.
 
