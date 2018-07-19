@@ -13,63 +13,74 @@ ms.custom: mvc
 
 # Set up a device to provision using the Azure IoT Hub Device Provisioning Service
 
-In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial shows you how to set up your device during the manufacturing process, enabling it to be auto-provisioned with IoT Hub. Your device is provisioned based on its [Attestation mechanism](concepts-device.md#attestation-mechanism), upon first boot and connection to the provisioning service. This tutorial discusses the processes to:
+In the previous tutorial, you learned how to set up the Azure IoT Hub Device Provisioning Service to automatically provision your devices to your IoT hub. This tutorial shows you how to set up your device during the manufacturing process, enabling it to be auto-provisioned with IoT Hub. Your device is provisioned based on its [Attestation mechanism](concepts-device.md#attestation-mechanism), upon first boot and connection to the provisioning service. This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Build platform-specific Device Provisioning Services Client SDK
 > * Extract the security artifacts
 > * Create the device registration software
 
-## Prerequisites
-
-Before proceeding, create your Device Provisioning Service instance and an IoT hub, using the instructions in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
+This tutorial expect that you have already created your Device Provisioning Service instance and an IoT hub, using the instructions in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
 
 This tutorial uses the [Azure IoT SDKs and libraries for C repository](https://github.com/Azure/azure-iot-sdk-c), which contains the Device Provisioning Service Client SDK for C. The SDK currently provides TPM and X.509 support for devices running on Windows or Ubuntu implementations. This tutorial is based on use of a Windows development client, which also assumes basic proficiency with Visual Studio 2017. 
 
 If you're unfamiliar with the process of auto-provisioning, be sure to review [Auto-provisioning concepts](concepts-auto-provisioning.md) before continuing. 
 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+
+* Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* Latest version of [Git](https://git-scm.com/download/) installed.
+
+
+
 ## Build a platform-specific version of the SDK
 
 The Device Provisioning Service Client SDK helps you implement your device registration software. But before you can use it, you need to build a version of the SDK specific to your development client platform and attestation mechanism. In this tutorial, you build an SDK that uses Visual Studio 2017 on a Windows development platform, for a supported type of attestation:
 
-1. Install the required tools and clone the GitHub repository that contains the provisioning service Client SDK for C:
+1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
-   a. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
 
-   b. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the CMake installation.
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-   c. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest `git` tools, including  **Git Bash**, a command-line Bash shell for interacting with your local Git repository. 
-
-   d. Open Git Bash, and clone the "Azure IoT SDKs and libraries for C" repository. The clone command may take several minutes to complete, as it also downloads several dependant submodules:
+2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-   e. Create a new `cmake` subdirectory inside of the newly created repository subdirectory:
 
-   ```cmd/sh
-   mkdir azure-iot-sdk-c/cmake
-   ``` 
+3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
-2. From the Git Bash command prompt, change into the azure-iot-sdk-c repository's `cmake` subdirectory:
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
 
-   ```cmd/sh
-   cd azure-iot-sdk-c/cmake
-   ```
-
-3. Build the SDK for your development platform and one of the supported attestation mechanisms, using one of the following commands (also note the two trailing period characters). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
-    - For devices that use a physical TPM/HSM, or a simulated X.509 certificate for attestation:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON ..
-        ```
-
+4. Build the SDK for your development platform based on the attestation mechanisms you will be using. Use one of the following commands (also note the two trailing period characters for each command). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
+ 
     - For devices that use the TPM simulator for attestation:
+
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-Now you're ready to use the SDK to build your device registration code. 
+    - For any other device (physical TPM/HSM, or a simulated X.509 certificate):
+
+        ```cmd/sh
+        cmake -Duse_prov_client:BOOL=ON ..
+        ```
+
+    Now you're ready to use the SDK to build your device registration code. 
  
 <a id="extractsecurity"></a> 
 
