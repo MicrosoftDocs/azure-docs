@@ -66,7 +66,7 @@ cd azure-cosmosdb-get-started
 ```
 The directory contains a `pom.xml` for the project and a `src/main/java/com/microsoft/azure/cosmosdb/sample` folder containing Java source code including `Main.java` which shows how perform simple operations with Azure Cosmos DB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [Azure Cosmos DB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
-```
+```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-documentdb</artifactId>
@@ -252,13 +252,15 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 
 ## <a id="Run"></a>Step 9: Run your Java console application all together!
 To run the application from the console, navigate to the project folder and compile using Maven:
-    
-    mvn package
+
+```bash
+mvn package
+```
 
 Running `mvn package` downloads the latest Azure Cosmos DB library from Maven and produces `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:
 
-```
-   mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
+```bash
+mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
 ```
 Congratulations! You've completed this NoSQL tutorial and have a working Java console application!
 
