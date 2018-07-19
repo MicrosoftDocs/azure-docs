@@ -115,17 +115,7 @@ To temporarily switch off a rule, you can disable it in the list of rules. Choos
 
 You can enable and disable multiple rules at the same time by selecting multiple rules in the list.
 
-## Clean up resources
-
-If you plan to move on to the next tutorial, leave the Remote Monitoring solution accelerator deployed. To reduce the costs of running the solution accelerator while you're not using it, you can stop the simulated devices in the settings panel:
-
-[![Pause telemetry](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-You can restart the simulated devices when you're ready to start the next tutorial.
-
-If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
-
-![Delete solution](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 
