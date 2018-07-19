@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 01/24/2018
 ms.author: billmath
 ---
 
@@ -20,9 +20,6 @@ ms.author: billmath
 This article is an overview of how Azure Active directory (Azure AD) Pass-through Authentication works. For deep technical and security information, see the [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) article.
 
 ## How does Azure Active Directory Pass-through Authentication work?
-
->[!NOTE]
->As a pre-requisite for Pass-through Authentication to work, users need to be provisioned into Azure AD from on-premises Active Directory using Azure AD Connect.
 
 When a user tries to sign in to an application secured by Azure AD, and if Pass-through Authentication is enabled on the tenant, the following steps occur:
 
