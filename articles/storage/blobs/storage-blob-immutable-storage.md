@@ -185,7 +185,7 @@ The Delete Container operation will fail if it's at least one blob with a locked
 
 **What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  All WORM containers must be deleted before the storage account can be deleted. For information on container deletion, see the preceding question.
+The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  You must delete all WORM containers before you can delete the storage account. For information on container deletion, see the preceding question.
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 
@@ -245,12 +245,12 @@ New-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
 
 New-AzureRmStorageContainer -StorageAccount \$accountObject -Name \$container2
 
-\# Get the container
+\# Get a container
 
 Get-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
 -StorageAccountName \$StorageAccount -Name \$container
 
-\# Get the container with an account object
+\# Get a container with an account object
 
 \$containerObject = Get-AzureRmStorageContainer -StorageAccount \$accountObject
 -Name \$container
@@ -307,23 +307,23 @@ Remove-AzureRmStorageContainerLegalHold -Container \$containerObject -Tag tag4
 
 \# Create or update an immutability policy
 
-\#\# With an account or container name
+\#\# with an account name or container name
 
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName \$ResourceGroup
 -StorageAccountName \$StorageAccount -ContainerName \$container
 -ImmutabilityPeriod 10
 
-\#\# With an account object
+\#\# with an account object
 
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
 -ContainerName \$container -ImmutabilityPeriod 1 -Etag \$policy.Etag
 
-\#\# With a container object
+\#\# with a container object
 
 \$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
 \$containerObject -ImmutabilityPeriod 7
 
-\#\# With an immutability policy object
+\#\# with an immutability policy object
 
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
 -ImmutabilityPeriod 5
@@ -344,7 +344,7 @@ Get-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
 
 \# Lock an immutability policy (add -Force to dismiss the prompt)
 
-\#\# With an immutability policy object
+\#\# with an immutability policy object
 
 \$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
@@ -352,25 +352,25 @@ Get-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
 \$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
 \$policy -force
 
-\#\# With an account or container name
+\#\# with an account name or container name
 
 \$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
 -Etag \$policy.Etag
 
-\#\# With an account object
+\#\# with an account object
 
 \$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
 \$accountObject -ContainerName \$container -Etag \$policy.Etag
 
-\#\# With a container object
+\#\# with a container object
 
 \$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container
 \$containerObject -Etag \$policy.Etag -force
 
 \# Extend the immutability policy
 
-\#\# With an immutability policy object
+\#\# with an immutability policy object
 
 \$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
@@ -378,44 +378,44 @@ Get-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
 \$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
 \$policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-\#\# With an account or container name
+\#\# with an account name or container name
 
 \$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
 -ImmutabilityPeriod 11 -Etag \$policy.Etag -ExtendPolicy
 
-\#\# With an account object
+\#\# with an account object
 
 \$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
 \$accountObject -ContainerName \$container -ImmutabilityPeriod 12 -Etag
 \$policy.Etag -ExtendPolicy
 
-\#\# With a container object
+\#\# with a container object
 
 \$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
 \$containerObject -ImmutabilityPeriod 13 -Etag \$policy.Etag -ExtendPolicy
 
 \# Remove an immutability policy (add -Force to dismiss the prompt)
 
-\#\# With an immutability policy object
+\#\# with an immutability policy object
 
 \$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
 
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
 
-\#\# With an account or container name
+\#\# with an account name or container name
 
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
 \$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
 -Etag \$policy.Etag
 
-\#\# With an account object
+\#\# with an account object
 
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
 -ContainerName \$container -Etag \$policy.Etag
 
-\#\# With a container object
+\#\# with a container object
 
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
 -Etag \$policy.Etag
