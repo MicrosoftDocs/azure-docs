@@ -19,6 +19,8 @@
   items:
   - name: Batch AI resources
     href: resource-concepts.md
+  - name: Batch AI quotas and limits
+    href: quota-limits.md
 - name: How-to guides
   items:
   - name: Migrate to updated API
