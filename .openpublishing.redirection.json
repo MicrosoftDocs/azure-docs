@@ -23131,6 +23131,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/authentication/active-directory-passwords-overview.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-howitworks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-mfa-howitworks",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-adfs",
             "redirect_document_id": false
@@ -23148,6 +23158,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started.md",
             "redirect_url": "/azure/active-directory/authentication/concept-mfa-whichversion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/index.md",
+            "redirect_url": "/azure/active-directory/authentication/index",
             "redirect_document_id": false
         },
         {
