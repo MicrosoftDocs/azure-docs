@@ -245,7 +245,7 @@ Use the following sample scripts with caution--deleted image data is UNRECOVERAB
 
 **Azure CLI in Bash**
 
-The following Bash script deletes all untagged images from a repository. It requires the Azure CLI, **awk**, and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
+The following Bash script deletes all untagged images from a repository. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
 > If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
@@ -270,9 +270,8 @@ then
     az acr repository show-manifests \
         --name $REGISTRY \
         --repository $REPOSITORY \
-        --query '[].[digest,tags]' -o table \
-    | awk '{FS=" "} !length($2)' \
-    | xargs -I {} az acr repository delete --name $REGISTRY --image $REPOSITORY@{} --yes
+        --query "[?tags==null].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
 fi
@@ -297,7 +296,15 @@ $enableDelete = $FALSE
 $registry = "myregistry"
 $repository = "myrepository"
 
-Foreach($x in (az acr repository show-manifests -n $registry --repository $repository | ConvertFrom-Json)) { if ((!$x.tags) -and ($enableDelete)) { az acr repository delete -n $registry --image "$repository@$($x.digest)" -y }}
+if ($enableDelete) {
+    az acr repository show-manifests `
+        --name $registry `
+        --repository $repository `
+        --query "[?tags==null].digest" -o tsv `
+    | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
+} else {
+    Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
+}
 ```
 
 ## Next steps
