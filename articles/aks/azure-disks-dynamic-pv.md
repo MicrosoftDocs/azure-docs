@@ -62,10 +62,12 @@ spec:
 > [!TIP]
 > To create a disk that uses standard storage, use `storageClassName: default` rather than *managed-premium*.
 
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-premium.yaml* file:
+Create the persistent volume claim with the [kubectl create][kubectl-create] command and specify your *azure-premium.yaml* file:
 
-```console
-kubectl apply -f azure-premium.yaml
+```
+$ kubectl create -f azure-premium.yaml
+
+persistentvolumeclaim/azure-managed-disk created
 ```
 
 ## Use the persistent volume
@@ -92,13 +94,107 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Create the pod with the [kubectl apply][kubectl-apply] command.
+Create the pod with the [kubectl create][kubectl-create command, as shown in the following example:
 
-```console
-kubectl apply -f azure-pvc-disk.yaml
+```
+$ kubectl create -f azure-pvc-disk.yaml
+
+pod/mypod created
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
+
+## Back up a persistent volumes
+
+The persistent volume is created as an Azure managed disk. To back up the data in your persistent volume, take a snapshot of the managed disk.
+
+First, get the volume name with the `kubectl get pvc` command, such as for the PVC named *azure-managed-disk*:
+
+```
+$ kubectl get pvc azure-managed-disk
+
+NAME                 STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
+```
+
+This volume name forms the underlying Azure disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, such as:
+
+```
+$ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
+
+/subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
+```
+
+Use the disk ID to take a snapshot of the disk with [az snapshot create][az-snapshot-create]. In the following example, the snapshot is created in the same resource group as the AKS cluster. You may encounter permission issues if you snapshot and restore disks in resource groups that the AKS cluster does not have access to.
+
+```azurecli
+$ az snapshot create \
+    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --name pvcSnapshot \
+    --source /subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
+```
+
+## Restore and use a snapshot
+
+To restore the disk and use it with a Kubernetes pod, use the snapshot as a source when creating a new disk with [az disk create][az-disk-create]. This operation preserves the original snapshot if you need to access the original data snapshot.
+
+```azurecli
+az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
+```
+
+To use the restored disk with a pod, specify the ID of the disk in the manifest. Get the disk ID with the [az disk show][az-disk-show] command, as shown in the following example:
+
+```azurecli
+az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
+```
+
+Create a pod manifest named `azure-restored.yaml` and specify the disk URI obtained in the previous step:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypodrestored
+spec:
+  containers:
+    - name: myfrontendrestored
+      image: nginx
+      volumeMounts:
+      - mountPath: "/mnt/azure"
+        name: volume
+  volumes:
+    - name: volume
+      azureDisk:
+        kind: Managed
+        diskName: pvcRestored
+        diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
+```
+
+Create the pod with the [kubectl create][kubectl-create] command, as shown in the following example:
+
+```
+$ kubectl create -f azure-restored.yaml
+
+pod/mypodrestored created
+```
+
+You can use `kubectl described pod mypodrestored` to view details of the pod, such as the following condensed example that shows the volume information:
+
+```
+$ kubectl described pod mypodrestored
+
+[...]
+Volumes:
+  volume:
+    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
+    DiskName:     pvcRestored
+    DiskURI:      /subscriptions/19da35d3-9a1a-4f3b-9b9c-3c56ef409565/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
+    Kind:         Managed
+    FSType:       ext4
+    CachingMode:  ReadWrite
+    ReadOnly:     false
+[...]
+```
 
 ## Next steps
 
@@ -109,7 +205,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
@@ -119,3 +215,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md
+[az-disk-list]: /cli/azure/disk#az-disk-list
+[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
+[az-disk-create]: /cli/azure/disk#az-disk-create
+[az-disk-show]: /cli/azure/disk#az-disk-show
