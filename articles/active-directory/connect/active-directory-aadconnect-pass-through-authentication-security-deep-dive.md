@@ -32,7 +32,7 @@ The topics addressed include:
 These are the key security aspects of this feature:
 - It's built on a secure multi-tenanted architecture that provides isolation of sign-in requests between tenants.
 - On-premises passwords are never stored in the cloud in any form.
-- On-premises Authentication Agents that listen for, and respond to, password validation requests only make outbound connections from within your network. There is no requirement to install these Authentication Agents in a perimeter network (DMZ).
+- On-premises Authentication Agents that listen for, and respond to, password validation requests only make outbound connections from within your network. There is no requirement to install these Authentication Agents in a perimeter network (DMZ). As best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Only standard ports (80 and 443) are used for outbound communication from the Authentication Agents to Azure AD. You don't need to open inbound ports on your firewall. 
   - Port 443 is used for all authenticated outbound communication.
   - Port 80 is used only for downloading the Certificate Revocation Lists (CRLs) to ensure that none of the certificates used by this feature have been revoked.
