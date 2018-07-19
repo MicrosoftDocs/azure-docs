@@ -12,9 +12,13 @@ ms.author: sakthivetrivel
 ms.custom: mvc
 ---
 
-# Cluster Autoscaler on Azure Kubernetes Service (AKS)
+# Cluster Autoscaler on Azure Kubernetes Service (AKS) - Preview
 
 Azure Kubernetes Service (AKS) provides a flexible solution to deploy a managed Kubernetes cluster in Azure. As resource demands increase, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods. It scans the cluster periodically to check for pending pods or empty nodes and increases the size if possible. By default, the CA scans for pending pods every 10 seconds and removes a node if it's unneeded for more than 10 minutes. When used with the horizontal pod autoscaler (HPA), the HPA will update pod replicas and resources as per demand. If there are not enough nodes or unneeded nodes following this pod scaling, the CA will respond and schedule the pods on the new set of nodes.
+
+> [!IMPORTANT]
+> Azure Kubernetes Service (AKS) cluster autoscaler integration is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>
 
 ## Prerequisites
 
