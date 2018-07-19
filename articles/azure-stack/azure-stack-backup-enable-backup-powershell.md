@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/24/2018
+ms.date: 07/24/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -56,7 +56,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
     $password = ConvertTo-SecureString -String $Encrypted
     
     # Note: The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell. 
-    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
+    $Securekey = ConvertTo-SecureString -String (New-EncryptionKeyBase64) -AsPlainText -Force
     $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
     $key = ConvertTo-SecureString -String $Encryptedkey
     
@@ -95,8 +95,8 @@ The result should look like the following example output:
     Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
     AvailableCapacity           : 60 GB
-    BackupFrequencyInHours      :  12
-    BackupRetentionPeriodInDays	: 7
+    BackupFrequencyInHours      : 10
+    BackupRetentionPeriodInDays	: 5
    ```
 
 ## Next steps
