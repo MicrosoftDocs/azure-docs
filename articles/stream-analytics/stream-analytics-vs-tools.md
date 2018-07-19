@@ -15,7 +15,7 @@ ms.date: 07/10/2018
 
 Azure Stream Analytics tools for Visual Studio makes it easy for developers to manage their Stream Analytics jobs directly from the IDE. With Azure Stream Analytics tools, you can:
 - [Create new jobs](stream-analytics-quick-create-vs.md)
-- Start, stop, and [monitor jobs](stream-analytics-monintor-jobs-use-vs.md)
+- Start, stop, and [monitor jobs](stream-analytics-monitor-jobs-use-vs.md)
 - Check job results
 - Export existing jobs to a project
 - Test input and output connections
