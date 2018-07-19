@@ -24,7 +24,7 @@ This article helps you find troubleshooting information about common problems re
 - If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
 - Edge browser support is not available.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, SharePoint and OneDrive mapping scenarios don't work.
-- Office clients below version 16.0.8730.xxxx don't support non-interactive sign-in with Seamless SSO. On those clients, users must enter their usernames, but not passwords, to sign-in.
+- Office 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. Other versions are not supported; on those versions, users will enter their usernames, but not passwords, to sign-in.
 - Seamless SSO doesn't work in private browsing mode on Firefox.
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protected mode is turned on.
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
