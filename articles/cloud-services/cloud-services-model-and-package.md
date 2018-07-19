@@ -3,7 +3,7 @@ title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # What is the Cloud Service model and how do I package it?

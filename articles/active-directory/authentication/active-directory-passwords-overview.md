@@ -5,8 +5,8 @@ description: What can Azure AD self-service password reset do for your organizat
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,5 +62,5 @@ More details about licensing, pricing, and future plans can be found on the foll
 
 * Are you ready to get started with SSPR? [Set up Azure AD self-service password reset](quickstart-sspr.md).
 * Plan a successful SSPR deployment to your users by using the guidance found in our [rollout guide](howto-sspr-deployment.md).
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).

@@ -28,7 +28,7 @@ A *trigger* defines how a function is invoked. A function must have exactly one 
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Bindings are optional and a function can have multiple input and output bindings. 
 
-Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function, an `out` parameter, or a [collector object](functions-reference-csharp.md#writing-multiple-output-values).
+Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function. In C# and C# script, alternative ways to send data are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 
 When you develop functions by using the Azure portal, triggers and bindings are configured in a *function.json* file. The portal provides a UI for this configuration but you can edit the file directly by changing to the **Advanced editor**.
 
@@ -220,9 +220,11 @@ In languages that have a return value, you can bind an output binding to the ret
 * In a C# class library, apply the output binding attribute to the method return value.
 * In other languages, set the `name` property in *function.json* to `$return`.
 
-If you need to write more than one item, use a [collector object](functions-reference-csharp.md#writing-multiple-output-values) instead of the return value. If there are multiple output bindings, use the return value for only one of them.
+If there are multiple output bindings, use the return value for only one of them.
 
-See the language-specific example:
+In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
+
+See the language-specific example showing use of the return value:
 
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
