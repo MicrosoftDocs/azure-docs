@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: mabrigg
+ms.reviewer: Peter.
 ---
 # Run a validation test for Azure Stack
 
