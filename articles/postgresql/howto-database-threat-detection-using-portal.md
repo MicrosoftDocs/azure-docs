@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 07/19/2018
 ms.author: mbolz
 
 ---
@@ -18,17 +18,13 @@ Threat Detection is part of the Advanced Threat Protection (ATP) offering, which
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the Azure SQL Database server you want to protect. In the security settings, select **Advanced Threat Protection**.
-3. On the **Advanced Threat Protection** configuration page:
+2. Navigate to the configuration page of the Azure Database for PostgreSQL server you want to protect. In the security settings, select **Threat Detection (Preview)**.
+3. On the **Threat Detection (Preview)** configuration page:
 
    - Enable Advanced Threat Protection on the server.
    - In **Threat Detection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
-   ![Set up threat detection](./media/sql-database-threat-detection/set_up_threat_detection.png)
-
-## Set up threat detection using PowerShell
-
-For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+   ![Set up threat detection](./media/howto-database-threat-detection-using-portal/set-up-threat-detection.png)
 
 ## Explore anomalous database activities upon detection of a suspicious event
 
