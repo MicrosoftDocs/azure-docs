@@ -57,7 +57,7 @@ Azure Firewall public preview supports outbound filtering only. Inbound protecti
  
 ### What logging/analytics is supported by the Azure Firewall?
 
-Azure Firewall is integrated with Azure Monitor for viewing and analyzing Firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hub. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. See here for more details.
+Azure Firewall is integrated with Azure Monitor for viewing and analyzing Firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hub. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. See [Tutorial: Monitor Azure Firewall logs](../tutorial-diagnostics.md) for more details.
 
 ### How does Azure Firewall work relative to existing like NVAs in the marketplace?
 
