@@ -121,29 +121,19 @@ The new intent and utterances require training.
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Image of training button](./media/luis-tutorial-pattern/hr-train-button.png)
-
 2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-tutorial-pattern/hr-publish-button.png)
-
 2. Select the Production slot and the **Publish** button.
-
-    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint without pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -273,8 +263,6 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
 ## Query endpoint for pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**. 
 

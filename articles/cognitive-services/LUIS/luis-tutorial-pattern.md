@@ -10,7 +10,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/19/2018
 ms.author: v-geberr;
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
