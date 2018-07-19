@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Get started with Azure DNS Private Zones using Azure CLI 2.0
