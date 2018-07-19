@@ -50,7 +50,7 @@ The following steps walk you through the process of creating the certificates an
          ```PowerShell
          .\vcpkg install openssl:x64-windows
          ```
-      1. Add `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
+      1. Add `$VCPKGDIR\installed\x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
 
 1. Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
    
