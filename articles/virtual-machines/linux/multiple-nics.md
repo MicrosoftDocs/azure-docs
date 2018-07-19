@@ -221,9 +221,9 @@ Now SSH to the public IP address of your VM. The default username provided in a 
 ssh azureuser@137.117.58.232
 ```
 
-When you add multiple NICs to a Linux VM, you need to create a route for each secondary network interface, within the operating system. The route enables the VM to send and receive traffic through any network interface that has a defined route. If you don't add a route for secondary interfaces, traffic cannot be sent or received through the interface. You need to manually add persistent routes for any secondary network interfaces you've attached to the VM. The instructions for adding routes to the operating system vary by distro, so instructions for operating system configuration aren't provided in this article.
+To send to or from a secondary network interface, you have to manually add persistent routes to the operating system for each secondary network interface. In this article, *eth1* is the secondary interface. Instructions for adding persistent routes to the operating system vary by distro. See documentation for your distro for instructions.
 
-When adding the route to your operating system, the gateway address is *.1* for whichever subnet the network interface is in. For example, if the network interface is assigned the address *10.0.2.4*, the gateway you specify for the route is *10.0.2.1*. You can define a specific network for the route's destination, or specify a destination of *0.0.0.0*, if you want all traffic for the interface to go through the specified gateway. The gateway for each subnet is managed by the virtual network.
+When adding the route to the operating system, the gateway address is *.1* for whichever subnet the network interface is in. For example, if the network interface is assigned the address *10.0.2.4*, the gateway you specify for the route is *10.0.2.1*. You can define a specific network for the route's destination, or specify a destination of *0.0.0.0*, if you want all traffic for the interface to go through the specified gateway. The gateway for each subnet is managed by the virtual network.
 
 Once you've added the route for a secondary interface, verify that the route is in your route table with `route -n`. The following example output is for the route table that has the two network interfaces added to the VM in this article:
 
