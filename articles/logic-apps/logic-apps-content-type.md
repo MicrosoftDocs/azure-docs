@@ -4,11 +4,11 @@ title: Handle content types - Azure Logic Apps | Microsoft Docs
 description: Learn how Logic Apps handles content types at design time and run time
 services: logic-apps
 ms.service: logic-apps
-author: kevinlam1
-ms.author: klam
+author: ecfan
+ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/20/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -49,8 +49,10 @@ you can use an expression. This example returns the value `dog` from the
   
   ```json
   {
-    "name": "Fido",
-    "animal-type": [ "dog", "cat", "rabbit", "snake" ]
+    "client": {
+       "name": "Fido",
+       "animal-type": [ "dog", "cat", "rabbit", "snake" ]
+    }
   }
   ```
 
@@ -100,14 +102,19 @@ reference and use those properties more easily in your logic app's workflow.
               "schema": {
                  "type": "object",
                  "properties": {
-                    "animal-type": {
-                       "type": "array",
-                       "items": {
-                          "type": "string"
-                       },
-                    },
-                    "name": {
-                       "type": "string"
+                    "client": {
+                       "type": "object",
+                       "properties": {
+                          "animal-type": {
+                             "type": "array",
+                             "items": {
+                                "type": "string"
+                             },
+                          },
+                          "name": {
+                             "type": "string"
+                          }
+                       }
                     }
                  }
               }
