@@ -40,9 +40,11 @@ To retrieve and persist state with Azure Container Instances, we offer direct [m
 
 ## Linux and Windows containers
 
-Azure Container Instances can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md). Azure Container Instances currently supports Windows images based only on Long-Term Servicing Channel (LTSC) versions. Semi-Annual Channel (SAC) releases are unsupported.
+Azure Container Instances can schedule both Windows and Linux containers with the same API. Simply specify the OS type when you create your [container groups](container-instances-container-groups.md).
 
 Some features are currently restricted to Linux containers. While we work to bring feature parity to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+
+Azure Container Instances supports Windows images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
 
 ## Co-scheduled groups
 
