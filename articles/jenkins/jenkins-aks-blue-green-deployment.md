@@ -162,23 +162,23 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 
     For each of the services, find the external IP address by running the following command:
     
-        ```bash
-        kubectl get service todoapp-service
-        ```
+    ```bash
+    kubectl get service todoapp-service
+    ```
     
     Update the DNS name for the corresponding IP address with the following command:
 
-        ```bash
-        az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
-        ```
+    ```bash
+    az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
+    ```
 
     Repeat the call for `todoapp-test-blue` and `todoapp-test-green`:
 
-        ```bash
-        az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
+    ```bash
+    az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
-        az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
-        ```
+    az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
+    ```
 
     The DNS name needs to be unique in your subscription. `&lt;your-dns-name-suffix>` can be used to ensure the uniqueness.
 
@@ -281,9 +281,9 @@ For more on zero-downtime deployment, check out this [quickstart template](https
 
 When no longer needed, delete the Azure resources you created in this tutorial.
 
-    ```bash
-    az group delete -y --no-wait -n <your-resource-group-name>
-    ```
+```bash
+az group delete -y --no-wait -n <your-resource-group-name>
+```
 
 ## Troubleshooting
 
