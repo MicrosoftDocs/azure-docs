@@ -1,5 +1,5 @@
 ---
-title: Deploy and run a device simulation solution on Azure | Microsoft Docs
+title: Try and run a device simulation solution on Azure | Microsoft Docs
 description: In this quickstart, you deploy the Device Simulation Azure IoT solution accelerator. You sign use the solution dashboard to create a simulation.
 author: dominicbetts
 manager: timlt

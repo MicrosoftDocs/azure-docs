@@ -65,7 +65,7 @@ Install NPM packages with the following steps:
 
 3. In the top navigation bar, select the web app bot name `homeautomationluisbot`. 
 
-4. In the drop-down list, **Open Kudu Console**.
+4. In the drop-down list, select **Open Kudu Console**.
 
 5. A new browser window opens. In the console, enter the following command:
 
