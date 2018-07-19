@@ -10,7 +10,7 @@ ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
 
-# As an operator of an IoT monitoring solution, I need to configure and manage connected devices. 
+# As an operator of an IoT monitoring solution, I want to use an online solution to configure and manage my connected devices. 
 ---
 
 # Tutorial: Configure and manage devices connected to your monitoring solution
