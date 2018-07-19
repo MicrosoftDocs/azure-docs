@@ -3,19 +3,18 @@
 Azure CycleCloud can [be installed](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-install-cyclecloud) using an ARM template, but for production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
 > [!NOTE]
-> The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview), node configuration software known as [Jetpack](https://docs.microsoft.com/en-us/azure/cyclecloud/jetpack), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.    
+> The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview), node configuration software known as [Jetpack](https://docs.microsoft.com/en-us/azure/cyclecloud/jetpack), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
 
 ## System Requirements
 
 To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
 
-* A 32-bit or 64-bit Linux distribution or Windows Server 2008 or newer
+* A 64-bit Linux distribution
 * Java Runtime Environment (version 8 or higher)
 * At least 8GB of RAM
-* Two or more CPU cores
+* Four or more CPU cores
 * At least 50GB of free disk space
 * Administrator (root) privileges
-* Phraseless SSH key
 * Active Microsoft Azure Subscription
 
 > [!NOTE]
@@ -33,13 +32,10 @@ account.
 ## Installation
 
 To begin the installation, unpack the CycleCloud installation to a temporary working directory.
-On Windows, this must be a local disk.
 
-From the local directory, run `install.sh` (on Linux) or `install.cmd` (on Windows)
-to begin the installation process. On Linux, the default install location is /opt/cycle_server.
-On Windows, only C:\Program Files\CycleServer is currently supported.
+From the local directory, run `install.sh` to begin the installation process. The default install location is /opt/cycle_server.
 
-On Linux systems, the install.sh script supports several options for customization:
+The install.sh script supports several options for customization:
 
 Option | Definition
 ------ | ----------
@@ -58,23 +54,20 @@ from your browser. Copy the link provided into your web browser. Further configu
 
 The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations.
 
-Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. For Linux installations, anyone with access to the CycleCloud group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
+Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to unencrypted data. We recommend that non-admin users not be added to this group.
 
 ## Upgrading CycleCloud
 
-To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is `$CS_HOME/util/upgrade.sh`. On Windows, the upgrade script is `C:\Program Files\CycleServer\util\upgrade.cmd`. Both scripts take the path to the install bundle as an argument. For example:
+To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. The upgrade script is `$CS_HOME/util/upgrade.sh` and takes the path to the install bundle as an argument. For example:
 
       /opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
 
-To upgrade the cyclecloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
+To upgrade the CycleCloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
 
 > [!NOTE]
 >As of version 6.6.0, Java Runtime Environment is no longer packaged in the installation. JRE version 8 or higher is required.
 
 ## Installing Multiple Instances of CycleCloud on the Same Machine
-
-> [!NOTE]
-> This section is applicable to Linux installations only.
 
 Running multiple instances of CycleCloud on the same machine is supported, but requires some slight
 modifications to the configuration files before starting CycleCloud for the first time.
