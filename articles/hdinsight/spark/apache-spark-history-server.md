@@ -286,7 +286,7 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
     + **Name**, specify a script name.
     + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
     
-   ```upgrade_spark-enhancement
+   ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
