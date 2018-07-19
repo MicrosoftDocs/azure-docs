@@ -14,7 +14,7 @@ ms.author: t-jowu
 ms.custom: mvc
 
 ---
-# Batch AI Service Quotas and Limits
+# Batch AI service quotas and limits
 
 As with other Azure services, there are limits on certain resources associated with the Batch AI service. In Batch AI, these limits are default quotas applied at the subscription level for each region. This article discusses those defaults, and how you can request quota increases.
 
@@ -106,6 +106,10 @@ Follow these steps to request a quota increase for your Batch AI subscription us
     Click **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Completing the request can take up to 2 business days.
+
+## Related topics
+* [Get started with Batch AI](quickstart-tensorflow-training-cli.md)
+* [Learn more about Batch AI resources](resource-concepts.md)
 
 [portal]: https://portal.azure.com
 [support_sev]: http://aka.ms/supportseverity
