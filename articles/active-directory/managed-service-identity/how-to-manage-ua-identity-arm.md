@@ -47,7 +47,7 @@ As with the Azure portal and scripting, Azure Resource Manager templates provide
 
 ## Create a user assigned identity 
 
-To create a user assigned identity, use the following template. Replace the `<USER ASSIGNED IDENTITY NAME>` value with your own values:
+To create a user assigned identity, use the following template. At a minimum, your account needs to be assigned the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity. Replace the `<USER ASSIGNED IDENTITY NAME>` value with your own values:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
