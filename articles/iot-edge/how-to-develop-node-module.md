@@ -72,7 +72,7 @@ Within the solution you have three items:
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-## Devlop your module
+## Develop your module
 
 The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **app.js**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
