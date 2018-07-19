@@ -3,7 +3,7 @@ title: Configure Azure Application Insights smart detection rule settings with A
 description: Automate management and configuration of Azure Application Insights smart detection rules with Azure Resource Manager Templates
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: harelbr
 manager: carmonm
 
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/19/2018
-ms.reviewer: harelbr
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.author: harelbr
 
 ---
 
