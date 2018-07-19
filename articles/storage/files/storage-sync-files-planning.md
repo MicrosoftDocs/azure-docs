@@ -101,8 +101,8 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
-### Files Skipped
-| File/Folder | Note |
+### Files skipped
+| File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
 | ethumbs.db$ | Temporary file for thumbnails |
@@ -120,7 +120,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 > [!Note]  
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
-### Data Deduplication
+### Data deduplication
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
 
 ### Distributed File System (DFS)
@@ -208,7 +208,7 @@ To protect against the loss of an Azure region, Azure File Sync integrates with 
 
 To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
 
-| Primary region      | Paired Region      |
+| Primary region      | Paired region      |
 |---------------------|--------------------|
 | Australia East      | Australia Southest |
 | Australia Southeast | Australia East     |
