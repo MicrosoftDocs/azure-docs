@@ -12,9 +12,7 @@ ms.date: 07/13/2018
 ---
 # Basic query construction in in Azure Search
 
-Query strings provide instructions that determine the type of query (term or phrase query), what parts of the index are searched, what to search for, and how to handle results. Syntactically, it's all of the name-value pairs in the other side of the **search=** parameter.
-
- 
+strings provide instructions that determine the type of query (term or phrase query), what parts of the index are searched, what to search for, and how to handle results. Syntactically, it's all of the name-value pairs in the other side of the **search=** parameter.
 
 
 ## Scope
@@ -23,13 +21,14 @@ Query execution is always against one index. You cannot join indexes or create c
 
 Query scope is primarily formulated on the query string. Unspecified, a query runs against all searchable fields. However, because the index schema is user-defined, you control through attributes whether fields are searchable, how text content is analyzed, . 
 
-## Query syntax: query string or JSON body on a GET command
+## Query statements
 
-Interactive
+In REST, a search request is either a string on a URL (GET) or JSON body (POST).
 
-.NET
+In .NET, a search request is implemented in your code as a method.
 
-REST
+Interactively using built-in Search explorer, it is a string in a search box.
+
 
 ## Code examples
 
