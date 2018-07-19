@@ -233,7 +233,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 
 2. Update the file as follows:
 
-    ```groovy
+    ```json
     def servicePrincipalId = '<your-service-principal>'
     def resourceGroup = '<your-resource-group-name>'
     def aks = '<your-kubernetes-cluster-name>'
@@ -247,7 +247,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     
     And update ACR credential ID:
     
-    ```
+    ```json
     def dockerCredentialId = '<your-acr-credential-id>'
     ```
 
