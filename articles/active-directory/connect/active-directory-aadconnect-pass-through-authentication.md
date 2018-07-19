@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, security and compliance policies in certain organizations don't permit these organizations to send users' passwords, even in a hashed form, outside their internal boundaries. Pass-through Authentication is the right solution for such organizations.
+This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, certain organizations wanting to enforce their on-premises Active Directory security and password policies, can choose to use Pass-through Authentication instead. Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
