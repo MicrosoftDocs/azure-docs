@@ -25,7 +25,7 @@
       href: active-directory-passwords-reset-register.md
     - name: Reset your password
       href: user-help-reset-password.md
-  - name: Security info
+  - name: Security info (Preview)
     items:
     - name: Set up an authenticator app
       href: security-info-setup-auth-app.md
