@@ -173,7 +173,7 @@ If your application sends a lot of data and you are using the Application Insigh
 You can disable it, but this is not recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes. 
 
 ## Client IP address is 0.0.0.0 
-On Februrary 2018 we [announced](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) that we removed logging of the Client IP address to comply with GDPR requirements. This does not affect Geo Location.
+On February 2018, we [announced](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) that we removed logging of the Client IP address. This does not affect Geo Location.
 
 ## Wrong geographical data in user telemetry
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate. These IP addresses are processed for location first and then changed to 0.0.0.0 to be stored.
