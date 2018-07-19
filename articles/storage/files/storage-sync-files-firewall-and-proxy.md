@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 06/16/2018
 ms.author: fauhse
 ---
 
@@ -23,7 +23,7 @@ Azure File Sync connects your on-premises servers to Azure Files, enabling multi
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
 > [!Important]
-> Azure File Sync does not yet support firewalls and virtual networks for a storage account. 
+> Azure File Sync does not yet support firewalls and virtual networks for a storage account.
 
 ## Overview
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
@@ -35,7 +35,6 @@ Azure File Sync acts as an orchestration service between your Windows Server, yo
 
 > [!Note]  
 > The Azure File Sync agent on Windows Server initiates all requests to cloud services which results in only having to consider outbound traffic from a firewall perspective. <br /> No Azure service initiates a connection to the Azure File Sync agent.
-
 
 ## Ports
 Azure File Sync moves file data and metadata exclusively over HTTPS and requires port 443 to be open outbound.
@@ -75,26 +74,42 @@ The following table describes the required domains for communication:
 > [!Important]
 > When allowing traffic to &ast;.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
 
-If &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the Storage Sync Service to which you have deployed and registered the server. That is the region you need to allow for the server. Soon there will be more URLs to enable new business continuity features. 
+If &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
 
-| Region | Azure File Sync regional endpoint URL |
-|--------|---------------------------------------|
-| Australia East | https://kailani-aue.one.microsoft.com |
-| Canada Central | https://kailani-cac.one.microsoft.com |
-| East US | https://kailani1.one.microsoft.com |
-| Southeast Asia | https://kailani10.one.microsoft.com |
-| UK South | https://kailani-uks.one.microsoft.com |
-| West Europe | https://kailani6.one.microsoft.com |
-| West US | https://kailani.one.microsoft.com |
+For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
-> [!Important]
-> If you define these detailed firewall rules, check this document often and update your firewall rules to avoid service interruptions due to outdated or incomplete URL listings in your firewall settings.
+| Region | Primary endpoint URL | Paired region | Discovery URL |
+|--------|---------------------------------------||--------||---------------------------------------|
+| Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
+| Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
+| Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
+| Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
+| Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
+| East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
+| East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
+| East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
+| North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
+| Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
+| UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
+| UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
+| West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
+| West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+
+- If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
+
+- If you use globally redundant (GRS) storage accounts, enable three URLs.
+
+**Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
+
+> - https://kailani.one.microsoft.com (primary endpoint: West US)
+> - https://kailani1.one.microsoft.com (paired fail-over region: East US)
+> - https://tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
 ## Summary and risk limitation
-The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains as well as responses from them. Microsoft strives to keep this list updated.
+The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains. Microsoft strives to keep this list updated.
 
-Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and changed over time. Therefore it is a prudent measure to check the tables in this document as part of a change management process from one Azure File Sync agent version to another on a test-deployment of the latest agent. This way you can ensure that your firewall is configured to allow traffic to domains the most recent agent requires.
+Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md)
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
