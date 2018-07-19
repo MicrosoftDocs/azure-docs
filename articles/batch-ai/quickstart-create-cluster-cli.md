@@ -131,7 +131,7 @@ az batchai cluster show \
     --name mycluster \
     --workspace myworkspace \
     --resource-group myResourceGroup \
-    --query 'nodeSetup.mountVolumes.azureFileShares[0].{account:accountName, URL:azureFileUrl}'
+    --query "nodeSetup.mountVolumes.azureFileShares[0].{account:accountName, URL:azureFileUrl}"
 ```
 
 Output is similar to the following. Note the name of the share set up automatically in the account: `batchaishare`.
