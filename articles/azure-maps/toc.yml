@@ -82,6 +82,8 @@
       href: supported-search-categories.md
   - name: REST
     items:
+    - name: Geolocation service
+      href: https://docs.microsoft.com/rest/api/maps/geolocation
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
     - name: Route service
