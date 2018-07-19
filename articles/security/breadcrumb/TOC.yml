@@ -4,7 +4,7 @@
   items:
   - name: Security
     tocHref: /azure/
-    tpicHref: /azure/security/index
+    topicHref: /azure/security/index
 - name: Azure
   tocHref: /architecture/
   topicHref: /azure/index
