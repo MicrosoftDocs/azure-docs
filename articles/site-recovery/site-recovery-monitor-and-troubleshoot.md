@@ -13,12 +13,7 @@ ms.author: bsiva
 
 # Monitor and troubleshoot Site Recovery
 
-In this article, you learn how to use Azure Site Recovery's in built monitoring features for monitoring and troubleshooting. Learn how to:
-> [!div class="checklist"]
-> - Use the Azure Site Recovery dashboard (vault overview page)
-> - Monitor and troubleshoot replication issues
-> - Monitor Azure Site Recovery Jobs/Operations
-> - Subscribe to email notifications
+In this article, you learn how to use Azure Site Recovery's in built monitoring features for monitoring and troubleshooting. 
 
 ## Use the dashboard
 
@@ -63,7 +58,7 @@ The **Configuration issues** section shows a list of issues that may impact your
 
 - Configuration issues (except for software update availability), are detected by a periodic validator operation that runs every 12 hours by default. You can force the validator operation to run immediately by clicking the refresh icon next to the **Configuration issues** section heading.
 - Click the links to get more details. For issues impacting specific machines, click the **needs attention** in the **Target configurations** column. The details include remediation recommendations.
-- 
+
 **State** | **Details**
 --- | ---
 Missing configurations | A necessary setting is missing, such as a recovery network or a resource group.
