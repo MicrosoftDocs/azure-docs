@@ -56,7 +56,7 @@ The Consumption plan is the default hosting plan and offers the following benefi
 
 ## App Service plan
 
-In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, the same as other App Service apps. Dedicated VMs are allocated to your function app, which means the functions host is always running. App Service plans support Linux.
+In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, the same as other App Service apps. Dedicated VMs are allocated to your function app, which means the functions host is [always running](#always-on). App Service plans support Linux.
 
 Consider an App Service plan in the following cases:
 
