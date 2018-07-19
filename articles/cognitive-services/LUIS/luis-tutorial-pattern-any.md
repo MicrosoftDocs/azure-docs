@@ -52,11 +52,11 @@ Utterances with the friendly form name look like:
 |Who authored **"Request relocation from employee new to the company 2018 version 5"**?|
 |**Request relocation from employee new to the company 2018 version 5** is published in French?|
 
-The varying length includes phrases that may confuse LUIS about where the entity, form name, ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
+The varying length includes phrases that may confuse LUIS about where the entity ends. Using a Pattern.any entity in a pattern allows you to specify the beginning and end of the form name so LUIS correctly extracts the form name.
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
-## Create a new intent for the form
+## Add example utterances to the existing intent FindForm 
 Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
@@ -74,15 +74,16 @@ Remove the prebuilt keyPhrase entity if it is difficult to create and label the 
 
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
-
-## Create a Pattern.any entity for the form title
+## Create a Pattern.any entity
 The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
 
 1. Select **Entities** in the left navigation.
 
-2. Select **Create new entity**, enter the name , and select **Pattern.any** as the type. Select **Done**. 
+2. Select **Create new entity**, enter the name `FormName`, and select **Pattern.any** as the type. Select **Done**. 
 
     You can't label the entity in the intent because a Pattern.any is only valid in a pattern. 
+
+    If you want the extracted data to include other entities such as number or datetimeV2, you need to create a composite entity that includes the Pattern.any, as well as number and datetimeV2.
 
 ## Add a pattern that uses the Pattern.any
 
@@ -101,12 +102,17 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
     If you want to account for variations of the form such as single quotes instead of double quotes or a period instead of a question mark, create a new pattern for each variation.
 
-4. Train the app.
+4. If you removed the keyPhrase entity, add it back to the app. 
+
+5. Train the app.
+
 
 ## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
 
-2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
+2. Enter the following utterance: 
+
+    `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
 3. Select **Inspect** under the result to see the test results for entity and intent.
 
