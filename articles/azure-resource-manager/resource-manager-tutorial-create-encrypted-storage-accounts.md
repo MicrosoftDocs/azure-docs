@@ -19,9 +19,9 @@ ms.author: jgao
 
 # Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
 
-Learn how to use the information found in the Azure REST API Reference to complete an Azure Resource Manager template.
+Learn how to use the information found in the Template reference to complete an Azure Resource Manager template.
 
-In this tutorial, you use a base template from Azure Quickstart templates to create an Azure Storage account.  Using the REST API reference, you customize the base template to create an encrypted storage account.
+In this tutorial, you use a base template from Azure Quickstart templates to create an Azure Storage account.  Using the Template reference, you customize the base template to create an encrypted storage account.
 
 This tutorial covers the following tasks:
 
@@ -43,8 +43,6 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure QuickStart Templates is a repository for Resource Manager templates.
-
 The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
 1. From Visual Studio Code, select **File**>**Open File**.
@@ -64,8 +62,8 @@ From VS Code, collapse the template to the root level. You have the simplest str
 
 - **$schema**: specify the location of the JSON schema file that describes the version of the template language.
 - **contentVersion**: specify any value for this element to document significant changes in your template.
-- **parameters**: Specify the values that are provided when deployment is executed to customize resource deployment.
-- **variables**: Specify the values that are used as JSON fragments in the template to simplify template language expressions.
+- **parameters**: specify the values that are provided when deployment is executed to customize resource deployment.
+- **variables**: specify the values that are used as JSON fragments in the template to simplify template language expressions.
 - **resources**: specify the resource types that are deployed or updated in a resource group.
 - **outputs**: specify the values that are returned after deployment.
 
@@ -75,7 +73,7 @@ Parameters enable you to customize the deployment by providing values that are t
 
 ![Resource Manager template parameters](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
 
-In this template, two parameters are defined. Notice a function is used in location.defaultValue:
+In this template, two parameters are defined. Notice a template function is used in location.defaultValue:
 
 ```json
 "defaultValue": "[resourceGroup().location]",
@@ -100,9 +98,15 @@ This template defines one variable *storageAccountName*. In the definition, two 
 - **concat()**: concatenate strings.  For a list of array functions, see [Array and object functions for Azure Resource Manager templates](./resource-group-template-functions-array.md).
 - **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. For more string functions, see [String functions](./resource-group-template-functions-string.md).
 
+To reference the variable in the template:
+
+```json
+"name": "[variables('storageAccountName')]"
+```
+
 ## Edit the template
 
-To find the encryption-related configuration, you can use the template reference.
+To find the storage account encryption-related configuration, you can use the template reference of Azure Storage account.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
 2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. The page contains the information for defining a Storage Account information.
@@ -154,12 +158,12 @@ There are many methods for deploying templates.  In this tutorial, you use the C
 
     On the screenshot, these values are used:
 
-    - **&lt;ResourceGroupName>**: myresourcegroup0709. There are two appearances of the parameter.  Make sure to use the same value.
+    - **&lt;ResourceGroupName>**: myresourcegroup0719. There are two appearances of the parameter.  Make sure to use the same value.
     - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0709
+    - **&lt;DeployName>**: mydeployment0719
     - **&lt;TemplateFile>**: azuredeploy.json
 
-    From the screenshot output, the storage account name is *3tqebj3slyfyestandardsa*. 
+    From the screenshot output, the storage account name is *fhqbfslikdqdsstandardsa*. 
 
 7. Run the following PowerShell command to list the newly created storage account:
 
@@ -178,7 +182,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
+In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
 > [Create templates by using Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
