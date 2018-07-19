@@ -88,22 +88,23 @@ The Device Provisioning Service Client SDK helps you implement your device regis
 
 The next step is to extract the security artifacts for the attestation mechanism used by your device. 
 
-### Physical device 
+### Physical devices 
 
-If you built the SDK to use attestation from a physical TPM/HSM or X.509 certificates:
+Depending on whether you built the SDK to use attestation from a physical TPM/HSM or using X.509 certificates, gathering the security artifacts differ as follows:
 
 - For a TPM device, you need to determine the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
 
-- For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types of enrollment entries that you can use to control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
+- For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types enrollment entries that control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
 
-    1. Individual enrollments : This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
+    1. Individual enrollments : Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
     2. Enrollment groups : This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-### Simulated device
+### Simulated devices
 
-If you built the SDK to use attestation from a simulated TPM or X.509 certificate:
+Depending on whether you built the SDK to use attestation from a simulated device using TPM or X.509 certificates, gathering the security artifacts differ as follows:
 
 - For a simulated TPM device:
+
    1. Open a Windows Command Prompt, navigate to the `azure-iot-sdk-c` subdirectory, and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of the following Quickstart. 
 
       From the `azure-iot-sdk-c` subdirectory, run the following command to start the simulator:
@@ -122,6 +123,7 @@ If you built the SDK to use attestation from a simulated TPM or X.509 certificat
    4. Run the solution using either of the "Start" commands on the "Debug" menu. The output window displays the TPM simulator's **_Registration ID_** and the **_Endorsement Key_**, needed for device enrollment and registration. Copy these values for use later. You can close this window (with Registration Id and Endorsement Key), but leave the TPM simulator window running that you started in step #1.
 
 - For a simulated X.509 device:
+
   1. Using Visual Studio, open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it using the "Build solution" command on the "Build" menu.
 
   2. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **dice\_device\_enrollment** project and select **Set as Startup Project**. 
