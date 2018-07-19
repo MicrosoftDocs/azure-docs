@@ -1,5 +1,5 @@
 ---
-title: Tutorial- Debug an Azure Service Fabric Mesh app | Microsoft Docs
+title: Tutorial- Debug an Azure Service Fabric Mesh web application | Microsoft Docs
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
 ---
 
-# Tutorial: Debug a Service Fabric Mesh application running locally
+# Tutorial: Debug a Service Fabric Mesh web application
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh application on your local development cluster.
+This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh web application on your local development cluster.
 
 In this tutorial you will learn:
 
@@ -52,13 +52,13 @@ If you did not create the to-do sample application in [part one of this tutorial
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-The application is under the `basicservicefabricmeshapp` directory.
+The application is under the `src\todolistapp` directory.
 
 ## Build and debug on your local cluster
 
-A Docker image is automatically built and deployed to your local cluster as soon as your project loads. This process may take a while. To monitor the progress in the Visual Studio **Output** pane, set the Output pane **Show output from:** drop-down to **Service Fabric Tools**.
+A Docker image is automatically built and deployed to your local cluster as soon as your project loads. This process may take a while. To monitor the progress in the Visual Studio **Output** pane, set the Output pane **Show output from:** drop down to **Service Fabric Tools**.
 
-Press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will:
+Press **F5** to compile and run your service locally. When the project is run and debugged locally, Visual Studio will:
 
 * Make sure that Docker for Windows is running and set to use Windows as the container operating system.
 * Download any missing Docker base images. This part may take some time
@@ -79,7 +79,7 @@ After the local deployment is finished, and Visual Studio is running your app, a
 When you debug a Service Fabric Mesh application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
 1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
 2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **OnGet** method (line 15).
-3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
+3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front-end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
 4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
 5. When you are done, stop debugging your project in Visual Studio by pressing **Shift+F5**.
  
@@ -93,4 +93,4 @@ In this part of the tutorial, you learned:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Publish the application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
