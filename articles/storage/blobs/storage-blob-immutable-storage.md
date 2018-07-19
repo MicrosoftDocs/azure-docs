@@ -65,11 +65,11 @@ For new blobs, the effective retention period is equal to the user-specified ret
 
 ### Legal holds
 
-In case of legal holds, all existing and new blobs will remain in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#Getting-started) section.
+When you set a legal hold, all existing and new blobs remain in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#Getting-started) section.
 
-A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container will remain in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob will remain in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
+A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container remain in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob remains in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
-The following table shows the types of blob operations that will be disabled for the different immutable scenarios. For more information, see the [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
+The following table shows the types of blob operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
 |Scenario  |Blob state  |Blob operations not allowed  |
 |---------|---------|---------|
@@ -81,7 +81,7 @@ The following table shows the types of blob operations that will be disabled for
 > [!NOTE]
 > The first Put Blob, and the Put Block List and Put Block operations that are necessary to create a blob, are allowed in the first two scenarios from the preceding table. All subsequent operations are disallowed.
 >
-> The Immutable Storage feature is available only in GPv2 and Blob storage accounts. It must be created through the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> The Immutable Storage feature is available only in GPv2 and Blob storage accounts. It must be created through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Pricing
 
@@ -91,18 +91,18 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 The following restrictions apply during public preview:
 
-- *Do not store production or business critical data.*
-- All preview/NDA restrictions apply.
+- *Do not store production or business-critical data.*
+- All preview and NDA restrictions apply.
 
 ## Getting started
 
-Immutable Storage for Azure blobs is supported on the most recent releases of the [Azure portal](http://portal.azure.com), [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018).
+The most recent releases of the [Azure portal](http://portal.azure.com), [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support Immutable Storage for Azure blobs.
 
 ### Azure portal
 
 1. Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.
  The container must be in a GPv2 storage account.
-2. Select **Access policy** in the container settings. Then select **+ Add Policy** under **Immutable blob storage**.
+2. Select **Access policy** in the container settings. Then select **+ Add policy** under **Immutable blob storage**.
 
     ![Container settings in the portal](media/storage-blob-immutable-storage/portal-image-1.png)
 
@@ -114,9 +114,9 @@ Immutable Storage for Azure blobs is supported on the most recent releases of th
 
     !["Update retention period to" box](media/storage-blob-immutable-storage/portal-image-5-retention-interval.png)
 
-    As you can see in the screenshot, the initial state of the policy is unlocked. You can test the feature with a smaller retention interval, and make changes to the policy before locking it. Locking is essential for compliance with regulations like SEC 17a-4.
+    As you can see in the screenshot, the initial state of the policy is unlocked. You can test the feature with a smaller retention interval, and make changes to the policy before you lock it. Locking is essential for compliance with regulations like SEC 17a-4.
 
-5. Lock the policy. Right-click the ellipsis (...), and the following menu appears:
+5. Lock the policy. Right-click the ellipsis (**...**), and the following menu appears:
 
     !["Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -134,36 +134,30 @@ Immutable Storage for Azure blobs is supported on the most recent releases of th
 
 Install the [Azure CLI extension](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  by using `az extension add -n storage-preview`.
 
-If you already have the extension installed, use the following command to enable the Immutable Storage feature: `az extension update -n storage-preview`
+If you already have the extension installed, use the following command to enable the Immutable Storage feature: `az extension update -n storage-preview`.
 
-The feature is included in the following command groups (run `-h` on them to see the commands):
-`az storage container immutability-policy`  and `az storage container legal-hold`.
+The feature is included in the following command groups:
+`az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
 
 ### PowerShell
 
-The Immutable Storage feature is supported on [PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180).
+[PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) supports the Immutable Storage feature.
 To enable the feature, follow these steps:
 
-1. Ensure that you have the latest version of PowerShellGet installed: 
-
-   `Install-Module PowerShellGet –Repository PSGallery –Force`
+1. Ensure that you have the latest version of PowerShellGet installed: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Remove any previous installation of Azure PowerShell.
-3. Install AzureRM (Azure can be installed similarly from this repository): 
-
-   `Install-Module AzureRM –Repository PSGallery –AllowClobber`
-4. Install the preview version of Storage management plane cmdlets: 
-
-   `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
+3. Install AzureRM: `Install-Module AzureRM –Repository PSGallery –AllowClobber`. Azure can be installed similarly from this repository.
+4. Install the preview version of Storage management plane cmdlets: `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
 
 The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
 
 ## Client libraries
 
-The Immutable Storage for Azure blobs feature is supported in the following client library releases:
+The following client library releases support the Immutable Storage feature:
 
-- [.NET Client Library (version 7.2.0-preview and later)](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
-- [Node.js Client Library (version 4.0.0 and later)](https://www.npmjs.com/package/azure-arm-storage)
-- [Python Client Library (version 2.0.0 Release Candidate 2 and later)](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [.NET Client Library version 7.2.0-preview and later](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
+- [Node.js Client Library version 4.0.0 and later](https://www.npmjs.com/package/azure-arm-storage)
+- [Python Client Library version 2.0.0 Release Candidate 2 and later](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
 
 ## Supported values
 
