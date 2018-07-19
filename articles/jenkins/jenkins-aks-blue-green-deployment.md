@@ -256,7 +256,9 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 
 1. Select **Pipeline > Definition > Pipeline script from SCM**.
 
-1. Fill in the SCM repo url `your forked repo` and script path `deploy/aks/Jenkinsfile`
+1. Enter the SCM repo url with your &lt;your-forked-repo>
+
+1. Enter the script path as `deploy/aks/Jenkinsfile`.
 
 ## Run the job
 
