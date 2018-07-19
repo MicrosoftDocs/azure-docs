@@ -181,7 +181,7 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Check on **Head** and **Worker**.
+    + Check on **Head**.
     + **Parameters**, set the parameters follow the bash usage.
 
     ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
@@ -228,13 +228,15 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
 
 **Usage**: 
 
-`upload_shs_log.sh ${blob_link} ${log_path} ${log_max_MB_size}`
+`"upload_shs_log.sh ${blob_link}" ${log_path} ${log_max_MB_size}`
 
 **Example**:
 
-`upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}?{SAS_query_string} /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
+`"upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}{SAS_query_string}" /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
 
 For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. Fill in the active head node alias.
+
+For **log_file**, specify by customer.
 
 For **SAS_query_string**, you can get it from ASE: 
 1.	Right-click the container you want to use and choose **Get Shared Access Signature…**:
@@ -280,7 +282,7 @@ For **SAS_query_string**, you can get it from ASE:
 
 **Example**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-2.3.0-bin-custom-spark-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
 
 
 
