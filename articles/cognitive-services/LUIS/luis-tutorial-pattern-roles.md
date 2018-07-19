@@ -17,29 +17,29 @@ ms.author: v-geberr;
 
 # Tutorial: Improve app with pattern roles
 
-In this tutorial, use patterns to increase intent and entity prediction.  
+In this tutorial, use a simple entity with roles combined with patterns to increase intent and entity prediction.  When using patterns, fewer example utterances are needed for the intent.
 
 > [!div class="checklist"]
 * Understand pattern roles
-* Convert hierarchical entity to simple entity with roles 
+* Use simple entity with roles 
 * Create pattern for utterances using simple entity with roles
 * How to verify pattern prediction improvements
 
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [pattern](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [pattern](luis-tutorial-pattern.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of roles
 The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city and destination city values are related to each other and use common language to denote each location. 
 
-Fewer example utterances are needed for the intent because template utterances are provided as patterns. By selecting the intent for each pattern, as long as the entities are detected and the utterance matches the pattern, the correct intent is returned. The template utterance can contain entities and entity roles, along with ignorable text.
+When using patterns, any entities in the pattern must be detected _before_ the pattern matches the utterance. When a pattern is added, the first step is to select the intent for the pattern. By selecting the intent, if the pattern matches, the correct intent is returned. The template utterance can contain entities and entity roles, along with ignorable text.
 
 ### Compare hierarchical entity to simple entity with roles
 
-In the previous [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
+In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
 
 In this tutorial, the Human Resources app will detect utterances about moving new employees from one city to another. 
 
@@ -51,13 +51,17 @@ In this tutorial, the Human Resources app will detect utterances about moving ne
 ### Simple entity for new employee name
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name needs to be detected first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
 
+The **Employee** list was created in the [list tutorial](luis-quickstart-intent-and-list-entity.md).
+
+The **NewEmployee** entity is a simple entity with no roles. 
+
 ### Simple entity with roles for relocation cities
 The new employee and his family need to be moved from his current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered.
 
-The **NewEmployee** entity is a simple entity with no roles. The role names need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
+The role names associated with the origin and destination cities need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
 
 ### Simple entities need enough examples to be detected
-Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected. While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match. 
+Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected.  
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
 
@@ -98,17 +102,19 @@ Labeling the entities in these steps may be easier if the prebuilt keyPhrase ent
     |Utterance|NewEmployee|NewEmployeeRelocation|
     |--|--|--|
     |Move **Bob Jones** from **Seattle** to **Los Colinas**|Bob Jones|Seattle, Los Colinas|
-    |Move **Dave Cooper** from **Redmond** to **Seattle**|Dave Cooper|Redmond, Seattle|
-    |Move **Jim Smith** from **Toronto** to **Vancouver**|Jim Smith|Toronto, Vancouver|
-    |Move **Jill Benson** from **Boston** to **London**|Jill Benson|Boston, London|
-    |Move **Travis Hinton** from **Portland** to **Orlando**|Travis Hinton|Portland, Orlando|
-    |Move **Trevor Nottington** from **Spokane** to **Boise**|Trevor Nottington|Spokane, Boise|
-    |Move **Greg Williams** from **Orlando** to **Austin**|Greg Williams|Orlando, Austin|
-    |Move **Robert Gregson** from **Kansas City** to **Yuma**|Robert Gregson|Kansas City, Yuma|
+    |Move **Dave C. Cooper** from **Redmond** to **New York City**|Dave C. Cooper|Redmond, New York City|
+    |Move **Jim Paul Smith** from **Toronto** to **West Vancouver**|Jim Paul Smith|Toronto, West Vancouver|
+    |Move **J. Benson** from **Boston** to **Staines-upon-Thames**|J. Benson|Boston, Staines-upon-Thames|
+    |Move **Travis "Trav" Hinton** from **Castelo Branco** to **Orlando**|Travis "Trav" Hinton|Castelo Branco, Orlando|
+    |Move **Trevor Nottington III** from **Aranda de Duero** to **Boise**|Trevor Nottington III|Aranda de Duero, Boise|
+    |Move **Dr. Greg Williams** from **Orlando** to **Ellicott City**|Dr. Greg Williams|Orlando, Ellicott City|
+    |Move **Robert "Bobby" Gregson** from **Kansas City** to **San Juan Capistrano**|Robert "Bobby" Gregson|Kansas City, San Juan Capistrano|
     |Move **Patti Owens** from **Bellevue** to **Rockford**|Patti Owens|Bellevue, Rockford|
     |Move **Janet Bartlet** from **Tuscan** to **Santa Fe**|Janet Bartlet|Tuscan, Santa Fe|
 
-    Train and test the utterances to see how well the intent and entities are predicted without a pattern. 
+    The employee name has a variety of prefix, word count, syntax, and suffix. This is important for LUIS to understand the variations of a new employee name. The city names also have a variety of word count and syntax. This variety is important to teach LUIS how these entities may appear in a user's utterance. 
+    
+    If either entity had been of the same word count and no other variations, you would teach LUIS that this entity only has that word count and no other variations. LUIS would not be able to correctly predict a broader set of variations because it was no shown any. 
 
 ## Train the LUIS app
 The new intent and utterances require training. 
@@ -142,178 +148,91 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 2. Go to the end of the URL in the address and enter `Move Wayne Berry from Newark to Columbus`. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
-  {
+    {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
-          "intent": "NewEmployeeRelocationProcess",
-          "score": 0.5623783
+        "intent": "NewEmployeeRelocationProcess",
+        "score": 0.514479756
       },
       "intents": [
-          {
-              "intent": "NewEmployeeRelocationProcess",
-              "score": 0.5623783
-          },
-          {
-              "intent": "Utilities.Confirm",
-              "score": 0.0123205138
-          },
-          {
-              "intent": "GetJobInformation",
-              "score": 0.0110164294
-          },
-          {
-              "intent": "MoveEmployee",
-              "score": 0.0100413691
-          },
-          {
-              "intent": "ApplyForJob",
-              "score": 0.009376613
-          },
-          {
-              "intent": "Utilities.StartOver",
-              "score": 0.005493146
-          },
-          {
-              "intent": "None",
-              "score": 0.004052741
-          },
-          {
-              "intent": "Utilities.Cancel",
-              "score": 0.003984084
-          },
-          {
-              "intent": "OrgChart-Reports",
-              "score": 0.00239752117
-          },
-          {
-              "intent": "EmployeeFeedback",
-              "score": 0.00195183733
-          },
-          {
-              "intent": "Utilities.Help",
-              "score": 0.00170500379
-          },
-          {
-              "intent": "OrgChart-Manager",
-              "score": 0.00156696246
-          },
-          {
-              "intent": "Utilities.Stop",
-              "score": 0.00125860469
-          },
-          {
-              "intent": "FindForm",
-              "score": 0.00114929758
-          }
+        {
+          "intent": "NewEmployeeRelocationProcess",
+          "score": 0.514479756
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.017118983
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.009982505
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.008637771
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.007115978
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.006120186
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00452428637
+        },
+        {
+          "intent": "None",
+          "score": 0.00400899537
+        },
+        {
+          "intent": "OrgChart-Reports",
+          "score": 0.00240071164
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.001770991
+        },
+        {
+          "intent": "EmployeeFeedback",
+          "score": 0.001697356
+        },
+        {
+          "intent": "OrgChart-Manager",
+          "score": 0.00168116146
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00163952739
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00112958835
+        }
       ],
       "entities": [
-          {
-              "entity": "wayne berry",
-              "type": "NewEmployee",
-              "startIndex": 5,
-              "endIndex": 15,
-              "score": 0.7210163
-          },
-          {
-              "entity": "newark",
-              "type": "NewEmployeeRelocation",
-              "startIndex": 22,
-              "endIndex": 27,
-              "score": 0.686152756
-          },
-          {
-              "entity": "columbus",
-              "type": "NewEmployeeRelocation",
-              "startIndex": 32,
-              "endIndex": 39,
-              "score": 0.564098954
-          }
+        {
+          "entity": "wayne berry",
+          "type": "NewEmployee",
+          "startIndex": 5,
+          "endIndex": 15,
+          "score": 0.629158735
+        },
+        {
+          "entity": "newark",
+          "type": "NewEmployeeRelocation",
+          "startIndex": 22,
+          "endIndex": 27,
+          "score": 0.638941
+        }
       ]
-  }    
-  ```
+    }  
+    ```
 
-While all the entities were detected, the intent prediction score is only 50%. If your client application requires a higher number, this needs to be fixed.
+The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed.
 
-All of the city names so far have been a single word. Try a city name that is three words: `Move Wayne Berry from New York City to Columbus`. 
-
-```JSON
-{
-  "query": "Move Wayne Berry from New York City to Columbus",
-  "topScoringIntent": {
-    "intent": "NewEmployeeRelocationProcess",
-    "score": 0.5974632
-  },
-  "intents": [
-    {
-      "intent": "NewEmployeeRelocationProcess",
-      "score": 0.5974632
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0562561
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0113906525
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.009032093
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.004364716
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.0038650122
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00333929877
-    },
-    {
-      "intent": "None",
-      "score": 0.0027446
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00227597845
-    },
-    {
-      "intent": "OrgChart-Reports",
-      "score": 0.00185811857
-    },
-    {
-      "intent": "OrgChart-Manager",
-      "score": 0.00155583175
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.0014323442
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00126940908
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0007841544
-    }
-  ],
-  "entities": [
-    {
-      "entity": "wayne berry",
-      "type": "NewEmployee",
-      "startIndex": 5,
-      "endIndex": 15,
-      "score": 0.7087153
-    }
-  ]
-}
-```
-
-The relocation cities are not detected. Add a pattern to increase intent prediction score far above 50%. 
 
 ## Add a pattern that uses roles
 1. Select **Build** in the top navigation.
@@ -331,105 +250,96 @@ The relocation cities are not detected. Add a pattern to increase intent predict
 
     ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Go to the end of the URL in the address and enter `Move Wayne Berry from New York City to Columbus`. The last querystring parameter is `q`, the utterance **query**. 
-
-
-move wayne berry from redmond to seattle
+2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
     {
-      "query": "Move Wayne Berry from Newark to Columbus",
+      "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {
         "intent": "NewEmployeeRelocationProcess",
-        "score": 0.999999464
+        "score": 0.9999999
       },
       "intents": [
         {
           "intent": "NewEmployeeRelocationProcess",
-          "score": 0.999999464
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 1.66666393E-06
+          "score": 0.9999999
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 1.50596657E-06
+          "score": 1.49678385E-06
         },
         {
           "intent": "MoveEmployee",
-          "score": 8.293454E-07
+          "score": 8.240291E-07
         },
         {
           "intent": "GetJobInformation",
-          "score": 6.060602E-07
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 5.7886524E-07
+          "score": 6.3131273E-07
         },
         {
           "intent": "None",
-          "score": 4.275E-09
+          "score": 4.25E-09
         },
         {
           "intent": "OrgChart-Manager",
-          "score": 2.81666668E-09
+          "score": 2.8E-09
         },
         {
           "intent": "OrgChart-Reports",
-          "score": 2.81666668E-09
+          "score": 2.8E-09
         },
         {
           "intent": "EmployeeFeedback",
-          "score": 1.65E-09
+          "score": 1.64E-09
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 1.64E-09
         },
         {
           "intent": "Utilities.Help",
-          "score": 1.49090906E-09
+          "score": 1.48181822E-09
         },
         {
           "intent": "Utilities.Stop",
-          "score": 1.49090906E-09
+          "score": 1.48181822E-09
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 1.35833333E-09
+          "score": 1.35E-09
         },
         {
           "intent": "FindForm",
-          "score": 1.24615385E-09
+          "score": 1.23846156E-09
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 5.692308E-10
         }
       ],
       "entities": [
         {
           "entity": "wayne berry",
-          "type": "builtin.keyPhrase",
-          "startIndex": 5,
-          "endIndex": 15
-        },
-        {
-          "entity": "wayne berry",
           "type": "NewEmployee",
           "startIndex": 5,
           "endIndex": 15,
-          "score": 0.720984,
+          "score": 0.9410646,
           "role": ""
         },
         {
-          "entity": "newark",
+          "entity": "miami",
           "type": "NewEmployeeRelocation",
           "startIndex": 22,
-          "endIndex": 27,
-          "score": 0.686787248,
+          "endIndex": 26,
+          "score": 0.9853915,
           "role": "NewEmployeeReloOrigin"
         },
         {
-          "entity": "columbus",
+          "entity": "mount vernon",
           "type": "NewEmployeeRelocation",
-          "startIndex": 32,
-          "endIndex": 39,
-          "score": 0.5656133,
+          "startIndex": 31,
+          "endIndex": 42,
+          "score": 0.986044347,
           "role": "NewEmployeeReloDestination"
         }
       ]

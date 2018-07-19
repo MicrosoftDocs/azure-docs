@@ -102,7 +102,7 @@ OrgChart-Manager(employee){
     |Who does Jill Jones supervise?|
 
 ## Caution about example utterance quantity
-The quantity of example utterances in these intents are not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
+The quantity of example utterances in these intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
 
 ## Train the LUIS app
 The new intent and utterances require training. 
