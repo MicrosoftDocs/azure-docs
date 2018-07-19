@@ -22,17 +22,19 @@ The DNS Service is an optional system service that you can enable in your cluste
 
 Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portablity of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service. 
 
-Beginning with version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP address using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
+The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how the DNS service works for stateless services.
+
+![service endpoints](./media/service-fabric-dnsservice/dns.png)
+
+Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
 - Named partitioning
 - Ranged partitioning
 - Singleton partitioning
 
-You can now use the DNS service to provide the same kind of portability to your stateful Service Fabric services as was previously available to stateless services. 
+With the Service Fabric DNS extensions, you can use the DNS service to provide the same kind of portability to your stateful Service Fabric services as was previously available only to stateless services. The following diagram shows how the DNS service works for partitioned stateful services.
 
-The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation.
-
-![service endpoints](./media/service-fabric-dnsservice/dns.png)
+![stateful service endpoints](./media/service-fabric-dnsservice/stateful-dns.png)
 
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 
@@ -90,8 +92,8 @@ Where:
 - `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-".
 - `Target-Partition-Name` is the name of the partition. The following restrictions apply: 
    - Partition names should be DNS compliant.
-   - Multi label Partition names [ that include dot in the name] should not be used.
-   - Partition names should be in Lower case.
+   - Multi label Partition names (that include dot, '.', in the name) should not be used.
+   - Partition names should be in lower case. This is because DNS protocol and queries are case insensitive, while Service Fabric partition names are case sensitive. Keeping partition names in lower case prevents potential collisions with partitions 
 - `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string.
 - `Remaining-Partitioned-Service-DNSName` is recommended to be the app instance name.
 
@@ -108,14 +110,27 @@ Open your project in Visual Studio, or your favorite editor, and open the `Appli
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
-    <StatelessService ServiceTypeName="Stateless1Type" InstanceCount="[Stateless1_InstanceCount]">
+      <StatelessService ServiceTypeName="Stateless1Type" InstanceCount="[Stateless1_InstanceCount]">
         <SingletonPartition />
-    </StatelessService>
+      </StatelessService>
     </Service>
 ```
-Once the application is deployed, the service instance in the Service Fabric explorer shows the DNS name for this instance, as shown in the following figure: 
+Once the application is deployed, the service instance in the Service Fabric Explorer shows the DNS name for this instance, as shown in the following figure: 
 
 ![service endpoints][1]
+
+The following example shows the setting a DNS name for a stateful partitioned service to `statefulsvc.app`. Notice that the partition names are lower-case in observance of the guidance in the previous section.
+
+```xml
+    <Service Name="StatefulSvc" ServiceDnsName="statefulsvc.app" />
+      <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="2" MinReplicaSetSize="2">
+        <NamedPartition>
+         <Partition Name="partition1" />
+         <Partition Name="partition2" />
+        </NamedPartition>
+      </StatefulService>
+    </Service>
+```
 
 ### Setting the DNS name for a service using Powershell
 You can set the DNS name for a service when creating it using the `New-ServiceFabricService` Powershell. The following example creates a new stateless service with the DNS name `service1.application1`
@@ -136,7 +151,7 @@ If you deploy more than one service, you can find the endpoints of other service
 
 Dynamic ports are not supported by the DNS service. You can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) to resolve services that use dynamic ports.
 
-The following code shows how to call a statelss service through DNS. It is simply regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
+The following code shows how to call a stateless service through DNS. It is simply regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -164,7 +179,7 @@ public class ValuesController : Controller
 }
 ```
 
-The following code shows a call on a specific partition of a stateful service. In this case, the DNS name contains the partition name (partition0). The call assumes a cluster with default values for `PartitionPrefix`and `PartitionSuffix`.
+The following code shows a call on a specific partition of a stateful service. In this case, the DNS name contains the partition name (partition1). The call assumes a cluster with default values for `PartitionPrefix` and `PartitionSuffix`.
 
 ```csharp
 public class ValuesController : Controller
@@ -176,7 +191,7 @@ public class ValuesController : Controller
         string result = "";
         try
         {
-            Uri uri = new Uri("http://service2-partition0.application1:8080/api/values");
+            Uri uri = new Uri("http://service2-partition1.application1:8080/api/values");
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(uri);
             result = await response.Content.ReadAsStringAsync();
