@@ -28,16 +28,16 @@ This method can be used when deploying new Application Insights resources using 
 You can configure the following settings for a smart detection rule:
 - If the rule is enabled (the default is **true**.)
 - If emails should be sent to the subscription owners, contributors and readers when a detection is found (the default is **true**.)
-- Any additional email recipients that should get a notification when a detection is found.
+- Any additional email recipients who should get a notification when a detection is found.
 
-To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named ProactiveDetectionConfigs.
+To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
 For maximal flexibility, each smart detection rule can be configured with unique notification settings.
 
 ## Examples
 
 Below are a few examples showing how to configure the settings of smart detection rules using Azure Resource Manager templates.
-All samples refer to an Application Insights resource named “myApplication”, and for the Long dependency duration smart detection rule, internally named “longdependencyduration”.
-Make sure to replace the Application Insights resource name, and to specify the relevant smart detection rule name (see below for a list of technical names for the smart detection rules
+All samples refer to an Application Insights resource named _“myApplication”_, and to the "long dependency duration smart detection rule", which is internally named _“longdependencyduration”_.
+Make sure to replace the Application Insights resource name, and to specify the relevant smart detection rule internal name. Check the table below for a list of the corresponding internal Azure Resource Manager names for each smart detection rule.
 
 ### Disable a smart detection rule
 
@@ -135,7 +135,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ## Smart detection rule names
 
-Below is a list of smart detection rule names as they appear in the portal, along with their technical names, that should be used in the Azure Resource Manager template.
+Below is a list of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
 
 > [!NOTE]
 > Smart detection rules marked as preview don’t support email notifications. Therefore, you can only set the enabled property for these rules. 
