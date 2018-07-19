@@ -120,7 +120,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 > [!Note]  
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
-### Data deduplication
+### Data Deduplication
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
 
 ### Distributed File System (DFS)
