@@ -1,5 +1,5 @@
 ---
-title: Set up security info to use security questions - Azure Active Directory (Preview) | Microsoft Docs
+title: Set up security info to use security questions - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using pre-defined security questions.
 services: active-directory
 author: eross-msft

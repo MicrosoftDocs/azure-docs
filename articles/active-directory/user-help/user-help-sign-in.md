@@ -1,5 +1,5 @@
 ---
-title: How to sign in using your security info - Azure Active Directory (Preview) | Microsoft Docs
+title: How to sign in using two-step verification or security info - Azure Active Directory | Microsoft Docs
 description: Learn about how to sign in using the various identity verification methods in security info.
 services: active-directory
 author: eross-msft
