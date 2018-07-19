@@ -73,7 +73,7 @@ To track the status of the job, click **View job status**. Use the **Jobs** view
 
 [![Monitor the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-You can check that the temperature of the device has decreased by viewing the telemetry on the **Dashboard** page:
+You can check that the temperature of the device has fallen by viewing the telemetry on the **Dashboard** page:
 
 [![View the decrease in temperature](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 

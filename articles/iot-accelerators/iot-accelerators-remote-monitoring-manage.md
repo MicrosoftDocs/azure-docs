@@ -56,7 +56,7 @@ In **Device Details**, verify your new device is sending telemetry. To view the 
 
 The **Device Details** panel displays other information about the device such as tag values, the methods it supports, and the properties reported by the device.
 
-To view detailed diagnostics, scroll down **Device Details** panel in the to view the **Diagnostics** section.
+To view detailed diagnostics, scroll down in the **Device Details** panel to view the **Diagnostics** section.
 
 ## Act on a device
 
@@ -117,7 +117,7 @@ On the device page, select all the **Chiller**, **Elevator**, and **Engine** dev
 
 In the **Jobs** panel, select **Tag**, set the job name to **AddSmartBuildingTag**, and then add a text tag called **FieldService** with a value **SmartBuilding**. Then click **Apply**:
 
-[![Add tag to pchiller, elevator, and engine devices](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
+[![Add tag to chiller, elevator, and engine devices](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
 ### Create filters
 
