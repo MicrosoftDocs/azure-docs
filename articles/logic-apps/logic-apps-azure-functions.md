@@ -159,19 +159,19 @@ After the functions list opens, select this action:
 
    ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
-5. Define your function:
+5. In the function definition editor, define your function:
 
    1. In the **Function name** box, 
    provide a name for your function. 
 
    2. In the **Code** box, replace the default template 
-   code with your function's code, including the response 
+   code with your function's code. Include the response 
    and payload you want returned to your logic app after 
-   your function finishes running. 
-   
-   3. When you're done, choose **Create**. 
+   your function finishes running, for example:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
+
+   3. When you're done, choose **Create**. 
 
 6. In the **Request Body** box, specify the context object 
 that you'll pass as the input payload to your function. 
@@ -187,14 +187,14 @@ that's available from previous steps.
    Also, Logic Apps creates variables based on the context 
    object you pass to the function.
 
-   Here is a sample that passes in the body content 
+   Here is a sample that passes in the **From** content 
    from the previous email trigger as the input payload:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
-   If the object isn't a JSON token, that is, 
+   However, if the object isn't a JSON token, that is, 
    a string, a JSON object, or a JSON array, you get an error. 
    To cast the object as a string, add double-quotation marks, 
    for example:
@@ -243,14 +243,14 @@ that's available from previous steps.
    Also, Logic Apps creates variables based on the context 
    object you pass to the function.
 
-   Here is a sample that passes in the body content 
+   Here is a sample that passes in the **From** content 
    from the previous email trigger as the input payload:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
-   If the object isn't a JSON token, that is, 
+   However, if the object isn't a JSON token, that is, 
    a string, a JSON object, or a JSON array, you get an error. 
    To cast the object as a string, add double-quotation marks, 
    for example:
