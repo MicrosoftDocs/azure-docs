@@ -1,12 +1,12 @@
 ---
-title: Manage devices in an Azure-based remote monitoring solution | Microsoft Docs
+title: Manage devices in an Azure-based remote monitoring solution tutorial | Microsoft Docs
 description: This tutorial shows you how to manage devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -29,6 +29,8 @@ In this tutorial, you:
 > * Update a device's firmware.
 > * Reconfigure a device.
 > * Organize your devices.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
