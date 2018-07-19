@@ -276,38 +276,6 @@ Enter the recovery key for the gateway installation.
 
 7. When you're done, choose **Configure**.
 
-<a name="windows-service-account"></a>
-
-## Windows service account
-
-The on-premises data gateway runs as a Windows service and is set up to 
-use `NT SERVICE\PBIEgwService` for the Windows service login credentials. 
-By default, the gateway has the "Log in as a service" permissions 
-for the machine where you install the gateway. 
-To create and maintain the gateway in the Azure portal, 
-the Windows service account must have at least **Contributor** permissions. 
-
-> [!NOTE]
-> The Windows service account differs from the account 
-> used for connecting to on-premises data sources, 
-> and from the work or school account used to sign in to cloud services.
-
-<a name="restart-gateway"></a>
-
-## Restart gateway
-
-Like any other Windows service, you can start and stop the service in multiple ways. 
-For example, you can open a command prompt with elevated permissions 
-on the computer where the gateway is running, and run either these commands:
-
-* To stop the service, run this command:
-  
-  `net stop PBIEgwService`
-
-* To start the service, run this command:
-  
-  `net start PBIEgwService`
-
 ## Configure firewall or proxy
 
 The gateway creates an outbound connection to 
@@ -389,19 +357,63 @@ notation.
 
 ### Force HTTPS communication with Azure Service Bus
 
-You can force the gateway to communicate with 
-Azure Service Bus over HTTPS rather than TCP, 
-but doing so can greatly reduce performance. 
-To update the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file, 
-change the value from **AutoDetect** to **Https**. 
-You can find this file typically at this location: 
-```C:\Program Files\On-premises data gateway```
+Some proxies permit traffic only to ports 80 and 443. By default, 
+communication with Azure Service Bus occurs on ports other than 443.
+You can force the gateway to communicate with the Azure Service Bus 
+over HTTPS rather than direct TCP, but doing so can greatly reduce performance. 
+To perform this task, follow these steps:
 
-```html
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
+1. Browse to the location for the on-premises data gateway client, 
+which is usually here: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
+
+   Otherwise, to find the client location, 
+   open the Services console on the same computer, 
+   find **On-premises data gateway service**, 
+   and view the **Path to executable** property.
+
+2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+
+3. Change this value from **AutoDetect** to **Https**:
+
+   ```html
+   <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
+      <value>Https</value>
+   </setting>
+   ```
+
+<a name="windows-service-account"></a>
+
+## Windows service account
+
+The on-premises data gateway runs as a Windows service named 
+"On-premises data gateway service" but uses "NT SERVICE\PBIEgwService" 
+for its "Log On As" account credentials. 
+By default, the on-premises data gateway has "Log on as a service" 
+permissions for the computer where you install the gateway. 
+To create and maintain the gateway in the Azure portal, 
+the Windows service account must have at least **Contributor** permissions. 
+
+> [!NOTE]
+> The Windows service account differs from the account 
+> used for connecting to on-premises data sources, 
+> and from the work or school account used to sign in to cloud services.
+
+<a name="restart-gateway"></a>
+
+## Restart gateway
+
+The data gateway runs as a Window service, so like any other Windows service, 
+you can start and stop the gateway in multiple ways. 
+For example, you can open a command prompt with elevated permissions 
+on the computer where the gateway is running, and run either command:
+
+* To stop the service, run this command:
+  
+  `net stop PBIEgwService`
+
+* To start the service, run this command:
+  
+  `net start PBIEgwService`
 
 ## Tenant level administration 
 
@@ -496,18 +508,19 @@ and you have SQL Server hosted in an Azure VM, then you might want your Azure VM
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
 **Q**: How are results sent back to the cloud? <br/>
-**A**: Results are sent through the Azure Service Bus.
+**A**: The results are sent through Azure Service Bus.
 
 **Q**: Are there any inbound connections to the gateway from the cloud? <br/>
-**A**: No. The gateway uses outbound connections to Azure Service Bus.
+**A**: No, the gateway uses outbound connections to Azure Service Bus.
 
 **Q**: What if I block outbound connections? What do I need to open? <br/>
 **A**: See the ports and hosts that the gateway uses.
 
 **Q**: What is the actual Windows service called? <br/>
-**A**: In Services, the gateway's name is "On-premises data gateway service" 
-or "PBIEgwService" (Power BI Enterprise Gateway Service). The Windows service 
-uses "NT SERVICE\PBIEgwService" as the Service SID (SSID).
+**A**: On the Services tab in Task Manager, 
+the service name is "PBIEgwService" (Power BI Enterprise Gateway Service). 
+In the Services console, the service name is "On-premises data gateway service". 
+The Windows service uses "NT SERVICE\PBIEgwService" as the Service SID (SSID).
 
 **Q**: Can the gateway Windows service run with an Azure Active Directory account? <br/>
 **A**: No, the Windows service must have a valid Windows account.
@@ -523,8 +536,16 @@ When you install the gateway, specify the recovery key.
 
 ## Troubleshooting
 
-**Q**: Why don't I see my gateway installation when I create the gateway resource in Azure? </br>
-**A**: This issue can happen for these reasons:<br/>
+This section addresses some common issues you might encounter 
+while setting up and using the on-premises data gateway.
+
+**Q**: Why did my gateway installation fail? <br/>
+**A**: This issue can happen if the anti-virus software on the target computer is outdated. 
+You can either update the anti-virus software or disable the anti-virus software but only 
+during gateway installation, and then enable the software again.
+
+**Q**: Why don't I see my gateway installation when I create the gateway resource in Azure? <br/>
+**A**: This issue can happen for these reasons:
 
 * Your gateway installation is already registered 
 and claimed by another gateway resource in Azure. 
@@ -551,10 +572,10 @@ Leaving query tracing turned on creates larger logs.
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
 
-### Update to the latest version
+### Outdated gateway version
 
 Many issues can surface when the gateway version becomes outdated. 
-As good general practice, make sure that you use the latest version. 
+As good general practice, make sure you have the latest version. 
 If you haven't updated the gateway for a month or longer, 
 you might consider installing the latest version of the gateway, 
 and see if you can reproduce the issue.
@@ -592,9 +613,7 @@ Here are other locations where you can find various logs:
 To find the event logs for the gateway, follow these steps:
 
 1. On the computer with the gateway installation, open the **Event Viewer**. 
-
 2. Expand **Event Viewer (Local)** > **Applications and Services Logs**. 
-
 3. Select **On-premises data gateway service**.
 
    ![View event logs for gateway](./media/logic-apps-gateway-install/event-viewer.png)
@@ -604,11 +623,14 @@ To find the event logs for the gateway, follow these steps:
 For additional monitoring and troubleshooting, you can turn on and collect telemetry. 
 
 1. Browse to the location for the on-premises data gateway client, 
-which is usually here: ```C:\Program Files\On-premises data gateway\```
+which is usually here: ```C:\Program Files\On-premises data gateway```
 
-   Or, you can open the Services console and check the path to the executable: 
+   Otherwise, to find the client location, 
+   open the Services console on the same computer, 
+   find **On-premises data gateway service**, 
+   and view the **Path to executable** property.
 
-2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll**
+2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Change the **SendTelemetry** setting to **true**:
 
@@ -619,6 +641,68 @@ which is usually here: ```C:\Program Files\On-premises data gateway\```
    ```
 
 4. Save your changes, and then restart the Windows service.
+
+### Review slow query performance
+
+If you find queries run slowly through the gateway, 
+you can turn on additional logging that outputs queries and their durations. 
+These logs might help you find which queries are slow or long running. 
+To tune query performance, you might have to modify your data source, 
+for example, adjust indexes for SQL Server queries.
+
+To determine the duration for a query, follow these steps:
+
+1. Browse to the same location as the gateway client, 
+which is usually here: ```C:\Program Files\On-premises data gateway```
+
+   Otherwise, to find the client location, 
+   open the Services console on the same computer, 
+   find **On-premises data gateway service**, 
+   and view the **Path to executable** property.
+
+2. Open and edit these configuration files as described:
+
+   * **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+
+     In this file, change the **EmitQueryTraces** value from **false** to **true** 
+     so your gateway can log queries sent from the gateway to a data source:
+
+     ```html
+     <setting name="EmitQueryTraces" serializeAs="String">
+        <value>true</value>
+     </setting>
+     ```
+
+     > [!IMPORTANT]
+     > Turning on the EmitQueryTraces setting might significantly increase 
+     > the log size based on gateway usage. After you finish reviewing the logs, 
+     > make sure you reset EmitQueryTraces to **false** again, 
+     > rather than leave this setting on for the long term.
+
+   * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
+
+     To have your gateway log verbose entries, including entries that show duration, 
+     change the **TracingVerbosity** value from **4** to **5** by performing either step: 
+
+     * In this configuration file, change the **TracingVerbosity** value from **4** to **5** 
+
+       ```html
+       <setting name="TracingVerbosity" serializeAs="String">
+          <value>5</value>
+       </setting>
+       ```
+
+     * Open the gateway installer, select **Diagnostics**, 
+     turn on **Additional logging**, and then choose **Apply**:
+
+       ![Turn on additional logging](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
+
+     > [!IMPORTANT]
+     > Turning on the TracingVerbosity setting might significantly increase 
+     > the log size based on gateway usage. After you finish reviewing the logs, 
+     > make sure you turn off **Additional logging** in the gateway installer 
+     > or reset TracingVerbosity to **4** again in the configuration file, 
+     > rather than leave this setting on for the long term.
 
 ### Trace traffic with Fiddler
 
