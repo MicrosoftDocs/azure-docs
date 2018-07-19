@@ -10,7 +10,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/19/2018
 ms.author: v-geberr;
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
@@ -145,7 +145,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
     ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Go to the end of the URL in the address and enter `Move Wayne Berry from Newark to Columbus`. The last querystring parameter is `q`, the utterance **query**. 
+2. Go to the end of the URL in the address and enter `Move Wayne Berry from Miami to Mount Vernon`. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
     {
@@ -243,7 +243,33 @@ The intent prediction score is only about 50%. If your client application requir
 
 4. Enter the following pattern: `move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
-5. Train and publish the app again.
+    If you train, publish, and query the endpoint, you may be disappointed to see that the entities are not found, so the pattern didn't match, therefore the prediction didn't improve. This is a consequence of not enough example utteranes with labeled entities. Instead of adding more examples, add a phrase list to fix this problem.
+
+## Create a phrase list for Cities
+Cities, like people's names are tricky in that they can be any mix of words and punctuation. But the cities of the region and world are known, so LUIS needs a phrase list of cities to begin learning. 
+
+1. Select **Phrase list** from the **Improve app performance** section of the left menu. 
+
+2. Name the list `Cities` and add the following `values` for the list:
+
+    |Values of phrase list|
+    |--|
+    |Seattle|
+    |San Diego|
+    |New York City|
+    |Los Angeles|
+    |Portland|
+    |Philadephia|
+    |Miami|
+    |Dallas|
+
+    Do not add every city in the world or even every city in the region. LUIS needs to be able to generalize what a city is from the list. 
+
+    Make sure to keep **These values are interchangeable** seleted. These means the words on the list on treated as synonyms. This is exactly how they should be treated in the pattern.
+
+    Remember [the last time](luis-quickstart-primary-and-secondary-data.md) the tutorial series created a phrase list was also to boost entity detection of a simple entity.  
+
+    If you removed keyPhrase entity, remember to add it back to the app now.
 
 ## Query endpoint for pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
@@ -320,6 +346,18 @@ The intent prediction score is only about 50%. If your client application requir
       "entities": [
         {
           "entity": "wayne berry",
+          "type": "builtin.keyPhrase",
+          "startIndex": 5,
+          "endIndex": 15
+        },
+        {
+          "entity": "miami",
+          "type": "builtin.keyPhrase",
+          "startIndex": 22,
+          "endIndex": 26
+        },
+        {
+          "entity": "wayne berry",
           "type": "NewEmployee",
           "startIndex": 5,
           "endIndex": 15,
@@ -342,8 +380,12 @@ The intent prediction score is only about 50%. If your client application requir
           "score": 0.986044347,
           "role": "NewEmployeeReloDestination"
         }
-      ]
-    }
+      ],
+      "sentimentAnalysis": {
+        "label": "neutral",
+        "score": 0.5
+      }
+}
     ```
 
 The intent score is now much higher and the role names are part of the entity response.
