@@ -20,9 +20,9 @@ ms.author: msfussell
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
 
-Many services, especially containerized services, can addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol (rather than the Service Fabric Naming Service protocol) is desirable. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portablity of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service. 
+Many services, especially containerized services, are addressable through a pre-existing URL. Being able to resolve these services using the standard DNS protocol, rather than the Service Fabric Naming Service protocol, is desirable. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. Such functionality maintains the portablity of containerized services across different platforms and can make  "lift and shift" scenarios easier, by letting you use existing service URLs rather than having to rewrite code to leverage the Naming Service. 
 
-Beginning with version 6.3 and later, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. It is now possible to resolve specific partition IP address using a combination of stateful service DNS name and the partition name.  Now all three partitioning schemes are supported for DNS names:
+Beginning with version 6.3 and later, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP address using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
 - Named partitioning
 - Ranged partitioning
@@ -77,7 +77,31 @@ After you have a template, you can enable the DNS service with the following ste
 ## Setting the DNS name for your service
 Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through PowerShell commands.
 
-The DNS name for your service is resolvable throughout the cluster. It is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. Doing so ensures the uniqueness of the DNS name throughout the cluster. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
+The DNS name for your service is resolvable throughout the cluster so it is important to ensure the uniqueness of the DNS name across the cluster. 
+
+For stateless services, it is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
+
+For stateful services, use the following naming scheme:
+`<First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>`
+
+Where:
+
+- `First-Label-Of-Partitioned-Service-DNSName` is recommended to be the service name.
+- `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-".
+- `Target-Partition-Name` is the name of the partition. The following restrictions apply: 
+   - Partition names should be DNS compliant.
+   - Multi label Partition names [ that include dot in the name] should not be used.
+   - Partition names should be in Lower case.
+- `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string.
+- `Remaining-Partitioned-Service-DNSName` is recommended to be the app instance name.
+
+The following examples show DNS queries for a partitioned service running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
+
+- To resolve partition “0” of a partitioned service with DNS name `BackendRangedSchemeSvc.Application`, use `BackendRangedSchemeSvc-0.Application`.
+- To resolve partition “first” of a partitioned service with DNS name `BackendNamedSchemeSvc.Application`, use `BackendNamedSchemeSvc-first.Application`
+
+For stateful services, the DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
+
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
@@ -108,9 +132,11 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
 ```
 
 ## Using DNS in your services
-If you deploy more than one service, you can find the endpoints of other services to communicate with  by using a DNS name. The DNS service is only applicable to stateless services, since the DNS protocol cannot communicate with stateful services. For stateful services, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. Dynamic ports are not supported by the DNS service. You can use the reverse proxy to resolve services that use dynamic ports.
+If you deploy more than one service, you can find the endpoints of other services to communicate with  by using a DNS name. The DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. 
 
-The following code shows how to call another service, which is simply a regular http call where you provide the port and any optional path as part of the URL.
+Dynamic ports are not supported by the DNS service. You can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) to resolve services that use dynamic ports.
+
+The following code shows how to call a statelss service through DNS. It is simply regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -137,6 +163,35 @@ public class ValuesController : Controller
     }
 }
 ```
+
+The following code shows a call on a specific partition of a stateful service. In this case, the DNS name contains the partition name (partition0). The call assumes a cluster with default values for `PartitionPrefix`and `PartitionSuffix`.
+
+```csharp
+public class ValuesController : Controller
+{
+    // GET api
+    [HttpGet]
+    public async Task<string> Get()
+    {
+        string result = "";
+        try
+        {
+            Uri uri = new Uri("http://service2-partition0.application1:8080/api/values");
+            HttpClient client = new HttpClient();
+            var response = await client.GetAsync(uri);
+            result = await response.Content.ReadAsStringAsync();
+            
+        }
+        catch (Exception e)
+        {
+            Console.Write(e.Message);
+        }
+
+        return result;
+    }
+}
+```
+
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
