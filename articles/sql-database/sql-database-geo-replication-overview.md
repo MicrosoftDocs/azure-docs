@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 
 ---
 # Overview: Failover groups and active geo-replication
-Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery in case of a data center scale outage.  It enables the application to initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, which can also be used for read-only access. The failover must be initiated manually by the application of the user. After failover, the new primary has a different connection end point. 
+Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery in case of a data center scale outage.  If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, which can also be used for read-only access. The failover must be initiated manually by the application of the user. After failover, the new primary has a different connection end point. 
 > [!NOTE]
 > Active geo-replication is available for all databases in all service tiers in all regions.
 >  
