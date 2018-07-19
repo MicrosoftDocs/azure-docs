@@ -56,7 +56,7 @@ The varying length includes phrases that may confuse LUIS about where the entity
 
 **While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern does not match.**
 
-### Create a new intent for the form
+## Create a new intent for the form
 Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
@@ -75,7 +75,7 @@ Remove the prebuilt keyPhrase entity if it is difficult to create and label the 
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
 
-### Create a Pattern.any entity for the form title
+## Create a Pattern.any entity for the form title
 The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
 
 1. Select **Entities** in the left navigation.
@@ -84,7 +84,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
     You can't label the entity in the intent because a Pattern.any is only valid in a pattern. 
 
-### Add a pattern that uses the Pattern.any
+## Add a pattern that uses the Pattern.any
 
 1. Select **Patterns** from the left navigation.
 
@@ -103,7 +103,7 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 4. Train the app.
 
-### Test the new pattern for free-form data extraction
+## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
 
 2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
