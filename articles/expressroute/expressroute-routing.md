@@ -217,7 +217,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > 
 > 
 
-### BGP Community support in National Clouds (Preview)
+### BGP Community support in National Clouds
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |

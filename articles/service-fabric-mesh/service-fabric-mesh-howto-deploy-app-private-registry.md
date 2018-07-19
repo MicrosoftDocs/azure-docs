@@ -1,7 +1,7 @@
 ---
 title: Deploy app from a private registry to Azure Service Fabric Mesh | Microsoft Docs
 description: Learn how to deploy an app that uses a private container registry to Service Fabric Mesh using the Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
@@ -34,7 +34,7 @@ Install Docker to support the containerized Service Fabric apps used by Service 
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker]. 
 
-During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then sign out and sign back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
+During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then sign out and sign back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. Enable Hyper-V and then restart your computer.
 
 After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it and restart your computer.
 
@@ -111,8 +111,7 @@ Result
 --------
 1.1-alpine
 ```
-
-This shows that `azure-mesh-helloworld:1.1-alpine` image is present in the private container registry.
+The preceding output confirms the presence of `azure-mesh-helloworld:1.1-alpine` in the private container registry.
 
 ## Retrieve credentials for the registry
 
@@ -130,7 +129,8 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-The values provided by preceding commands is referenced as `<acrLoginServer>`, `<acrUserName>`,  and `<acrPassword>` in the following command.
+The values provided by preceding commands are referenced as `<acrLoginServer>`, `<acrUserName>`, and `<acrPassword>` in the following command.
+
 
 ## Deploy the template
 
@@ -139,7 +139,7 @@ Create the application and related resources using the following command, and pr
 The `registry-password` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
 In a few minutes, your command should return with:
@@ -147,9 +147,9 @@ In a few minutes, your command should return with:
 `helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with Service Fabric Mesh logo.
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It displays a web page with Service Fabric Mesh logo.
 
-The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint. 
  
 The network resource name for this application is `helloWorldPrivateRegistryNetwork`, fetch information about it using the following command. 
 

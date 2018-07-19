@@ -49,7 +49,12 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 ## Download and modify the Java sample code
 
-This section shows how to add the provisioning details of your X.509 device to the sample code. 
+This section uses a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+The following steps show how to add the provisioning details of your X.509 device to the sample code. 
 
 1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
     
