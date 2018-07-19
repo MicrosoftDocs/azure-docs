@@ -8,7 +8,7 @@ author: DhruvMsft
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
-ms.date: 06/13/2018
+ms.date: 07/18/2018
 ms.reviewer: genemi
 ms.author: dmalik
 ms.reviewer: carlrab
@@ -139,7 +139,6 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 When using service endpoints for Azure SQL Database, review the following considerations:
 
 - **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
-- **Azure Database for PostgreSQL and MySQL are unsupported**: Service endpoints are not supported for Azure Database for PostgreSQL or MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. We have a mitigation for this, and you may contact *dmalik@microsoft.com* for more information.
 
 #### ExpressRoute
 

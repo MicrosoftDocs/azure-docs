@@ -117,6 +117,10 @@ Although Data Factory is available only in certain regions, the service that pow
 
 For an example, let's assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of the West Europe region. You can create and use an Azure Data Factory instance in East US or East US 2 and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment, but the time for running the job on your computing environment does not change.
 
+## Accessibility
+
+The Data Factory user experience in the Azure portal is accessible.
+
 ## Compare with version 1
 For a list of differences between version 1 and the current version of the Data Factory service, see [Compare with version 1](compare-versions.md). 
 

@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -171,7 +171,7 @@ The Collector only discovers the machine data and sends it to the project. The p
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
 ## Locking down the collector appliance
-We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 60 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 60 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
 
 We also recommend the following steps to secure your appliance
 1. Do not share or misplace administrator passwords with unauthorized parties.
