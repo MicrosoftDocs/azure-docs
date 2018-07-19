@@ -19,7 +19,7 @@ ms.author: terrylan
 ---
 
 # Azure network architecture
-The Azure network architecture follows a modified version of the industry standard Core/Distribution/Access model, with distinct hardware layers. The layers include:
+The Azure network architecture follows a modified version of the industry standard core/distribution/access model, with distinct hardware layers. The layers include:
 
 - Core (datacenter routers)
 - Distribution (access routers and L2 aggregation). The distribution layer separates L3 routing from L2 switching.
@@ -35,14 +35,14 @@ The network architecture of an Azure cluster within a datacenter consists of the
 - Digi CMs
 - Power distribution units or Nucleons
 
-Azure has two separate architectures. Some existing Azure customers and shared services reside on the default LAN architecture (DLA), whereas new regions and virtual customers reside on Quantum 10 (Q10) architecture. The DLA architecture is a traditional tree design, with active/passive access routers and security access control lists (ACLs) applied to the access routers. The Quantum 10 Architecture is a clos/mesh design of routers, where ACLs are not applied at the routers. Instead, ACLs are applied below the routing, through Software Load Balancing (SLB) or software defined VLANs.
+Azure has two separate architectures. Some existing Azure customers and shared services reside on the default LAN architecture (DLA), whereas new regions and virtual customers reside on Quantum 10 (Q10) architecture. The DLA architecture is a traditional tree design, with active/passive access routers and security access control lists (ACLs) applied to the access routers. The Quantum 10 architecture is a Clos/mesh design of routers, where ACLs are not applied at the routers. Instead, ACLs are applied below the routing, through Software Load Balancing (SLB) or software defined VLANs.
 
 The following diagram provides a high-level overview of the network architecture within an Azure cluster:
 
 ![Diagram of Azure network][1]
 
 ### Quantum 10 devices
-The Quantum 10 design conducts layer 3 switching spread over multiple devices in a clos/mesh design. The advantages of the Q10 design include larger capability and greater ability to scale existing network infrastructure. The design employs border leaf routers, spine switches, and top-of-rack routers to pass traffic to clusters across multiple routes, allowing for fault tolerance. Software load balancing, instead of hardware devices, handles security services such as network address translation.
+The Quantum 10 design conducts layer 3 switching spread over multiple devices in a Clos/mesh design. The advantages of the Q10 design include larger capability and greater ability to scale existing network infrastructure. The design employs border leaf routers, spine switches, and top-of-rack routers to pass traffic to clusters across multiple routes, allowing for fault tolerance. Software load balancing, instead of hardware devices, handles security services such as network address translation.
 
 ### Access routers
 The distribution/access L3 routers (ARs) perform the primary routing functionality for the distribution and access layers. These devices are deployed as a pair, and are the default gateway for subnets. Each AR pair can support multiple L2 aggregation switch pairs, depending on capacity. The maximum number depends on the capacity of the device, as well as failure domains. A typical number is three L2 aggregation switch pairs per AR pair.
@@ -56,7 +56,7 @@ Hosts connect directly to these switches. They can be rack mounted switches, or 
 This architecture specifies a standard for native VLAN selection. The standard ensures, where possible, that the AR devices have a unique, native VLAN for every trunk and the L2Aggregation to L2Aggregation trunks. The L2Aggregation to L2Host Switch trunks have a non-default native VLAN.
 
 ### Link aggregation (802.3ad)
-Link aggregation (LAG) allows multiple individual links to be bundled together, and treated as a single logical link. To facilitate operational debugging, the number used to designate port-channel interfaces should be standardized. The rest of the network uses the same number at both ends of a port-channel.
+Link aggregation allows multiple individual links to be bundled together, and treated as a single logical link. To facilitate operational debugging, the number used to designate port-channel interfaces should be standardized. The rest of the network uses the same number at both ends of a port-channel.
 
 The numbers specified for the L2Agg to L2Host switch are the port-channel numbers used on the L2Agg side. Because the range of numbers is more limited at the L2Host side, the standard is to use numbers 1 and 2 at the L2Host side. These refer to the port-channel going to the “a” side and the “b” side, respectively.
 
@@ -77,7 +77,7 @@ Filtering routers at the edge and access layer of the Azure network provide well
 ### A10 DDOS mitigation architecture
 Denial of service attacks continue to present a real threat to the reliability of online services. As attacks become more targeted and sophisticated, and as the services Microsoft provides become more geographically diverse, identifying and minimizing the impact of these attacks is a high priority. The following details explain how the A10 DDOS mitigation system is implemented from a network architecture perspective.
 
-Azure uses A10 network devices at the datacenter router (DCR) that provide automated detection and mitigation. The A10 solution uses Azure Network Monitoring to sample flow packets and determine if there is an attack. Once the attack is detected, A10 devices scrub to mitigate attacks. Only then is clean traffic is allowed into the Azure datacenter directly from the DCR. Microsoft uses the A10 solution to protect the Azure network infrastructure.
+Azure uses A10 network devices at the datacenter router (DCR) that provide automated detection and mitigation. The A10 solution uses Azure Network Monitoring to sample flow packets and determine if there is an attack. If the attack is detected, A10 devices scrub to mitigate attacks. Only then is clean traffic is allowed into the Azure datacenter directly from the DCR. Microsoft uses the A10 solution to protect the Azure network infrastructure.
 
 DDoS protections in the A10 solution include:
 
