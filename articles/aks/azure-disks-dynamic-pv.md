@@ -59,6 +59,9 @@ spec:
       storage: 5Gi
 ```
 
+> [!TIP]
+> To create a disk that uses standard storage, use `storageClassName: default` rather than *managed-premium*.
+
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-premium.yaml* file:
 
 ```console
