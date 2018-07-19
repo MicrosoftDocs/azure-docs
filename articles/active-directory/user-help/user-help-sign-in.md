@@ -18,7 +18,7 @@ ms.author: lizross
 After you set up two-step verification or security info, you'll be able to sign in to your work or school account using your specified authentication method.
 
 >[!Note]
->If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article. If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step guides:<ul><li>[Set up your security info to use an authenticator app](security-info-setup-auth-app.md)</li><li>[Set up your security info to use a text message (SMS)](security-info-setup-text-msg.md)</li><li>[Set up your security info to use a phone number](security-info-setup-phone-number.md)</li></ul>
+>If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article. If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step guides:<ul><li>(Set up your security info to use an authenticator app - this will be a link after all files are in master)</li><li>(Set up your security info to use a text message - this will be a link after all files are in master)</li><li>(Set up your security info to use a phone number - this will be a link after all files are in master)</li></ul>
 
 ## Sign in using an authenticator app notification on your mobile device
 
