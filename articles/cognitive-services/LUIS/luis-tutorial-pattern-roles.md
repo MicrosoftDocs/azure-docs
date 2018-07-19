@@ -227,8 +227,9 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
     }  
     ```
 
-The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed.
+The intent prediction score is only about 50%. If your client application requires a higher number, this needs to be fixed. The entities were not predicted either.
 
+Patterns will help the prediction score, however, the entities must be correctly predicted before the pattern matches the utterance. 
 
 ## Add a pattern that uses roles
 1. Select **Build** in the top navigation.
@@ -264,6 +265,8 @@ Cities, like people's names are tricky in that they can be any mix of words and 
     Make sure to keep **These values are interchangeable** selected. This setting means the words on the list on treated as synonyms. This is exactly how they should be treated in the pattern.
 
     Remember [the last time](luis-quickstart-primary-and-secondary-data.md) the tutorial series created a phrase list was also to boost entity detection of a simple entity.  
+
+3. Train and publish the app.
 
 ## Query endpoint for pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
