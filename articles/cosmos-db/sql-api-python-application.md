@@ -133,7 +133,7 @@ Now let's create your voting application by adding new files and updating others
 2. Add the following code to the forms.py file, and then save the file.
 
 ```python
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import RadioField
 
 class VoteForm(Form):

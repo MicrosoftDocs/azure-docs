@@ -55,7 +55,7 @@ In this section, you will enable and disable a system assigned identity using an
    > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
    >
 
-   ![Screenshot of template - locate VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Screenshot of template - locate VM](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. To enable system assigned identity, add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
@@ -95,7 +95,7 @@ In this section, you will enable and disable a system assigned identity using an
 
 5. When you're done, your template should look similar to the following:
 
-   ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Screenshot of template after update](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### Assign a role the VM's system assigned identity
 
@@ -170,6 +170,10 @@ In this section, you assign a user assigned identity to an Azure VM using Azure 
  ### Assign a user assigned identity to an Azure VM
 
 1. Under the `resources` element, add the following entry to assign a user assigned identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
+   
+   > [!Important]
+   > The `<USERASSIGNEDIDENTITYNAME>` value shown in the following example must be stored in a variable.  Also, for the currently supported implementation of assigning user assigned identities to a virtual machine in a Resource Manager template, the api version must match the version in the following example.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

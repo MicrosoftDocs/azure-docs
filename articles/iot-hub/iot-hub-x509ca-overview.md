@@ -37,7 +37,7 @@ You may also create a self-signed X.509 CA for experimentation or for use in clo
 
 Regardless of how you obtain your X.509 CA certificate, make sure to keep it's corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication. 
 
-Learn how to [create a self-signed CA certificate](iot-hub-security-x509-create-certificates.md#createcerts), which you can use for experimentation throughout this feature description.
+Learn how to [create a self-signed CA certificate](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), which you can use for experimentation throughout this feature description.
 
 ## Sign devices into the certificate chain of trust
 
@@ -45,7 +45,7 @@ The owner of an X.509 CA certificate can cryptographically sign an intermediate 
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Learn here how to [create a certificate chain](iot-hub-security-x509-create-certificates.md#createcertchain) as done when signing devices.
+Learn here how to [create a certificate chain](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) as done when signing devices.
 
 ## How to register the X.509 CA certificate to IoT Hub
 
