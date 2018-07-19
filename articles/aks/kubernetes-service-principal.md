@@ -77,7 +77,7 @@ When working with AKS and Azure AD service principals, keep the following in min
 
 * The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
 * Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
-* When specifying the service principal **Client ID**, use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
+* When specifying the service principal **Client ID**, use the value of the `appId`.
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
 * When deleting an AKS cluster that was created by `az aks create`, the service principal that was created automatically is not deleted. To delete the service principal, first get the ID for the service principal with [az ad app list][az-ad-app-list]. The following example queries for the cluster named *myAKSCluster* and then deletes the app ID with [az ad app delete][az-ad-app-delete]. Replace these names with your own values:
