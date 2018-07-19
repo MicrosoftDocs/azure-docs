@@ -74,7 +74,7 @@ The Device Provisioning Service Client SDK helps you implement your device regis
         cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
-    - For any other device (physical TPM/HSM, or a simulated X.509 certificate):
+    - For any other device (physical TPM/HSM/X.509, or a simulated X.509 certificate):
 
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
@@ -90,11 +90,14 @@ The next step is to extract the security artifacts for the attestation mechanism
 
 ### Physical device 
 
-If you built the SDK to use attestation from a physical TPM/HSM:
+If you built the SDK to use attestation from a physical TPM/HSM or X.509 certificates:
 
 - For a TPM device, you need to determine the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
 
-- For an X.509 device, you need to obtain the certificates issued to your device(s) - end-entity certificates for individual device enrollments, while root certificates for group enrollments of devices. 
+- For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types of enrollment entries that you can use to control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
+
+    1. Individual enrollments : This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
+    2. Enrollment groups : This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### Simulated device
 
