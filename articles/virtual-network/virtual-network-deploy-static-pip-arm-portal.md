@@ -25,7 +25,6 @@ ms.custom: H1Hack27Feb2017
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Template](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -48,7 +47,7 @@ To create a VM with a static public IP address in the Azure portal, complete the
 5. In the **Choose a size** pane, click **A1 Standard** as follows, and then click **Select**.
    
     ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. In the **Settings** pane, click **Public IP address**, then in the **Create public IP address** pane, under **Assignment**, click **Static** as as follows. And, then click **OK**.
+6. In the **Settings** pane, click **Public IP address**, then in the **Create public IP address** pane, under **Assignment**, click **Static** as follows. And, then click **OK**.
    
     ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. In the **Settings** pane, click **OK**.

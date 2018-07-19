@@ -1,22 +1,15 @@
 ---
 title: Azure solutions for Internet of Things (IoT Edge) | Microsoft Docs
 description: Overview of a sample IoT solution architecture and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-
 ---
+
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Next steps
@@ -34,7 +27,7 @@ To learn about the components that enable IoT Edge, see [How Azure IoT Edge work
 If you haven't used Azure IoT Hub before, you might want to start with an [Overview of the Azure IoT Hub service][lnk-iot-hub].
 
 [lnk-deployment]: module-deployment-monitoring.md
-[lnk-overview]: how-iot-edge-works.md
+[lnk-overview]: about-iot-edge.md
 [lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/

@@ -10,11 +10,12 @@ editor: cgronlun
 
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 011/01/2017
+ms.date: 11/01/2017
 
 ---
 # Troubleshooting the retraining of an Azure Machine Learning Classic web service

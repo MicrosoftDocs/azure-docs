@@ -4,7 +4,7 @@ description: Create Azure Resource Manager templates for deploying logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee

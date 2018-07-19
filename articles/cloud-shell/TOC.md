@@ -5,19 +5,19 @@
 ## [PowerShell - Quickstart](quickstart-powershell.md)
 
 # Features & tooling
-## [Bash - Features & tools](features.md)
-## [PowerShell - Features & tools](features-powershell.md)
+## [Features & tools](features.md)
 
 # How-to
-## [Bash - Persisting storage](persisting-shell-storage.md)
-## [PowerShell - Persisting storage](persisting-shell-storage-powershell.md)
+## [Persisting storage](persisting-shell-storage.md)
 ## [Using the window](using-the-shell-window.md)
+## [PowerShell Cloud Shell for Windows users](cloud-shell-windows-users.md)
 
 # Examples
 ## [Bash - Create resources with Terraform](example-terraform-bash.md)
 ## [Bash - Run Ansible playbooks](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Embed Cloud Shell](embed-cloud-shell.md)
+# [Use MSI in Cloud Shell](msi-authorization.md)
 
 # [Troubleshooting & limitations](troubleshooting.md)
 

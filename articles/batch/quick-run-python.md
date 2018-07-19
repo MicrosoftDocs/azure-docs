@@ -27,7 +27,7 @@ This quickstart runs an Azure Batch job from an application built on the Azure B
 
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
-* An Azure Batch account and a linked general-purpose Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Sign in to Azure
 
@@ -159,7 +159,7 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04.0-LTS",
+            sku="16.04-LTS",
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),

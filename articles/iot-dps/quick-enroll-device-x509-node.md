@@ -1,17 +1,14 @@
 ---
 title: Enroll X.509 device to Azure Device Provisioning Service using Node.js | Microsoft Docs
 description: Azure Quickstart - Enroll X.509 device to Azure IoT Hub Device Provisioning Service using Node.js service SDK
-services: iot-dps 
-keywords: 
-author: JimacoMS2
-ms.author: v-jamebr
+author: bryanla
+ms.author: bryanla
 ms.date: 12/21/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
- 
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
 ---
  

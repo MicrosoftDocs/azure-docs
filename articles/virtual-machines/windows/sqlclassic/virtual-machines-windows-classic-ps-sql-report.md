@@ -3,7 +3,7 @@ title: Use PowerShell to Create a VM With a Native Mode Report Server | Microsof
 description: 'This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. '
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Use PowerShell to Create an Azure VM With a Native Mode Report Server

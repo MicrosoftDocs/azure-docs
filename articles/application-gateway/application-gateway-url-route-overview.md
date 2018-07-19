@@ -3,8 +3,8 @@ title: URL-based content routing overview | Microsoft Docs
 description: This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule .
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: 
 
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # URL Path Based Routing overview

@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 6/15/2018
 ms.author: brenduns
 ms.reviewer:
 
 ---
+
 # PaaS services for Azure Stack
 
 You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. If you want to be notified of new services, follow #AzureStack on Twitter.
@@ -27,7 +28,3 @@ You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what
 [Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
 [Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
-
-
-
-

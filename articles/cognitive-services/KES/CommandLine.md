@@ -4,9 +4,8 @@ description: Use the KES command-line interface to build index and grammar files
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: paulhsu
@@ -22,7 +21,9 @@ The KES command line interface provides the ability to build index and grammar f
 * describe_grammar
 
 <a name="build_index-command"></a>
+
 ## build_index Command
+
 The **build_index** command builds a binary index file from a schema definition file and a data file of objects to be indexed.  The resulting index file can be used to evaluate structured query expressions, or to generate interpretations of natural language queries in conjunction with a compiled grammar file.
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
@@ -45,7 +46,9 @@ By default, the index is built on the local machine.  Outside of the Azure envir
 > For faster builds, presort the objects in the data file by decreasing probability.
 
 <a name="build_grammar-command"></a>
+
 ## build_grammar Command
+
 The **build_grammar** command compiles a grammar specified in XML to a binary grammar file.  The resulting grammar file can be used in conjunction with an index file to generate interpretations of natural language queries.
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
@@ -58,7 +61,9 @@ The **build_grammar** command compiles a grammar specified in XML to a binary gr
 These files may be specified by local file paths or URL paths to Azure blobs.  The grammar specification describes the set of weighted natural language expressions and their semantic interpretations (see [Grammar Format](GrammarFormat.md)).  When the build succeeds, the output grammar file contains a binary representation of the grammar specification to enable fast decoding.
 
 <a name="host_service-command"/>
+
 ## host_service Command
+
 The **host_service** command hosts an instance of the KES service on the local machine.
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
@@ -74,7 +79,9 @@ These files may be specified by local file paths or URL paths to Azure blobs.  A
 Outside of the Azure environment, locally hosted services are limited to index files up to 1 MB in size, 10 requests per second, and 1000 total calls.  To overcome these limitations, run **host_service** inside an Azure VM, or deploy to an Azure cloud service using **deploy_service**.
 
 <a name="deploy_service-command"/>
+
 ## deploy_service Command
+
 The **deploy_service** command deploys an instance of the KES service to an Azure cloud service.
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
@@ -92,7 +99,9 @@ These files may be specified by local file paths or URL paths to Azure blobs.  S
 By default, the service is deployed to the staging environment, optionally overridden via the --slot parameter.  See [Web APIs](WebAPI.md) for a list of supported operations.
 
 <a name="describe_index-command"/>
+
 ## describe_index command
+
 The **describe_index** command outputs information about an index file, including the schema and description.
 
 `kes.exe describe_index <indexFile>`
@@ -104,7 +113,9 @@ The **describe_index** command outputs information about an index file, includin
 This file may be specified by a local file path or a URL path to an Azure blob.  The output description string can be specified using the --description parameter of the **build_index** command.
 
 <a name="describe_grammar-command"/>
+
 ## describe_grammar command
+
 The **describe_grammar** command outputs the original grammar specification used to build the binary grammar.
 
 `kes.exe describe_grammar <grammarFile>`

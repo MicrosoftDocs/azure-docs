@@ -4,7 +4,7 @@ description: Create and run custom code for Azure Logic Apps with Azure Function
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
@@ -84,7 +84,7 @@ You can also create a node.js webhook function from the designer.
 First, select **Azure Functions in my Region,** 
 and then choose a container for your function. 
 If you don't yet have a container, you need to create one from the 
-[Azure Functions portal](https://functions.azure.com/signin). 
+[Azure Functions portal](https://functions.azure.com/). 
 Then select **Create New**.  
 
 To generate a template based on the data that you want to compute, 

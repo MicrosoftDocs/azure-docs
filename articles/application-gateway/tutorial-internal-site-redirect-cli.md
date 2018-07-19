@@ -2,8 +2,8 @@
 title: Create an application gateway with internal redirection - Azure CLI | Microsoft Docs
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
-ms.author: davidmu
+ms.date: 7/14/2018
+ms.author: victorh
 
 ---
 # Create an application gateway with internal redirection using the Azure CLI
@@ -187,7 +187,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

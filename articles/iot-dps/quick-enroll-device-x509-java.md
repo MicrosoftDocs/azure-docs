@@ -1,17 +1,14 @@
 ---
 title: Enroll X.509 devices to Azure Device Provisioning Service using Java | Microsoft Docs
 description: Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service using Java service SDK
-services: iot-dps 
-keywords: 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
 ---
 
@@ -52,7 +49,12 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 ## Download and modify the Java sample code
 
-This section shows how to add the provisioning details of your X.509 device to the sample code. 
+This section uses a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+The following steps show how to add the provisioning details of your X.509 device to the sample code. 
 
 1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
     

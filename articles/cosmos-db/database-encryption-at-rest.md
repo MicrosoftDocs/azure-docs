@@ -4,14 +4,10 @@ description: Learn how Azure Cosmos DB provides default encryption of all data.
 services: cosmos-db
 author: voellm
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: voellm
 
@@ -63,4 +59,4 @@ A: The emulator is a standalone dev/test tool and does not use the key managemen
 ## Next steps
 
 For an overview of Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](database-security.md).
-For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).
+For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

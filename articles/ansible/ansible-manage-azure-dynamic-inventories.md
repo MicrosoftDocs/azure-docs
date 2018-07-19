@@ -23,7 +23,7 @@ Ansible can be used to pull inventory information from various sources (includin
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Open [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
 

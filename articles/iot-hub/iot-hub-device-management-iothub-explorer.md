@@ -1,23 +1,17 @@
 ---
 title: Azure IoT device management with iothub-explorer | Microsoft Docs
 description: Use the iothub-explorer CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: 'azure iot device management, azure iot hub device management, device management iot, iot hub device management'
-
-ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
+author: rangv
+manager: nasing
+keywords: azure iot device management, azure iot hub device management, device management iot, iot hub device management
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/12/2017
-ms.author: xshi
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 4/11/2018
+ms.author: rangv
 ---
+
 # Use iothub-explorer for Azure IoT Hub device management
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)

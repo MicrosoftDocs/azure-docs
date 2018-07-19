@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government DoD Overview | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
@@ -111,7 +111,7 @@ Azure is an evergreen service where new services and capabilities are being adde
 
 <a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
 
-<a href="https://azure.microsoft.com/en-us/offers/azure-government/"> Azure Government Reseller Channels
+<a href="https://azure.microsoft.com/offers/azure-government/"> Azure Government Reseller Channels
 
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

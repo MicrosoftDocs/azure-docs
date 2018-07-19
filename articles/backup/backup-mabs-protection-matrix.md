@@ -1,16 +1,13 @@
 ---
-title: What can Azure Backup Server back up | Microsoft Docs
-description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v2 protects.  
+title: What can Azure Backup Server back up
+description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v2 protects.
 services: backup
-documentation center: ''
 author: markgalioto
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-keywords:  
+keywords: 
 ms.date: 11/28/2017
-ms.topic: article
-ms.author: markgal,masaran
+ms.topic: conceptual
+ms.author: markgal
 manager: carmonm
 ---
 

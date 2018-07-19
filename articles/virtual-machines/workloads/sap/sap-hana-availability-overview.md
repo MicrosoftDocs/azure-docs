@@ -65,8 +65,8 @@ Measure your availability requirement against the SLAs that Azure components can
 
 ## Next steps
 
-- Learn about [SAP HANA availability within one Azure region](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
-- Learn about [SAP HANA availability across Azure regions](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
+- Learn about [SAP HANA availability within one Azure region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
+- Learn about [SAP HANA availability across Azure regions](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
 
 
 

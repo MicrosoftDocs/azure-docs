@@ -1,11 +1,11 @@
----
+﻿---
 title: ' Manage the configuration server for physical server disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to manage an existing configuration server for physical server disaster recovery to Azure, with the Azure Site Recovery service.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
 ---
 
@@ -20,7 +20,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 | **Component** | **Requirement** |
 | --- |---|
 | CPU cores| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback |
 | Disk free space (process server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|
@@ -32,7 +32,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 | IIS | - No pre-existing default website <br> - Enable  [Anonymous Authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br> - No pre-existing website/application listening on port 443<br>|
 | NIC type | VMXNET3 (when deployed as a VMware VM) |
 | IP address type | Static |
-| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
+| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 
 ## Download the latest installation file
@@ -93,7 +93,7 @@ Run the installation file as follows:
 
 ### Sample usage
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Select the subscription under which the vault is present
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

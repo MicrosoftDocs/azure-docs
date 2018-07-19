@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
 
 ---
@@ -27,15 +27,15 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-  automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/)
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
 * **Client computer** - You need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
 * **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the
-  latest version of HPC Pack (HPC Pack 2012 R2) is available from the
+  latest version of HPC Pack is available from the
   [Microsoft Download
-  Center](http://go.microsoft.com/fwlink/?LinkId=328024). Make sure that you
+  Center](https://www.microsoft.com/download/details.aspx?id=56360). Make sure that you
   download the same version of HPC Pack that is installed on the head node
   VM.
 
@@ -51,8 +51,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
-> you can optionally install and configure the web components as part of the deployment.
+> Certain Azure quickstart templates for HPC Pack clusters install and configure the web components automatically.
 > 
 > 
 
@@ -96,7 +95,7 @@ Components](http://technet.microsoft.com/library/hh314627.aspx).
 ## Step 2: Install the HPC Pack client utilities on an on-premises computer
 If you want to install the HPC Pack client utilities on your computer, download the
 HPC Pack setup files (full installation) from the [Microsoft Download
-Center](http://go.microsoft.com/fwlink/?LinkId=328024). When you begin the installation, choose the setup option for the **HPC Pack client utilities**.
+Center](https://www.microsoft.com/download/details.aspx?id=56360). When you begin the installation, choose the setup option for the **HPC Pack client utilities**.
 
 To use the HPC Pack client tools to submit jobs to the head node VM, you also need to export a certificate from the head node and install it on the client computer. The certificate must be in .CER format.
 
@@ -104,7 +103,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you also ne
 
 1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. In the console tree, expand **Certificates – Local Computer** > **Personal**, and then click **Certificates**.
-3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. Right-click the certificate, and click **All Tasks** > **Export**.
 5. In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
 6. Follow the remaining steps of the wizard to export the certificate in DER encoded binary X.509 (.CER) format.

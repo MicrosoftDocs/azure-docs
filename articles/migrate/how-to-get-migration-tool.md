@@ -4,7 +4,7 @@ description: Describes how to get recommendations for migrating machines after y
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 06/19/2018
 ms.author: raynew
 ---
 

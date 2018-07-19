@@ -2,8 +2,7 @@
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight | Microsoft Docs
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,12 +10,9 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 06/26/2018
+ms.author: omidm
 
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -35,8 +31,6 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 > [!NOTE]
 > Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisites
 
@@ -105,6 +99,9 @@ Because this workflow uses Sqoop to export data to the SQL database, you must pr
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
+
+> [!NOTE]
+> You may receive a message that the file already exists.
 
 If your workflow used other resources, such as a jar that contains a MapReduce application, you need to add those resources as well.
 
@@ -768,7 +765,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

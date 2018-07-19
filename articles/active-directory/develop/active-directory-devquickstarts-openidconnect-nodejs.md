@@ -3,21 +3,23 @@ title: Azure AD Node.js web app getting started | Microsoft Docs
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: nacanuma
+ms.date: 04/20/2018
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-
 ---
+
 # Azure AD Node.js web app getting started
 Here we use Passport to:
 
@@ -34,7 +36,7 @@ To do this, take the following steps:
 3. Use Passport to issue sign-in and sign-out requests to Azure AD.
 4. Print data about the user.
 
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -52,10 +54,17 @@ The completed application is provided at the end of this tutorial as well.
 5. Follow the prompts to create a **Web Application** and/or **WebAPI**.
   * The **name** of the application describes your application to users.
 
-  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return`.
+  * The **Sign-On URL** is the base URL of your app. The skeleton's default is `http://localhost:3000/auth/openid/return`.
 
 6. After you register, Azure AD assigns your app a unique application ID. You need this value in the following sections, so copy it from the application page.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+
+8. From the **Settings** -> **Reply URLs** page for your application, add the URL added in Sign-on URL from Step 5 and click on Save.
+
+9. To create a secret key, follow step 4 in [To add application credentials, or permissions to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+   > [!IMPORTANT]
+   > Copy the application key value. This is the value for the `clientSecret`, which you'll need for **Step 3** below. 
 
 ## Step 2: Add prerequisites to your directory
 1. From the command line, change directories to your root folder if you're not already there, and then run the following commands:
@@ -75,13 +84,13 @@ The completed application is provided at the end of this tutorial as well.
 This installs the libraries that `passport-azure-ad` depends on.
 
 ## Step 3: Set up your app to use the passport-node-js strategy
-Here, we configure Express to use the OpenID Connect authentication protocol.  Passport is used to do various things, including issue sign-in and sign-out requests, manage the user's session, and get information about the user.
+Here, we configure Express to use the OpenID Connect authentication protocol. Passport is used to do various things, including issue sign-in and sign-out requests, manage the user's session, and get information about the user.
 
 1. To begin, open the `config.js` file at the root of the project, and then enter your app's configuration values in the `exports.creds` section.
 
   * The `clientID` is the **Application Id** that's assigned to your app in the registration portal.
 
-  * The `returnURL` is the **Redirect Uri** that you entered in the portal.
+  * The `returnURL` is the **Reply URL** that you entered in the portal.
 
   * The `clientSecret` is the secret that you generated in the portal.
 
@@ -178,7 +187,7 @@ The previous code takes any user that happens to authenticate to our server. Thi
             };
     ```
 
-5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
+5. Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
 
     ```JavaScript
 
@@ -249,7 +258,7 @@ The previous code takes any user that happens to authenticate to our server. Thi
 
 
 ## Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
+Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol. `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
 
 1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
 
@@ -279,7 +288,7 @@ Your app is now properly configured to communicate with the endpoint by using th
 
     ```
 
-2.  Let's review these in detail:
+2. Let's review these in detail:
 
   * The `/`route redirects to the index.ejs view, passing the user in the request (if it exists).
   * The `/account` route first *ensures we are authenticated* (we implement that in the following example), and then passes the user in the request so that we can get additional information about the user.
@@ -328,7 +337,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
 2. Create the `/routes/user.js` route under the root directory.
 
-                ```JavaScript
+    ```JavaScript
                 /*
                  * GET users listing.
                  */
@@ -336,7 +345,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-                ```
+    ```
 
  These pass along the request to our views, including the user if present.
 
@@ -353,7 +362,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <% } %>
     ```
 
-4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
+4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azure-ad` has put in the user request.
 
     ```Javascript
     <% if (!user) { %>

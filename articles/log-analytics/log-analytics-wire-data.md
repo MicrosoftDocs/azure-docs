@@ -3,7 +3,7 @@ title: Wire Data solution in Log Analytics | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with OMS agents, including Operations Manager and Windows-connected agents. Network data is combined with your log data to help you correlate data.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: magoedte
-
+ms.component: na
 ---
 
 # Wire Data 2.0 (Preview) solution in Log Analytics
@@ -55,8 +55,8 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [OMS Agent](log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [OMS Agent](log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [OMS Agent](log-analytics-windows-agent.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [OMS Agent](log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](log-analytics-om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. Data is forwarded from the management group to Log Analytics. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -377,7 +377,7 @@ After you have agents installed and you install the solution, the Wire Data 2.0 
 
 ## Using the Wire Data 2.0 solution
 
-In the OMS portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the blades in the following table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
+In the **Overview** page for your Log Analytics workspace in the Azure portal, click the **Wire Data 2.0** tile to open the Wire Data dashboard. The dashboard includes the blades in the following table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
 
 | **Blade** | **Description** |
 | --- | --- |

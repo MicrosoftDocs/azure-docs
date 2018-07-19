@@ -3,13 +3,12 @@ title: Manage versions in LUIS apps in Azure | Microsoft Docs
 description: Learn how to manage versions in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Manage versions
@@ -24,7 +23,7 @@ To work with versions, open your app by selecting its name on **My Apps** page, 
 The **Settings** page allows you to configure settings for the entire app including versions, and collaborators. 
 
 ## Clone a version
-1. On the **Settings** page, after the App Settings and Collaborators sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
+1. On the **Settings** page, after the App Settings and Collaborators sections, find the row with the version you want to clone. Select the ellipsis (***...***) button on the far-right. 
 
     ![Version row properties](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -47,7 +46,7 @@ The **Settings** page allows you to configure settings for the entire app includ
  > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
 
 ## Set active version
-1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the ellipsis (***...***) button at the far right.
 
 2. From the pop-up list, select **Set as active**.
 
@@ -78,14 +77,14 @@ You can export a version to a JSON file.
 
 **To export a version:**
 
-1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the ellipsis (***...***) button at the far right.
 
 2. Select **Export** in the pop-up list of actions and select where you want to save the file.
 
 ## Delete a version
 You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
 
-1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the ellipsis (***...***) button at the far right.
 
 2. Select **Delete** in the pop-up list of actions and select where you want to save the file.
 
@@ -95,7 +94,7 @@ You can delete versions, but you have to keep at least one version of the app. Y
 ## Rename a version
 You can rename versions as long as the version name is not already in use.  
 
-1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the ellipsis (***...***) button at the far right.
 
 2. Select **Rename** in the pop-up list of actions.
 

@@ -2,22 +2,16 @@
 title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark | Microsoft Docs'
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-
 ---
 # Use Azure Toolkit for Eclipse to create Spark applications for an HDInsight cluster
 
@@ -41,8 +35,10 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 
 
 ## Install HDInsight Tools in Azure Toolkit for Eclipse and the Scala plug-in
+
 ### Install Azure Toolkit for Eclipse
 HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
+
 ### Install the Scala plug-in
 When you open Eclipse, HDInsight Tool automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
@@ -69,8 +65,9 @@ User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscript
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## Link a cluster
-You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
-1. Click **Link a cluster** from **Azure Explorer**.
+You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as user1@contoso.com.
+
+1. Select **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
@@ -228,13 +225,15 @@ To resolve this error, you need [download the executable](http://public-repo-1.h
    ![Spark application local run result](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## Known problems
-To submit an application to Azure Data Lake Store, select **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you might get an error.
+When link a cluster, I would suggest you to provide credential of storage.
 
-![Interactive sign-in](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Interactive sign-in](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-You can choose an Azure Data Lake cluster to submit your application with any sign-in method.
+There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
 
-Currently, viewing Spark outputs directly is not supported.
+![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## Feedback
 If you have any feedback, or if you encounter any other problems when using this tool, send us an email at hdivstool@microsoft.com.

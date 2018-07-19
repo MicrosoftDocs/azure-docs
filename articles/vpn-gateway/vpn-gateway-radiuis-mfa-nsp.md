@@ -24,7 +24,7 @@ The article describes how to integrate Network Policy Server (NPS) with Azure VP
 
 ## Prerequisite
 
-To enable MFA, the users must be in Azure Active Directory (Azure AD), which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+To enable MFA, the users must be in Azure Active Directory (Azure AD), which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Detailed steps
 
@@ -47,7 +47,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
  
 ### Step 2 Configure the NPS for Azure MFA
 
-1. On the NPS server, [install the NPS extension for Azure MFA](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
+1. On the NPS server, [install the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Open the NSP console, right-click **RADUIS Clients**, and then select **New**. Create the RADUIS client by specifying the following settings:
 
     - **Friendly Name**: Type any name.
@@ -77,5 +77,5 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 
 ## Next steps
 
-- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
-- [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
+- [Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-nps-extension.md)

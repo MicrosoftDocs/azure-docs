@@ -1,21 +1,13 @@
 ---
-title: Restore data in Azure to a Windows Server or Windows computer | Microsoft Docs
+title: Restore data in Azure to a Windows Server or Windows computer
 description: Learn how to restore data stored in Azure to a Windows Server or Windows computer.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
-ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: saurse;trinadhk;markgal;
-
+ms.author: saurse
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 

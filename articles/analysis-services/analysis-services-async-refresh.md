@@ -1,21 +1,13 @@
 ---
 title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Learn how to code asynchronous refresh by using REST API.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Asynchronous refresh with the REST API
@@ -101,7 +93,7 @@ Specifying parameters is not required. The default is applied.
 
 |Name  |Type  |Description  |Default  |
 |---------|---------|---------|---------|
-|Type     |  Enum       |  The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, add, and defragment.       |   automatic      |
+|Type     |  Enum       |  The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
 |CommitMode     |  Enum       |  Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
 |MaxParallelism     |   Int      |  This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) or using other methods.       | 10        |
 |RetryCount    |    Int     |   Indicates the number of times the operation will retry before failing.      |     0    |
@@ -202,7 +194,7 @@ Here's a C# code sample to get you started, [RestApiSample on GitHub](https://gi
 1.	Clone or download the repo. Open the RestApiSample solution.
 2.	Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
 
-The code sample can use interactive login, username/password, or [service principal](#service-principle).
+The code sample can use interactive login, username/password, or [service principal](#service-principal).
 
 #### Interactive login or username/password
 
@@ -239,7 +231,7 @@ This form of authentication requires an Azure application be created with the ne
 
 #### Service principal
 
-See [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [Add a service principle to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
+See [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 
 1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
 2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.

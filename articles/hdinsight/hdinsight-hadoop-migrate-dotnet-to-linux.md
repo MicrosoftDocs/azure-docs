@@ -12,9 +12,7 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: 'dotnet'
-ms.topic: article
-ms.tgt_pltfrm: 'na'
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 

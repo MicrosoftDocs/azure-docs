@@ -12,8 +12,8 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 12/22/2017
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: genli
 
 ---

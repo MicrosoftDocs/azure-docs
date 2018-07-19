@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: shlo
 
 robots: noindex
@@ -24,13 +24,15 @@ robots: noindex
 > * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [monitor and manage Data Factory pipelines in](../monitor-visually.md).
+
+This article describes how to monitor, manage, and debug your pipelines by using Azure portal and PowerShell.
 
 > [!IMPORTANT]
 > The monitoring & management application provides a better support for monitoring and managing your data pipelines, and troubleshooting any issues. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md). 
 
-
-This article describes how to monitor, manage, and debug your pipelines by using Azure portal and PowerShell.
+> [!IMPORTANT]
+> Azure Data Factory version 1 now uses the new [Azure Monitor alerting infrastructure](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). The old alerting infrastructure is deprecated. As a result, your existing alerts configured for version 1 data factories no longer work. Your existing alerts for v1 data factories are not migrated automatically. You have to recreate these alerts on the new alerting infrastructure. Log in to the Azure portal and select **Monitor** to create new alerts on metrics (such as failed runs or successful runs) for your version 1 data factories.
 
 ## Understand pipelines and activity states
 By using the Azure portal, you can:
@@ -169,7 +171,7 @@ You can manage your pipelines by using Azure PowerShell. For example, you can pa
 > [!NOTE] 
 > The diagram view does not support pausing and resuming pipelines. If you want to use an user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
-You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed. 
+You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don't want to run your pipelines until an issue is fixed. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -194,7 +196,7 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## Debug pipelines
 Azure Data Factory provides rich capabilities for you to debug and troubleshoot pipelines by using the Azure portal and Azure PowerShell.
 
-> [!NOTE} 
+> [!NOTE] 
 > It is much easier to troubleshot errors using the Monitoring & Management App. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
 ### Find errors in a pipeline
@@ -295,6 +297,35 @@ The 'UpdateType' is set to 'UpstreamInPipeline', which means that statuses of ea
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## Create alerts in the Azure portal
+
+1.  Log in to the Azure portal and select **Monitor -> Alerts** to open the Alerts page.
+
+    ![Open the Alerts page.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Select **+ New Alert rule** to create a new alert.
+
+    ![Create a new alert](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Define the **Alert condition**. (Make sure to select **Data factories** in the **Filter by resource type** field.) You can also specify values for **Dimensions**.
+
+    ![Define the Alert Condition - Select target](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Define the Alert Condition - Add alert criteria](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Define the Alert Condition - Add alert logic](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Define the **Alert details**.
+
+    ![Define the Alert Details](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Define the **Action group**.
+
+    ![Define the Action Group - create a new Action group](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Define the Action Group - set properties](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Define the Action Group - new action group created](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## Move a data factory to a different resource group or subscription
 You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory.

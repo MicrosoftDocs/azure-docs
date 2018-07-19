@@ -6,7 +6,7 @@ author: bonova
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: bonova
 
@@ -50,5 +50,5 @@ For more information check out the following articles:
 * [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
-* [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
+ 
 

@@ -1,7 +1,7 @@
 ---
 title: Azure parent resource errors | Microsoft Docs
 description: Describes how to resolve errors when working with a parent resource.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: tomfitz
 

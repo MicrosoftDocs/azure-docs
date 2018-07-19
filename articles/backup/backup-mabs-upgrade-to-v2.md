@@ -1,20 +1,13 @@
 ---
-title: Install Azure Backup Server v2 | Microsoft Docs
+title: Install Azure Backup Server v2
 description: Azure Backup Server v2 gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server v2.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
+ms.author: adigan
 ---
 
 # Install Azure Backup Server v2
@@ -49,15 +42,15 @@ To upgrade from Backup Server v1 to Backup Server v2, make sure your installatio
 
 3. In the Microsoft Azure Backup Server wizard, under **Install**, select **Microsoft Azure Backup Server**.
 
-  ![Setup installer - Select install](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Setup installer - Select install](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. On the **Welcome** page, review the warnings, and then select **Next**.
 
-  ![Setup installer - Welcome page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Setup installer - Welcome page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. The setup wizard performs prerequisite checks to make sure your environment can upgrade. On the **Prerequisite Checks** page, select **Check**.
 
-  ![Setup installer - Prerequisite Checks page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Setup installer - Prerequisite Checks page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. Your environment must pass the prerequisite checks. If your environment doesn't pass the checks, note the issues and fix them. Then, select **Check Again**. After you pass the prerequisite checks, select **Next**.
 
@@ -65,11 +58,11 @@ To upgrade from Backup Server v1 to Backup Server v2, make sure your installatio
 
 7. On the **SQL Settings** page, select the relevant option for your SQL installation, and then select **Check and Install**.
 
-  ![Setup installer - SQL Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Setup installer - SQL Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   The checks might take a few minutes. When the checks are finished, select **Next**.
 
-  ![Setup installer - SQL Settings Check and Install button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Setup installer - SQL Settings Check and Install button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. On the **Installation Settings** page, make any changes to the location where Backup Server is installed, or to the Scratch Location. Select **Next**.
 

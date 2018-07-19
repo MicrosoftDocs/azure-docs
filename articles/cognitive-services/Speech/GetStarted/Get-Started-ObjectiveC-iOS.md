@@ -4,9 +4,8 @@ description: Use the Microsoft Speech Recognition API to develop iOS application
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: zhouwang

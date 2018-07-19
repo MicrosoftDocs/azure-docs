@@ -8,12 +8,13 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
 
 ---
@@ -43,7 +44,7 @@ To enable secure LDAP, perform the following configuration steps:
 4. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired. 
+5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired.
 
     > [!WARNING]
     > When you enable secure LDAP access over the internet, your domain is susceptible to password brute force attacks over the internet. Therefore, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -102,9 +103,26 @@ The following table illustrates a sample NSG you can configure, to lock down sec
 
 ![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**More information** - [Network security groups](../virtual-network/virtual-networks-nsg.md).
+**More information** - [Network security groups](../virtual-network/security-overview.md).
 
 <br>
+
+## Bind to the managed domain over LDAP using LDP.exe
+You can use the LDP.exe tool which is included in the Remote Server Administration tools package to bind and search over LDAP.
+
+First, open LDP and connect to the managed domain. Click **Connection** and click **Connect...** in the menu. Specify the DNS domain name of the managed domain. Specify the port to use for connections. For LDAP connections, use port 389. For LDAPS connections use port 636. Click **OK** button to connect to the managed domain.
+
+Next, bind to the managed domain. Click **Connection** and click **Bind...** in the menu. Provide the credentials of a user account belonging to the 'AAD DC Administrators' group.
+
+Select **View**, and then select **Tree** in the menu. Leave the Base DN field blank, and click OK. Navigate to the container that you want to search, right-click the container, and select Search.
+
+> [!TIP]
+> - Users and groups synchronized from Azure AD are stored in the **AADDC Users** container. The search path for this container looks like ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Computer accounts for computers joined to the managed domain are stored in the **AADDC Computers** container. The search path for this container looks like ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+More information - [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 
 
 ## Troubleshooting
@@ -124,6 +142,7 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 ## Related content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Network security groups](../virtual-network/virtual-networks-nsg.md)
-* [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Network security groups](../virtual-network/security-overview.md)
+* [Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md)

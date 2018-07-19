@@ -4,7 +4,7 @@ description: Overview of Twitter connector with REST API parameters
 services: ''
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

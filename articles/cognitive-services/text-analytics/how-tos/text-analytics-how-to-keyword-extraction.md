@@ -4,9 +4,8 @@ description: How to extract key phrases using the Text Analytics REST API in Mic
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 3/07/2018
 ms.author: heidist

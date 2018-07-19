@@ -91,7 +91,7 @@ Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

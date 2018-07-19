@@ -6,14 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1805 update
+      href: azure-stack-update-1805.md
+    - name: 1804 update
+      href: azure-stack-update-1804.md
     - name: 1803 update
       href: azure-stack-update-1803.md
     - name: 1802 update 
       href: azure-stack-update-1802.md 
-    - name: 1712 update
-      href: azure-stack-update-1712.md
-    - name: 1711 update
-      href: azure-stack-update-1711.md
 - name: Quickstarts
   expanded: true
   items:
@@ -52,17 +52,34 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+    - name: Identity integration
+      items:    
+      - name: Choose an identity provider
+        href: azure-stack-integrate-identity.md
+      - name: Validate Azure identity
+        href: azure-stack-validate-identity.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
-      - name: Get Azure Stack PKI certificates
+      - name: Generate PKI certificates
         href: azure-stack-get-pki-certs.md
       - name: Prepare Azure Stack PKI certificates
         href: azure-stack-prepare-pki-certs.md
-      - name: Validate Azure Stack PKI certificates
+      - name: Validate PKI certificates
         href: azure-stack-validate-pki-certs.md
-    - name: Identity integration
-      href: azure-stack-integrate-identity.md
+      - name: Remediate PKI certificates
+        href: azure-stack-remediate-certs.md
+    - name: Deployment resources
+      items:
+      - name: About deployment networking
+        href: deployment-networking.md
+    - name: Validate Azure registration
+      href: azure-stack-validate-registration.md
+      items:
+      - name: Start-AzsReadiness cmdlet reference
+        href: azure-stack-azsreadiness-cmdlet.md
+      - name: View the readiness report  
+        href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -97,8 +114,6 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - Cloud operator
         href: azure-stack-powershell-configure-admin.md
-      - name: Get up and running with PowerShell
-        href: azure-stack-powershell-configure-quickstart.md
     - name: Access privileged endpoint
       href: azure-stack-privileged-endpoint.md
     - name: Manage updates
@@ -113,8 +128,8 @@
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
-    - name: Manage Windows Azure Pack VMs
-      href: azure-stack-manage-windows-azure-pack.md
+    - name: Change user subscription owner
+      href: azure-stack-change-subscription-owner.md
     - name: Start and stop Azure Stack
       href: azure-stack-start-and-stop.md
     - name: Manage capacity
@@ -123,7 +138,7 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Manage storage capacity
           href: azure-stack-manage-storage-shares.md
-        - name: Manage physical storage capacity for Azure Stack
+        - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
     - name: Replace hardware
       items:
@@ -144,6 +159,8 @@
         href: azure-stack-backup-enable-backup-powershell.md
       - name: Back up Azure Stack
         href: azure-stack-backup-back-up-azure-stack.md
+      - name: Back up files and applications on Azure Stack
+        href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
       - name: Recover from catastrophic data loss
         href: azure-stack-backup-recover-data.md
       - name: Backup best practices
@@ -172,6 +189,8 @@
         href: azure-stack-enable-multitenancy.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
+    - name: Update antivirus
+      href: azure-stack-security-av.md
   - name: Offer services
     items:
     - name: Overview of offering services
@@ -182,6 +201,8 @@
         href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
+      - name: Create an add-on plan
+        href: create-add-on-plan.md
       - name: Create an offer
         href: azure-stack-create-offer.md
       - name: Subscribe to an offer
@@ -190,18 +211,38 @@
         href: azure-stack-delegated-provider.md
       - name: Quota types
         href: azure-stack-quota-types.md
-    - name: Offer SQL or MySQL as PaaS
+    - name: PaaS services overview
+      href: azure-stack-tools-paas-services.md
+    - name: Offer SQL as PaaS
+      href: azure-stack-sql-resource-provider.md
       items:
-      - name: PaaS services overview
-        href: azure-stack-tools-paas-services.md
-      - name: Deploy MySQL resource provider
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: Deploy SQL resource provider
+      - name: Deploy the SQL Server resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Add hosting servers
+      - name: Add SQL hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
       - name: Create SQL databases
         href: azure-stack-sql-resource-provider-databases.md
+      - name: Update the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-update.md   
+      - name: Maintain the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-maintain.md                  
+      - name: Remove the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-remove.md 
+    - name: Offer MySQL as PaaS
+      href: azure-stack-mysql-resource-provider.md
+      items:
+      - name: Deploy the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-deploy.md
+      - name: Add MySQL hosting servers
+        href: azure-stack-mysql-resource-provider-hosting-servers.md
+      - name: Create MySQL Databases
+        href: azure-stack-mysql-resource-provider-databases.md
+      - name: Update the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-update.md
+      - name: Maintain MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-maintain.md
+      - name: Remove the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-remove.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -226,6 +267,10 @@
         href: azure-stack-app-service-configure-deployment-sources.md
       - name: App Service on Azure Stack update 1 release notes
         href: azure-stack-app-service-release-notes-update-one.md
+      - name: App Service on Azure Stack update 2 release notes
+        href: azure-stack-app-service-release-notes-update-two.md
+    - name: Deploy Ethereum
+      href: azure-stack-ethereum.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
@@ -246,16 +291,20 @@
         href: azure-stack-compute-add-scalesets.md
       - name: Offer Linux virtual machines
         href: azure-stack-linux.md
+      - name: Add a Red Hat virtual machine
+        href: azure-stack-redhat-create-upload-vhd.md
+      - name: Offer a Kubernetes Cluster
+        href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
+      href: azure-stack-billing-and-chargeback.md
       items:
-      - name: Overview
-        href: azure-stack-billing-and-chargeback.md
       - name: Manage usage and billing as a CSP
         href: azure-stack-add-manage-billing-as-a-csp.md
-      - name: Add tenants for usage and billing 
-        href: azure-stack-csp-howto-register-tenants.md
-      - name: Manage tenant registration
-        href: azure-stack-csp-ref-operations.md
+        items:
+        - name: Add tenants for usage and billing 
+          href: azure-stack-csp-howto-register-tenants.md
+        - name: Manage tenant registration
+          href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:
         - name: Usage data reporting
@@ -286,8 +335,6 @@
       href: azure-stack-diagnostics.md
     - name: Validation for Azure Stack
       href: azure-stack-diagnostic-test.md
-    - name: Redeploy Azure Stack Development Kit
-      href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell

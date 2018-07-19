@@ -4,7 +4,7 @@ description: This tutorial describes options for authoring and configuring a bas
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 
@@ -26,9 +26,9 @@ It describes additional features of Git deployment, such as virtual environment 
 ## Bottle, Django, or Flask?
 The Azure Marketplace contains templates for the Bottle, Django, and Flask frameworks. If you are developing your first web app in Azure App Service, you can create one quickly from the Azure portal:
 
-* [Creating web apps with Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Creating web apps with Django](https://portal.azure.com/#create/PTVS.Django)
-* [Creating web apps with Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Web app with Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Web app with Django](https://portal.azure.com/#create/PTVS.Django)
+* [Web app with Flask on Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## Web app creation on Azure portal
 This tutorial assumes an existing Azure subscription and access to the Azure portal.
@@ -346,8 +346,11 @@ Contents of `ptvs_virtualenv_proxy.py`:
 ## Troubleshooting - Virtual Environment
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## Troubleshooting - Startup Errors
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## Next steps
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](/python/azure/).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

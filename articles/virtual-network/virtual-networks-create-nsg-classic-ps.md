@@ -3,8 +3,8 @@ title: Create a network security group (classic) using PowerShell | Microsoft Do
 description: Learn how to create and deploy a network security group (classic) using PowerShell
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # Create a network security group (classic) using PowerShell

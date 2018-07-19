@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
 
@@ -31,7 +31,7 @@ This article does not show how to deploy a Resource Manager template to your sub
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+To install and use the CLI locally, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Set subscription
 
@@ -224,4 +224,4 @@ For both commands, you are asked to confirm that you wish to remove the resource
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy-cli.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

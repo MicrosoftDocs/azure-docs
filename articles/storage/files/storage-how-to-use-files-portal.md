@@ -4,8 +4,8 @@ description: Learn to use the Azure portal to manage Azure Files.
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: 
+manager: aungoo
+editor: tamram
 
 ms.assetid: 
 ms.service: storage
@@ -44,10 +44,10 @@ To create a file share:
 4. In **Name** type *myshare*.
 5. Click **OK** to create the Azure file share.
 
-## Manipulating the contents of the Azure file share
-Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
+## Work with the contents of the Azure file share
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
 
-### Create directory
+### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share:
 
 1. On the **File Service** page, select the **myshare** file share. The page for your file share opens.
@@ -71,7 +71,7 @@ You can download a copy of the file you uploaded by right clicking on the file. 
 
 ## Create and modify share snapshots
 One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point-in-time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 

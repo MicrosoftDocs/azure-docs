@@ -60,7 +60,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 1. Open Azure PowerShell and sign in to your Azure account.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     A pop-up window opens for you to enter your Azure account credentials.
@@ -76,6 +76,11 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
     ```
 
 ## Deallocate the VM and set the state to generalized
+
+> [!IMPORTANT] 
+> You cannot add, edit or remove tags from a VM once it is marked as generalized. If you want to add a tag to the VM, make sure you add the tags before marking it as generalized.
+> 
+
 1. Deallocate the VM resources.
    
     ```powershell

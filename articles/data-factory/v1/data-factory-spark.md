@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
@@ -33,7 +33,7 @@ robots: noindex
 > * [.NET custom activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Transform data by using the Apache Spark activity in Data Factory version 2](../transform-data-using-spark.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Transform data by using the Apache Spark activity in Data Factory](../transform-data-using-spark.md).
 
 ## Introduction
 The Spark activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Data Factory. This activity runs the specified Spark program on your Spark cluster in Azure HDInsight. 
@@ -81,7 +81,7 @@ To create a data factory, follow these steps:
 7. Select **Create**.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 
 8. You see the data factory as it is created in the dashboard of the Azure portal.
 

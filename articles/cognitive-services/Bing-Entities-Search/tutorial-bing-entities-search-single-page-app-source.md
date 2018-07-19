@@ -4,9 +4,8 @@ description: Source code for tutorial showing how to use the Bing Image Search A
 services: cognitive-services
 author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin

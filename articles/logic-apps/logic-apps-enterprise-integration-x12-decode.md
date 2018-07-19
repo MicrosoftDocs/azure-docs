@@ -4,7 +4,7 @@ description: Validate EDI and generate acknowledgements with the X12 message dec
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131

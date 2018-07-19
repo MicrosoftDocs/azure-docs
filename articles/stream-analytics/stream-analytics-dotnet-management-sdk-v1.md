@@ -40,7 +40,7 @@ Before you begin this article, you must have the following:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Set up an input source and output target to use. For further instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to set up a sample output.
+* Set up an input source and output target for the job to connect to.
 
 ## Set up a project
 To create an analytics job use the Stream Analytics API for .NET, first set up your project.

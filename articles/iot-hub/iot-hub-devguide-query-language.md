@@ -1,23 +1,16 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
-description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device twins and jobs from your IoT hub.
-services: iot-hub
-documentationcenter: .net
+description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-
 ---
-# IoT Hub query language for device twins, jobs, and message routing
+
+# IoT Hub query language for device and module twins, jobs, and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 
@@ -26,9 +19,9 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## Device twin queries
-[Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins as a single JSON document containing all device twin information.
-Assume, for instance, that your IoT hub device twins have the following structure:
+## Device and module twin queries
+[Device twins][lnk-twins] and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
 ```json
 {
@@ -79,6 +72,8 @@ Assume, for instance, that your IoT hub device twins have the following structur
     }
 }
 ```
+
+### Device twin queries
 
 IoT Hub exposes the device twins as a document collection called **devices**.
 So the following query retrieves the whole set of device twins:
@@ -155,6 +150,26 @@ Projection queries allow developers to return only the properties they care abou
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### Module twin queries
+
+Querying on module twins is similar to query on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query
+
+```sql
+SELECT * FROM devices.modules
+```
+
+We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do do it based on tags. This query will return all module twins across all devices with the scanning status:
+
+```sql
+Select * from devices.modules where properties.reported.status = 'scanning'
+```
+
+This query will return all module twins with the scanning status, but only on the specified subset of devices.
+
+```sql
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### C# example

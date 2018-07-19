@@ -1,26 +1,23 @@
 ---
-title: How to use Azure Storage Table service or Azure Cosmos DB Table API from PHP | Microsoft Docs
-description: Learn how to use the Table service API from PHP to create and delete a table, and insert, delete, and query the table.
+title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP | Microsoft Docs
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
 ---
-# How to use Azure Storage Table service or Cosmos DB Table API from PHP
+# How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Storage Table service and Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
+This guide shows you how to perform common scenarios using the Azure Storage Table service and the Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 
 ## Create an Azure service account

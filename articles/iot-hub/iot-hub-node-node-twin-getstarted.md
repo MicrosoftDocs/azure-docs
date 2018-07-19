@@ -1,22 +1,16 @@
 ---
 title: Get started with Azure IoT Hub device twins (Node) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT SDKs for Node.js to implement the simulated device app and a service app that adds the tags and runs the IoT Hub query.
-services: iot-hub
-documentationcenter: node
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
+manager: 
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-
 ---
+
 # Get started with device twins (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 

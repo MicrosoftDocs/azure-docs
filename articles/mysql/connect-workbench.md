@@ -6,7 +6,7 @@ author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018

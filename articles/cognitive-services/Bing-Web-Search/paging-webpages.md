@@ -4,10 +4,9 @@ description: Shows how to page through all of the webpages that Bing can return.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

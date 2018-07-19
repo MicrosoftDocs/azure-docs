@@ -270,7 +270,7 @@ Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-In the left browser, click **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_&lt;back\_end\_app\_name>_** > **config** > **authsettings**.
+In the left browser, click **subscriptions** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front\_end\_app\_name>_** > **config** > **authsettings**.
 
 In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the Application ID you copied. 
 
@@ -405,6 +405,10 @@ git push frontend master
 Navigate to `http://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
 
 Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
+
+## When access tokens expire
+
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## Clean up resources
 

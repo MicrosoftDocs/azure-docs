@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/07/2018
-ms.topic: article
+ms.date: 06/18/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
@@ -131,7 +131,7 @@ Each numbered area in the preceding image is described in detail in the followin
     Use Amortization in Cost Allocation reports to view non-usage based service fees or one-time payable costs and spread their cost over time evenly during their lifespan. Examples of one-time fees might include:
     - Annual support fees
     - Annual security components fees
-    - Reserved Instances purchase fees
+    - Reserved instances purchase fees
     - Some Azure Marketplace items.
 
   Under Amortization, select **Amortized cost** or **Actual Cost**.
@@ -171,6 +171,10 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use Actions to save, export, or schedule the report.
 
+15. **Policy**
+
+    Although not pictured, some reports include a projected cost calculation policy. In those reports, the **Consolidated** policy shows recommendations for all accounts and subscriptions under the current entity such as Microsoft enrollment or AWS payer. The **Standalone** policy shows recommendations for one account or subscription as if no other subscriptions exist. The policy that you select varies on the optimization strategy used by your organization. Cost projections are based on the last 30 days of usage.
+
 ## Save and schedule reports
 
 After you create a report, you can save it for future use. Saved reports are available in **My Tools** > **My Reports**. If you make changes to an existing report and save it, the report is saved as a new version. Or, you can save it as a new report.
@@ -194,4 +198,5 @@ While viewing any report, click **Actions** and then select **Export all report 
 
 ## Next steps
 
-- If you haven't already completed the first tutorial for Cost Management, read it at [Review usage and costs](tutorial-review-usage.md).
+- Learn about the reports that are included in Cloudyn at [Use Cost Management reports](use-reports.md).
+- Learn about how to use reports to create [dashboards](dashboards.md).

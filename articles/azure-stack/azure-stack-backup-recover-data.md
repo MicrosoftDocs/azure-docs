@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
+ms.reviewer: hectorl
 
 ---
 # Recover from catastrophic data loss
