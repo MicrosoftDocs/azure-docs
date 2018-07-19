@@ -111,45 +111,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Hornbill Client support team](https://www.hornbill.com/support/?request/) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/hornbill-tutorial/tutorial_hornbill_certificate.png) 
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/hornbill-tutorial/tutorial_general_400.png)
+ 
+6. In a different web browser window, log in to Hornbill as a Security Administrator.
 
-6. On the **Hornbill Configuration** section, click **Configure Hornbill** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Hornbill Configuration](./media/hornbill-tutorial/tutorial_hornbill_configure.png) 
-
-7. In a different web browser window, log in to Hornbill as a Security Administrator.
-
-8. On the Home page click **System**.
+7. On the Home page click **System**.
 
 	![Hornbill system](./media/hornbill-tutorial/tutorial_hornbill_system.png)
 
-9. Navigate to **Security**.
+8. Navigate to **Security**.
 
 	![Hornbill security](./media/hornbill-tutorial/tutorial_hornbill_security.png)
 
-10. Click **SSO Profiles**.
+9. Click **SSO Profiles**.
 
-	![Hornbill singlesignon](./media/hornbill-tutorial/tutorial_hornbill_sso.png)
+	![Hornbill single](./media/hornbill-tutorial/tutorial_hornbill_sso.png)
 
-11. On the right side of the page, click on **Add logo**.
+10. On the right side of the page, click on **Add logo**.
 
 	![Hornbill add](./media/hornbill-tutorial/tutorial_hornbill_addlogo.png)
 
-12. On the **Profile Details** bar, click on **Import SAML Meta logo**.
+11. On the **Profile Details** bar, click on **Import SAML Meta logo**.
 
 	![Hornbill logo](./media/hornbill-tutorial/tutorial_hornbill_logo.png)
 
-13. On the Pop up page in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
+12. On the Pop-up page in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
 
 	![Hornbill process](./media/hornbill-tutorial/tutorial_hornbill_process.png)
 
-14. After clicking process the values get auto populated automatically under **Profile Details** section.
+13. After clicking process the values get auto populated automatically under **Profile Details** section.
 
 	![Hornbill page1](./media/hornbill-tutorial/tutorial_hornbill_ssopage.png)
 
@@ -157,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Hornbill page3](./media/hornbill-tutorial/tutorial_hornbill_ssopage2.png)
 
-15. Click **Save Changes**.
+14. Click **Save Changes**.
 
 ### Create an Azure AD test user
 
