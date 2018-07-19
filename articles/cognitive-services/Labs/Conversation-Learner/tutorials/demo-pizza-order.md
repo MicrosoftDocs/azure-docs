@@ -82,7 +82,7 @@ As an example, let's try a teaching session.
 	- `Peas` is an example of a topping which is out of stock. It is still labeled as a topping.
 2. Click Score Action.
 	- `Peas` shows up as OutOfStock.
-	- To see how this happened, open the code at C:\<\installedpath>\src\demos\demoPizzaOrder.ts. And note the EntityDetectionCallback method. This method is called after each topping to see if it is in stock. If not, it clears it from the set of toppings and adds to the OutOfStock entity. The inStock variable is defined above that method which has the list of in-stock toppings.
+	- To see how this happened, open the code at `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. Look at the EntityDetectionCallback method. This method is called after each topping to see if it is in stock. If not, it clears it from the set of toppings and adds to the OutOfStock entity. The inStock variable is defined above that method which has the list of in-stock toppings.
 6. Select 'We don't have $OutOfStock'.
 7. Select 'Would you like anything else?'
 8. Enter 'no'.
@@ -91,7 +91,7 @@ As an example, let's try a teaching session.
 	- This will call the 'FinalizeOrder' function defined in code. This clears toppings, and returns 'your order is on its way'. 
 2. Enter 'order another'. We are starting a new order.
 9. Click Score Action.
-	- Note cheese and peppers are in the memory as toppings from the last order.
+	- 'cheese' and 'peppers' are in the memory as toppings from the last order.
 1. Select 'Would you like $LastToppings'.
 2. Enter 'yes'
 3. Click Score Action.

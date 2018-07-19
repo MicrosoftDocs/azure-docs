@@ -74,7 +74,7 @@ Create a new tag:
 
 ![](../media/tutorial16_v1_create.PNG)
 
-Note the version has been created in settings:
+The version has been created in settings:
 
 ![](../media/tutorial16_settings.PNG)
 
@@ -94,17 +94,18 @@ Edit the first action:
 ### Switch to the bot emulator
 
 1. In the bot UI, enter "goodbye".
-2. Note the bot responds with "hi there (version 1)".
+2. The bot responds with "hi there (version 1)".
 	- This shows the version 1 is "live". 
 
 ![](../media/tutorial16_bf_response.PNG)
 
 ### Switch to the Web UI
 
-1. Click on Log Dialogs (if you don't see any dialogs, refresh the app).
+1. Click on Log Dialogs (If you don't see any dialogs, click the refresh button).
 2. Click on "hi there (version 2)"
 
-Note that we can make corrections choosing from all currently available actions. These edits will be made to the master.
+> [!NOTE]
+> We can make corrections by choosing from all currently available actions. These edits will be made to the master.
 
 You have now seen how versioning works, and how you can interact with the bot using the Bot framework emulator.
 

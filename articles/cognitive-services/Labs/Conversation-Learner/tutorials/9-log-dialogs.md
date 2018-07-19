@@ -116,7 +116,7 @@ Now let's make corrections to the other dialog:
 
 1. Click on 'hello' under Log Dialogs.
 	- This opens the conversation.
-3. Note the response to 'hello' is 'which city'. But we want to change that to something that makes more sense. A better answer would be something like 'hello, I'm the weather bot'. But there is no action that does that so we have to create one.
+3. The response to 'hello' is 'which city'. But we want to change that to something that makes more sense. A better answer would be something like 'hello, I'm the weather bot'. But there is no action that does that so we have to create one.
 4. Click on Action.
 	- In the Response, type 'I'm the weather bot. I can help with forecasts.'
 6. Un-check the Wait for Response check-box to make it a non-wait action.

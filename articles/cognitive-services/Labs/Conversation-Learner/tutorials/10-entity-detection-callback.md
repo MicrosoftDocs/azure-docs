@@ -71,9 +71,9 @@ This function gets called after entity resolution has occurred.
 2. Type 'hello'.
 3. Click Score Actions, and Select 'Which city do you want?'
 2. Enter 'new york'.
-	- Note that it gets recognized as a city entity.
+	- The text is recognized as a city entity.
 5. Click Score Actions
-	- Note that City and CityResolved have been populated.
+	- `City` and `CityResolved` have been populated.
 6. Select 'You said $City, and I resolved that to $CityResolved'.
 7. Click Done Teaching.
 
@@ -83,9 +83,9 @@ Add another example dialog:
 2. Type 'hello'.
 3. Click Score Actions, and Select 'Which city do you want?'
 2. Enter 'big apple'.
-	- Note that it gets recognized as a city entity.
+	- The text is recognized as a city entity.
 5. Click Score Actions
-	- Note: CityResolved shows the effect of code running.
+	- `CityResolved` shows the effect of code running.
 6. Select 'You said $City, and I resolved that to $CityResolved'.
 7. Click Done Teaching.
 
@@ -100,7 +100,7 @@ Add another example dialog:
 6. Select 'I don't know this city, $CityUknown. Which city do you want?'.
 7. Enter 'new york'.
 8. Click Score Actions.
-	- Note: CityUknown has been cleared, and CityResolved is populated.
+	- `CityUknown` has been cleared, and `CityResolved` is populated.
 6. Select 'You said $City, and I resolved that to $CityResolved'.
 7. Click Done Teaching.
 

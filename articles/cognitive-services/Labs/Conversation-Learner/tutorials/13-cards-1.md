@@ -16,7 +16,8 @@ ms.author: v-jaswel
 
 This tutorial shows how to add and use a simple card in your bot.
 
-Note that Conversation Learner expects your card definition files to be located in a directory called "cards" which is present in the directory where the bot is started.
+> [!NOTE]
+> Currently Conversation Learner expects your card definition files to be located in a directory called "cards" which is present in the directory where the bot is started. We will make this configurable in the future.
 
 ## Video
 
@@ -43,8 +44,9 @@ The system expects to find your card definitions in this cards directory.
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Note the TextBlock and the question template.
-- There are two submit buttons and the text that gets submitted for each.
+> [!NOTE]
+> Notice the body type `TextBlock` and the `{{question}}` placeholder in the text field.
+> There are two submit buttons and the text that gets submitted for each.
 
 ### Actions
 
@@ -56,7 +58,8 @@ Let's see how the card action type was created:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Note the question input, and buttons 1 and 2. Those are template references in the card where you enter the question and the respective answers. You can also reference and use entities or a mixture of text and entities.
+> [!NOTE]
+> The question input, and buttons 1 and 2. Those are template references in the card where you enter the question and the respective answers. You can also reference and use entities or a mixture of text and entities.
 
 The eye icon shows you what the card looks like.
 

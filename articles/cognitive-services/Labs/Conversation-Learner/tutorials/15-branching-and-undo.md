@@ -51,7 +51,7 @@ Let's start a training session.
 7. Enter 'remove mushrooms and add peppers'.
 	- Select mushrooms and un-check the Toppings entity. We are creating an action that we will undo.
 2. Click Undo Step.
-	- Note that the last entry is removed, and we are back at 'Would you like anything else?'  (screenshot below)
+	- The last entry is removed, and we are back at 'Would you like anything else?'  (screenshot below)
 2. Enter 'remove mushrooms and add peppers'.
 8. Click to Select 'you have $Toppings on your pizza'
 	- Make sure both entities are selected correctly.
@@ -68,8 +68,8 @@ As an example, let's open an existing train dialog, and create another train dia
 
 1. Click Train Dialogs, then 'new order' to open the existing dialog. 
 2. Click on the last 'no' in the dialog (see screenshot below).
-3. click Branch.
-	- Note that 'no' gets removed, and the entire dialog up to that point is copied into a new one. 
+3. Click Branch.
+	- 'no' gets removed, and the entire dialog up to that point is copied into a new one. 
 	- This saves you re-entering the preceding turns to explore a new "branch" from this point.
 1. Enter 'yes'.
 2. Click Score Action.

@@ -80,7 +80,7 @@ Let's walk through a teaching dialog.
 4. Enter '8'. Then click Score Actions.
 4. Select 'Multiply $number 12'. Note the result of the multiplication.
 5. Select 'Clear Entities'.
-	- Note that the number entity's value has been cleared.
+	- The `number` entity's value has been cleared.
 3. Click to Select 'What number to do you want to multiply by 12?'
 4. Click Done Testing.
 

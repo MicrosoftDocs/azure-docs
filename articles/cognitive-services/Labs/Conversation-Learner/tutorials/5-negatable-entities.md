@@ -73,12 +73,12 @@ Now you have two actions.
 1. Click Train Dialogs, then New Train Dialog.
 2. Type 'hello'.
 3. Click Score Actions, and Select 'I don't know your name'
-	- Notice that is getting a 100% score because it is the only valid action.
+	- The score is 100% because it is the only valid action.
 2. Enter 'my name is david'
 3. Select 'david', and choose the label '+name'
-	- Notice there are two instances of 'name': '+name' and '-name'.  (+) Plus adds or overwrites the value. (-) Minus removes the value.
+	- There are two instances of 'name': '+name' and '-name'.  (+) Plus adds or overwrites the value. (-) Minus removes the value.
 5. Click Score Actions
-	- Note name value is now in the bot's memory.
+	- The name value is now in the bot's memory.
 	- 'I know your name. It is $name' is the only available response. 
 6. Select 'I know your name. It is $name'.
 

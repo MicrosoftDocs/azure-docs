@@ -67,14 +67,15 @@ This tutorial requires that the general tutorial bot is running
 3. Click Score Actions, and Select 'Which animal do you want?'.
 4. Enter 'cow'
 5. Click Score Actions, and Select 'Cows say moo'.
-	- Note that the bot will not wait for input, and will take the next action.
+	- The bot will not wait for input, and will take the next action.
 2. Select 'Which animal do you want?'.
 3. Enter 'duck'
 5. Click Score Actions, and Select 'Ducks say quack'.
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Note the sequence of the bot responses with regards to wait and non-wait actions.
+> [!NOTE]
+> The sequence of the bot responses with regards to wait and non-wait actions.
 
 ## Next steps
 

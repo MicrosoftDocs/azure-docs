@@ -79,14 +79,14 @@ Let's start another training session for handling unknown and ambiguous entities
 1. Enter 'start OneNote'. 
 	- The model recognizes OneNote as an app name. The `EntityDetectionCallback` function defined in the code resolves the name entered by the user to an app name by matching it to the app list defined in the code. It then returns the set of all matching apps. 
 	- If the list of matches is zero, that means the app is not installed. It puts it in unknownAppName.
-	- If it finds more than one app, it copies them into the DisambigAppNames and clears the AppName entity.
+	- If it finds more than one app, it copies them into the `DisambigAppNames` and clears the AppName entity.
 2. Click Score Action.
 3. Click to Select 'Sorry, I don't know the app $UknownAppName.'
 4. Enter 'start Amazon'. We'll try the other path.
 5. Click Score Actions.
-	- Note Amazon Video and Amazon Music are now in DisambigAppNames memory, and OneNote has been cleared.
+	- Amazon Video and Amazon Music are now in `DisambigAppNames` memory, and OneNote has been cleared.
 3. Click to Select 'There are few apps that sound like that...'
-	- Note the score is not very high because we have only defined a few training dialogs up to this point. Defining more training dialogs would make the model more decisive.
+	- The score is not very high because we have only defined a few training dialogs up to this point. Defining more training dialogs would make the model more decisive.
 2. Enter Score Actions.
 4. Click Done Teaching.
 

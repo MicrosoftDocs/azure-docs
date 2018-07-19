@@ -47,7 +47,8 @@ Concretely, if the "expected entity" field of an action is set to $entity, then 
 2. In Entity Name, enter name.
 3. Click Create
 
-Note the entity type is 'custom' -- this value means that the entity can be trained.  There are also pre-built entities, meaning that their behavior cannot be adjusted -- these entities are covered in another tutorial.
+> [!NOTE]
+> The entity type is 'custom'. This value means that the entity can be trained.  There are also pre-built entities, meaning that their behavior cannot be adjusted.  These entities are covered in the [Pre-Built Entities tutorial](./7-built-in-entities.md).
 
 ![](../media/tutorial4_entities.PNG)
 

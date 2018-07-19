@@ -78,7 +78,8 @@ GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<app
 
 Where `<appId>` is the GUID for this Conversation Learner model, and `<logDialgoId>` is the ID of the log dialog you want to retrieve.  
 
-Note that log dialogs may be edited by the developer, and then stored as train dialogs.  When this is done, Conversation Learner stores the ID of the "source" log dialog with the train dialog.  Further, a train dialog can be "branched" in the UI; if a train dialog has an associated source log dialog ID, then branches from that train dialog will be marked with the same log dialog ID.
+> [!NOTE]
+> Log dialogs may be edited by the developer, and then stored as train dialogs.  When this is done, Conversation Learner stores the ID of the "source" log dialog with the train dialog.  Further, a train dialog can be "branched" in the UI; if a train dialog has an associated source log dialog ID, then branches from that train dialog will be marked with the same log dialog ID.
 
 To obtain all train dialogs that were derived from a log dialog, follow these steps.
 
