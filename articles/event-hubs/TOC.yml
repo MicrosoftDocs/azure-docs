@@ -26,6 +26,10 @@
   items:
   - name: Event Processor Host overview
     href: event-hubs-event-processor-host.md
+  - name: IP connection filters
+    href: event-hubs-ip-filtering.md
+  - name: Virtual Network service endpoints
+    href: event-hubs-service-endpoints.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
   - name: Integrate with Event Grid
