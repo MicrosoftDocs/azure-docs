@@ -157,6 +157,6 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 Learn more about automatically detecting:
 
-[Failure anomalies](app-insights-proactive-failure-diagnostics.md)
-[Memory Leaks](app-insights-proactive-potential-memory-leak.md)
-[Performance anomalies](app-insights-proactive-performance-diagnostics.md)
+- [Failure anomalies](app-insights-proactive-failure-diagnostics.md)
+- [Memory Leaks](app-insights-proactive-potential-memory-leak.md)
+- [Performance anomalies](app-insights-proactive-performance-diagnostics.md)
