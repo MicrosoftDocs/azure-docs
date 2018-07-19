@@ -276,14 +276,19 @@ Enter the recovery key for the gateway installation.
 
 7. When you're done, choose **Configure**.
 
-## Configure firewall or proxy
+## Configure proxy or firewall
 
-The gateway creates an outbound connection to 
+The on-premises data gateway creates an outbound connection to 
 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
-To provide proxy information for your gateway, see 
-[Configure proxy settings](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
+If your work environment requires that traffic goes through a proxy to access the internet, 
+this restriction might prevent the data gateway from connecting to the gateway cloud service. 
+To determine whether your network uses a proxy, review this article at superuser.com: 
 
-To check whether your firewall, or proxy, might block connections, 
+[How do I know what proxy server I'm using? (SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using) 
+
+To provide proxy information for your gateway, see 
+[Configure proxy settings](https://docs.microsoft.com/power-bi/service-gateway-proxy). 
+To check whether your proxy or firewall might block connections, 
 confirm whether your machine can actually connect to the internet 
 and the [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). 
 From a PowerShell prompt, run this command:
@@ -302,7 +307,8 @@ From a PowerShell prompt, run this command:
 > test connectivity. Learn more about 
 > [Azure Service Bus and hybrid solutions](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-Your results should look similar to this example:
+Your results should look similar to this example 
+with **TcpTestSucceeded** set to **True**:
 
 ```text
 ComputerName           : watchdog.servicebus.windows.net
@@ -315,7 +321,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-If **TcpTestSucceeded** is not set to **True**, you might be blocked by a firewall. 
+If **TcpTestSucceeded** is not set to **True**, your gateway might be blocked by a firewall. 
 If you want to be comprehensive, substitute the **ComputerName** and **Port** values 
 with the values listed under [Configure ports](#configure-ports) in this article.
 
@@ -373,7 +379,7 @@ which you can usually find here: ```C:\Program Files\On-premises data gateway\Mi
 
 2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
-3. Change this value from **AutoDetect** to **Https**:
+3. Change the **ServiceBusSystemConnectivityModeString** value from **AutoDetect** to **Https**:
 
    ```html
    <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -632,7 +638,7 @@ which you can usually find here: ```C:\Program Files\On-premises data gateway```
 
 2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
-3. Change the **SendTelemetry** setting to **true**:
+3. Change the **SendTelemetry** value to **true**:
 
    ```html
    <setting name="SendTelemetry" serializeAs="String">
