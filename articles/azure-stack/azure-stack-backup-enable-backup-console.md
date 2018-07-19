@@ -28,9 +28,6 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Before you enable the backup through the console, you need to configure the backup service. You can configure the backup service using PowerShell. For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
-
 ## Enable backup
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
