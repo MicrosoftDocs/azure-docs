@@ -33,14 +33,14 @@ While Conversation Learner is in control, all state relative to the Conversation
 
 You can almost think of Conversation Learner as a function call that takes some initial state and returns values.
 
-In our example bot, we’ll create a hybrid bot using two different systems:
+In this example, you will create a hybrid bot using two different systems:
 1. A Conversation Learner Model <br />
 Uses conversation learner model to determine the next action of the bot based on the current session.
-This will take one piece of initial state `isOpen` (whether a store is open or closed) and will return another piece of state `purchaseItem` (the name of an item the user purchases)
+This part of the bot takes one piece of initial state `isOpen` (which indicates whether a store is open or closed) and returns another piece of state `purchaseItem` (the name of an item the user purchases.)
 
 2. Text matching <br />
-Simply looks at incoming text for specific strings and responds
-This part of the bot manages the Bots' other storage mechanisms and is responsible for starting the CL session. Specifically it manages three variables `usingConversationLearner`, `storeIsOpen`, and `purchaseItem`
+Simply looks at incoming text for specific strings and responds.
+This part of the bot manages the Bots' other storage mechanisms and is responsible for starting the CL session. Specifically it manages three variables: `usingConversationLearner`, `storeIsOpen`, and `purchaseItem`.
 
 Let’s start by taking a look at the model used in this demo.
 
@@ -52,17 +52,17 @@ In the model list of the web UI, click on Tutorial-15-Hybrid.
 
 Open the entities page and notice two entities: `isOpen` and `purchaseItem`
 
-To understand how these entities are used open the file: `C:\<installedpath\>\src\demos\tutorialHybrid.ts` to look at the callbacks.
+To understand how these entities are used, open the file: `C:\<installedpath\>\src\demos\tutorialHybrid.ts` to look at the callbacks.
 
-Notice in the `OnSessionStartCallback` we copy the value of `storeIsOpen` from BotBuilder conversation storage as the value of the `isOpen` entity so it's available to Conversation Learner. See code below:
+Notice that the code in `OnSessionStartCallback` copies the value of `storeIsOpen` from BotBuilder conversation storage as the value of the `isOpen` entity so it is available to Conversation Learner. See the following code:
 
 ![](../media/tutorial17_sessionstart.PNG)
 
-Likewise, in the `OnSessionEndCallback` (if the session was ended due to a learned activity and not merely a timeout) we copy the value of entity `purchaseItem` out to BotBuilder storage `purchaseItem`. See code below:
+Likewise, the code in `OnSessionEndCallback` (if the session was ended due to a learned activity and not merely a timeout) copies the value of entity `purchaseItem` out to BotBuilder storage `purchaseItem`. See the following code:
 
 ![](../media/tutorial17_sessionend.PNG)
 
-Now let's look at the Actions
+Now let's look at the Actions.
 
 ## Actions
 
