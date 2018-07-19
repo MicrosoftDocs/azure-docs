@@ -115,7 +115,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 ## Delete image data
 
-You can delete image data from your container registry in several ways: delete a repository, delete by image name, or delete by manifest digest.
+You can delete image data from your container registry in several ways: delete a repository, delete by tag, or delete by manifest digest.
 
 ## Delete repository
 
@@ -127,7 +127,7 @@ The following Azure CLI command deletes the "acr-helloworld" repository and all 
  az acr repository delete --name myregistry --repository acr-helloworld
 ```
 
-## Delete by image name
+## Delete by tag
 
 You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by any unique layers in the image (layers not shared by any other images in the registry).
 
