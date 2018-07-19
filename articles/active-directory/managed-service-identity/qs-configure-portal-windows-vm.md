@@ -1,6 +1,6 @@
 ﻿---
 title: How to configure MSI on an Azure VM using the Azure portal
-description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using the Azure portal.
+description: Step by step instructions for configuring a Managed Service Identity on an Azure VM using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,7 +17,7 @@ ms.date: 09/19/2017
 ms.author: daveba
 ---
 
-# Configure a VM Managed Service Identity (MSI) using the Azure portal
+# Configure a VM Managed Service Identity using the Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -46,7 +46,8 @@ Then proceed to the next section for details on enabling Managed Service Identit
 
 To enable the system assigned identity on a VM that was originally provisioned without it:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. At a minimum, your account needs to be assigned the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor
+) role to enable system assigned identity on a VM.
 
 2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 
@@ -61,7 +62,8 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
 If you have a Virtual Machine that no longer needs the system assigned identity:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. At a minimum, your account needs to be assigned the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor
+) role to remove system assigned identity from a VM.
 
 2. Navigate to the desired Virtual Machine and select the "Configuration" page.
 
