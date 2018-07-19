@@ -1,5 +1,5 @@
 ---
-title: Planning for an Azure File Sync (preview) deployment | Microsoft Docs
+title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.date: 12/04/2017
 ms.author: wgries
 ---
 
-# Planning for an Azure File Sync (preview) deployment
-Use Azure File Sync (preview) to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+# Planning for an Azure File Sync deployment
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 This article describes important considerations for an Azure File Sync deployment. We recommend that you also read [Planning for an Azure Files deployment](storage-files-planning.md). 
 
@@ -101,8 +101,8 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
-### Files Skipped
-| File/Folder | Note |
+### Files skipped
+| File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
 | ethumbs.db$ | Temporary file for thumbnails |
@@ -182,7 +182,7 @@ In general, Azure File Sync should support interoperability with encryption solu
 No other HSM solutions should be used with Azure File Sync.
 
 ## Region availability
-Azure File Sync is available only in the following regions in preview:
+Azure File Sync is available only in the following regions:
 
 | Region | Datacenter location |
 |--------|---------------------|
@@ -201,7 +201,31 @@ Azure File Sync is available only in the following regions in preview:
 | West Europe | Netherlands |
 | West US | California |
 
-In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+
+### Azure disaster recovery
+To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
+
+To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
+
+| Primary region      | Paired region      |
+|---------------------|--------------------|
+| Australia East      | Australia Southest |
+| Australia Southeast | Australia East     |
+| Canada Central      | Canada East        |
+| Canada East         | Canada Central     |
+| Central US          | East US 2          |
+| Central US EUAP     | East US 2 EUAP     |
+| East Asia           | Southeast Asia     |
+| East US             | West US            |
+| East US 2           | Central US         |
+| East US 2 EUAP      | Central US EUAP    |
+| North Europe        | West Europe        |
+| Southeast Asia      | East Asia          |
+| UK South            | UK West            |
+| UK West             | UK South           |
+| West Europe         | North Europe       |
+| West US             | East US            |
 
 ## Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
