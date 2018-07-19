@@ -103,6 +103,7 @@
         {
             "source_path": "articles/active-directory/active-directory-licensing-product-and-service-plan-reference.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-service-plan-reference",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-cmdlets.md",
@@ -11823,7 +11824,6 @@
             "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
             "redirect_document_id": false
-
         },
         {
             "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
@@ -25406,14 +25406,14 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
@@ -25421,14 +25421,14 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-explore.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-explore.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
@@ -26306,24 +26306,24 @@
             "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery.md",
@@ -26406,9 +26406,9 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+            "redirect_document_id": true
         }       
     ]
 }
