@@ -56,6 +56,7 @@ The following section provides you with a complete overview of all possible erro
 
 |Error|Description|
 |---|---|
+|16000|This is an internal implementation detail and not an error condition. You can safely ignore this reference.|
 |20001|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20012|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20033|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
