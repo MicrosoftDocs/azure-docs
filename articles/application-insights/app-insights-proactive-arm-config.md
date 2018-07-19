@@ -21,7 +21,7 @@ ms.author: mbullwin
 # Manage Application Insights smart detection rules using Azure Resource Manager templates
 
 Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
-This method can be used when deploying new Application Insights resources using Azure Resource Manager automation, or for modifying the settings of existing resources.
+This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 ## Smart detection rule configuration
 
@@ -135,12 +135,12 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ## Smart detection rule names
 
-Below is a list of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
+Below is a table of smart detection rule names as they appear in the portal, along with their internal names, that should be used in the Azure Resource Manager template.
 
 > [!NOTE]
 > Smart detection rules marked as preview don’t support email notifications. Therefore, you can only set the enabled property for these rules. 
 
-|**Rule name** (as it appears in the Azure portal) | **Internal name** (name used to identify rule within Azure Resource Manager)|
+| Azure portal rule name | Internal name
 |:---|:---|
 | Slow page load time |	slowpageloadtime |
 | Slow server response time | slowserverresponsetime |
