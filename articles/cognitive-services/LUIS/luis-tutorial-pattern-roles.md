@@ -265,8 +265,6 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
     Remember [the last time](luis-quickstart-primary-and-secondary-data.md) the tutorial series created a phrase list was also to boost entity detection of a simple entity.  
 
-    If you removed keyPhrase entity, remember to add it back to the app now.
-
 ## Query endpoint for pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
