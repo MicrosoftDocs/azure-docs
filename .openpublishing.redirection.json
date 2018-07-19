@@ -1,8 +1,13 @@
 {
     "redirections": [
         {
-            "source_path": "articles/machine-learning/service/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/quickstart-get-started",
+            "source_path": "articles/batch/batch-dotnet-get-started.md",
+            "redirect_url": "/azure/batch/quick-run-dotnet",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/batch/batch-python-tutorial.md",
+            "redirect_url": "/azure/batch/quick-run-python",
             "redirect_document_id": true
         },
         {
@@ -186,7 +191,7 @@
         },
         {
             "source_path": "articles/marketplace-consumer/mytemplates-getstarted.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": true
         },
         {
@@ -735,9 +740,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-howto-assign-access-powershell.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-how-to-use-vm-sdk.md",
@@ -775,6 +790,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-portal-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-qs-configure-portal-windows-vmss.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vmss",
             "redirect_document_id": true
@@ -785,6 +805,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-powershell-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-powershell-windows-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-qs-configure-sdk-windows-vm.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-sdk-windows-vm",
             "redirect_document_id": true
@@ -793,6 +818,11 @@
             "source_path": "articles/active-directory/msi-qs-configure-template-windows-vm.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vm",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-template-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vm",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-qs-configure-template-windows-vmss.md",
@@ -810,12 +840,27 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-nonaad.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage-sas.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
             "redirect_document_id": false
         },
@@ -830,9 +875,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-datalake.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-nonaad.md",
@@ -840,9 +895,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-sql.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-sql.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage-sas.md",
@@ -850,9 +915,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage-sas",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-windows-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
@@ -1781,7 +1856,7 @@
         },
         {
             "source_path": "articles/resource-manager-template-walkthrough.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -1801,7 +1876,7 @@
         },
         {
             "source_path": "articles/resource-manager-vs-code.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -6916,7 +6991,7 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-template-walkthrough.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -6951,12 +7026,22 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-vs-code.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-resource-manager/solution-dev-test-environments.md",
             "redirect_url": "/azure/devtest-lab/devtest-lab-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-create-first-template.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-vscode-extension.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -8625,6 +8710,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/mongodb-ttl.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/time-to-live",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -9736,7 +9826,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
             "redirect_document_id": false
         },
         {
@@ -12663,6 +12758,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
             "redirect_document_id": false
         },
         {
@@ -17512,7 +17612,7 @@
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
-            "redirect_url": "/azure/azure-resource-manager/resource-manager-create-first-template",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
             "redirect_document_id": false
         },
         {
@@ -21382,17 +21482,17 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -21401,8 +21501,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
             "redirect_document_id": false
         },
         {
@@ -21417,12 +21532,12 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -22716,6 +22831,86 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/privileged-identity-management/index.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-configure.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-getting-started.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-activate-role",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-complete-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-complete-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-require-mfa",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-roles.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-security-wizard.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-security-wizard",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -23191,6 +23386,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-packet-capture-manage-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-security-group-view-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-security-group-view-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-troubleshoot-manage-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
             "redirect_document_id": true
@@ -23269,11 +23484,6 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
-            "redirect_url": "/azure/active-directory/admin-roles-best-practices",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/media-services/hybrid-design-drm-sybsystem.md",
@@ -24471,6 +24681,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -24581,11 +24801,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/privileged-identity-management/index.md",
-            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/availability-zones/index.md",
             "redirect_url": "/azure/availability-zones/az-overview",
             "redirect_document_id": false
@@ -24662,7 +24877,12 @@
         },
         {
             "source_path": "articles/active-directory/pp/index.md",
-            "redirect_url": "/azure/active-directory/pp/msi-tutorial-linux-vm-access-storage",
+            "redirect_url": "/azure/active-directory/managed-service-identity/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage",
             "redirect_document_id": false
         },
         {
@@ -24926,6 +25146,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -25169,6 +25394,16 @@
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
@@ -26006,6 +26241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
             "redirect_document_id": true
@@ -26021,14 +26261,24 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Plan-your-app.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-plan-your-app",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Cortana-Prebuilt-App.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
-            "redirect_document_id": true
+            "redirect_document_id": true 
         },
         {
             "source_path": "articles/cloud-shell/features-powershell.md",
@@ -26041,9 +26291,9 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+            "redirect_document_id": true
         },
         {
         "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
@@ -26054,6 +26304,101 @@
         "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
         "redirect_document_id": true
-        }
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-signin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-update-your-own-password.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-introduction.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
+            "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+            "redirect_document_id": false
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+        "redirect_document_id": true
+        }       
     ]
 }

@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: virtual-machines
- author: rogara
+ author: roygara
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 06/03/2018
@@ -105,7 +105,7 @@ To learn more about how to create snapshots with Managed Disks, see the followin
 
 ## Images
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This process captures in a single image all managed disks associated with a VM, including both the OS and data disks. This managed custom iamge enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This process captures in a single image all managed disks associated with a VM, including both the OS and data disks. This managed custom image enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
 
 For information on creating images, see the following articles:
 * [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)

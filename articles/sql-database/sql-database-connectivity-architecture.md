@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
@@ -43,6 +43,9 @@ If you are connecting from within Azure, your connections have a connection poli
 If you are connecting from outside Azure, your connections have a connection policy of **Proxy** by default. A policy of **Proxy** means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> When using service endpoints with Azure SQL Database your policy is **Redirect** by default. So to enable connectivity from inside your Vnet you must allow outbound to all Azure SQL Database IP addresses, not just the gateway IPs. This can be done with the help of NSG (Network Security Group) Service Tags, if you want to allow outbound only to gateway IPs please change your setting to **Proxy**.
 
 ## Azure SQL Database gateway IP addresses
 

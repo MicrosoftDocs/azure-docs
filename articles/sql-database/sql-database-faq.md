@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
 
 ---
@@ -19,9 +19,9 @@ The current version of SQL Database is V12. Version V11 has been retired.
 ## What is the SLA for SQL Database?
 We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## What is the new vCore-based purchasing model (preview) for Azure SQL Database?
+## What is the new vCore-based purchasing model for Azure SQL Database?
 
-The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) for more information. 
+The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for more information. 
 
 ## What is a vCore? 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors.
@@ -33,11 +33,11 @@ In many cases, applications can benefit from the simplicity of a preconfigured b
 
 The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale their compute and storage resources separately. The vCore-based model also enables additional savings for customers with active Software Assurance through the Azure Hybrid Benefit for SQL Server.
 
-## How should I choose between the DTU-based purchasing model vs the vCore-based purchasing model (preview)? 
+## How should I choose between the DTU-based purchasing model vs the vCore-based purchasing model? 
 The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based performance levels represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches. 
 
 ## What is the Azure Hybrid Benefit for SQL Server? 
-The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helps you maximize the value from your current licensing investments and accelerate their migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available at public preview of the vCore-based purchasing model (preview) for SQL Database single databases and elastic pools. You may apply this benefit even if the SKU is active but note the base rate is applied from the time you select it in the Azure portal. No credit will be issued retroactively.
+The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helps you maximize the value from your current licensing investments and accelerate their migration to the cloud. Azure Hybrid Benefit for SQL Server is an Azure-based benefit that enables you to use your SQL Server licenses with Software Assurance to pay a reduced rate (“base rate”) on SQL Database. Azure Hybrid Benefit for SQL Server is available at public preview of the vCore-based purchasing model for SQL Database single databases and elastic pools. You may apply this benefit even if the SKU is active but note the base rate is applied from the time you select it in the Azure portal. No credit will be issued retroactively.
 
 ## Are there dual-use rights with Azure Hybrid Benefit for SQL Server?
 You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, the SQL Server license can only be used in the cloud in SQL Database, and does not have dual use rights on-premises and in the cloud.
@@ -139,7 +139,7 @@ Elastic pools are billed per the following characteristics:
 * If an elastic pool is resized, then the pool is not billed according to the new amount of resources until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
 * The price of an elastic pool is based on the resources of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 
-For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-based purchasing model](sql-database-service-tiers-dtu.md), and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
+For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/), [DTU-based purchasing model](sql-database-service-tiers-dtu.md), and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 ## How does the vCore-based usage show up in my bill? 
 In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month, and consumed backup storage. If the storage for backups exceeds the total database size (that is, 100% of the database size), there are additional charges. vCore hours, configured database storage, consumed IO, and backup storage are clearly itemized in the bill, making it easier for you to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you are billed in GB/month consumed in a month.

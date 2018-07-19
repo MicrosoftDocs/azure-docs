@@ -167,4 +167,4 @@ Here are some examples.
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-windows.md)
+- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
