@@ -143,7 +143,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 To revert to community version, follow the steps:
 
-1. Open the cluster https://`<clustername>`.azurehdinsight.net/. Click **Spark2** in left panel.
+1. Open cluster in Ambari. Click **Spark2** in left panel.
 2. Click **Configs** tab.
 3. Expand the group **Custom spark2-defaults**.
 4. Click **Add Property**, add **spark.ui.enhancement.enabled=false**, save.
