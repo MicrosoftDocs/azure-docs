@@ -146,11 +146,6 @@
       - name: Device information in the Remote Monitoring solution
         href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
 
-  - name: Predictive Maintenance
-    items:
-    - name: Deploy solution accelerator
-      href: iot-accelerators-predictive-overview.md
-
   - name: Connected Factory
     items:
     - name: Use the dashboard
