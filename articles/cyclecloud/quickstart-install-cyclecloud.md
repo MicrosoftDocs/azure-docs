@@ -12,9 +12,6 @@ Run this command to list all available Azure subscription IDs:
 
       $ az account list -o table
 
-      ```azurecli-interactive
-          az group create --name myResourceGroup --location westeurope
-          ```
 ### Service Principal
 
 If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CCLab" can be replaced with whatever you like:
