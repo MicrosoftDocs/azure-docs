@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/6/2018
+ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
@@ -780,6 +780,10 @@ No. When configuring protection for a SQL server, if you select the checkbox at 
 ### If I change the recovery model how do I restart protection
 
 If you change the recovery model, trigger a full backup, and log backups will begin as expected.
+
+### Can I protect SQL Always On Availability Groups where the primary replica is on premises
+
+No. Azure Backup protects SQL Servers running in Azure. If an Availability Group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Additionally, Azure Backup only protects the nodes running in the same Azure region as the Recovery Services vault.
 
 ## Next steps
 
