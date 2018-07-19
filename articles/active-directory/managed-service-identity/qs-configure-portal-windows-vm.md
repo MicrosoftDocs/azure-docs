@@ -1,5 +1,5 @@
 ﻿---
-title: How to configure MSI on an Azure VM using the Azure portal
+title: How to configure Managed Service Identity on an Azure VM using the Azure portal
 description: Step by step instructions for configuring a Managed Service Identity on an Azure VM using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -80,5 +80,5 @@ If you have a Virtual Machine that no longer needs the system assigned identity:
 
 ## Next steps
 
-- Using the Azure portal, give an Azure VM's MSI [access to another Azure resource](howto-assign-access-portal.md).
+- Using the Azure portal, give an Azure VM's Managed Service Identity [access to another Azure resource](howto-assign-access-portal.md).
 
