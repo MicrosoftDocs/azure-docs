@@ -16,7 +16,7 @@ Virtual WAN provides large-scale Site-to-Site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
+At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
 
 ### Am I required to use a preferred partner device?
 
@@ -57,7 +57,7 @@ Yes. You can directly do VNet peering between spokes that are connected to a vir
 
 ### Can I deploy and use my favorite network virtual appliance (in an NVA VNet) with Azure Virtual WAN?
 
-Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN, but will require routing capabilities in the hub that will be at GA. All spokes connected to the NVA VNet must additionally be connected to the virtual hub. 
+Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN, but will require routing capabilities in the hub, which is on our roadmap. All spokes connected to the NVA VNet must additionally be connected to the virtual hub. 
 
 ### Can an NVA VNet have a virtual network gateway?
 
@@ -69,7 +69,7 @@ Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised app
 
 ### Can I direct traffic using UDR in the virtual hub?
 
-UDR and routing functionality will be available by GA.
+This is on our roadmap. Stay tuned!
 
 ### Is there any licensing or pricing information for Virtual WAN?
  
@@ -78,10 +78,6 @@ There is no additional charge during Preview. Current [Azure VPN and egress pric
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
 Send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv2 IPSec connectivity.
-
-### When will the ‘Coming Soon’ partners that were announced in Virtual WAN launch have solutions available?
-
-We are working with the partners that are targeted their respective solutions later this year.
 
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 
@@ -101,15 +97,11 @@ Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you shoul
 
 ### Does this Virtual WAN require ExpressRoute from each site?
 
-No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub. We are working on enabling ExpressRoute in the hub soon.
+No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub.
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-In public preview, number of branches is limited to 100 connections per hub/region and a total of 1 G in the hub. We will be expanding this limitation soon.
-
-### Will Virtual WAN replace the current virtual network gateway over time?
-
-This will be a customer choice. One of the goals is to simplify branch connectivity using Virtual WAN.
+In public preview, number of branches is limited to 100 connections per hub/region and a total of 1 G in the hub.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 
@@ -118,10 +110,6 @@ Yes, you can have active-active tunnels (2 tunnels = 1 Azure Virtual WAN connect
 ### How is traffic is routed on the Azure backbone?
 
 The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->branch device.
-
-### Will there be other Point-to-Site VPN options to connect to Azure other than the current SSL Cert method?
-
-Virtual WAN is all about software defined connectivity. IPSec site-to-site connectivity is available first. Point-to-Site will be enabled in the near future with open SSL and IKEv2 as connectivity protocols. SSTP-based (cert method) will not be enabled in Virtual WAN.
 
 ### In this model, what do you need at each site? Just an internet connection?
 
