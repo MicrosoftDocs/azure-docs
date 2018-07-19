@@ -158,38 +158,11 @@ To revert to community version, follow the steps:
 
 8. Refresh the Spark history server web UI, it will be reverted to community version.
 
-## Upload log for error or upgrade for hotfix
+## Upload history server log
 
-If you meet the history server error, please use **upload_shs_log.sh**, it is used for upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). The usage please check [Upload history server log](#upload-history-server-log).
+If you meet history server error, please use **upload_shs_log.sh**, it is used for upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
 
-If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*. The usage please check [Upgrade jar file for hotfix scenario](#upgrade-jar-file-for-hotfix-scenario).
-
-### To use the bash file from Azure portal
-
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
-2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
-    
-    + **Script type**, select **Custom**.
-    + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
-
-   ```upload_shs_log
-    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
-   ```
-    
-   ```upgrade_spark-enhancement
-    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
-   ```
-
-    + Check on **Head**.
-    + **Parameters**, set the parameters follow the bash usage.
-
-    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
-
-
-<h3 id="upload-history-server-log">Upload history server log</h3>
-
-**upload_shs_log.sh** is used for upload history server log to the blob storage specified by us(who is working on investigating the history server issues).
+### Usage of upload_shs_log.sh
 
    ```bash
     #!/usr/bin/env bash
@@ -251,10 +224,30 @@ For **SAS_query_string**, you can get it from ASE:
 
     ![copy query string](./media/apache-spark-history-server/sparkui-faq1-3.png)
 
+### To use the bash file from Azure portal
 
-<h3 id="upgrade-jar-file-for-hotfix-scenario">Upgrade jar file for hotfix scenario</h3>
+1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
+    
+    + **Script type**, select **Custom**.
+    + **Name**, specify a script name.
+    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
 
-**upgrade_spark_enhancement.sh** is used for upgrade our **spark-enhancement*.jar** for hotfix scenario.
+   ```upload_shs_log
+    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
+   ```
+
+    + Check on **Head**.
+    + **Parameters**, set the parameters follow the bash usage.
+
+    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
+
+
+## Upgrade jar file for hotfix scenario
+
+If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*.
+
+### Usage of upgrade_spark_enhancement.sh
 
    ```bash
     #!/usr/bin/env bash
@@ -284,5 +277,21 @@ For **SAS_query_string**, you can get it from ASE:
 
 `upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
 
+### To use the bash file from Azure portal
 
+1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
+    
+    + **Script type**, select **Custom**.
+    + **Name**, specify a script name.
+    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
+    
+   ```upgrade_spark-enhancement
+    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
+   ```
+
+    + Check on **Head** and **Worker**.
+    + **Parameters**, set the parameters follow the bash usage.
+
+    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload2.png)
 
