@@ -36,7 +36,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 | 15 min |  
 Participation in Microsoft’s cloud marketplace requires membership in the Microsoft Partner Network (MPN), which also provides key benefits, programs, and partner performance tracking. If your organization is not yet a member, join the Microsoft Partner Network (MPN) to become an official Microsoft partner and receive additional benefits and support for publishing in marketplace. 
 
-*   To register in Microsoft Partner Network, visit the [Membership page](https://partner.microsoft.com/membership)and follow the steps to start your enrollment.  
+*   To register in Microsoft Partner Network, visit the [Membership page](https://partner.microsoft.com/membership) and follow the steps to start your enrollment.  
 
 After registering, record the Microsoft Partner Network ID for your organization. You will need this during step 3 when submitting your marketplace registration form.
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/en-us/commercial)
@@ -97,7 +97,7 @@ Once you have completed the [Dev Center](https://developer.microsoft.com/en-us/s
 >To waive the $99 Developer Center registration fee, complete the marketplace registration form and you will receive an email containing your promotional code. 
 
 >[!Important]
->Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [How to Register in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) section.
+>Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [Register in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) section.
 
 
 ## Next steps
