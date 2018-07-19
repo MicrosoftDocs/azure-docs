@@ -51,27 +51,31 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 
 9. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view the key from this interface. To create the key, run the following Azure Stack PowerShell commands:
     ```powershell
-    $Securekey = ConvertTo-SecureString -String (New-EncryptionKeyBase64) -AsPlainText -Force
+    New-EncryptionKeyBase64
     ```
 10. Select **OK** to save your backup controller settings.
 
     ![Azure Stack - Backup controller settings](media\azure-stack-backup\backup-controller-settings.png)
 
 ## Start backup
-To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. 
+To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\on-demand-backup.png).
+![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png).
 
 You can also run the PowerShell cmdlet **Start-AzSBackup** on your Azure Stack administration computer. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## Enable or disable automatic backups
 Backups are automatically scheduled when you enable backup. You can check the next schedule backup time in **Essentials**. 
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - on-demand backup](media\azure-stack-backup\on-demand-backup.png)
 
 If you need to disable future scheduled backups, click on **Disable Automatic Backups**. Disabling automatic backups will keep backup settings configured and will retain the backup schedule. This action simply tells the scheduler to skip future backups. 
 
 ![Azure Stack - disable scheduled backups](media\azure-stack-backup\disable-auto-backup.png)
+
+Confirm that future scheduled backups have been disabled in **Essentials**:
+
+![Azure Stack - confirm backups have been disabled](media\azure-stack-backup\confirm-disable.png)
 
 Click on **Enable Automatic Backups** to inform the scheduler to start future backups at the scheduled time. 
 
