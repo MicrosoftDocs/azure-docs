@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Projects | Microsoft Docs
+description: Group resources into Projects within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Projects
 
 A **project** is a collection of resources which define node configurations. Projects contain **specs**. When a node starts, it is configured by processing and running a sequence of specs.
@@ -69,6 +81,17 @@ The following directories will be created by the project command:
 The **templates** directory will hold your cluster templates, while **specs** will contain the specifications defining your project. **spec** has two subdirectories: cluster-init and custom chef. cluster-init contains directories which have special meaning, such as the **scripts** directory (contains scripts that are executed in lexicographical order on the node), **files** (raw data files to will be put on the node), and **tests** (contains tests to be run when a cluster is started in testing mode).
 
 The custom chef subdirectory has three directories: **site-cookbooks** (for cookbook definitions), **data_bags** (databag definitions), and **roles** (chef role definition files).
+
+## project.ini
+
+``project.ini`` is the file containing all the metadata for your project. It can contain:
+
+| Parameter | Description                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| name      | Name of the project. Words must be separated by dashes, e.g. order-66-2018                                    |
+| label     | Name of the project. Long name (with spaces) of the cluster for display purposes.                             |
+| type      | Two options: scheduler or application. Determines the type of project and generates the appropriate template. |
+| version   | Format: x.x.x                                                                                                 |
 
 ## Lockers
 
