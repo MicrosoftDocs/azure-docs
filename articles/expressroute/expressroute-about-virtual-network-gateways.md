@@ -11,15 +11,15 @@ ms.author: cherylmc
 
 ---
 # About virtual network gateways for ExpressRoute
-A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. A virtual network gateway can be used for either ExpressRoute traffic, or VPN traffic. This article focuses on the ExpressRoute virtual network gateway.
+A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. You can use a virtual network gateway can be used for either ExpressRoute traffic, or VPN traffic. This article focuses on ExpressRoute virtual network gateways.
 
 ## Gateway types
 
-When you create a virtual network gateway, you specify several settings. One of the required settings, '-GatewayType', specifies whether the gateway is used for ExpressRoute, or VPN traffic. 
+When you create a virtual network gateway, you specify several settings. One of the required settings, '-GatewayType', specifies whether the gateway is used for ExpressRoute, or VPN traffic. The two gateway types are: 
 
-* **Vpn**: To send encrypted traffic across the public Internet, you use the gateway type 'Vpn'. This is also referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
+* **Vpn** - To send encrypted traffic across the public Internet, you use the gateway type 'Vpn'. This is also referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
 
-* **ExpressRoute**: To send network traffic on a private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway and is the type of gateway that you use when configuring ExpressRoute.
+* **ExpressRoute** - To send network traffic on a private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway and is the type of gateway that you use when configuring ExpressRoute.
 
 
 Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute.
