@@ -143,7 +143,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 To revert to community version, follow the steps:
 
-1. Open the cluster https://<clustername>.azurehdinsight.net/. Click **Spark2** in left panel.
+1. Open the cluster https://`<clustername>`.azurehdinsight.net/. Click **Spark2** in left panel.
 2. Click **Configs** tab.
 3. Expand the group **Custom spark2-defaults**.
 4. Click **Add Property**, add **spark.ui.enhancement.enabled=false**, save.
@@ -158,9 +158,36 @@ To revert to community version, follow the steps:
 
 8. Refresh the Spark history server web UI, it will be reverted to community version.
 
-## FAQ
+## Upload log for error or upgrade for hotfix
 
-### How to upload history server log
+If you meet the history server error, please use **upload_shs_log.sh**, it is used for upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). The usage please check [Upload history server log](#upload-history-server-log).
+
+If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*. The usage please check [Upgrade jar file for hotfix scenario](#upgrade-jar-file-for-hotfix-scenario).
+
+### To use the bash file from Azure portal
+
+1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
+    
+    + **Script type**, select **Custom**.
+    + **Name**, specify a script name.
+    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
+
+   ```upload_shs_log
+    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
+   ```
+    
+   ```upgrade_spark-enhancement
+    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
+   ```
+
+    + Check on **Head** and **Worker**.
+    + **Parameters**, set the parameters follow the bash usage.
+
+    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
+
+
+<h3 id="upload-history-server-log">Upload history server log</h3>
 
 **upload_shs_log.sh** is used for upload history server log to the blob storage specified by us(who is working on investigating the history server issues).
 
@@ -205,7 +232,7 @@ To revert to community version, follow the steps:
 
 **Example**:
 
-`upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container }/${log_file}?{SAS_query_string} /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
+`upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}?{SAS_query_string} /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
 
 For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. Fill in the active head node alias.
 
@@ -223,7 +250,7 @@ For **SAS_query_string**, you can get it from ASE:
     ![copy query string](./media/apache-spark-history-server/sparkui-faq1-3.png)
 
 
-### How to upgrade jar file for hotfix scenario
+<h3 id="upgrade-jar-file-for-hotfix-scenario">Upgrade jar file for hotfix scenario</h3>
 
 **upgrade_spark_enhancement.sh** is used for upgrade our **spark-enhancement*.jar** for hotfix scenario.
 
@@ -254,3 +281,6 @@ For **SAS_query_string**, you can get it from ASE:
 **Example**:
 
 `upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-2.3.0-bin-custom-spark-${version}.tgz` 
+
+
+
