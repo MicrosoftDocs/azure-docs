@@ -20,7 +20,7 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 > * Extract the security artifacts
 > * Create the device registration software
 
-This tutorial expect that you have already created your Device Provisioning Service instance and an IoT hub, using the instructions in the previous [1 - Set up cloud resources](./tutorial-set-up-cloud.md) tutorial.
+This tutorial expects that you have already created your Device Provisioning Service instance and an IoT hub, using the instructions in the previous [Set up cloud resources](tutorial-set-up-cloud.md) tutorial.
 
 This tutorial uses the [Azure IoT SDKs and libraries for C repository](https://github.com/Azure/azure-iot-sdk-c), which contains the Device Provisioning Service Client SDK for C. The SDK currently provides TPM and X.509 support for devices running on Windows or Ubuntu implementations. This tutorial is based on use of a Windows development client, which also assumes basic proficiency with Visual Studio 2017. 
 
@@ -80,7 +80,8 @@ The Device Provisioning Service Client SDK helps you implement your device regis
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    Now you're ready to use the SDK to build your device registration code. 
+
+Now you're ready to use the SDK to build your device registration code. 
  
 <a id="extractsecurity"></a> 
 
@@ -90,18 +91,18 @@ The next step is to extract the security artifacts for the attestation mechanism
 
 ### Physical devices 
 
-Depending on whether you built the SDK to use attestation from a physical TPM/HSM or using X.509 certificates, gathering the security artifacts differ as follows:
+Depending on whether you built the SDK to use attestation for a physical TPM/HSM or using X.509 certificates, gathering the security artifacts is as follows:
 
 - For a TPM device, you need to determine the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
 
-- For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types enrollment entries that control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
+- For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types of enrollment entries that control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
 
-    1. Individual enrollments : Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
-    2. Enrollment groups : This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Individual enrollments: Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
+    2. Enrollment groups: This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### Simulated devices
 
-Depending on whether you built the SDK to use attestation from a simulated device using TPM or X.509 certificates, gathering the security artifacts differ as follows:
+Depending on whether you built the SDK to use attestation for a simulated device using TPM or X.509 certificates, gathering the security artifacts is as follows:
 
 - For a simulated TPM device:
 
@@ -120,7 +121,7 @@ Depending on whether you built the SDK to use attestation from a simulated devic
 
    3. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
-   4. Run the solution using either of the "Start" commands on the "Debug" menu. The output window displays the TPM simulator's **_Registration ID_** and the **_Endorsement Key_**, needed for device enrollment and registration. Copy these values for use later. You can close this window (with Registration Id and Endorsement Key), but leave the TPM simulator window running that you started in step #1.
+   4. Run the solution using either of the "Start" commands on the "Debug" menu. The output window displays the TPM simulator's **_Registration ID_** and the **_Endorsement Key_**, needed for device enrollment and registration. Copy these values for use later. You can close this window (with Registration ID and Endorsement Key), but leave the TPM simulator window running that you started in step #1.
 
 - For a simulated X.509 device:
 
@@ -128,7 +129,7 @@ Depending on whether you built the SDK to use attestation from a simulated devic
 
   2. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **dice\_device\_enrollment** project and select **Set as Startup Project**. 
   
-  3. Run the solution using either of the "Start" commands on the "Debug" menu. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
+  3. Run the solution using either of the "Start" commands on the "Debug" menu. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. You only need the first certificate from the output window.
  
   4. Create a file named **_X509testcert.pem_**, open it in a text editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it uses the same certificate during auto-provisioning.    
 
