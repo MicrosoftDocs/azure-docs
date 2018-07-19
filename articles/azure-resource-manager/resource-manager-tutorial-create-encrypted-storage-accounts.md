@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/17/2018
-ms.topic: quickstart
+ms.topic: tutorial
 ms.author: jgao
 
 ---
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code#prerequisites).
+- Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -102,11 +102,11 @@ This template defines one variable *storageAccountName*. In the definition, two 
 
 ## Edit the template
 
-To find the encryption related configuration, you can use the template reference.
+To find the encryption-related configuration, you can use the template reference.
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. The page contains the information for defining an Storage Account information.
-3. Explore the encryption related information.  
+2. From the TOC on the left, select **Reference**->**Storage**->**Storage Accounts**. The page contains the information for defining a Storage Account information.
+3. Explore the encryption-related information.  
 4. Inside the properties element of the storage account resource definition, add the following json:
 
     ```json
@@ -123,7 +123,7 @@ To find the encryption related configuration, you can use the template reference
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
+There are many methods for deploying templates.  In this tutorial, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Select **Cloud Shell** from the upper right corner as shown in the following image:
@@ -137,7 +137,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
 5. Select **Upload/download files**, and then select **Upload**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-4. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
+4. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.
 5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
@@ -178,7 +178,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this Quickstart only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
+In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
 > [Create templates by using Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
