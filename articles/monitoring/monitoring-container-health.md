@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
 ---
 
@@ -367,7 +367,7 @@ The icons in the status field indicate the online status of containers:
 | ![Ready running status icon](./media/monitoring-container-health/container-health-ready-icon.png) | Running (Ready)|
 | ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
 | ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
-| ![Terminated status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
+| ![Successful status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
 
 The status icon shows a count based on what the pod provides. It shows the worse two states and when you hover over the status, it shows a roll up status from all pods in the container.  If there isn't a ready state, the status value will show a **(0)**.  
 
@@ -485,9 +485,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }
