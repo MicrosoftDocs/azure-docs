@@ -8,10 +8,12 @@
     href: cheat-sheet.md
 - name: Release Notes
   items:
-  - name: May 2018
-    href: release-notes-may-2018.md
-  - name: April 2018
-    href: release-notes-april-2018.md
+    - name: June 2018 
+      href: release-notes-june-2018.md
+    - name: May 2018
+      href: release-notes-may-2018.md
+    - name: April 2018
+      href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:

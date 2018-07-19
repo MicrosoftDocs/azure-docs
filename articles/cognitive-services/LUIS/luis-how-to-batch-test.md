@@ -73,13 +73,6 @@ To filter the chart by a specific intent or entity, select the intent or entity 
  
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## View single-point utterance data
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
@@ -103,16 +96,7 @@ The two sections of the chart in green did match the expected prediction.
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

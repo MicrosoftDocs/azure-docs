@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
 
 ---
@@ -100,7 +100,21 @@ Select the message for more details. In the following image, you see an **Invali
 
 ### Deployment errors
 
-When the operation passes validation, but fails during deployment, you see the error in the notifications. Select the notification.
+When the operation passes validation, but fails during deployment, you get a deployment error.
+
+To see deployment error codes and messages with PowerShell, use:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+To see deployment error codes and messages with Azure CLI, use:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+In the portal, select the notification.
 
 ![notification error](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -114,59 +128,91 @@ You see the error message and error codes. Notice there are two error codes. The
 
 ## Enable debug logging
 
-Sometimes you need more information about the request and response to learn what went wrong. By using PowerShell or Azure CLI, you can request that additional information is logged during a deployment.
+Sometimes you need more information about the request and response to learn what went wrong. During deployment, you can request that additional information is logged during a deployment. 
 
-- PowerShell
+### PowerShell
 
-   In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
+In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Examine the request content with the following cmdlet:
+Examine the request content with the following cmdlet:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   Or, the response content with:
+Or, the response content with:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   This information can help you determine whether a value in the template is being incorrectly set.
+This information can help you determine whether a value in the template is being incorrectly set.
 
-- Azure CLI
+### Azure CLI
 
-   Examine the deployment operations with the following command:
+Currently, Azure CLI doesn't support turning on debug logging, but you can retrieve debug logging.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Examine the deployment operations with the following command:
 
-- Nested template
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   To log debug information for a nested template, use the **debugSetting** element.
+Examine the request content with the following command:
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Examine the response content with the following command:
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### Nested template
+
+To log debug information for a nested template, use the **debugSetting** element.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## Create a troubleshooting template
 

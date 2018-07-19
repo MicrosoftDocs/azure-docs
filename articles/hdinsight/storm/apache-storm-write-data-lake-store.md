@@ -129,7 +129,7 @@ This YAML defines the following items:
 * `rotationPolicy`: Defines when to rotate files. In this example, no rotation is performed.
 * `hdfs-bolt`: Uses the previous components as configuration parameters for the `HdfsBolt` class.
 
-For more information on the Flux framework, see [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+For more information on the Flux framework, see [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## Configure the cluster
 

@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/15/2018
+ms.date: 07/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -114,6 +114,8 @@ To use the Cost Over Time report:
 ### Actual Cost Analysis report
 
 The Actual Cost Analysis report shows provider costs with no modifications. It shows your main cost contributors, including ongoing costs and one-time fees.
+
+You can use the report to view cost information for your subscriptions. In the report, Azure subscriptions are shown as **account name** and **account number**. **Linked accounts** show AWS subscriptions. To view per subscription costs, a breakdown for each account, under **Groups**, select the type of subscription that you have.
 
 Use the Actual Cost Analysis report to:
 

@@ -18,14 +18,14 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 
  This prebuilt domain already has intents and entities provided for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Prerequisites
 * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
+You can create and manage your applications on **My Apps** page of [LUIS](luis-reference-regions.md#luis-website). 
 1. Click **Create new app**.
 
     [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
@@ -118,6 +118,3 @@ You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
 > [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
-
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -3,8 +3,8 @@ title: Exclude disks from protection using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude VM disks from replication for VMware to Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/01/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---
