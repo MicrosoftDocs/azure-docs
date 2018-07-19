@@ -287,7 +287,7 @@ When no longer needed, delete the Azure resources you created in this tutorial.
 
 ## Troubleshooting
 
-If you encounter any bugs with our plugins, please file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 
