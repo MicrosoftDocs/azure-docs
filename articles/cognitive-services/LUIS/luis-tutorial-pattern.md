@@ -1,6 +1,6 @@
 ---
 title: Tutorial using patterns to improve LUIS predictions - Azure | Microsoft Docs 
-titleSuffix: Azure
+titleSuffix: Cognitive Services
 description: In this tutorial, use pattern for intents to improve LUIS intent and entity predictions.
 services: cognitive-services
 author: v-geberr
@@ -10,7 +10,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/20/2018
 ms.author: v-geberr;
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
@@ -27,7 +27,7 @@ In this tutorial, use patterns to increase intent and entity prediction.
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
