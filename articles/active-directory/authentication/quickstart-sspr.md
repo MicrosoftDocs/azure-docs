@@ -21,10 +21,10 @@ In this quickstart, you walk through configuring self-service password reset (SS
 
 ## Prerequisites
 
-A working Azure AD tenant with at least a trial license enabled.
-An account with Global Administrator privileges.
-A non-administrator test user with a password you know, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
-A pilot group to test with that the non-administrator test user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
+* A working Azure AD tenant with at least a trial license enabled.
+* An account with Global Administrator privileges.
+* A non-administrator test user with a password you know, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+* A pilot group to test with that the non-administrator test user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
 
