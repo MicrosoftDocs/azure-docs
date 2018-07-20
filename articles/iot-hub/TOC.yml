@@ -203,16 +203,6 @@
         href: iot-hub-java-java-schedule-jobs.md
       - name: Python
         href: iot-hub-python-python-schedule-jobs.md
-    - name: Use MXChip IoT DevKit
-      items:
-      - name: Translate voice message with Azure Cognitive Services
-        href: iot-hub-arduino-iot-devkit-az3166-translator.md
-      - name: Retrieve a Twitter message with Azure Functions
-        href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-      - name: Send messages to an MQTT server using Eclipse Paho APIs
-        href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-      - name: Monitor the magnetic sensor and send email notifications with Azure Functions
-        href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
   - name: Manage
     items:
     - name: Create an IoT hub
@@ -264,8 +254,6 @@
       href: iot-hub-bulk-identity-mgmt.md
   - name: Use real devices
     items:
-    - name: Get started
-      href: iot-hub-get-started.md
     - name: Use an online simulator
       href: iot-hub-raspberry-pi-web-simulator-get-started.md
     - name: Use a physical device
@@ -289,6 +277,16 @@
         href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
       - name: Adafruit Feather M0 with Arduino
         href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+    - name: Use MXChip IoT DevKit
+      items:
+      - name: Translate voice message with Azure Cognitive Services
+        href: iot-hub-arduino-iot-devkit-az3166-translator.md
+      - name: Retrieve a Twitter message with Azure Functions
+        href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
+      - name: Send messages to an MQTT server using Eclipse Paho APIs
+        href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
+      - name: Monitor the magnetic sensor and send email notifications with Azure Functions
+        href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
       - name: Manage cloud device messaging with iothub-explorer
