@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -151,7 +151,7 @@ To ensure that Pass-through Authentication remains operationally secure, Azure A
 
 To renew an Authentication Agent's trust with Azure AD:
 
-1. The Authentication Agent periodically pings Azure AD every few hours to check if it's time to renew its certificate. 
+1. The Authentication Agent periodically pings Azure AD every few hours to check if it's time to renew its certificate. The certificate is renewed 30 days prior to its expiration.
     - This check is done over a mutually authenticated HTTPS channel and uses the same certificate that was issued during registration.
 2. If the service indicates that it's time to renew, the Authentication Agent generates a new key pair: a public key and a private key.
     - These keys are generated through standard RSA 2048-bit encryption.

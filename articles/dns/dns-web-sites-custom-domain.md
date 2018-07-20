@@ -3,7 +3,7 @@ title: Create custom DNS records for a web app | Microsoft Docs
 description: How to create custom domain DNS records for web app using Azure DNS.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
 ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Create DNS records for a web app in a custom domain

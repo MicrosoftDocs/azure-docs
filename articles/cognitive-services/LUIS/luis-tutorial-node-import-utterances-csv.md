@@ -166,7 +166,7 @@ Once the script completes, you can log in to [LUIS](luis-reference-regions.md) a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](interactive-test.md)
+> [Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 
