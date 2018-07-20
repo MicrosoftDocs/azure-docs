@@ -468,7 +468,7 @@ The script that was executed performed 50 epochs through the dataset. If everyth
 az storage file download \
     --path cifar/saved_models/keras_cifar10_trained_model.h5 \
     --share-name batchaishare \
-    --account-name <STORAGE ACCOUNT NAME> \
+    --account-name <STORAGE ACCOUNT NAME> 
 ```
 
 ## Deleting the resources
