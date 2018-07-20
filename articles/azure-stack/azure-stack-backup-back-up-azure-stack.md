@@ -45,7 +45,10 @@ Use Start-AzSBackup to start a new backup with the -AsJob variable to track back
     if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
 ```
 
-## Confirm backup completed via PowerShell
+## Confirm backup has completed
+
+### Confirm backup has completed using PowerShell
+Use the following PowerShell commands to ensure that backup has completed successfully:
 
 ```powershell
    Get-AzsBackup
@@ -70,7 +73,8 @@ The result should look like the following output:
     Tags              : {}
 ```
 
-## Confirm backup completed in the administration portal
+### Confirm backup has completed in the administration portal
+Use the Azzure Stack administration portal to verify that backup has completed successfully by following these steps:
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
