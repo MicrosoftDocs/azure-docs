@@ -23,7 +23,10 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Deploy a cloud-based remote monitoring solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Try a cloud-based remote monitoring solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-predictive-maintenance-deploy">Try a cloud-based predictive maintenance solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-connected-factory-deploy">Try a cloud-based connected factory solution</a>
+    - html: <a href="/azure/iot-accelerators/quickstart-device-simulation-deploy">Try a cloud-based device simulation solution</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

@@ -22,7 +22,7 @@ This article lists the steps to install the Azure IoT Edge runtime on a Linux AR
 
 ## Install the container runtime
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
+Azure IoT Edge relies on an [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
 
 Commands below install both the Moby-based engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
 
