@@ -36,6 +36,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
       href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
+      text: Python
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
     - image:
         src: https://docs.microsoft.com/media/logos/logo_ruby.svg
       text: Ruby
