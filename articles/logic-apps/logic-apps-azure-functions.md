@@ -110,11 +110,12 @@ by following this format:
 
 Although Logic Apps provides [functions for converting DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
 this example shows how a basic JavaScript function uses dot notation 
-to access the `body` object inside the input `request` object that's 
-passed in as function input. The example then assigns the `body` object 
+to access the `body` object inside the `request` object that's passed 
+to the function as input. The example then assigns the `body` object 
 to the `data` variable and can now access the `date` property value 
-through the `data` variable, converting that value to a DateString 
-value by calling the `ToDateString()` function:
+through the `data` variable. Finally, the example converts that value 
+to a DateString value by calling the `ToDateString()` function and 
+returns the result as the function's response:
 
 ```javascript
 function convertToDateString(request, response){
@@ -177,20 +178,18 @@ After the functions list opens, select this action:
 
    3. When you're done, choose **Create**. 
 
-6. In the **Request Body** box, specify the context 
-object you want to pass as input to your function. 
-When you click inside the **Request Body** box, 
-the dynamic content list opens so you can select 
-tokens for properties available from previous steps. 
+6. In the **Request Body** box, specify the context object 
+to pass as your function's input, which must be formatted 
+as a JavaScript Object Notation (JSON) object. 
 
-   This example passes in the **From** content from 
-   the email trigger as the input payload:
+   When you click in the **Request Body** box, 
+   the dynamic content list opens so you can select 
+   tokens for properties available from previous steps. 
+   This example passes in the **From** property from the email trigger:  
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   The context object you specify must be formatted 
-   as a JavaScript Object Notation (JSON) object. 
-   Based on the content in this object, 
+   Based on the content in the context object, 
    the Logic App Designer generates a function 
    template that you can edit inline. 
    Logic Apps also creates variables based on 
@@ -233,22 +232,20 @@ After the functions list appears, select your function:
 
    ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-5. In the **Request Body** box, specify the context 
-object you want to pass as input to your function. 
-When you click inside the **Request Body** box, 
-the dynamic content list opens so you can select 
-tokens for properties available from previous steps. 
+5. In the **Request Body** box, specify the context object 
+to pass as your function's input, which must be formatted 
+as a JavaScript Object Notation (JSON) object. This context 
+object contains the message and content that your logic app 
+sends to your function. 
 
-   This example passes in the **From** content from 
-   the email trigger as the input payload:
+   When you click in the **Request Body** box, 
+   the dynamic content list opens so you can select 
+   tokens for properties available from previous steps. 
+   This example passes in the **From** property from the email trigger:  
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   The specified context object contains the message and 
-   content that your logic app sends to your function. 
-   The object must also be formatted as a JavaScript 
-   Object Notation (JSON) object. 
-   Based on the content in this object, 
+   Based on the content in the context object, 
    the Logic App Designer generates a function 
    template that you can edit inline. 
    Logic Apps also creates variables based on 
