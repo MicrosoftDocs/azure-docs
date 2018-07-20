@@ -146,15 +146,24 @@ contoso.com text =
 
         "contoso.azurewebsites.net"
 ```
+## Add custom hostnames
+
+Now you can add the custom hostnames to your web app:
+
+```powershell
+set-AzureRmWebApp `
+ -Name contoso `
+ -ResourceGroupName MyAzureResourceGroup `
+ -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
+```
 
 ## Clean up resources
 
-You can keep the **myresourcegroup** resource group if you intend to do the next tutorial. Otherwise, delete the **myresourcegroup** resource group to delete the resources created in this tutorial.
+When you no longer need the resources created in this tutorial, you can delete the **myresourcegroup** resource group.
 
 ## Next steps
 
-Now that you've created your custom domain, you can map hostnames to your web app. Use the information in the App Service tutorial to add hostnames *www.contoso.com* and *contoso.com* to your web app.
+Learn how to create Azure DNS private zones.
 
 > [!div class="nextstepaction"]
-> [Configuring a custom domain name for App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#automate-with-scripts
-)
+> [Get started with Azure DNS private zones using PowerShell](private-dns-getstarted-powershell.md)
