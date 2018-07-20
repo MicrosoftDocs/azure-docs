@@ -31,29 +31,24 @@ Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 1
 
 - ASP.NET and web development
 - Azure Development
-
-If you are using Windows Server 2016, skip ahead to [Windows Server 2016: Install Docker](#windows-server-2016-install-docker).
-
-## Windows 10 Install Docker
+ 
+## Windows 10 - Install Docker
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker] to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
 During installation, select **Use Windows containers instead of Linux containers** when asked. If Hyper-V is not enabled on your machine, the Docker install will offer to enable it. Click **OK** to do so if prompted.
 
-Skip ahead to [SDK and tools](#sdk-and-tools) installation.
+## Windows Server 2016 - Install Hyper-V and Docker
 
-## Windows Server 2016 Install Docker
+**Install Hyper-V**
 
-First, open PowerShell as an administrator and run the following command to install Hyper-V. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+First, open PowerShell as an administrator and run the following command to install Hyper-V and restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 ```
 
-Restart your computer. For more information about how to enable Hyper-V, see [Install the Hyper-V role on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
-**Install Docker on Windows Server 2016**
-
+**Install Docker**
 
 Open PowerShell as an administrator and run the following commands to install Docker:
 
@@ -73,6 +68,8 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 2. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
+
+If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
 For the best debugging performance when you create and run Service Fabric apps, we recommend creating a single-node local development cluster. This cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
