@@ -50,6 +50,7 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 [Skip trigger examples](#trigger---attributes)
 
@@ -153,6 +154,38 @@ Here's the JavaScript code:
 
       context.done();
     }
+```
+
+### Trigger - Java example
+
+The following example shows a Cosmos DB trigger binding in *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function count of the returned items when data in Cosmos DB is modified.
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "items",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "connectionVarName",
+    "databaseName": "mydbname",
+    "collectionName": "mycollname",
+    "createLeaseCollectionIfNotExists": false
+}
+```
+
+Here's the Java code:
+
+```java
+    @FunctionName("cdbprocessor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "mydbname",
+            collectionName = "mycollname",
+            leaseCollectionName = "",
+            connectionStringSetting = "connectionVarName") MyDataItem[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length);
+            }
 ```
 
 ## Trigger - attributes

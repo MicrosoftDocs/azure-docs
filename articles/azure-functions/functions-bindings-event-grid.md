@@ -49,6 +49,7 @@ See the language-specific example for an Event Grid trigger:
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
@@ -175,6 +176,34 @@ module.exports = function (context, eventGridEvent) {
     context.log("Data: " + JSON.stringify(eventGridEvent.data));
     context.done();
 };
+```
+
+### Trigger - Java example
+
+The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function prints out the String representation of the triggering object.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Here's the Java code:
+
+```java
+@FunctionName("egprocessor")
+  public void eventGridProcessor(
+     @EventGridTrigger(name = "obj") MyModel obj,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(obj.toString());
+    }
 ```
      
 ## Attributes
