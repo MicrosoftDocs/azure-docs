@@ -3002,7 +3002,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-python-cli-nodejs.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -3277,37 +3277,37 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-bottle-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-django-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-flask-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-bottle-table-storage.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-mysql.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-sql.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-flask-table-storage.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -3552,7 +3552,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -4008,6 +4008,16 @@
         {
             "source_path": "articles/app-service/app-service-webjobs-readme.md",
             "redirect_url": "https://github.com/Azure/azure-webjobs-sdk/wiki",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-get-started-python.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-tutorial-python-postgresql.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
             "redirect_document_id": false
         },
         {
@@ -23131,6 +23141,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/authentication/active-directory-passwords-overview.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-sspr-howitworks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/concept-mfa-howitworks",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-adfs",
             "redirect_document_id": false
@@ -23148,6 +23168,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started.md",
             "redirect_url": "/azure/active-directory/authentication/concept-mfa-whichversion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/index.md",
+            "redirect_url": "/azure/active-directory/authentication/index",
             "redirect_document_id": false
         },
         {
@@ -25161,6 +25186,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -26419,6 +26449,16 @@
         "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
         "redirect_document_id": true
-        }         
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+        "redirect_document_id": true
+        }
     ]
 }
