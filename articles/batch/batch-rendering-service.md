@@ -119,7 +119,7 @@ With 3ds Max, you can use:
 
 The 3ds Max Batch Labs templates allow you to render VRay and Arnold scenes using the Batch Rendering. There are two variations of the template for VRay and Arnold, one for standard scenes and one for more complex scenes that require a 3ds Max path file to assets and textures (.mxp file). For more information on the 3ds Max Batch Labs templates, see the [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) repo on GitHub.
 
-Additionally, you can use the [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) to integrate rendering with your existing pipeline.
+Additionally, you can use the [Batch Python SDK](/python/api/overview/azure/batch) to integrate rendering with your existing pipeline.
 
 
 ## Use the Batch plug-in for Maya to submit a render job

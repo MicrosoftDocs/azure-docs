@@ -71,7 +71,7 @@ The following table shows connectivity locations and the service providers for e
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
-| **Atlanta** |Equinix |
+| **Atlanta** |Equinix, Megaport |
 | **Busan** |LG CNS |
 | **Canberra** | CDC |
 | **Canberra2** | CDC |

@@ -19,7 +19,7 @@ The Cognitive Services Speech Software Development Kit (SDK) provides your appli
 
 [!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Get the Windows SDK
 
