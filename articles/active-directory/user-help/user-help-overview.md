@@ -1,5 +1,5 @@
 ---
-title: User help overview - Azure AD | Microsoft Docs
+title: User help overview - Azure Active Directory | Microsoft Docs
 description: Learn about how to manage your work or school account, including how to reset your password, set your security info and two-step verification, use the My Apps portal, and how to manage your devices on your organization's network.
 services: active-directory
 author: eross-msft
@@ -44,7 +44,7 @@ If you forgot your password, never got one from your company support, or have be
 |[Reset your password](user-help-reset-password.md)| Describes how to reset your own password.|
 
 
-## Security info (Preview)
+## Security info (preview)
 
 Set up your two-step verification and password reset info in **Security info**. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default verification method at any time.
 
@@ -52,13 +52,13 @@ You and add any of the following verification methods, including:
 
 |Article |Description |
 |------|------------|
-|Set up your security info to use a phone number (Preview) - this will be a link after all files are in master| Describes how to set up your phone number as your verification method.|
-|Set up your security info to use a text message (Preview) - this will be a link after all files are in master|Describes how to set up your phone number as your verification method.|
-|Set up your security info to use an authenticator app (Preview) - this will be a link after all files are in master|Describes how to set up an authenticator app as your verification method.|
-|Set up your security info to use your email address (Preview) - this will be a link after all files are in master|Describes how to set up your email address to help you reset your password.|
-|Set up your security info to use pre-defined security questions - this will be a link after all files are in master|Describes how to use security questions to help you reset your password.|
-|Manage your security info (Preview) - this will be a link after all files are in master|Describes how to update your security info and work with your app passwords.|
-|How to sign in - this will be a link after all files are in master|Describes how to sign in using your specified verification method.|
+|[Set up your security info to use a phone number](security-info-setup-phone-number.md)| Describes how to set up your phone number as your verification method.|
+|[Set up your security info to use a text message](security-info-setup-text-msg.md)|Describes how to set up your phone number as your verification method.|
+|[Set up your security info to use an authenticator app](security-info-setup-auth-app.md)|Describes how to set up an authenticator app as your verification method.|
+|[Set up your security info to use your email address](security-info-setup-email.md)|Describes how to set up your email address to help you reset your password.|
+|[Set up your security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to use security questions to help you reset your password.|
+|[Manage your security info](security-info-manage-settings.md)|Describes how to update your security info and work with your app passwords.|
+|[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified verification method.|
 
 ## Microsoft Authenticator app
 

@@ -77,7 +77,7 @@ Click **Use a password instead** when you sign in. We remember your most recent 
 ### Can I use the app to sign in to all my accounts with Microsoft?   
 This functionality is only available for personal Microsoft accounts at this time. 
  
-### Can I sign into my PC with my phone?  
+### Can I sign in to my PC with my phone?  
 For your PC, we recommend signing in with Windows Hello on Windows 10 using your face, fingerprint, or a PIN.   
  
 ### Can I sign in with my Windows Phone?  

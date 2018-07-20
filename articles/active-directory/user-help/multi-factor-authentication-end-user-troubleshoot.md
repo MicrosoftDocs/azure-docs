@@ -38,7 +38,7 @@ There are several reasons why you might need to use an alternate verification me
 
 ## Sign in using another verification method
 
-1. Sign into your account normally and choose the **Sign in another way** link on the **Two-step verification** page.
+1. sign in to your account normally and choose the **Sign in another way** link on the **Two-step verification** page.
 
     ![Change sign in verification method](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
