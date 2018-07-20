@@ -51,7 +51,7 @@ You can recover your account credentials from your iCloud account, using the sam
 
     ![Microsoft Authenticator app, showing where to click Begin recovery](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
 
-2.	Sign into your recovery account, using the same personal Microsoft account you used during the backup process.
+2.	sign in to your recovery account, using the same personal Microsoft account you used during the backup process.
 
     Your account credentials are recovered to the new device.
 

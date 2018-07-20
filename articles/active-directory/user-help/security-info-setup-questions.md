@@ -13,7 +13,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Set up your security info to use pre-defined security questions (Preview)
+# How to: Set up your security info to use pre-defined security questions (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -48,7 +48,7 @@ Follow this process to choose and answer your security questions. The number of 
 
     ![More info required box](media/security-info/security-info-more-info.png)
 
-    Depending on your organization, you might be allowed to wait 14 before adding your security info. If you don't see this option, it means that it's not available.
+    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
 
 2. Select **Next** to begin setting up your security info.
 

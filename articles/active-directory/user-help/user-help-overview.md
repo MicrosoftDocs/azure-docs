@@ -44,7 +44,7 @@ If you forgot your password, never got one from your company support, or have be
 |[Reset your password](user-help-reset-password.md)| Describes how to reset your own password.|
 
 
-## Security info (Preview)
+## Security info (preview)
 
 Set up your two-step verification and password reset info in **Security info**. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default verification method at any time.
 

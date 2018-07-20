@@ -16,7 +16,7 @@
       href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Use app passwords
       href: multi-factor-authentication-end-user-app-passwords.md
-    - name: How to sign-in
+    - name: How to sign in
       href: user-help-sign-in.md
       maintainContext: true
   - name: Password reset
@@ -25,7 +25,7 @@
       href: active-directory-passwords-reset-register.md
     - name: Reset your password
       href: user-help-reset-password.md
-  - name: Security info (Preview)
+  - name: Security info (preview)
     items:
     - name: Set up an authenticator app
       href: security-info-setup-auth-app.md
@@ -39,7 +39,7 @@
       href: security-info-setup-questions.md
     - name: Manage your security info
       href: security-info-manage-settings.md
-    - name: How to sign-in
+    - name: How to sign in
       href: user-help-sign-in.md
       maintainContext: true      
   - name: Microsoft Authenticator app

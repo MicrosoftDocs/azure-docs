@@ -13,7 +13,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Set up your security info to use an authenticator app (Preview)
+# How to: Set up your security info to use an authenticator app (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -49,7 +49,7 @@ Follow this process to set your security info to use the Microsoft Authenticator
 
     ![More info required box](media/security-info/security-info-more-info.png)
 
-    Depending on your organization, you might be allowed to wait 14 before adding your security info. If you don't see this option, it means that it's not available.
+    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
 
 2. Select **Next** to begin setting up your security info.
 

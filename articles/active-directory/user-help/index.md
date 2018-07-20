@@ -17,7 +17,7 @@ ms.author: lizross
 
 # User Help Documentation
 
-We've created this content to help you set up and use security info, two-step verification, to learn how to reset your own passwords, to set up and join your Azure AD devices, and to set up and use the Microsoft Authenticator app and the My Apps portal.
+We've created this content to help you set up and use security info, two-step verification, to learn how to reset your own passwords, to set up and join your Azure Active Directory devices, and to set up and use the Microsoft Authenticator app and the My Apps portal.
 
 <ul class="panelContent cardsF">
     <li>
@@ -58,7 +58,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Security info (Preview)</h3>
+                        <h3>Security info (preview)</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Set up an authenticator app</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Set up text messages</a><br/>
