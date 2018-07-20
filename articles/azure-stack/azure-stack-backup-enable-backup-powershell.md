@@ -40,28 +40,24 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 | Variable        | Description   |
 |---              |---                                        |
 | $username       | Type the **Username** using the domain and username for the shared drive location with sufficient access to read and write files. For example, `Contoso\backupshareuser`. |
-| $key            | Type the **encryption key** used to encrypt each backup. |
 | $password       | Type the **Password** for the user. |
 | $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
-| $BackupFrequencyInHours | The frequency in hours determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4.|
-| $BackupRetentionPeriodInDays | The retention period in days determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period get automatically deleted from the external location.|
+| $frequencyInHours | The frequency in hours determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4.|
+| $retentionPeriodInDays | The retention period in days determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period get automatically deleted from the external location.|
 |     |     |
 
    ```powershell
     # Example username:
     $username = "domain\backupadmin"
-   
-    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
-    $password = ConvertTo-SecureString -String $Encrypted
-    
-    # Note: The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell. 
-    $Securekey = ConvertTo-SecureString -String (New-EncryptionKeyBase64) -AsPlainText -Force
-    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
-    $key = ConvertTo-SecureString -String $Encryptedkey
-    
     # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+   
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    
+    # The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
+    # Maure sure to store your encyrption key in a secure location after it is generated.
+    $Encryptionkey = New-EncryptionKeyBase64
+    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
     Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
@@ -85,7 +81,11 @@ The result should look like the following example output:
 In the same PowerShell session, you can update the default values for retention period and frequency for backups. 
 
    ```powershell
-    Set-AzsBackupShare -BackupFrequencyInHours 10 -BackupRetentionPeriodInDays 5
+    #Set the backup frequency and retention period values.
+    $frequencyInHours = 10
+    $retentionPeriodInDays = 5
+
+    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
     Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 

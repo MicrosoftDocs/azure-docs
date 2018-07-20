@@ -28,7 +28,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-## Enable backup
+## Enable or reconfigure backup
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
