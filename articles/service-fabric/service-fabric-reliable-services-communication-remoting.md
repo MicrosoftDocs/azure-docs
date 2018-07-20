@@ -348,164 +348,164 @@ Here are the steps :
 1. Implement IServiceRemotingMessageSerializationProvider interface to provide implementation for custom serialization.
     Here is the code-snippet on how implementation looks like.
 
-```csharp
-  public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
-    {
+      ```csharp
+      public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
+      {
         public IServiceRemotingMessageBodyFactory CreateMessageBodyFactory()
         {
-            return new JsonMessageFactory();
+          return new JsonMessageFactory();
         }
 
         public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType, IEnumerable<Type> requestWrappedType, IEnumerable<Type> requestBodyTypes = null)
         {
-            return new ServiceRemotingRequestJsonMessageBodySerializer();
+          return new ServiceRemotingRequestJsonMessageBodySerializer();
         }
 
         public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType, IEnumerable<Type> responseWrappedType, IEnumerable<Type> responseBodyTypes = null)
         {
-            return new ServiceRemotingResponseJsonMessageBodySerializer();
+          return new ServiceRemotingResponseJsonMessageBodySerializer();
         }
-    }
-
-    class JsonMessageFactory : IServiceRemotingMessageBodyFactory
-    {
-
-        public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName, int numberOfParameters, object wrappedRequestObject)
-        {
-            return new JsonBody(wrappedRequestObject);
-        }
-
-        public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName, object wrappedRequestObject)
-        {
-            return new JsonBody(wrappedRequestObject);
-        }
-    }
-
-    class ServiceRemotingRequestJsonMessageBodySerializer : IServiceRemotingRequestMessageBodySerializer
-    {
-        private JsonSerializer serializer;
-
-        public ServiceRemotingRequestJsonMessageBodySerializer()
-        {
-            serializer = JsonSerializer.Create(new JsonSerializerSettings()
+      }
+      ```
+      ```csharp
+        class JsonMessageFactory : IServiceRemotingMessageBodyFactory
             {
+
+              public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName, int numberOfParameters, object wrappedRequestObject)
+              {
+                return new JsonBody(wrappedRequestObject);
+              }
+
+              public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName, object wrappedRequestObject)
+              {
+                return new JsonBody(wrappedRequestObject);
+              }
+            }
+      ```
+      ```csharp
+      class ServiceRemotingRequestJsonMessageBodySerializer : IServiceRemotingRequestMessageBodySerializer
+        {
+            private JsonSerializer serializer;
+
+            public ServiceRemotingRequestJsonMessageBodySerializer()
+            {
+              serializer = JsonSerializer.Create(new JsonSerializerSettings()
+              {
                 TypeNameHandling = TypeNameHandling.All
-            });
-        }
+                });
+              }
 
-        public IOutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
-        {
-            if (serviceRemotingRequestMessageBody == null)
-            {
-                return null;
+              public IOutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
+             {
+               if (serviceRemotingRequestMessageBody == null)
+               {
+                 return null;
+               }          
+               using (var writeStream = new MemoryStream())
+               {
+                 using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
+                 {
+                   serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
+                   jsonWriter.Flush();
+                   var bytes = writeStream.ToArray();
+                   var segment = new ArraySegment<byte>(bytes);
+                   var segments = new List<ArraySegment<byte>> { segment };
+                   return new OutgoingMessageBody(segments);
+                 }
+               }
+              }
+
+              public IServiceRemotingRequestMessageBody Deserialize(IIncomingMessageBody messageBody)
+             {
+               using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
+               {
+                 using (JsonReader reader = new JsonTextReader(sr))
+                 {
+                   var ob = serializer.Deserialize<JsonBody>(reader);
+                   return ob;
+                 }
+               }
+             }
             }
-
-
-            using (var writeStream = new MemoryStream())
-            {
-                using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
-                {
-                    serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
-                    jsonWriter.Flush();
-                    var bytes = writeStream.ToArray();
-                    var segment = new ArraySegment<byte>(bytes);
-                    var segments = new List<ArraySegment<byte>> { segment };
-                    return new OutgoingMessageBody(segments);
-                }
-            }
-
-        }
-
-        public IServiceRemotingRequestMessageBody Deserialize(IIncomingMessageBody messageBody)
-        {
-            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-            {
-                using (JsonReader reader = new JsonTextReader(sr))
-                {
-                    var ob = serializer.Deserialize<JsonBody>(reader);
-                    return ob;
-                }
-            }
-        }
-    }
-
-    class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
-    {
-        private JsonSerializer serializer;
+      ```
+      ```csharp
+      class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
+       {
+         private JsonSerializer serializer;
 
         public ServiceRemotingResponseJsonMessageBodySerializer()
         {
-            serializer = JsonSerializer.Create(new JsonSerializerSettings()
-            {
-                TypeNameHandling = TypeNameHandling.All
+          serializer = JsonSerializer.Create(new JsonSerializerSettings()
+          {
+              TypeNameHandling = TypeNameHandling.All
             });
-        }
+          }
 
-        public IOutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
-        {
+          public IOutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
+          {
             if (responseMessageBody == null)
             {
-                return null;
+              return null;
             }
 
             using (var writeStream = new MemoryStream())
             {
-                using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
-                {
-                    serializer.Serialize(jsonWriter, responseMessageBody);
-                    jsonWriter.Flush();
-                    var bytes = writeStream.ToArray();
-                    var segment = new ArraySegment<byte>(bytes);
-                    var segments = new List<ArraySegment<byte>> { segment };
-                    return new OutgoingMessageBody(segments);
-                }
+              using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
+              {
+                serializer.Serialize(jsonWriter, responseMessageBody);
+                jsonWriter.Flush();
+                var bytes = writeStream.ToArray();
+                var segment = new ArraySegment<byte>(bytes);
+                var segments = new List<ArraySegment<byte>> { segment };
+                return new OutgoingMessageBody(segments);
+              }
             }
-        }
+          }
 
-        public IServiceRemotingResponseMessageBody Deserialize(IIncomingMessageBody messageBody)
-        {
+          public IServiceRemotingResponseMessageBody Deserialize(IIncomingMessageBody messageBody)
+          {
 
-            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-            {
-                using (var reader = new JsonTextReader(sr))
-                {
-                    var obj = serializer.Deserialize<JsonBody>(reader);
-                    return obj;
-                }
-            }
-
-        }
-    }
-
+             using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
+             {
+               using (var reader = new JsonTextReader(sr))
+               {
+                 var obj = serializer.Deserialize<JsonBody>(reader);
+                 return obj;
+               }
+             }
+           }
+       }
+    ```
+    ```csharp
     class JsonBody : WrappedMessage, IServiceRemotingRequestMessageBody, IServiceRemotingResponseMessageBody
     {
-        public JsonBody(object wrapped)
-        {
+          public JsonBody(object wrapped)
+          {
             this.Value = wrapped;
-        }
+          }
 
-        public void SetParameter(int position, string parameName, object parameter)
-        {  //Not Needed if you are using WrappedMessage
+          public void SetParameter(int position, string parameName, object parameter)
+          {  //Not Needed if you are using WrappedMessage
             throw new NotImplementedException();
-        }
+          }
 
-        public object GetParameter(int position, string parameName, Type paramType)
-        {
-			//Not Needed if you are using WrappedMessage
+          public object GetParameter(int position, string parameName, Type paramType)
+          {
+            //Not Needed if you are using WrappedMessage
             throw new NotImplementedException();
-        }
+          }
 
-        public void Set(object response)
-        { //Not Needed if you are using WrappedMessage
+          public void Set(object response)
+          { //Not Needed if you are using WrappedMessage
             throw new NotImplementedException();
-        }
+          }
 
-        public object Get(Type paramType)
-        {  //Not Needed if you are using WrappedMessage
+          public object Get(Type paramType)
+          {  //Not Needed if you are using WrappedMessage
             throw new NotImplementedException();
-        }
+          }
     }
- ```
+    ```
 
 2.    Override Default Serialization Provider with JsonSerializationProvider for Remoting    Listener.
 
@@ -526,11 +526,11 @@ Here are the steps :
 3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
 
 ```csharp
-    var proxyFactory = new ServiceProxyFactory((c) =>
-              {
-                  return new FabricTransportServiceRemotingClientFactory(
-                      serializationProvider: new ServiceRemotingJsonSerializationProvider());
-              });
+var proxyFactory = new ServiceProxyFactory((c) =>
+{
+    return new FabricTransportServiceRemotingClientFactory(
+    serializationProvider: new ServiceRemotingJsonSerializationProvider());
+  });
   ```
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
