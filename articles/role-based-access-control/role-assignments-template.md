@@ -81,7 +81,7 @@ To use the template, you must specify the following inputs:
 }
 ```
 
-The following shows an example of the role assignment in the Azure portal after deploying the template.
+The following shows an example of a Reader role assignment to a user after deploying the template.
 
 ![Role assignment using a template](./media/role-assignments-template/role-assignment-template.png)
 
