@@ -10,9 +10,13 @@
 
 - name: Quickstarts
   items:
-  - name: Deploy a remote monitoring solution
+  - name: Try a remote monitoring solution
     href: quickstart-remote-monitoring-deploy.md
-  - name: Deploy a device simulation solution
+  - name: Try a connected factory solution
+    href: quickstart-connected-factory-deploy.md
+  - name: Try a predictive maintenance solution
+    href: quickstart-predictive-maintenance-deploy.md
+  - name: Try a device simulation solution
     href: quickstart-device-simulation-deploy.md
 
 - name: Tutorials
@@ -142,15 +146,10 @@
       - name: Device information in the Remote Monitoring solution
         href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
 
-  - name: Predictive Maintenance
-    items:
-    - name: Deploy solution accelerator
-      href: iot-accelerators-predictive-overview.md
-
   - name: Connected Factory
     items:
-    - name: Deploy solution accelerator
-      href: iot-accelerators-connected-factory-overview.md
+    - name: Use the dashboard
+      href: iot-accelerators-connected-factory-dashboard.md
     - name: Deploy a gateway
       href: iot-accelerators-connected-factory-gateway-deployment.md
     - name: Use the OPC publisher
