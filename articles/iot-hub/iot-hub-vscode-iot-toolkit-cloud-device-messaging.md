@@ -60,7 +60,7 @@ To monitor messages that are sent from your device to your IoT hub, follow these
 
 To send a message from your IoT hub to your device, follow these steps:
 
-1. Right-click your device and select **Send C2D message to Device**. 
+1. Right-click your device and select **Send C2D Message to Device**. 
 1. Enter the message in input box.
 1. Results will be shown in **OUTPUT** > **Azure IoT Toolkit** view.
 
