@@ -194,7 +194,7 @@
   - name: Test
     items:
     - name: Interactive testing
-      href: interactive-test.md
+      href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
   - name: Publish app

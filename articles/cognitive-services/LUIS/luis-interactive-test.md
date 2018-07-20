@@ -18,7 +18,7 @@ ms.author: v-geberr
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
-<a name="interactive-testing"></a>
+<a name="luis-interactive-testing"></a>
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
