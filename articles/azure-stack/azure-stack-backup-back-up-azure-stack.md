@@ -3,7 +3,7 @@ title: Back up Azure Stack | Microsoft Docs
 description: Perform an on-demand backup on Azure Stack with backup in place.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/08/2017
-ms.author: mabrigg
+ms.date: 07/17/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---
