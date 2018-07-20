@@ -175,7 +175,7 @@ The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like l
 You can use the [IoT Hub Resource REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
 ## IoT solution accelerators
-Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
 
 ## The IoT extension for Azure CLI 2.0
 [The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
