@@ -35,17 +35,6 @@ In most cases, Azure CycleCloud will automatically assign devices for you. Speci
 > [!NOTE]
 > A volume named `boot` has special meaning.
 
-### AWS
-
-For AWS, use `device=/dev/sdc` in place of LUN.
-
-### Google Cloud
-
-Google Cloud has the capability to resize the boot volume by defining the size attribute:
-
-    [[[volume boot]]]
-    Size = 50
-
 ## Advanced Usage
 
 The previous example was a fairly simple: mounting a single, pre-formatted snapshot to a node. However, more advanced mounting can take place, including RAIDing multiple devices together, encrypting, and formatting new filesystems. As an example, the following will describes how to RAID several EBS volumes together and encrypt them before mounting them as a single device on a node:

@@ -1,6 +1,6 @@
 # Network Connectivity
 
-Azure CycleCloud supports [Virtual Networks](https://docs.microsoft.com/en-ca/azure/virtual-network/), [Virtual Private Clouds](https://aws.amazon.com/documentation/vpc/), and [Virtual Machines](https://cloud.google.com/compute/docs/instances/). When it is not possible to connect to these instances directly due to your network security configuration, there are several ways to connect to your cluster:
+Azure CycleCloud supports [Virtual Networks](https://docs.microsoft.com/en-ca/azure/virtual-network/). When it is not possible to connect to these instances directly due to your network security configuration, there are several ways to connect to your cluster:
 
 * VPN connection
 * Bastion Server

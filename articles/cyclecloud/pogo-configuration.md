@@ -33,7 +33,7 @@ The common settings listed below apply to all types of endpoints.
 
 | Setting     | Description                                                                                                                                                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type        | The endpoint type. Accepted values: `az` (Azure), `fs` (file system), `gs` (Google), `rh` (remote host), or `s3` (Amazon).                                                                                                                 |
+| type        | The endpoint type. Accepted values: `az` (Azure), `fs` (file system), `gs`, `rh` (remote host), or `s3`.                                                                                                                 |
 | matches     | A list of one or more comma-separated URLs for the section. URLs for a given section should all share a common protocol, e.g. az//bucket-a, az://bucket-b, az://bucket-c/with_prefix/                                                      |
 
 You can also add encryption keys to the pogo.ini. To specify a default
@@ -75,16 +75,6 @@ Valid Azure Credentials
 3.  `subscription_id` and `certificate_file`
 4.  `subscription_id` and `certificate`
 
-## Google Cloud Storage Settings (gs)
-
-| Setting           | Description                                                                                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| client_email      | The GCP Client email for service account authentication, e.g. 555555555555-abcdefgh1ijklmnop2qrstuvwx3yz4@developer.gserviceaccount.com          |
-| private_key       | A string-escaped version of the PEM formatted service account private key, e.g. —–BEGIN PRIVATE KEY—–nMIICjsnBxr89nRUFvEbvAn—–END PRIVATE KEY—–n |
-| client_id         | The GCP Client ID for native application, e.g. 707591534183.apps.googleusercontent.com                                                           |
-| client_secret     | The GCP Client Secret for native application, e.g. 6wu4nDpgB_bVeLcFEu_n9ZDco                                                                     |
-| project           | The GCP project ID. Only necessary when the client_email is absent or doesn't encode the project ID.                                             |
-| default_location  | The region to create new buckets in, e.g. us-east1.                                                                                              |
 
 ## Remote Host Settings (rh)
 
@@ -99,24 +89,6 @@ Valid Azure Credentials
 | pogo_path           | The absolute path to pogo on the remote host, e.g. /usr/local/bin/pogo                                                                                                   |
 | aux_port            | A port the remote host will use to provide additional channels. A value of 0 indicates a random port, while negative values will disable aux connections. Defaults to 0. |
 | connection_timeout  | How long to attempt to connect to the remote host before giving up.                                                                                                      |
-
-## Amazon Web Services Storage (s3)
-
-| Setting                       | Description                                                                                                                                                                                            |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| access_key                    | The AWS access key, e.g. AKIASEPHIAISACAR                                                                                                                                                              |
-| secret_key                    | The AWS secret key, e.g. Geig1chahvaaCh8elohwoogai0aikohW7zek5quoh                                                                                                                                     |
-| use_instance_creds            | If = true, the machine's instance role credentials will be used instead of any access_key/secret_key. Defaults to false.                                                                               |
-| default_region                | The AWS region to use, e.g. us-west-1                                                                                                                                                                  |
-| endpoint                      | The specific AWS endpoint to use, e.g. s3-us-west-1-amazonaws.com                                                                                                                                      |
-| signing_method                | The request signing method to use: 'aws-v2' or 'aws-v4'. Defaults to 'aws-v4'.                                                                                                                         |
-| server_side_encryption        | If = true, S3 SSE will be enabled. Defaults to false.                                                                                                                                                  |
-| server_side_encryption_key    | If S3 SSE is enabled, a specific key can be specified (e.g.arn:aws:kms:us-east-1:555555555555:key/55555555-5555-5555-5555-555555555555). If no key is specified, the default AWS KMS key will be used. |
-| reduced_redundancy            | If = true, the storage class of reduced redundancy will be used. Defaults to false.                                                                                                                    |
-| ssl_enabled                   | If = false, unencrypted HTTP requests will be used to transfer files. Defaults to true.                                                                                                                |
-
-  >[!Note]
-  >The AWS region or endpoint does not need to be specified unless the IAM credentials do not allow >automatic endpoint discovery. When both default_region and endpoint are specified, endpoint takes >precedence.
 
 ## File System Settings (fs)
 

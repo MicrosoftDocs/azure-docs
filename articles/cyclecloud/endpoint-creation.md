@@ -50,16 +50,11 @@ You will need to add credentials for each of the cloud provider accounts you wis
 - Click on the host name in the upper left and select **Add Endpoint**
 - Click on the green plus sign next to **Credential**, which will open a new window called **Create Credential**
 - Enter a descriptive name for the credential
-- Select the appropriate Type:
-
-  - Azure: Azure Access Key
-  - AWS: Amazon
-  - Google: Google Cloud Private Key
-
+- Select `Azure` as the Type
 - Enter your Access and Secret Keys
 - Select your default region
 - Confirm your entries by clicking **Test**
-- Click "Save" to save your credentials. You can now use the credentials to create an Amazon S3, Azure Block Storage, or Google Cloud Storage endpoint.
+- Click "Save" to save your credentials. You can now use the credentials to create an Azure Block Storage endpoint.
 
 ## Adding Endpoints
 
