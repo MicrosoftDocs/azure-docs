@@ -36,7 +36,7 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/).
 * Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-create-templates-use-visual-studio-code.md#install-the-extension)
+](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
 
 ## Open a Quickstart template
 
