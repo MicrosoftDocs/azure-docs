@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
 ---
 
@@ -74,7 +74,7 @@ Perform the following steps to enable monitoring of your AKS container from the 
 4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->If you want to create a new Log Analytics workspace to store the monitoring data from the cluster, follow the steps in [Cretae a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) and be sure to create the workspace in the same subscription that the AKS container is deployed to.  
+>If you want to create a new Log Analytics workspace to store the monitoring data from the cluster, follow the steps in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) and be sure to create the workspace in the same subscription that the AKS container is deployed to.  
 >
  
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster. 
@@ -367,7 +367,7 @@ The icons in the status field indicate the online status of containers:
 | ![Ready running status icon](./media/monitoring-container-health/container-health-ready-icon.png) | Running (Ready)|
 | ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
 | ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
-| ![Terminated status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
+| ![Successful status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
 
 The status icon shows a count based on what the pod provides. It shows the worse two states and when you hover over the status, it shows a roll up status from all pods in the container.  If there isn't a ready state, the status value will show a **(0)**.  
 
@@ -485,9 +485,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }
