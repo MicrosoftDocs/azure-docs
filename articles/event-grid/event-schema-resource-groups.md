@@ -177,10 +177,10 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| authorization | string | The requested authorization for the operation. |
-| claims | string | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | object | The requested authorization for the operation. |
+| claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
-| httpRequest | string | The details of the operation. |
+| httpRequest | object | The details of the operation. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |
