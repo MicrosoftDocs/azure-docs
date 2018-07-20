@@ -55,7 +55,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
     $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
     
     # The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
-    # Maure sure to store your encyrption key in a secure location after it is generated.
+    # Make sure to store your encyrption key in a secure location after it is generated.
     $Encryptionkey = New-EncryptionKeyBase64
     $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
