@@ -184,7 +184,7 @@ if err != nil {
 }
 ```
 
-# Construct Event Processor Host
+## Construct Event Processor Host
 
 You now have the pieces needed to construct an EventProcessorHost, as follows.
 The same StorageLeaserCheckpointer is used as both a Leaser and Checkpointer, as
