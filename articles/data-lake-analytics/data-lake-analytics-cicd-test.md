@@ -23,7 +23,7 @@ Azure Data Lake provides the U-SQL language, which combines declarative SQL with
 
 ## Test U-SQL scripts
 
-The U-SQL script is compiled and optimized to executable code and run across machines on the cloud or on your local machine. The compilation and optimization process treats the entire U-SQL script as a whole. You can't do a traditional "unit test" for every statement. However, by using the U-SQL test SDK and the local run SDK, you can do script-level tests.
+The U-SQL script is compiled and optimized for executable code to run across machines on the cloud or on your local machine. The compilation and optimization process treats the entire U-SQL script as a whole. You can't do a traditional "unit test" for every statement. However, by using the U-SQL test SDK and the local run SDK, you can do script-level tests.
 
 ### Create test cases for U-SQL script
 
@@ -42,13 +42,13 @@ When you test U-SQL scripts, you need test input files. You can manage the test 
 
 When you call the `Initialize()` interface in the U-SQL test SDK, a temporary local data root folder is created under the working directory of the test project. 
 
-Copy all files and subfolders (and files under subfolders) in the test data source folder to the temporary local data root folder before you run the U-SQL script test cases. You can add more test data source folders by splitting the test data folder path with a semicolon.
+Copy all files and subfolders (and files under subfolders) in the test data source folder into the temporary local data root folder before you run the U-SQL script test cases. You can add more test data source folders by splitting the test data folder path with a semicolon.
 
 ![Data Lake Tools for Visual Studio -- configure project test data source](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
 ### Manage the database environment for testing
 
-If your U-SQL scripts use or query with U-SQL database objects, (for example, when calling stored procedures) then you need to initialize the database environment before running U-SQL test cases. The `Initialize()` interface in the U-SQL test SDK helps you deploy all databases that are referenced by the U-SQL project to the temporary local data root folder in the working directory of the test project. 
+If your U-SQL scripts use or query with U-SQL database objects (for example, when calling stored procedures) then you need to initialize the database environment before running U-SQL test cases. The `Initialize()` interface in the U-SQL test SDK helps you deploy all databases that are referenced by the U-SQL project to the temporary local data root folder in the working directory of the test project. 
 
 Learn more about [how to manage U-SQL database project references for a U-SQL project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 
@@ -133,11 +133,11 @@ CPPSDK is a package that includes Microsoft Visual C++ 14 and Windows SDK 10.0.1
 The most common way to prepare the CPPSDK dependency in Visual Studio Team Service is as follows:
 
 1.	Zip the folder  that includes the CPPSDK libraries.
-2.	Check the .zip file in to your source control system.   
+2.	Check in the .zip file to your source control system.   
 3.	Unzip the .zip file in the build pipeline.
 4.	Point `USqlScriptTestRunner` to this unzipped folder on the build machine.
 
-### Run C# UDO test cases in Visual Studio Team Service
+### Run C# UDO test cases in Visual Studio Team Services
 
 For a C# UDO test, make sure to reference the following assemblies, which  are needed for UDOs. If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
 

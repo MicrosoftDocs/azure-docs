@@ -37,7 +37,7 @@ Right-click the U-SQL database project. The select **Add > New item**. All suppo
 
 For a non-assembly object (for example, a table-valued function), a new U-SQL script is created after you add a new item. You can start to develop the DDL statement for that object in the editor.
 
-For an assembly object, the tool provides a user-friendly UI editor that helps you register the assembly and deploy .dll files and other additional files. The following steps show you how to add an assembly object definition to the U-SQL database project:
+For an assembly object, the tool provides a user-friendly UI editor that helps you register the assembly and deploy DLL files and other additional files. The following steps show you how to add an assembly object definition to the U-SQL database project:
 
 1.	Add references to the C# project that include the UDO/UDAG/UDF for the U-SQL database project.
 
@@ -51,11 +51,11 @@ For an assembly object, the tool provides a user-friendly UI editor that helps y
 
 3.	Add **Managed Dependencies** and **Additional Files** if there are any. When you add additional files, the tool uses the relative path to make sure it can find the assemblies both on your local machine and on the build machine later. 
 
-@_DeployTempDirectory is a predefined variable that points the tool to the build output folder. Under the build output folder, every assembly has a subfolder named with the assembly name. All dlls and additional files are in that subfolder. 
+@_DeployTempDirectory is a predefined variable that points the tool to the build output folder. Under the build output folder, every assembly has a subfolder named with the assembly name. All DLLs and additional files are in that subfolder. 
  
 ## Build a U-SQL database project
 
-The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a .zip file that includes all DDL statements in a single U-SQL script in the **DDL** folder, and all dlls and additional files for assemblies in the **Temp** folder.
+The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a .zip file that includes all DDL statements in a single U-SQL script in the **DDL** folder, and all DLLs and additional files for assemblies in the **Temp** folder.
 
 Learn more about [how to build a U-SQL database project with the MSBuild command line and a Visual Studio Team Service build task](data-lake-analytics-cicd-overview.md#build-u-sql-database-project).
 
