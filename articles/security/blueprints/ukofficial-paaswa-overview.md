@@ -221,8 +221,7 @@ The automation templates have been tested by the UK Customer Success Unit Azure 
 
 ## Deploy the solution
 
-This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available here.
-Quickstart
+This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-paaswa-repo).
 
 Three approaches have been provided for deployment; A simple "express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) suitable for quickly building a test environment; a parameterized [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) approach providing greater configuration for workload environments; and an Azure portal based deployment where the operator can specify the deployment parameters through the Azure portal. 
 
