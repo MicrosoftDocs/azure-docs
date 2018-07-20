@@ -79,6 +79,10 @@
       href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
+    - name: With roles
+      href: luis-tutorial-pattern-roles.md
+    - name: With Pattern.any entity
+      href: luis-tutorial-pattern-any.md
 - name: Samples
   items:
   - name: Code samples
@@ -231,9 +235,9 @@
   - name: Find region programmatically
     items: 
     - name: Using C#
-      href: find-region-csharp.md
+      href: luis-find-region-csharp.md
     - name: Using Node.js
-      href: find-region-nodejs.md
+      href: luis-find-region-nodejs.md
 - name: Reference
   items: 
   - name: User privacy
