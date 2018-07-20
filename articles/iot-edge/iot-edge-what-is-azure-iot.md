@@ -28,7 +28,7 @@ If you haven't used Azure IoT Hub before, you might want to start with an [Overv
 
 [lnk-deployment]: module-deployment-monitoring.md
 [lnk-overview]: about-iot-edge.md
-[lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
+[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
