@@ -24,7 +24,7 @@ Many services, especially containerized services, are addressable through a pre-
 
 The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how the DNS service works for stateless services.
 
-![service endpoints](./media/service-fabric-dnsservice/dns.png)
+![service endpoints](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
@@ -62,18 +62,53 @@ After you have a template, you can enable the DNS service with the following ste
     }
     ```
 
-2. Now enable the DNS service by adding the following `addonFeatures` section after the `fabricSettings` section as shown in the following snippet: 
+2. Now enable the DNS service: 
 
-    ```json
-        "fabricSettings": [
-        ...      
-        ],
-        "addonFeatures": [
-            "DnsService"
-        ],
-    ```
+   - To enable the DNS service with default settings, add it to the `addonFeatures` section inside the `properties` section as shown in the following snippet:
 
-3. Once you have updated your cluster template with the preceding changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
+       ```json
+           "properties": {
+              ...
+
+              "addonFeatures": [
+                "DnsService"
+              ],
+              ...
+           }
+       ```
+   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
+
+       ```json
+           "properties": {
+             ...  
+             "fabricSettings": [
+               ...
+               {
+                 "name": "DnsService",
+                 "parameters": [
+                   {
+                     "name": "IsEnabled",
+                     "value": "true"
+                   },
+                   {
+                     "name": "PartitionSuffix",
+                     "value": "--"
+                   },
+                   {
+                     "name": "PartitionPrefix",
+                     "value": "--"
+                   },
+                   {
+                     "name": "AllowMultipleListeners",
+                     "value": "true"
+                   }
+                 ]
+               },
+               ...
+              ]
+            }
+       ```
+3. Once you have updated your cluster template with the your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
 
 ## Setting the DNS name for your service
@@ -88,19 +123,19 @@ For stateful services, use the following naming scheme:
 
 Where:
 
-- `First-Label-Of-Partitioned-Service-DNSName` is recommended to be the service name.
-- `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-".
+- `First-Label-Of-Partitioned-Service-DNSName` is the first part of your service DNS name.
+- `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
 - `Target-Partition-Name` is the name of the partition. The following restrictions apply: 
    - Partition names should be DNS compliant.
-   - Multi label Partition names (that include dot, '.', in the name) should not be used.
-   - Partition names should be in lower case. This is because DNS protocol and queries are case insensitive, while Service Fabric partition names are case sensitive. Keeping partition names in lower case prevents potential collisions with partitions 
-- `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string.
-- `Remaining-Partitioned-Service-DNSName` is recommended to be the app instance name.
+   - Multi-label partition names (that include dot, '.', in the name) should not be used.
+   - Partition names should be lower-case.
+- `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
+- `Remaining-Partitioned-Service-DNSName` is the remaining part of your service DNS name. It is recommended that you use the app instance name to ensure that the DNS name is unique across your cluster.
 
 The following examples show DNS queries for a partitioned service running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
 
-- To resolve partition “0” of a partitioned service with DNS name `BackendRangedSchemeSvc.Application`, use `BackendRangedSchemeSvc-0.Application`.
-- To resolve partition “first” of a partitioned service with DNS name `BackendNamedSchemeSvc.Application`, use `BackendNamedSchemeSvc-first.Application`
+- To resolve partition “0” of a service with DNS name `BackendRangedSchemeSvc.Application` that uses a ranged partitioning scheme, use `BackendRangedSchemeSvc-0.Application`.
+- To resolve partition “first” of a service with DNS name `BackendNamedSchemeSvc.Application`that uses a named partitioning scheme, use `BackendNamedSchemeSvc-first.Application`.
 
 For stateful services, the DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
 
@@ -119,7 +154,7 @@ Once the application is deployed, the service instance in the Service Fabric Exp
 
 ![service endpoints][1]
 
-The following example shows the setting a DNS name for a stateful partitioned service to `statefulsvc.app`. Notice that the partition names are lower-case in observance of the guidance in the previous section.
+The following example shows setting a DNS name for a stateful partitioned service to `statefulsvc.app`. Notice that the partition names are lower-case in observance of the guidance in the previous section.
 
 ```xml
     <Service Name="StatefulSvc" ServiceDnsName="statefulsvc.app" />
@@ -149,7 +184,7 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
 ## Using DNS in your services
 If you deploy more than one service, you can find the endpoints of other services to communicate with  by using a DNS name. The DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. 
 
-Dynamic ports are not supported by the DNS service. You can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) to resolve services that use dynamic ports.
+Dynamic ports are not supported by the DNS service. You can use the reverse proxy service to resolve services that use dynamic ports.
 
 The following code shows how to call a stateless service through DNS. It is simply regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
 
