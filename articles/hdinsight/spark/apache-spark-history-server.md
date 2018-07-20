@@ -29,7 +29,7 @@ Spark History Server is the web UI for completed and running Spark applications.
 
     ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
 
-### To open the Spark History Server Web UI by url
+### To open the Spark History Server Web UI by URL
 Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
 
    ```
@@ -52,7 +52,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data copy](./media/apache-spark-history-server/sparkui-data-copy.png)
 
-+ Save all rows by clicking button **CSV**.
++ Save all data as CSV file by clicking button **CSV**.
 
     ![Data save](./media/apache-spark-history-server/sparkui-data-save.png)
 
@@ -60,11 +60,11 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data search](./media/apache-spark-history-server/sparkui-data-search.png)
 
-+ Click the column header to sort table, click the plug sign to expand a row to show more details, or click the minus sign to collect a row.
++ Click the column header to sort table, click the plus sign to expand a row to show more details, or click the minus sign to collapse a row.
 
     ![Data table](./media/apache-spark-history-server/sparkui-data-table.png)
 
-+ Download single row by clicking button **Partition Download** that place at each row, and the selected row will download to local, otherwise, it will open a new tab to show the error messages.
++ Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist any more, it will open a new tab to show the error messages.
 
     ![Data download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
@@ -88,22 +88,27 @@ Select job ID then click **Data** on the tool menu to get the data view.
 ## Open the Graph tab from Spark History Server
 Select job ID then click **Graph** on the tool menu to get the job graph view.
 
-+ Take an overview of your job by the generated job graph. 
++ Check overview of your job by the generated job graph. 
 
-+ Filter by **Job ID** or check the job graph for all jobs that is default view.
++ By default, it will show all the jobs, and it could be filtered by **Job ID**.
 
     ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
 
-+ Filter with data flow by selecting Read/Written in **Display** to check the data read, written, or progress that is default selection. The stage display in color that depends on the data flow.
++ By default, **Progress** is selected, user could check the data flow by selecting **Read/Written** in the dropdown list of **Display**.
 
     ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-+ Play back by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when playback.
-    + Successes task display in green.
-    + Running task display in light blue.
-    + Retried task display in orange.
-    + Failed task display in red.
-    + Waiting or skipped task display in white.
+    The graph node display in color which shows the heatmap.
+
+    ![graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
+
++ Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
+
+    + Grean for succeeded: The job has completed successfully.
+    + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
+    + Red for failed: The task has failed.
+    + Blue for running: The task is running.
+    + White for skipped or waiting: The task is waiting to run, or the stage has skipped.
 
     ![graph color sample, running](./media/apache-spark-history-server/sparkui-graph-color-running.png)
  
@@ -116,21 +121,21 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
  
     ![graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
-+ Hover on stage to see the tooltip when there are failed tasks, and click on stage to open stage page.
++ Hover on graph node to see the tooltip when there are failed tasks, and click on stage to open stage page.
 
     ![graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
 
-+ The job graph node will display the following information of each stage.
++ The job graph node will display the following information of each stage:
     + ID.
     + Name or description.
     + Total task number.
-    + Data read, the sum of input size and shuffle read size.
-    + Data write, the sum of output size and shuffle write size.
-    + Execution time, the time between start time of the first attempt and completion time of the last attempt.
-    + Row count, the sum of input records, output records, shuffle read records and shuffle write records.
+    + Data read: the sum of input size and shuffle read size.
+    + Data write: the sum of output size and shuffle write size.
+    + Execution time: the time between start time of the first attempt and completion time of the last attempt.
+    + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
     + Progress.
 
-    >Note: By default the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback stage node will show information of each attempt.
+    >Note: By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
 
     >Note: For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
@@ -139,9 +144,11 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Revert to community version
+## FAQ
 
-To revert to community version, follow the steps:
+### 1. Revert to community version
+
+To revert to community version, do the following steps:
 
 1. Open cluster in Ambari. Click **Spark2** in left panel.
 2. Click **Configs** tab.
@@ -152,17 +159,21 @@ To revert to community version, follow the steps:
 
     ![feature turns off](./media/apache-spark-history-server/sparkui-turn-off.png)
 
-7. Restart server as required by clicking button **Restart**.
+7. Click **Spark2** in left panel, under **Summary** tab, click **Spark2 History Server**.
 
-    ![restart server](./media/apache-spark-history-server/sparkui-restart-server.png)
+    ![restart server1](./media/apache-spark-history-server/sparkui-restart-1.png) 
 
-8. Refresh the Spark history server web UI, it will be reverted to community version.
+8. Restart history server by clicking **Restart**.
 
-## Upload history server log
+    ![restart server2](./media/apache-spark-history-server/sparkui-restart-2.png)  
 
-If you meet history server error, please use **upload_shs_log.sh**, it is used for upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
+9. Refresh the Spark history server web UI, it will be reverted to community version.
 
-### Usage of upload_shs_log.sh
+### 2. Upload history server log
+
+If you run into history server error, please use the script below which will upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
+
+**upload_shs_log.sh**
 
    ```bash
     #!/usr/bin/env bash
@@ -224,14 +235,14 @@ For **SAS_query_string**, you can get it from ASE:
 
     ![copy query string](./media/apache-spark-history-server/sparkui-faq1-3.png)
 
-### To use the bash file from Azure portal
+**To use the bash file from Azure portal**
 
 1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**, select **Custom**.
     + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
+    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI we provide.
 
    ```upload_shs_log
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
@@ -243,11 +254,11 @@ For **SAS_query_string**, you can get it from ASE:
     ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
 
 
-## Upgrade jar file for hotfix scenario
+### 3. Upgrade jar file for hotfix scenario
 
 If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*.
 
-### Usage of upgrade_spark_enhancement.sh
+**upgrade_spark_enhancement.sh**
 
    ```bash
     #!/usr/bin/env bash
@@ -277,14 +288,14 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
 
 `upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
 
-### To use the bash file from Azure portal
+**To use the bash file from Azure portal**
 
 1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**, select **Custom**.
     + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy url here. Alternatively, use the URI we provide.
+    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI we provide.
     
    ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
@@ -295,3 +306,9 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
 
     ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload2.png)
 
+
+## Known issue
+
+1.	Currently, it only works for Spark 2.3 cluster.
+
+2.	Input/output data using RDD will not show in data tab.
