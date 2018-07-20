@@ -1,12 +1,12 @@
 ---
-title: Self-service password reset customization - Azure Active Directory
+title: Customizing Azure AD self-service password reset
 description: Customization options for Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,8 +21,9 @@ IT professionals who want to deploy self-service password reset (SSPR) in Azure 
 ## Customize the "Contact your administrator" link
 
 Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it either:
-   * Emails your administrators and asks them for assistance in changing the user's password. 
-   * Sends your users to a URL that you specify for assistance. 
+
+   * Emails your administrators and asks them for assistance in changing the user's password.
+   * Sends your users to a URL that you specify for assistance.
 
 We recommend that you set this contact to something like an email address or website that your users already use for support questions.
 
@@ -42,9 +43,7 @@ To find out more about the different administrator roles and how to assign them,
 
 If your organization does not want to notify administrators about password reset requests, you can enable the following configuration:
 
-* Enable self-service password reset for all end users. This option is under **Password Reset** > **Properties**.
-  
-  If you don't want users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
+* Enable self-service password reset for all end users. This option is under **Password Reset** > **Properties**. If you don't want users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
 * Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset** > **Customization** > **Custom helpdesk email or URL**.
 
 ## Customize the AD FS sign-in page for SSPR
