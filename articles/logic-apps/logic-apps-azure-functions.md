@@ -196,7 +196,9 @@ as JavaScript Object Notation (JSON).
    you can reference the content in the context object 
    by using this syntax, based on this example:
 
-   ```context.body.content```
+   ```text
+   context.body.content
+   ```
 
    Note that in this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
@@ -251,7 +253,9 @@ sends to your function.
    you can reference the content in the context object 
    by using this syntax, based on this example:
 
-   ```context.body.content```
+   ```text
+   context.body.content
+   ```
 
    Note that in this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
