@@ -67,6 +67,9 @@ Once the app copy operation succeeds, you will be able to navigate to the new ap
 
 ![Application Settings page](media\howto-administer\appCopy3.png)
 
+> [!Note]
+> Copying an application will copy the definition of rules or actions. However, since users that have access to your original app aren't copied to the copied app, you'll have to manually add users to actions such as email for which users are a pre-requisite.
+
 ## Delete an application
 
 To delete your application, use the secondary navigation menu to navigate to the **Application Settings** page in the **Administration** section.
