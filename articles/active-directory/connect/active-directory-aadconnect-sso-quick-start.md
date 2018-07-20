@@ -131,13 +131,23 @@ There are two ways to modify users' Intranet zone settings:
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
-3. Browse to **User Configuration** > **Preferences** > **Control Panel Settings** > **Windows Settings** > **Registry** > **New** > **Registry item**.
-Then select **Site to Zone Assignment List**.
-    ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
-4. Enable the policy, and then enter the following values in the dialog box:
-   - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
-   - **Value** (Data): **1** indicates the Intranet zone.
+3. Browse to **User Configuration** > **Preferences** > **Windows Settings** > **Registry** > **New** > **Registry item**.
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso15.png)
+4. Enter the following values in appropriate fields and click **OK**.
+   - **Key Path**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Value name**: ***https***.
+   - **Value type**: ***REG_DWORD***.
+   - **Value data**: ***00000001***.
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso16.png)
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso17.png)
 
+6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Enable the policy setting, and then select **OK**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### Browser considerations
 
