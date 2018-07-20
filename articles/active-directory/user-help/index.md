@@ -29,7 +29,7 @@ We've created this content to help you set up and use security info, two-step ve
                         <p>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Set up two-step verification</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Manage your settings</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-sign-in">Sign in</a>
+                        <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ We've created this content to help you set up and use security info, two-step ve
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Set up text messages</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Set up a phone number</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-manage-settings">Manage your security info</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-sign-in">Sign in</a>
+                        <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>
                 </div>
