@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/20/2018
 ms.author: jeedes
 
 ---
@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.skills-base.com/o/<customer-unique-key>`
 
 	> [!NOTE] 
-	> The Sign-on URL value is not real. To update the value with the actual Sign-On URL you need to login into Skills Base application as an administrator and follows the path Admin > Settings > Instance details > Shortcut link. From this you can copy the Sign On URL for your instance.
+	> You can get the Sign-On URL from Skills Base application. Please login as an Administrator and to go to Admin-> Settings-> Instance details -> Shortcut link. Copy the Sign-On URL and paste it in above textbox.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -138,7 +138,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click **Save**.
 	
-
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
