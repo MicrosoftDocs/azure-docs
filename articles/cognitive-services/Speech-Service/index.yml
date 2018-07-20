@@ -1,11 +1,11 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service and API Documentation (Preview)
+title: Speech Service and SDK Documentation (Preview)
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, 
-    such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.  Examples include, 
+    voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -26,10 +26,10 @@ abstract:
     the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
     <p>For more details of what the service can do for you, see <a href="overview">What is the Speech service?</a>
 sections:
-- title: 10-minute download and quickstarts for the Speech SDK
+- title: 10-minute download and quickstart for the Speech SDK
   items:
   - type: paragraph
-    text: 'Learn how to download, install, and use the Speech SDK.  Click on the arrow link in the table cell below that correspnds to your desired environment.'
+    html: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/logo_java.jpg"></img> below.
   - type: table
     style: dataMatrix
     columns:
@@ -42,7 +42,7 @@ sections:
       - image:
           src: media/index/logo_netcore.svg
       - image:
-          src: media/index/logo_java.svg
+          src: media/index/logo_java.jpg
       - image:
           src: media/index/logo_rest_sr.svg
       - image:
@@ -109,6 +109,6 @@ sections:
   items:
   - type: paragraph
     text: |
-      The Speech service lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
+      Our Speech also service lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
       <a href="https://cris.ai/Home/customvoice">customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
 
