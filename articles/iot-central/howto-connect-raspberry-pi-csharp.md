@@ -30,7 +30,7 @@ To complete the steps in this article, you need the following:
 An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics: 
 
 - Telmetry which containes the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-- Settings showing **Voltage**, **Current**,**Fan Speed** and an **IR** toggle.
+- Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
 - Properties containing device property **die number** and **location** cloud property.
 
 
