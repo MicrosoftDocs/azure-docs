@@ -370,7 +370,7 @@ Going through each of the properties:
 
 * **nodeCount** - This field defines the number of nodes to dedicate for the job. In this experiment, the job will be run in parallel on `4` different nodes. 
 
-* **horovodSettings** - The `pythonScriptFilePath` field defines the path to the horovod script that needs to be run, which is located in the `cifar` directory created. The `commandLineArgs` field is the command line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to as explained earlier. 
+* **horovodSettings** - The `pythonScriptFilePath` field defines the path to the horovod script that needs to be run, which is located in the `cifar` directory created. The `commandLineArgs` field is the command-line arguments for running the script. For this experiment, the directory of where to save the model is the only required argument. `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to as explained earlier. 
 
 * **stdOutErrPathPrefix** - This field defines the path on where to store the job outputs and logs, which will be stored in the same `cifar` directory. Once again, `$AZ_BATCHAI_MOUNT_ROOT/autoafs` is the path that the auto storage was mounted to.
 
@@ -403,7 +403,7 @@ az batchai cluster show \
     --query "nodeStateCounts"
 ```
 
-The output should be similar to the following example, which shows all four in a running state. This shows that all four nodes are currently being utilized in the distributed training.
+The output should be similar to the following example, which shows all four in a running state. This result shows that all four nodes are currently being utilized in the distributed training.
 
 ```
 {
