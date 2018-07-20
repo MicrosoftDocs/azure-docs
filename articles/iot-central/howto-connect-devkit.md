@@ -30,7 +30,7 @@ An application created from the **Sample Devkits** application template includes
 - State which containes an example measurement for **Device State**.
 - Event measurement with a **Button B Pressed** event. 
 - Settings showing **Voltage**, **Current**,**Fan Speed** and an **IR** toggle.
-- Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property.
+- Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
 
 
 For full details on the configuration refer to [MXChip Device template details](howto-connect-devkit.md)
@@ -84,13 +84,8 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     - add the name of your WiFi network 
     - your WiFi network password 
     - PIN CODE shown on the device LCD 
-<<<<<<< HEAD
     - the connection string of your device (you should have already saved this following the steps)
       You can find the connection string @ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right) 
-=======
-    - the connection string of your device. 
-      You can find the connection string \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right) 
->>>>>>> a27be454fb762ffb5299d049876711789609c9c6
     - Select all the available telemetry measurements! 
 
 1. After you choose **Configure Device**, you see this page:

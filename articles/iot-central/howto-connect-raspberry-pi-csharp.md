@@ -41,7 +41,7 @@ For full details on the configuration of the device template refer to [Raspberry
 
 In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
-## Create your .NET application
+### Create your .NET application
 
 You create and test the device application on your desktop machine.
 
