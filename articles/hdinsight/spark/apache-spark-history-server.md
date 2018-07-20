@@ -90,7 +90,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Check overview of your job by the generated job graph. 
 
-+ By default, it will show all the jobs, and it could be filtered by **Job ID**.
++ By default, it will show all jobs, and it could be filtered by **Job ID**.
 
     ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
 
@@ -256,7 +256,7 @@ For **SAS_query_string**, you can get it from ASE:
 
 ### 3. Upgrade jar file for hotfix scenario
 
-If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*.
+If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade spark-enhancement.jar*.
 
 **upgrade_spark_enhancement.sh**:
 
