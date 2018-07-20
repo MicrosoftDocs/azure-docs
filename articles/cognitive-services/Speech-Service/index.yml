@@ -29,7 +29,7 @@ sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/link.jpg"></img> below.
+    text: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/link.jpg" height="30" width="30"></img> below.
   - type: table
     style: dataMatrix
     columns:
