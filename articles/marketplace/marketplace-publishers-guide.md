@@ -68,10 +68,9 @@ After you [submit your solution](https://azuremarketplace.microsoft.com/sell/sig
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ## Storefronts
-In a storefront, you can list offers, enable trials, and transact directly with Microsoft customers. Microsoft provides distinct storefronts in the Marketplace and AppSource. For details and a comparison of storefronts, see the following articles:
-*   [Comparing AppSource and the Azure Marketplace](./comparing-appsource-azure-Marketplace.md)
-*   [Grow your business with AppSource](./grow-your-business-with-appsource.md)
-*   [Grow your business with the Azure Marketplace](./grow-your-business-with-azure-Marketplace.md)
+In a storefront, you can list offers, enable trials, and transact directly with Microsoft customers. Microsoft provides distinct storefronts in the Marketplace and AppSource. For detail benefits of each storefronts, see the following link:
+* [Comparing AppSource and Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+* [Grow your business on Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
 
 Storefronts help customers find, try, and buy apps and services that accelerate the customer's digital transformation. Storefronts help you grow your businesses by increasing access to Microsoft customers and partners.
  
@@ -85,13 +84,12 @@ Each storefront provides specialized options to help you maximize your publishin
 | Offer type | <ul><li>Consulting Services</li><li>Contact Me</li><li>Free trial</li><li>Get Now</li><li>Test drive</li></ul> | <ul><li>Azure apps: Managed app</li><li>Azure apps: Solution template</li><li>Consulting Services</li><li>Contact Me</li><li>Trial</li><li>Virtual machine</li></ul> |
 | In-app experience to give users access to apps and services in the context of your app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office client apps</li><li>Power BI</li></ul> | <ul><li>Azure portal</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
 
-## Publish in a storefront in the Marketplace
+## Publish in the Marketplace
 The following articles can help you learn about the publishing options in AppSource and Azure Marketplace.
 
 Become a publisher in a storefront in the Marketplace in three easy steps:
-1. [Determine the publishing for your solution](./determine-your-listing-type.md)
-2. [Become a publisher in Marketplace storefronts](./become-publisher.md)
-3. [Understand requirements by listing type](./listing-type-requirements.md) 
+1. [Determine the publishing option](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
+2. [Become a publisher in Marketplace storefronts](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
 
 ## Publishing checklists
 *   [Publishing checklist for AppSource](publishing-checklist-appsource.md)
