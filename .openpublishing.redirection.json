@@ -26449,6 +26449,16 @@
         "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
         "redirect_document_id": true
-        }         
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+        "redirect_document_id": true
+        }
     ]
 }
