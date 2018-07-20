@@ -163,7 +163,7 @@ To revert to community version, do the following steps:
 
     ![restart server1](./media/apache-spark-history-server/sparkui-restart-1.png) 
 
-8. Restart history server by clicking **Restart**.
+8. Restart history server by clicking **Restart** of **Spark2 History Server**.
 
     ![restart server2](./media/apache-spark-history-server/sparkui-restart-2.png)  
 
@@ -173,7 +173,7 @@ To revert to community version, do the following steps:
 
 If you run into history server error, please use the script below which will upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
 
-**upload_shs_log.sh**
+**upload_shs_log.sh**:
 
    ```bash
     #!/usr/bin/env bash
@@ -258,7 +258,7 @@ For **SAS_query_string**, you can get it from ASE:
 
 If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade our spark-enhancement.jar*.
 
-**upgrade_spark_enhancement.sh**
+**upgrade_spark_enhancement.sh**:
 
    ```bash
     #!/usr/bin/env bash
