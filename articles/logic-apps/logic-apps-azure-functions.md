@@ -21,15 +21,15 @@ you can create your own functions by using
 This service provides the capability for creating and running 
 custom code snippets written with Node.js or C# in your logic 
 apps without worrying about creating an entire app or the 
-infrastructure for running your code. Azure Functions provides 
-serverless computing in the cloud and is useful for 
-performing tasks such as these examples:
+infrastructure for running your code. Azure Functions 
+provides serverless computing in the cloud and is useful 
+for performing tasks, such as these examples:
 
 * Extend your logic app's behavior with functions supported by Node.js or C#.
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
-You can also [call logic apps from inside an Azure function](#call-logic-app).
+You can also [call logic apps from inside Azure functions](#call-logic-app).
 
 ## Prerequisites
 
@@ -69,8 +69,8 @@ a richer experience for you when working with function parameters.
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 create your Azure function app, and then create your Azure function. 
-If you're new to Azure Functions, see 
-[Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
+If you're new to Azure Functions, learn how to 
+[create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
 but note these requirements for creating Azure functions 
 that you can add and call from logic apps.
 
@@ -101,21 +101,17 @@ type from your logic app:
 
 ### Access property values inside HTTP requests
 
-Webhook functions can accept HTTP requests as input payloads and pass 
-the content in those requests to other functions through a `data` variable. 
-To access the input properties, you can use dot (.) notation with that variable 
-by following this format: 
-
-`data.<property-name>.<function-name>`
-
-Although Logic Apps provides [functions for converting DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
-this example shows how a basic JavaScript function uses dot notation 
-to access the `body` content inside the `request` object that's passed 
-as input to the function. The example creates a `data` variable and then 
-assigns the `body` content to the `data` variable. Now, the example can 
-access the `date` property value through the `data` variable, convert 
-that value to DateString format by calling the `ToDateString()` function, 
-and return the result in the function's response:
+Webhook functions can accept HTTP requests as inputs and pass the 
+request content to other functions by using a `data` variable. 
+To access the properties inside the input request content, 
+you can use the dot (.) operator. For example, although 
+Logic Apps has [functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
+this basic sample JavaScript function shows how you 
+can access the `body` object inside the `request` 
+object that's passed to this function. 
+The `body` object also has a `date` property, 
+and this function converts that `date` value 
+from DateTime type to DateString type. 
 
 ```javascript
 function convertToDateString(request, response){
@@ -125,6 +121,30 @@ function convertToDateString(request, response){
    }
 }
 ```
+
+Here's what happens inside this function:
+
+1. The function creates a `data` variable and assigns the `body` 
+object inside the `request` object to that `data` variable. 
+To access the `body` object inside the `request` object, 
+the function uses the dot (.) operator: 
+
+   `var data = request.body`
+
+2. The function can now access the `date` property, 
+now inside the `data` variable, and convert that 
+value from DateTime to DateString type by 
+calling the `ToDateString()` function, 
+and return the result in the function's response:
+
+
+`data.<property-name>.<function-name>`
+
+
+To access the properties inside a request from within your function, 
+you can use dot (.) notation with the `data` variable by using this syntax. 
+
+
 
 Now that you've created your Azure function, 
 follow the steps for how to 
