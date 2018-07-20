@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
 
 ---
@@ -57,14 +57,14 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 
 **To add Salesforce from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -99,27 +99,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. On the **Salesforce Domain and URLs** section, perform the following steps:
 
     ![Salesforce Domain and URLs single sign-on information](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. In the **Sign-on URL** textbox, type the value using the following pattern:
-    
+
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. In the **Identifier** textbox, type the value using the following pattern:
-    
+
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Salesforce Client support team](https://help.salesforce.com/support) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
@@ -167,14 +167,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
     c. In the **Entity Id textbox**, type your Salesforce domain name using the following pattern:
-      
+
       * Enterprise account: `https://<subdomain>.my.salesforce.com`
       * Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.
 
     e. As **SAML Identity Type**, choose one of the following options:
-    
+
       * Select **Assertion contains the User's Salesforce username**, if user's Salesforce Username is being passed in SAML assertion
 
       * Select **Assertion contains the Federation ID from the User object**, if Federation ID from the User object is being passed in SAML assertion
@@ -186,7 +186,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     g. For **Service Provider Initiated Request Binding**, select **HTTP Redirect**.
 
     h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal
-    
+
     i. Finally, click **Save** to apply your SAML single sign-on settings.
 
 14. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
@@ -197,7 +197,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. In the **Authentication Configuration** section, Check the **Login Page** as **Authentication Servie** of your SAML SSO configuration, and then click **Save**.
+16. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Servie** of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 

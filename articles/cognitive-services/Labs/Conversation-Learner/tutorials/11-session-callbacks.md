@@ -1,7 +1,7 @@
 ---
-title: How to use session callbacks with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use session callbacks with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use session callbacks with a Conversation Learner application.
+description: Learn how to use session callbacks with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,12 +12,16 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use session callbacks with a Conversation Learner application
+# How to use session callbacks with a Conversation Learner model
 
 This tutorial illustrates the onSessionStart and onSessionEnd callbacks.
 
+## Video
+
+[![Tutorial 11 Preview](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## Requirements
-This tutorial requires that the "tutorialSessionCallbacks.ts" bot is running.
+This tutorial requires that the `tutorialSessionCallbacks` bot is running.
 
 	npm run tutorial-session-callbacks
 
@@ -30,19 +34,19 @@ If there are long breaks, then the bot will go to its next session.  Starting a 
 
 ### Open the demo
 
-In the App list, click on Tutorial-11-SessionCallbacks. 
+In the Model list, click on Tutorial-11-SessionCallbacks. 
 
 ### Entities
 
-We have defined four entities in the application.
+Four entities are defined in the model.
 
 ![](../media/tutorial11_entities.PNG)
 
-One thing to note is that BotName is a Programmatic Entity.  This will be set by the bot at session start time.
+One thing to note is that BotName is a Programmatic Entity.  This entity will be set by the bot at session start time.
 
 ### Actions
 
-We have created four actions. 
+Four actions are defined in the model.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -66,7 +70,7 @@ c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts.
 Both of these methods are optional.
 
 - OnSessionStartCallback: this method sets the BotName entity.
-- OnSessionEndCallback: you can specify what you want to clear. This will clear all entities except user name and user phone.
+- OnSessionEndCallback: you can specify what you want to preserve. This will clear all entities except user name and user phone.
 
 ### Try the bot
 

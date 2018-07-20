@@ -49,5 +49,5 @@ Follow these links to learn more about Azure IoT Hub:
 [Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [IoT Hub developer guide - identity registry]: iot-hub-devguide-identity-registry.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
+[What is Azure IoT Hub?]: about-iot-hub.md
