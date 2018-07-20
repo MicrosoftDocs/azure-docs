@@ -250,7 +250,7 @@ featureFlags:
                                                             Ansible
                                                         </a>
                                                     </li>
-                                                    <li>
+													<li>
                                                         <a class="barLink" href="/azure/chef">
                                                             <img src="chef/media/Chef_Regular.svg" alt="">
                                                             Chef
@@ -278,6 +278,12 @@ featureFlags:
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Learn DevOps with Azure
+                                                        </a>
+                                                    </li>
+													<li>
+                                                        <a class="barLink" href="/azure/devops-project/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+                                                            Azure DevOps Project
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -1195,7 +1201,13 @@ featureFlags:
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
-                                    </ul>
+										<li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Project</p>
+                                            </a>
+                                        </li>
+									</ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
@@ -4579,6 +4591,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+							<li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DevOps Project</h3>
+                                                    <p>Quickly deploy any language on any platform to Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5880,7 +5911,7 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/database-migration.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
