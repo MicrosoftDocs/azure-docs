@@ -300,6 +300,8 @@ Here's the *function.json* file:
 }
 ```
 
+Here's the Java code:
+
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
