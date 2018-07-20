@@ -246,4 +246,4 @@ To deploy the previous template using Azure CLI, follow these steps.
 
 - [Create and deploy your first Azure Resource Manager template](../azure-resource-manager/resource-manager-create-first-template.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
-- [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?term=rbac)
+- [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=rbac)
