@@ -227,7 +227,7 @@
         href: luis-traffic-manager.md  
 
   - name: Migrate to V2 API
-    href: migration-v1-to-v2.md
+    href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
     items: 
     - name: Using C#
