@@ -26,15 +26,15 @@ Perform an on-demand backup on Azure Stack with backup in place. For instruction
 
 ## Start Azure Stack backup
 
-### Use Start-AzSBackup to start a new backup immediately with no job progress tracking. 
-Use Start-AzsBackup to start a new backup.
+### Start a new backup without job progress tracking
+Use Start-AzSBackup to start a new backup immediately with no job progress tracking.
 
 ```powershell
    Start-AzsBackup -Force
 ```
 
 ### Start Azure Stack backup with job progress tracking
-Use Start-AzSBackup to start a new backup with -AsJob variable to track progress.
+Use Start-AzSBackup to start a new backup with the -AsJob variable to track backup job progress.
 
 ```powershell
     $backupjob = Start-AzsBackup -Force -AsJob 
@@ -51,28 +51,28 @@ Use Start-AzSBackup to start a new backup with -AsJob variable to track progress
    Get-AzsBackup
 ```
 
-- The result should look like the following output:
+The result should look like the following output:
 
-  ```powershell
-      BackupDataVersion : 1.0.1
-      BackupId          : <backup ID>
-      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
-      Status            : Succeeded
-      CreatedDateTime   : 7/6/2018 6:46:24 AM
-      TimeTakenToCreate : PT20M32.364138S
-      DeploymentID      : <deployment ID>
-      StampVersion      : 1.1807.0.41
-      OemVersion        : 
-      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
-      Name              : local/<local name>
-      Type              : Microsoft.Backup.Admin/backupLocations/backups
-      Location          : local
-      Tags              : {}
-  ```
+```powershell
+    BackupDataVersion : 1.0.1
+    BackupId          : <backup ID>
+    RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+    Status            : Succeeded
+    CreatedDateTime   : 7/6/2018 6:46:24 AM
+    TimeTakenToCreate : PT20M32.364138S
+    DeploymentID      : <deployment ID>
+    StampVersion      : 1.1807.0.41
+    OemVersion        : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+    Name              : local/<local name>
+    Type              : Microsoft.Backup.Admin/backupLocations/backups
+    Location          : local
+    Tags              : {}
+```
 
 ## Confirm backup completed in the administration portal
 
-1. Open the Azure Stack administration portal at [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Find the **Name** and **Date Completed** of the backup in **Available backups** list.
 4. Verify the **State** is **Succeeded**.
