@@ -7,6 +7,7 @@ ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation DSC
