@@ -54,7 +54,7 @@ In this quickstart, you walk through configuring self-service password reset (SS
 Now lets test your SSPR configuration with a test user. Since Microsoft enforces strong authentication requirements for Azure administrator accounts, testing using an administrator account may change the outcome. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md) article.
 
 1. Open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
-2. Log in with a non-administrator test user, and register your authentication phone.
+2. Sign in with a non-administrator test user, and register your authentication phone.
 3. Once complete, click the button marked **looks good** and close the browser window.
 4. Open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/sspr](https://aka.ms/sspr).
 5. Enter your non-administrator test users' User ID, the characters from the CAPTCHA, and then click **Next**.
