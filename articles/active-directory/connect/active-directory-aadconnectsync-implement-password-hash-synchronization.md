@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -64,7 +64,7 @@ The password hash synchronization feature automatically retries failed synchroni
 The synchronization of a password has no impact on the user  who is currently signed in.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. These pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign in. This selection sets a session cookie that bypasses authentication for a short period. KMSI behavior can be enabled or disabled by the Azure AD administrator.
+A user must enter their corporate credentials a second time to authenticate to Azure AD, regardless of whether they're signed in to their corporate network. These pattern can be minimized, however, if the user selects the Keep me signed in (KMSI) check box at sign in. This selection sets a session cookie that bypasses authentication for 180 days. KMSI behavior can be enabled or disabled by the Azure AD administrator. In addition, you can reduce password prompts by turning on [Seamless SSO](active-directory-aadconnect-sso.md) which automatically signs users in when they are on their corporate devices connected to your corporate network.
 
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
