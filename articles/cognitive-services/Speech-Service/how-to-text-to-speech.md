@@ -20,7 +20,7 @@ The body of the POST request for Text to Speech may be plain text (ASCII or UTF8
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## Specify a voice
 
@@ -91,4 +91,6 @@ For more information on the Text to Speech REST API, see [REST APIs](rest-apis.m
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-windows.md)
+- [Recognize speech in C++](quickstart-cpp-windows.md)
+- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+- [Recognize speech in Java](quickstart-java-android.md)

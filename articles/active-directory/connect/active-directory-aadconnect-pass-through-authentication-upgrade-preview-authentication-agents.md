@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -46,7 +46,7 @@ To check the versions of your Authentication Agents, on each server identified i
 
 1. Go to **Control Panel -> Programs -> Programs and Features** on the on-premises server.
 2. If there is an entry for "**Microsoft Azure AD Connect Authentication Agent**", you don't need to take any action on this server.
-3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", versions 1.5.132.0 or earlier, you need to manually upgrade on this server.
+3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", you need to manually upgrade on this server.
 
 ![Preview version of Authentication Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
