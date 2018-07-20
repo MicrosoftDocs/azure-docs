@@ -81,8 +81,8 @@ The following examples assume you're signed in as **CloudAdmin** and accessing t
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint `
-      Test-AzureStack
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack
 ````
 
 #### Run Test-AzureStack with cloud scenarios
@@ -107,7 +107,7 @@ Type the cloud administrator user name in UPN format serviceadmin@contoso.onmicr
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
@@ -125,7 +125,7 @@ In a PEP session, run:
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint
   Test-AzureStack -List
 ````
 
@@ -134,14 +134,14 @@ In a PEP session, run:
 In a PEP session, run:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
 To exclude specific tests:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint `
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
     Test-AzureStack -Ignore AzsInfraPerformance
 ````
 
@@ -152,20 +152,20 @@ Before configuring infrastructure backup, you can test the backup share path and
 In a PEP session, run:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential <PSCredential>
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
 ````
 After configuring backup, you can run AzsBackupShareAccessibility to validate the share is accessible from the ERCS, from a PEP session run:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential <PSCredential>
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility
 ````
 
 To test new credentials with the configured backup share, from a PEP session run:
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential <PSCredential>
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
 ````
 
