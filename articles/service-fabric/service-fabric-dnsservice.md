@@ -76,7 +76,7 @@ After you have a template, you can enable the DNS service with the following ste
               ...
            }
        ```
-   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
+   - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
            "properties": {
@@ -97,10 +97,6 @@ After you have a template, you can enable the DNS service with the following ste
                    {
                      "name": "PartitionPrefix",
                      "value": "--"
-                   },
-                   {
-                     "name": "AllowMultipleListeners",
-                     "value": "true"
                    }
                  ]
                },
@@ -108,7 +104,7 @@ After you have a template, you can enable the DNS service with the following ste
               ]
             }
        ```
-3. Once you have updated your cluster template with the your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
+1. Once you have updated your cluster template with the your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
 
 ## Setting the DNS name for your service
@@ -124,12 +120,12 @@ For stateful services, use the following naming scheme:
 Where:
 
 - `First-Label-Of-Partitioned-Service-DNSName` is the first part of your service DNS name.
-- `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
+- `PartitionPrefix` can be set in the DnsService section of the cluster manifest. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - `Target-Partition-Name` is the name of the partition. The following restrictions apply: 
    - Partition names should be DNS compliant.
    - Multi-label partition names (that include dot, '.', in the name) should not be used.
    - Partition names should be lower-case.
-- `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings#dnsservice).
+- `PartitionSuffix` can be set in the DnsService section of the cluster manifest. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - `Remaining-Partitioned-Service-DNSName` is the remaining part of your service DNS name. It is recommended that you use the app instance name to ensure that the DNS name is unique across your cluster.
 
 The following examples show DNS queries for a partitioned service running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
