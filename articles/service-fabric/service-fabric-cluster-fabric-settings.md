@@ -250,6 +250,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Federation
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(300)|Static|Specify timespan in seconds. Nodes in the cluster need to maintain a global lease with the voters. Voters submit their global leases to be propagated across the cluster for this duration. If the duration expires; then the lease is lost. Loss of quorum of leases causes a node to abandon the cluster; by failing to receive communication with a quorum of nodes in this period of time.  This value needs to be adjusted based on the size of the cluster. |
 |LeaseDuration |Time in seconds, default is 30 |Dynamic|Duration that a lease lasts between a node and its neighbors. |
 |LeaseDurationAcrossFaultDomain |Time in seconds, default is 30 |Dynamic|Duration that a lease lasts between a node and its neighbors across fault domains. |
 
