@@ -263,10 +263,10 @@ Next, hook the application repository to the Jenkins build server so that on any
 
 1. Browse to the forked GitHub repository.
 2. Select **Settings**, then select **Webhooks** on the left-hand side.
-3. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
+3. Choose to **Add webook**. For the *Payload URL*, enter `http://<publicIp:8080>/github-webhook/` where `publicIp` is the IP address of the Jenkins server. Make sure to include the trailing /. Leave the other defaults for content type and to trigger on *push* events.
 4. Select **Add webhook**.
 
-![GitHub webhook](media/aks-jenkins/webhook.png)
+    ![GitHub webhook](media/aks-jenkins/webhook.png)
 
 ## Test CI/CD process end to end
 
