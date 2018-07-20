@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create custom DNS records for a web app
+title: Tutorial - Create custom Azure DNS records for a web app
 description: In this tutorial you create custom domain DNS records for web app using Azure DNS.
 services: dns
 author: vhorne
@@ -163,7 +163,7 @@ set-AzureRmWebApp `
 Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt predict an URL for you!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt predict a URL for you!
 
 You should see the same page for both URLs. For example:
 
