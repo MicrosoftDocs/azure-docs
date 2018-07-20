@@ -43,7 +43,7 @@ sections:
   - title: Features
     items:
     - type: paragraph
-      text: CycleCloud Features
+      text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
     - type: list
       style: unordered
       items:
@@ -56,7 +56,7 @@ sections:
   - title: CycleCloud Tools
     items:
     - type: paragraph
-      text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
+      text: Learn about the parts and tools that make up Azure CycleCloud.
     - type: list
       style: unordered
       items:
