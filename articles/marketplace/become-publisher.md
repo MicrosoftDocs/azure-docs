@@ -62,7 +62,7 @@ A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Mi
 
 ## 3. Submit the marketplace registration form  
 | 15 mins |  
-Complete this brief registration form to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
+Complete this brief [registration form](https://azuremarketplace.microsoft.com/en-us/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
 
 You will be asked to include the following information:
 *	Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))

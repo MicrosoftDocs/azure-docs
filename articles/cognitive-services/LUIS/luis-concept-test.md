@@ -15,7 +15,7 @@ ms.author: v-geberr
 
 Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. 
 
-You can [test](interactive-test.md) LUIS interactively, one utterance at a time, or provide a [batch](luis-concept-batch-test.md) of utterances. With testing, you compare the current [active](luis-concept-version.md#active-version) model to the published model. 
+You can [test](luis-interactive-test.md) LUIS interactively, one utterance at a time, or provide a [batch](luis-concept-batch-test.md) of utterances. With testing, you compare the current [active](luis-concept-version.md#active-version) model to the published model. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -52,4 +52,4 @@ Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
-* Learn more about [testing](interactive-test.md) your utterances.
+* Learn more about [testing](luis-interactive-test.md) your utterances.
