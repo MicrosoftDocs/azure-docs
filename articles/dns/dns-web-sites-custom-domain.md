@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 > * Create an A and TXT record for your custom domain
 > * Create a CNAME record for your custom domain
 > * Test the new records
+> * Add custom host names you your web app
 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -146,9 +147,9 @@ contoso.com text =
 
         "contoso.azurewebsites.net"
 ```
-## Add custom hostnames
+## Add custom host names
 
-Now you can add the custom hostnames to your web app:
+Now you can add the custom host names to your web app:
 
 ```powershell
 set-AzureRmWebApp `
