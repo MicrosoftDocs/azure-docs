@@ -83,14 +83,16 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Click **Cloud Shell** from the upper right corner as shown in the following image:
+2. Select **Cloud Shell** from the upper right corner as shown in the following image:
 
     ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
-3. Click **Upload file** from the Cloud shell:
+3. Select **PowerShell** from the upper left corner of the Cloud shell.  You use PowerShell in this tutorial.
+4. Select **Restart**
+5. Select **Upload file** from the Cloud shell:
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
-5. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
+6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
+7. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
     ```shell
     ls
@@ -100,12 +102,12 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     The file name shown on the screenshot is azuredeploy.json.
 
-6. From the Cloud shell run the following command to verify the content of the JSON file:
+8. From the Cloud shell run the following command to verify the content of the JSON file:
 
     ```shell
     cat azuredeploy.json
     ```
-7. From the Cloud shell, run the following PowerShell commands:
+9. From the Cloud shell, run the following PowerShell commands:
 
     ```powershell
     $resourceGroupName = "<Enter the resource group name>"
@@ -130,13 +132,13 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     * **$location**: eastus2
     * **&lt;DeployName>**: mydeployment0710
     * **&lt;TemplateFile>**: azuredeploy.json
-    * **Template parameters:
+    * **Template parameter**s:
 
         * **adminUsername**: JohnDole
         * **adminPassword**: Pass@word123
         * **dnsLabelPrefix**: myvm0710
 
-8. Run the following PowerShell command to list the newly created virtual machine:
+10. Run the following PowerShell command to list the newly created virtual machine:
 
     ```powershell
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
@@ -155,8 +157,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. In the next tutorial, you learn how to create multiple instances of the same virtual machine.
-
-> [!div class="nextstepaction"]
-> [Create multiple instances](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
-
+In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. To learn more about templates, see [Understand the structure and syntax of Azure Resource Manager Templates](./resource-group-authoring-templates.md).
