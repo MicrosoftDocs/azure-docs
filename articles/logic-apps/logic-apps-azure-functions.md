@@ -213,7 +213,7 @@ in JavaScript Object Notation (JSON).
    context.body.content
    ```
 
-   Note that in this example, the context object isn't cast as a string, 
+   In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
@@ -270,7 +270,7 @@ sends to your function.
    context.body.content
    ```
 
-   Note that in this example, the context object isn't cast as a string, 
+   In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
