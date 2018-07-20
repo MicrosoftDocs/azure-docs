@@ -64,7 +64,7 @@ Create a resource group in the region of your choice. Note that resource group n
 
       az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 
-For example, you could use "CCLab" as the resource group name and western Europe as the region:
+For example, you could use "CCLab" as the resource group name and southern US as the region:
 
       az group create --name "CCLab" --location "South Central US"
 

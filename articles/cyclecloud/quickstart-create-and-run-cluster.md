@@ -11,11 +11,11 @@ Click on "Clusters" in the main menu, which will bring up the list of available 
 
 In this quickstart, you will create an HPC cluster configured with [Open Grid Scheduler](http://gridscheduler.sourceforge.net/), which is the open source version of the Sun Grid Engine job scheduler. Click on **Grid Engine** to bring up the cluster creation wizard.
 
-(kimli add screenshot here plz)
+![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) (kimli replace)
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart, then click **Next**.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in  then click **Next**.
 
 ### Required Settings
 
