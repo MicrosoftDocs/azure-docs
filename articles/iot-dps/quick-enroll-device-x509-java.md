@@ -18,7 +18,7 @@ ms.custom: mvc
 
 This quickstart shows how to use Java to programmatically enroll a group of X.509 simulated devices to the Azure IoT Hub Device Provisioning Service. Devices are enrolled to a provisioning service instance by creating an [Enrollment group](concepts-service.md#enrollment-group), or an [Individual enrollment](concepts-service.md#individual-enrollment). This quickstart shows how to create both types of enrollments. The enrollments are created using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. 
 
-This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quick start before proceeding with this topic.
+This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart before proceeding with this article.
 
 Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
 
@@ -35,10 +35,10 @@ Although the Java Service SDK works on both Windows and Linux machines, this art
 
 ## Download and modify the Java sample code
 
-This section uses a self-signed X.509 certificate, it is important to keep in mind the following:
+This section uses a self-signed X.509 certificate, it is important to keep in mind the following points:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
-* The default expiration date for a self-signed certificate is 1 year.
+* Self-signed certificates are for testing only, and should not be used in production.
+* The default expiration date for a self-signed certificate is one year.
 
 The following steps show how to add the provisioning details of your X.509 device to the sample code. 
 
@@ -52,7 +52,7 @@ The following steps show how to add the provisioning details of your X.509 devic
 
     1. Add the `[Provisioning Connection String]` for your provisioning service, from the portal as following:
         1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
-        2. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
+        2. Open the **Shared access policies**, and select a policy, which has the *EnrollmentWrite* permission.
         3. Copy the **Primary key connection string**. 
 
             ![Get the provisioning connection string from portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
@@ -117,7 +117,7 @@ The following steps show how to add the provisioning details of your X.509 devic
             enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
             ```
 
-    4. Study the sample code. It creates, updates, queries and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+    4. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
 
         ```Java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -189,7 +189,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Save, build and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
+4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
 
 
 ## Clean up resources
@@ -197,7 +197,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 1. Close the Java sample output window on your machine.
 1. Close the _X509 Cert Generator_ window on your machine.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 ## Next steps
 In this Quickstart, you enrolled a simulated group of X.509 devices to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
