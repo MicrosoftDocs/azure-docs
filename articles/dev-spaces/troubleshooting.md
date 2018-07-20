@@ -22,7 +22,7 @@ You might see this error when your service code fails to start. The cause is oft
 
 On the command line:
 
-1. When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
+When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
  
     ```cmd
     azds up --verbose --output json

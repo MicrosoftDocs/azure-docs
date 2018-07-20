@@ -6,6 +6,9 @@
     tocHref: /azure/active-directory/
     topicHref: /azure/active-directory/
     items:
+      - name: Authentication
+        tocHref: /azure/active-directory/authentication/
+        topicHref: /azure/active-directory/authentication/
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
