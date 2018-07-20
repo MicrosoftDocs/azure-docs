@@ -37,7 +37,7 @@ Use Start-AzsBackup to start a new backup.
 Use Start-AzSBackup to start a new backup with -AsJob variable to track progress.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob `
+    $backupjob = Start-AzsBackup -Force -AsJob 
     "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
     + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
     -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
