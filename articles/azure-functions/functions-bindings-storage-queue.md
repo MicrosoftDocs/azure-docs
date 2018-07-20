@@ -50,6 +50,7 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### Trigger - C# example
 
@@ -162,6 +163,22 @@ module.exports = function (context) {
 ```
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
+
+### Trigger - Java example
+
+The following Java example shows a storage queue trigger functions which logs the triggered message placed into queue `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## Trigger - attributes
  

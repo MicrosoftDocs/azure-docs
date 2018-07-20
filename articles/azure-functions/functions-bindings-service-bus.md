@@ -49,6 +49,7 @@ See the language-specific example:
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### Trigger - C# example
 
@@ -174,6 +175,41 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
+
+### Trigger - Java example
+
+The following example shows a Service Bus trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function is triggered by a message placed on a Service Bus queue, and the function logs the queue message.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Here's the Java code:
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## Trigger - attributes
 

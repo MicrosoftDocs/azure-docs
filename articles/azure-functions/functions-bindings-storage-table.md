@@ -53,6 +53,7 @@ See the language-specific example:
 * [C# script bind to CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### Input - C# example - one entity
 
@@ -408,6 +409,10 @@ module.exports = function (context, myQueueItem) {
     context.done();
 };
 ```
+
+### Input - Java example
+
+
 
 ## Input - attributes
  
