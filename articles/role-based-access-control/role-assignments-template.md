@@ -17,7 +17,7 @@ ms.reviewer: bagovind
 ---
 # Manage access using RBAC and Azure Resource Manager templates
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In addition to using Azure PowerShell or Azure CLI, you can manage access to Azure resources using RBAC and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using RBAC and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
 
 ## Example template to create a role assignment
 
@@ -142,13 +142,13 @@ To deploy the previous template using Azure PowerShell, follow these steps.
     DeploymentDebugLogLevel :
     ```
 
-## Deploy template using Azure CLI
+## Deploy template using the Azure CLI
 
-To deploy the previous template using Azure CLI, follow these steps.
+To deploy the previous template using the Azure CLI, follow these steps.
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
-1. Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Sign in to the [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 1. Get the unique identifier of a user, group, or application. For example, you can use the [az ad user list](/cli/azure/ad/user#az-ad-user-list) command to list Azure AD users.
 
