@@ -92,8 +92,6 @@
     href: install-cyclecloud-cli.md
   - name: Start a Cluster
     href: start-cluster.md
-  - name: Scale Your Cluster
-    href: autoscale.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Work with Custom Images

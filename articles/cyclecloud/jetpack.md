@@ -74,7 +74,7 @@ manipulating the current VM and interacting with Azure CycleCloud.
 
 `jetpack config` is used to fetch information passed into a VM by Azure
 CycleCloud. It exposes all the system properties made available via
-[Ohai](http://docs.getchef.com/ohai.html), a subset of the VM's [Azure metadata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service), and information about the parent CycleCloud cluster.
+[Ohai](https://docs.getchef.com/ohai.html), a subset of the VM's [Azure metadata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service), and information about the parent CycleCloud cluster.
 
 ## jetpack converge
 

@@ -1,36 +1,32 @@
 # Cluster Templates
 
-In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `sge_template.txt` defines a basic two-node SGE cluster. To create a new cluster, begin by copying the section of the file that defines the `sge` cluster and pasting it to the bottom of the configuration file with a new name. For example, you might copy/modify the section to look like:
+In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `sge_template.txt` defines a basic two-node SGE cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:
 
-      [cluster custom_sge_cluster]
-        # Enable autoscaling
-        Autoscale = true
+      [cluster CustomSlurm]
+      Autoscale = true
 
-        [[node defaults]]
-        ImageId = ami-1f57c276
+      [[node defaults]]
+      UsePublicNetwork = true
+      Credentials = azure
+      ImageName = cycle.image.centos7
+      SubnetId = my-resourcegroup/cyclevnet/compute
+      Region = eastus
+      KeyPairLocation = ~/.ssh/cyclecloud.pem
+      ...
+      [[node master]]
+      MachineType = Standard_D12_v2
+      IsReturnProxy = true
+      ...
+      [[nodearray execute]]
+      MachineType = Standard_H16r
+      MaxCoreCount = 128
+      Interruptible = false
+        [[[configuration]]]
+        [[[cluster-init slurm:execute:1.0.0]]]
+        [[[network-interface eth0]]]
+        AssociatePublicIpAddress = false
 
-        # Custom keypair
-        KeyPair=custom-keypair
-        KeyPairLocation=~/.ssh/custom-keypair.pem
-
-        [[node master]]
-        # Bigger head node
-        MachineType = m1.xlarge
-          [[[configuration]]]
-          # Removed for brevity
-
-        [[nodearray execute]]
-        # Set autoscaling to max out at 10 cores
-        MaxCoreCount = 10
-        # Start with zero execute nodes to start
-        Count = 0
-        # Use 2-core machines with $0.10 spot bid for autoscaling
-        MachineType = m1.large
-        BidPrice = 0.10
-          [[[configuration]]]
-          # Removed for brevity
-
-By adding the above section a new cluster template called `custom_sge_cluster`, a new cluster is defined which starts with 50 `m1.small` execute nodes, using an `m1.xlarge` for the master node instead of an `m1.small`. To import and run this new cluster type, enter:
+By adding the above section a new cluster template called `custom_sge_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
 
     $ cyclecloud import custom_demo_cluster -f ~/.cycle/sge_template.txt -c custom_sge_cluster
 

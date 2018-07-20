@@ -17,7 +17,7 @@ However, CycleCloud clusters are provisioned using a set of *Common Cookbooks* a
 
 Common Cookbook attributes are subject to change. Attribute settings are commonly superceded as the features they control are made available as more general/powerful features of CycleCloud itself. If a customization is available in both the Cluster Template and via a Chef attribute, always prefer the Cluster Template method since it is the more general solution.
 
-For more information on the Opscode Chef framework itself, see the [Opscode website](http://docs.opscode.com/).
+For more information on the Opscode Chef framework itself, see the [Opscode website](https://docs.opscode.com/).
 
 ## Using Chef Attributes
 
