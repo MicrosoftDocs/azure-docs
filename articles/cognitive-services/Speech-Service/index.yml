@@ -22,7 +22,7 @@ abstract:
   description: |
     Via our Speech SDK (see table below), the Microsoft Speech Service allows developers to add powerful speech-enabled features to their applications.
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
-    For more details of what the service can do for you, see <a href="overview">What is the Speech service?</a>
+    <p>More details of what the service can do for you can be found at <a href="overview">What is the Speech service?</a>
     <p>For those wishing to build new speech-enabled device HW, see our reference HW and SDK platform&#58; 
     the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
 sections:
@@ -108,6 +108,6 @@ sections:
   items:
   - type: paragraph
     text: |
-      Our Speech also service lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
+      Our Speech Service also lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
       <a href="https://cris.ai/Home/customvoice">customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
 
