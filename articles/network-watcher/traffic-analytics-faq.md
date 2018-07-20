@@ -193,8 +193,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
-For example, as per the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
-10 x 2.3$ + 1 x 2.76$ = 25.76$
+For example, as per the [pricing plan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), considering West Central US region (different pricing is applicable for different regions), if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
+10 x $2.3 + 1 x $2.76 = $25.76 
 
 ## How can I navigate by using the keyboard in the geo map view?
 
