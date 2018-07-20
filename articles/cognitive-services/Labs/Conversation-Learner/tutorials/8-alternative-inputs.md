@@ -16,6 +16,10 @@ ms.author: v-jaswel
 
 This tutorial shows how to use the "alternative inputs" field for user input in the teaching interface.
 
+## Video
+
+[![Tutorial 8 Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+
 ## Requirements
 This tutorial requires that the general tutorial bot is running
 
@@ -26,9 +30,9 @@ This tutorial requires that the general tutorial bot is running
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter AlternativeInputs. Then click Create.
 
 ### Create an entity
@@ -70,7 +74,7 @@ You now have three actions.
 3. Double-click on 'denver', and select city.
 	- This marks it as a city entity.
 5. Click Score Actions
-	- Note that denver is now present in the city entity. 
+	- 'denver' is now present in the city entity. 
 6. Select 'The weather in $city is probably sunny'.
 7. Click Done Teaching.
 
@@ -83,7 +87,7 @@ Add another example dialog:
 3. Double-click on 'seattle', and select city.
 	- This marks it as a city entity.
 5. Click Score Actions
-	- Note that seattle is now present in the city entity. 
+	- 'seattle' is now present in the city entity. 
 6. Select 'The weather in $city is probably sunny'.
 7. Click Done Teaching.
 
@@ -92,7 +96,7 @@ Let's see what happens if the user says something semantically similar to the ab
 1. Click New Action, then New Train Dialog.
 2. Type 'help'.
 3. Click Score Actions.
-	- Note that the scores for the two potential responses are very close. This tells us the model is confused about the boundary between the two actions.
+	- The scores for the two potential responses are very close. This tells us the model is confused about the boundary between the two actions.
 6. Click Abandon Teaching and Confirm.
 
 ![](../media/tutorial8_closescores.png)
@@ -112,7 +116,7 @@ In this case, it would help to add alternative inputs to dialogs. You can add th
 
 2. Now click on 'what's the weather in seattle'.
 	1. In Add alternative input, enter 'forecast for seattle'.
-	2. Double-click on 'seattle', and select city. Note that the entities for alternative inputs should be present and have the same set of entities. It is fine if the content of the entites is different.
+	2. Double-click on 'seattle', and select city. The entities for alternative inputs should be present and have the same set of entities. It is fine if the content of the entities is different.
 	3. In Add alternative input, enter 'will it rain today in denver'.
 	4. Click on 'denver', and select city.
 	5. click Submit Changes and Done.
@@ -129,7 +133,7 @@ Let's add alternate inputs to the first dialog:
 4. Click to select 'denver' in the left pane:
 	1. In Add alternative input, enter 'for denver'.
 	2. Enter 'forecast for austin'.
-		- Note that the full phrase is highlighted. Click on the phrase, then red x. Then select austin, and click on city.
+		- The full phrase is highlighted. Click on the phrase, then red x. Then select austin, and click on city.
 		- Click Submit Changes
 	1. Click Done which will cause the model to retrain.
 
@@ -140,7 +144,7 @@ Let's try the variations:
 1. Click New Train Dialog.
 2. Type 'what are you capabilities'.
 3. Click Score Actions.
-	- Note that the scores are now more decisive on the next action which indicates the certainty of the model.
+	- The scores are now more decisive on the next action which indicates the certainty of the model.
 2. Select 'Try asking for weather'.
 6. Click Done Teaching
 
