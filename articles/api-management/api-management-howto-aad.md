@@ -74,17 +74,18 @@ This article shows you how to enable access to the developer portal for users fr
 25. Select your application, and then select the **Read directory data** and **Sign in and read user profile** check boxes.
 
     ![Check boxes for permissions](./media/api-management-howto-aad/api-management-with-aad005.png)
+26. Select **Grant permissions** to consent application permissions.
 
     For more information about application permissions and delegated permissions, see [Accessing the Graph API][Accessing the Graph API].
-26. In the left pane, copy the **Application ID** value.
+27. In the left pane, copy the **Application ID** value.
 
     !["Application ID" value](./media/api-management-howto-aad/application-id.png)
-27. Switch back to your API Management application. 
+28. Switch back to your API Management application. 
 
     In the **Add identity provider** window, paste the **Application ID** value in the **Client ID** box.
-28. Switch back to the Azure AD configuration, and select **Keys**.
-29. Create a new key by specifying a name and duration. 
-30. Select **Save**. The key is generated.
+29. Switch back to the Azure AD configuration, and select **Keys**.
+30. Create a new key by specifying a name and duration. 
+31. Select **Save**. The key is generated.
 
     Copy the key to the clipboard.
 
@@ -94,7 +95,7 @@ This article shows you how to enable access to the developer portal for users fr
     > Make a note of this key. After you close the Azure AD configuration pane, the key cannot be displayed again.
     > 
     > 
-31. Switch back to your API Management application. 
+32. Switch back to your API Management application. 
 
     In the **Add identity provider** window, paste the key in the **Client secret** text box.
 
@@ -102,7 +103,7 @@ This article shows you how to enable access to the developer portal for users fr
     > Please make sure to update the **Client secret** before the key expires. 
     >  
     >
-32. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
+33. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
     You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
     
@@ -114,7 +115,7 @@ This article shows you how to enable access to the developer portal for users fr
     
     In the following example, a global administrator from miaoaad.onmicrosoft.com is trying to give permission to this particular developer portal. 
 
-33. After you specify the desired configuration, select **Add**.
+34. After you specify the desired configuration, select **Add**.
 
     !["Add" button in "Add identity provider" pane](./media/api-management-howto-aad/api-management-with-aad007.png)
 
