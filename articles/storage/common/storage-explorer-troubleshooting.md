@@ -56,13 +56,13 @@ If you cannot find any self-signed certificates using the preceding steps, conta
 
 ## Sign-in issues
 
-### Reauthenticaion Loop or UPN Change
+### Reauthentication loop or UPN change
 If you are in a reauthentication loop, or have changed the UPN of one of your accounts, try the following:
 1. Remove all accounts and then close Storage Explorer
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
 3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
-## Mac Keychain Errors
+## Mac Keychain errors
 The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
 1. Close Storage Explorer.
 2. Open keychain (**cmd+space**, type in keychain, hit enter).
@@ -75,7 +75,7 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 6. A pop-up should appear saying something like "Service hub wants to access the keychain". When it does, enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** is not available).
 7. Try to sign in.
 
-### General Sign-in Troubleshooting Steps
+### General sign-in troubleshooting steps
 * If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#Mac-Keychain-Errors)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
@@ -84,7 +84,7 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-### Missing Subscriptions and Broken Tenants
+### Missing subscriptions and broken tenants
 
 If you are unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
@@ -160,7 +160,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 4.	The value of the key should be a JSON array. Find the object associated with the bad URI and remove it.
 5.	Press Ctrl+R to reload Storage Explorer.
 
-## Linux Dependencies
+## Linux dependencies
 
 For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
