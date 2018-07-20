@@ -1,8 +1,8 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Java | Microsoft Docs
-description: Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service using Java service SDK
-author: dsk-2015
-ms.author: dkshir
+title: This quickstart shows how to enroll X.509 devices to the Azure Device Provisioning Service using Java | Microsoft Docs
+description: In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Java
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -12,37 +12,23 @@ ms.devlang: java
 ms.custom: mvc
 ---
 
-# Enroll X.509 devices to IoT Hub Device Provisioning Service using Java service SDK
+# Quickstart: Enroll X.509 devices to the Device Provisioning Service using Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-These steps show how to enroll a group of X.509 simulated devices programmatically to the Azure IoT Hub Device Provisioning Service, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
+This quickstart shows how to use Java to programmatically enroll a group of X.509 simulated devices to the Azure IoT Hub Device Provisioning Service. Devices are enrolled to a provisioning service instance by creating an [Enrollment group](concepts-service.md#enrollment-group), or an [Individual enrollment](concepts-service.md#individual-enrollment). This quickstart shows how to create both types of enrollments. The enrollments are created using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. 
 
-Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+This quickstart expects you have already created an IoT hub and Device Provisioning Service instance. If you have not already created these resources, complete the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quick start before proceeding with this topic.
 
-<a id="setupdevbox"></a>
+Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
 
-## Prepare the development environment 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+## Prerequisites
 
-2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is usually found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
-
-  You may check if Java is successfully set up on your machine by running the following command on your command window:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. Download and extract [Maven 3](https://maven.apache.org/download.cgi) on your machine. 
-
-4. Edit environment variable `PATH` to point to the *apache-maven-3.x.x\\bin* folder inside the folder where Maven is extracted. You may confirm that Maven is successfully installed by running this command on your command window:
-
-    ```cmd\sh
-    mvn --version
-    ```
-
-5. Make sure [git](https://git-scm.com/download/) is installed on your machine and is added to the environment variable `PATH`. 
+* [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
+* [Git](https://git-scm.com/download/).
 
 
 <a id="javasample"></a>
