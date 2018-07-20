@@ -74,7 +74,7 @@ The result should look like the following output:
 ```
 
 ### Confirm backup has completed in the administration portal
-Use the Azzure Stack administration portal to verify that backup has completed successfully by following these steps:
+Use the Azure Stack administration portal to verify that backup has completed successfully by following these steps:
 
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **More services** > **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
