@@ -99,9 +99,8 @@ All remote exceptions thrown by the service API are sent back to the client as A
 ServiceProxy handles all failover exceptions for the service partition it is created for. It re-resolves the endpoints if there are failover exceptions (non-transient exceptions) and retries the call with the correct endpoint. The number of retries for failover exceptions are indefinite.
 If transient exceptions occur, the proxy retries the call.
 
-Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Default retry parameters are provided by [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 
-Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings?view=azure-dotnet)
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 
 ## How to use the Remoting V2 stack
@@ -527,11 +526,11 @@ Here are the steps :
 3.    Override Default Serialization Provider with JsonSerializationProvider for Remoting Client Factory.
 
 ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
-            {
-                return new FabricTransportServiceRemotingClientFactory(
-                    serializationProvider: new ServiceRemotingJsonSerializationProvider());
-            });
+    var proxyFactory = new ServiceProxyFactory((c) =>
+              {
+                  return new FabricTransportServiceRemotingClientFactory(
+                      serializationProvider: new ServiceRemotingJsonSerializationProvider());
+              });
   ```
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
