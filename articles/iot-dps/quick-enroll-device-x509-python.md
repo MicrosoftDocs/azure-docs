@@ -27,9 +27,9 @@ Although the steps in this article work on both Windows and Linux machines, this
 
 ## Prerequisites
 
-- [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables.
-- [Install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/)
-- [Git](https://git-scm.com/download/).
+- Install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables.
+- [Install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/).
+- Install [Git](https://git-scm.com/download/).
 
 
 

@@ -27,10 +27,8 @@ Although the steps in this article work on both Windows and Linux machines, this
 
 ## Prerequisites
 
-- [Node.js v4.0 or above](https://nodejs.org).
-- [Git](https://git-scm.com/download/).
-
-
+- Install [Node.js v4.0 or above](https://nodejs.org).
+- Install [Git](https://git-scm.com/download/).
 
 
 ## Prepare test certificates

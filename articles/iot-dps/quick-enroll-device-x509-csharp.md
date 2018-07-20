@@ -28,9 +28,9 @@ Although the steps in this article work on both Windows and Linux machines, this
 
 ## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/)
-* [.Net Core SDK](https://www.microsoft.com/net/download/windows)
-* [Git](https://git-scm.com/download/).
+* Install [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* Install [.Net Core SDK](https://www.microsoft.com/net/download/windows).
+* Install [Git](https://git-scm.com/download/).
 
 
 
