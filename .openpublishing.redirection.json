@@ -25186,6 +25186,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-get-started.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
