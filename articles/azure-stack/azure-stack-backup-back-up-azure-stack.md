@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 07/24/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -22,21 +22,33 @@ ms.reviewer: hectorl
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Perform an on-demand backup on Azure Stack with backup in place. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Configure the operator environment and sign in to Azure Stack](azure-stack-powershell-configure-admin.md).
+Perform an on-demand backup on Azure Stack with backup in place. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
 
 ## Start Azure Stack backup
 
-Use Start-AzSBackup to start a new backup with -AsJob variable to track progress. 
+### Use Start-AzSBackup to start a new backup immediately with no job progress tracking. 
+Use Start-AzsBackup to start a new backup.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+   Start-AzsBackup -Force
+```
+
+### Start Azure Stack backup with job progress tracking
+Use Start-AzSBackup to start a new backup with -AsJob variable to track progress.
+
+```powershell
+    $backupjob = Start-AzsBackup -Force -AsJob `
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
+    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
+    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
 ```
 
 ## Confirm backup completed via PowerShell
 
 ```powershell
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+   Get-AzsBackup
 ```
 
 - The result should look like the following output:
