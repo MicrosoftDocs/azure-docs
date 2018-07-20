@@ -110,12 +110,12 @@ by following this format:
 
 Although Logic Apps provides [functions for converting DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
 this example shows how a basic JavaScript function uses dot notation 
-to access the `body` object inside the `request` object that's passed 
-to the function as input. The example then assigns the `body` object 
-to the `data` variable and can now access the `date` property value 
-through the `data` variable. Finally, the example converts that value 
-to a DateString value by calling the `ToDateString()` function and 
-returns the result as the function's response:
+to access the `body` content inside the `request` object that's passed 
+as input to the function. The example creates a `data` variable and then 
+assigns the `body` content to the `data` variable. Now, the example can 
+access the `date` property value through the `data` variable, convert 
+that value to DateString format by calling the `ToDateString()` function, 
+and return the result in the function's response:
 
 ```javascript
 function convertToDateString(request, response){
@@ -169,18 +169,17 @@ After the functions list opens, select this action:
    with your function code, including the response 
    and payload you want returned to your logic app 
    after your function finishes running. 
-
-      The `context` object in the template code 
-      contains the message and content that your 
-      logic app sends to your function, for example:
+   The `context` object in the template code 
+   contains the message and content that your 
+   logic app passes to your function, for example:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-   3. When you're done, choose **Create**. 
+   3. When you're done, choose **Create**.
 
 6. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
-as a JavaScript Object Notation (JSON) object. 
+as JavaScript Object Notation (JSON). 
 
    When you click in the **Request Body** box, 
    the dynamic content list opens so you can select 
@@ -191,11 +190,15 @@ as a JavaScript Object Notation (JSON) object.
 
    Based on the content in the context object, 
    the Logic App Designer generates a function 
-   template that you can edit inline. 
+   template that you can then edit inline. 
    Logic Apps also creates variables based on 
-   the context object you pass to the function.
+   the input context object. Inside your function, 
+   you can reference the content in the context object 
+   by using this syntax, based on this example:
 
-   In this example, the context object isn't cast as a string, 
+   ```context.body.content```
+
+   Note that in this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
@@ -234,24 +237,23 @@ After the functions list appears, select your function:
 
 5. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
-as a JavaScript Object Notation (JSON) object. This context 
-object contains the message and content that your logic app 
+as JavaScript Object Notation (JSON). This context object 
+contains the message and content that your logic app 
 sends to your function. 
-
-   When you click in the **Request Body** box, 
-   the dynamic content list opens so you can select 
-   tokens for properties available from previous steps. 
-   This example passes in the **From** property from the email trigger:  
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Based on the content in the context object, 
    the Logic App Designer generates a function 
-   template that you can edit inline. 
+   template that you can then edit inline. 
    Logic Apps also creates variables based on 
-   the context object you pass to the function.
+   the input context object. Inside your function, 
+   you can reference the content in the context object 
+   by using this syntax, based on this example:
 
-   In this example, the context object isn't cast as a string, 
+   ```context.body.content```
+
+   Note that in this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
@@ -260,7 +262,7 @@ sends to your function.
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-7. To specify other details such as the method to use, 
+6. To specify other details such as the method to use, 
 request headers, or query parameters, choose **Show advanced options**.
 
 <a name="call-logic-app"></a>
