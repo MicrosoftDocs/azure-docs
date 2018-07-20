@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database security features
-description: This article provides a general description of Azure SQL Database protects customer data in Azure.
+description: This article provides a general description of how Azure SQL Database protects customer data in Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
