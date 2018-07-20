@@ -47,9 +47,7 @@ A resource group must be created in order to deploy resources in Batch AI. In th
 Use the [az group create](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-create) command to create the resource:
 
 ```azurecli-interactive
-az group create \
-    --name batchai.horovod \
-    --location eastus 
+az group create --name batchai.horovod --location eastus 
 ```
 
 This resource group will be used for the remainder of the tutorial.
@@ -77,9 +75,7 @@ The following image shows an example resource hierarchy for Batch AI.
 A single development workspace will be created for this example using the [az batchai workspace create](https://docs.microsoft.com/en-us/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command. The following command creates a workspace called `batchaidev` under the existing resource group created earlier.
 
 ```azurecli-interactive
-az batchai workspace create \
-    --resource-group batchai.horovod \
-    --workspace batchaidev 
+az batchai workspace create --resource-group batchai.horovod --workspace batchaidev 
 ```
 
 ## Creating an experiment
@@ -87,10 +83,7 @@ az batchai workspace create \
 For this tutorial, a single experiment will be created to run the distributed job. The [az batchai experiment create](https://docs.microsoft.com/en-us/cli/azure/batchai/experiment?view=azure-cli-latest#az-batchai-experiment-create) command will be used to create the experiment. The following command creates an experiment called `cifar` under the same workspace and resource group that was created earlier.
 
 ```azurecli-interactive
-az batchai experiment create \
-    --resource-group batchai.horovod \
-    --workspace batchaidev \
-    --name cifar 
+az batchai experiment create --resource-group batchai.horovod --workspace batchaidev --name cifar 
 ```
 The next few sections will consist of instructions for creating all the necessary resources in order to run the experiment.
 
@@ -111,15 +104,7 @@ The next step will be to provision a GPU Cluster that can be used to run the exp
 The [az batchai cluster create](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) command will be used to create the cluster. The following command creates a new cluster called `nc6cluster` with the above configurations under the workspace and resource group created earlier.
 
 ```azurecli-interactive
-az batchai cluster create \
-    --resource-group batchai.horovod \
-    --name nc6cluster \
-    --vm-priority lowpriority \
-    --workspace batchaidev \
-    --vm-size Standard_NC6 \
-    --target 4 \
-    --use-auto-storage \
-    --generate-ssh-keys
+az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority lowpriority --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
 It will also create an Azure File Share and Azure Blob Storage Container with the names **batchaishare** and **batchaicontainer** respectively. They will be mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
@@ -131,11 +116,7 @@ Documentation for further cluster configurations can be found in the documentati
 The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used to confirm the successful creation of a cluster. It usually takes a few minutes for the cluster to be fully provisioned.
 
 ```azurecli-interactive
-az batchai cluster show \
-    --name nc6cluster \
-    --workspace batchaidev \
-    --resource-group batchai.horovod \
-    --output table
+az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
 ```
 
 ## Accessing auto storage
@@ -143,11 +124,7 @@ az batchai cluster show \
 During creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used again to perform this action. The following command queries the storage account name from the cluster.
 
 ```azurecli-interactive
-az batchai cluster show \
-    --name nc6cluster \
-    --workspace batchaidev \
-    --resource-group batchai.horovod \
-    --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
+az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
 ```
 
 The output should be similar to the following. The name of the storage account will be referred to as `<STORAGE ACCOUNT NAME>` in future commands. 
@@ -160,10 +137,7 @@ The output should be similar to the following. The name of the storage account w
 The storage account name can be used to access the file share named `batchaishare`, which was automatically created as mentioned earlier. In practice, this same storage can be used across multiple jobs and experiments. Therefore, a directory will be created within the file share to store files related to this specific experiment in order to keep things organized. The [az storage directory create](https://docs.microsoft.com/en-us/cli/azure/storage/directory?view=azure-cli-latest) command can be used to create a directory called `cifar`.
 
 ```azurecli-interactive
-az storage directory create \
-    --name cifar \
-    --share-name batchaishare \
-    --account-name <STORAGE ACCOUNT NAME>
+az storage directory create --name cifar --share-name batchaishare --account-name <STORAGE ACCOUNT NAME>
 ```
 The next step will be to prepare the actual training script, which will then be uploaded to the newly created directory.
 
@@ -334,11 +308,7 @@ A note to keep in mind moving forward is that this script uses a relatively smal
 Once the script is ready, the next step will be to upload it to the file share directory that was created earlier. The [az storage file upload](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-upload) command can be used to upload it to the proper location.
 
 ```azurecli-interactive
-az storage file upload \
-    --path cifar \
-    --share-name batchaishare \
-    --source cifar_cnn_distributed.py \ 
-    --account-name <STORAGE ACCOUNT NAME>
+az storage file upload --path cifar --share-name batchaishare --source cifar_cnn_distributed.py --account-name <STORAGE ACCOUNT NAME>
 ```
 
 ## Submitting the training job 
@@ -378,17 +348,15 @@ Going through each of the properties:
 
 * **containerSettings** - This field defines the settings on the type of container that the job should be run on. For this experiment, a docker container built with `tensorflow` will be used.
 
-Using the configuration, the job can then be executed using the [az batchai job create command](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create). The following command executes a new job called `cifar_distributed` using all the resources that have been set up to this point.
+Using the configuration, the job can then be executed using the [az batchai job create](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create) command. The following command executes a new job called `cifar_distributed` using all the resources that have been set up to this point.
 
 ```azurecli-interactive
-az batchai job create \
-    --cluster nc6cluster \
-    --name cifar_distributed \
-    --resource-group batchai.horovod \
-    --workspace batchaidev \
-    --experiment cifar \
-    --config-file job.json \
-    --storage-account-name <STORAGE ACCOUNT NAME>
+az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name <STORAGE ACCOUNT NAME>
+```
+If the nodes are currently busy, the job may take awhile before it actually starts running. The [az batchai job show](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-show) command can be used to view the execution state of the job.
+
+```azurecli interactive
+az batchai job show --experiment cifar --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --query "executionState"
 ```
 
 ## Visualizing the distributed training
@@ -396,11 +364,7 @@ az batchai job create \
 Once the job starts running, the [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used once again to query the status of the cluster nodes. 
 
 ```azurecli-interactive 
-az batchai cluster show \
-    --name nc6cluster \
-    --workspace batchaidev \
-    --resource-group batchai.horovod \
-    --query "nodeStateCounts"
+az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeStateCounts"
 ```
 
 The output should be similar to the following example, which shows all four in a running state. This result shows that all four nodes are currently being utilized in the distributed training.
@@ -420,12 +384,7 @@ The output should be similar to the following example, which shows all four in a
 While the job is running, the [az batchai job file list](https://docs.microsoft.com/en-us/cli/azure/batchai/job/file?view=azure-cli-latest#az-batchai-job-file-list) command can be used to list all the output files for the job.
 
 ```azurecli-interactive
-az batchai job file list \
-    --experiment cifar \
-    --job cifar_distributed \
-    --resource-group batchai.horovod \
-    --workspace batchaidev \
-    --output table
+az batchai job file list --experiment cifar --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev --output table
 ```
 
 For this specific experiment, the above command should output something similar to what is shown below. The overall output for the job is logged to `stdout.txt` while `stderr.txt` outputs any errors that occur in the main execution. The other files are `output, error, and job preparation` logs corresponding to each individual node.
@@ -452,12 +411,7 @@ stdout.txt                                              file    2316480  2018-07
 The [az batchai job file stream](https://docs.microsoft.com/en-us/cli/azure/batchai/job/file?view=azure-cli-latest#az-batchai-job-file-stream) command can be used to stream the contents of the files. The following example streams the main output log.
 
 ```azurecli-interactive
-az batchai job file stream \
-    --experiment cifar \
-    --file-name stdout.txt
-    --job cifar_distributed \
-    --resource-group batchai.horovod \
-    --workspace batchaidev
+az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev
 ```
 
 ## Retrieving the results
@@ -465,10 +419,7 @@ az batchai job file stream \
 The script that was executed performed 50 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
 
 ```azurecli interactive
-az storage file download \
-    --path cifar/saved_models/keras_cifar10_trained_model.h5 \
-    --share-name batchaishare \
-    --account-name <STORAGE ACCOUNT NAME> 
+az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
 ```
 
 ## Deleting the resources
@@ -476,11 +427,7 @@ az storage file download \
 Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This action can be performed using the [az batchai cluster resize](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. The same command can also be used to reallocate the nodes in the future.
 
 ```azurecli interactive 
-az batchai cluster resize \
-    --name nc6cluster \
-    --resource-group batchai.horovod \
-    --target 0 \
-    --workspace batchaidev
+az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --target 0 --workspace batchaidev
 ```
 If there are no more plans to use the workspace in the future, the resource group can be deleted using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group will delete all resources that are part of that group as a result.
 
