@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Deep learning training - Azure CLI | Microsoft Docs
-description: Quickly learn to run a TensorFlow deep learning training job on a single GPU with Batch AI using the Azure CLI
+description: Quickly learn to train a TensorFlow deep learning neural network on a single GPU with Batch AI using the Azure CLI
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,15 +14,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 07/12/2018
+ms.date: 07/20/2018
 ms.author: danlep
 ---
 
-# Quickstart: Run your first Batch AI training job using the Azure CLI
+# Quickstart: Train a deep learning model with Batch AI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a deep learning model with Batch AI. In this example, you set up a single GPU node to train an example [TensorFlow](https://www.tensorflow.org/) model on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a sample deep learning model with a GPU virtual machine managed by Batch AI. In this example, you train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
 
-After completing this quickstart, you'll understand key concepts of using Batch AI to train a deep learning model, and be ready to try training jobs at larger scale with different frameworks.
+After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ az batchai workspace create \
 To create a Batch AI cluster, use the [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command. The following example creates a cluster with the following properties:
 
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
-* Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
+* Runs a default Ubuntu Server image designed to host container-based applications. You can use this distribution for most training workloads. 
 * Adds a user account named *myusername*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*) in your local environment. 
 * Automatically creates (through the `--use-auto-storage` option) an associated storage account, to store files for training jobs. Batch AI mounts a file share and storage container in that account on each cluster node.  
 
@@ -96,7 +96,7 @@ Continue the following steps to upload the training script and create the traini
 
 ## Upload training script
 
-Use the storage account associated with the cluster to store your training script and training output. To simplify the CLI commands to work with the storage account, first set the following environment variables in your shell:
+Use the storage account associated with the cluster to store your training script and training output. To make it easier to run the CLI commands that manage the storage account, first set the following environment variables in your shell:
 
 ```bash
 export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query "nodeSetup.mountVolumes.azureFileShares[0].accountName" | sed s/\"//g)
@@ -156,18 +156,18 @@ In your working directory, create a training job configuration file `job.json` w
     "properties": {
         "nodeCount": 1,
         "tensorFlowSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/tensorflow/convolutional.py"
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/autoafs/scripts/tensorflow/convolutional.py"
         },
-        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
+        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/autoafs/logs",
         "mountVolumes": {
             "azureFileShares": [
                 {
                     "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/logs",
-                    "relativeMountPath": "logs"
+                    "relativeMountPath": "autoafs/logs"
                 },
                 {
                     "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
-                    "relativeMountPath": "scripts"
+                    "relativeMountPath": "autoafs/scripts"
                 }
             ]
         },
@@ -194,7 +194,7 @@ az batchai job create \
     --config-file job.json
 ```
 
-The command returns quickly with the job properties. The job takes a couple of minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file in the standard output directory on the node. This file gets generated after the job starts running.  
+The command returns quickly with the job properties. The job takes a couple of minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file from the standard output directory on the node. The training script generates this file after the job starts running.  
 
 ```azurecli-interactive
 az batchai job file stream \
@@ -241,7 +241,7 @@ Validation error: 0.9%
 Test error: 0.8%
 ```
 
-The streaming stops when the job completes 10 *epochs*, or cycles through the training data set of images. In this example, after 10 epochs, the trained model performs with a test error of only 0.8%.
+The streaming stops when the job completes. The sample script trains over 10 *epochs*, or passes through the training data set. In this example, after 10 epochs, the trained model performs with a test error of only 0.8%.
 
 ## Get job output
 
