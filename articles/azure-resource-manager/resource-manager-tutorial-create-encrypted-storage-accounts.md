@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
-ms.topic: tutorial
+ms.date: 07/20/2018
+ms.topic: conceptual
 ms.author: jgao
 
 ---
@@ -27,8 +27,9 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Open a Quickstart template
-> * Define parameters
-> * Define variables
+> * Understand the template format
+> * Use parameters in template
+> * Use variables in template
 > * Edit the template
 > * Deploy the template
 
@@ -38,8 +39,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-- [Visual Studio Code](https://code.visualstudio.com/).
-- Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/).
+* Resource Manager Tools extension. To install, see [Install the Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Open a Quickstart template
 
@@ -60,14 +61,14 @@ From VS Code, collapse the template to the root level. You have the simplest str
 
 ![Resource Manager template simplest structure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-- **$schema**: specify the location of the JSON schema file that describes the version of the template language.
-- **contentVersion**: specify any value for this element to document significant changes in your template.
-- **parameters**: specify the values that are provided when deployment is executed to customize resource deployment.
-- **variables**: specify the values that are used as JSON fragments in the template to simplify template language expressions.
-- **resources**: specify the resource types that are deployed or updated in a resource group.
-- **outputs**: specify the values that are returned after deployment.
+* **$schema**: specify the location of the JSON schema file that describes the version of the template language.
+* **contentVersion**: specify any value for this element to document significant changes in your template.
+* **parameters**: specify the values that are provided when deployment is executed to customize resource deployment.
+* **variables**: specify the values that are used as JSON fragments in the template to simplify template language expressions.
+* **resources**: specify the resource types that are deployed or updated in a resource group.
+* **outputs**: specify the values that are returned after deployment.
 
-## Define parameters
+## Use parameters in template
 
 Parameters enable you to customize the deployment by providing values that are tailored for a particular environment.
 
@@ -78,16 +79,17 @@ In this template, two parameters are defined. Notice a template function is used
 ```json
 "defaultValue": "[resourceGroup().location]",
 ```
+
 The resourceGroup() function returns an object that represents the current resource group. For a list of template functions, see [Azure Resource Manager template functions](./resource-group-template-functions.md).
 
-To reference the parameters in the template:
+To use the parameters defined in the template:
 
 ```json
 "location": "[parameters('location')]",
 "name": "[parameters('storageAccountType')]"
 ```
 
-## Define variables
+## Use variables in template
 
 Variables allow you to construct values that can be used throughout your template. Variables help reducing the complexity of the templates.
 
@@ -95,10 +97,10 @@ Variables allow you to construct values that can be used throughout your templat
 
 This template defines one variable *storageAccountName*. In the definition, two template functions are used:
 
-- **concat()**: concatenate strings.  For a list of array functions, see [Array and object functions for Azure Resource Manager templates](./resource-group-template-functions-array.md).
+- **concat()**: concatenates strings. For a list of array functions, see [Array and object functions for Azure Resource Manager templates](./resource-group-template-functions-array.md).
 - **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. For more string functions, see [String functions](./resource-group-template-functions-string.md).
 
-To reference the variable in the template:
+To use the variable defined in the template:
 
 ```json
 "name": "[variables('storageAccountName')]"
@@ -134,18 +136,18 @@ There are many methods for deploying templates.  In this tutorial, you use the C
 
     ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
 
-3. Select the down arrow and then select **Bash** to switch to CLI from PowerShell.
+3. Select the down arrow and then select **Bash** if it is not Bash. You use Azure CLI in this tutorial.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
 4. Select **Restart** to restart the shell.
 5. Select **Upload/download files**, and then select **Upload**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-4. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.
-5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
+6. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.
+7. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-6. From the Cloud shell, run the following commands:
+8. From the Cloud shell, run the following commands:
 
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
@@ -158,18 +160,22 @@ There are many methods for deploying templates.  In this tutorial, you use the C
 
     On the screenshot, these values are used:
 
-    - **&lt;ResourceGroupName>**: myresourcegroup0719. There are two appearances of the parameter.  Make sure to use the same value.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0719
-    - **&lt;TemplateFile>**: azuredeploy.json
+    * **&lt;ResourceGroupName>**: myresourcegroup0719. There are two appearances of the parameter.  Make sure to use the same value.
+    * **&lt;AzureLocation>**: eastus2
+    * **&lt;DeployName>**: mydeployment0719
+    * **&lt;TemplateFile>**: azuredeploy.json
 
     From the screenshot output, the storage account name is *fhqbfslikdqdsstandardsa*. 
 
-7. Run the following PowerShell command to list the newly created storage account:
+9. Run the following PowerShell command to list the newly created storage account:
 
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
+
+    You shall see an output similar to the following screenshot which indicates encryption has been enabled for the blob storage.
+
+    ![Azure resource manager encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## Clean up resources
 
