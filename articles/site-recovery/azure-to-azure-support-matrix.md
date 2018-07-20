@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
 
 ---
@@ -22,34 +22,21 @@ This article summarizes supported configurations and components when you replica
 **User interface** |  **Supported / Not supported**
 --- | ---
 **Azure portal** | Supported
-**Classic portal** | Not supported
 **PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
 **REST API** | Not currently supported
 **CLI** | Not currently supported
 
 
-## Resource move support
+## Resource support
 
-**Resource move type** | **Supported / Not supported** | **Remarks**  
+**Resource move type** | **Details** 
 --- | --- | ---
-**Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups.
-**Move Compute, Storage, and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network) after enabling replication, you need to disable replication and enable replication for the virtual machine again.
+**Move vault across resource groups** | Not supported<br/><br/> You can't move a Recovery services vault across resource groups.
+**Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after it's replicating, you need to disable replication and reenable replication for the VM.
+**Replicate Azure VMs from one subscription to another for disaster recovery** | Not supported.
+**Migrate VMs across subscriptions** | Not supported.
+**Migrate VMs within the same region** | Not supported.
 
-
-
-## Support for deployment models
-
-**Deployment model** | **Supported / Not supported** | **Remarks**  
---- | --- | ---
-**Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine. If you deploy a classic VM without a virtual network and directly to an Azure region, it is not supported.
-**Resource Manager** | Supported |
-
->[!NOTE]
->
-> 1. Replicating Azure virtual machines from one subscription to another for disaster recovery scenarios is not supported.
-> 2. Migrating Azure virtual machines across subscriptions is not supported.
-> 3. Migrating Azure virtual machines within the same region is not supported.
-> 4. Migrating Azure virtual machines from Classic deployment model to Resource manager deployment model is not supported.
 
 ## Support for replicated machine OS versions
 
@@ -140,6 +127,13 @@ China | China East, China North
 >[!NOTE]
 >
 > For Brazil South region, you can only replicate and fail over to one of South Central US, West Central US, East US, East US 2, West US, West US 2,and North Central US regions and fail back.
+
+## Support for VM/disk management
+
+**Action** | **Details**
+-- | ---
+Resize disk on replicated VM | Supported
+Add disk to replicated VM | Not supported. You need to disable replication for the VM, add the disk, and then enable replication again.
 
 
 ## Support for Compute configuration

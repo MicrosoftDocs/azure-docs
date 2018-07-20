@@ -82,7 +82,6 @@ To enable monitoring of your AKS container in the Azure portal, do the following
 
 >[!NOTE]
 >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to. 
->
  
 After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster. 
 
