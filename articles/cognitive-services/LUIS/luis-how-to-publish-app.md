@@ -16,7 +16,7 @@ ms.author: v-geberr;
 # Publish your trained app
 When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](luis-how-to-manage-keys.md), are then integrated into any client, chatbot, or backend application. 
 
-You can always [test](interactive-test.md) your app before publishing it. 
+You can always [test](luis-interactive-test.md) your app before publishing it. 
 
 ## Production and staging slots
 You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
@@ -150,4 +150,4 @@ Test your published endpoint by selecting the URL in the **Endpoint** column. Th
 ## Next steps
 
 * See [Manage keys](./luis-how-to-manage-keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
-* See [Train and test your app](interactive-test.md) for instructions on how to test your published app in the test console.
+* See [Train and test your app](luis-interactive-test.md) for instructions on how to test your published app in the test console.
