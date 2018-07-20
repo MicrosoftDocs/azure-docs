@@ -82,11 +82,10 @@ Restart your computer.
 
 ## SDK and tools
 
-Install the Service Fabric runtime, SDK, and tools in a dependent order.
+Install the Service Fabric Mesh runtime, SDK, and tools in a dependent order.
 
-1. Install the [Microsoft Azure Service Fabric SDK and runtime][download-sdk] using Web Platform Installer.
-2. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer.
-4. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
+1. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer. This will also install the Microsoft Azure Service Fabric SDK and runtime.
+2. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
 
@@ -119,8 +118,8 @@ Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutori
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
-[download-runtime]: http://aka.ms/sfruntime
-[download-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
-[download-sdkmesh]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
+[download-runtime]: https://aka.ms/sfruntime
+[download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
+[download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
 [download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
 [download-visual-studio]: https://www.visualstudio.com/downloads/

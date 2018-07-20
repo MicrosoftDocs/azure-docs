@@ -4,10 +4,10 @@
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Resource Manager and classic deployment](resource-manager-deployment-model.md)
 
-# Get started
-## [Create and deploy template](resource-manager-create-first-template.md)
-## [VS Code extension for templates](resource-manager-vscode-extension.md)
-## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+# Quickstarts
+## [Create templates - portal](resource-manager-quickstart-create-templates-use-the-portal.md)
+## [Create templates - VS Code](resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+## [Create templates - Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Concepts
 ## [Resource providers and types](resource-manager-supported-services.md)
