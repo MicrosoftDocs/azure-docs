@@ -19,9 +19,9 @@ ms.author: jgao
 
 # Tutorial: create an Azure Resource Manager template for deploying an encrypted storage account
 
-Learn how to use the information found in the Template reference to complete an Azure Resource Manager template.
+Learn how to find information to complete an Azure Resource Manager template.
 
-In this tutorial, you use a base template from Azure Quickstart templates to create an Azure Storage account.  Using the Template reference, you customize the base template to create an encrypted storage account.
+In this tutorial, you use a base template from Azure Quickstart templates to create an Azure Storage account.  Using template reference documentation, you customize the base template to create an encrypted storage account.
 
 This tutorial covers the following tasks:
 
@@ -70,7 +70,7 @@ From VS Code, collapse the template to the root level. You have the simplest str
 
 ## Use parameters in template
 
-Parameters enable you to customize the deployment by providing values that are tailored for a particular environment.
+Parameters enable you to customize the deployment by providing values that are tailored for a particular environment. You use the parameters defined in the template when setting values for the storage account.
 
 ![Resource Manager template parameters](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
 
@@ -97,8 +97,8 @@ Variables allow you to construct values that can be used throughout your templat
 
 This template defines one variable *storageAccountName*. In the definition, two template functions are used:
 
-- **concat()**: concatenates strings. For a list of array functions, see [Array and object functions for Azure Resource Manager templates](./resource-group-template-functions-array.md).
-- **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. For more string functions, see [String functions](./resource-group-template-functions-string.md).
+- **concat()**: concatenates strings. For more information, see [concat](./resource-group-template-functions-string.md#concat).
+- **uniqueString()**: creates a deterministic hash string based on the values provided as parameters. Each Azure storage account must have an unique name across of all Azure. This function provides an unique string. For more string functions, see [String functions](./resource-group-template-functions-string.md).
 
 To use the variable defined in the template:
 
@@ -127,6 +127,10 @@ To find the storage account encryption-related configuration, you can use the te
     ```
     This part enables the encryption function of the blob storage service.
 
+The final resources element looks like:
+
+![Resource Manager template encrypted storage account resources](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
 ## Deploy the template
 
 There are many methods for deploying templates.  In this tutorial, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
@@ -152,7 +156,7 @@ There are many methods for deploying templates.  In this tutorial, you use the C
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
 
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
     ```
     Here is the screenshot of a sample deployment:
 
@@ -191,4 +195,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Create multiple instances](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create multiple resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
