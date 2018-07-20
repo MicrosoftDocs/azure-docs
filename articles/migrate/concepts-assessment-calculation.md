@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/20/2018
 ms.author: raynew
 ---
 
@@ -101,10 +101,9 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
 If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and disks and allocates a VM SKU in Azure based on the size allocated on-premises. Similarly for disk sizing, it looks at the Storage type specified in assessment properties (Standard/Premium) and recommends the disk type accordingly. Default storage type is Premium disks.
 
 ### Confidence rating
+Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate. Confidence rating is not applicable to as on-premises assessments.
 
-Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
-
-The confidence-rating of an assessment is more useful for assessments with sizing criterion as 'performance-based sizing. For performance-based sizing, Azure Migrate needs the utilization data for CPU, memory of the VM. Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data. Similarly for each network adapter attached to a VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
+For performance-based sizing, Azure Migrate needs the utilization data for CPU, memory of the VM. Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data. Similarly for each network adapter attached to a VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
 
    **Availability of data points** | **Confidence rating**
    --- | ---
