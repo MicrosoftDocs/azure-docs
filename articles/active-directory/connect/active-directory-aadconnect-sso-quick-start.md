@@ -89,7 +89,13 @@ In addition, you need to enable an Intranet zone policy setting called **Allow u
 
 By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers will not send Kerberos tickets to a cloud endpoint, like the Azure AD URL, unless you explicitly add the URL to the browser's Intranet zone.
 
-### Detailed steps
+There are two ways to modify users' Intranet zone settings:
+
+| Option | Admin consideration | User experience |
+| Group policy | Admin locks down editing of Intranet zone settings | Users cannot modify their own settings |
+| Group policy preference |  Admin allows editing on Intranet zone settings | Users can modify their own settings |
+
+### "Group policy" option - Detailed steps
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
@@ -120,6 +126,18 @@ By default, the browser automatically calculates the correct zone, either Intern
 7. Enable the policy setting, and then select **OK**.
 
     ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
+
+### "Group policy preference" option - Detailed steps
+
+1. Open the Group Policy Management Editor tool.
+2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
+3. Browse to **User Configuration** > **Preferences** > **Control Panel Settings** > **Windows Settings** > **Registry** > **New** > **Registry item**.
+Then select **Site to Zone Assignment List**.
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
+4. Enable the policy, and then enter the following values in the dialog box:
+   - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
+   - **Value** (Data): **1** indicates the Intranet zone.
+
 
 ### Browser considerations
 
