@@ -31,9 +31,9 @@ Azure Data Lake Tools for Visual Studio added a new project template called U-SQ
 
 ![Data Lake Tools for Visual Studio--create U-SQL database project](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-usql-database-project-creation.png) 
 
-## Develop U-SQL database objects using a database project
+## Develop U-SQL database objects by using a database project
 
-Right-click the U-SQL database project. The select **Add > New item**. All supported object types can be found in the **Add New Item** Wizard. 
+Right-click the U-SQL database project. The select **Add > New item**. You can find all new supported object types in the **Add New Item** Wizard. 
 
 For a non-assembly object (for example, a table-valued function), a new U-SQL script is created after you add a new item. You can start to develop the DDL statement for that object in the editor.
 
@@ -100,7 +100,7 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 A U-SQL project can reference a U-SQL database project. The reference affects two workloads:
 
-- *Project build*: The referenced database environments are set up before building the U-SQL scripts. 
+- *Project build*: Set up the referenced database environments before building the U-SQL scripts. 
 - *Local run against (a local-project) account*: The referenced database environments are deployed to (a local-project) account before U-SQL script execution. [Learn more about local run and the difference between a (local-machine) and a (local-project) account here](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### How to add a U-SQL database reference

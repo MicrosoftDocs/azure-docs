@@ -64,7 +64,7 @@ A U-SQL script test project is built on top of a C# unit test framework. After y
 
 ### Create test cases for C# UDOs
 
-You can use a C# unit test framework to test your C# UDOs (user-defined operators). When testing UDOs, you need to prepare a corresponding **IRowset** object as inputs.
+You can use a C# unit test framework to test your C# UDOs (user-defined operators). When testing UDOs, you need to prepare corresponding **IRowset** objects as inputs.
 
 There are two ways to create an IRowset object:
 
@@ -84,7 +84,7 @@ There are two ways to create an IRowset object:
     IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
     ```
 
-- Use data from data collection to create IRowset:
+- Use data from a data collection to create IRowset:
 
     ```csharp
     //Schema: "a:int, b:int"
