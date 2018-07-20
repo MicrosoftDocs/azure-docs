@@ -23,12 +23,12 @@ ms.reviewer: bagovind
 
 In RBAC, to grant access, you create a role assignment. The following template demonstrates:
 - How to assign a role to a user, group, or application at the resource group scope
-- How to specify the Owner, Contributor, and Reader roles as parameters
+- How to specify the Owner, Contributor, and Reader roles as a parameter
 
 To use the template, you must specify the following inputs:
-- The name of resource group
+- The name of a resource group
 - The unique identifier of a user, group, or application to assign the role to
-- The built-in role to assign
+- The role to assign
 - A unique identifier that will be used for the role assignment
 
 ```json
@@ -80,6 +80,10 @@ To use the template, you must specify the following inputs:
   ]
 }
 ```
+
+The following shows an example of the role assignment in the Azure portal after deploying the template.
+
+![Role assignment using a template](./media/role-assignments-template/role-assignment-template.png)
 
 ## Deploy template using Azure PowerShell
 
@@ -189,7 +193,7 @@ To deploy the previous template using Azure CLI, follow these steps.
               "resourceGroup": "ExampleGroup"
             }
           ],
-          "templateHash": "3659916966335481901"
+          "templateHash": "0000000000000000000"
         },
         "correlationId": "33333333-3333-3333-3333-333333333333",
         "debugSetting": null,
