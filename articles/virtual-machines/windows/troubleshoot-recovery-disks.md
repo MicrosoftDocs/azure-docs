@@ -116,7 +116,7 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 > [!NOTE]
-> Adding a disk requires you to specify the size of the disk. As we attach an existing disk, the `-DiskSizeInGB` is specified as `$null`. This value ensures the data disk is correctly attached, and without the need to determine the true size of data disk.
+> Adding a disk requires you to specify the size of the disk. When attaching an existing disk, the `-DiskSizeInGB` is specified as `$null`. This value ensures the data disk is correctly attached, and without the need to determine the true size of data disk.
 
 
 ## Mount the attached data disk
@@ -203,7 +203,7 @@ Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enabl
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 ## Troubleshoot boot or disk issues for a VM with managed disk
-1. Stop the effected VM.
+1. Stop the affected VM.
 2. [Create a snapshot ](snapshot-copy-managed-disk.md) for the OS Disk of the VM.
 3. [Create a copy of the OS disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
 4. [Attach the managed disk as a data disk to a troubleshoot VM](attach-disk-ps.md).
