@@ -39,64 +39,36 @@ sections:
           image:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
-        - href: projects
-          html: <p>Define node configurations and specifications and do a bunch of other stuff you never dreamed possible.</p>
-          image:
-            src: media/index/i_agent.svg
-          title: Projects
-        - href: attach-storage
-          html: <p>You want to put it WHERE?</p>
-          image:
-            src: media/index/i_package.svg
-          title: Storage
-        - href: /azure/cosmos-db/table-introduction/
-          html: <p>How great are tacos, anyway?</p>
-          image:
-            src: media/index/taco.png
-          title: Tacos
 
-
-  - title: QuickStarts
+  - title: Features
     items:
     - type: paragraph
-      text: New to Azure CycleCloud? Start with these four simple labs that cover the basics of installing, configuring, and using CycleCloud.
+      text: CycleCloud Features
     - type: list
       style: unordered
-      className: spaced noBullet
       items:
-      - html: <a href="quickstart-overview">Overview and Prerequisites</a>
-    - type: list
-      style: ordered
-      items:
-      - html: <a href="quickstart-install-cyclecloud">Install Azure CycleCloud via ARM template</a>
-      - html: <a href="quickstart-create-and-run-cluster">Create and Run a Simple HPC Cluster</a>
-      - html: <a href="quickstart-submit-jobs">Submit Jobs and Auto Scale</a>
-      - html: <a href="quickstart-clean-up-resources">Clean Up Resources</a>
-  - title: Concepts
+      - html: <a href="clusters">Clusters and Nodes</a>
+      - html: <a href="cluster-templates">Cluster Templates</a>
+      - html: <a href="projects">CycleCloud Projects</a>
+      - html: <a href="custom-images">Custom Images</a>
+      - html: <a href="attach-storage">Storage Options</a>
+      - html: <a href="data-overview">Data Management</a>
+  - title: CycleCloud Tools
     items:
     - type: paragraph
       text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
     - type: list
-      style: ordered
+      style: unordered
       items:
-      - html: Do a Thing
-      - html: Do a Second Thing
-      - html: Thing 3 - The Thingening
-      - html: Custom Alerts (an actual thing)
+      - html: <a href="pogo-overview">pogo</a>
+      - html: <a href="jetpack">Jetpack</a>
+      - html: <a href="scheduler-integration">Scheduler Integration</a>
+      - html: <a href="autoscale-api">Auto-Scale API</a>
   - title: Reference
     items:
     - type: list
       style: unordered
-      className: spaced noBullet
       items:
-      - title: Command Line Interface
-        html: CLI
-      - title: Cookbooks
-        html: Cookbooks
-      - title: Node Configuration
-        html: Node Nodey Node
-      - title: Dev Guide Contents
-        html: All of the dev guide in all the things
-    - title: Resources
-      items:
-      - type: list
+      - html: <a href="cookbook-reference">Chef Cookbooks</a>
+      - html: <a href="node-configuration-reference">Node Configuration Reference</a>
+      - html: <a href="cluster-reference">Clusters</a>

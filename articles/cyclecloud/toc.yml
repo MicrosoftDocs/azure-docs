@@ -106,8 +106,6 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Cluster User Management
-    href:
 - name: Reference
   items:
   - name: Cluster Reference
