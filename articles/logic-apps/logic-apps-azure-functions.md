@@ -101,17 +101,13 @@ type from your logic app:
 
 ### Access property values inside HTTP requests
 
-Webhook functions can accept HTTP requests as inputs and pass the 
-request content to other functions by using a `data` variable. 
-To access the properties inside the input request content, 
-you can use the dot (.) operator. For example, although 
-Logic Apps has [functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
-this basic sample JavaScript function shows how you 
-can access the `body` object inside the `request` 
-object that's passed to this function. 
-The `body` object also has a `date` property, 
-and this function converts that `date` value 
-from DateTime type to DateString type. 
+Webhook functions can accept HTTP requests as inputs and pass those 
+requests to other functions. For example, although Logic Apps has 
+[functions that convert DateTime values](../logic-apps/workflow-definition-language-functions-reference.md), 
+this basic sample JavaScript function shows how you can access a property 
+inside a request object that's passed to the function and perform operations 
+on that property value. To access properties inside objects, this example uses the 
+[dot (.) operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Property_accessors): 
 
 ```javascript
 function convertToDateString(request, response){
@@ -124,27 +120,24 @@ function convertToDateString(request, response){
 
 Here's what happens inside this function:
 
-1. The function creates a `data` variable and assigns the `body` 
-object inside the `request` object to that `data` variable. 
-To access the `body` object inside the `request` object, 
-the function uses the dot (.) operator: 
+1. The function creates a `data` variable and assigns the 
+`body` object inside the `request` object to that variable. 
+The function uses the dot (.) operator to reference the 
+`body` object inside the `request` object: 
 
-   `var data = request.body`
+   ```javascript
+   var data = request.body;
+   ```
 
-2. The function can now access the `date` property, 
-now inside the `data` variable, and convert that 
-value from DateTime to DateString type by 
-calling the `ToDateString()` function, 
-and return the result in the function's response:
+2. The function can now access the `date` property 
+through the `data` variable, and convert that property 
+value from DateTime type to DateString type by calling 
+the `ToDateString()` function. The function also returns 
+the result through the `body` property in the function's response: 
 
-
-`data.<property-name>.<function-name>`
-
-
-To access the properties inside a request from within your function, 
-you can use dot (.) notation with the `data` variable by using this syntax. 
-
-
+   ```javascript
+   body: data.date.ToDateString();
+   ```
 
 Now that you've created your Azure function, 
 follow the steps for how to 
@@ -199,7 +192,7 @@ After the functions list opens, select this action:
 
 6. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
-as JavaScript Object Notation (JSON). 
+in JavaScript Object Notation (JSON). 
 
    When you click in the **Request Body** box, 
    the dynamic content list opens so you can select 
@@ -224,7 +217,7 @@ as JavaScript Object Notation (JSON).
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
-   To cast the object as a string, add double-quotation marks, 
+   To cast the context object as a string, add double-quotation marks, 
    for example:
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
@@ -259,7 +252,7 @@ After the functions list appears, select your function:
 
 5. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
-as JavaScript Object Notation (JSON). This context object 
+in JavaScript Object Notation (JSON). This context object 
 contains the message and content that your logic app 
 sends to your function. 
 
@@ -281,7 +274,7 @@ sends to your function.
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
    either a string, a JSON object, or a JSON array, you get an error. 
-   To cast the object as a string, add double-quotation marks, 
+   To cast the context object as a string, add double-quotation marks, 
    for example:
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
