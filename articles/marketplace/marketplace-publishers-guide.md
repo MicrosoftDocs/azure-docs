@@ -68,7 +68,9 @@ After you [submit your solution](https://azuremarketplace.microsoft.com/sell/sig
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ## Storefronts
-In a storefront, you can list offers, enable trials, and transact directly with Microsoft customers. Microsoft provides distinct storefronts in the Marketplace and AppSource. For details, please see the [Grow your business through Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace) article. 
+In a storefront, you can list offers, enable trials, and transact directly with Microsoft customers. Microsoft provides distinct storefronts in the Marketplace and AppSource. For detail benefits of each storefronts, see the following link:
+* [Comparing AppSource and Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+* [Grow your business through Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
 
 Storefronts help customers find, try, and buy apps and services that accelerate the customer's digital transformation. Storefronts help you grow your businesses by increasing access to Microsoft customers and partners.
  
