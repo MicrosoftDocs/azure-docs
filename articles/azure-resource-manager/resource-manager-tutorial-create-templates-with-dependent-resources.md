@@ -159,7 +159,3 @@ In this tutorial, you develop and deploy a template to create a virtual machine,
 > [!div class="nextstepaction"]
 > [Create multiple instances](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
-* To gain greater assistance with developing templates, you can install a VS Code extension. For more information, see [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md)
-* To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To learn about the properties for a storage account, see [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts).
-* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).

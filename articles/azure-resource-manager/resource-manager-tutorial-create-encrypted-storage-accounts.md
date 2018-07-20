@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/20/2018
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: jgao
 
 ---
@@ -191,4 +191,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 In this tutorial, you learned how to use template reference to customize an existing template. The template used in this tutorial only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Create templates by using Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [Create multiple instances](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
