@@ -34,7 +34,7 @@ An application created from the **Sample Devkits** application template includes
 - Properties containing device property **die number** and **location** cloud property.
 
 
-For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-csharp.md)
+For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
 
 ## Add a real device

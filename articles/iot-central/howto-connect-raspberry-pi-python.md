@@ -33,14 +33,14 @@ An application created from the **Sample Devkits** application template includes
 - Properties containing device property **die number** and **location** cloud property.
 
 
-For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-python.md)
-     |
+For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+    
 
 ## Add a real device
 
 In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
-## Configure the Raspberry Pi
+### Configure the Raspberry Pi
 
 The following steps describe how to download and configure the sample Python application from GitHub. This sample application:
 
