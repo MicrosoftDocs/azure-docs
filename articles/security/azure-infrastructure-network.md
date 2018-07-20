@@ -33,7 +33,7 @@ The network architecture of an Azure cluster within a datacenter consists of the
 - Routers (datacenter, access router, and border leaf routers)
 - Switches (aggregation and top-of-rack switches)
 - Digi CMs
-- Power distribution units or Nucleons
+- Power distribution units
 
 Azure has two separate architectures. Some existing Azure customers and shared services reside on the default LAN architecture (DLA), whereas new regions and virtual customers reside on Quantum 10 (Q10) architecture. The DLA architecture is a traditional tree design, with active/passive access routers and security access control lists (ACLs) applied to the access routers. The Quantum 10 architecture is a Clos/mesh design of routers, where ACLs are not applied at the routers. Instead, ACLs are applied below the routing, through Software Load Balancing (SLB) or software defined VLANs.
 
