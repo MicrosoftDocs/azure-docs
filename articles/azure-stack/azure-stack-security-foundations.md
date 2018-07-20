@@ -73,12 +73,18 @@ Administration in Azure Stack is controlled through the use of three entry point
 3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called [Privileged Endpoint](azure-stack-privileged-endpoint.md). This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited.
 
 ## Network controls
-Azure Stack infrastructure comes with multiple layers of network Access Control List(ACL). The ACLs prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
+Azure Stack infrastructure comes with multiple layers of network Access Control List (ACL). The ACLs prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
 
 Network ACLs are enforced in three layers:
 1.  Top of Rack switches
 2.  Software Defined Network
 3.  Host and VM operating system firewalls
+
+## Regulatory compliance
+
+A formal assessment of Azure Stack is is being performed by a 3rd-party assessor organization (3PAO). As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards will be available. Customers can use this documentation to jump-start their certification process. The assements include the following standards: PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry. [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards.
+
+The documentation is not a certification of Azure Stack. The standards include several personnel-related and process-related controls. Microsoft is formally validating that Azure Stack meets the applicable infrastructure controls. As a result of this validation, Microsoft, via the 3PAO, will produce pre-compiled documentation that explains how Azure Stack meets the applicable controls.
 
 ## Next steps
 
