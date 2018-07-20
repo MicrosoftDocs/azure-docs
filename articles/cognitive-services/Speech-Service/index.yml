@@ -20,14 +20,14 @@ metadata:
 
 abstract:
   description: |
-    Via our Speech SDK (see table below), the Speech Service allows developers to add powerful speech-enabled features to their applications.
-    Examples include&#58; voice commanding, natural speech conversation, transcription, dictation, and translation.
+    Via our Speech SDK (see table below), the Speech Service allows developers to add speech-enabled features to their apps.
+    Examples include&#58; voice commanding, transcription, dictation, and translation.
     <p>More details about the service can be found at <a href="overview">What is the Speech service?</a>
 sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the Speech SDK by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
   - type: table
     style: dataMatrix
     columns:
@@ -107,7 +107,7 @@ sections:
   - type: paragraph
     text: |
       Our Speech Service also lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
-      <a href="https://cris.ai/Home/customvoice">customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
+      <a href="https://cris.ai/Home/customvoice">Customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
 - title: Speech enabled HW reference design
   items:
   - type: paragraph
