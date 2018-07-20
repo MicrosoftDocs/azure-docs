@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 06/29/2018
+ms.date: 07/20/2018
 ms.author: gsacavdm
 
 ---
@@ -41,11 +41,9 @@ The following variations and limitations are present in the Azure Security Cente
 -  **Email notifications for high severity alerts and JIT access**
     - Alerts and just-in-time access will function normally. However, email notifications are not available in Azure Government.
 - **Adaptive application controls**
-    - Application whitelisting is not available in Azure Government. Other cloud defense capabilities such as just-time-access (JIT) are available.
+    - Application whitelisting is not available in Azure Government. Other cloud defense capabilities such as just-time-access (JIT) are available. Standard Azure RBAC roles will function normally.
 -  **Specific detections**
     - Detections based on VM logs, Azure core router network logs, threat intelligence reports, and detections for app services are not available in Azure Government.  
-- **Specific RBAC roles**
-    - The specific Security Center roles of “security reader” and “security administrator” roles are not available in Azure Government.
 - **Azure activity logs**
     -  Auditing insights from Azure activity logs are not available in Azure Government.
 - **Baseline content server details**
@@ -54,7 +52,10 @@ The following variations and limitations are present in the Azure Security Cente
     - Playbooks for automated orchestration and response are not available in Azure Government.  
 -  **Investigation**
     - The investigation feature linking security alerts, users, computers, and incidents is not available in Azure Government.
-
+- **Threat intelligence enrichment**
+    - Geo-enrichment and the threat intelligence option are not available in Azure Government.
+- **Management Groups**
+    - Azure management groups are not available in Azure Government and cannot be utilized by Azure Security Center in Azure Government. 
 
 ### Azure Security Center FAQs
  
