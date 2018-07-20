@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/27/2017
+ms.date: 7/20/2018
 ms.author: msfussell
 
 ---
@@ -41,11 +41,11 @@ Dynamic ports are not supported by the DNS service. To resolve services exposed 
 ## Enabling the DNS service
 When you create a cluster using the portal, the DNS service is enabled by default in the **Include DNS service** check box on the **Cluster configuration** menu:
 
-![Enabling DNS service through the portal](./media/service-fabric-dnsservice/DNSService.PNG)
+![Enabling DNS service through the portal](./media/service-fabric-dnsservice/enable-dns-service.png)
 
 If you're not using the portal to create your cluster or if you're updating an existing cluster, you'll need to enable the DNS service in a template:
 
-- To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create a your own Resource Manager template. 
+- To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create your own Resource Manager template. 
 - To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
 
 After you have a template, you can enable the DNS service with the following steps:
@@ -112,29 +112,7 @@ You can set a DNS name for your services either declaratively for default servic
 
 The DNS name for your service is resolvable throughout the cluster so it is important to ensure the uniqueness of the DNS name across the cluster. 
 
-For stateless services, it is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
-
-For stateful services, use the following naming scheme:
-`<First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>`
-
-Where:
-
-- *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
-- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Target-Partition-Name* is the name of the partition. The following restrictions apply: 
-   - Partition names should be DNS compliant.
-   - Multi-label partition names (that include dot, '.', in the name) should not be used.
-   - Partition names should be lower-case.
-- *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
-- *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name. It is recommended that you use the app instance name to ensure that the DNS name is unique across your cluster.
-
-The following examples show DNS queries for partitioned services running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
-
-- To resolve partition “0” of a service with DNS name `BackendRangedSchemeSvc.Application` that uses a ranged partitioning scheme, use `BackendRangedSchemeSvc-0.Application`.
-- To resolve partition “first” of a service with DNS name `BackendNamedSchemeSvc.Application` that uses a named partitioning scheme, use `BackendNamedSchemeSvc-first.Application`.
-
-For stateful services, the DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
-
+It is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the ApplicationManifest.xml file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
@@ -148,9 +126,9 @@ Open your project in Visual Studio, or your favorite editor, and open the Applic
 ```
 Once the application is deployed, the service instance in the Service Fabric explorer shows the DNS name for this instance, as shown in the following figure: 
 
-![service endpoints](./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG)
+![service endpoints](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme; notice that the partition names are lower-case in observance of the guidance in the previous section.
+The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](#making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -177,12 +155,42 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
     -ServiceDnsName service1.application1
 ```
 
+## Making DNS queries on a stateful service partition
+Begining with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions.
+
+For partitions that will be used in DNS queries, the following naming restrictions apply:
+
+   - Partition names should be DNS-compliant.
+   - Multi-label partition names (that include dot, '.', in the name) should not be used.
+   - Partition names should be lower-case.
+
+DNS queries that target a partition are formatted as follows:
+
+```
+    <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
+```
+Where:
+
+- *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
+- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *Target-Partition-Name* is the name of the partition. 
+- *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name.
+
+The following examples show DNS queries for partitioned services running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
+
+- To resolve partition “0” of a service with DNS name `BackendRangedSchemeSvc.Application` that uses a ranged partitioning scheme, use `BackendRangedSchemeSvc-0.Application`.
+- To resolve partition “first” of a service with DNS name `BackendNamedSchemeSvc.Application` that uses a named partitioning scheme, use `BackendNamedSchemeSvc-first.Application`.
+
+The DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
+
+
 ## Using DNS in your services
-If you deploy more than one service, you can find the endpoints of other services to communicate with  by using a DNS name. The DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. 
+If you deploy more than one service, you can find the endpoints of other services to communicate with by using a DNS name. The DNS service works for stateless services, and, in Service Fabric version 6.3 and later, for stateful services. For stateful services running on versions of Service Fabric prior to 6.3, you can use the built-in [reverse proxy service](./service-fabric-reverseproxy.md) for http calls to call a particular service partition. 
 
 Dynamic ports are not supported by the DNS service. You can use the reverse proxy service to resolve services that use dynamic ports.
 
-The following code shows how to call a stateless service through DNS. It is simply regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
+The following code shows how to call a stateless service through DNS. It is simply a regular http call where you provide the DNS name, the port, and any optional path as part of the URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -242,6 +250,3 @@ public class ValuesController : Controller
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
 
-[0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
-[1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG
-[2]: ./media/service-fabric-dnsservice/DNSService.PNG
