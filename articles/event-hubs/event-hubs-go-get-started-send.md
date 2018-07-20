@@ -43,32 +43,9 @@ To complete this tutorial you'll need the following:
   instructions](https://golang.org/doc/install) if necessary.
 * An active Azure account. If you don't have an Azure subscription, create a
   [free account][] before you begin.
-* An existing event hub. You can create a new one with the following script
-  using [Azure CLI](https://github.com/Azure/azure-cli).
+* An existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md).
 
-```bash
-AZURE_GROUP=mygroup
-AZURE_LOCATION=westus2
-# for namespace choose something globally unique!
-AZURE_EVENTHUB_NAMESPACE=my-namespace-001
-AZURE_EVENTHUB_HUB=my-hub-001
-
-az group create \
-    --name ${AZURE_GROUP} \
-    --location ${AZURE_LOCATION}
-
-az eventhubs namespace create \
-    --name ${AZURE_EVENTHUB_NAMESPACE} \
-    --resource-group ${AZURE_GROUP} \
-    --location ${AZURE_LOCATION}
-
-az eventhubs eventhub create \
-    --name ${AZURE_EVENTHUB_HUB} \
-    --namespace-name ${AZURE_EVENTHUB_NAMESPACE} \
-    --resource-group ${AZURE_GROUP}
-```
-
-## Send events
+## Install Go package
 
 Get the Go package for Event Hubs with `go get` or `dep`:
 
@@ -82,7 +59,9 @@ dep ensure -add github.com/Azure/azure-event-hubs-go
 dep ensure -add github.com/Azure/azure-amqp-common-go
 ```
 
-Import packages in your code file:
+## Import packages in your code file
+
+To import the Go packages, use the following code example:
 
 ```go
 import (
@@ -91,10 +70,9 @@ import (
 )
 ```
 
-Create a new service principal using the Azure CLI command `az ad sp
-create-for-rbac` and save the provided credentials in your environment with the
-following names. Both the Azure SDK for Go and the Event Hubs packages are
-preconfigured to look for these variable names.
+## Create service principal
+
+Create a new service principal by followiung the instructions in [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Save the provided credentials in your environment with the following names. Both the Azure SDK for Go and the Event Hubs packages are preconfigured to look for these variable names.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -103,8 +81,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Create an authorization provider for your Event Hubs client that utilizes
-these credentials:
+Now, create an authorization provider for your Event Hubs client that uses these credentials:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -113,7 +90,9 @@ if err != nil {
 }
 ```
 
-Create an Event Hubs client:
+## Create Event Hubs client
+
+The following code creates an Event Hubs client:
 
 ```go
 hub, err := eventhubs.NewHub("namespaceName", "hubName", tokenProvider)
@@ -124,9 +103,9 @@ if err != nil {
 }
 ```
 
-It's finally time to send a message! In the following snippet use (1) to send
-messages interactively from a terminal, or (2) to send messages within your
-program.
+## Send messages
+
+In the following snippet, use (1) to send messages interactively from a terminal, or (2) to send messages within your program:
 
 ```go
 // 1. send messages at the terminal
@@ -145,7 +124,7 @@ hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!")
 
 ## Extras
 
-Get the IDs of the partitions in your Hub.
+Get the IDs of the partitions in your hub:
 
 ```go
 info, err := hub.GetRuntimeInformation(ctx)

@@ -9,7 +9,7 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: sethm
+ms.author: joshgav
 
 ---
 
@@ -50,41 +50,16 @@ To complete this tutorial you'll need the following:
 
 ### Create an event hub
 
-This exercise starts with an existing event hub. You can create a new one with the
-following script using [Azure CLI](https://github.com/Azure/azure-cli).
-
-```bash
-AZURE_GROUP=ehtest0001
-AZURE_LOCATION=westus2
-# for namespace choose something globally unique!
-AZURE_EVENTHUB_NAMESPACE=my-namespace-001
-AZURE_EVENTHUB_HUB=my-hub-001
-
-az group create \
-    --name ${AZURE_GROUP} \
-    --location ${AZURE_LOCATION}
-
-az eventhubs namespace create \
-    --name ${AZURE_EVENTHUB_NAMESPACE} \
-    --resource-group ${AZURE_GROUP} \
-    --location ${AZURE_LOCATION}
-
-az eventhubs eventhub create \
-    --name ${AZURE_EVENTHUB_HUB} \
-    --namespace-name ${AZURE_EVENTHUB_NAMESPACE} \
-    --resource-group ${AZURE_GROUP}
-```
+This exercise starts with an existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md).
 
 ### Create a Storage account and container
 
 State such as leases on partitions and checkpoints in the event stream are
-shared amongst receivers through an Azure Storage container. You can create a
-storage account and container with the Go SDK, but you may prefer to create one
-via the [Azure CLI](https://github.com/Azure/azure-cli)as follows.
+shared between receivers using an Azure Storage container. You can create a
+storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md).
 
 Samples for creating Storage artifacts with the Go SDK are available in the [Go
-samples
-repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage)
+samples repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage)
 and in the sample corresponding to this tutorial.
 
 ```bash
@@ -121,7 +96,9 @@ dep ensure -add github.com/Azure/azure-amqp-common-go
 dep ensure -add github.com/Azure/go-autorest
 ```
 
-Import packages in your code file:
+## Import packages in your code file
+
+To import the Go packages, use the following code example:
 
 ```go
 import (
@@ -133,9 +110,9 @@ import (
 )
 ```
 
-Create a new service principal using the Azure CLI command `az ad sp
-create-for-rbac` and save the provided credentials in your environment with the
-following names. Both the Azure SDK for Go and the Event Hubs package are
+## Create service principal
+
+Create a new service principal by followiung the instructions in [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Save the provided credentials in your environment with the following names. Both the Azure SDK for Go and the Event Hubs package are
 preconfigured to look for these variable names.
 
 ```bash
@@ -145,8 +122,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Create an authorization provider for your Event Hubs client that utilizes
-these credentials:
+Next, create an authorization provider for your Event Hubs client that uses these credentials:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -155,8 +131,9 @@ if err != nil {
 }
 ```
 
-Get a struct with metadata about your Azure environment using the Azure Go SDK.
-Later operations will use this struct to find correct endpoints.
+## Get metadata struct
+
+Get a struct with metadata about your Azure environment using the Azure Go SDK. Later operations will use this struct to find correct endpoints.
 
 ```go
 azureEnv, err := azure.EnvironmentFromName("AzurePublicCloud")
@@ -165,10 +142,12 @@ if err != nil {
 }
 ```
 
-Create a credential helper that will utilize the Azure Active Directory (AAD)
-credentials from above to create a Shared Access Signature (SAS) credential for
+## Create credential helper 
+
+Create a credential helper that will use the previous Azure Active Directory (AAD)
+credentials to create a Shared Access Signature (SAS) credential for
 Storage. The last parameter tells this constructor to use the same environment
-variables used above.
+variables used previously:
 
 ```go
 cred, err := storageLeaser.NewAADSASCredential(
@@ -181,6 +160,8 @@ if err != nil {
 	log.Fatalf("could not prepare a storage credential: %s\n", err)
 }
 ```
+
+## Create Checkpointer and Leaser 
 
 Create a **Leaser**, responsible for leasing a partition to a particular receiver;
 and a **Checkpointer**, responsible for writing checkpoints for the message stream
@@ -203,9 +184,11 @@ if err != nil {
 }
 ```
 
-We now have the pieces needed to construct an EventProcessorHost, as follows.
-The same StorageLeaserCheckpointer is used as a Leaser *and* Checkpointer, as
-described above.
+# Construct Event Processor Host
+
+You now have the pieces needed to construct an EventProcessorHost, as follows.
+The same StorageLeaserCheckpointer is used as both a Leaser and Checkpointer, as
+described previously.
 
 ```go
 ctx := context.Background()
@@ -222,8 +205,10 @@ if err != nil {
 defer p.Close(context.Background())
 ```
 
-We'll now create a handler and register it with our EventProcessorHost. When
-the host is started it will apply this and any other specified handlers to
+## Create handler 
+
+Now create a handler and register it with the Event Processor Host. When
+the host is started, it will apply this and any other specified handlers to
 incoming messages.
 
 ```go
@@ -239,7 +224,9 @@ if err != nil {
 }
 ```
 
-With everything set up, you can start the EventProcessorHost with
+## Receive messages
+
+With everything set up, you can start the Event Processor Host with
 `Start(context)` to keep it permanently running, or with
 `StartNonBlocking(context)` to run only as long as messages are available.
 
