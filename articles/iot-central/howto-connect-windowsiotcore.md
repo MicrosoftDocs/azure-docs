@@ -26,7 +26,7 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics: 
 
-- Telmetry which containes the measurements for the device **Humidity**, **Temperature** and **Pressure**. 
+- Telemetry which containes the measurements for the device **Humidity**, **Temperature** and **Pressure**. 
 - Settings showing **Fan Speed**.
 - Properties containing device property **die number** and **location** cloud property.
 
