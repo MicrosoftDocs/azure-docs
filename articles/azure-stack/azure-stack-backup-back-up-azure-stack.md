@@ -79,4 +79,4 @@ Use Start-AzSBackup to start a new backup with -AsJob variable to track progress
 
 ## Next steps
 
-- Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).
+Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).
