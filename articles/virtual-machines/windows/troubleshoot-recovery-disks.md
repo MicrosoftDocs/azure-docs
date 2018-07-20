@@ -206,9 +206,9 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 1. Stop the affected VM.
 2. [Create a snapshot ](snapshot-copy-managed-disk.md) for the OS Disk of the VM.
 3. [Create a copy of the OS disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk to a troubleshoot VM](attach-disk-ps.md).
-5. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the new managed disk.
-6. [Swap the OS disks for the effected VM](os-disk-swap.md).
+4. [Attach the copied OS disk as a data disk to a troubleshoot VM](attach-disk-ps.md).
+5. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the copied OS disk.
+6. [Swap the OS disks for the affected VM](os-disk-swap.md). This step will attach the copied OS disk to the affected VM.
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
