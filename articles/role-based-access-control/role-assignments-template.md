@@ -17,17 +17,19 @@ ms.reviewer: bagovind
 ---
 # Manage access using RBAC and Azure Resource Manager templates
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure Resource Manager templates.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In addition to using Azure PowerShell or Azure CLI, you can manage access to Azure resources using RBAC and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
 
-## Grant access
+## Example template to create a role assignment
 
-In RBAC, to grant access, you create a role assignment.
+In RBAC, to grant access, you create a role assignment. The following template demonstrates:
+- How to assign a role to a user, group, or application at the resource group scope
+- How to specify the Owner, Contributor, and Reader roles as parameters
 
-### Example template to create a role assignment
-
-The following template demonstrates:
-- Assign an RBAC role at the resource group scope
-- Specify the Owner, Contributor, and Reader roles as parameters
+To use the template, you must specify the following inputs:
+- The name of resource group
+- The unique identifier of a user, group, or application to assign the role to
+- The built-in role to assign
+- A unique identifier that will be used for the role assignment
 
 ```json
 {
@@ -79,7 +81,9 @@ The following template demonstrates:
 }
 ```
 
-### Deploy template using Azure PowerShell
+## Deploy template using Azure PowerShell
+
+To deploy the previous template using Azure PowerShell, follow these steps.
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
@@ -134,7 +138,9 @@ The following template demonstrates:
     DeploymentDebugLogLevel :
     ```
 
-### Deploy template using Azure CLI
+## Deploy template using Azure CLI
+
+To deploy the previous template using Azure CLI, follow these steps.
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
