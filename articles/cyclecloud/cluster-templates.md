@@ -1,6 +1,6 @@
 # Cluster Templates
 
-In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `sge_template.txt` defines a basic two-node SGE cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:
+In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `slurm_template.txt` defines a basic two-node Slurm cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:
 
       [cluster CustomSlurm]
       Autoscale = true
@@ -26,9 +26,9 @@ In Azure CycleCloud, you can create new templates or edit existing ones to take 
         [[[network-interface eth0]]]
         AssociatePublicIpAddress = false
 
-By adding the above section a new cluster template called `custom_sge_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
+By adding the above section a new cluster template called `custom_slurm_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
 
-    $ cyclecloud import custom_demo_cluster -f ~/.cycle/sge_template.txt -c custom_sge_cluster
+    $ cyclecloud import custom_demo_cluster -f ~/.cycle/slurm_template.txt -c custom_slurm_cluster
 
     $ cyclecloud start custom_demo_cluster
 
