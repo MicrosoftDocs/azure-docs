@@ -1,7 +1,7 @@
 ---
 title: Manage Azure IoT Hub cloud device messaging with Azure IoT Toolkit extension for Visual Studio Code | Microsoft Docs
 description: Learn how to use Azure IoT Toolkit extension for Visual Studio Code to monitor device to cloud (D2C) messages and send cloud to device (C2D) messages in Azure IoT Hub.
-author: junhan
+author: formulahendry
 manager: 
 keywords: azure iot toolkit, visual studio code, cloud device messaging, iot hub cloud to device, cloud to device messaging
 ms.service: iot-hub
