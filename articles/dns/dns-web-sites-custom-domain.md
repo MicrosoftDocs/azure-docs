@@ -32,6 +32,7 @@ In this tutorial, you learn how to:
 > * Create a CNAME record for your custom domain
 > * Test the new records
 > * Add custom host names you your web app
+> * Test the custom host names
 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -49,7 +50,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.
 
-## Create an A and TXT record
+## Create an A record and TXT record
 
 An A record is used to map a name to its IP address. In the following example, assign "@" as an A record using your web app IPv4 address. @ typically represents the root domain.
 
@@ -157,6 +158,17 @@ set-AzureRmWebApp `
  -ResourceGroupName MyAzureResourceGroup `
  -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
+## Test the custom host names
+
+Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
+
+> [!NOTE]
+> Make sure you include the `http://` prefix, otherwise your browser may attempt predict an URL for you!
+
+You should see the same page for both URLs. For example:
+
+![Contoso app service](media/dns-web-sites-custom-domain/contoso-app-svc.png)
+
 
 ## Clean up resources
 
