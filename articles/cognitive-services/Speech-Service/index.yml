@@ -4,8 +4,8 @@ title: Speech Service and SDK Documentation (Preview)
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: |
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.  Examples include, 
-    voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. 
+    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -20,14 +20,14 @@ metadata:
 
 abstract:
   description: |
-    Via our Speech SDK (see table below), the Microsoft Speech Service allows developers to add powerful speech-enabled features to their applications.
+    Via our Speech SDK (see table below), the Speech Service allows developers to add powerful speech-enabled features to their applications.
     Examples include&#58; voice commanding, natural speech conversation, transcription, dictation, and translation.
     <p>More details about the service can be found at <a href="overview">What is the Speech service?</a>
 sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
+    text: Learn how to download, install, and use the Speech SDK by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
   - type: table
     style: dataMatrix
     columns:
@@ -90,7 +90,7 @@ sections:
         - href: rest-apis
         - href: rest-apis
 
-- title: Samples and reference
+- title: Speech SDK samples and reference
   items:
   - type: list
     style: cards
@@ -108,7 +108,7 @@ sections:
     text: |
       Our Speech Service also lets you <a href="how-to-customize-speech-models">customize Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. 
       <a href="https://cris.ai/Home/customvoice">customized Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">customized Speech Translation</a> are also available.
-- title: HW reference design
+- title: Speech enabled HW reference design
   items:
   - type: paragraph
     text: |
