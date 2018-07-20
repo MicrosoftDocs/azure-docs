@@ -20,16 +20,16 @@ metadata:
 
 abstract:
   description: |
-    The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, 
-    including voice command control, transcription, dictation, and translation using an SDK or REST API (see table below).
-    <p>Microsoft and its partners also offers an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; 
+    Via our Speech SDK (see table below), the Microsoft Speech Service allows developers to add powerful speech-enabled features to their applications.
+    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    For more details of what the service can do for you, see <a href="overview">What is the Speech service?</a>
+    <p>For those wishing to build new speech-enabled device HW, see our reference HW and SDK platform&#58; 
     the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
-    <p>For more details of what the service can do for you, see <a href="overview">What is the Speech service?</a>
 sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/link.jpg" height="30" width="30"></img> below.
+    text: Learn how to download, install, and use the Speech SDK.  Click on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
   - type: table
     style: dataMatrix
     columns:
@@ -104,7 +104,6 @@ sections:
       html: |
         <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></li>
         <li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a></li></ul>
-
 - title: Customizing speech with your own data
   items:
   - type: paragraph
