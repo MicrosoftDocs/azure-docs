@@ -19,9 +19,9 @@ ms.author: magoedte
 
 # Monitor Azure Kubernetes Service (AKS) container health (preview)
 
-This article describes how to set up and use Azure Monitor container health to monitor the performance of your workloads that are deployed to Kubernetes environments and hosted on Azure Kubernetes Service (AKS). Monitoring your Kubernetes cluster and containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
+This article describes how to set up and use Azure Monitor container health to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on Azure Kubernetes Service (AKS). Monitoring your Kubernetes cluster and containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
-Container health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you using a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace. The included pre-defined views display the residing container workloads and what is affecting the performance health of the Kubernetes cluster so that you can:  
+Container health gives you performance monitoring ability by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable container health, these metrics are automatically collected for you through a containerized version of the Operations Management Suite (OMS) Agent for Linux and stored in your [Log Analytics](../log-analytics/log-analytics-overview.md) workspace. The included pre-defined views display the residing container workloads and what affects the performance health of the Kubernetes cluster so that you can:  
 
 * Identify containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
 * Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance. 
@@ -35,7 +35,7 @@ Before you start, make sure that you have the following:
 
 - A new or existing AKS cluster.
 - A containerized OMS Agent for Linux version microsoft/oms:ciprod04202018 or later. The version number is represented by a date in the following format: *mmddyyyy*. OMS is installed automatically during the onboarding of container health. 
-- A Log Analytics workspace. You can create it when you enable monitoring of your new AKS cluster, or you can create one through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+- A Log Analytics workspace. You can create it when you enable monitoring of your new AKS cluster, or you can create it through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), through [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - The Log Analytics contributor role, to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 ## Components 
@@ -43,7 +43,7 @@ Before you start, make sure that you have the following:
 Your ability to monitor performance relies on a containerized OMS Agent for Linux, which collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
 
 >[!NOTE] 
->If you have already deployed an AKS cluster, you enable monitoring by using a provided Azure Resource Manager template as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
+>If you have already deployed an AKS cluster, you enable monitoring by using a provided Azure Resource Manager template, as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent. 
 >
 
 ## Sign in to the Azure portal
@@ -59,16 +59,17 @@ After you've enabled monitoring and all configuration tasks are completed succes
 
   ![Options for selecting container health in AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
 
-After monitoring is enabled, it might take about 15 minutes before you can view operational data for the cluster. 
+After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster. 
 
 ## Enable container health monitoring for existing managed clusters
-You can enable monitoring of an AKS cluster that's already deployed either in the Azure portal or with the provided Azure Resource Manager template by using the PowerShell cmdlet New-AzureRmResourceGroupDeployment or Azure CLI. 
+You can enable monitoring of an AKS cluster that's already deployed either in the Azure portal or with the provided Azure Resource Manager template by using the PowerShell cmdlet `New-AzureRmResourceGroupDeployment` or the Azure CLI. 
 
 ### Enable monitoring in the Azure portal
 To enable monitoring of your AKS container in the Azure portal, do the following:
 
 1. In the Azure portal, select **All services**. 
-2. In the list of resources, begin typing **Containers**. The list filters based on your input. 
+2. In the list of resources, begin typing **Containers**.  
+	The list filters based on your input. 
 3. Select **Kubernetes services**.  
 
     ![The Kubernetes services link](./media/monitoring-container-health/azure-portal-01.png)
@@ -96,9 +97,9 @@ The Log Analytics workspace has to be created manually. To create the workspace,
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use Azure CLI, you first need to install and use CLI locally. You must be running Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade Azure CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 #### Create and execute a template
 
@@ -224,13 +225,13 @@ If you choose to use Azure CLI, you first need to install and use CLI locally. Y
         ```powershell
         New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
-        The configuration change can take a few minutes to complete. When it is completed, a message is displayed that's similar to the following and includes the result:
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
         ```powershell
         provisioningState       : Succeeded
         ```
 
-    * To run the following command with Azure CLI on Linux:
+    * To run the following command by using the Azure CLI on Linux:
     
         ```azurecli
         az login
@@ -238,7 +239,7 @@ If you choose to use Azure CLI, you first need to install and use CLI locally. Y
         az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
         ```
 
-        The configuration change can take a few minutes to complete. When it is completed, a message is displayed that's similar to the following and includes the result:
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
         ```azurecli
         provisioningState       : Succeeded
@@ -455,13 +456,13 @@ It's often useful to build queries that start with an example or two and then mo
 | **In Advanced Analytics, select line charts**:<br> Perf &#124; where ObjectName == "Container" and CounterName == "Memory Usage MB"<br> &#124; summarize AvgUsedMemory = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
 
 ## How to stop monitoring with container health
-If, after you enable monitoring of your AKS container, you decide you no longer want to monitor it, you can *opt out* by using either the provided Azure Resource Manager templates with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI. One JSON template specifies the configuration to *opt out*. The other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
+If, after you enable monitoring of your AKS container, you decide you no longer want to monitor it, you can *opt out* by using either the provided Azure Resource Manager templates with the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or the Azure CLI. One JSON template specifies the configuration to *opt out*. The other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
 
 If you're unfamiliar with the concept of deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-If you choose to use Azure CLI, you first need to install and use CLI locally. You must be running Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade Azure CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### Create and execute template
 
@@ -555,7 +556,7 @@ If you choose to use Azure CLI, you first need to install and use CLI locally. Y
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        The configuration change can take a few minutes to complete. When it completes, a message similar to the following that includes the result is returned:
+        The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
         ```azurecli
         ProvisioningState       : Succeeded
