@@ -29,7 +29,7 @@ When you have an issue, contact Microsoft Customer Services Support and then run
 
 1. You have an issue.
 2. Contact Microsoft Customer Services Support.
-3. Run **Test-AzureStack** from the privileged end point.
+3. Run **Test-AzureStack** from the privileged endpoint.
     1. Access the privileged endpoint. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md). 
     2. On the ASDK, sign in to the management host as **AzureStack\CloudAdmin**.  
     On an integrated system, you will need to use the IP address for the privileged-end-point for the management provided to you by your OEM hardware vendor.
