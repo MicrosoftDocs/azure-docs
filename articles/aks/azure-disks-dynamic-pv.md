@@ -46,7 +46,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-premium.yaml`, and copy in the following manifest. The *managed-premium* storage class is specified in the annotation, and the claim requests a disk *5GB* in size with *ReadWriteOnce* access.
+Create a file named `azure-premium.yaml`, and copy in the following manifest. The claim requests a disk named `azure-managed-disk` that is *5GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
 
 ```yaml
 apiVersion: v1
@@ -75,7 +75,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## Use the persistent volume
 
-Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim *azure-managed-disk* to mount the Azure disk at the path `/mnt/azure`.
+Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim named *azure-managed-disk* to mount the Azure disk at the path `/mnt/azure`.
 
 Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
@@ -97,7 +97,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Create the pod with the [kubectl create][kubectl-create command, as shown in the following example:
+Create the pod with the [kubectl create][kubectl-create] command, as shown in the following example:
 
 ```
 $ kubectl create -f azure-pvc-disk.yaml
@@ -105,7 +105,30 @@ $ kubectl create -f azure-pvc-disk.yaml
 pod/mypod created
 ```
 
-You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
+You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`, as shown in the following condensed example:
+
+```
+$ kubectl describe pod mypod
+
+[...]
+Volumes:
+  volume:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  azure-managed-disk
+    ReadOnly:   false
+  default-token-smm2n:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-smm2n
+    Optional:    false
+
+Events:
+  Type    Reason                 Age   From                               Message
+  ----    ------                 ----  ----                               -------
+  Normal  Scheduled              2m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
+  Normal  SuccessfulMountVolume  2m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-smm2n"
+  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
+[...]
+```
 
 ## Back up a persistent volume
 
@@ -128,7 +151,7 @@ $ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Use the disk ID to create a snapshot disk with [az snapshot create][az-snapshot-create]. In the following example, a snapshot named *pvcSnapshot* is created in the same resource group as the AKS cluster (*MC_myResourceGroup_myAKSCluster_eastus*). You may encounter permission issues if you snapshot and restore disks in resource groups that the AKS cluster does not have access to.
+Use the disk ID to create a snapshot disk with [az snapshot create][az-snapshot-create]. The following example creates a snapshot named *pvcSnapshot* in the same resource group as the AKS cluster (*MC_myResourceGroup_myAKSCluster_eastus*). You may encounter permission issues if you create snapshots and restore disks in resource groups that the AKS cluster does not have access to.
 
 ```azurecli
 $ az snapshot create \
@@ -141,7 +164,7 @@ Depending on the amount of data on your disk, it may take a few minutes to creat
 
 ## Restore and use a snapshot
 
-To restore the disk and use it with a Kubernetes pod, use the snapshot as a source when creating a new disk with [az disk create][az-disk-create]. This operation preserves the original resource if you then need to access the original data snapshot. The following example creates a disk named *pvcRestored* from the snapshot named *pvcSnapshot*:
+To restore the disk and use it with a Kubernetes pod, use the snapshot as a source when you create a disk with [az disk create][az-disk-create]. This operation preserves the original resource if you then need to access the original data snapshot. The following example creates a disk named *pvcRestored* from the snapshot named *pvcSnapshot*:
 
 ```azurecli
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
@@ -153,7 +176,7 @@ To use the restored disk with a pod, specify the ID of the disk in the manifest.
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Create a pod manifest named `azure-restored.yaml` and specify the disk URI obtained in the previous step. The following example again creates a basic NGINX web server, with the restored disk mounted as a volume at */mnt/azure*:
+Create a pod manifest named `azure-restored.yaml` and specify the disk URI obtained in the previous step. The following example creates a basic NGINX web server, with the restored disk mounted as a volume at */mnt/azure*:
 
 ```yaml
 kind: Pod
@@ -183,10 +206,10 @@ $ kubectl create -f azure-restored.yaml
 pod/mypodrestored created
 ```
 
-You can use `kubectl described pod mypodrestored` to view details of the pod, such as the following condensed example that shows the volume information:
+You can use `kubectl describe pod mypodrestored` to view details of the pod, such as the following condensed example that shows the volume information:
 
 ```
-$ kubectl described pod mypodrestored
+$ kubectl describe pod mypodrestored
 
 [...]
 Volumes:
