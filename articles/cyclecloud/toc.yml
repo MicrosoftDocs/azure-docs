@@ -132,10 +132,10 @@
     href: scheduler-integration.md
 - name: Resources
   items:
-    - name: Release Notes
-      items:
-      - name: GA Release
-        href:
+  - name: Release Notes
+    items:
+    - name: GA Release
+      href:
   - name: CycleCloud Cluster Templates
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
