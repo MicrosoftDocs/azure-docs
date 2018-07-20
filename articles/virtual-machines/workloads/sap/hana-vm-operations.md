@@ -1,5 +1,5 @@
 ---
-title: SAP HANA operations on Azure | Microsoft Docs
+title: SAP HANA infrastructure configurations and operations on Azure | Microsoft Docs
 description: Operations guide for SAP HANA systems that are deployed on Azure virtual machines.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -20,8 +20,8 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP HANA on Azure operations guide
-This document provides guidance for operating SAP HANA systems that are deployed on Azure native virtual machines (VMs). This document is not intended to replace the standard SAP documentation, which includes the following content:
+# SAP HANA infrastructure configurations and operations on Azure
+This document provides guidance for configuring Azure infrastructure and operating SAP HANA systems that are deployed on Azure native virtual machines (VMs). The document also includes configuration information for SAP HANA scale-out for the M128s VM SKU. This document is not intended to replace the standard SAP documentation, which includes the following content:
 
 - [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
@@ -165,7 +165,6 @@ The disks recommended for the smaller VM types with 3 x P20 oversize the volumes
 Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for /hana/data and /hana/log, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
 
 
-
 #### Storage solution with Azure Write Accelerator for Azure M-Series virtual machines
 Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the /hana/log volume only. Therefore the configurations shown so far need to be changed. The main change is the breakup between the /hana/data and /hana/log in order to use Azure Write Accelerator against the /hana/log volume only. 
 
@@ -202,29 +201,37 @@ More detailed instructions on how to enable Azure Write Accelerator can be found
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 
 
+
 ### Set up Azure virtual networks
-When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. The Virtual Gateway lives in a subnet in the Azure virtual network. To install SAP HANA, you create two additional subnets within the virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio or other management software.
+When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one Azure virtual network that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. In very simple deployments, the Virtual Gateway can be deployed in a subnet in the Azure virtual network (VNet) that hosts the SAP HANA instances as well. To install SAP HANA, you create two additional subnets within the Azure virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio or other management software.
 
 When you install the VMs to run SAP HANA, the VMs need:
 
 - Two virtual NICs installed: one NIC to connect to the management subnet, and one NIC to connect from the on-premises network or other networks, to the SAP HANA instance in the Azure VM.
 - Static private IP addresses that are deployed for both virtual NICs.
 
+However, for deployments that are enduring, you need to create a virtual datacenter network architecture in Azure. This architecture recommends the separation of the Azure VNet Gateway that connects to on-premise into a separate Azure VNet. This separate VNet should host all the traffic that leaves either to on-premise or to the internet. This approach allows you to deploy software for auditing and logging traffic that enters the virtual datacenter in Azure in this separate hub VNet. So you have one VNet that hosts all the software and configurations that relates to in- and outgoing traffic to your Azure deployment.
+
+The article [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/en-us/azure/networking/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/en-us/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
+
 For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 
-[Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the Jumpbox. The NSGs are associated to the SAP HANA subnet and the Management subnet.
+[Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the jumpbox. The NSGs are associated to the SAP HANA subnet and the Management subnet.
 
-The following image shows an overview of a rough deployment schema for SAP HANA:
+The following image shows an overview of a rough deployment schema for SAP HANA following a hub and spoke VNet architecture:
 
 ![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
 
 
-To deploy SAP HANA in Azure without a site-to-site connection, access the SAP HANA instance though a public IP address. The IP address must be assigned to the Azure VM that's running your Jumpbox VM. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs to limit the open ports or IP address ranges that can connect into the Azure subnets with assets that have public-facing IP addresses. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection:
+To deploy SAP HANA in Azure without a site-to-site connection, access the SAP HANA instance though a public IP address. The IP address must be assigned to the Azure VM that's running your Jumpbox VM. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs and [Azure NVAs](https://azure.microsoft.com/en-us/solutions/network-appliances/) to control, monitor the routing from the internet into your Azure VNet architecture in Azure. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection in a hub and spoke VNet architecture:
   
 ![Rough deployment schema for SAP HANA without a site-to-site connection](media/hana-vm-operations/hana-simple-networking2.PNG)
  
+
+## Configuring Azure infrastructure for HANA scale-out
+Configuring Azure storage for SAP HANA scale-out
 
 
 ## Operations for deploying SAP HANA on Azure VMs
