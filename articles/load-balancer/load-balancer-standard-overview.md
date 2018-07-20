@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
 ---
 
@@ -45,7 +45,7 @@ Standard Load Balancer enables you to scale your applications and create high av
 Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
 >[!NOTE]
-> New designs should consider using Standard Load Balancer. 
+> New designs should adopt Standard Load Balancer. 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
@@ -55,8 +55,9 @@ Review the table below for an overview of the differences between Standard Load 
 | Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
 | HA Ports | internal Load Balancer | / |
 | Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
-| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
-| Multiple frontends | Inbound and outbound | Inbound only |
+| [Outbound connections](load-balancer-outbound-connections.md) | Multiple frontends with per load balancing rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
+| [Multiple frontends](load-balancer-multivip-overview.md) | Inbound and [outbound](load-balancer-outbound-connections.md) | Inbound only |
+| [Health probe down behavior](load-balancer-custom-probe-overview.md) | TCP connections stay alive on instance probe down __and__ on all probes down | TCP connections stay alive on instance probe down. All TCP connections terminate on all probes down |
 | Management Operations | Most operations < 30 seconds | 60-90+ seconds typical |
 | SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
 | Pricing | Charged based on number of rules, data processed inbound or outbound associated with resource  | No charge |
