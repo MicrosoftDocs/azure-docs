@@ -163,9 +163,9 @@ This section assumes that you already have an ISO file from the Red Hat website 
     openssl passwd -1 changeme
 ```
 
-    Set a root password with guestfish:
+   Set a root password with guestfish:
 
-```
+```sh
     guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
@@ -180,11 +180,14 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 4. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
+```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
+```
 
 5. Create or edit the `/etc/sysconfig/network-scripts/ifcfg-eth0` file, and add the following text:
 
+```sh
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -193,6 +196,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     PEERDNS=yes
     IPV6INIT=no
     NM_CONTROLLED=no
+```
 
 6. Ensure that the network service starts at boot time by running the following command:
 
@@ -218,7 +222,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     rhgb quiet crashkernel=auto
 ```
 
-    Graphical and quiet boot are not useful in a cloud environment where all the logs are sent to the serial port. You can leave the `crashkernel` option configured if desired. This parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+   Graphical and quiet boot are not useful in a cloud environment where all the logs are sent to the serial port. You can leave the `crashkernel` option configured if desired. This parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 9. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
@@ -234,7 +238,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 ```
 
-    Rebuild initramfs:
+   Rebuild initramfs:
 
 ```sh
     dracut -f -v
@@ -250,9 +254,11 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 ```sh
     systemctl enable sshd
+```
 
     Modify /etc/ssh/sshd_config to include the following lines:
 
+```sh
     PasswordAuthentication yes
     ClientAliveInterval 180
 ```
@@ -278,7 +284,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
 ```
 
 16. Unregister the subscription (if necessary) by running the following command:
@@ -304,13 +310,13 @@ This section assumes that you already have an ISO file from the Red Hat website 
 > [!NOTE]
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 
-    First convert the image to raw format:
+   First convert the image to raw format:
 
 ```sh
     qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
 ```
 
-    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
+   Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 ```sh
     MB=$((1024*1024))
@@ -320,13 +326,13 @@ This section assumes that you already have an ISO file from the Red Hat website 
     qemu-img resize rhel-7.4.raw $rounded_size
 ```
 
-    Convert the raw disk to a fixed-sized VHD:
+   Convert the raw disk to a fixed-sized VHD:
 
 ```sh
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
 ```
 
-    Or, with qemu version **2.6+** include the `force_size` option:
+   Or, with qemu version **2.6+** include the `force_size` option:
 
 ```sh
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
@@ -463,13 +469,13 @@ This section assumes that you have already installed a RHEL virtual machine in V
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
-    First convert the image to raw format:
+   First convert the image to raw format:
 
 ```sh
     qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
 ```
 
-    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
+   Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
 ```sh
     MB=$((1024*1024))
@@ -479,13 +485,13 @@ This section assumes that you have already installed a RHEL virtual machine in V
     qemu-img resize rhel-7.4.raw $rounded_size
 ```
 
-    Convert the raw disk to a fixed-sized VHD:
+   Convert the raw disk to a fixed-sized VHD:
 
 ```sh
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
 ```
 
-    Or, with qemu version **2.6+** include the `force_size` option:
+   Or, with qemu version **2.6+** include the `force_size` option:
 
 ```sh
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
