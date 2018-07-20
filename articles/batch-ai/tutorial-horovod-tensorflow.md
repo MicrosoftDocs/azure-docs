@@ -355,7 +355,7 @@ az batchai job create --cluster nc6cluster --name cifar_distributed --resource-g
 ```
 If the nodes are currently busy, the job may take awhile before it actually starts running. The [az batchai job show](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-show) command can be used to view the execution state of the job.
 
-```azurecli interactive
+```azurecli-interactive
 az batchai job show --experiment cifar --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --query "executionState"
 ```
 
@@ -418,7 +418,7 @@ az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar
 
 The script that was executed performed 50 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
 
-```azurecli interactive
+```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
 ```
 
@@ -426,17 +426,17 @@ az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h
 
 Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This action can be performed using the [az batchai cluster resize](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. The same command can also be used to reallocate the nodes in the future.
 
-```azurecli interactive 
+```azurecli-interactive
 az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --target 0 --workspace batchaidev
 ```
 If there are no more plans to use the workspace in the future, the resource group can be deleted using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group will delete all resources that are part of that group as a result.
 
-```azurecli interactive 
+```azurecli-interactive
 az group delete --name batchai.horovod
 ```
 Note, this command will not delete the auto storage that was created with the cluster as that was created using a different resource group. The auto storage and all its content can be deleted by using the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto storage options will use this existing storage instead of creating a new one.
 
-```azurecli interactive 
+```azurecli-interactive
 az group delete --name batchaiautostorage
 ```
 
