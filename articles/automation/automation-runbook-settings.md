@@ -28,7 +28,7 @@ By default, Verbose and Progress records are not written to job history. You can
 ### Changing runbook settings with the Azure portal
 You can change settings for a runbook in the Azure portal from the **Settings** blade for the runbook.
 
-1. In the Azure portal, select **Automation** and then then click the name of an automation account.
+1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. Select the **Runbooks** tab.
 3. Click the name of a runbook and you are directed to the settings blade for the runbook. From here you can specify or modify tags, the runbook description, configure logging and tracing settings, and access support tools to help you solve problems.     
 
