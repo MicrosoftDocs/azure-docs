@@ -258,18 +258,6 @@ sends to your function.
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Based on the content in the context object, 
-   the Logic App Designer generates a function 
-   template that you can then edit inline. 
-   Logic Apps also creates variables based on 
-   the input context object. Inside your function, 
-   you can reference the content in the context object 
-   by using this syntax, based on this example:
-
-   ```text
-   context.body.content
-   ```
-
    In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
    However, if the object isn't a JSON token, that is, 
