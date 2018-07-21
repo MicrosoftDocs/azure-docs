@@ -403,7 +403,7 @@ az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar
 
 ## Retrieve the results
 
-The script that was executed performed 50 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
+The script that was executed performed 25 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
 
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
