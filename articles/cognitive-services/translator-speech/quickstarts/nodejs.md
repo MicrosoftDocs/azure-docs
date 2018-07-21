@@ -50,7 +50,7 @@ var streamBuffers = require('stream-buffers');
 // **********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
-let key = '2d00fb848e804192bf524e544f854ecc';
+let key = 'ENTER KEY HERE';
 
 let host = 'wss://dev.microsofttranslator.com';
 let path = '/speech/translate';
