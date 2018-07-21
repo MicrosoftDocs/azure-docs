@@ -40,14 +40,17 @@ You learn how to use Azure IoT Toolkit extension for Visual Studio Code to monit
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
-## Select IoT Hub
+## Sign in to access your IoT hub
 
-1. In Explorer of VS Code, click **Azure IoT Hub Devices** tab in the bottom left corner.
+1. In **Explorer** view of VS Code, expand **Azure IoT Hub Devices** section in the bottom left corner.
 1. Click **Select IoT Hub** in context menu.
 1. If you have not signed in to Azure, a pop-up will show in the bottom right corner to let you sign in to Azure.
 1. After you sign in, your Azure Subscription list will be shown, then select Azure Subscription and IoT Hub.
 1. The device list will be shown in **Azure IoT Hub Devices** tab in a few seconds.
 
+   > [!Note]
+   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT device connects to in the pop-up window.
+   
 ## Monitor device-to-cloud messages
 
 To monitor messages that are sent from your device to your IoT hub, follow these steps:
