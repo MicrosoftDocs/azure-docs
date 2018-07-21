@@ -107,9 +107,18 @@ Follow these steps to request a quota increase for your Batch AI subscription us
 
 Once you've submitted your support request, Azure support will contact you. Completing the request can take up to 2 business days.
 
+
+## Next steps
+
+After becoming familiar with the quota limits, the quick start tutorial and Github recipes are a great way to get started with using Batch AI.
+
+> [!div class="nextstepaction"]
+> [Batch AI quick start tutorial](quickstart-tensorflow-training.md)
+> [Batch AI recipes](https://github.com/Azure/BatchAI/tree/master/recipes)
+
 ## Related topics
 
-* [Get started with Batch AI](quickstart-tensorflow-training-cli.md)
+* [Batch AI overview](overview.md)
 * [Learn more about Batch AI resources](resource-concepts.md)
 
 [portal]: https://portal.azure.com
