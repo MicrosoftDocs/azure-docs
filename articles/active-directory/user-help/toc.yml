@@ -1,6 +1,5 @@
 - name: User Help Documentation
   href: index.md
-
 - name: Two-step verification help
   items:
   - name: Overview
