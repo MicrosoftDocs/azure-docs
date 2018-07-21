@@ -26,10 +26,10 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics: 
 
-- Telemetry which containes the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
-- State which containes an example measurement for **Device State**.
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+- State which contains an example measurement for **Device State**.
 - Event measurement with a **Button B Pressed** event. 
-- Settings showing **Voltage**, **Current**,**Fan Speed** and an **IR** toggle.
+- Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
 - Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
 
 
@@ -169,7 +169,7 @@ For information about how to modify, build, and upload the sample code to your d
 
 An application created from the Sample Devkits application template includes a MXChip device template with the following characteristics:
 
-###Measurements
+### Measurements
 
 #### Telemetry 
 
