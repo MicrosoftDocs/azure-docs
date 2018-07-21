@@ -56,7 +56,7 @@ public class Config extends ClientEndpointConfig.Configurator {
     // **********************************************
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    static String key = "2d00fb848e804192bf524e544f854ecc";
+    static String key = "ENTER KEY HERE";
 
     @Override
     public void beforeRequest (Map<String,List<String>> headers) {
