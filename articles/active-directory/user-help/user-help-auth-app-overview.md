@@ -15,6 +15,9 @@ ms.author: lizross
 
 # Microsoft Authenticator app
 
+>[!Important]
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/en-us/azure/active-directory).
+
 The Microsoft Authenticator app helps you keep your accounts secure through two-step verification after you enter your password. But did you know that it can replace the password for your personal Microsoft account entirely? Learn about, set up, and use the Microsoft Authenticator app.
 
 |Article |Description |

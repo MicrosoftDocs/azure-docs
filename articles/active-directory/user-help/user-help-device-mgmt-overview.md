@@ -15,6 +15,9 @@ ms.author: lizross
 
 # Manage my devices overview
 
+>[!Important]
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/en-us/azure/active-directory).
+
 Make sure you're accessing your organization's resources from devices that meet your organization's standards for security and compliance.
 
 |Article |Description |
