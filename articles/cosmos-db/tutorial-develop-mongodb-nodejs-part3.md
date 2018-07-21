@@ -1,6 +1,6 @@
 ---
 title: "MongoDB, Angular, and Node tutorial for Azure - Part 3 | Microsoft Docs"
-description: Part 3 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB.
+description: Part 3 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB. 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -44,14 +44,14 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 2. In your Windows Command Prompt or Mac Terminal window, enter the following command to generate a heroes component. In this code g=generate, c=component, heroes=name of component, and it's using a flat file structure (--flat) so that a subfolder isn't created for it.
 
     ```
-    ng g c heroes --flat
+    ng g c heroes --flat 
     ```
 
     The terminal window displays confirmation of the new components.
 
     ![Installing hero component](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
 
-    Let's take a look at the files that were created and updated.
+    Let's take a look at the files that were created and updated. 
 
 3. In Visual Studio Code, in the **Explorer** pane, navigate to the new **src\app** folder and open the new **heroes.component.ts** file generated within the app folder. This TypeScript component file was created by the previous command.
 
@@ -62,7 +62,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-5. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one.
+5. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
 
     ```html
     <div>
@@ -101,7 +101,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     </div>
     ```
 
-7. Now that we've got the HTML in place, we need to add it to the **heroes.component.ts** file so we can interact with the template. The following code adds the template to your component file. A constructor has been added that gets some heroes, and initializes the hero service component to go get all the data. This code also adds all of the necessary methods for handling events in the UI. You can copy the following code over the existing code in **heroes.component.ts**. It's expected to see errors at the Hero and HeroService areas as the corresponding components aren't imported yet, you will fix these error in the next section.
+7. Now that we've got the HTML in place, we need to add it to the **heroes.component.ts** file so we can interact with the template. The following code adds the template to your component file. A constructor has been added that gets some heroes, and initializes the hero service component to go get all the data. This code also adds all of the necessary methods for handling events in the UI. You can copy the following code over the existing code in **heroes.component.ts**. It's expected to see errors at the Hero and HeroService areas as the corresponding components aren't imported yet, you will fix these error in the next section. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -115,9 +115,9 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
       addingHero = false;
       heroes: any = [];
       selectedHero: Hero;
-
+    
       constructor(private heroService: HeroService) {}
-
+    
       ngOnInit() {
        this.getHeroes();
       }
@@ -178,7 +178,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ],
     ```
 
-9. In the **app/app.module.ts** file add an import for the new FormsModule module on line 3.
+9. In the **app/app.module.ts** file add an import for the new FormsModule module on line 3. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -205,7 +205,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     body {
       margin: 2em;
     }
-
+    
     body,
     input[text],
     button {
@@ -344,14 +344,14 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
         margin-left: 12px;
       }
     }
-    ```
-3. Save the file.
+    ``` 
+3. Save the file. 
 
 ## Display the component
 
 Now that we have the component, how do we get it to show up on the screen? Let's modify the default components in **app.component.ts**.
 
-1. In the Explorer pane, open **/app/app.component.ts**, change the title to Heroes, and then put the name of the component we created in **heroes.components.ts** (app-heroes) to refer to that new component. The contents of the file should now look as follows:
+1. In the Explorer pane, open **/app/app.component.ts**, change the title to Heroes, and then put the name of the component we created in **heroes.components.ts** (app-heroes) to refer to that new component. The contents of the file should now look as follows: 
 
     ```ts
     import { Component } from '@angular/core';
@@ -388,9 +388,9 @@ Now that we have the component, how do we get it to show up on the screen? Let's
     }
     ```
 
-4. Go back to **heroes.components.ts** and notice that on the `selectedHero: Hero;` line (line 10), `Hero` has a red line underneath.
+4. Go back to **heroes.components.ts** and notice that on the `selectedHero: Hero;` line (line 10), `Hero` has a red line underneath. 
 
-5. Left-click the term `Hero`, and Visual Studio displays a lightbulb icon on the left side of the code block.
+5. Left-click the term `Hero`, and Visual Studio displays a lightbulb icon on the left side of the code block. 
 
     ![Light bulb in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
@@ -400,7 +400,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
    ```
    import { Hero } from "./hero";
-   ```
+   ``` 
 
     That takes care of the model, but we still need to create the service.
 
@@ -415,7 +415,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 2. In Visual Studio Code, go back to **heroes.components.ts**. Notice that on the `constructor(private heroService: HeroService) {}` line (line 13), `HeroService` has a red line underneath. Click `HeroService`, and you'll get the lightbulb on the left side of code block. Click the light bulb and then click **Import HeroService from "./hero.service ".** or **Import HeroService from "/app/hero.service ".**
 
     Clicking the light bulb inserts a new line of code on line 2. If line 2 references the /app/hero.service folder, modify it so that it references the hero file from the local folder (./hero.serivce). Line 2 should look like this:
-
+    
     ```javascript
     import { HeroService } from "./hero.service"
     ```
@@ -425,9 +425,9 @@ Now that we have the component, how do we get it to show up on the screen? Let's
     ```ts
     import { Injectable } from '@angular/core';
     import { HttpClient } from '@angular/common/http';
-
+    
     import { Hero } from './hero';
-
+    
     const api = '/api';
 
     @Injectable()
@@ -474,11 +474,11 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
 ## Build the app
 
-1. At the command prompt, enter the following command to build the Angular application.
+1. At the command prompt, enter the following command to build the Angular application. 
 
     ```bash
     ng b
-    ```
+    ``` 
 
     If there are any problems, the terminal window displays information about the files to fix. When the build completes, the new files go into the **dist** folder. You can review the files new in the **dist** folder if you want.
 
