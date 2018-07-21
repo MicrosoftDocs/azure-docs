@@ -65,7 +65,7 @@
 - name: Manage devices help
   items:
   - name: Overview
-    href: user-help-manage-devices-overview.md
+    href: user-help-device-mgmt-overview.md
   - name: Join your devices
     href: device-management-azuread-joined-devices-setup.md
   - name: Register your Windows 10 devices

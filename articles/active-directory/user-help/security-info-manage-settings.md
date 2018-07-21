@@ -141,7 +141,9 @@ This article helps you to troubleshoot your security info, including two-step ve
 
 ## Next steps
 
-- Learn about security info and two-step verification in the [Overview](user-help-overview.md) article
+- Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
+
+- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 
 
 - Follow one of these how-to articles to learn about how to set up your devices in the security info area:
 
