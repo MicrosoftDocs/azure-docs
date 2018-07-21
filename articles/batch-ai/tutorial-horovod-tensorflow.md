@@ -37,9 +37,10 @@ or install it locally following [these instructions](/cli/azure/install-azure-cl
 
   If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
 
-  ```azurecli
+  ```azurecli-interactive
   cd /usr/$USER/clouddrive
   ```
+
 ## Create an Azure resource group
 
 A resource group must be created in order to deploy resources in Batch AI. In this example, a resource group named `batchai.horovod` will be created in the `eastus` region. The available regions can be found [here](https://azure.microsoft.com/en-us/global-infrastructure/services/).
@@ -52,25 +53,11 @@ az group create --name batchai.horovod --location eastus
 
 This resource group will be used for the remainder of the tutorial.
 
-## Understanding the Batch AI hierarchy
+## Understand the Batch AI hierarchy
 
-Before continuing the tutorial, it is important to review the Batch AI resource hierarchy. Batch AI resources include workspaces, clusters, file servers, experiments, and jobs that are organized using the hierarchy shown below. The resource group that was created will keep track of a collection of *workspaces*. The workspaces each contains a mix of *clusters*, *file servers*, and *experiments*. All experiments encapsulate a group of *jobs*. The following list goes into more detail about each resource.
+Before continuing the tutorial, it is important to review the different resources that will be used in the upcoming sections. The following [article](resource-concepts.md) summarizes the resource hierachy in Batch AI. Once these concepts are understood, then one can move on to the next steps in this tutorial.
 
-* **Workspace** - A workspace in Batch AI is a top-level collection of the rest of the Batch AI resources. Workspaces separate work belonging to different groups or projects. For example, there might be a development and a test workspace. 
-
-* **Cluster** - Clusters in Batch AI describe the compute requirements and offer many different options for creating clusters that are customized to different needs. Typically, a different cluster will be set up to for each category of processing power needed to complete the project. These clusters can then be scaled up and down based on demand and budget.
-
-* **File Server** - A file server in Batch AI is needed for storage of data, training scripts, and output logs. Batch AI provides functionality to mount these file servers to each node in the cluster in order to create an easy and centrally accessible storage location. For most cases, only one file server is needed in a workspace where different data is separated into its own directory. 
-
-* **Experiment** - Experiments group a collection of related jobs that can be queried and managed together. Each workspace might have multiple experiments where each one is attempting to solve one specific problem. 
-
-* **Jobs** - A job is a single task or script that needs to be executed on Batch AI. Each job executes a specific script in the file server and on a specified cluster in the workspace. Each experiment likely will have multiple jobs that are similar with a few changes to different parameters.
-
-The following image shows an example resource hierarchy for Batch AI. 
-
-![](./media/migrate-to-new-api/batch-ai-resource-hierarchy.png)
-
-## Creating a workspace 
+## Create a workspace 
 
 A single development workspace will be created for this example using the [az batchai workspace create](https://docs.microsoft.com/en-us/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command. The following command creates a workspace called `batchaidev` under the existing resource group created earlier.
 
@@ -78,7 +65,7 @@ A single development workspace will be created for this example using the [az ba
 az batchai workspace create --resource-group batchai.horovod --workspace batchaidev 
 ```
 
-## Creating an experiment
+## Create an experiment
 
 For this tutorial, a single experiment will be created to run the distributed job. The [az batchai experiment create](https://docs.microsoft.com/en-us/cli/azure/batchai/experiment?view=azure-cli-latest#az-batchai-experiment-create) command will be used to create the experiment. The following command creates an experiment called `cifar` under the same workspace and resource group that was created earlier.
 
@@ -87,7 +74,7 @@ az batchai experiment create --resource-group batchai.horovod --workspace batcha
 ```
 The next few sections will consist of instructions for creating all the necessary resources in order to run the experiment.
 
-## Provisioning a GPU cluster
+## Provision a GPU cluster
 
 The next step will be to provision a GPU Cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options that need to be considered both for functional and budgeting purposes when choosing configurations for the cluster:
 
@@ -119,7 +106,7 @@ The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
 ```
 
-## Accessing auto storage
+## Access the auto storage
 
 During creation, a unique storage account name was generated which must be retrieved in order to access and modify the storage. The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used again to perform this action. The following command queries the storage account name from the cluster.
 
@@ -141,7 +128,7 @@ az storage directory create --name cifar --share-name batchaishare --account-nam
 ```
 The next step will be to prepare the actual training script, which will then be uploaded to the newly created directory.
 
-## Creating the training script
+## Create the training script
 
 For this experiment, the following [code](https://raw.githubusercontent.com/keras-team/keras/master/examples/cifar10_cnn.py) will be modified with a few small changes in order to parallelize the model. Create a file named `cifar_cnn_distributed.py` with the content below. All changes that were made to the original source code are commented with a `HOROVOD` prefix.
 
@@ -303,7 +290,7 @@ As shown above, it is easy to modify a model to enable distributed training usin
 
 A note to keep in mind moving forward is that this script uses a relatively small model and dataset for demo purposes, therefore a distributed model will not necessarily show a substantial improvement. In order to truly see the power of distributed training, a much larger model, and dataset must be used. 
 
-## Uploading the training script
+## Upload the training script
 
 Once the script is ready, the next step will be to upload it to the file share directory that was created earlier. The [az storage file upload](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-upload) command can be used to upload it to the proper location.
 
@@ -311,7 +298,7 @@ Once the script is ready, the next step will be to upload it to the file share d
 az storage file upload --path cifar --share-name batchaishare --source cifar_cnn_distributed.py --account-name <STORAGE ACCOUNT NAME>
 ```
 
-## Submitting the training job 
+## Submit the training job 
 
 If everything has been set up properly up to this point, a job can then be created. In Batch AI, a `job.json` file is used to define the parameters on how to run a job. For the experiment, [this schema](https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-05-01/job.json) will be used to define the following job. Create a file configuration file called `job.json` with the following content.
 
@@ -359,7 +346,7 @@ If the nodes are currently busy, the job may take awhile before it actually star
 az batchai job show --experiment cifar --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --query "executionState"
 ```
 
-## Visualizing the distributed training
+## Visualize the distributed training
 
 Once the job starts running, the [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command can be used once again to query the status of the cluster nodes. 
 
@@ -379,7 +366,7 @@ The output should be similar to the following example, which shows all four in a
 }
 ```
 
-## Monitoring the job
+## Monitor the job
 
 While the job is running, the [az batchai job file list](https://docs.microsoft.com/en-us/cli/azure/batchai/job/file?view=azure-cli-latest#az-batchai-job-file-list) command can be used to list all the output files for the job.
 
@@ -414,7 +401,7 @@ The [az batchai job file stream](https://docs.microsoft.com/en-us/cli/azure/batc
 az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar_distributed --resource-group batchai.horovod --workspace batchaidev
 ```
 
-## Retrieving the results
+## Retrieve the results
 
 The script that was executed performed 50 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](https://docs.microsoft.com/en-us/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
 
@@ -422,7 +409,7 @@ The script that was executed performed 50 epochs through the dataset. If everyth
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
 ```
 
-## Deleting the resources
+## Delete the resources
 
 Once jobs are finished running, a best practice for saving compute costs is to downscale all clusters to `0 nodes` in order to not be charged for idle time. This action can be performed using the [az batchai cluster resize](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-resize) command. The same command can also be used to reallocate the nodes in the future.
 
