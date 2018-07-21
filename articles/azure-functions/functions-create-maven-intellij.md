@@ -73,7 +73,7 @@ Close the run dialog when you're done testing your function. Only one function h
 
 You can debug functions in IntelliJ by attaching to the function host after startup.  Run the Azure Function locally using the steps above, and then in the **Run** menu select **Attach to local process**.  You should see a process on port 5005 available.  After attaching you can have breakpoints hit and debug inside your function app.
 
-When finished stop the debugger and the running process. Only one function host can be active and running locally at at time.
+When finished stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 
