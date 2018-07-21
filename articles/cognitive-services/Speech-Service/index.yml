@@ -61,7 +61,7 @@ sections:
         - href: quickstart-cpp-linux
         - href:
         - href:
-      - title: Android SDK (ARM)
+      - title: Android (ARM)
         values:
         - href:
         - href:
