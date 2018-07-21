@@ -21,7 +21,7 @@ metadata:
 abstract:
   description: |
     Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
-    Examples include&#58; voice commanding, transcription, dictation, and translation.
+    Examples include&#58; Speech-to-text/SR (voice commanding, transcription, dictation, translation) and text-to-speech/TTS (synthesis).
 sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
