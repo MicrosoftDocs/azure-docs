@@ -58,7 +58,7 @@ Yes, you can deploy an AKS cluster into an existing virtual network using the [a
 
 ## Can I restrict the Kubernetes API server to only be accessible within my virtual network?
 
-Not at this time. The Kubernetes API server is exposed as a public fully-qualified domain name (FQDN). You should control access to your cluster using [Kubernetes role-based access control and Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
+Not at this time. The Kubernetes API server is exposed as a public fully-qualified domain name (FQDN). You should control access to your cluster using [Kubernetes role-based access control (RBAC) and Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## Is Azure Key Vault integrated with AKS?
 
