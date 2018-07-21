@@ -145,24 +145,53 @@ public class Program
 ## Implementing actor backup and restore
 A custom actor service can expose a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`.  For an example, see [Backup and restore actors](service-fabric-reliable-actors-backup-and-restore.md).
 
+## Actor using Remoting V2(InterfaceCompatible) Stack
+Remoting V2(InterfaceCompatible aka V2_1) stack has all the features of V2 Remoting stack besides it is interface compatible stack to Remoting V1 stack but is not backward compatible with V2 and V1. In order to do the upgrade from V1 to V2_1 without impacting service availability, follow below [article](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability).
+
+Following changes are required to use the Remoting V2_1 Stack.
+ 1. Add the following assembly attribute on Actor Interfaces.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack.
+
+#### Actor Service Upgrade to Remoting V2(InterfaceCompatible) Stack without impacting Service Availability.
+This change will be a 2-step upgrade. Follow the steps in the same sequence as listed.
+
+1.  Add the following assembly attribute on Actor Interfaces. This attribute will start two listeners for ActorService, V1 (existing) and V2_1 Listener. Upgrade ActorService with this change.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. Upgrade ActorClients after completing the above upgrade.
+This step makes sure Actor Proxy is using Remoting V2_1 Stack.
+
+3. This step is optional. Change the above attribute to remove V1 Listener.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## Actor using Remoting V2 Stack
 With 2.8 nuget package, users can now use Remoting V2 stack, which is more performant and provides features like custom Serialization. Remoting V2 is not backward compatible with existing Remoting stack (we are calling now it as V1 Remoting stack).
 
 Following changes are required to use the Remoting V2 Stack.
  1. Add the following assembly attribute on Actor Interfaces.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack.
 
-### Actor Service Upgrade to Remoting V2 Stack without impacting Service Availability.
+#### Actor Service Upgrade to Remoting V2 Stack without impacting Service Availability.
 This change will be a 2-step upgrade. Follow the steps in the same sequence as listed.
 
 1.  Add the following assembly attribute on Actor Interfaces. This attribute will start two listeners for ActorService, V1 (existing) and V2 Listener. Upgrade ActorService with this change.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. Upgrade ActorClients after completing the above upgrade.
@@ -171,7 +200,7 @@ This step makes sure Actor Proxy is using Remoting V2 Stack.
 3. This step is optional. Change the above attribute to remove V1 Listener.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## Next steps
