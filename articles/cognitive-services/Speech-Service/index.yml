@@ -111,6 +111,6 @@ sections:
   items:
   - type: paragraph
     text: |
-      For those wishing to build new speech-enabled device HW, see our reference HW with SDK at
+      For those wishing to build new speech-enabled device HW, see our reference device at
       <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.
 
