@@ -56,11 +56,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## ApplicationGateway/Http
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|string, default is "None"|Static| ApplicationCertificateValidationPolicy: None: Do not validate server certificate; succeed the request. ServiceCertificateThumbprints: Refer to config ServiceCertificateThumbprints for the comma-separated list of thumbprints of the remote certs that the reverse proxy can trust. ServiceCommonNameAndIssuer:  Refer to config ServiceCommonNameAndIssuer for the subject name and issuer thumbprint of the remote certs that the reverse proxy can trust. |
+|ApplicationCertificateValidationPolicy|string, default is "None"|Static| This does not validate the server certificate; succeed the request. Refer to config ServiceCertificateThumbprints for the comma-separated list of thumbprints of the remote certs that the reverse proxy can trust. Refer to config ServiceCommonNameAndIssuer for the subject name and issuer thumbprint of the remote certs that the reverse proxy can trust. |
 |BodyChunkSize |Uint, default is 16384 |Dynamic| Gives the size of for the chunk in bytes used to read the body. |
 |CrlCheckingFlag|uint, default is 0x40000000 |Dynamic| Flags for application/service certificate chain validation; e.g. CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Setting to 0 disables CRL checking Full list of supported values is documented by dwFlags of CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Time in seconds. default is 120 |Dynamic|Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
-|ForwardClientCertificate|bool, default is FALSE|Dynamic| |
+|ForwardClientCertificate|bool, default is FALSE|Dynamic|When set to false, reverse proxy will not request for the client certificate.When set to true, reverse proxy will request for the client certificate during the SSL handshake and forward the base64 encoded PEM format string to the service in a header named X-Client-Certificate.The service can fail the request with appropriate status code after inspecting the certificate data. If this is true and client does not present a certificate, reverse proxy will forward an empty header and let the service handle the case. Reverse proxy will act as a transparent layer.|
 |GatewayAuthCredentialType |string, default is "None" |Static| Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" |Dynamic| Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, default is "" |Dynamic| Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that does not exist; FindValueSecondary is looked up. |
@@ -73,12 +73,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RemoveServiceResponseHeaders|string, default is "Date; Server"|Static|Semi colon/ comma-separated list of response headers that will be removed from the service response; before forwarding it to the client. If this is set to empty string; pass all the headers returned by the service as-is. i.e do not overwrite the Date and Server |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Dynamic|Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
 |SecureOnlyMode|bool, default is FALSE|Dynamic| SecureOnlyMode: true: Reverse Proxy will only forward to services that publish secure endpoints. false: Reverse Proxy can forward requests to secure/non-secure endpoints.  |
-|ServiceCertificateThumbprints|string, default is ""|Dynamic| |
+|ServiceCertificateThumbprints|string, default is ""|Dynamic|The comma-separated list of thumbprints of the remote certs that the reverse proxy can trust.  |
 
 ## ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic|  |
+|PropertyGroup|X509NameMap, default is None|Dynamic| Subject name and issuer thumbprint of the remote certs that the reverse proxy can trust.|
 
 ## BackupRestoreService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -154,10 +154,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## DnsService
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|InstanceCount|int, default is -1|Static|  |
-|IsEnabled|bool, default is FALSE|Static| |
-|PartitionPrefix|string, default is "-"|Static|Sets the partition prefix string in DNS names for partitioned services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<Target-Partition-Name\>\< PartitionSuffix\>.\<Remaining- Partitioned-Service-DNSName\>.|
-|PartitionSuffix|string, default is ""|Static|Sets the partition suffix string in DNS names for partitioned services: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<Target-Partition-Name\>\< PartitionSuffix\>.\<Remaining- Partitioned-Service-DNSName\>. |
+|InstanceCount|int, default is -1|Static|default value is -1 which means that DnsService is running on every node. OneBox needs this to be set to 1 since DnsService uses well known port 53, so it cannot have multiple instances on the same machine.|
+|IsEnabled|bool, default is FALSE|Static|Enables/Disables DnsService. DnsService is disabled by default and this config needs to be set to enable it. |
+|PartitionPrefix|string, default is "-"|Static|Controls the partition prefix string value in DNS queries for partitioned services. For more info, please refer this link:[Service Fabric DNS Service.](service-fabric-dnsservice.md)|
+|PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services. For more info, please refer this link:[Service Fabric DNS Service.](service-fabric-dnsservice.md) |
 
 ## FabricClient
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -319,7 +319,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ContainerServiceArguments|string, default is "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Win10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric do not pass any other argument to Docker engine except '--pidfile' argument. Hence users should not specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
 |CreateFabricRuntimeTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. The timeout value for the sync FabricCreateRuntime call |
 |DefaultContainerRepositoryAccountName|string, default is ""|Static|Default credentials used instead of credentials specified in ApplicationManifest.xml |
-|DefaultContainerRepositoryPassword|string, default is ""|Static||
+|DefaultContainerRepositoryPassword|string, default is ""|Static|Default password credentials used instead of credentials specified in ApplicationManifest.xml|
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
@@ -331,7 +331,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |FirewallPolicyEnabled|bool, default is FALSE|Static| Enables opening firewall ports for Endpoint resources with explicit ports specified in ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the CodePackageActivationContext calls. This is not applicable to ad-hoc services. |
 |IPProviderEnabled|bool, default is FALSE|Static|Enables management of IP addresses. |
-|IsDefaultContainerRepositoryPasswordEncrypted|bool, default is FALSE|Static||
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, default is FALSE|Static|Whether the DefaultContainerRepositoryPassword is encrypted or not.|
 |LinuxExternalExecutablePath|string, default is "/usr/bin/" |Static|The primary directory of external executable commands on the node.|
 |NTLMAuthenticationEnabled|bool, default is FALSE|Static| Enables support for using NTLM by the code packages that are running as other users so that the processes across machines can communicate securely. |
 |NTLMAuthenticationPasswordSecret|SecureString, default is Common::SecureString("")|Static|Is an encrypted has that is used to generate the password for NTLM users. Has to be set if NTLMAuthenticationEnabled is true. Validated by the deployer. |

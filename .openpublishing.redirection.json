@@ -157,8 +157,13 @@
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
-            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/custom-decision-service/custom-decision-service-tutorial-analytics.md",
@@ -172,7 +177,7 @@
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
         },
         {
