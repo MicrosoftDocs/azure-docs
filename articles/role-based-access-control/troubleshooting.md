@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ---
-# Troubleshooting RBAC in Azure
+# Troubleshoot RBAC in Azure
 
 This article answers common questions about role-based access control (RBAC), so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems.
 
-## Web app capabilities that require write access
+## Web app features that require write access
 
 If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren’t available in any read-only scenario.
 
@@ -38,7 +38,7 @@ If you grant a user read-only access to a single web app, some features are disa
 
 If you can't access any of these tiles, you need to ask your administrator for Contributor access to the web app.
 
-## Related resources for Web apps that require write access
+## Web app resources that require write access
 
 Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple of websites:
 
@@ -60,7 +60,7 @@ These items require **write** access to the whole **Resource group** that contai
 * Application insights components  
 * Web tests  
 
-## Virtual machines capabilities that require write access
+## Virtual machine features that require write access
 
 Similar to web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
