@@ -27,8 +27,6 @@ Azure Media Services (AMS) is currently generally available in Azure Government.
 
 For information on how to connect to AMS, see [connecting to AMS](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md)
 
-When connecting to Media Services in Azure Government, use the following values:
-
 ### REST endpoints
 
 The API server address depends on what region you are deployed to:
