@@ -176,7 +176,7 @@ Azure File Sync is known not to work with:
 
 - NTFS Encrypted File System (EFS)
 
-In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as BitLocker. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
+In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as Azure Information Protection. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
