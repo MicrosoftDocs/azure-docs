@@ -65,7 +65,7 @@ To provide educators the permission to create labs for their classes, add them t
     ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## Specify Marketplace images available to lab owners
-In this section, you specify Marketplace images that are available to lab oweners who create classroom labs. 
+In this section, you specify Marketplace images that are available to lab owners who create classroom labs. 
 
 1. Select **Marketplace images** on the menu to the left. You see the images that are automatically enabled for creating the classroom labs. 
 
