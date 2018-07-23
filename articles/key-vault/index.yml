@@ -30,7 +30,7 @@ sections:
         src: media/index/logo_NET.svg
       text: .NET
       href: /azure/key-vault/quick-create-net
-      - image: 
+    - image: 
         src: media/index/cli.svg
       text: Azure CLI
       href: /azure/key-vault/quick-create-cli
