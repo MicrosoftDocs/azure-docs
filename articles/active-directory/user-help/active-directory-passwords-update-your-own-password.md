@@ -1,5 +1,5 @@
 ---
-title: Reset your password - Azure AD | Microsoft Docs
+title: Reset your password - Azure Active Directory | Microsoft Docs
 description: Use self-service password reset to regain access to your work or school user account
 services: active-directory
 author: eross-msft

@@ -1,5 +1,5 @@
 ---
-title: Register for self-service password reset - Azure AD | Microsoft Docs
+title: Register for self-service password reset - Azure Active Directory | Microsoft Docs
 description: Register authentication data for Azure AD self-service password reset
 services: active-directory
 author: eross-msft

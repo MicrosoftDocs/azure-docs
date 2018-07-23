@@ -1,5 +1,5 @@
 ---
-title: Get help with accessing and using the My Apps portal in Azure AD | Microsoft Docs
+title: Get help with accessing and using the My Apps portal in Azure Active Directory | Microsoft Docs
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft

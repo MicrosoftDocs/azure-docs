@@ -20,16 +20,13 @@ The Microsoft Authenticator app not only helps you keep your accounts secure by 
 
 This feature is available on iOS and Android devices running Android 6.0 or above.
 
->[!NOTE]
->You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
-
 ## How it works
 
 Many of you use the Microsoft Authenticator app for two-step verification when you sign in to your Microsoft account. You type your password and then go to the app to either approve a notification or to get a verification code. With phone sign-in, you skip the password and do all your identity verification on your phone. Because phone sign-in is a type of two-step verification, you still need to verify your identity by providing a thing you know and a thing you have. The phone is still the thing you have, but your phone's PIN or biometric key is now the thing you know.
 
 ## Turn on phone sign-in for your work or school account
 
-If your administrator has turned on this feature for your organization, you’ll be able to sign in using your phone and your phone’s PIN or biometric key.
+If your organization uses Azure Active Directory for identity management and authentication, you can use phone sign-in after you turn it on in the Microsoft Authenticator app. 
 
 ### To turn on phone sign-in for your account
 
@@ -43,15 +40,15 @@ If your administrator has turned on this feature for your organization, you’ll
 
 1.	Sign in to your work or school account, as normal.
 
-    The Microsoft Authenticator app starts, and you get a notification from Microsoft asking you to approve the sign-in. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
+        After typing your username, you'll see a page with a 2-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
 
     ![Sign-in page](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
  
-2.	In the Microsoft Authentication app, tap the same number you see on the **Approve sign in** screen. If you don’t recognize the sign-in attempt, select **Deny**.
- 
-    If you don’t want to use this sign-in method, you can use the Microsoft Authenticator app to approve the sign-in notification or use your phone’s PIN or your biometric key to complete the authentication.
+2. In the Microsoft Authentication app, you'll get a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**.
 
-    ![Approve sign in page](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-approve-signin.png)
+3. Tap the same number you see on the **Approve sign in** screen. Use your phone’s PIN or your biometric key to complete the authentication.
+ 
+    ![Approve sign in page](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## Turn on phone sign-in for your personal account
 
@@ -84,7 +81,7 @@ New accounts are automatically turned on, so you can immediately start using pho
 |**If I keep two-step verification turned on for my account, do I have to approve two notifications?**| No. Signing in to your Microsoft account using your phone also counts as two-step verification, so there is no second approval required.|
 |**What if I lose my phone or don’t have it with me? How do I access my account?**| You can always select the Use a password instead link on the sign-in page to switch back to using your password. However, if you use two-step verification you’ll still need to use a second method to verify your identity.<br><br>**Important**<br>You're encouraged to have more than one, up-to-date, verification method associated with your account.<br><br>You can manage your verification methods for personal accounts from your [Security settings](https://account.live.com/proofs/manage) page. For work or school accounts, you can go to your organization’s [Additional security verification](https://aka.ms/MFASetup) page or the **Keep your account secure** page if your administrator has turned on security info. For more information about security info, see [Manage your security info](security-info-manage-settings.md).<br><br>If you’re unable to manage your verification methods, you must contact your administrator.|
 |**How do I stop using this feature and go back to using my password?**|For personal accounts, select the **Use a password instead** link during sign-in. Your most recent choice is remembered and offered by default the next time you sign in. If you ever want to go back to using phone sign-in, select the **Use an app instead** link during sign-in.<br><br>For work or school accounts, you must remove the account by opening the Microsoft Authenticator app, selecting the **Edit accounts** menu, and then deleting your account.|
-|**Why can’t I use more than one work or school account for phone sign-in?**| A phone must be registered to a single work or school account. If you want to turn on phone sign-in for a different work or school account, you must first unregister the old device through the **Settings** page.|
+|**Why can’t I use more than one work or school account for phone sign-in?**| A phone must be registered to a single work or school account. If you want to turn on phone sign-in for a different work or school account, you must first unregister the old account through the **Settings** page.|
 |**Can I sign in to my PC using my phone?**| For your PC, we recommend signing in using Windows Hello on Windows 10. Windows Hello lets you use your face, fingerprint, or PIN to sign in.|
 |**Can I use phone sign-in with my Windows Phone?**| No. This feature isn’t supported by the Microsoft Authenticator app on Windows Phone.|
 
