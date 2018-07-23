@@ -128,6 +128,8 @@ We are publishing this app to Azure to see it live as a web app and also see tha
 4. Change the App Name to be "keyvaultdotnetcorequickstart"
 5. Select **Create**.
 
+![Publish](media/quick-create-net/PublishToAzure.gif)
+
 ## Enable Managed Service Identity
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Azure Key Vault to retrieve them. Managed Service Identity (MSI) makes this easier by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
