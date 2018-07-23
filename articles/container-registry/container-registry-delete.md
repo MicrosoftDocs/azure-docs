@@ -31,7 +31,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Repositories names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you group images using forward slash-delimited repository names, for example:
+Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you group images using forward slash-delimited repository names, for example:
 
 ```
 marketing/campaign10-18/web:v2
@@ -49,13 +49,15 @@ A container image within a registry is associated with one or more tags, has one
 
 An image's *tag* specifies its version. A single image within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags from an image, while the image's data (its layers) remain the registry.
 
-The repository (or repository and namespace) plus a tag defines an image's name. In the case of a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the image in the 'test' namespace in the previous section would be:
+The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
+
+In the case of a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the image in the 'test' namespace in the previous section would be:
 
 ```
 myregistry.azurecr.io/acr-helloworld/test:v3
 ```
 
-You can push and pull an image by specifying its name in the push or pull operation.
+For a discussion on image tagging best practices, see the [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] blog post on MSDN.
 
 ### Layer
 
@@ -122,11 +124,15 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 ## Delete image data
 
-You can delete image data from your container registry in several ways: delete a repository, delete by tag, or delete by manifest digest.
+You can delete image data from your container registry in several ways:
+
+* Delete a [repository](#delete-repository): Deletes all images and all unique layers within the repository.
+* Delete by [tag](#delete-by-tag): Deletes an image, the tag, all unique layers referenced by the image, and all other tags associated with the image.
+* Delete by [manifest digest](#delete-by-manifest-digest): Deletes an image, all unique layers referenced by the image, and all tags associated with the image.
 
 ## Delete repository
 
-Deleting a repository deletes all of the images in the repository, including all tags, layers, and manifests. When you delete a repository, you recover the storage space used by the images that were in that repository.
+Deleting a repository deletes all of the images in the repository, including all tags, unique layers, and manifests. When you delete a repository, you recover the storage space used by the images that were in that repository.
 
 The following Azure CLI command deletes the "acr-helloworld" repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted.
 
@@ -138,7 +144,7 @@ The following Azure CLI command deletes the "acr-helloworld" repository and all 
 
 You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by any unique layers in the image (layers not shared by any other images in the registry).
 
-To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name in the `--image` parameter. All layers unique to the image and any tags associated with the image are deleted.
+To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name in the `--image` parameter. All layers unique to the image, and any other tags associated with the image are deleted.
 
 For example, deleting the "acr-helloworld:latest" image from registry "myregistry":
 
@@ -149,7 +155,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry. Only the tag itself is deleted.
+> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry. Only the tag reference itself is deleted.
 
 ## Delete by manifest digest
 
@@ -274,10 +280,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests \
-        --name $REGISTRY \
-        --repository $REPOSITORY \
-        --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -304,10 +307,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests `
-        --name $registry `
-        --repository $repository `
-        --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
@@ -324,6 +324,7 @@ For more information about image storage in Azure Container Registry see [Contai
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
+[tagging-best-practices]: https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
