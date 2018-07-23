@@ -25,7 +25,7 @@ sections:
       columns: 3
       items:
         - href: cyclecloud-application
-          html: <p>We're new. We're great. Find out why.</p>
+          html: <p>Create, manage, operate, and optimize HPC & Big Compute clusters of any scale in Azure with CycleCloud.</p>
           image:
             src: media/index/ccswoosh.jpg
           title: About Azure CycleCloud
