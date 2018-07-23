@@ -88,8 +88,8 @@ Each storefront provides specialized options to help you maximize your publishin
 The following articles can help you learn about the publishing options in AppSource and Azure Marketplace.
 
 Become a publisher in a storefront in the Marketplace in three easy steps:
-1. [Determine the publishing option](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
-2. [Become a publisher in Marketplace storefronts](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
+1. [Determine the publishing option](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
+2. [Become a publisher in Marketplace storefronts](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
 
 ## Publishing checklists
 *   [Publishing checklist for AppSource](publishing-checklist-appsource.md)
