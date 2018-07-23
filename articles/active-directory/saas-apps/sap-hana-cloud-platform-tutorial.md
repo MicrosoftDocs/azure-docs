@@ -37,7 +37,7 @@ To configure Azure AD integration with SAP Cloud Platform, you need the followin
 - An Azure AD subscription
 - A SAP Cloud Platform single sign-on enabled subscription
 
-After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 >[!IMPORTANT]
 >You need to deploy your own application or subscribe to an application on your SAP Cloud Platform account to test single sign on. In this tutorial, an application is deployed in the account.

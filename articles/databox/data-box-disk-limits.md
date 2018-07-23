@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: 
 
 ---
-# Azure Data Box Disk limits? (Preview)
+# Azure Data Box Disk limits (Preview)
 
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution. 

@@ -20,7 +20,9 @@ ms.reviewer: jairoc
 ---
 # Azure Active Directory device management FAQ
 
+**Q: Can I register Android or iOS BYOD devices?**
 
+**A:** Yes, but only with Azure device registration service and for hybrid customers. It is not supported with on-premises device registration service in AD FS.
 
 **Q: How can I register a macOS device?**
 
@@ -94,6 +96,11 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 **Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
 
 **A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
+
+---
+
+**Q: How do I connect to a remote Azure AD joined device?**
+**A:** Refer to the article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc for details.
 
 ---
 

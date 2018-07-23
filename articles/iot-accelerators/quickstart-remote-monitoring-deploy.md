@@ -1,5 +1,5 @@
 ---
-title: Deploy a cloud-based IoT remote monitoring solution on Azure | Microsoft Docs
+title: Try a cloud-based IoT remote monitoring solution on Azure | Microsoft Docs
 description: In this quickstart, you deploy the Remote Monitoring Azure IoT solution accelerator, and sign in to and use the solution dashboard.
 author: dominicbetts
 manager: timlt
@@ -7,19 +7,17 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
 
-# As an IT Pro, I need to deploy a cloud-based solution to monitor my IoT devices.
+# As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor my IoT devices.
 ---
 
-# Quickstart: Deploy a cloud-based remote monitoring solution
+# Quickstart: Try a cloud-based remote monitoring solution
 
-This quickstart shows you how to deploy the Azure IoT Remote Monitoring solution accelerator to use as a cloud-based remote monitoring solution for your IoT devices. After you've deployed the solution accelerator, you use the solution **Dashboard** page to visualize simulated devices on a map, and the **Maintenance** page respond to a pressure alert from a simulated chiller device.
+This quickstart shows you how to deploy the Azure IoT Remote Monitoring solution accelerator to run a cloud-based remote monitoring simulation. After you've deployed the solution accelerator, you use the solution **Dashboard** page to visualize simulated devices on a map, and the **Maintenance** page respond to a pressure alert from a simulated chiller device. You can use this solution accelerator as the starting point for your own implementation or as a learning tool.
 
-The default deployment configures the Remote Monitoring solution accelerator for a company called Contoso. Contoso manages a selection of different device types, such as chillers, deployed in different physical environments. A chiller device sends temperature, humidity, and pressure telemetry to the Remote Monitoring solution accelerator.
-
-## Prerequisites
+The initial deployment configures the Remote Monitoring solution accelerator for a company called Contoso. Contoso manages a selection of different device types, such as chillers, deployed in different physical environments. A chiller device sends temperature, humidity, and pressure telemetry to the Remote Monitoring solution accelerator.
 
 To complete this quickstart, you need an active Azure subscription.
 
@@ -39,9 +37,9 @@ On the **Create Remote Monitoring solution** page, select a **Basic** deployment
 
 Choose **.NET** as the language. The Java and .NET implementations have identical features.
 
-Enter a unique **Solution name** for your Remote Monitoring solution accelerator.
+Enter a unique **Solution name** for your Remote Monitoring solution accelerator. For this quickstart, we're calling ours **contoso-rm2**.
 
-Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
+Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. For this quickstart, we're using **Visual Studio Enterprise** and **West Europe**. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
 
 Click **Create Solution** to begin the deployment. This process takes at least five minutes to run:
 
@@ -49,7 +47,7 @@ Click **Create Solution** to begin the deployment. This process takes at least f
 
 ## Sign in to the solution
 
-When the deployment to your Azure subscription is complete, you can sign in to your Remote Monitoring solution accelerator dashboard.
+When the deployment to your Azure subscription is complete, you see a green checkmark and **Ready** on the solution tile. You can now sign in to your Remote Monitoring solution accelerator dashboard.
 
 On the **Provisioned solutions** page, click your new Remote Monitoring solution accelerator:
 
@@ -65,7 +63,7 @@ Click **Accept** to accept the permissions request, the Remote Monitoring soluti
 
 ## View your devices
 
-The solution dashboard shows the following information about Contoso's devices:
+The solution dashboard shows the following information about Contoso's simulated devices:
 
 * **Device statistics** shows summary information about alerts and the total number of devices. In the default deployment, Contoso has 10 simulated devices of different types.
 
@@ -107,7 +105,7 @@ To act on the chiller, scroll-down to **Related information**, select the chille
 
 [![Select the device and schedule an action](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-In the **Jobs** panel, choose **Run method**, then the **EmergencyValveRelease** method, add the job name **ChillerPressureRelease**, and click **Apply**. These settings create a job that executes immediately.
+In the **Jobs** panel, choose **Run method** and then the **EmergencyValveRelease** method. Add the job name **ChillerPressureRelease**, and click **Apply**. These settings create a job that executes immediately.
 
 To view the job status, return to the **Maintenance** page and view the list of jobs in the **Jobs** view. You may need to wait a few seconds before you can see the job has run to release the valve pressure on the chiller:
 
@@ -129,7 +127,7 @@ The value in the status column changes to **Closed**.
 
 If you plan to move on to the tutorials, leave the Remote Monitoring solution accelerator deployed.
 
-If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page:
+If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page, by selecting it, and then clicking **Delete Solution**:
 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -137,7 +135,7 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 
 In this quickstart, you've deployed the Remote Monitoring solution accelerator and completed a monitoring task using the simulated devices in the default Contoso deployment.
 
-To learn how to update the firmware in your connected devices and organize your assets in the solution accelerator, continue to the next tutorial.
+To learn more about the solution accelerator using simulated devices, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Monitor your IoT devices](iot-accelerators-remote-monitoring-monitor.md)
