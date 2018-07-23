@@ -1,21 +1,15 @@
 ---
-title: Custom code for Azure Logic Apps with Azure Functions | Microsoft Docs
-description: Create and run custom code for Azure Logic Apps with Azure Functions
-services: logic-apps,functions
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
+title: Add and run custom code in Azure Logic Apps with Azure Functions | Microsoft Docs
+description: Learn how to add and run custom code snippets in Azure Logic Apps with Azure Functions
+services: logic-apps
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
-ms.date: 10/18/2016
-ms.author: LADocs; jehollan
+ms.date: 07/20/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
