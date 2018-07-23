@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 07/19/2018
+ms.date: 07/23/2018
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -180,7 +180,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
-    The DNS name needs to be unique in your subscription. `&lt;your-dns-name-suffix>` can be used to ensure the uniqueness.
+    The DNS name needs to be unique in your subscription. `<your-dns-name-suffix>` can be used to ensure the uniqueness.
 
 ### Create Azure Container Registry
 
@@ -197,6 +197,8 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     ```
 
 ## Prepare the Jenkins server
+
+In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, as explained in the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master), it is advised to use an Azure VM agent or Azure Container agent to spin up an agent in Azure to run your builds. 
 
 1. Deploy a [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
 
@@ -223,9 +225,11 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     1. Select **Manage Jenkins > Manage Plugins > Available**.
     1. Search for and install the Azure Container Service Plugin.
 
-1. Add a credential in the type "Microsoft Azure Service Principal" using your service principal.
+1. You need to add credentials that will be used to manage resources in Azure. If you don’t already have the plugin, install the **Azure Credential** plugin.
 
-1. Add a credential in the type "Username with password" using your Docker registry account.
+1. Add your Azure Service Principal credential as type/kind **Microsoft Azure Service Principal**.
+
+1. Add your Azure Docker Registry username and password (as obtained in the section, **Create Azure Container Registry**) as type/kind **Username with password**.
 
 ## Edit the Jenkinsfile
 
