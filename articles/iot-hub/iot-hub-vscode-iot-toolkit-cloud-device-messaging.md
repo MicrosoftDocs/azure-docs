@@ -1,9 +1,7 @@
 ---
 title: Manage Azure IoT Hub cloud device messaging with Azure IoT Toolkit extension for Visual Studio Code | Microsoft Docs
-description: Learn how to use Azure IoT Toolkit extension for Visual Studio Code to monitor device to cloud (D2C) messages and send cloud to device (C2D) messages in Azure IoT Hub.
+description: Learn how to use Azure IoT Toolkit extension for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
 author: formulahendry
-manager: 
-keywords: azure iot toolkit, visual studio code, cloud device messaging, iot hub cloud to device, cloud to device messaging
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -18,7 +16,7 @@ ms.author: junhan
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. This tutorial focuses on how to use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and your IoT hub.
+[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. This article focuses on how to use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and your IoT hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -44,7 +42,7 @@ You learn how to use Azure IoT Toolkit extension for Visual Studio Code to monit
 
 1. In **Explorer** view of VS Code, expand **Azure IoT Hub Devices** section in the bottom left corner.
 1. Click **Select IoT Hub** in context menu.
-1. If you have not signed in to Azure, a pop-up will show in the bottom right corner to let you sign in to Azure.
+1. A pop-up will show in the bottom right corner to let you sign in to Azure for the first time.
 1. After you sign in, your Azure Subscription list will be shown, then select Azure Subscription and IoT Hub.
 1. The device list will be shown in **Azure IoT Hub Devices** tab in a few seconds.
 
