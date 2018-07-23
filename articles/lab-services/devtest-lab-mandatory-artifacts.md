@@ -7,7 +7,6 @@ author: spelluru
 manager: 
 editor: ''
 
-ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -33,14 +32,41 @@ You can select mandatory artifacts for Windows and Linux machines separately. Yo
 
 1. Select **Configuration and policies** under **SETTINGS**. 
 2. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
-3. Select **Edit**,  
-To configure mandatory artifacts for your lab, you can find the 'Mandatory artifacts' option under 'External Resources in 'Configuration and policies'.  
+3. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
+
+    ![Mandatory artifacts page - Edit button](media/devtest-lab-mandatory-artifacts/mandatory-artifacts-edit-button.png)
+4. Select an artifact. This example uses **7-Zip** option. 
+5. On the **Add artifact** page, select **Add**. 
+
+    ![Mandatory artifacts page - Add 7-zip](media/devtest-lab-mandatory-artifacts/add-seven-zip.png)
+6. To add another artifact, select the article, and select **Add**. This example adds **Chrome** as the second mandatory artifact.
+
+    ![Mandatory artifacts page - Add Chrome](media/devtest-lab-mandatory-artifacts/add-chrome.png)
+7. On the **Mandatory artifacts** page, you see a message that specifies the number of artifacts selected. If you click the message, you see the artifacts that you selected. Select **Save** to save. 
+
+    ![Mandatory artifacts page - Save artifacts](media/devtest-lab-mandatory-artifacts/save-artifacts.png)
+8. Repeat the steps to specify mandatory artifacts for Linux VMs. 
+    
+    ![Mandatory artifacts page - Windows and Linux artifacts](media/devtest-lab-mandatory-artifacts/windows-linux-artifacts.png)
+9. To **delete** an artifact from the list, select **...(ellipsis)** at the end of the row, and select **Delete**. 
+10. To **reorder** artifacts in the list, hover mouse over the artifact, select **...(ellipsis)** that shows up at the beginning of the row, and drag the item to the new position. 
+11. To save mandatory artifacts in the lab, select **Save**. 
+
+    ![Mandatory artifacts page - Save artifacts in lab](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
+12. Close the **Configuration and policies** page (select **X** in the upper-right corner) to get back to the **DevTest Lab** page.  
 
 
+## View mandatory artifacts when creating a VM
+Now, as a lab user you can view the list of mandatory artifacts while creating a VM in the lab. You can't edit or delete mandatory artifacts set in the lab by your lab owner.
 
-## Create a VM 
-Now, as a lab user you can view the list of mandatory artifacts during the virtual machine creation flow. This is aimed at helping you make an informed decision on the artifacts you would like to apply on top of the mandatory ones. Note that you will not be able to edit or delete mandatory artifacts set by your lab admin.
+1. On the **DevTest Lab** page, select **Overview** from the menu.
+2. To add a VM to the lab, select **+ Add**. 
+3. Select a **base image**. This example uses **Windows Server, version 1709**.
+4. Notice that you see a message for **Artifacts** with the number of mandatory artifacts selected. 
+5. Select **Artifacts**. 
+6. Confirm that you see the **mandatory artifacts** you specified in the lab's configuration and policies. 
 
+    ![Create a VM - mandatory artifacts](media/devtest-lab-mandatory-artifacts/create-vm-artifacts.png)
 
 ## Next steps
 * Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
