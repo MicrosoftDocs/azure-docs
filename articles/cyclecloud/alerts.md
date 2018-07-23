@@ -85,7 +85,7 @@ filter expressions.
 
 Example 1: Alert on instances running outside of the "us­east­1" region
 
-``` test
+``` Query
 WHERE !startswith("us­east", Region)
 ```
 
@@ -114,6 +114,7 @@ The most common way to format a notification is to print out the number of resul
 and loop over the result set in the body, printing out details of each record. Below is an example
 of a message subject and body for reporting on instances running outside of the 'us­east'
 regions:
+
 ``` Email Template
 Subject:
 {%= size(Results) %} instances found running outside of us­east

@@ -47,7 +47,7 @@ sections:
       className: cardsD
       items:
         - title: Clusters
-          html: <p><a href="clusters">Clusters and Nodes</a></p><p><a href="cluster-templates">Cluster Templates</a></p><p><a href="projects">CycleCloud Projects</a></p><p><a href="custom-images">Custom Images</a></p><p><a href="projects">CycleCloud Projects"</a></p>
+          html: <p><a href="clusters">Clusters and Nodes</a></p><p><a href="cluster-templates">Cluster Templates</a></p><p><a href="projects">CycleCloud Projects</a></p><p><a href="custom-images">Custom Images</a></p>
         - title: Storage
           html: <p><a href="attach-storage">Attach Storage</a></p><p><a href="storage-mount-volumes">Mount Volumes</a></p><p><a href="storage-nfs-mounts">Configure NFS Mounts</a></p><p><a href="blobs">Blobs and Lockers</a></p>
         - title: Auto-Scale
@@ -55,33 +55,10 @@ sections:
         - title: Tools
           html: <p><a href="pogo-overview">pogo</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="scheduler-integration">Scheduler Integration</a></p><p><a href="healthcheck">HealthCheck</a></p>
 
-
-  - title: Features
+  - title: Get Help
     items:
     - type: paragraph
-      text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
-    - type: list
-      style: unordered
-      className: spaced noBullet
-      items:
-      - html: <a href="clusters">Clusters and Nodes</a>
-      - html: <a href="cluster-templates">Cluster Templates</a>
-      - html: <a href="projects">CycleCloud Projects</a>
-      - html: <a href="custom-images">Custom Images</a>
-      - html: <a href="attach-storage">Storage Options</a>
-      - html: <a href="data-overview">Data Management</a>
-  - title: CycleCloud Tools
-    items:
-    - type: list
-      style: unordered
-      className: spaced noBullet
-      items:
-      - html:
-      - html:
-      - html:
-      - html: <a href="autoscale-api">Auto-Scale API</a>
-  - title: Reference
-    items:
+      text: Need some help? Try these resources.
     - type: list
       style: unordered
       className: spaced noBullet
@@ -89,3 +66,6 @@ sections:
       - html: <a href="cookbook-reference">Chef Cookbooks</a>
       - html: <a href="node-configuration-reference">Node Configuration Reference</a>
       - html: <a href="cluster-reference">Clusters</a>
+      - html: <a href="https://github.com/CycleCloud">Cluster Templates on GitHub</a>
+      - html: <a href="https://github.com/CycleCloudCommunity">CycleCloud Community GitHub</a>
+      - html: <a href="https://social.msdn.microsoft.com/Forums/en-US/home">Azure Forums</a>
