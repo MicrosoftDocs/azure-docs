@@ -101,8 +101,8 @@ At this stage, users from all the managed domains in your tenant can sign in by 
 
 If you plan to deploy Pass-through Authentication in a production environment, you should install additional standalone Authentication Agents. Install these Authentication Agent(s) on server(s) _other_ than the one running Azure AD Connect. This setup provides you with high availability for user sign-in requests.
 
-    >[!IMPORTANT]
-    >In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 12 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>[!IMPORTANT]
+>In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 12 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Follow these instructions to download the Authentication Agent software:
 
@@ -116,7 +116,7 @@ Follow these instructions to download the Authentication Agent software:
 ![Azure Active Directory admin center: Download Agent pane](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->You can also directly download the Authentication Agent software [here](https://aka.ms/getauthagent). Review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
+>You can also directly [download the Authentication Agent software](https://aka.ms/getauthagent). Review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
 
 There are two ways to deploy a standalone Authentication Agent:
 
