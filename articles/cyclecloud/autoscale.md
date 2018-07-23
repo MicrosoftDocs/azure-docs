@@ -26,12 +26,14 @@ Setting a **Max Cores** number will limit the number of nodes started to ensure 
 
 By default, auto-scaling is disabled for all new clusters. To enable it, add the following to your [cluster template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates):
 
-       Autoscale = true
-       ...
-       MaxCoreCount = xx
+``` ini
+Autoscale = true
+...
+MaxCoreCount = xx
+```
 
 ## Further Reading
 
 * Create a [Cluster Template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates)
 * [Start a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/start-cluster)
-* [AutoScale for non-standard Cluster Types](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale-api) 
+* [AutoScale for non-standard Cluster Types](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale-api)

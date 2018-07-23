@@ -190,15 +190,15 @@ There are two basic ways to capture the Auto-stop REST URL from a node in CycleC
 From the shell or a cluster-init script, using Jetpack:
 
 ``` ini
-      AUTOSTOP_URL = $( jetpack config cyclecloud.cluster.autoscale.stop_callback )
-      INSTANCE_ID  = $( jetpack config cyclecloud.instance.id )
+AUTOSTOP_URL = $( jetpack config cyclecloud.cluster.autoscale.stop_callback )
+INSTANCE_ID  = $( jetpack config cyclecloud.instance.id )
 ```
 
 From Chef, in a custom recipe:
 
 ``` Chef
-      AUTOSTOP_URL = node[:cyclecloud][:cluster][:autoscale][:stop_callback]
-      INSTANCE_ID  = node[:cyclecloud][:instance][:id]
+AUTOSTOP_URL = node[:cyclecloud][:cluster][:autoscale][:stop_callback]
+INSTANCE_ID  = node[:cyclecloud][:instance][:id]
 ```
 
 ## Server-Side API

@@ -58,25 +58,21 @@ To enable cluster init for a CycleCloud node, use the attribute `ClusterInit` wi
 
 An example:
 
-		[cluster demo]
-		...
-		  [[node defaults]]
-		  # Use the cluster init named 'myapp/prod' (if omitted, 'default' is assumed)
-		  ClusterInit = myapp/prod
-		  ...
-		    [[configuration]]
-		      run_list = recipe[before], recipe[cluster_init], recipe[after]
+``` ini
+[cluster demo]
+...
+  [[node defaults]]
+  # Use the cluster init named 'myapp/prod' (if omitted, 'default' is assumed)
+  ClusterInit = myapp/prod
+  ...
+    [[configuration]]
+      run_list = recipe[before], recipe[cluster_init], recipe[after]
+```
 
 When Cluster Init runs, the directory structure stored in the named cluster init
 will be downloaded locally on each instance in the cluster.
 
-For Linux, the directory structure is replicated under:
-
-		/mnt/cluster-init
-
-For Windows, the directory structure is replicated under:
-
-		C:\cluster-init
+For Linux, the directory structure is replicated under `/mnt/cluster-init`. For Windows, it's under `C:\cluster-init`.
 
 The local copy of the cluster init structure also contains a `run` directory used to track execution of the cluster init executables and a `log` directory which stores log output for cluster init execution.
 
@@ -118,15 +114,17 @@ You can create subdirectories inside the `executables` directory, but files loca
 
 Scripts in the `executables` directory are run in alphabetical order.  To ensure that scripts are run in the proper order, it is common to prefix your scripts with numbers like:
 
-		01-setup.sh
-		02-configure.sh
-		...
-		99-finalize.sh
+			01-setup.sh
+			02-configure.sh
+			...
+			99-finalize.sh
 
 For example, if we wanted to add an SSH key to the `authorized_keys` file for the root user we could write a cluster init executable script named `01-add-root-key.sh` which contains the following:
 
-		#!/bin/bash echo "ssh-rsa
-		AAAAB3NzaC1yc2EAAAABIwAAAQEAy-INCOMPLETE_KEY" >> /root/.ssh/authorized_keys
+``` script
+#!/bin/bash echo "ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEAy-INCOMPLETE_KEY" >> /root/.ssh/authorized_keys
+```
 
 This file would be located in Azure at a location of `az://com.cyclecloud.demo.locker/cluster-init/default/executables/01-add-root-key.sh`. When it is run, it will append the SSH key to the `authorized_keys` file and then create the file: `/mnt/cluster-init/run/executables/01-add-root-key.sh.run` to indicate that the script has run to completion.
 
@@ -137,40 +135,46 @@ If the script does not run to completion, STDOUT and STDERR are stored for later
 
 By default, failed scripts **will** prevent the node from successfully converging. This is the correct behavior in almost all cases. (A failed executable is defined as one that returns a non-zero exit code. If a particular executable returns non-zero on success, it should be wrapped with a script that returns 0 when the executable is successful, so that other errors can still be detected.) It is *strongly* recommended to design cluster inits for this behavior. However, if you need to toggle this behavior, set `cluster_init.fail_on_error` to false in the `[[[configuration]]]` section for the node.
 
-
 ## Reading Node Configuration
 
 You can read the values sent to each node in its
 `[[[configuration]]]` section from a cluster init script using the
 `jetpack config` command:
 
-		$ jetpack config <name of param> [optional default value]
+``` CLI
+$ jetpack config <name of param> [optional default value]
+```
 
 For example, if you had a node definition where you set the Cycle
 Server http port to be 8000:
 
-		[[node master]] [[[configuration]]] cycle_server.http_port = 8000
+``` ini
+[[node master]] [[[configuration]]] cycle_server.http_port = 8000
+```
 
 In your cluster init script you may want to use iptables to route port
 80 to port 8000. A simple cluster init script may look like the
 following:
 
-		#!/bin/bash
+``` script
+#!/bin/bash
 
-		iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
+```
 
 Rather than hardcoding the port to 8000, you can use the `jetpack`
 tool to pull the Cycle Server port out of the configuration so that
 you can change the port without modifying your cluster init scripts:
 
-		#!/bin/bash
+``` script
+#!/bin/bash
 
-		# Get the cycle_server.http port value, or 8080 (default) if not
-		specified.
+# Get the cycle_server.http port value, or 8080 (default) if not
+specified.
 
-		CS_PORT=$(jetpack config cycle_server.http_port 8080)
-		iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port $CS_PORT
-
+CS_PORT=$(jetpack config cycle_server.http_port 8080)
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port $CS_PORT
+```
 
 # Debugging Cluster Init Failures
 
@@ -179,13 +183,7 @@ There are two main ways that cluster init can fail.
 1. The cluster init recipe may fail to download files from the cloud storage provider.
 2. One or more cluster init executable scripts may fail during execution.
 
-To detect failures, the best place to look is in the Chef converge log. On Linux, this is generally found at:
-
-		/opt/cycle/jetpack/logs/chef-client.log
-
-and on Windows, it is generally found at:
-
-		C:\cycle\logs\chef-client.log
+To detect failures, the best place to look is in the Chef converge log. On Linux, this is generally found at `/opt/cycle/jetpack/logs/chef-client.log`, and on Windows, it is generally found at `C:\cycle\logs\chef-client.log`.
 
 The failing line will appear in that log as either a "sync" operation or an execute operation for a specific executable. If it is a failing executable, then the full path to the log files for the execution will appear at the top of the Chef stack trace.
 
@@ -193,13 +191,7 @@ Failures to download cluster init from cloud storage indicate either incorrect c
 
 The best way to debug Cluster Init executable failures is to examine the log of the last execution of the script. Cluster Init will store standard output and error logs for each executable in the cluster init logs directory.
 
-For Linux, the logs directory is located at:
-
-		/mnt/cluster-init/logs/executables/
-
-and for Windows, the directory is located at:
-
-		C:\cluster-init\logs\executables\
+For Linux, the logs directory is located at `/mnt/cluster-init/logs/executables/`, and for Windows, the directory is located at `C:\cluster-init\logs\executables\`.
 
 # Tips and Tricks
 
