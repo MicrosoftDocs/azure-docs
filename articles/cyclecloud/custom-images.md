@@ -13,16 +13,16 @@ When using either Marketplace or custom images, additional attributes are needed
 
 To specify that a cluster node should use an Azure Marketplace image, include the following attributes on a node definition to identify the image:
 
-```
-    [[node marketplace]]
-      Azure.Publisher = OpenLogic
-      Azure.Offer = CentOS-HPC
-      Azure.Sku = 7.4
-      Azure.ImageVersion = 7.4.20180301
-      Azure.OS = linux
+``` ini
+[[node marketplace]]
+  Azure.Publisher = OpenLogic
+  Azure.Offer = CentOS-HPC
+  Azure.Sku = 7.4
+  Azure.ImageVersion = 7.4.20180301
+  Azure.OS = linux
 
-      InstallJetpack = true
-      JetpackPlatform = centos-7
+  InstallJetpack = true
+  JetpackPlatform = centos-7
 ```
 
 The `Azure.*` attributes define the marketplace image to be used. The easiest way to retrieve these attributes is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
@@ -35,11 +35,15 @@ You can use a Marketplace image with an associated pricing plan with CycleCloud.
 
 To accept a license from the CLI:
 
-      $> az vm image accept-terms --urn publisher:offer:sku:version
+``` CLI
+$> az vm image accept-terms --urn publisher:offer:sku:version
+```
 
 or
 
+``` CLI
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
+```
 
 ## Use a Custom Image in a CycleCloud Node
 
@@ -51,14 +55,14 @@ The `ImageId` attribute is used to specify that a cluster node should use a priv
 
 In addition, the `ImageOS` attribute must be set to either `windows` or `linux`:
 
-```
-    [[node custom]]
+``` ini
+[[node custom]]
 
-      ImageId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
-      ImageOS = linux
+  ImageId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
+  ImageOS = linux
 
-      InstallJetpack = true
-      JetpackPlatform = centos-7
+  InstallJetpack = true
+  JetpackPlatform = centos-7
 ```
 ## Create a Custom Image
 

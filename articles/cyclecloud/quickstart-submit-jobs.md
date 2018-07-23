@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud QuickStart | Microsoft Docs
+description: Azure CycleCloud QuickStart - Submitting Jobs and AutoScale
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Azure CycleCloud QuickStart 3: Submit and Auto Scale Jobs
 
 If you've completed QuickStarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This QuickStart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behaviour.
@@ -15,7 +27,9 @@ For this QuickStart, you will use the first method to connect to your cluster Ma
 
 SSH into the CycleCloud VM with the `cycleadmin` user and the SSH key created in QuickStart 1:
 
-      $ ssh -i ${SSH PRIVATE KEY} cycleadmin@${CycleCloudFQDN}
+``` CLI
+$ ssh -i ${SSH PRIVATE KEY} cycleadmin@${CycleCloudFQDN}
+```
 
 ### Connect from Windows via Putty
 
@@ -25,10 +39,11 @@ Connecting to the Grid Engine master node uses both the GUI and the CLI.
 
 1. From within the GUI, click on **connect** to get the connection information. You will get a connection string similar to the following, but with your cluster name:
 
-      [cycleadmin@cycleserver ~]$ cyclecloud connect master -c cc-intro-training
+``` CLI
+[cycleadmin@cycleserver ~]$ cyclecloud connect master -c cc-intro-training
+```
 
-2. Execute the command within the CycleCloud CLI. It should produce something similar to this:
-
+2. Execute the command within the CycleCloud CLI.
 
 You're now logged into the Grid Engine master node.
 
@@ -36,9 +51,10 @@ You're now logged into the Grid Engine master node.
 
 Check the status of the job queue with the following commands:
 
-      $ qstat
-      $ qstat -f
-
+``` CLI
+$ qstat
+$ qstat -f
+```
 The output should confirm that no jobs are running and no execute nodes are provisioned:
 
       queuename                      qtype resv/used/tot. load_avg arch          states
@@ -47,7 +63,9 @@ The output should confirm that no jobs are running and no execute nodes are prov
 
 Submit 100 test "hostname" jobs with:
 
-      $ qsub -t 1:100 -b y -cwd hostname
+``` CLI
+$ qsub -t 1:100 -b y -cwd hostname
+```
 
 You should receive confirmation that the job request has been submitted:
 

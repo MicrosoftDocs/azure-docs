@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud QuickStart | Microsoft Docs
+description: Azure CycleCloud QuickStart - Install and Setup CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Azure CycleCloud QuickStart 1: Install and Setup CycleCloud
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. CycleCloud enables users to create environments for workloads on any point of the parallel and distributed processing spectrum, from loosely-coupled parallel workloads to tightly-coupled applications such as MPI jobs on Infiniband/RDMA. By managing resource provisioning, configuration, and monitoring, CycleCloud allows users and IT staff to focus on business needs instead infrastructure.
@@ -10,13 +22,17 @@ The full list of prerequisites is available on the QuickStart Overview.
 
 Run this command to list all available Azure subscription IDs:
 
-      $ az account list -o table
+``` CLI
+$ az account list -o table
+```
 
 ### Service Principal
 
 If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CCLab" can be replaced with whatever you like:
 
-      $ az ad sp create-for-rbac --name CCLab
+``` CLI
+$ az ad sp create-for-rbac --name CCLab
+```
 
 The output will display a series of information. You will need to save the App ID, password, and tenant ID:
 
@@ -49,7 +65,9 @@ For the purposes of this quickstart, the CycleCloud application is installed wit
 
 Start by cloning the CycleCloud repo:
 
-      $ git clone https://github.com/CycleCloud/cyclecloud_arm.git
+``` CLI
+$ git clone https://github.com/CycleCloud/cyclecloud_arm.git
+```
 
 There are two ARM templates in the .git file:
       * `deploy-vnet.json` creates a VNET with 3 separate subnets:
@@ -62,11 +80,15 @@ There are two ARM templates in the .git file:
 
 Create a resource group in the region of your choice. Note that resource group names are unique within a subscription:
 
-      az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
+``` CLI
+az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
+```
 
 For example, you could use "CCLab" as the resource group name and southern US as the region:
 
-      az group create --name "CCLab" --location "South Central US"
+``` CLI
+az group create --name "CCLab" --location "South Central US"
+```
 
 ## Add Parameters
 
@@ -114,7 +136,9 @@ Specify a password for the CycleCloud application server `admin` user. The passw
 
 Deploy the CycleCloud VM using the edited `params-cyclecloud.json`:
 
-      $ az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
+``` CLI
+$ az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
+```
 
 ## Log into the CycleCloud Application Server
 

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Cluster Templates | Microsoft Docs
+description: Use or Build Cluster Templates within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Cluster Templates
 
 In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `slurm_template.txt` defines a basic two-node Slurm cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:

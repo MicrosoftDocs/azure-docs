@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud QuickStart | Microsoft Docs
+description: Azure CycleCloud QuickStart - Cleaning Up Resources
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Azure CycleCloud QuickStart 4: Clean Up Resources
 
 ## Terminate the Cluster

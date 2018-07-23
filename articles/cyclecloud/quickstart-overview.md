@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud QuickStart | Microsoft Docs
+description: Azure CycleCloud QuickStart - Overview
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # QuickStart Overview
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. CycleCloud enables users to create environments for workloads on any point of the parallel and distributed processing spectrum, from parallel workloads to tightly-coupled applications such as MPI jobs on Infiniband/RDMA. By managing resource provisioning, configuration, and monitoring, CycleCloud allows users and IT staff to focus on business needs instead infrastructure.

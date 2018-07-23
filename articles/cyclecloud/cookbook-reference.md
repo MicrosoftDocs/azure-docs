@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Cookbook Reference | Microsoft Docs
+description: Reference resource for Chef.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: reference
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Common Cookbooks Reference
 
 Azure CycleCloud clusters are built and configured using a combination of a base machine image, CycleCloud Cluster Init, and the Chef infrastructure automation framework.
@@ -23,16 +35,17 @@ For more information on the Opscode Chef framework itself, see the [Opscode webs
 
 Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer:
 
-    [[node cycle_server]]
+``` ini
+[[node cycle_server]]
 
-  	[[[configuration]]]
+[[[configuration]]]
 
-  	run_list = role[monitor], recipe[cyclecloud::searchable], recipe[cfirst], \
-    recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
-    recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
+run_list = role[monitor], recipe[cyclecloud::searchable], recipe[cfirst], \
+recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
+recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
 
-  	cycle_server.admin.pass=P\@ssw0rd
-
+cycle_server.admin.pass=P\@ssw0rd
+```
 
 ## Thunderball
 
@@ -40,14 +53,15 @@ Cycle Computing provides a Chef resource called `thunderball` to simplify downlo
 from cloud services to nodes. thunderball automatically handles retrying failed download and
 supports multiple configurations. By default, thunderball will download a file from the CycleCloud
 package repository and writes it to `$JETPACK_HOME/system/chef/cache/thunderballs`. An example
-using the default configuration::
+using the default configuration:
 
-      thunderball "condor" do
-          url "cycle/condor-8.2.9.tgz"
-      end
+``` txt
+thunderball "condor" do
+    url "cycle/condor-8.2.9.tgz"
+end
+```
 
 The table below lists all of the attributes of the thunderball resource.
-
 
 | Attribute  | Description                                                                      |
 | ---------- | -------------------------------------------------------------------------------- |
