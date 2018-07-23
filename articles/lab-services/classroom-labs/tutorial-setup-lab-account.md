@@ -25,6 +25,7 @@ In this tutorial, you do the following actions:
 > [!div class="checklist"]
 > * Create a lab account
 > * Add a user to the Lab Creator role
+> * Specify Marketplace images available for lab owners
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -63,6 +64,22 @@ To provide educators the permission to create labs for their classes, add them t
 
     ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## Specify Marketplace images available to lab owners
+In this section, you specify Marketplace images that are available to lab oweners who create classroom labs. 
+
+1. Select **Marketplace images** on the menu to the left. You see the images that are automatically enabled for creating the classroom labs. 
+
+    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Disable image**. 
+
+        ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Disable selected images**. 
+
+        ![Disable multiple images](../media/tutorial-setup-lab-account/disable-one-image.png) 
+1. Similarly, to **enable** a Marketplace image, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 ## Next steps
 In this tutorial, you created a lab account. To learn about how to create a classroom lab as a profession, advance to the next tutorial:
