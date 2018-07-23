@@ -1,6 +1,6 @@
 ---
 title: Example filter expressions possible with Azure Machine Learning data preparation  | Microsoft Docs
-description: This document provides a a set of examples of filter expressions possible with Azure Machine Learning data preparation
+description: This document provides a set of examples of filter expressions possible with Azure Machine Learning data preparation
 services: machine-learning
 author: euangMS
 ms.author: euang
