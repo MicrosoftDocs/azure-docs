@@ -132,6 +132,8 @@
     href: scheduler-integration.md
 - name: Resources
   items:
+  - name: Get Azure CycleCloud
+    href: https://aka.ms/azurecyclecloud
   - name: Release Notes
     items:
     - name: GA Release
@@ -140,5 +142,7 @@
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
     href: https://github.com/CycleCloudCommunity
+  - name: Azure Community Forums
+    href: https://social.msdn.microsoft.com/Forums/en-US/home
   - name: Usage Data Policy
     href: telemetry.md
