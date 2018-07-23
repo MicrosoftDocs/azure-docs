@@ -133,7 +133,9 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 MySQLRootPassword = "Password~1"
 MySQLUserPassword = "Password~1"
 ```
-5. Extract the contents of the downloaded unified setup file to the desktop by running the following command:-
+
+5. Extract the contents of the downloaded unified setup file to the desktop by running the following command:
+
 ```
 cd C:\Users\Administrator\Desktop
 
@@ -147,6 +149,7 @@ cd C:\Users\Administrator\Desktop\9.18.1
 
 UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
 ```
+
 ## Set up the target environment
 
 Select and verify target resources.
