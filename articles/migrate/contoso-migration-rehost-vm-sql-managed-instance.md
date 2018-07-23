@@ -364,7 +364,7 @@ To set up the source environment:
 
 1. Contoso downloads the OVF template from the Azure portal (**Prepare Infrastructure** > **Source** > **Configuration Server**).
     
-    ![Download OVF](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
+    ![Add a configuration server](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
 
 2. Contoso imports the template into VMware to create and deploy the VM.
 
@@ -388,7 +388,7 @@ To set up the source environment:
 12. Contoso must specify the account that it created earlier so that Site Recovery can automatically discover VMware VMs that are available for replication. 
 13. Contoso enters credentials, so the Mobility Service is automatically installed when replication is enabled. For Windows machines, the account needs local administrator permissions on the VMs. 
 
-    ![vCenter](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
+    ![Configure vCenter Server](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
 
 7. When registration is finished, in the Azure portal, Contoso verifies again that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
 8. Site Recovery connects to VMware servers by using the specified settings. Site Recovery discovers VMs.
@@ -428,11 +428,11 @@ Now, Contoso can start replicating WebVM.
 1. In **Replicate application** > **Source** > **Replicate**, Contoso selects the source settings.
 2. Contoso indicates that it wants to enable virtual machines, selects the vCenter Server instance, and sets the configuration server.
 
- ![Enable replication - Source](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
+    ![Enable replication - Source](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
  
 3. Contoso specifies the target settings, including the resource group and network in which the Azure VM will be located after failover. Contoso specifies the storage account in which replicated data will be stored.
 
-     ![Enable replication - Target](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
+    ![Enable replication - Target](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
 
 4. Contoso selects **WebVM** for replication. Site Recovery installs the Mobility Service on each VM when replication is enabled. 
 
@@ -525,7 +525,7 @@ Before migrating WEBVM, a test failover helps ensure that everything works as ex
 
 4. After verifying the VM in Azure, Contoso completes the migration to finish the migration process, stop replication for the VM, and stop Site Recovery billing for the VM.
 
-    ![Failover - Complete Migration](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
+    ![Failover - Complete migration](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
 
 ### Update the connection string
 
@@ -572,7 +572,7 @@ The Contoso security team reviews the Azure VMs and SQL Database Managed Instanc
 - Contoso's security team also is considering securing the data on the disk by using Azure Disk Encryption and Azure Key Vault.
 - The security team enables threat detection on the Managed Instance. Threat detection sends an alert to Contoso's security team/service desk system to open a ticket if a threat is detected. Learn more about [threat detection for Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
 
-     ![Managed Instance security - Threat Detection](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
+     ![Managed Instance security - Threat detection](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
 To learn more about security practices for VMs, see [Security best practices for IaaS workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 

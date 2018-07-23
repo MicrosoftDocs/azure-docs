@@ -1,6 +1,6 @@
 ---
 title: Assess on-premises workloads for Contoso migration to Azure  | Microsoft Docs
-description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migraton Assistant.
+description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -187,7 +187,7 @@ Results are displayed as soon as they're available. If Contoso fixes issues, it 
     - 130: SQL Server 2016/Azure SQL Database
     - 140: SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant - Compatibility Issues report](./media/contoso-migration-assessment/dma-assessment-5.png)
+    ![Data Migration Assistant - Compatibility issues report](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. In the **Feature recommendations** report, Contoso views performance, security, and storage features that the assessment recommends after migration. A variety of features are recommended, including In-Memory OLTP, columnstore indexes, Stretch Database, Always Encrypted, dynamic data masking, and transparent data encryption.
 
@@ -296,7 +296,7 @@ Now, Contoso can import the downloaded file to the vCenter Server instance and p
 
 1. In the vSphere Client console, Contoso selects **File** > **Deploy OVF Template**.
 
-    ![VMware vSphere Web Client - Deploy OVF template](./media/contoso-migration-assessment/vcenter-wizard.png)
+    ![vSphere Web Client - Deploy OVF template](./media/contoso-migration-assessment/vcenter-wizard.png)
 
 2. In the Deploy OVF Template Wizard, Contoso selects **Source**, and then specifies the location of the OVA file.
 3. In **Name and Location**, Contoso specifies a display name for the collector VM. Then, it selects the inventory location in which to host the VM. Contoso also specifies the host or cluster on which to run the collector appliance.
@@ -380,7 +380,7 @@ Contoso runs the installation on each VM.
 
 4. In **Azure Log Analytics**, Contoso pastes the workspace ID and key that it copied from the portal.
 
-	![Microsoft Monitoring Agent Setup - Azure Log Analytics page](./media/contoso-migration-assessment/mma-install2.png)
+	![Microsoft Monitoring Agent Setup - Azure Log Analytics](./media/contoso-migration-assessment/mma-install2.png)
 
 5. In **Ready to Install**, Contoso installs the MMA.
 
@@ -507,7 +507,7 @@ Setting | Indication | Details
 
 This view shows the total compute and storage cost of running the VMs in Azure. It also shows details for each machine.
 
-![Azure Migrate -  Assessment readiness](./media/contoso-migration-assessment/azure-costs.png)
+![Azure Migrate -  Azure costs](./media/contoso-migration-assessment/azure-costs.png)
 
 - Cost estimates are calculated by using the size recommendations for a machine.
 - Estimated monthly costs for compute and storage are aggregated for all VMs in the group.
