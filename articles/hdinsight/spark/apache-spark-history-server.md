@@ -104,7 +104,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
 
-    + Grean for succeeded: The job has completed successfully.
+    + Green for succeeded: The job has completed successfully.
     + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
     + Red for failed: The task has failed.
     + Blue for running: The task is running.
