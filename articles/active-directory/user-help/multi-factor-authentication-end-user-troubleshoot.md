@@ -1,14 +1,13 @@
 ---
 title: Troubleshoot two-step verification - Azure AD | Microsoft Docs
 description: Provides instructions for users about what to do if they run into an issue with Azure Multi-Factor Authentication and two-step verification.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross

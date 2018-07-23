@@ -8,6 +8,7 @@ ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: lizross

@@ -6,10 +6,9 @@ services: active-directory
 author: eross-msft
 manager: mtillman
 layout: LandingPage
-ms.assetid:	
+
 ms.service: active-directory
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/25/2018
 ms.author: lizross
