@@ -32,7 +32,7 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 > * Manually configure a Kubernetes cluster
 > * Create and run a Jenkins job
 
-# Prerequisites
+## Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : The Azure CLI 2.0 is used to create the Kubernetes cluster.
 - [Chocolatey](https://chocolatey.org) - A package manager used to install kubectl.
