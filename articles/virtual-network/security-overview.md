@@ -17,7 +17,7 @@ ms.date: 07/20/2018
 ms.author: jdial
 
 ---
-# Network security groups
+# <a name="network-security-groups"></a>Network security groups
 
 You can filter network traffic to and from resources in an Azure [virtual network](virtual-networks-overview.md) with a network security group. A network security group contains [security rules](#security-rules) that allow or deny inbound network traffic to, or outbound network traffic from an Azure resource. For each rule, you can specify source and destination, port, and protocol. You can enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to [analyze network traffic](../network-watcher/traffic-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to and from resources that have an associated network security group.
 
@@ -37,18 +37,18 @@ A network security group contains zero, or as many rules as desired, within Azur
 |Port range     |You can specify an individual or range of ports. For example, you could specify 80 or 10000-10005. Specifying ranges enables you to create fewer security rules. Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple ports or port ranges in the same security rule in network security groups created through the classic deployment model.   |
 |Action     | Allow or deny        |
 
-NSG security rules are evaluated by priority using the 5 tuple information (source, source port, destination, destination port and protocol) to allow or deny the traffic. A flow record is created for existing connections. Communication is allowed or denied based on the connection state of the flow record. The flow record allows a network security group to be stateful. If you specify an outbound security rule to any address over port 80, for example, it's not necessary to specify an inbound security rule for the response to the outbound traffic. You only need to specify an inbound security rule if communication is initiated externally. The opposite is also true. If inbound traffic is allowed over a port, it's not necessary to specify an outbound security rule to respond to traffic over the port.
+NSG security rules are evaluated by priority using the 5-tuple information (source, source port, destination, destination port, and protocol) to allow or deny the traffic. A flow record is created for existing connections. Communication is allowed or denied based on the connection state of the flow record. The flow record allows a network security group to be stateful. If you specify an outbound security rule to any address over port 80, for example, it's not necessary to specify an inbound security rule for the response to the outbound traffic. You only need to specify an inbound security rule if communication is initiated externally. The opposite is also true. If inbound traffic is allowed over a port, it's not necessary to specify an outbound security rule to respond to traffic over the port.
 Existing connections may not be interrupted when you remove a security rule that enabled the flow. Traffic flows are interrupted when connections are stopped and no traffic is flowing in either direction, for at least a few minutes.
 
 ## Augmented security rules
 
-Augmented rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports, multiple explicit IP addresses, service tags, and application security groups into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. When creating a rule, you can specify multiple explicit IP addresses, CIDR ranges, and ports. To simplify maintenance of your security rule definition, combine augmented security rules with service tags or application security groups. 
+Augmented rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports, multiple explicit IP addresses, service tags, and application security groups into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. When creating a rule, you can specify multiple explicit IP addresses, CIDR ranges, and ports. To simplify maintenance of your security rule definition, combine augmented security rules with service tags or application security groups.
 
 Learn more about [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) when creating augmented security rules.
 
 ## Default security rules
 
-If a network security group is not associated to a subnet or network interface, all traffic is allowed inbound to, or outbound from, the subnet, or network interface. Azure creates the following default rules in each network security group you create:
+Azure creates the following default rules in each network security group that you create:
 
 ### Inbound
 
@@ -115,15 +115,15 @@ You cannot remove the default rules, but you can override them by creating rules
 
 ## Application security groups
 
-Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic. To better understand application security groups, consider the following diagram:
+Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic. To better understand application security groups, consider the following example:
 
 ![Application security groups](./media/security-groups/application-security-groups.png)
 
-Each network interface attached to a virtual machine can be a member of one or more application security groups. In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
+In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Though each network interface in this example is a member of only one application security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
 
 ### Allow-HTTP-Inbound-Internet
 
-This rule is needed to allow traffic from the internet to the web servers. Recall that each network security group has a [default rule](#inbound) that denies all inbound traffic from the internet. As a result, a similar rule isn't needed for the *AsgLogic* or *AsgDb* application security groups.
+This rule is needed to allow traffic from the internet to the web servers. Recall that each network security group has a [default rule](#DenyAllInbound) that denies all inbound traffic from the internet. As a result, a similar rule isn't needed for the *AsgLogic* or *AsgDb* application security groups.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
@@ -131,7 +131,7 @@ This rule is needed to allow traffic from the internet to the web servers. Recal
 
 ### Deny-Database-All
 
-Recall that each network security group has a [default rule](#inbound) that allows all communication between resources in the same virtual network. This rule is needed to deny traffic from all resources, so that traffic can then be allowed from only the *AsgDb* application security group by a different rule with a higher priority.
+Recall that each network security group has a [default rule](#AllowVNetInBound) that allows all communication between resources in the same virtual network. This rule is needed to deny traffic from all resources, so that traffic can then be allowed from only the *AsgDb* application security group by a different rule with a higher priority.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
@@ -139,20 +139,20 @@ Recall that each network security group has a [default rule](#inbound) that allo
 
 ### Allow-Database-BusinessLogic
 
-This rule allows traffic from the *AsgLogic* application security group to the *AsgDb* application security group, without you needing to associate a network security group to individual network interfaces. Note that the priority for this rule is higher than the priority for the *Deny-Database-All* rule. As a result, this rule is processed before the *Deny-Database-All* rule, so traffic from the *AsgLogic* application security group is allowed, whereas all other traffic is blocked.
+This rule allows traffic from the *AsgLogic* application security group to the *AsgDb* application security group, without you needing to associate a network security group to individual network interfaces. The priority for this rule is higher than the priority for the *Deny-Database-All* rule. As a result, this rule is processed before the *Deny-Database-All* rule, so traffic from the *AsgLogic* application security group is allowed, whereas all other traffic is blocked.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | All | Allow |
 
 The rules that specify an application security group as the source or destination are only applied to the network interfaces that are members of the application security group. If the network interface is not a member of an application security group, the rule is not applied to the network interface, even though the network security group is associated to the subnet.
- 
+
 Application security groups have the following constraints:
 
 -	There are limits to the number of application security groups you can have in a subscription, as well as other limits related to application security groups. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 - You can specify one application security group as the source and destination in a security rule. You cannot specify multiple application security groups in the source or destination.
 - All network interfaces assigned to an application security group have to exist in the same virtual network that the first network interface assigned to the application security group is in. For example, if the first network interface assigned to an application security group named *ASG1* is in the virtual network named *VNet1*, then all subsequent network interfaces assigned to *ASG1* must exist in *VNet1*. You cannot add network interfaces from different virtual networks to the same application security group.
-- If you specify an application security group as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule. All network interfaces need to exist in VNet1.
+- If you specify an application security group as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule. All network interfaces for both the source and destination application security groups need to exist in either VNet1 or VNet2.
 
 > [!TIP]
 > To minimize the number of security rules you need, and the need to change the rules, plan out the application security groups you need and create rules using service tags or application security groups, rather than individual IP addresses, or ranges of IP addresses.
@@ -165,13 +165,13 @@ The following picture illustrates different scenarios for how network security g
 
 ![NSG-processing](./media/security-groups/nsg-interaction.png)
 
-What follows explains how Azure processes network security groups when they're associated to different resources:
+Azure processes the rules in network security groups differently for inbound and outbound traffic.
 
 ### Inbound traffic
 
 For inbound traffic, Azure processes the rules in a network security group associated to a subnet first, if there is one, and then the rules in a network security group associated to the network interface, if there is one.
 
-- **VM1**: The security rules in *NSG1* are processed. Unless you've created a rule which allows port 80 inbound, the traffic is denied by a [default rule](#DenyAllInbound), and never evaluated by *NSG2*, since *NSG2* is associated to the subnet. If *NSG1* has a security rule that allows port 80, the traffic is then processed by *NSG2*, since it is associated to the network interface. To allow port 80 to the VM, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet, since all network security groups have a [default rule](#DenyAllInbound) that denies inbound traffic from the internet.
+- **VM1**: The security rules in *NSG1* are processed. Unless you've created a rule that allows port 80 inbound, the traffic is denied by a [default rule](#DenyAllInbound), and never evaluated by *NSG2*, since *NSG2* is associated to the subnet. If *NSG1* has a security rule that allows port 80, the traffic is then processed by *NSG2*, since it is associated to the network interface. To allow port 80 to the VM, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet, since all network security groups have a [default rule](#DenyAllInbound) that denies inbound traffic from the internet.
 - **VM2**: The rules in *NSG1* are processed because *VM2* is also in *Subnet1*. Since *VM2* does not have a network security group associated to its network interface, it receives all traffic allowed through *NSG1*. Traffic is either allowed or denied to all resources in the same subnet when a network security group is associated to a subnet.
 - **VM3**: Since there is no network security group associated to *Subnet2*, traffic is allowed into the subnet and processed by *NSG2*, because *NSG2* is associated to the network interface attached to *VM3*. The same network security group can be associated to as many network interfaces and subnets, as you choose.
 - **VM4**: Traffic is allowed to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the VM. Traffic is allowed through a subnet and network interface if they don't have a network security group associated to them.
@@ -193,7 +193,7 @@ You can easily view the aggregate rules applied to a network interface by viewin
 The same network security group can be applied to as many individual network interfaces and subnets as you choose.
 
 > [!TIP]
-> Unless you have a specific reason to, we recommended that you associate a network security group to a subnet, or a network interface, but not both. Sometimes the interaction of rules from the subnet can impact rules at the network interface, causing you to need to troubleshoot communication issues.
+> Unless you have a specific reason to, we recommended that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting.
 
 ## Azure platform considerations
 
