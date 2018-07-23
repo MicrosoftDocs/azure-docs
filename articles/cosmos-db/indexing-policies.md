@@ -371,7 +371,7 @@ You can drop the index for a collection by moving to the None indexing mode. Thi
 **Drop the index for a collection**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 
