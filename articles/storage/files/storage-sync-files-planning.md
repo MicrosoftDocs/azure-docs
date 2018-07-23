@@ -145,7 +145,7 @@ For more information, see [DFS Replication overview](https://technet.microsoft.c
 Using sysprep on a server which has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
 
 ### Windows Search
-If cloud tiering is enabled on a server endpoint, files that are tired are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 

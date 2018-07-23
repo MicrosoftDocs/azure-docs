@@ -117,7 +117,7 @@ This step is optional. If you're interested in learning how the database resourc
     client.batch(queries, { prepare: true}, next);
     ```
 
-* Query to get get all key values.
+* Query to get all key values.
 
     ```nodejs
    var query = 'SELECT * FROM uprofile.user';
