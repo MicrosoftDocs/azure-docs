@@ -205,10 +205,10 @@ After the functions list opens, select this action:
 6. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
 in JavaScript Object Notation (JSON). 
+When you click in the **Request Body** box, 
+the dynamic content list opens so you can select 
+tokens for properties available from previous steps. 
 
-   When you click in the **Request Body** box, 
-   the dynamic content list opens so you can select 
-   tokens for properties available from previous steps. 
    This example passes the object in the 
    **Body** token from the email trigger:  
 
@@ -263,6 +263,9 @@ in JavaScript Object Notation (JSON). This context object
 describes the message and content that your logic app 
 sends to your function. 
 
+   When you click in the **Request Body** box, 
+   the dynamic content list opens so you can select 
+   tokens for properties available from previous steps. 
    This example passes the object in the 
    **Body** token from the email trigger:
 
