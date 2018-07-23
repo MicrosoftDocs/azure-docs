@@ -124,7 +124,7 @@ In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* applicati
 
 ### Allow-HTTP-Inbound-Internet
 
-This rule is needed to allow traffic from the internet to the web servers. Recall that each network security group has a [default rule](#DenyAllInbound) that denies all inbound traffic from the internet. As a result, a similar rule isn't needed for the *AsgLogic* or *AsgDb* application security groups.
+This rule is needed to allow traffic from the internet to the web servers. Recall that each network security group has a [default rule](#denyallinbound) that denies all inbound traffic from the internet. As a result, a similar rule isn't needed for the *AsgLogic* or *AsgDb* application security groups.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
@@ -132,7 +132,7 @@ This rule is needed to allow traffic from the internet to the web servers. Recal
 
 ### Deny-Database-All
 
-Recall that each network security group has a [default rule](#AllowVNetInBound) that allows all communication between resources in the same virtual network. This rule is needed to deny traffic from all resources, so that traffic can then be allowed from only the *AsgDb* application security group by a different rule with a higher priority.
+Recall that each network security group has a [default rule](#allowvNetinbound) that allows all communication between resources in the same virtual network. This rule is needed to deny traffic from all resources, so that traffic can then be allowed from only the *AsgDb* application security group by a different rule with a higher priority.
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
@@ -172,7 +172,7 @@ Azure processes the rules in network security groups differently for inbound and
 
 For inbound traffic, Azure processes the rules in a network security group associated to a subnet first, if there is one, and then the rules in a network security group associated to the network interface, if there is one.
 
-- **VM1**: The security rules in *NSG1* are processed. Unless you've created a rule that allows port 80 inbound, the traffic is denied by a [default rule](#DenyAllInbound), and never evaluated by *NSG2*, since *NSG2* is associated to the subnet. If *NSG1* has a security rule that allows port 80, the traffic is then processed by *NSG2*, since it is associated to the network interface. To allow port 80 to the VM, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet, since all network security groups have a [default rule](#DenyAllInbound) that denies inbound traffic from the internet.
+- **VM1**: The security rules in *NSG1* are processed. Unless you've created a rule that allows port 80 inbound, the traffic is denied by a [default rule](#denyallinbound), and never evaluated by *NSG2*, since *NSG2* is associated to the subnet. If *NSG1* has a security rule that allows port 80, the traffic is then processed by *NSG2*, since it is associated to the network interface. To allow port 80 to the VM, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet, since all network security groups have a [default rule](#denyallinbound) that denies inbound traffic from the internet.
 - **VM2**: The rules in *NSG1* are processed because *VM2* is also in *Subnet1*. Since *VM2* does not have a network security group associated to its network interface, it receives all traffic allowed through *NSG1*. Traffic is either allowed or denied to all resources in the same subnet when a network security group is associated to a subnet.
 - **VM3**: Since there is no network security group associated to *Subnet2*, traffic is allowed into the subnet and processed by *NSG2*, because *NSG2* is associated to the network interface attached to *VM3*. The same network security group can be associated to as many network interfaces and subnets, as you choose.
 - **VM4**: Traffic is allowed to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the VM. Traffic is allowed through a subnet and network interface if they don't have a network security group associated to them.
@@ -181,7 +181,7 @@ For inbound traffic, Azure processes the rules in a network security group assoc
 
 For outbound traffic, Azure processes the rules in a network security group associated to a network interface first, if there is one, and then the rules in a network security group associated to the subnet, if there is one.
 
-- **VM1**: The security rules in *NSG2* are processed. Unless you create a security rule that denies port 80 outbound to the internet, the traffic is allowed by a [default rule](#AllowInternetOutBound) in both *NSG1* and *NSG2*.  If *NSG2* has a security rule that denies port 80, the traffic is denied, and never evaluated by *NSG1*. To deny port 80 from the VM, either, or both of the network security groups must have a rule that denies port 80 to the internet.
+- **VM1**: The security rules in *NSG2* are processed. Unless you create a security rule that denies port 80 outbound to the internet, the traffic is allowed by a [default rule](#allowinternetoutbound) in both *NSG1* and *NSG2*.  If *NSG2* has a security rule that denies port 80, the traffic is denied, and never evaluated by *NSG1*. To deny port 80 from the VM, either, or both of the network security groups must have a rule that denies port 80 to the internet.
 - **VM2**: All traffic is sent through the network interface to the subnet, since the network interface attached to *VM2* does not have a network security group associated to it. The rules in *NSG1* are processed.
 - **VM3**: If *NSG2* has a security rule that denies port 80, the traffic is denied. If *NSG2* has a security rule that allows port 80, then port 80 is allowed outbound to the internet, since a network security group is not associated to *Subnet2*.
 - **VM4**: Traffic is allowed from *VM4,* because a network security group isn't associated to the network interface attached to the VM, or to *Subnet3*.
