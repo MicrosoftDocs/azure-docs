@@ -171,87 +171,18 @@ To revert to community version, do the following steps:
 
 ### 2. Upload history server log
 
-If you run into history server error, use the script below which will upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
+If you run into history server error, follow the steps to provide the event:
+1. Download event by clicking **Download** in history server web UI.
 
-**upload_shs_log.sh**:
+    ![download event](./media/apache-spark-history-server/sparkui-download-event.png)
 
-   ```bash
-    #!/usr/bin/env bash
+2. Click **Provide us feedback** from data/graph tab.
 
-    # Copyright (C) Microsoft Corporation. All rights reserved.
+    ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
-    # Arguments:
-    # $1 Blob link with SAS token query string 
-    # $2 Log path
-    # $3 Max log file size in MB
+3. Provide the title and description of error, drag the zip file to the edit field, then click **Submit new issue**.
 
-    if [ "$#" -ne 3 ]; then
-        >&2 echo "$@"
-        >&2 echo "Please provide Azure Storage link, log path and max log size."
-        exit 1
-    fi
-
-    blob_link=$1
-    log_path=$2
-    max_log_size=$3
-
-    if ! [ -e "$log_path" ]; then
-        >&2 echo "There is no log path $log_path on this node"
-        exit 0 
-    fi
-
-    tail -c $((1024*1024*max_log_size)) \
-        "$log_path" > /tmp/shs_log_for_trouble_shooting.log
-
-    curl -T /tmp/shs_log_for_trouble_shooting.log \
-        -X PUT \
-        -H "x-ms-date: $(date -u)" \
-        -H "x-ms-blob-type: BlockBlob" \
-        "$blob_link"
-   ```
-
-**Usage**: 
-
-`upload_shs_log.sh "${blob_link}" ${log_path} ${log_max_MB_size}`
-
-**Example**:
-
-`upload_shs_log.sh "https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}{SAS_query_string}" /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
-
-For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. Fill in the active head node alias.
-
-For **log_file**, specify by customer.
-
-For **SAS_query_string**, you can get it from ASE: 
-1.	Right-click the container you want to use and choose **Get Shared Access Signature…**:
- 
-    ![get shared access signature](./media/apache-spark-history-server/sparkui-faq1-1.png)
-
-2.	Choose permissions with **Write** and adjust the **Start time** and **Expiry time**:
-
-    ![shared access signature](./media/apache-spark-history-server/sparkui-faq1-2.png)
-
-3.	Click **Copy** to copy the query string:
-
-    ![copy query string](./media/apache-spark-history-server/sparkui-faq1-3.png)
-
-**To use the bash file from Azure portal**
-
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
-2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
-    
-    + **Script type**, select **Custom**.
-    + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
-
-   ```upload_shs_log
-    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
-   ```
-
-    + Check on **Head**.
-    + **Parameters**, set the parameters follow the bash usage.
-
-    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload.png)
+    ![file issue](./media/apache-spark-history-server/sparkui-file-issue.png)
 
 
 ### 3. Upgrade jar file for hotfix scenario
