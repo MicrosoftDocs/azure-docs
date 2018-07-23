@@ -115,16 +115,18 @@ and loop over the result set in the body, printing out details of each record. B
 of a message subject and body for reporting on instances running outside of the 'us­east'
 regions:
 
-      Subject:
-      {%= size(Results) %} instances found running outside of us­east
+``` EmailTemplate
+Subject:
+{%= size(Results) %} instances found running outside of us­east
 
-      Body:
-      <h2>The following instances are running outside of us­east:</h2>
-      <ul>
-      {% for Instance in Results %}
-      <li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
-      {% endfor %}
-      </ul>
+Body:
+<h2>The following instances are running outside of us­east:</h2>
+<ul>
+{% for Instance in Results %}
+<li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
+{% endfor %}
+</ul>
+```
 
 ## Email Configuration and Logging Levels
 
