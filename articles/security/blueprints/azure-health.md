@@ -4,7 +4,7 @@ title: Azure Health Analytics Blueprint
 description: Guidance for deploying a HIPAA/HITRUST Health Analytics Blueprint 
 services: security
 documentationcenter: na
-author: rarangap
+author: RajeevRangappa
 
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
