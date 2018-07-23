@@ -47,7 +47,9 @@ Advanced networking provides the following benefits:
 * Do not create more than one AKS cluster in the same subnet.
 * Advanced networking for AKS does not support VNets that use Azure Private DNS Zones.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
-* The service principal used for the AKS cluster must have `Contributor` permissions to the resource group containing the existing VNet.
+* The service principal used by the AKS cluster must have at least [Network Contributor](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#network-contributor) permissions on the subnet within your VNet. If you wish to define a [custom role](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) instead of using the built-in Network Contributor (or Contributor) role, the following permissions are required:
+  * Microsoft.Network/virtualNetworks/subnets/join/action
+  * Microsoft.Network/virtualNetworks/subnets/read
 
 ## Plan IP addressing for your cluster
 
