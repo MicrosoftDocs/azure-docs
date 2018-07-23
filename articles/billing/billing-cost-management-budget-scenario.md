@@ -26,9 +26,11 @@ Cost control is a critical component to maximizing the value of your investment 
 Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to trigger an orchestrated set of actions as a result of a budget event.
 
 A common budgets scenario for a customer running a non-critical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all VMs in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances will be stopped.
-To configure this scenario, you will complete the following actions by following the steps provided in each section of this tutorial. These sections allow you to:
+To configure this scenario, you will complete the following actions by following the steps provided in each section of this tutorial. 
 
-- Create an Azure Automation Runbook to stop VMs.
+These actions included in this tutorial allow you to:
+
+- Create an Azure Automation Runbook to stop VMs by using webhooks.
 - Create an Azure Logic App to be triggered based on the budget threshold value and call the runbook with the right parameters.
 - Create an Azure Monitor Action Group that will be configured to trigger the Azure Logic App when the budget threshold is met.
 - Create the Azure budget with the desired thresholds and wire it to the action group.
@@ -67,7 +69,7 @@ Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/
 
     For more information about publishing a runbook, see [Create a graphical runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
 
-## Create two webhooks for the runbook
+## Create webhooks for the runbook
 
 Using the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook, you will create two Webhooks to start the runbook in Azure Automation through a single HTTP request. The first webhook will invoke the runbook at an 80% budget threshold with the resource group name as a parameter, allowing the optional VMs to be stopped. Then, second webhook will invoke the runbook with no parameters (at 100%), which will stop all remaining VM instances.
 
