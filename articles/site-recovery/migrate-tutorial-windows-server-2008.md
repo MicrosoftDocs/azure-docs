@@ -118,15 +118,15 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 > - Follow the steps provided below to install the Configuration Server. Do not attempt to use the GUI based install procedure by running the unified setup directly. Doing so will result in the install attempt failing with an incorrect error stating that there is no internet connectivity.
 
  
-1.Download the vault credentials file from the portal: On the Azure portal, select the Recovery Services vault created in the previous step. From the menu on the vault page select **Site Recovery Infrastructure** > **Configuration Servers**. Then click **+Server**. Select *Configuration Server for Physical* from the drop down form on the page that opens. Click the download button on step 4 to download the vault credentials file.
+1) Download the vault credentials file from the portal: On the Azure portal, select the Recovery Services vault created in the previous step. From the menu on the vault page select **Site Recovery Infrastructure** > **Configuration Servers**. Then click **+Server**. Select *Configuration Server for Physical* from the drop down form on the page that opens. Click the download button on step 4 to download the vault credentials file.
 
  ![Download vault registration key](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
 
-2.Copy the vault credentials file downloaded in the previous step and the unified setup file downloaded previously to the desktop of the Configuration Server machine (the Windows Server 2012 R2 or Windows Server 2016 machine on which you are going to install the configuration server software.)
+2) Copy the vault credentials file downloaded in the previous step and the unified setup file downloaded previously to the desktop of the Configuration Server machine (the Windows Server 2012 R2 or Windows Server 2016 machine on which you are going to install the configuration server software.)
 
-3.Ensure that the Configuration Server has internet connectivity, and that the system clock and time zone settings on the machine are configured correctly. Download the [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installer and place it at *C:\Temp\ASRSetup* (create the directory if it doesnt exist.) 
+3) Ensure that the Configuration Server has internet connectivity, and that the system clock and time zone settings on the machine are configured correctly. Download the [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installer and place it at *C:\Temp\ASRSetup* (create the directory if it doesnt exist.) 
 
-4.Create a MySQL credentials file with the following lines and place it on the desktop at **C:\Users\Administrator\MySQLCreds.txt** . Replace "Password~1" below with a suitable and strong password:
+4) Create a MySQL credentials file with the following lines and place it on the desktop at **C:\Users\Administrator\MySQLCreds.txt** . Replace "Password~1" below with a suitable and strong password:
 
 ```
 [MySQLCredentials]
@@ -134,7 +134,7 @@ MySQLRootPassword = "Password~1"
 MySQLUserPassword = "Password~1"
 ```
 
-5.Extract the contents of the downloaded unified setup file to the desktop by running the following command:
+5) Extract the contents of the downloaded unified setup file to the desktop by running the following command:
 
 ```
 cd C:\Users\Administrator\Desktop
@@ -142,7 +142,7 @@ cd C:\Users\Administrator\Desktop
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
 ```
   
-6.Install the configuration server software using the extracted contents by executing the following commands:
+6) Install the configuration server software using the extracted contents by executing the following commands:
 
 ```
 cd C:\Users\Administrator\Desktop\9.18.1
