@@ -83,7 +83,7 @@ You can gradually roll out Seamless SSO to your users using the instructions pro
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
 >[!NOTE]
-> The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on Mac.
+> The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on macOS.
 
 ### Why do you need to modify users' Intranet zone settings?
 
@@ -92,6 +92,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 There are two ways to modify users' Intranet zone settings:
 
 | Option | Admin consideration | User experience |
+| --- | --- | --- |
 | Group policy | Admin locks down editing of Intranet zone settings | Users cannot modify their own settings |
 | Group policy preference |  Admin allows editing on Intranet zone settings | Users can modify their own settings |
 
@@ -164,15 +165,15 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 4. Enter https://autologon.microsoftazuread-sso.com in the field.
 5. Select **OK** and then reopen the browser.
 
-#### Safari (Mac OS)
+#### Safari (macOS)
 
-Ensure that the machine running the Mac OS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Ensure that the machine running the macOS is joined to AD. For instructions on joining AD, see [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### Google Chrome (all platforms)
 
 If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
 
-#### Google Chrome (Mac OS only)
+#### Google Chrome (macOS only)
 
 For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
 
