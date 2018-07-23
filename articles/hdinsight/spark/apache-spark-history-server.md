@@ -98,7 +98,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-    The graph node display in color which shows the heatmap.
+    The graph node display in color that shows the heatmap.
 
     ![graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
@@ -171,7 +171,7 @@ To revert to community version, do the following steps:
 
 ### 2. Upload history server log
 
-If you run into history server error, please use the script below which will upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
+If you run into history server error, use the script below which will upload the history server log to the blob storage specified by us(who is working on investigating the history server issues). 
 
 **upload_shs_log.sh**:
 
@@ -242,7 +242,7 @@ For **SAS_query_string**, you can get it from ASE:
     
     + **Script type**, select **Custom**.
     + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI we provide.
+    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
 
    ```upload_shs_log
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upload_shs_log.sh
@@ -256,7 +256,7 @@ For **SAS_query_string**, you can get it from ASE:
 
 ### 3. Upgrade jar file for hotfix scenario
 
-If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**, it will upgrade spark-enhancement.jar*.
+If you want to upgrade with hotfix, use the script below which will upgrade spark-enhancement.jar*.
 
 **upgrade_spark_enhancement.sh**:
 
@@ -295,7 +295,7 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
     
     + **Script type**, select **Custom**.
     + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI we provide.
+    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
     
    ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
@@ -314,6 +314,6 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
 2.	Input/output data using RDD will not show in data tab.
 
 
-## Contact us
+## Feedback
 
 If you have any feedback, or if you encounter any other problems when using this tool, send an email at hdivstool@microsoft.com.
