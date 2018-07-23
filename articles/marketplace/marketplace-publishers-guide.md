@@ -67,6 +67,6 @@ After you [submit your solution](https://azuremarketplace.microsoft.com/sell/sig
 
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
-### Next Steps
+## Next steps
 
 Review in-depth information on cloud marketplace topics by exploring the table of contents to the left. 
