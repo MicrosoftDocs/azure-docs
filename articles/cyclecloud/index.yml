@@ -41,7 +41,7 @@ sections:
           title: Clusters and Nodes
 
   - title: Reference
-      items:
+    - items:
       - type: list
         style: cards
         className: cardsD
