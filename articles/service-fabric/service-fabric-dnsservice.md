@@ -32,7 +32,7 @@ Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has b
 - Ranged partitioning
 - Singleton partitioning
 
-With the Service Fabric DNS extensions, you can use the DNS service to provide the same kind of portability to your stateful Service Fabric services as was previously available only to stateless services. The following diagram shows how the DNS service works for partitioned stateful services.
+The following diagram shows how the DNS service works for partitioned stateful services.
 
 ![stateful service endpoints](./media/service-fabric-dnsservice/stateful-dns.png)
 
