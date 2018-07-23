@@ -78,26 +78,28 @@ Application Insights collects telemetry for web applications installed on a vari
 ![Application Insights](media/monitoring-data-collection/app-insights.png)
 
 ### Service Map
-Service Map provides a visual representation of virtual machines with their processes and dependencies. It stores most of this data in Log Analytics so you can analyze it with other management data. The Service Map console also retrieves data from Log Analytics to present it in the context of the virtual machine being analyzed.
+Service Map provides a visual representation of virtual machines with their processes and dependencies. It stores most of this data in Log Analytics so you can analyze it with other management data. The Service Map console also retrieves data from Log Analytics to present it in the context of the virtual machine that's  being analyzed.
 
 ![Service Map](media/monitoring-data-collection/service-map.png)
 
 
 ## Transferring monitoring data
 
-### Metrics to Logs
-Metrics can also be replicated into Log Analytics to perform complex analysis with other data types using its rich query language. You can also retain log data for longer periods than metrics, which allows you to perform trending over time. When metrics or any other performance data is stored in Log Analytics, that data acts as a log. Use metrics to support near real-time analysis and alerting while using logs for trending and analysis with other data.
+### Metrics to logs
+You can replace metrics into Log Analytics to perform complex analysis with other data types by using its rich query language. You can also retain log data for longer periods than metrics, which enables you to perform trending over time. When metrics or any other performance data is stored in Log Analytics, that data acts as a log. Use metrics to support near real-time analysis and alerting while using logs for trending and analysis with other data.
 
 You can get guidance for collecting metrics from Azure resources at [Collect Azure service logs and metrics for use in Log Analytics](../log-analytics/log-analytics-azure-storage.md). Get guidance for collecting resources metrics from Azure PaaS resources at [Configure collection of Azure PaaS resource metrics with Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### Logs to metrics
-As described above, metrics are more responsive than logs allowing you to create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in Azure Metrics. A common example is performance data collected from agents and management solutions. Some of these values can be copied into Azure Metrics where they are available for alerting and for analysis with Metrics Explorer.
+As described earlier, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in Azure Monitor. 
+
+A common example is performance data collected from agents and management solutions. Some of these values can be copied into Azure Monitor, where they are available for alerting and for analysis with Metrics Explorer.
 
 The explanation of this feature is available at [Faster Metric Alerts for Logs now in limited public preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). The list of values support is available at 
 [Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 
-### Event Hub
-In addition to using the tools in Azure to analyze monitoring data, you may want to forward it to an external tool such a security information and event management (SIEM) product. This is typically done using [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). 
+### Event Hubs
+In addition to using the tools in Azure to analyze monitoring data, you might want to forward it to an external tool such a security information and event management (SIEM) product. This forwarding is typically done through [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 
 
 You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
