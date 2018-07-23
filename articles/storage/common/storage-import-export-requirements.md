@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
 
 ---
@@ -52,7 +52,7 @@ The following list of storage types is supported with Azure Import/Export servic
 
 ## Supported hardware 
 
-For the Azure Import/Export service, you need supported disks and supported SATA connectors to copy data.
+For the Azure Import/Export service, you need supported disks to copy data.
 
 ### Supported disks
 
@@ -69,18 +69,9 @@ A single import/export job can have:
 - A maximum of 10 HDD/SSDs.
 - A mix of HDD/SSD of any size.
 
-Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
+Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. For import jobs, only the first data volume on the drive is processed. The data volume must be formatted with NTFS.
 
-For import jobs, only the first data volume on the drive is processed. The data volume must be formatted with NTFS.
-
-### Supported external USB adaptors
-
-When preparing hard drives and copying the data using the WAImportExport tool, you can use following (off-the-shelf) external USB adaptors: 
-- Anker 68UPSATAA-02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK (6628 Series)
-- Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+When preparing hard drives and copying the data using the WAImportExport tool, you can use external USB adaptors. Most off-the-shelf USB 3.0 or later adaptors should work. 
 
 
 ## Next steps

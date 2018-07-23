@@ -35,27 +35,27 @@ This page is updated monthly, so revisit it regularly.
 
 ## July 2018
 
-### New Azure AD email design and sender information - End of July
+### Improvements to Azure Active Directory email notifications
 
 **Type:** Plan for change  
 **Service category:** Other  
 **Product capability:** Identity lifecycle management
  
-At the **end of July 2018**, you'll notice that all Azure AD emails will have an updated design, sender email address, and sender display name when sent from the following services:
-
-- Azure AD Identity Protection
-- Azure AD Connect Health
-- Azure AD Provisioning Service
-- Azure AD Enterprise Application Management
+At the **end of July 2018**, Azure Active Directory (Azure AD) emails will feature an updated design, as well as changes to the sender email address and sender display name, when sent from the following services:
+ 
 - Azure AD Access Reviews
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
 - Azure AD Privileged Identity Management
+- Enterprise App Expiring Certificate Notifications
+- Enterprise App Provisioning Service Notifications
+ 
+The email notifications will be sent from the following email address and display name:
 
-Also at that time, email notifications will start to use the following address:
-
-- Display name: Microsoft Azure
 - Email address: azure-noreply@microsoft.com
-
-For an example of some of the new e-mail designs, see [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+- Display name: Microsoft Azure
+ 
+For an example of some of the new e-mail designs and more information, see [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
 
 ---
 
