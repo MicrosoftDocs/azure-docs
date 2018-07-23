@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## Publish to a Service Fabric cluster
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](/service-fabric/service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
 For this tutorial, you have two options for deployment of the Voting application to a Service Fabric cluster using Visual Studio:
 
