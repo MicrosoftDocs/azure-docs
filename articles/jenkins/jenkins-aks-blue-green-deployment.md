@@ -198,7 +198,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 
 ## Prepare the Jenkins server
 
-In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, as explained in the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master), it is advised to use an [https://plugins.jenkins.io/azure-vm-agents](Azure VM agent) or [https://plugins.jenkins.io/azure-container-agents](Azure Container agent) to spin up an agent in Azure to run your builds. 
+In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, as explained in the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master), it is advised to use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. 
 
 1. Deploy a [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
 
