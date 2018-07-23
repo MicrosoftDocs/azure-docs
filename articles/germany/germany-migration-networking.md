@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to public Azure
+title: Migration from Azure Germany compute resources to global Azure
 description: Provides help for migrating network resources
 author: gitralf
 ms.author: ralfwi 
@@ -12,7 +12,7 @@ ms.custom: bfmigrate
 
 ## Virtual Network (VNet)
 
-Migration of Vnets between Azure Germany and public Azure is not supported at this time. The recommended approach is to create new virtual networks in the target region and migrate resources into those Vnets.
+Migration of Vnets between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create new virtual networks in the target region and migrate resources into those Vnets.
 
 ### Links
 
@@ -21,7 +21,7 @@ Migration of Vnets between Azure Germany and public Azure is not supported at th
 
 ## Network Security Groups (NSG)
 
-Migration of Network Security Groups between Azure Germany and public Azure is not supported at this time. The recommended approach is to create new Network Security groups in the target region and apply the NSG rules to the new application environment.
+Migration of Network Security Groups between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create new Network Security groups in the target region and apply the NSG rules to the new application environment.
 
 ### Links
 
@@ -30,7 +30,7 @@ Migration of Network Security Groups between Azure Germany and public Azure is n
 
 ## ExpressRoute
 
-Migration of ExpressRoute between Azure Germany and public Azure is not supported at this time. The recommended approach is to create new ExpressRoute circuits and new ExpressRoute gateway.
+Migration of ExpressRoute between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create new ExpressRoute circuits and new ExpressRoute gateway.
 
 ### Links
 
@@ -40,7 +40,9 @@ Migration of ExpressRoute between Azure Germany and public Azure is not supporte
 
 ## VPN Gateway
 
-Migration of Virtual Private Network Gateways between Azure Germany and public Azure is not supported at this time. The recommended approach is to create and configure a new Gateway as described in the documents provided in the link section. You can collect information about your current VPN gateway configuration by using the portal or by using PowerShell and the *Get-AzureRmVirtualNetworkGateway\** set of cmdlets.
+Migration of Virtual Private Network (VPN) Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new VPN Gateway.
+
+Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with *Get-AzureRmVirtualNetworkGateway\**.
 
 Don't forget to update your on-premise configuration and delete any existing rules for the old IP ranges once you updated your Azure network environment.
 
@@ -48,11 +50,13 @@ Don't forget to update your on-premise configuration and delete any existing rul
 
 - [VPN Gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 - [Create Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) with VPN gateway
-- Blog: [Create Site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and public Azure
+- Blog: [Create Site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany andglobalc Azure
 
 ## Application Gateway
 
-Migration of Application Gateways between Azure Germany and public Azure is not supported at this time. The recommended approach is to create and configure a new Gateway as described in the documents provided in the link section. You can collect information about your current gateway configuration by using the portal or by using PowerShell and the *Get-AzureRmApplicationGateway\** set of cmdlets.
+Migration of Application Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Gateway.
+
+Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with *Get-AzureRmApplicationGateway\**.
 
 ### Links
 
@@ -61,35 +65,35 @@ Migration of Application Gateways between Azure Germany and public Azure is not 
 
 ## Azure DNS
 
-You have to export the DNS zone file and import it under the new subscription. Currently the only mechanism to export the zone file is by using Azure CLI.
+Export the DNS zone file and import it under the new subscription. Currently the only mechanism to export the zone file is by using Azure CLI.
 
-When you are logged into your source subscription in Azure Germany, configure CLI to use Resource Manager mode. Export the zone :
+When you're signed on to your source subscription in Azure Germany, configure CLI to use Resource Manager mode. Export the zone:
 
-    az network dns zone export -g \<resource group\> -n \<zone name\> -f \<zone file name\>
+    az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 
 Example:
 
     az network dns zone export -g "myresourcegroup" -n "contoso.com" -f "contoso.com.txt"
 
-This exports the existing Azure DNS zone "contoso.com" in resource group "myresourcegroup" to the file "contoso.com.txt" (in the current folder). It calls the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
+This command calls the Azure DNS service to export the zone "contoso.com" in the resource group "myresourcegroup". The output is stored as a BIND-compatible zone file in "contoso.com.txt" in the current folder.
 
 After the export is done, delete the NS records from the zone file as NS records will be created fresh for the new region and subscription.
 
-Now login to your target environment, create a new resource group (or choose an existing one) and import the previously created zone file:
+Now sign in to your target environment, create a new resource group (or choose an existing one) and import the previously created zone file:
 
-    az network dns zone import -g \<resource group\> -n \<zone name\> -f \<zone file name\>
+    az network dns zone import -g <resource group> -n <zone name> -f <zone file name>
 
-Once the zone has been imported you have to validate the zone by running the following command:
+Once the zone has been imported, you have to validate the zone by running the following command:
 
-    az network dns record-set list -g \<resource group\> -z \<zone name\>
+    az network dns record-set list -g <resource group> -z <zone name>
 
-Once this is done, please contact your domain registrar and redelegate the NS records. NS records can be obtained by executing the command shown below. You can also login to the console and get the NS record information.
+Once the validation is done, contact your domain registrar and redelegate the NS records. Get NS record information by executing this command:
 
-    az network dns record-set ns list -g \<resource group\> -z \--output json
+    az network dns record-set ns list -g <resource group> -z --output json
 
 ## Network Watcher
 
-Unfortunately, a migration of Network Watcher between Azure Germany and public Azure is not supported at this time. The recommended approach is to create and configure a new Network Watcher as described in the documents provided in the link section.
+Migration of Network Watcher between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Network Watcher.
 
 ### Links
 
@@ -98,9 +102,9 @@ Unfortunately, a migration of Network Watcher between Azure Germany and public A
 
 ## Traffic Manager
 
-Traffic Manager profiles created in Azure Germany cannot be migrated over to public Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
+Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
 
-Traffic Manager might help you to perform a smooth migration since you can define endpoints in both the source and the target environment with Traffic Manager still running in the old environment or already running in the new environment. This is known as the Blue-Green scenario and well documented (see in the link section below). In short, this is how it works:
+Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
 
 - Create a new Traffic Manager in Azure public.
 - Define the endpoints still in Azure Germany.
@@ -116,7 +120,7 @@ Traffic Manager might help you to perform a smooth migration since you can defin
 
 ## Load Balancer
 
-Migration of Load Balancers between Azure Germany and public Azure is not supported at this time. The recommended approach is to create and configure a new Load Balancer as described in the documents provided in the link section.
+Migration of Load Balancers between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Load Balancer.
 
 ### Links
 

@@ -12,14 +12,14 @@ ms.custom: bfmigrate
 
 # Azure Cosmos DB
 
-This topic is already covered under [Databases](./germany-migration-databases#azure-cosmos-db)
+This service is already covered under [Databases](./germany-migration-databases.md#azure-cosmos-db)
 
 # Functions
 
-This topic is already covered under [Compute](./germany-migration-compute#functions)
+This service is already covered under [Compute](./germany-migration-compute.md#functions)
 
 # Notification Hub
 
-This topic is already covered under [Web](./germany-migration-web#notification-hub)
+This service is already covered under [Web](./germany-migration-web.md#notification-hub)
 
 # IoT Hub

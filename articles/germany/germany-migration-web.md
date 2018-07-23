@@ -12,7 +12,7 @@ ms.custom: bfmigrate
 
 ## App Service - Web Apps
 
-This topic is already covered under [Compute](./germany-migration-compute#app-service-web-apps)
+This service is already covered under [Compute](./germany-migration-compute.md#app-service-web-apps)
 
 ## Notification Hubs
 

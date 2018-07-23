@@ -12,19 +12,19 @@ ms.custom: bfmigrate
 
 ## Azure Active Directory
 
-This topic is already covered under [Identity](./germany-migration-identity#azure-active-directory)
+This service is already covered under [Identity](./germany-migration-identity.md#azure-active-directory)
 
 ## Key Vault
 
 ### Encryption Keys
 
-Encryption keys cannot be migrated. Create new keys in the target region and use them to protect the target resource (Storage, SQL DB, etc.). Then securely migrate the data from the old region to the new region.
+Encryption keys can't be migrated. Create new keys in the target region and use them to protect the target resource (Storage, SQL DB, etc.). Then securely migrate the data from the old region to the new region.
 
 ### Application secrets
 
-Application secrets are Certs, Storage account keys and other application-related secrets
+Application secrets are Certs, storage account keys and other application-related secrets.
 
-Create new application secrets in the new target region
+Create new application secrets in the new target region.
 
 ### Links
 
@@ -32,8 +32,8 @@ Create new application secrets in the new target region
 
 ## VPN Gateway
 
-This topic is already covered under [Networking](./germany-migration-networking#vpn-gateway)
+This service is already covered under [Networking](./germany-migration-networking.md#vpn-gateway)
 
 ## Application Gateway
 
-This topic is already covered under [Networking](./germany-migration-networking#application-gateway)
+This service is already covered under [Networking](./germany-migration-networking.md#application-gateway)

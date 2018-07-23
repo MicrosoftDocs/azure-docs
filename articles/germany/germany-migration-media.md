@@ -12,7 +12,7 @@ ms.custom: bfmigrate
 
 ## Media Services
 
-Since you configure your own storage account and all media assets, you should be able to create a new Media Services account in a supported data center by following the documentation provided in the links below, then reload corresponding media artifacts and perform encoding and streaming as appropriate under the new Media Services account.
+In Media Services, you configure your own storage account and all media assets. Create a new Media Services account by following the documentation provided in the links below. Reload corresponding media artifacts and perform encoding and streaming as appropriate under the new Media Services account.
 
 ### Links
 

@@ -14,9 +14,9 @@ ms.custom: bfmigrate
 
 ### Metadata
 
-Service Bus and Event Hubs services do not have data export--import capabilities. However, since all Service Bus and Event Hub resources are ARM expressible, you can use the [ARM export resource group as a template](../azure-resource-manager/resource-manager-export-template-powershell.md) capability to export your Service Bus and Event Hubs resources in Azure Germany. After that, adopt the exported template for  public Azure and recreate the resources.
+Service Bus and Event Hubs services don't have data export or import capabilities. However, you can export the Service Bus and Event Hub resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
 
-**Note**: This would not copy the data (i.e. messages), it would only replicate the Metadata.
+**Note**: This doesn't copy the data (for example messages), it's only recreating the metadata.
 
 ### Metadata Service Bus
 
@@ -36,7 +36,7 @@ Service Bus and Event Hubs services do not have data export--import capabilities
 
 ### Keys
 
-The Export/Recreate steps above will not copy over the SAS keys associated with AuthorizationRule. If you are interested in preserving the SAS keys, they can explicitly the SAS key value using the `New-AzureRmServiceBuskey` cmdlet with optional parameter `-Keyvalue` to accept the key as string and will update with provided value. The updated cmdlet is available below [release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or [GitHub](<https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018)
+The Export/Recreate steps above won't copy the SAS keys associated with Authorization rules. If you need to preserve the SAS keys, use the *New-AzureRmServiceBuskey* cmdlet with the optional parameter `-Keyvalue` to accept the key as string. The updated cmdlet is available at [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or at [GitHub](<https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018)
 
 Usage example:
 
@@ -55,6 +55,6 @@ Azure Germany
 
     Endpoint=sb://myBFProdnamespaceName.**servicebus.cloudapi.de**/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXx=
 
-Public Azure
+Global Azure
 
     Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXx=

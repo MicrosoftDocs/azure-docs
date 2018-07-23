@@ -12,21 +12,21 @@ ms.custom: bfmigrate
 
 ## Backup
 
-Unfortunately, neither Azure Backup jobs nor snapshots can be migrated from Azure Germany to public Azure. Please contact Azure Support.
+Unfortunately, Azure Backup jobs and snapshots can't be migrated from Azure Germany to global Azure.
 
 ## Scheduler
 
-Azure Scheduler is being deprecated. Please use Azure Logic apps instead to create scheduling jobs.
+Azure Scheduler is being deprecated. Use Azure Logic apps instead to create scheduling jobs.
 
 - [Transitioning from Scheduler to Logic Apps](../scheduler/scheduler-to-logic-apps.md)
 
 ## Traffic Manager
 
-This topic is already covered under [Networking](./germany-migration-networking#traffic-manager)
+This service is already covered under [Networking](./germany-migration-networking.md#traffic-manager)
 
 ## Network Watcher
 
-This topic is already covered under [Networking](./germany-migration-networking#network-watcher)
+This service is already covered under [Networking](./germany-migration-networking.md#network-watcher)
 
 ## Site Recovery
 

@@ -1,5 +1,5 @@
 ---
-title: Migration from Azure Germany compute resources to public Azure
+title: Migration from Azure Germany compute resources to global Azure
 description: Provides help for migrating compute resources
 author: gitralf
 ms.author: ralfwi 
@@ -11,33 +11,36 @@ ms.custom: bfmigrate
 
 ## Compute IaaS
 
-Azure Site Recovery (ASR) can help you migrate your VMs from Azure Germany to public Azure. Since source and target are in different tenants, you can't use the normal Azure Disaster Recovery option available for VMs. The trick here is to set up a Site Recovery vault in the target environment (public Azure) and to install the backup agent (MARS) inside the VMs running in the source environment (Azure Germany). Choose a replication path from *not virtualized* to Azure global and - after the replication finished - do a failover. Notice: These are the same steps that you would take to migrate a physical server running on-premise to Azure.
+Azure Site Recovery can help you migrate your VMs from Azure Germany to global Azure. Since source and target are in different tenants, you can't use the normal Azure Disaster Recovery option available for VMs. The trick here is to set up a Site Recovery vault in the target environment (global Azure), and to proceed like moving a physical server into Azure. Choose a replication path from *not virtualized* to Azure global and - after the replication finished - do a failover.
 
-There is a [good ASR tutorial available](https://docs.microsoft.com/en-us/azure/site-recovery/physical-azure-disaster-recovery), here is a shorter and slightly adopted version to replicate a single Virtual Machine:
+> [!NOTE]
+> These steps are the same that you would take to migrate a physical server running on-premise to Azure.
 
-The overall process is that a Configuration/Process Server is used in your source environment to build the images of the servers, and then replicate them to the Recovery Service Vault in your target environment. With this, not all the servers have to communicate with the Vault, but only the ConfigurationServer.
+There's a [good tutorial for Site Recovery](../site-recovery/physical-azure-disaster-recovery.md) available. For a quick overview, here's a shorter and slightly adopted version:
 
-- Log in to the Azure Germany Portal
+Install a Configuration/Process Server in your source environment to build the images of the servers. Then replicate the images to the Recovery Service Vault in your target environment. This is all done by the Configuration Server, and there's no need to touch the single servers.
+
+- Sign in to the Azure Germany Portal
 - Compare the OS version of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md)
-- Set up a new VM in your source VNet acting as the configuration and process server:
-  - Choose DS4v3 or higher (4-8 cores, 16 GB RAM)
-  - Attach an additional disk with 1TB minimum (for the VM images)
-  - Use Windows 2012R2 or higher
+- Set up a new VM in your source VNet acting as the configuration server:
+  - Choose DS4v3 or higher (4-8 cores, 16 GB Memory)
+  - Attach an additional disk with at least 1 TB available space (for the VM images)
+  - Use Windows Server 2012R2 or higher
 - Make sure ports 443 and 9443 are open for the subnet in both directions
-- Log into this new VM (we will call it the ConfigurationServer from now on)
-- From within your remote desktop session, login to the public Azure portal with your public Azure credentials
+- Sign in to this new VM (ConfigurationServer)
+- From within your remote desktop session, sign in to the global Azure portal with your global Azure credentials
 - Set up a VNet where the replicated VMs will run
 - Create a storage account
 - Set up the Recovery Service Vault
 - Define Protection goal (**To Azure** -- **Not virtualized/other**)
-- Download Recovery Unified Setup installation file (topic **Prepare Infrastructure** > **Source**). When you opened the portal URL from within the ConfigurationServer, the file will be downloaded to the correct server, if you are not logged in the ConfigurationServer please upload the install file to that server
+- Download Recovery Unified Setup installation file (**Prepare Infrastructure** > **Source**). When you opened the portal URL from within the ConfigurationServer, the file will be downloaded to the correct server. If not, upload the install file to the COnfigurationServer.
 - Download the vault registration key (and upload to ConfigurationServer like above if necessary)
 - Run the Recovery Unified Setup installation on the ConfigurationServer
-- Set up the target environment (you should still be logged in the target portal)
+- Set up the target environment (you should still be signed in to the target portal)
 - Define replication policy
 - Start replication
 
-When replication has succeeded the first time, you should test the scenario by doing a test failover, verifying and deleting the test. Your final step is to do the real failover. 
+When replication has succeeded the first time, you should test the scenario by doing a test failover, verifying and deleting the test. Your final step is to do the real failover.
 
 > [!CAUTION]
 > There is no synchronization back to the source VM. If you want to re-migrate, you must clean up everything and start again at the beginning!
@@ -50,7 +53,7 @@ When replication has succeeded the first time, you should test the scenario by d
 
 ## Cloud Services
 
-Cloud Services can be redeployed by simply providing the `.cspkg` and `.cscfg` definitions again.
+Cloud Services can be redeployed by providing the `.cspkg` and `.cscfg` definitions again.
 
 ### By portal
 
@@ -102,39 +105,40 @@ When the network connectivity between Azure Germany and the target region is ena
 
 - Drain out the workload in the Azure Germany region and remove machines from the cluster
 
-Without network connectivity between Azure Germany and target region, you need to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal).
+Without network connectivity between Azure Germany and target region, you need to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 
 ## Batch
 
-It is not possible to migrate Batch account data from one region to another. The account may have running VMs associated with it interacting with data in storage accounts, databases, or other storage systems.
+It's not possible to migrate Batch account data from one region to another. The account may have running VMs associated with it, interacting with data in storage accounts, databases, or other storage systems.
 
-You must take your deployment scripts, templates, or code and re-deploy in the new region.  This could involve:
-- [Creating a Batch account](../batch/batch-account-create-portal.md)
-- [Getting Batch account quota increased](../batch/batch-quota-limit.md)
-- Creating Batch pools
-- Creating new storage accounts, databases, or whatever services used to persist input and output data.
-- Updating configuration and/or code to point to new Batch account and use new credentials.
+Redeploy your deployment scripts, templates, or code in the new region, including:
+
+- [Create a Batch account](../batch/batch-account-create-portal.md)
+- [Get Batch account quota increased](../batch/batch-quota-limit.md)
+- Create Batch pools
+- Create new storage accounts, databases, or whatever services used to persist input and output data.
+- Update configuration and code to point to new Batch account and use new credentials.
 
 ### Links
 
-- [Azure Batch documentation](../batch/)
+- [Azure Batch documentation](../batch/batch-technical-overview.md)
 
 ## Functions
 
-Unfortunately, a migration of Functions between Azure Germany and public Azure is not supported at this time. The recommended approach is to export ARM template, change the location, and redeploy to target region.
+Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
-- [Export an ARM template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
+- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
 - [Azure locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
 - Change Key Vault secrets, certs, and other GUIDs to be consistent with new Region (location).
 - [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
 
-## Virtual Machines Scale Sets (VMSS)
+## Virtual Machines Scale Set
 
 ## App Service - Web Apps
 
-The migration of App Services from Azure Germany to public Azure is not supported at this time. The recommended approach is to export as ARM template and redeploy after changing the location property to the new destination region.
+The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
 
-- [Export an ARM template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell\#export-resource-group-as-template)
+- [Export an ARM template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
 - [Azure locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
 - Change Key Vault secrets, certs, and other GUIDs to be consistent with new Region (location).
 - [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)

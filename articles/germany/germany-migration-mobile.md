@@ -12,4 +12,4 @@ ms.custom: bfmigrate
 
 # Notification Hub
 
-This topic is already covered under [Web / Notification Hubs](./germany-migration-web#notification-hubs)
+This service is already covered under [Web / Notification Hubs](./germany-migration-web.md#notification-hubs)
