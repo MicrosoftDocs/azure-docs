@@ -14,8 +14,6 @@ ms.author: junhan
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
 [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. This article focuses on how to use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and your IoT hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
@@ -31,10 +29,8 @@ You learn how to use Azure IoT Toolkit extension for Visual Studio Code to monit
 
 ## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-  - An active Azure subscription.
-  - An Azure IoT hub under your subscription.
-  - A client application that sends messages to your Azure IoT hub.
+- An active Azure subscription.
+- An Azure IoT hub under your subscription.
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
