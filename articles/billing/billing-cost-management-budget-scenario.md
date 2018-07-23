@@ -23,7 +23,7 @@ ms.author: erikre
 
 Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Azure Cost Management APIs](https://docs.microsoft.com/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
-Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition, to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](https://microsoft.sharepoint.com/teams/gab/workspaces/W1194/Shared Documents/Docs/Dec-17 Usage Details Release) to trigger an orchestrated set of actions as a result of a budget event.
+Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use Azure Monitor action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to trigger an orchestrated set of actions as a result of a budget event.
 
 A common budgets scenario for a customer running a non-critical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all VMs in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances will be stopped.
 To configure this scenario, you will complete the following actions by following the steps provided in each section of this tutorial. These sections allow you to:
@@ -229,7 +229,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 
     ![Azure - Logic app - Email details](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png) 
  
-## Add the second conditional action
+### Add the second conditional action
 
 Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value. If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
 
@@ -315,13 +315,13 @@ Budgets don’t currently have a portal experience in Azure. However, you are ab
 3.	Open the project in Visual Studio and build it.
 4.	Once the build is successful, the executable should be in the *\bin\debug* folder.
 5.	Run the ARMClient. Open a command prompt and navigate to the *\bin\debug* folder from the project root.
-6.	To login and authenticate, enter the following command at the command prompt:
+6.	To login and authenticate, enter the following command at the command prompt:<br>
     `ARMClient login prod`
 7.	Copy the **subscription guid** from the output.
-8.	To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the step above:
+8.	To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the step above: <br>
     `ARMClient token <subscription GUID from previous step>`
 
-    Once you have completed the step above, you will see the following:
+    Once you have completed the step above, you will see the following:<br>
     **Token copied to clipboard successfully.**
 9.	Save the token to be used for steps in the next section of this tutorial.
 
