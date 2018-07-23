@@ -90,9 +90,13 @@ You can use the command line, the Visual Studio build tools, or an MSBuild task 
 
 1.	Add NuGet restore task to get the solution-referenced NuGet package that includes `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
-    ![Add a CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+    a. Add aCI/CD MSBuild task for a U-SQL project.
+
+       ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
  
-    ![Add a CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+    b. Add a CI/CD NuGet task for a U-SQL project.
+
+       ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
 2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
 
@@ -114,8 +118,8 @@ After you run a build, all scripts in the U-SQL project are built and output to 
 ## Test U-SQL scripts
 
 Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
-* Learn how to [add test cases for U-SQL scripts and extended C# code](data-lake-analytics-cicd-test.md#test-u-sql-scripts)
-* Learn how to [run test cases in Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-services)
+* Learn how to [add test cases for U-SQL scripts and extended C# code](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
+* Learn how to [run test cases in Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-services).
 
 ## Deploy a U-SQL job
 
@@ -298,7 +302,7 @@ Azure Data Lake tools for Visual Studio provide U-SQL database project templates
 
 ### Get the NuGet package
 
-MSBuild doesn't provide built-in support for U-SQL database projects. To get this ability, you need to add a reference for your solution to the [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)NuGet package that adds the required language service.
+MSBuild doesn't provide built-in support for U-SQL database projects. To get this ability, you need to add a reference for your solution to the [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet package that adds the required language service.
 
 To add the NuGet package reference, right-click the solution in Visual Studio Solution Explorer. Choose **Manage NuGet Packages**. Then search for and install the NuGet package. Or you can add a file called **packages.config** in the solution folder and put the following contents into it:
 
@@ -325,9 +329,13 @@ You can use the command line, the Visual Studio build tools, or an MSBuild task 
 
 1.	Add NuGet restore task to get the solution-referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
-    ![Add a CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+    a. Add a CI/CD MSBuild task for a U-SQL project.
 
-    ![Add a CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+    ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+
+    b. Add a CI/CD NuGet task for a U-SQL project.
+
+    ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
 2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
 
@@ -473,15 +481,15 @@ Take the following steps to set up a database deployment task in Visual Studio T
 |SubscriptionId|The Azure subscription ID for the Azure Data Lake Analytics account.|null|true|
 |Tenant|The tenant name is the Azure Active Directory (Azure AD) domain name. Find it in the subscription management page in the Azure portal.|null|true|
 |AzureSDKPath|The path to search dependent assemblies in the Azure SDK.|null|true|
-|Interactive|Whether to use interactive mode for authentication or not.|false|false|
+|Interactive|Whether or not to use interactive mode for authentication.|false|false|
 |ClientId|The Azure AD application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
-|Secrete|The secrete or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
-|SecreteFile|The file saves the secrete or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secrete.|
+|Secrete|The secret or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
+|SecreteFile|The file saves the secret or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secrete.|
 |CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secret authentication.|null|false|
 | JobPrefix | The prefix for database deployment of a U-SQL DDL job. | Deploy_ + DateTime.Now | false |
 
 ## Next steps
 
-- [How to test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md)
-- [Run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md)
-- [Use U-SQL database project to develop U-SQL database](data-lake-analytics-data-lake-tools-develop-usql-database.md)
+- [How to test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md).
+- [Run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md).
+- [Use U-SQL database project to develop U-SQL database](data-lake-analytics-data-lake-tools-develop-usql-database.md).
