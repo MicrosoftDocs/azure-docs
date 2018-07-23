@@ -31,8 +31,11 @@ In this article, you learn how to perform the following Managed Service Identity
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a VM and enable and remove system assigned managed identity from an Azure VM.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user assigned identity from and to a VM.
 - To run the CLI script examples, you have three options:
-
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
     - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
@@ -69,7 +72,7 @@ To create an Azure VM with the system assigned identity enabled:
 
 If you need to enable the system assigned identity on an existing VM:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the VM.
 
    ```azurecli-interactive
    az login
@@ -99,7 +102,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 
 ## User Assigned identity
 
-In this section, you will learn how to add and remove a user assigned identity from an Azure VM, using Azure CLI.
+In this section, you will learn how to add and remove a user assigned identity from an Azure VM using Azure CLI.
 
 ### Assign a user assigned identity during the creation of an Azure VM
 
