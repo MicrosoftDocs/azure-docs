@@ -82,7 +82,7 @@ Network ACLs are enforced in three layers:
 
 ## Regulatory compliance
 
-A formal assessment of Azure Stack is is being performed by a 3rd-party assessor organization (3PAO). As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards will be available. The documentation is not a certification of Azure Stack. The standards include several personnel-related and process-related controls. Customers can use this documentation to jump-start their certification process. The assements include the following standards: PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry. [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards.
+A formal assessment of Azure Stack is being performed by a 3rd-party assessor organization (3PAO). As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards will be available. The documentation is not a certification of Azure Stack. The standards include several personnel-related and process-related controls. Customers can use this documentation to jump-start their certification process. The assements include the following standards: PCI-DSS and the CSA Cloud Control Matrix. [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry. [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards.
 
 ## Next steps
 
