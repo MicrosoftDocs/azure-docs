@@ -25,7 +25,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Two-step verification</h3>
+                        <h3>Two-step verification help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Set up two-step verification</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Manage your settings</a><br/>
@@ -41,7 +41,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Password reset</h3>
+                        <h3>Password reset help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/active-directory-passwords-reset-register">Register for password reset</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-email">Set up email</a><br/>
@@ -58,7 +58,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Security info (preview)</h3>
+                        <h3>Security info (preview) help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Set up an authenticator app</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Set up text messages</a><br/>
@@ -76,7 +76,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Microsoft Authenticator app</h3>
+                        <h3>Microsoft Authenticator app help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Get started</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Sign in FAQ</a><br/>
@@ -92,7 +92,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>My Apps portal</h3>
+                        <h3>My Apps portal help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">What is the My Apps portal?</a><br/>
                         <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Troubleshoot</a>
@@ -107,7 +107,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Manage my devices</h3>
+                        <h3>Manage my devices help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Join my devices</a><br/>
                         <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Register my Windows 10 devices</a>

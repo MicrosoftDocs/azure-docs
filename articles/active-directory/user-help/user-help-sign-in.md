@@ -52,7 +52,9 @@ After you set up two-step verification or security info, you'll be able to sign 
 
 - Edit your security info to add or change your verification methods in the [Manage your security info](security-info-manage-settings.md) article. 
 
-- Learn about security info and two-step verification in the [Overview](user-help-overview.md) article.
+- Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
+
+- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/)
 
