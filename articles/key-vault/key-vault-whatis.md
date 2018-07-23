@@ -32,7 +32,7 @@ Below are some key terms:
 - **Vault Consumer** - can perform actions on the assets inside the Key Vault when the vault owner grants him/her access which depend on the permissions granted.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** is the Azure AD service for a given tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure Tenant ID** - This is a unique way to identify an Azure Active Directory within a Azure Subscription. 
-- **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI)makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview)
+- **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI)makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview.md)
 
 ## Key vault roles
 

@@ -40,7 +40,7 @@ Before we go any further, read the basic concepts especially [Managed Service Id
 
 * All platforms:
   * Download GIT from [here](https://git-scm.com/downloads).
-  * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) You need Azure CLI version 2.0.4 or later. This is available for Windows, Mac, and Linux
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) You need Azure CLI version 2.0.4 or later. This is available for Windows, Mac, and Linux
 
 ## Login to Azure
 
