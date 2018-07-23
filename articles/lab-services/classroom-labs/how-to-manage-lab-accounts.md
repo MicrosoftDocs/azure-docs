@@ -50,6 +50,22 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
 
     ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## Specify Marketplace images available to lab owners
+In this section, you specify Marketplace images that lab owners can use to create classroom labs. 
+
+1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
+
+    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Disable image**. 
+
+        ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Disable selected images**. 
+
+        ![Disable multiple images](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Similarly, to **enable** a Marketplace image, do one of the following actions: 
+    1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
+    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 ## View lab accounts
 1. Sign in to the [Azure portal](https://portal.azure.com).
