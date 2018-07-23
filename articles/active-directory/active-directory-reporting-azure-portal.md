@@ -84,7 +84,7 @@ For more details, see **Comparing generally available features of the Free, Basi
 
 
 
-The **sign-ins activity report** enables to to find answers to questions such as:
+The **sign-ins activity report** enables you to find answers to questions such as:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
@@ -109,7 +109,7 @@ If you want to know more about the various report types in Azure Active Director
 - [Audit logs report](active-directory-reporting-activity-audit-logs.md)
 - [Sign-ins logs report](active-directory-reporting-activity-sign-ins.md)
 
-If you want to know more about accessing the the reporting data using the reporting API, see: 
+If you want to know more about accessing the reporting data using the reporting API, see: 
 
 - [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
 

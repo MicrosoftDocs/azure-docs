@@ -20,7 +20,7 @@ ms.reviewer: bagovind
 ---
 # Elevate access for a Global Administrator in Azure Active Directory
 
-If you are a [Global Administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
+If you are a [Global Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
 
 - Regain access to an Azure subscription when a user has lost access
 - Grant another user or yourself access to an Azure subscription

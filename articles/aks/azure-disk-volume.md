@@ -48,6 +48,10 @@ Once the disk has been created, you should see output similar to the following. 
 > [!NOTE]
 > Azure managed disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 4TiB for S50 or P50 disks. Furthermore, the throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
+> [!NOTE]
+> If you need to create the disk in a separate resource group, you also need to add the Azure Kubernetes Service (AKS) service principal for your cluster to the resource group holding the disk with the `Contributor` role. 
+>
+
 ## Mount disk as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec.

@@ -1,7 +1,7 @@
 ---
-title: How to use multi-value entities with a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to use multi-value entities with a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to use multi-value entities with a Conversation Learner application.
+description: Learn how to use multi-value entities with a Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,8 +12,12 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use multi-value entities with a Conversation Learner application
+# How to use multi-value entities with a Conversation Learner model
 This tutorial shows the "multi-value" property of entities.
+
+## Video
+
+[![Tutorial 6 Preview](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##Requirements
 This tutorial requires that the general tutorial bot is running
@@ -27,9 +31,9 @@ Concretely, if an entity is marked as "multi-value", then each recognized instan
 
 ## Steps
 
-### Create the application
+### Create the model
 
-1. In the Web UI, click New App
+1. In the Web UI, click New Model
 2. In Name, enter MultiValueEntities. Then click Create.
 
 ### Create an entity
@@ -71,7 +75,7 @@ Now you have two actions.
 3. Click 'mushrooms', and select Toppings.
 4. Click 'cheese', and select Toppings.
 5. Click Score Actions
-	- Note that the two values are now present in the Toppings entity. 
+	- The two values are now present in the Toppings entity. 
 6. Select 'Here are your toppings: $Toppings'.
 
 We can add more to this:
@@ -79,7 +83,7 @@ We can add more to this:
 7. Enter 'add peppers'.
 	- Click on 'peppers' under Entity Detection, and select Toppings.
 3. Click Score Actions.
-	- Note that peppers now shows up as an additional value in Toppings.
+	- 'peppers' now shows up as an additional value in Toppings.
 6. Select 'Here are your toppings: $Toppings'.
 
 Let's remove a topping and add one:
@@ -88,7 +92,7 @@ Let's remove a topping and add one:
 1. Click on 'peppers' and click on the red x to remove it.
 2. Click on 'peppers' and select '-Toppings'.
 3. Click Score Actions.
-	- Note that 'peppers' has been deleted and 'sausage' has been added.
+	- 'peppers' has been deleted and 'sausage' has been added.
 6. Select 'Here are your toppings: $Toppings'.
 
 Now let's try removing everything:
@@ -96,7 +100,7 @@ Now let's try removing everything:
 6. Enter 'remove mushrooms, remove cheese, and remove sausage'.
 7. Click on each of the three, and select '-Toppings'.
 7. Click Score Actions.
-	- Note that all toppings are cleared.
+	- All toppings are cleared.
 2. Select 'What toppings do you want?'
 3. Click Done Teaching
 

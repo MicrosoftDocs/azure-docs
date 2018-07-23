@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
 ---
 
@@ -38,9 +38,9 @@ In addition, there are several business prerequisites. They are:
 To become a publisher in the Azure Marketplace, you must:
 
 1. Create a Microsoft ID - Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual. This email address is used for both the Microsoft Developer Center and Cloud Partner Portal. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
-1. Submit [Azure Marketplace Nomination Form](https://aka.ms/ampnomination) - For **Solution that you intend to publish?**, select **Managed Application**. Once the form is submitted, the Marketplace Onboarding team reviews the application and validates the request. The approval process can take one to three days. When your nomination is approved, you receive a promotional code to waive the registration fee for the developer center. If you do **not** complete the Marketplace Nomination Form, you are asked to pay a $99 registration fee.
-1. Register in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country in which it is registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
-1. Log in to [Cloud Partner Portal](https://cloudpartner.azure.com) - In the publisher profile, associate your Developer Center account with the Marketplace Publisher Profile. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Submit [Azure Marketplace Nomination Form](https://aka.ms/ampnomination) - For **Solution that you intend to publish?**, select **Managed Application**. Once the form is submitted, the Marketplace Onboarding team reviews the application and validates the request. The approval process can take one to three days. When your nomination is approved, you receive a promotional code to waive the registration fee for the developer center. If you do **not** complete the Marketplace Nomination Form, you're asked to pay a $99 registration fee.
+1. Register in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country in which it's registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com) - In the publisher profile, associate your Developer Center account with the Marketplace Publisher Profile. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## Create a new Azure application offer
 
@@ -97,12 +97,13 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
    Fill out the following fields:
 
-   * **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
-   * **Select a package file**: This package contains two required files compressed into a .zip package. One file is a Resource Manager template that defines the resources to deploy for the managed application. The other file defines the [user interface](create-uidefinition-overview.md) for consumers deploying the managed application through the portal. In the user interface, you specify elements that enable consumers to provide parameter values.
+   * **Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
+   * **Package file (.zip)**: This package contains two required files compressed into a .zip package. One file is a Resource Manager template that defines the resources to deploy for the managed application. The other file defines the [user interface](create-uidefinition-overview.md) for consumers deploying the managed application through the portal. In the user interface, you specify elements that enable consumers to provide parameter values.
    * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
    * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
+   * **Policy Settings**: Apply an [Azure Policy](../azure-policy/azure-policy-introduction.md) to your managed application to specify compliance requirements for the deployed solutions. From the available options, select the policies to apply. For **Policy Parameters**, provide a JSON string with the parameter values. For policy definitions and the format of the parameter values, see [Azure Policy Samples](../azure-policy/json-samples.md).
 
-You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
+You can add several authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
 For more information about RBAC, see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 

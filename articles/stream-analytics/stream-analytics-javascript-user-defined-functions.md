@@ -3,24 +3,24 @@ title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Mic
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 
 ms.assetid:
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
+ms.author: rodrigoa
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
 
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
-
+ 
 Azure Stream Analytics supports user-defined functions written in JavaScript. With the rich set of **String**, **RegExp**, **Math**, **Array**, and **Date** methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
 
 In this tutorial, you learn how to:

@@ -12,12 +12,12 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
 ---
 
 # Frequently asked questions (FAQ) about Azure Files
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync (preview) for fast access close to where the data is used.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
 This article answers common questions about Azure Files features and functionality, including the use of Azure File Sync with Azure Files. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
@@ -86,8 +86,8 @@ This article answers common questions about Azure Files features and functionali
 ## Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**What regions are supported for Azure File Sync (preview)?**  
-    Currently, Azure File Sync is available in Australia East, Australia Southeast, Canada Central, Canada East, Central US, East Asia, East US, East US2, North Europe, Southeast Asia, UK South, UK West, West Europe and West US. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
+**What regions are supported for Azure File Sync?**  
+    The list of available regions can be found on the [Region availability](storage-sync-files-planning.md#region-availability) section of the Azure File Sync planning guide. We will continuously add support for additional regions, including non-Public regions.
 
 * <a id="cross-domain-sync"></a>
 **Can I have domain-joined and non-domain-joined servers in the same sync group?**  
@@ -188,7 +188,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Why do tiered files exist outside of the server endpoint namespace?**  
-    Prior to Azure File Sync agent version 3, Azure File Sync blocked the move of tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered to other volumes were unaffected. The reason for this behavior was the the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instanenous rename operations. This means moves will make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync will allow you to move a tiered file outside of the server endpoint. We avoid the negative effects previously mentioned by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This means that moves on the same volume are instaneous, and we do all the work to recall the file to disk after the move has completed. 
+    Prior to Azure File Sync agent version 3, Azure File Sync blocked the move of tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered to other volumes were unaffected. The reason for this behavior was the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instanenous rename operations. This means moves will make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync will allow you to move a tiered file outside of the server endpoint. We avoid the negative effects previously mentioned by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This means that moves on the same volume are instaneous, and we do all the work to recall the file to disk after the move has completed. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc). Should I remove and recreate my server endpoint?**  
@@ -363,4 +363,4 @@ This article answers common questions about Azure Files features and functionali
 ## See also
 * [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Troubleshoot Azure File Sync (preview)](storage-sync-files-troubleshoot.md)
+* [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)

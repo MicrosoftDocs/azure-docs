@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Encrypt a Windows VM | Microsoft Docs
 description: Azure PowerShell Script Sample - Encrypt a Windows VM 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # Encrypt a Windows virtual machine with Azure PowerShell

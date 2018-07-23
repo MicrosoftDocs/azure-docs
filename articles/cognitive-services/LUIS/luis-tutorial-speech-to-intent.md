@@ -26,7 +26,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](create-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
@@ -118,7 +118,7 @@ The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. Th
 The Speech SDK returns the entire LUIS response. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS HumanResources app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS HumanResources app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 Remember to delete the LUIS-Samples directory when you are done using the sample code.
 

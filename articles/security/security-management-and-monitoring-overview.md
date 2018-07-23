@@ -96,8 +96,8 @@ Privileged Identity Management introduces the concept of a temporary admin for a
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Get started with Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Get started with Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## Identity Protection
 Azure AD Identity Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
