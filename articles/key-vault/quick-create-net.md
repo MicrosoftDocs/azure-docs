@@ -42,19 +42,6 @@ Before we go any further, read the basic concepts especially [Managed Service Id
   * Download GIT from [here](https://git-scm.com/downloads).
   * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) You need Azure CLI version 2.0.4 or later. This is available for Windows, Mac, and Linux
 
-## Basic Concepts
-
-Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates.
-
-Below are some key terms:
-
-- **Tenant** - A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization
-- **Vault Owner** - can create a Key Vault gaining full access and control over it. The vault owner can also set up auditing to log who accesses secrets & keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, etc.
-- **Vault Consumer** - can perform actions on the assets inside the Key Vault when the vault owner grants him/her access which depend on the permissions granted.
-- **[Azure Active Directory](../active-directory/active-directory-whatis.md)** is the Azure AD service for a given tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
-- **Azure Tenant ID** - This is a unique way to identify an Azure Active Directory within a Azure Subscription. 
-- **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI)makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview)
-
 ## Login to Azure
 
    To log in to the Azure using the CLI, you can type:
@@ -166,12 +153,16 @@ Make a note of the output when you [publish the application to Azure][]. It shou
         }
         
 Then, run this command using the name of your Key Vault and the value of PrincipalId copied from above:
-```
+
+```azurecli
+
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+
 ```
-    
-## Additional Resources
-- [Azure Key Vault Home Page](https://azure.microsoft.com/en-us/services/key-vault/)
-- [Azure Key Vault Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
-- [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
-- [Azure REST API Reference](https://docs.microsoft.com/en-us/rest/api/keyvault/?redirectedfrom=AzureSamples)
+
+## Next steps
+
+* [Azure Key Vault Home Page](https://azure.microsoft.com/en-us/services/key-vault/)
+* [Azure Key Vault Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
+* [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Azure REST API Reference](https://docs.microsoft.com/en-us/rest/api/keyvault/?redirectedfrom=AzureSamples)
