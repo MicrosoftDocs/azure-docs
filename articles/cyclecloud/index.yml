@@ -46,6 +46,7 @@ sections:
       text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
     - type: list
       style: unordered
+      className: spaced noBullet
       items:
       - html: <a href="clusters">Clusters and Nodes</a>
       - html: <a href="cluster-templates">Cluster Templates</a>
@@ -55,10 +56,9 @@ sections:
       - html: <a href="data-overview">Data Management</a>
   - title: CycleCloud Tools
     items:
-    - type: paragraph
-      text: Learn about the parts and tools that make up Azure CycleCloud.
     - type: list
       style: unordered
+      className: spaced noBullet
       items:
       - html: <a href="pogo-overview">pogo</a>
       - html: <a href="jetpack">Jetpack</a>
@@ -68,7 +68,8 @@ sections:
     items:
     - type: list
       style: unordered
+      className: spaced noBullet
       items:
-        html: <a href="cookbook-reference">Chef Cookbooks</a>
-        html: <a href="node-configuration-reference">Node Configuration Reference</a>
-        html: <a href="cluster-reference">Clusters</a>
+      - html: <a href="cookbook-reference">Chef Cookbooks</a>
+      - html: <a href="node-configuration-reference">Node Configuration Reference</a>
+      - html: <a href="cluster-reference">Clusters</a>
