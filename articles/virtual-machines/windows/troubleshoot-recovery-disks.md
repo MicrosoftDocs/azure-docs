@@ -31,7 +31,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-For the VM that uses managed disk, see [Troubleshoo boot or disk issues for a VM with managed disk](#troubleshoot-boot-or-disk-issues-for-a-VM-with-managed-disk).
+For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
@@ -116,7 +116,7 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
 > [!NOTE]
-> Adding a disk requires you to specify the size of the disk. When attaching an existing disk, the `-DiskSizeInGB` is specified as `$null`. This value ensures the data disk is correctly attached, and without the need to determine the true size of data disk.
+> Adding a disk requires you to specify the size of the disk. As we attach an existing disk, the `-DiskSizeInGB` is specified as `$null`. This value ensures the data disk is correctly attached, and without the need to determine the true size of data disk.
 
 
 ## Mount the attached data disk
@@ -202,13 +202,13 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
-## Troubleshoot boot or disk issues for a VM with managed disk
-1. Stop the affected VM.
-2. [Create a snapshot ](snapshot-copy-managed-disk.md) for the OS Disk of the VM.
-3. [Create a copy of the OS disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the copied OS disk as a data disk to a troubleshoot VM](attach-disk-ps.md).
-5. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the copied OS disk.
-6. [Swap the OS disks for the affected VM](os-disk-swap.md). This step will attach the copied OS disk to the affected VM.
+
+## Troubleshoot a Managed Disk VM by attaching a new OS disk
+1. Stop the effected Managed Disk Windows VM.
+2. [Create a managed disk snapshot](snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
+3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Attach the managed disk as a data disk of the VM](attach-disk-ps.md).
+5. [Change the data disk from step 4 to OS disk](os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
