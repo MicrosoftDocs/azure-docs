@@ -20,10 +20,10 @@ metadata:
 
 abstract:
   description: |
-    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.
-    <ul><li>&#58; Speech-to-text (Speech recognition, SR)&#58; voice commanding, transcription, dictation</li>
-    <li>Speech translation</li>
-    <li>Text-to-speech (TTS)&#58; Synthesis</li></ul>
+    Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.<br/>
+    &#8226; Speech-to-text (Speech recognition, SR)&#58; voice commanding, transcription, dictation<br/>
+    &#8226; Speech translation<br/>
+    &#8226; Text-to-speech (TTS)&#58; Synthesis
 sections:
 - title: 10-minute download and quickstart for the Speech SDK
   items:
