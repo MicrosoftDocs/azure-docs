@@ -12,25 +12,9 @@ manager: carmonm
 ---
 # Use the Azure Automation Graphical runbook SDK
 
-Graphical runbooks are runbooks without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Graphical runbook SDK can be used to create graphical runbooks.
+[Graphical runbooks](automation-graphical-authoring-intro.md) are runbooks without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Graphical runbook SDK can be used to create graphical runbooks.
 
-## Locating the Graphical Authoring assembly
-
-The installation location of the assembly is in the following registry location after installation:
-
-### 32-bit Windows
-
-```
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAutomation\GraphicalAuthoringSDK
-```
-
-### 64-bit Windows
-
-```
-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\AzureAutomation\GraphicalAuthoringSDK
-```
-
-### Create a runbook object instance
+## Create a runbook object instance
 
 Reference the `Orchestrator.GraphRunbook.Model.dll` assembly and create an instance of the `Orchestrator.GraphRunbook.Model.GraphRunbook` class:
 
@@ -41,7 +25,7 @@ using Orchestrator.GraphRunbook.Model.ExecutableView;
 var runbook = new GraphRunbook();
 ```
 
-### Add runbook parameters
+## Add runbook parameters
 
 Instantiate `Orchestrator.GraphRunbook.Model.Parameter` objects and add them to the runbook:
 
@@ -59,7 +43,7 @@ runbook.AddParameter(
  });
 ```
 
-### Add activities and links
+## Add activities and links
 
 Instantiate activities of appropriate types and add them to the runbook:
 
