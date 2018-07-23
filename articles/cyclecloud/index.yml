@@ -41,11 +41,11 @@ sections:
           title: Clusters and Nodes
 
   - title: Reference
-    - items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
+    items:
+    - type: list
+      style: cards
+      className: cardsD
+      items:
         - title: Clusters
           html: <p><a href="clusters">Clusters and Nodes</a></p><p><a href="cluster-templates">Cluster Templates</a></p><p><a href="projects">CycleCloud Projects</a></p><p><a href="custom-images">Custom Images</a></p><p><a href="projects">CycleCloud Projects"</a></p>
         - title: Storage
