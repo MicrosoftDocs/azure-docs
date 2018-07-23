@@ -12,14 +12,11 @@ manager: carmonm
 ---
 # Use the Azure Automation Graphical runbook SDK
 
-[Graphical runbooks](automation-graphical-authoring-intro.md) are runbooks without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Graphical runbook SDK can be used to create graphical runbooks from your applications. The following code snippets show the basic flow of creating a graphical runbook from your code.
+[Graphical runbooks](automation-graphical-authoring-intro.md) are runbooks that help manage the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Microsoft Azure Automation Graphical Authoring SDK enables developers to create and edit Graphical Runbooks for use with the Azure Automation service. The following code snippets show the basic flow of creating a graphical runbook from your code.
 
 ## Pre-requisites
 
-To start import the following packages into your project:
-
-* Microsoft.Azure.Automation.GraphicalRunbook.Model
-* Microsoft.Azure.Automation.GraphicalRunbook.Runtime
+To start, import the `Microsoft.Azure.Automation.GraphicalRunbook.Model` package into your project.
 
 ## Create a runbook object instance
 
