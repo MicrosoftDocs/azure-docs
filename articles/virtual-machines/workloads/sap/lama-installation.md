@@ -32,7 +32,7 @@ ms.author: sedusch
 > [!NOTE]
 > General Support Statement: Please always open an incident with SAP on component BC-VCM-LVM-HYPERV if you need support for SAP LaMa or the Azure connector.
 
-SAP LaMa is used by many customers to operate and monitor their SAP landscape. Since SAP LaMa 3.0 SP05, it ships with a connector to Azure by default. You can use this connector to deallocate and start virtual machines, copy and relocate managed disks, and delete managed disks. With these basic operations, you can relocate, copy, clone and refresh SAP systems using SAP LaMa.
+SAP LaMa is used by many customers to operate and monitor their SAP landscape. Since SAP LaMa 3.0 SP05, it ships with a connector to Azure by default. You can use this connector to deallocate and start virtual machines, copy and relocate managed disks, and delete managed disks. With these basic operations, you can relocate, copy, clone, and refresh SAP systems using SAP LaMa.
 
 This guide describes how you set up the Azure connector for SAP LaMa, create virtual machines that can be used to install adaptive SAP systems and how to configure them.
 
@@ -56,25 +56,25 @@ Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_L
   If SAP LaMa mounts volumes using the SAP Adaptive Extensions on a virtual machine, the mount point must exist if this setting is not enabled.
 
 * Use separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
-  If you use dynamic IP address allocation in the subnet which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
+  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
 * If you log on to managed hosts, make sure to not block file systems from being unmounted  
   If you log on to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
 
 ## Set up Azure connector for SAP LaMa
 
-The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0. The Azure connector uses a Service Principal to authorize against Microsoft Azure. Please follow these steps to create a Service Principal for SAP Landscape Management (LaMa).
+The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0. The Azure connector uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal for SAP Landscape Management (LaMa).
 
 1. Go to https://portal.azure.com
 1. Open the Azure Active Directory blade
 1. Click on App registrations
 1. Click on Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (e.g. http://localhost) and click on Create
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click on Create
 1. The sign-on URL is not used and can be any valid URL
 1. Select the new App and click on Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click on Save
 1. Write down the Value. It is used as the password for the Service Principal
-1. Write down the Application Id. It is used as the username of the Service Principal
+1. Write down the Application ID. It is used as the username of the Service Principal
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to access them.
 
@@ -91,12 +91,12 @@ The Service Principal does not have permissions to access your Azure resources b
 Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Managers and click on Add. Select the Microsoft Azure Cloud Adapter and click Next. Enter the following information:
 
 * Label: Choose a name for the connector instance
-* User Name: Service Principal Application Id
+* User Name: Service Principal Application ID
 * Password: Service Principal key/password
 * URL: Keep default https://management.azure.com/
 * Monitoring Interval (Seconds): Should be at least 300
 * Subscription ID: Azure subscription ID
-* Azure Active Directory Tenant ID: Id of the Active Directory tenant
+* Azure Active Directory Tenant ID: ID of the Active Directory tenant
 * Proxy host: Hostname of the proxy if SAP LaMa needs a proxy to connect to the internet
 * Proxy port: TCP port of the proxy
 
@@ -108,24 +108,24 @@ at the bottom of the website.
 
 ## Provision a new adaptive SAP system
 
-You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). You can also use these templates to provision new hosts as part of a system copy/clone etc.
+You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). You can also use these templates to provision new hosts as part of a system copy/clone etc.
 
 We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa and don’t use dynamic IP addresses to prevent IP address "stealing" when deploying new virtual machines and SAP instances are unprepared.
 
 > [!NOTE]
 > If possible, remove all virtual machine extensions as they might cause long runtimes for detaching disks from a virtual machine.
 
-Make sure that user \<hanasid>adm, \<sapsid>adm and group sapsys exist on the target machine with the same id and gid or use LDAP. Enable and start the NFS server on the virtual machines that should be used to run the SAP NetWeaver (A)SCS.
+Make sure that user \<hanasid>adm, \<sapsid>adm and group sapsys exist on the target machine with the same ID and gid or use LDAP. Enable and start the NFS server on the virtual machines that should be used to run the SAP NetWeaver (A)SCS.
 
 ### Manual Deployment
 
-TODO: The location of the SAP Adaptive Extensions. SAP Note [2343511] lists the minimum patch level required for Azure.
+SAP LaMa communicates with the virtual machine using the SAP Host Agent. If you deploy the virtual machines manually or not using the Azure Resource Manager template from the quickstart repository, make sure to install the latest SAP Host Agent and the SAP Adaptive Extensions. For more information about the required patch levels for Azure, see SAP Note [2343511].
 
 #### Manual deployment of a Linux Virtual Machine
 
 Create a new virtual machine with one of the supported operation systems listed in SAP Note [2343511]. Add additional IP configurations for the SAP instances. Each instance needs at least on IP address and must be installed using a virtual hostname.
 
-The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans and /usr/sap/\<sapsid>adm. The SAP NetWeaver application servers do not need additional disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, it is currently not possible to add additional application servers using SAP LaMa.
+The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. The SAP NetWeaver application servers do not need additional disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, it is currently not possible to add additional application servers using SAP LaMa.
 
 ![SAP NetWeaver ASCS on Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -133,7 +133,7 @@ The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SA
 
 Create a new virtual machine with one of the supported operation systems for SAP HANA as listed in SAP Note [2343511]. Add one additional IP configuration for SAP HANA and one per HANA tenant.
 
-SAP HANA needs disks for /hana/shared, /hana/backup, /hana/data and /hana/log
+SAP HANA needs disks for /hana/shared, /hana/backup, /hana/data, and /hana/log
 
 ![SAP HANA on Linux](media/lama/sap-lama-db-hana.png)
 
@@ -141,7 +141,7 @@ SAP HANA needs disks for /hana/shared, /hana/backup, /hana/data and /hana/log
 
 Create a new virtual machine with one of the supported operation systems for Oracle databases as listed in SAP Note [2343511]. Add one additional IP configuration for the Oracle database.
 
-The Oracle database needs disks for /oracle, /home/oraod1 and /home/oracle
+The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
 ![Oracle database on Linux](media/lama/sap-lama-db-ora-lnx.png)
 
@@ -174,7 +174,7 @@ The components are required to deploy the template. The easiest way to make them
 
 The templates have the following parameters:
 
-* sapSystemId: The SAP system Id. It is used to create the disk layout (for example /usr/sap/\<sapsid>).
+* sapSystemId: The SAP system ID. It is used to create the disk layout (for example /usr/sap/\<sapsid>).
 
 * computerName: The computer name of the new virtual machine. This parameter is also used by SAP LaMa. When you use this template to provision a new virtual machine as part of a system copy, SAP LaMa waits until the host with this computer name can be reached.
 
@@ -190,7 +190,7 @@ The templates have the following parameters:
 
 * sshKeyData: Public SSH key for the virtual machines. Only supported for Linux operating systems.
 
-* subnetId: The id of the subnet you want to use.
+* subnetId: The ID of the subnet you want to use.
 
 * deployEmptyTarget: You can deploy an empty target if you want to use the virtual machine as a target for an instance relocate or similar. In this case, no additional disks or IP configurations are attached.
 
@@ -206,17 +206,17 @@ The templates have the following parameters:
 
 * sapadmPassword: The password for the sapadm user.
 
-* sapadmId: The Linux User Id of the sapadm user. Not required for Windows.
+* sapadmId: The Linux User ID of the sapadm user. Not required for Windows.
 
-* sapsysGid: The Linux group id of the sapsys group. Not required for Windows.
+* sapsysGid: The Linux group ID of the sapsys group. Not required for Windows.
 
-* _artifactsLocation: The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated. Only needed if you do not deploy the template from GitHub.
+* _artifactsLocation: The base URI, where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated. Only needed if you do not deploy the template from GitHub.
 
 * _artifactsLocationSasToken: The sasToken required to access _artifactsLocation. When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Only needed if you do not deploy the template from GitHub.
 
 ### SAP HANA
 
-In the examples below, we assume that you install SAP HANA with system id HN1 and the SAP NetWeaver system with system id AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
+In the examples below, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
 
 #### Install SAP NetWeaver ASCS for SAP HANA
 
@@ -239,7 +239,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 Run SWPM and use *ah1-ascs* for the *ASCS Instance Host Name*.
 
 ![Linux][Logo_Linux] Linux  
-Add the following profile parameter to the SAP Host Agent profile which is located at /usr/sap/hostctrl/exe/host_profile. See SAP Note [2628497] for more details.
+Add the following profile parameter to the SAP Host Agent profile, which is located at /usr/sap/hostctrl/exe/host_profile. For more information, see SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
@@ -300,7 +300,7 @@ Make sure to back up the SYSTEMDB and all tenant databases before you try to do 
 
 ### Microsoft SQL Server
 
-In the examples below, we assume that you install the SAP NetWeaver system with system id AS1. The virtual hostnames are as1-db for the SQL Server instance used by the SAP NetWeaver system, as1-ascs for the SAP NetWeaver ASCS and as1-di-0 for the first SAP NetWeaver application server.
+In the examples below, we assume that you install the SAP NetWeaver system with system ID AS1. The virtual hostnames are as1-db for the SQL Server instance used by the SAP NetWeaver system, as1-ascs for the SAP NetWeaver ASCS and as1-di-0 for the first SAP NetWeaver application server.
 
 #### Install SAP NetWeaver ASCS for SQL Server
 
@@ -412,7 +412,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
 * Error executing SAPinst step: getProfileDir
   * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem)
   * Solution  
-    Make sure that SWPM is running with a user that has access to the profile. This can be configured in the Application Server Installation wizard
+    Make sure that SWPM is running with a user that has access to the profile. This user can be configured in the Application Server Installation wizard
 
 * Error executing SAPinst step: askUnicode
   * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem)
@@ -424,7 +424,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
 * Error executing SAPinst step: dCheckGivenServer
   * Error executing SAPinst step: dCheckGivenServer" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p>
   * Solution  
-    Make sure that SWPM is running with a user that has access to the profile. This can be configured in the Application Server Installation wizard
+    Make sure that SWPM is running with a user that has access to the profile. This user can be configured in the Application Server Installation wizard
 
 * Error executing SAPinst step: checkClient
   * Error executing SAPinst step: checkClient" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p>)
@@ -447,7 +447,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
   syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
   * Solution  
-    Make sure that SWPM is running with a user that has access to the profile. This can be configured in the Application Server Installation wizard
+    Make sure that SWPM is running with a user that has access to the profile. This user can be configured in the Application Server Installation wizard
 
 * Error executing SAPinst step: askPasswords
   * Last error reported by the step: System call failed. DETAILS: Error 5 (0x00000005) (Access is denied.) in execution of system call 'NetValidatePasswordPolicy' with parameter (...), line (359) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), stack trace:  
