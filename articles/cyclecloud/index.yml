@@ -6,7 +6,7 @@ metadata:
   description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters.
   services: cyclecloud
   author: KimliW
-  ms.service: cyclecloud
+  ms.prod: cyclecloud
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: conceptual
