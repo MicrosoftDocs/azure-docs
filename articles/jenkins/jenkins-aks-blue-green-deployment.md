@@ -128,7 +128,6 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     - **&lt;your-location>**
     - **&lt;your-dns-name-suffix>**
 
-
     ![The setup.sh script contains several placeholders that can be modified for your environment.](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Run the setup script.
