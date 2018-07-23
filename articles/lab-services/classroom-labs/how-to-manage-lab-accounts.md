@@ -51,9 +51,9 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
     ![Add user to the Lab Creator role](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## Specify Marketplace images available to lab owners
-In this section, you specify Marketplace images that are available to lab owners who create classroom labs. 
+In this section, you specify Marketplace images that are available to lab owners while creating classroom labs. 
 
-1. Select **Marketplace images** on the menu to the left. You see the images that are automatically enabled for creating the classroom labs. 
+1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list ot see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option in the drop-down list at the top. 
 
     ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
