@@ -56,7 +56,7 @@ You can select mandatory artifacts for Windows and Linux machines separately. Yo
 12. Close the **Configuration and policies** page (select **X** in the upper-right corner) to get back to the home page for your lab.  
 
 ## Delete a mandatory artifact
-To delete a mandatory artifact from a DevTest lab, do the following actions: 
+To delete a mandatory artifact from a lab, do the following actions: 
 
 1. Select **Configuration and policies** under **SETTINGS**. 
 2. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
@@ -64,7 +64,7 @@ To delete a mandatory artifact from a DevTest lab, do the following actions:
 4. Select the message with the number of mandatory artifacts at the top. 
 
     ![Mandatory artifacts page - Select the message](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)
-5. On the **Selected artifacts** page, select **...(ellipis)** for the artifact to be deleted, and select **Remove**. 
+5. On the **Selected artifacts** page, select **...(ellipsis)** for the artifact to be deleted, and select **Remove**. 
     
     ![Mandatory artifacts page - Remove artifact](media/devtest-lab-mandatory-artifacts/remove-artifact.png)
 6. Select **OK** to close the **Selected artifacts** page. 
