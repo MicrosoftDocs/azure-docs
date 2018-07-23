@@ -156,7 +156,7 @@ You can set the DNS name for a service when creating it using the `New-ServiceFa
 ```
 
 ## Making DNS queries on a stateful service partition
-Begining with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions.
+Beginning with Service Fabric version 6.3, the Service Fabric DNS service supports queries for service partitions.
 
 For partitions that will be used in DNS queries, the following naming restrictions apply:
 
