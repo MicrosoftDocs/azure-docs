@@ -1,6 +1,6 @@
 ---
-title: 'Spark History Server: View completed and running Spark applications | Microsoft Docs'
-description: Use Spark History Server to view completed and running Spark applications.
+title: 'Use extended Spark History Server to monitor Spark applications | Microsoft Docs'
+description: Use extended Spark History Server to monitor Spark applications.
 services: hdinsight
 author: jejiang
 manager: DJ
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: jejiang
 ---
-# Use Spark History Server to view Spark applications
+# Use extended Spark History Server to monitor Spark applications
 
-This article provides guidance on how to use Spark History Server to view completed and running spark applications. Check the input/output data under Data tab, and check the data flow under Graph tab.
+This article provides guidance on how to use extended Spark History Server to monitor completed and running Spark applications. The extension currently includes data tab and graph tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph.
 
 ## Open the Spark History Server
 
-Spark History Server is the web UI for completed and running Spark applications. It is an extension of Spark's Web UI.
+Spark History Server is the web UI for completed and running Spark applications. 
 
 ### To open the Spark History Server Web UI from Azure portal
 
@@ -316,4 +316,4 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Contact us
 
-If you have any feedback, or if you encounter any other problems when using this tool, send an email at hdivstool@microsoft.com.
+If you have any feedback, or if you encounter any other problems when using this tool, send an email at ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).
