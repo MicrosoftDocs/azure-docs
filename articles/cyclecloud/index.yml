@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure CycleCloud Documentation
+title: Azure CycleCloud
 metadata:
   title: CycleCloud Documentation - QuickStarts, Concepts, Resources | Microsoft Docs
   description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters.
@@ -69,6 +69,6 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="cookbook-reference">Chef Cookbooks</a>
-      - html: <a href="node-configuration-reference">Node Configuration Reference</a>
-      - html: <a href="cluster-reference">Clusters</a>
+        html: <a href="cookbook-reference">Chef Cookbooks</a>
+        html: <a href="node-configuration-reference">Node Configuration Reference</a>
+        html: <a href="cluster-reference">Clusters</a>
