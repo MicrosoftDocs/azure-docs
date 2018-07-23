@@ -311,6 +311,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 1. Start by retrieving only the columns *firstName*, *lastName*, *gender*, *location*, and *level* from the dataframe you already created.
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+        specificColumnsDf.show()
 
     You get an output as shown in the following snippet:
 
