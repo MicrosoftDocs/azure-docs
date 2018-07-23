@@ -14,6 +14,9 @@
   - name: Run training job - CLI
     href: quickstart-tensorflow-training-cli.md
 - name: Tutorials
+  items:
+  - name: Distributed training using Horovod - Azure Batch AI
+    href: tutorial-horovod-tensorflow.md
 - name: Samples
 - name: Concepts
   items:
