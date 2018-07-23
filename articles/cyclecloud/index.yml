@@ -1,60 +1,74 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure CycleCloud Documentation
+title: Azure CycleCloud
 metadata:
-  document_id:
-  title:
-  meta.description:
-  services:
-  author:
-  manager:
-  ms.service:
-  ms.tgt_pltfrm:
-  ms.devlang:
-  ms.topic: landing-page
-  ms.date:
-  ms.author:
+  title: CycleCloud Documentation - QuickStarts, Concepts, Resources | Microsoft Docs
+  description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters.
+  services: cyclecloud
+  author: KimliW
+  ms.prod: cyclecloud
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.date: 08/01/2018
+  ms.author: a-kiwels
+  ms.technology: cyclecloud
 abstract:
-  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
+  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
+
 sections:
-- title: Quickstarts
-  items:
-  - type: paragraph
-    text: 'Here is some text about our quickstarts (that do not yet exist)'
-- title: How-To
-  items:
-  - type: paragraph
-    text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
-  - type: list
-    style: ordered
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: cyclecloud-application
+          html: <p>Create, manage, operate, and optimize HPC & Big Compute clusters of any scale in Azure with CycleCloud.</p>
+          image:
+            src: media/index/ccswoosh.jpg
+          title: About Azure CycleCloud
+        - href: quickstart-overview
+          html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
+          image:
+            src: media/index/i_quick-start.svg
+          title: QuickStarts
+        - href: clusters
+          html: <p>Use CycleCloud's Cluster Templates to create and scale your jobs quickly.</p>
+          image:
+            src: media/index/i_get-started.svg
+          title: Clusters and Nodes
+
+  - title: Features
     items:
-    - html: Do a Thing
-    - html: Do a Second Thing
-    - html: Thing 3 - The Thingening
-    - html: Custom Alerts (an actual thing)
-- title: Templates
-  items:
-  - type: paragraph
-    text: Download a Cycle-approved template to set up your clusters
-  - type: list
-    style: unordered
-    className: spaced noBullet
+    - type: paragraph
+      text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="clusters">Clusters and Nodes</a>
+      - html: <a href="cluster-templates">Cluster Templates</a>
+      - html: <a href="projects">CycleCloud Projects</a>
+      - html: <a href="custom-images">Custom Images</a>
+      - html: <a href="attach-storage">Storage Options</a>
+      - html: <a href="data-overview">Data Management</a>
+  - title: CycleCloud Tools
     items:
-    - html: Template
-    - html: Template 2 - Electric Boogaloo
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+    - type: paragraph
+      text: Learn about the parts and tools that make up Azure CycleCloud.
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="pogo-overview">pogo</a>
+      - html: <a href="jetpack">Jetpack</a>
+      - html: <a href="scheduler-integration">Scheduler Integration</a>
+      - html: <a href="autoscale-api">Auto-Scale API</a>
+  - title: Reference
     items:
-    - title: Command Line Interface
-      html: CLI
-    - title: Cookbooks
-      html: Cookbooks
-    - title: HealthCheck
-      html: HealthCheck
-    - title: Node Configuration
-      html: Node Nodey Node
-    - title: Dev Guide Contents
-      html: All of the dev guide in all the things
+    - type: list
+      style: unordered
+      items:
+        html: <a href="cookbook-reference">Chef Cookbooks</a>
+        html: <a href="node-configuration-reference">Node Configuration Reference</a>
+        html: <a href="cluster-reference">Clusters</a>

@@ -1,28 +1,22 @@
 {
   "build": {
-    "content": [
-      {
-        "files": [
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-          "**/obj/**",
-          "**/includes/**",
-          "_themes/**",
-          "_themes.pdf/**",
-          "README.md",
-          "LICENSE",
-          "LICENSE-CODE",
-          "ThirdPartyNotices"
-        ]
-      }
-    ],
+    "content":
+       [
+         {
+             "files": ["breadcrumb/toc.yml"]
+         },
+         {
+           "files": ["**/**.md",
+                     "**/**.yml"],
+           "exclude": ["**/obj/**"]
+         }
+       ],
     "resource": [
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -35,10 +29,17 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/cycle/breadcrumb/toc.json",
+    "brand": "azure",
+    "searchScope": ["CycleCloud"],
+      "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+      "author":
+      {
+        "**.md": "KimliW"
+      }
+    },
     "template": [],
     "dest": "cycle_docs_v1"
   }
