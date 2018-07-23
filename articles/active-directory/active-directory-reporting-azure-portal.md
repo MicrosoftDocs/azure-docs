@@ -84,7 +84,7 @@ For more details, see **Comparing generally available features of the Free, Basi
 
 
 
-The **sign-ins activity report** enables to to find answers to questions such as:
+The **sign-ins activity report** enables you to find answers to questions such as:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
