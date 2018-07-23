@@ -17,20 +17,20 @@ Azure SQL Data Warehouse receives improvements continually. This article describ
 
 
 ## Finer granularity for cross region and server restores
-You can now restore across regions and servers using any restore point instead of selecting geo redundant backups which are taken every 24 hours. Cross region and server restore is supported for both user-defined or automatic restore points enabling finer granularity for additional data protection. With more restore points available, you can be assured that your data warehouse will be logically consistent when restoring across regions.
+You can now restore across regions and servers using any restore point instead of selecting geo redundant backups that are taken every 24 hours. Cross region and server restore are supported for both user-defined or automatic restore points enabling finer granularity for additional data protection. With more restore points available, you can be assured that your data warehouse will be logically consistent when restoring across regions.
 
 ![Restore Command - Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/6ac23972-9ec0-4502-ab10-7b6bc1a3d947.png)
 ![Restoration Options - Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/6c63bd0e-9c52-414d-b4be-d3bd3774ee08.png)
 
-See the [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/) blog post for additional details.
+For more information, see the [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/) blog post.
 
 ## 20 Minute Restorations
-SQL Data Warehouse now offers restoration of any datawarehouse is **less than 20 minutes** within the same region regardless of the database size. The restoration time applies whether the restoration is to the same or a different logical server within the same ragion. In addition, the snapshot process has been improved to reduce the amount of time it takes to create a restore point. In lower performance levels (lower DWU settings), the improvement is a *2x reduction* in time for snapshot creation.
+SQL Data Warehouse now offers restoration of any data warehouse is **less than 20 minutes** within the same region regardless of the database size. The restoration time applies whether the restoration is to the same or a different logical server within the same region. In addition, the snapshot process has been improved to reduce the amount of time it takes to create a restore point. In lower performance levels (lower DWU settings), the improvement is a *2x reduction* in time for snapshot creation.
 
-See the [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/) blog post for additional details.
+For more information, see the [Accelerated and Flexible Restore Points](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/) blog post.
 
 ## Custom Restoration Configurations
-When restoring your data warehouse through the Azure portal, not only can you now change your performance level (DWU) when restoring in the Azure portal but you can also restore to an upgraded Gen2 data warehouse. This enables a side-by-side evaluation before [upgrading your Gen1 data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation).
+You can now change your performance level (DWU) when restoring in the Azure portal. You can also restore to an upgraded Gen2 data warehouse. By restoring to a Gen 2 instance, you can now evaluate the impact of Gen2 before [upgrading your Gen1 data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation).
 
 ![Custom Restoration Configuration - Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/f4c410c7-8515-409c-a983-0976792b8628.png)
 
