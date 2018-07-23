@@ -134,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
 
-	c. Clcik **Save**.
+	c. Click **Save**.
 
 ### Create an Azure AD test user
 
