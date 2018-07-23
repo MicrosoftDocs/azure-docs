@@ -17,7 +17,8 @@ ms.date: 07/20/2018
 ms.author: jdial
 
 ---
-# <a name="network-security-groups"></a>Network security groups
+# Security groups
+<a name="network-security-groups"></a>
 
 You can filter network traffic to and from resources in an Azure [virtual network](virtual-networks-overview.md) with a network security group. A network security group contains [security rules](#security-rules) that allow or deny inbound network traffic to, or outbound network traffic from an Azure resource. For each rule, you can specify source and destination, port, and protocol. You can enable [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to [analyze network traffic](../network-watcher/traffic-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to and from resources that have an associated network security group.
 
