@@ -66,7 +66,7 @@ Instantiate activities of appropriate types and add them to the runbook:
 ```csharp
 var writeOutputActivityType = new CommandActivityType {
  CommandName = "Write-Output",
-  ModuleName = "Microsoft.PowerShell.Utility"
+  ModuleName = "Microsoft.PowerShell.Utility",
  InputParameterSets = new [] {
   new ParameterSet {
    Name = "Default",
@@ -103,10 +103,10 @@ Activities are implemented by the following classes in the `Orchestrator.GraphRu
 
 |Class  |Activity  |
 |---------|---------|
-|CommandActivity     | Invokes a PS command (cmdlet, function, etc.).        |
+|CommandActivity     | Invokes a PowerShell command (cmdlet, function, etc.).        |
 |InvokeRunbookActivity     | Invokes another runbook inline.        |
 |JunctionActivity     | Waits for all incoming branches to finish.        |
-|WorkflowScriptActivity     | Executes a block of PS Workflow code in the context of the runbook. This is a powerful tool, but do not overuse it: the UI will show this script block as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. If you just need to invoke a single PS command, prefer CommandActivity.        |
+|WorkflowScriptActivity     | Executes a block of PowerShell or PowerShell Workflow code (depending on the runbook type) in the context of the runbook. This is a powerful tool, but do not overuse it: the UI will show this script block as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. If you just need to invoke a single PowerShell command, prefer CommandActivity.        |
 
 > [!NOTE]
 > Do not derive your own activities from the provided classes: Azure Automation will not be able to use runbooks with custom activity types.
@@ -122,7 +122,7 @@ CommandActivity and InvokeRunbookActivity parameters must be provided as value d
 |AutomationVariableValueDescriptor     | Refers to an Automation Variable asset by name.         |
 |AutomationCredentialValueDescriptor     | Refers to an Automation Certificate asset by name.        |
 |AutomationConnectionValueDescriptor     | Refers to an Automation Connection asset by name.        |
-|PowerShellExpressionValueDescriptor     | Specifies a free-form PS expression that will be evaluated just before invoking the activity.  <br/>This is a powerful tool, but do not overuse it: the UI will show this expression as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. When possible, prefer more specific value descriptors.      |
+|PowerShellExpressionValueDescriptor     | Specifies a free-form PowerShell expression that will be evaluated just before invoking the activity.  <br/>This is a powerful tool, but do not overuse it: the UI will show this expression as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. When possible, prefer more specific value descriptors.      |
 
 > [!NOTE]
 > Do not derive your own value descriptors from the provided classes: Azure Automation will not be able to use runbooks with custom value descriptor types.
