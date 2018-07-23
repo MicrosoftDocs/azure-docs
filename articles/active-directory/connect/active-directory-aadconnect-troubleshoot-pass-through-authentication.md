@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -92,7 +92,7 @@ Ensure that you use a cloud-only Global Administrator account for all Azure AD C
 
 If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
 
-Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the feature
 
@@ -107,18 +107,6 @@ Ensure that the server on which Azure AD Connect is installed can communicate wi
 ### Enabling the feature failed due to token or account authorization errors
 
 Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
-
-## Exchange ActiveSync configuration issues
-
-These are the common issues when you configure Exchange ActiveSync support for Pass-through Authentication.
-
-### Exchange PowerShell issue
-
-If you see the "**A parameter cannot be found that matches parameter name 'PerTenantSwitchToESTSEnabled'\.**" error when you run the `Set-OrganizationConfig` Exchange PowerShell command, contact Microsoft Support.
-
-### Exchange ActiveSync not working
-
-The configuration takes some time to take effect - the time period depends on your environment. If the situation persists for a long time, contact Microsoft Support.
 
 ## Collecting Pass-through Authentication Agent logs
 
