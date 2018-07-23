@@ -212,11 +212,11 @@ If you run into history server error, use the script below which will upload the
 
 **Usage**: 
 
-`"upload_shs_log.sh ${blob_link}" ${log_path} ${log_max_MB_size}`
+`upload_shs_log.sh "${blob_link}" ${log_path} ${log_max_MB_size}`
 
 **Example**:
 
-`"upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}{SAS_query_string}" /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
+`upload_shs_log.sh "https://${account_name}.blob.core.windows.net/${blob_container}/${log_file}{SAS_query_string}" /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
 
 For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. Fill in the active head node alias.
 
