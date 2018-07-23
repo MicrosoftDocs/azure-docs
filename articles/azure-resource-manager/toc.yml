@@ -15,6 +15,13 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create encrypted storage account
+    href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+  - name: Create multiple resources
+    href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: Concepts
   items:
   - name: Resource providers and types

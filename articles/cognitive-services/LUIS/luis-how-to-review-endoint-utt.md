@@ -74,4 +74,4 @@ To delete several utterances, select each item and select on the trash bin to th
 
 ## Next steps
 
-To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](interactive-test.md).
+To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](luis-interactive-test.md).
