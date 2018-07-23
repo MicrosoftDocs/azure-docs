@@ -10,7 +10,7 @@ ms.custom: bfmigrate
 
 # Introduction
 
-In July 2018 we announced that we will decommission the Microsoft Cloud Germany. We took strong effort in providing you a helping guide how to migrate your Azure resources to public Azure. Please feel free to provide us feedback wherever you think it's appropriate.
+some fancy introduction here...
 
 ## Why these extra migration articles?
 
