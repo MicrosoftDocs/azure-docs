@@ -223,7 +223,7 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 ## Next steps
 
 * Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
-* [Learn how to order device connected and disconneced event](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Learn how to order device connected and disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Learn about what else you can do with [Event Grid](overview.md).
 
 

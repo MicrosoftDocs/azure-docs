@@ -141,7 +141,7 @@ Applications that handle IoT Hub events should follow these suggested practices:
 ## Next steps
 
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Learn how to order device connected and disconneced event](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Learn how to order device connected and disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Learn more about Event Grid][lnk-eg-overview]
 * [Compare the differences between routing IoT Hub events and messages][lnk-eg-compare]
 
