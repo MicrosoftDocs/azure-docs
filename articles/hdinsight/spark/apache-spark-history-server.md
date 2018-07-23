@@ -312,3 +312,8 @@ If you want to upgrade with hotfix, please use **upgrade_spark_enhancement.sh**,
 1.	Currently, it only works for Spark 2.3 cluster.
 
 2.	Input/output data using RDD will not show in data tab.
+
+
+## Contact us
+
+If you have any feedback, or if you encounter any other problems when using this tool, send an email at hdivstool@microsoft.com.
