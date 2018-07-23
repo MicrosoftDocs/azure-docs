@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
@@ -29,7 +29,7 @@ To avoid confusion, many companies want to apply a consistent look and feel acro
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
 Company branding customizations appear on the Azure AD sign-in page when users access a tenant-specific URL such as
-[*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+[*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) or passing the domain vaiable in the URL like [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)
 
 For example, when users visit www.office.com, the sign-in page doesn't show any company branding customizations because the user has not yet entered credentials. After a user enters their user ID or selects a user tile, company branding displays.
 
