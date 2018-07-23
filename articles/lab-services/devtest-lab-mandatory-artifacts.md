@@ -55,6 +55,22 @@ You can select mandatory artifacts for Windows and Linux machines separately. Yo
     ![Mandatory artifacts page - Save artifacts in lab](media/devtest-lab-mandatory-artifacts/save-to-lab.png)
 12. Close the **Configuration and policies** page (select **X** in the upper-right corner) to get back to the **DevTest Lab** page.  
 
+## Delete a mandatory artifact
+To delete a mandatory artifact from a DevTest lab, do the following actions: 
+
+1. Select **Configuration and policies** under **SETTINGS**. 
+2. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
+3. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
+4. Select the message with the number of mandatory artifacts at the top. 
+
+    ![Mandatory artifacts page - Select the message](media/devtest-lab-mandatory-artifacts/select-message-artifacts.png)
+5. On the **Selected artifacts** page, select **...(ellipis)** for the artifact to be deleted, and select **Remove**. 
+    
+    ![Mandatory artifacts page - Remove artifact](media/devtest-lab-mandatory-artifacts/remove-artifact.png)
+6. Select **OK** to close the **Selected artifacts** page. 
+7. Select **Save** on the **Mandatory artifacts** page.
+8. Repeat steps for **Linux** images if needed. 
+9. Select **Save** to save all the changes to the lab. 
 
 ## View mandatory artifacts when creating a VM
 Now, as a lab user you can view the list of mandatory artifacts while creating a VM in the lab. You can't edit or delete mandatory artifacts set in the lab by your lab owner.
