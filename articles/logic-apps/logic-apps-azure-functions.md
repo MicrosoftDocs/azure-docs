@@ -178,15 +178,27 @@ After the functions list opens, select this action:
    1. In the **Function name** box, 
    provide a name for your function. 
 
-   2. In the **Code** box, replace the template code 
-   with your function code, including the response 
-   and payload you want returned to your logic app 
-   after your function finishes running. 
-   The `context` object in the template code 
-   contains the message and content that your 
+   2. In the **Code** box, add your function 
+   code to the template, including the response 
+   and payload you want returned to your logic 
+   app after your function finishes running. 
+   The context object in the template code 
+   describes the message and content that your 
    logic app passes to your function, for example:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
+
+      Inside your function, you can reference the properties 
+      in the context object by using this syntax:
+
+      ```text
+      context.<token-name>.<property-name>
+      ```
+      For this example, here is the syntax you'd use:
+
+      ```text
+      context.body.content
+      ```
 
    3. When you're done, choose **Create**.
 
@@ -197,7 +209,8 @@ in JavaScript Object Notation (JSON).
    When you click in the **Request Body** box, 
    the dynamic content list opens so you can select 
    tokens for properties available from previous steps. 
-   This example passes in the **From** property from the email trigger:  
+   This example passes the object in the 
+   **Body** token from the email trigger:  
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -205,17 +218,11 @@ in JavaScript Object Notation (JSON).
    the Logic App Designer generates a function 
    template that you can then edit inline. 
    Logic Apps also creates variables based on 
-   the input context object. Inside your function, 
-   you can reference the content in the context object 
-   by using this syntax, based on this example:
-
-   ```text
-   context.body.content
-   ```
+   the input context object.
 
    In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
-   However, if the object isn't a JSON token, that is, 
+   However, if the object isn't a JSON token, which must be 
    either a string, a JSON object, or a JSON array, you get an error. 
    To cast the context object as a string, add double-quotation marks, 
    for example:
@@ -253,14 +260,17 @@ After the functions list appears, select your function:
 5. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
 in JavaScript Object Notation (JSON). This context object 
-contains the message and content that your logic app 
+describes the message and content that your logic app 
 sends to your function. 
+
+   This example passes the object in the 
+   **Body** token from the email trigger:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    In this example, the context object isn't cast as a string, 
    so the content gets directly added to the JSON payload. 
-   However, if the object isn't a JSON token, that is, 
+   However, if the object isn't a JSON token, which must be 
    either a string, a JSON object, or a JSON array, you get an error. 
    To cast the context object as a string, add double-quotation marks, 
    for example:
