@@ -314,6 +314,6 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 2.	Input/output data using RDD will not show in data tab.
 
 
-## Feedback
+## Contact us
 
 If you have any feedback, or if you encounter any other problems when using this tool, send an email at hdivstool@microsoft.com.
