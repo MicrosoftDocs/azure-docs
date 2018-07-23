@@ -7,13 +7,15 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/14/2018
+ms.date: 07/27/2018
 ms.author: marsma
 ---
 
 # Delete container images in Azure Container Registry
 
-To maintain the size of your Azure container registry, you should periodically delete stale image data. Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article first introduces the components of a Docker registry and container images, then covers several methods for deleting image data.
+To maintain the size of your Azure container registry, you should periodically delete stale image data. While some container images deployed into production may require longer-term storage, others can typically be deleted more quickly. For example, in an automated build and test scenario, your registry can quickly fill with images that might never be deployed, and can be purged shortly after completing the build and test pass.
+
+Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article first introduces the components of a Docker registry and container images, then covers several methods for deleting image data.
 
 ## Registry
 
@@ -32,8 +34,11 @@ acr-helloworld:v2
 Repositories names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you group images using forward slash-delimited repository names, for example:
 
 ```
-acr-helloworld/test:v3
-acr-helloworld/prod:v2
+marketing/campaign10-18/web:v2
+marketing/campaign10-18/api:v3
+marketing/campaign10-18/email-sender:v2
+product-returns/web-submission:20180604
+product-returns/legacy-integrator:20180715
 ```
 
 ## Components of an image
@@ -54,7 +59,9 @@ You can push and pull an image by specifying its name in the push or pull operat
 
 ### Layer
 
-Images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a repository can share layers, reducing the storage used by images sharing layers. Network traffic is also minimized, since layers already existing in the local filesystem do not need to be pulled again. Only new or modified layers are pulled from the registry.
+Images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a registry share common layers, increasing storage efficiency. For example, several images in different repositories might share the same Alpine Linux base layer, but only one copy of that layer is stored in the registry.
+
+Layer sharing also optimizes layer distribution to nodes with multiple images sharing common layers. For example, if an image already on a node includes the Alpine Linux layer as its base, the subsequent pull of a different image referencing the same layer doesn't transfer the layer to the node. Instead, it references the layer already existing on the node.
 
 ### Manifest
 
