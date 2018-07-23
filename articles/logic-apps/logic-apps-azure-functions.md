@@ -4,11 +4,16 @@ description: Learn how to add and run custom code snippets in Azure Logic Apps w
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
-ms.author: estfan
 manager: jeconnoc
+services: logic-apps
+documentationcenter:
+
+ms.assetid:
+ms.service: logic-apps
+ms.workload: logic-apps
 ms.topic: article
 ms.date: 07/20/18
-ms.reviewer: klam, LADocs
+ms.author: LADocs; estfan
 ms.suite: integration
 ---
 
