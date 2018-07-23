@@ -291,7 +291,7 @@ In the deployment manifest:
 If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
 
 ### Root cause
-The `Get-WinEvent` Powershell command relies on an registry entry to pbe present to find logs by a specific `ProviderName`.
+The `Get-WinEvent` Powershell command relies on an registry entry to be present to find logs by a specific `ProviderName`.
 
 ### Resolution
 Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
