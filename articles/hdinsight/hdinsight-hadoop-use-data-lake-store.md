@@ -127,7 +127,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Refresh the HDInsight certificate for Data Lake Store access
 
-The following example PowerShell code reads a local certificate file, and updated your HDInsight cluster with the new certificate to access Azure Data Lake Store. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted. 
+The following example PowerShell code reads a local certificate file, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Store. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
 
 ```powershell-interactive
 $clusterName = 'MyCluster'
