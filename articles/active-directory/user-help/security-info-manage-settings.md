@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Manage your security info (preview)
+# Manage your security info (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

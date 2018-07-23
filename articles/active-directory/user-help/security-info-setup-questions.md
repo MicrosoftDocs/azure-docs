@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Set up your security info to use pre-defined security questions (preview)
+# Set up your security info to use pre-defined security questions (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

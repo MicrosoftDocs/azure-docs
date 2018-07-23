@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Set up your security info to use your email address (preview)
+# Set up your security info to use your email address (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

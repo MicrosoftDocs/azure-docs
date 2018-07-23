@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Sign in using two-step verification or security info
+# Sign in using two-step verification or security info
 
 After you set up two-step verification or security info, you'll be able to sign in to your work or school account using your specified authentication method.
 

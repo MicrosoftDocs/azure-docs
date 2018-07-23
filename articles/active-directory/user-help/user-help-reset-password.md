@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Reset your work or school password
+# Reset your work or school password
 
 If you forgot your password, never got one from your company support, or have been locked out of your account, you can use your security info and your mobile device to reset your password.
 
