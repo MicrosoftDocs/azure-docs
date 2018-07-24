@@ -60,7 +60,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 ## Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
 
-## .NET custom activity
+## Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
 You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 

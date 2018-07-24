@@ -2,13 +2,13 @@
 title: Understand the prediction score returned by LUIS - Azure | Microsoft Docs
 description: Learn what the prediction score means in LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Prediction score
@@ -52,6 +52,9 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 When you train the same model in a different app, and the scores are not this same, this is because there is an element of randomness in the training. Secondly, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
 
 If your chatbot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
+
+## Punctuation
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns}(luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 ## Next steps
 

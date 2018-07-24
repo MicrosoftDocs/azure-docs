@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
@@ -20,6 +20,16 @@ SQL Data Sync is a service built on Azure SQL Database that lets you synchronize
 
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
 
+Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
+-   The **Hub Database** must be an Azure SQL Database.
+-   The **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
+-   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
+
+> [!NOTE]
+> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
+
 A Sync Group has the following properties:
 
 -   The **Sync Schema** describes which data is being synchronized.
@@ -29,16 +39,6 @@ A Sync Group has the following properties:
 -   The **Sync Interval** describes how often synchronization occurs.
 
 -   The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
-
-Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
--   The **Hub Database** must be an Azure SQL Database.
--   The **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
--   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
-
-> [!NOTE]
-> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
 
 ## When to use Data Sync
 
@@ -50,7 +50,7 @@ Data Sync is useful in cases where data needs to be kept up-to-date across sever
 
 -   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
 
-Data Sync is not the best solution for the following scenarios:
+Data Sync is not the preferred solution for the following scenarios:
 
 | Scenario | Some recommended solutions |
 |----------|----------------------------|
