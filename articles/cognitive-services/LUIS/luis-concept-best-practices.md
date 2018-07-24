@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: dina.berry
+ms.author: diberry
 ---
 # Best practices
 Use the app authoring process to build your LUIS app. 
