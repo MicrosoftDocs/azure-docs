@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
 # Directory roles you can manage using Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-You can assign users in your organization to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Office 365 and other Microsoft Online Services and connected applications.  
+You can assign users in your organization to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Office 365, and other Microsoft Online Services and connected applications.  
 
 A Global Administrator can update which users are **permanently** assigned to roles in Azure AD through the portal as described in [assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
@@ -74,7 +74,7 @@ Access to Microsoft Online Services may require the user also be assigned a lice
 1. Sign in to the [Azure portal](http://portal.azure.com) with a global administrator account or a co-administrator account.
 3. Select Azure AD and the directory you want to work with and that has licenses associated with it.
 4. Select **Licenses** on the left. The list of available licenses will appear.
-5. Select the license plan which contains the licenses that you want to distribute.
+5. Select the license plan that contains the licenses you want to distribute.
 6. Select **Assign Users**.
 7. Select the user that you want to assign a license to.
 8. Click the **Assign** button.  The user can now sign in to Azure.
