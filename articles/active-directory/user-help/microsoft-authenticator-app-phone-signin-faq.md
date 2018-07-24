@@ -40,7 +40,7 @@ If your organization uses Azure Active Directory for identity management and aut
 
 1.	Sign in to your work or school account, as normal.
 
-        After typing your username, you'll see a page with a 2-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
+    After typing your username, you'll see a page with a 2-digit number, asking you to approve the sign-in through the Microsoft Authenticator app. If you don’t want to use this sign in method, you can select **Use your password instead**, and sign in using your password.
 
     ![Sign-in page](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
  
