@@ -6,11 +6,6 @@ author: markgalioto
 manager: carmonm
 keywords: backup and disaster recovery; backup service
 ms.service: backup
-<<<<<<< HEAD
-ms.topic: conceptual
-ms.date: 5/9/2018
-ms.author: markgal
-=======
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +13,12 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark; adigan;
 
->>>>>>> Adding WS 2016
 ---
 # Questions about the Azure Backup service
 This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
-<<<<<<< HEAD
-=======
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
 | Windows 8 and latest SPs |64 bit |Enterprise, Pro |
@@ -41,7 +33,6 @@ To quickly scan the sections in this article, use the links to the right, under 
 | Windows Server 2012 R2 and latest SPs |64 bit |Essential |
 | Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 | Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
->>>>>>> Adding WS 2016
 
 ## Recovery services vault
 
