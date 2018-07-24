@@ -112,7 +112,9 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   A table cannot have an identity column that is not the primary key.
 
--   A primary key cannot have the datetime data type.
+-   A primary key cannot have the following data types: sql_variant, binary, varbinary, image, xml. 
+
+-   Be extremely cautious when using following data types as primary key (support precision: second): time, datetime, datetime2, datetimeoffset.
 
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
@@ -126,7 +128,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   XMLSchemaCollection (XML supported)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### Unsupported column types
 
