@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -230,10 +230,6 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-
-
-```(user.proxyAddresses -any (_ -contains "contoso"))```
-
 ## Multi-value properties
 
 Allowed operators
@@ -269,6 +265,8 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.
 
 Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds any user with proxy address that contains "contoso" to the group.
+
+```(user.proxyAddresses -any (_ -contains "contoso"))```
 
 ## Use of Null values
 
