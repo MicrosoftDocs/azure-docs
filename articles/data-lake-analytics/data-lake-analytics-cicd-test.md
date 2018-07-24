@@ -131,7 +131,7 @@ CPPSDK is a package that includes Microsoft Visual C++ 14 and Windows SDK 10.0.1
 The most common way to prepare the CPPSDK dependency in Visual Studio Team Service is as follows:
 
 1.	Zip the folder  that includes the CPPSDK libraries.
-2.	Check in the .zip file to your source control system.   
+2.	Check in the .zip file to your source control system. (The .zip file ensures that you check in all libraries under the CPPSDK folder so that some files aren't ignored by ".gitignore".)   
 3.	Unzip the .zip file in the build pipeline.
 4.	Point `USqlScriptTestRunner` to this unzipped folder on the build machine.
 
