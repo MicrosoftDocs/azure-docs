@@ -97,7 +97,7 @@ sections:
     className: cardsD
     items:
     - title: Samples
-      html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
+      html: <ul><li><a href="speech-to-text-sample.md">Speech-to-text (SR)</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
       html: |
         <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></li>
@@ -107,9 +107,9 @@ sections:
   - type: paragraph
     text: |
       Our Speech Service also lets you customize models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.<br/>
-      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized Speech to Text</a><br/>
-      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized Speech Translation</a><br/>
-      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized Text to Speech</a>
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Customized speech-to-text</a><br/>
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Customized speech-translation</a><br/>
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Customized text-to-speech</a>
 - title: Speech enabled HW reference design
   items:
   - type: paragraph
