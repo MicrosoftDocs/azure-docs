@@ -20,6 +20,6 @@ This service is already covered under [Compute](./germany-migration-compute.md#f
 
 # Notification Hub
 
-This service is already covered under [Web](./germany-migration-web.md#notification-hub)
+This service is already covered under [Web](./germany-migration-web.md#notification-hubs)
 
 # IoT Hub
