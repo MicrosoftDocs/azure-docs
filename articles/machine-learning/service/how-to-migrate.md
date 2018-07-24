@@ -20,12 +20,15 @@ The following table and article explain what you can do with your existing asset
 
 |Previous preview asset or resource|Can I migrate?|What to do?|
 |-----------------|:-------------:|-------------|
-|Machine learning models|Yes|None. Works as before.|
-|Model dependencies & schemas|Yes|None. Works as before.|
+|Machine learning models (as local files)|Yes|None. Works as before.|
+|Model dependencies & schemas (as local files)|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
-|Deployments: web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
+|Registered Models|No|You must re-register the model under a the new workspace.|
+|Registered Manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
+|Registered Images|No|You must re-create the deployment Docker image under a new workspace.|
+|Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
 |Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|
 
