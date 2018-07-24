@@ -77,6 +77,8 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 
 ## Download a sample data file
+Download a sample JSON data file and save it into Azure blob storage.
+
 1. Download this sample JSON data file [from Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) onto your local computer. Right-click and save as to save the raw file locally. 
 
 2. If you don't already have a storage account, create one. 
@@ -96,7 +98,8 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
    - Select  **Private (non anonymous access)** access level.
    - Once the container is created, select the container name.
    - Select the **Upload** button.
-   - On the Files page, select the folder icon to browser to a local file for upload. 
+   - On the **Files** page, select the **Folder icon** to browse and select the sample file `small_radio_json.json` for upload. 
+   - Select **Upload** to upload the file.
    
 ## Run a Spark SQL job
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
