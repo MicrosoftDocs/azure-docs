@@ -2,13 +2,13 @@
 title: Train your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) to train your model.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Train your LUIS app
