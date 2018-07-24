@@ -58,7 +58,7 @@ In this article, you learn how to:
 
 If the imported Azure Functions apps are protected by keys, API Management automatically creates *named values* for the keys. API Management doesn't populate the entries with secrets. Complete the following steps for each entry:  
 
-1. Go to the **Named values** tab in the API Management instance.
+1. In the API Management instance, select the **Named values** tab.
 2. Select an entry, and then select **Show value** in the sidebar.
 
     ![Named values](./media/import-function-app-as-api/apim-named-values.png)
