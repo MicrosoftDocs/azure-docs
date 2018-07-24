@@ -208,8 +208,8 @@ From the actions list, select this action:
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 4. From the function apps list, select your function app. 
-After the functions list opens, select this action: 
-**Create New Function  - Azure Functions**
+After the actions list opens, select this action: 
+**Azure Functions - Create New Function**
 
    ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
