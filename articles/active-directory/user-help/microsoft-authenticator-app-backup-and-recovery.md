@@ -6,6 +6,7 @@ author: eross-msft
 manager: mtillman
 
 ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/28/2018

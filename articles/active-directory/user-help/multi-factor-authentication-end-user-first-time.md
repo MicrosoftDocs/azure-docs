@@ -9,6 +9,7 @@ ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 
 ms.workload: identity
+ms.service: active-directory
 ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017

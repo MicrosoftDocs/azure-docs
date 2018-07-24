@@ -7,6 +7,7 @@ manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 
 ms.workload: identity
+ms.service: active-directory
 ms.component: user-help
 ms.topic: overview
 ms.date: 06/15/2017
