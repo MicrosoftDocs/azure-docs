@@ -1,5 +1,5 @@
 ---
-title: Set up security info to use a text message - Azure Active Directory | Microsoft Docs
+title: Set up security info to use text messaging - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using a text (SMS) message.
 services: active-directory
 author: eross-msft
@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# Set up your security info to use a text (SMS) message (preview)
+# Set up security info to use text messaging (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -35,7 +35,7 @@ You have options for how your organization contacts you to verify your identity,
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
 
-## Set your verification method to a text message
+## Set up text messaging
 
 Follow this process to set your security info to use your phone number for both two-step verification and self-service password reset.
 

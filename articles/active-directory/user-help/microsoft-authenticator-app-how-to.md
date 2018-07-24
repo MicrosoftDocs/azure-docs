@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator app for mobile phones - Azure Active Directory | Microsoft Docs
+title: Get started with the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
 description: Learn how to upgrade to the latest version of Microsoft Authenticator.
 services: active-directory
 author: eross-msft

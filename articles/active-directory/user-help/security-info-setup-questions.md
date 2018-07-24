@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# Set up your security info to use pre-defined security questions (preview)
+# Set up security info to use pre-defined security questions (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -35,7 +35,7 @@ You have options for how your organization contacts you to verify your identity,
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
 
-## Set your verification method to use security questions
+## Set up security questions
 
 Your security info is updated to use several pre-defined questions set up by your administrator to verify your identity when using two-step verification.
 

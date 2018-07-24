@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# Set up your security info to use an authenticator app (preview)
+# Set up security info to use an authenticator app (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -35,9 +35,9 @@ You have options for how your organization contacts you to verify your identity,
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
 
-## Set your verification method to the Microsoft Authenticator app
+## Set up the Microsoft Authenticator app
 
-Follow this process to set your security info to use the Microsoft Authenticator app for both two-step verification and self-service password reset. To download and learn more about the Authenticator app, see [Get started with two-step verification](microsoft-authenticator-app-how-to.md).
+Follow this process to set your security info to use the Microsoft Authenticator app for both two-step verification and password reset. To download and learn more about the Microsoft Authenticator app, see [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md).
 
 >[!Note]
 >If you don't want to use the Microsoft Authenticator app, you can choose a different app during set up. This article uses the Microsoft Authenticator app.

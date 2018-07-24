@@ -23,28 +23,28 @@ After you set up two-step verification or security info, you'll be able to sign 
 
 ## Sign in using an authenticator app notification on your mobile device
 
-1. sign in to your work or school account with your username and password.
+1. Sign in to your work or school account with your username and password.
 
 2. Select **Approve** from the approval notification sent to your mobile device.
 
 
 ## Sign in using an authenticator app code on your mobile device
 
-1. sign in to your work or school account with your username and password.
+1. Sign in to your work or school account with your username and password.
 
 2. Open your authenticator app and type the randomly generated code for your account into the **Enter code** box.
 
 
 ## Sign in using your phone number
 
-1. sign in to your work or school account with your username and password.
+1. Sign in to your work or school account with your username and password.
 
 2. Answer your phone and follow the instructions.
 
 
 ## Sign in using a text message
 
-1. sign in to your work or school account with your username and password.
+1. Sign in to your work or school account with your username and password.
 
 2. Open the text message and type the code from your text message into the **Enter code** box.
 

@@ -14,7 +14,7 @@ ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# Set up your security info to use your email address (preview)
+# Set up security info to use email (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -35,7 +35,7 @@ You have options for how your organization contacts you to verify your identity,
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
 
-## Set your verification method to your email address
+## Set up email
 
 Follow this process to set your verification method to use your work or school email address.
 
