@@ -419,7 +419,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
     ![Verify sample table](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify sample table")
 
-7. Run a select query to verify the contents of the table. It should have the same data as the **renamedColumnsDF** dataframe.
+7. Run a select query to verify the contents of the table. It should have the same data as the **renamedColumnsDf** dataframe.
 
     ![Verify sample table content](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verify sample table content")
 
