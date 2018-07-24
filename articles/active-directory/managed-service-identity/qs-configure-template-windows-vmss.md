@@ -31,6 +31,10 @@ In this article, you learn how to perform the following Managed Service Identity
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user assigned identity from and to a virtual machine scale set.
 
 ## Azure Resource Manager templates
 
@@ -109,6 +113,9 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
 
 1. Under the `resources` element, add the following entry to assign a user assigned identity to your VMSS.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
 
+   > [!Important]
+   > The `<USERASSIGNEDIDENTITYNAME>` value shown in the following example must be stored in a variable.  Also, for the currently supported implementation of assigning user assigned identities to a virtual machine in a Resource Manager template, the api version must match the version in the following example. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -117,7 +124,7 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

@@ -88,6 +88,7 @@ Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/tra
 
 The IP to Location is a preview service that allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
+For information on the REST APIs for IP to Location service, visit the [Azure Maps Geolocation APIs](https://docs.microsoft.com/rest/api/maps/geolocation) page.
 
 ## Programming model
 

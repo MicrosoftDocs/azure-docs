@@ -973,7 +973,7 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Basics of Batch](../../batch/batch-technical-overview.md)
   * [Overview of Batch features](../../batch/batch-api-basics.md)
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
-  * [Get started with the Batch client library for .NET](../../batch/batch-dotnet-get-started.md)
+  * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
