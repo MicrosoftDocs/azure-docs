@@ -2,13 +2,13 @@
 title: Enterprise concepts for a LUIS app - Azure | Microsoft Docs
 description: Understand design concepts for large LUIS apps.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Enterprise strategies for a LUIS app
