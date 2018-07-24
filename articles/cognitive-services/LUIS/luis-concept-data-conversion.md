@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: dina.berry
+ms.author: diberry
 ---
 
 # Data conversion concepts in LUIS

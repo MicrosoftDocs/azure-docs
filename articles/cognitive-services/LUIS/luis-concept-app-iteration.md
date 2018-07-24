@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: dina.berry
+ms.author: diberry
 ---
 # Authoring cycle
 LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 

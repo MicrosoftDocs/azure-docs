@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: dina.berry
+ms.author: diberry
 ---
 
 # Batch testing in LUIS
