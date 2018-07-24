@@ -79,7 +79,7 @@ The following snippet shows the HTTPS 1.1 request details for updating device tw
     }
 
 ## Querying for progress on jobs
-The following snippet shows the HTTPS 1.1 request details for [querying for jobs][lnk-query]:
+The following snippet shows the HTTPS 1.1 request details for querying for jobs:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -89,6 +89,8 @@ The following snippet shows the HTTPS 1.1 request details for [querying for jobs
     User-Agent: <sdk-name>/<sdk-version>
 
 The continuationToken is provided from the response.  
+
+You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing][lnk-query].
 
 ## Jobs Properties
 The following list shows the properties and corresponding descriptions, which can be used when querying for jobs or job results.
