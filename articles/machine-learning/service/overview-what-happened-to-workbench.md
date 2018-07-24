@@ -14,7 +14,7 @@ ms.date: 07/27/2018
  
 In September 2017, Azure Machine Learning Services first went Public Preview in Azure portal. Since then, our customers have shared their feedback and we've been listening. 
 
-We are pleased to announce that the August 2018 Public Preview version contains many significant updates based on that feedback to improve your experience. Some early features, such as the installed Workbench, were also deprecated to make way for a newer, better [architecture](concept-azure-machine-learning-architecture.md). 
+We are pleased to announce that the September 2018 Public Preview Refresh version contains many significant updates based on that feedback to improve your experience. The core functionality of the backend services from experiment execution to model deployment have not changed. Some early features, such as the installed Workbench, were also deprecated to make way for a newer, better [architecture](concept-azure-machine-learning-architecture.md). 
 
 In this article, you'll learn about what changed and how it affects your pre-existing work with Azure Machine Learning Services.
 
