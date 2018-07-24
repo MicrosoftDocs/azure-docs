@@ -6,8 +6,8 @@ author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: mysql-database
-ms.topic: article
-ms.date: 07/11/2018
+ms.topic: conceptual
+ms.date: 07/18/2018
 ---
 
 # Azure Database for MySQL migration partners
@@ -37,7 +37,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [dbbest_website]:https://www.dbbest.com/technologies/azure-database-service-mysql-postgresql//
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
-[credativ_website]:https://credativ.com
+[credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 
 <!--Get Started Links-->
 <!--Datasheet Links-->

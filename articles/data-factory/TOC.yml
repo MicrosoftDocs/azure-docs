@@ -319,6 +319,10 @@
       href: transform-data-using-data-lake-analytics.md
     - name: Databricks Notebook Activity
       href: transform-data-databricks-notebook.md
+    - name: Databricks Jar Activity
+      href: transform-data-databricks-jar.md
+    - name: Databricks Python Activity
+      href: transform-data-databricks-python.md
     - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services

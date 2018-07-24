@@ -44,7 +44,7 @@ MYSQL | MySQL should be installed. You can install manually, or Site Recovery ca
 
 **CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 cores @ 2.5 GHz | 16GB | 300 GB | 500 GB or less | < 100 machines
-12 vCPUs<br/><br/> 2 socks  * 6 cores @ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
-16 vCPUs<br/><br/> 2 socks  * 8 cores @ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
+8 vCPUs<br/><br/> 2 sockets * 4 cores \@ 2.5 GHz | 16GB | 300 GB | 500 GB or less | < 100 machines
+12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
+16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
 
