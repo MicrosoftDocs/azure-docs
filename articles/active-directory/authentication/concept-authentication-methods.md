@@ -27,10 +27,29 @@ Microsoft highly recommends Administrators enable users to select more than the 
 | Password | MFA and SSPR |
 | Security questions | SSPR Only |
 | Email address | SSPR Only |
-| Microsoft Authenticator app | MFA Only |
+| Microsoft Authenticator app | MFA and Public Preview for SSPR |
 | SMS | MFA and SSPR |
 | Voice call | MFA and SSPR |
 | App passwords | MFA only in certain cases |
+
+![Authentication methods in use at the sign in screen](media/concept-authentication-methods/overview-login.png)
+
+|     |
+| --- |
+| Mobile app notification and Mobile app code as methods for Azure AD self-service password reset and converged user registration are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
+
+## Converged user registration (preview)
+
+To enable users to register authentication methods for both Azure Multi-Factor Authentication and self-service password reset using the same portal complete the following steps.
+
+1. Sign in to the Azure portal as a global administrator.
+1. Browse to **Azure Active Directory**, **User settings**, **Manage settings for access panel preview features**.
+1. Under **Users can use preview features for registering and managing security info**, you can choose to enable for a **Selected** group of users or for **All** users.
+
+Users can now use [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) to register for MFA and SSPR.
+
+![Preview Converged user registration - Add security info to your account for use with MFA and SSPR](media/concept-authentication-methods/concept-add-methods.png)
 
 ## Password
 
@@ -117,9 +136,17 @@ The Microsoft Authenticator app is available for [Android](https://go.microsoft.
 
 The Microsoft Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select Verify. Otherwise, they can select Deny.
 
+> [!WARNING]
+> For self-service password reset when only one method is required for reset verification code is the only option avaialbe to users.
+> 
+> When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
+
 ### Verification code from mobile app
 
 The Microsoft Authenticator app or other third-party apps can be used as a software token to generate an OAuth verification code. After entering your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.
+
+> [!WARNING]
+> For self-service password reset when only one method is required for reset verification code is the only option avaialbe to users.
 
 ## Mobile phone
 
