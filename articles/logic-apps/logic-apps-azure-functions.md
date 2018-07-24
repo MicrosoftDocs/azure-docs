@@ -97,21 +97,31 @@ type from your logic app:
 
      ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
-* Optionally, if you [generate an API definition](..//azure-functions/functions-openapi-definition.md), 
+<a name="function-swagger"></a>
+
+* Optionally, if you [generate an API definition](../azure-functions/functions-openapi-definition.md), 
 formerly known as a [Swagger file](http://swagger.io/), 
 for your function, you can get a richer experience when 
-working with function parameters in the Logic Apps Designer. 
+you work with function parameters in the Logic Apps Designer. 
 
-  Before your logic app can fetch actions that have Swagger descriptions, 
-  you must add your logic app's URL to your function's 
-  [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) list. 
-  CORS lets you make cross-origin calls. 
+  To set up your function app so your logic app can find 
+  and access functions that have Swagger descriptions:
 
-  1. To find your logic app's URL, 
-  go to your logic app's menu, and select **Overview**. 
-  
+  * Make sure your function app is actively running.
 
-  2. 
+  * In your function app, set up [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) so all 
+  origins are permitted:
+
+    1. Starting from the **Function Apps** list, 
+    select your function app > **Platform features** > **CORS**.
+
+       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+
+    2. Under **CORS**, add the `*` wildcard character, 
+    but remove all the other origins in the list, 
+    and choose **Save**.
+
+       ![Select your function app > "Platform features" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### Access property values inside HTTP requests
 
