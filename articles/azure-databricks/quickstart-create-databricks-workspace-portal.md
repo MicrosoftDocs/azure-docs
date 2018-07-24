@@ -91,7 +91,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
    - Open the storage account in the Azure portal.
    - Select **Blobs**.
-   - Select **+ Container**
+   - Select **+ Container** to create a new empty container.
    - Provide a **Name** for the container, such as `databricks`. 
    - Select  **Private (non anonymous access)** access level.
    - Once the container is created, select the container name.
