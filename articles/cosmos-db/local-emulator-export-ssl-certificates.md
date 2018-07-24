@@ -96,7 +96,7 @@ In this tutorial, you've done the following:
 > * Exported the SSL certificate
 > * Learned how to use the certificate in Java, Python and Node.js
 
-You can now proceed to the Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding tutorial.
+You can now proceed to the concepts section for more information about Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

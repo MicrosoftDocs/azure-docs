@@ -67,7 +67,7 @@
       href: container-registry-auth-service-principal.md
     - name: Azure Container Instances
       href: container-registry-auth-aci.md
-    - name: Azure Container Service
+    - name: Azure Kubernetes Service (AKS)
       href: container-registry-auth-aks.md
 - name: Reference
   items:
@@ -76,7 +76,7 @@
   - name: REST
     href: /rest/api/containerregistry
   - name: PowerShell
-    href: /powershell/module/azurerm.containerregistry
+    href: /powershell/module/azurerm.containerregistry#container_registry
   - name: .NET
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python

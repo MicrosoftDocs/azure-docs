@@ -241,7 +241,7 @@ The format of the Azure Table storage connection string is:
 > 
 > 
 
-Enter the name of the Azure table from to import from. You may optionally specify a [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Enter the name of the Azure table from to import from. You may optionally specify a [filter](../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 The Azure Table storage source importer option has the following additional options:
 
@@ -477,7 +477,7 @@ There are a number of advanced options available during import. First, when impo
 
 The Azure Cosmos DB - Sequential record importer has the following additional advanced options:
 
-1. Number of Parallel Requests: The tool defaults to two parallel requests. If the documents to be imported are small, consider raising the number of parallel requests. If this number is raised too much, the import may experience throttling.
+1. Number of Parallel Requests: The tool defaults to two parallel requests. If the documents to be imported are small, consider raising the number of parallel requests. If this number is raised too much, the import may experience rate limiting.
 2. Disable Automatic Id Generation: If every document to be imported contains an id field, then selecting this option can increase performance. Documents missing a unique id field are not imported.
 3. Update Existing Documents: The tool defaults to not replacing existing documents with id conflicts. Selecting this option allows overwriting existing documents with matching ids. This feature is useful for scheduled data migrations that update existing documents.
 4. Number of Retries on Failure: Specifies the number of times to retry the connection to Azure Cosmos DB in case of transient failures (for example, network connectivity interruption).

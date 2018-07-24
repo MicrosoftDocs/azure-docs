@@ -4,19 +4,20 @@ description: The Alert Management solution in Log Analytics helps you analyze al
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
-ms.service: operations-management-suite
+ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Alert Management solution in Azure Log Analytics
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)

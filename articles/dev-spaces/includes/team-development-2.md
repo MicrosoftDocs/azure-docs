@@ -15,7 +15,7 @@ manager: "douge"
 ### Run the service
 
 1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space `default/scott`. 
-1. You can confirm that your service is running in its own space by running `azds list` again. First, you'll notice an instance of `mywebapi` is now running in the `default/scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `default/scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `default/scott` space, but if that fails, they will fall back to services in the `default` space.
+1. You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of `mywebapi` is now running in the `default/scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `default/scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `default/scott` space, but if that fails, they will fall back to services in the `default` space.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

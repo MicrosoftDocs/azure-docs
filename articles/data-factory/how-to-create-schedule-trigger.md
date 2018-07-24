@@ -21,9 +21,6 @@ This article provides information about the schedule trigger and the steps to cr
 
 When creating a schedule trigger, you specify a schedule (start date, recurrence, end date etc.) for the trigger, and associate with a pipeline. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.
 
-> [!NOTE]
-> This article applies to Azure Data Factory version 2, which is currently in preview. If you're using Azure Data Factory version 1, which is generally available (GA), see [Get started with Azure Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 The following sections provide steps to create a schedule trigger in different ways. 
 
 ## Data Factory UI
@@ -245,7 +242,7 @@ To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor 
 You can use an Azure Resource Manager template to create a trigger. For step-by-step instructions, see [Create an Azure data factory by using a Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## Pass the trigger start time to a pipeline
-Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In Azure Data Factory version 2, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
+Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In the current version of Azure Data Factory, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
 
 ```json
 "parameters": {

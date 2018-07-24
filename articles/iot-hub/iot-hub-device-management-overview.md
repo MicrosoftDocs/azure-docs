@@ -46,16 +46,16 @@ Within each of these five stages, there are several device operator requirements
 
 * **Plan**: Enable operators to create a device metadata scheme that enables them to easily and accurately query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.
   
-    *Further reading*: [Get started with device twins][lnk-twins-getstarted], [Understand device twins][lnk-twins-devguide], [How to use device twin properties][lnk-twin-properties].
+    *Further reading*: [Get started with device twins][lnk-twins-getstarted], [Understand device twins][lnk-twins-devguide], [How to use device twin properties][lnk-twin-properties], [Best practices for device configuration within an IoT solution][lnk-adm-best-practices].
 * **Provision**: Securely provision new devices to IoT Hub and enable operators to immediately discover device capabilities.  Use the IoT Hub identity registry to create flexible device identities and credentials, and perform this operation in bulk by using a job. Build devices to report their capabilities and conditions through device properties in the device twin.
   
-    *Further reading*: [Manage device identities][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity], [How to use device twin properties][lnk-twin-properties], [Azure IoT Hub Device Provisioning Service][lnk-dps].
+    *Further reading*: [Manage device identities][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity], [How to use device twin properties][lnk-twin-properties], [Best practices for device configuration within an IoT solution][lnk-adm-best-practices],  [Azure IoT Hub Device Provisioning Service][lnk-dps].
 * **Configure**: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security. Perform these device management operations in bulk by using desired properties or with direct methods and broadcast jobs.
   
-    *Further reading*:  [Use direct methods][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide], [How to use device twin properties][lnk-twin-properties], [Schedule and broadcast jobs][lnk-jobs], [Schedule jobs on multiple devices][lnk-jobs-devguide].
+    *Further reading*:  [How to use device twin properties][lnk-twin-properties], [Configure and monitor IoT devices at scale][lnk-adm-how-to], [Best practices for device configuration within an IoT solution][lnk-adm-best-practices].
 * **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention.  Apply the device twin to allow devices to report realtime operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries.
   
-    *Further reading*: [How to use device twin properties][lnk-twin-properties], [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language].
+    *Further reading*: [How to use device twin properties][lnk-twin-properties], [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language], [Configure and monitor IoT devices at scale][lnk-adm-how-to], [Best practices for device configuration within an IoT solution][lnk-adm-best-practices].
 * **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.
   
     *Further reading*: [How to use device twin properties][lnk-twin-properties], [Manage device identities][lnk-identity-registry].
@@ -72,7 +72,7 @@ IoT Hub enables the following set of device management patterns.  The [device ma
 * **Configuration** - The back-end app uses the desired properties to configure software running on the device.  The device uses the reported properties to update configuration status of the device.
   
     ![Device management configuration pattern graphic][img-config_pattern]
-* **Firmware Update** - The back-end app informs the device through a direct method that it has initiated a firmware update.  The device initiates a multistep process to download the firmware image, apply the firmware image, and finally reconnect to the IoT Hub service.  Throughout the multistep process, the device uses the reported properties to update the progress and status of the device.
+* **Firmware Update** - The back-end app uses an automatic device management configuration to select the devices to receive the update, to tell the devices where to find the update, and to monitor the update process. The device initiates a multistep process to download, verify, and apply the firmware image, and then reboot the device before reconnecting to the IoT Hub service.  Throughout the multistep process, the device uses the reported properties to update the progress and status of the device.
   
     ![Device management firmware update pattern graphic][img-fwupdate_pattern]
 * **Reporting progress and status** - The solution back end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the devices.
@@ -96,13 +96,15 @@ To continue learning about the device management features in IoT Hub, see the [G
 [lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-hub-getstarted]: quickstart-send-telemetry-dotnet.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

@@ -46,7 +46,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 ### Create an Azure Active Directory application
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab.
+2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab in **Azure Active Directory** (Azure Active Directory > Manage/App registrations).
 
     > [!NOTE]
     > If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
@@ -107,11 +107,14 @@ Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the follo
 
     ![Endpoints][api-management-endpoint]
 2. Replace `{application id}` with the value you get by navigating to the **Settings** page.
-3. Replace the URL from the **Redirect URIs** tab is your Azure Active Directory application.
+3. Replace the `{redirect uri}` with the value from the **Redirect URIs** tab of your Azure Active Directory application.
 
     Once the values are specified, the code example should return a token similar to the following example:
 
     ![Token][api-management-arm-token]
+
+    > [!NOTE]
+    > The token may expire after a certain period. Execute the code sample again to generate a new token.
 
 ## Calling the backup and restore operations
 
@@ -129,7 +132,7 @@ To back up an API Management service issue the following HTTP request:
 where:
 
 * `subscriptionId` - id of the subscription containing the API Management service you are attempting to back up
-* `resourceGroupName` - a string in the form of 'Api-Default-{service-region}' where `service-region` identifies the Azure region where the API Management service you are trying to backup is hosted, for example, `North-Central-US`
+* `resourceGroupName` - name of the resource group of your Azure API Management service
 * `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
 * `api-version` - replace  with `2014-02-14`
 
@@ -188,8 +191,9 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 > **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
->
->
+
+> [!NOTE]
+> Backup and restore operations can also be performed with Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
 
 ## Next steps
 Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.

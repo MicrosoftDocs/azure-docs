@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
-ms.author: markvi
+ms.author: billmath
 
 ---
 # Identity synchronization and duplicate attribute resiliency

@@ -206,7 +206,7 @@ if err != nil {
 ## Run the app
 
 1. In Goglang, ensure that your GOPATH (available under **File**, **Settings**, **Go**, **GOPATH**) include the location in which the gopkg was installed, which is USERPROFILE\go by default. 
-2. Comment out the lines that delete the document, lines 91-96, so that you can see the document after running the app.
+2. Comment out the lines that delete the document, lines 103-107, so that you can see the document after running the app.
 3. In Goglang, click **Run**, and then click **Run 'Build main.go and run'**.
 
     The app finishes and displays the description of the document created in [Create a document](#create-document).

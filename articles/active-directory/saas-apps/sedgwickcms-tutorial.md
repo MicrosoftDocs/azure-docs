@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://claimlookup.com/Voe/sso` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sedgwick CMS support team](https://www.sedgwick.com/contact/Pages/contactform.aspx) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sedgwick CMS support team](https://www.sedgwick.com/help) to get these values.
  
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
@@ -207,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Sedgwick CMS tile in the Access Panel, you should get automatically signed-on to your Sedgwick CMS application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

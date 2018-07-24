@@ -790,3 +790,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## Use custom parameters with the Resource Manager template
+
+You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default definitions.
+
+The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default definitions shown in the Data Factory UI.
+
+```json
+{
+	"Microsoft.DataFactory/factories/pipelines": {},
+	"Microsoft.DataFactory/factories/integrationRuntimes": {
+		"properties": {
+			"typeProperties": {
+				"ssisProperties": {
+					"catalogInfo": {
+						"catalogServerEndpoint": "=",
+						"catalogAdminUserName": "=",
+						"catalogAdminPassword": {
+							"value": "-::secureString"
+						}
+					},
+					"customSetupScriptProperties": {
+						"sasToken": {
+							"value": "-::secureString"
+						}
+					}
+				},
+				"linkedInfo": {
+					"key": {
+						"value": "-::secureString"
+					}
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/triggers": {
+		"properties": {
+			"pipelines": [{
+					"parameters": {
+						"*": "="
+					}
+				},
+				"pipelineReference.referenceName"
+			],
+			"pipeline": {
+				"parameters": {
+					"*": "="
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/linkedServices": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"accountName": "=",
+					"username": "=",
+					"userName": "=",
+					"accessKeyId": "=",
+					"servicePrincipalId": "=",
+					"userId": "=",
+					"clientId": "=",
+					"clusterUserName": "=",
+					"clusterSshUserName": "=",
+					"hostSubscriptionId": "=",
+					"clusterResourceGroup": "=",
+					"subscriptionId": "=",
+					"resourceGroupName": "=",
+					"tenant": "=",
+					"dataLakeStoreUri": "=",
+					"baseUrl": "=",
+					"connectionString": {
+						"secretName": "="
+					}
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/datasets": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"folderPath": "=",
+					"fileName": "="
+				}
+			}
+		}
+	}
+}
+```
+
