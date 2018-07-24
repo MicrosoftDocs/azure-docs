@@ -72,10 +72,11 @@ At a high level, an import job involves the following steps:
 6. Update the delivery tracking number in the import job details and submit the import job.
 7. The drives are received and processed at the Azure data center.
 8. The drives are shipped using your carrier account to the return address provided in the import job.
+
 > [!NOTE]
-> For local (in data center country) shipments, please share a domestic carrier account 
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For local (within data center country) shipments, please share a domestic carrier account 
 >
+> For abroad (outside data center country) shipments, please share a international carrier account
 
     ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
@@ -101,10 +102,11 @@ At a high level, an export job involves the following steps:
 8. The drives are received and processed at the Azure data center.
 9. The drives are encrypted with BitLocker and the keys are available via the Azure portal.  
 10. The drives are shipped using your carrier account to the return address provided in the import job.
+
 > [!NOTE]
-> For local (in data center country) shipments, please share a domestic carrier account 
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For local (within data center country) shipments, please share a domestic carrier account 
 >
+> For abroad (outside data center country) shipments, please share a international carrier account
   
     ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
