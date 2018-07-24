@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Scheduler Integration | Microsoft Docs
+description: Grid Scheduling configuration for job management in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Scheduler Integration
 
 The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), [PBS Pro](http://pbspro.org/), and [Torque](http://www.adaptivecomputing.com/products/open-source/torque/), as well as Cycle's own Jupiter scheduler.
@@ -6,37 +18,41 @@ The Azure CycleCloud platform has built-in, first-class support for several grid
 
 [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an azure CycleCloud cluster by modifying the "run_list" in the cluster definition. The two basic components of a Grid Engine cluster are the 'master' node which provides a shared filesystem on which the Grid Engine software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple Grid Engine cluster template snippet may look like:
 
-      [cluster grid-engine]
+``` ini
+[cluster grid-engine]
 
-      [[node master]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A4 # 8 cores
+[[node master]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
 
-          [[[configuration]]]
-          run_list = role[sge_master_role]
+    [[[configuration]]]
+    run_list = role[sge_master_role]
 
-      [[nodearray execute]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A1  # 1 core
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1  # 1 core
 
-          [[[configuration]]]
-          run_list = role[sge_execute_role]
+    [[[configuration]]]
+    run_list = role[sge_execute_role]
+```
 
 > [!NOTE]
 > The role names contain 'sge' for legacy reasons: Grid Engine was a product of Sun Microsystems.
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
 
-      cyclecloud add_node grid-engine -t execute -c 10
+``` CLI
+cyclecloud add_node grid-engine -t execute -c 10
+```
 
 ## Grid Engine Autoscaling
 
 Azure CycleCloud supports autoscaling for Grid Engine, which means that the software will monitor the status of your queue and turn on and off nodes as needed to complete the work in an optimal amount of time/cost. You can enable autoscaling for Grid Engine by adding `Autoscale = true` to your cluster definition:
 
-      [cluster grid-engine]
-      Autoscale = True
-
-      ...
+``` ini
+[cluster grid-engine]
+Autoscale = True
+```
 
 > [!NOTE]
 > For autoscaling to work, the nodes in the cloud **must** have a route back to the CycleCloud machine. The easiest way to accomplish this is to install your CycleCloud instance in the cloud along with the nodes it will be spinning up. Alternatively, if you are in a VPC environment, you can set up a route back to your machine, port forward the CycleCloud port on your router to your machine, or use the IsReturnProxy feature.
@@ -45,31 +61,33 @@ By default, all jobs submitted into the Grid Engine queue will run on machines o
 
 As an example, a common case may be that you have a cluster with two different node definitions one is for running 'normal' jobs that consume standard CPU while another type of job may use GPU machines. In this case you would want to independently scale your queue by both normal jobs as well as GPU jobs to make sure you have an appropriate amount of each machine to consume the work queue. An example definition would be something like:
 
-      [cluster grid-engine]
-      Autoscale = True
+``` ini
+[cluster grid-engine]
+Autoscale = True
 
-      [[node master]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A3  # 4 cores
+[[node master]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A3  # 4 cores
 
-          [[[configuration]]]
-          run_list = role[sge_master_role]
+    [[[configuration]]]
+    run_list = role[sge_master_role]
 
-      [[nodearray execute]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A4  # 8 cores
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4  # 8 cores
 
-          [[[configuration]]]
-          run_list = role[sge_execute_role]
+    [[[configuration]]]
+    run_list = role[sge_execute_role]
 
-      [[nodearray gpu]]
-          MachineType = Standard_NV12 # 2 GPUs
-          ImageName = cycle.image.centos7
+[[nodearray gpu]]
+    MachineType = Standard_NV12 # 2 GPUs
+    ImageName = cycle.image.centos7
 
-          [[[configuration]]]
-          run_list = role[sge_execute_role]
-          gridengine.slot_type = gpu
-          gridengine.slots = 2
+    [[[configuration]]]
+    run_list = role[sge_execute_role]
+    gridengine.slot_type = gpu
+    gridengine.slots = 2
+```
 
 In the above example, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two Nvidia GPU's (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the csge:sgeexec recipe. Adding `grid_engine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `grid_engine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). By default the number of slots per node in Grid Engine will be the number of CPUs on the system which, in this case, would cause too many jobs to concurrently execute on the node.
 
@@ -103,71 +121,80 @@ CycleCloud's automation will automatically request grouped nodes and assign them
 
 The most generic way to submit jobs to a Grid Engine scheduler is the command:
 
-      qsub my_job.sh
+``` CLI
+qsub my_job.sh
+```
 
 This command will submit a job that will run on a node of type 'execute', that is a node defined by the nodearray 'execute'. To make a job run on a nodearray of a different type, for example the 'gpu' node type above, we modify our submission:
 
-      qsub -l slot_type=gpu my_gpu_job.sh
+``` CLI
+qsub -l slot_type=gpu my_gpu_job.sh
+```
 
 This command will ensure that the job only runs on a 'slot_type' of 'gpu'.
 
 If slot_type is omitted, 'execute' will be automatically assigned to the job. The mechanism that automatically assigns slot_type's to jobs can be modified by the user. A python script located at /opt/cycle/jetpack/config/autoscale.py can be created which should define a single function "sge_job_handler". This function receives a dictionary representation of the job, similar to the output of a 'qstat -j <jobID>' command and should return a dictionary of hard resources that need to be updated for the job. As an example, below is a script which will assign a job to the 'gpu' slot_type if the jobs name contains the letters 'gpu'. This would allow a user to submit their jobs from an automated system without having to modify the job parameters and still have the jobs run on and autoscale the correct nodes:
 
-      #!/usr/env python
-      #
-      # File: /opt/cycle/jetpack/config/autoscale.py
-      #
-      def sge_job_handler(job):
-        # The 'job' parameter is a dictionary containing the data present in a 'qstat -j <jobID>':
-          hard_resources = {'slot_type': 'execute', 'affinity_group' : 'default' }
+``` python
+#!/usr/env python
+#
+# File: /opt/cycle/jetpack/config/autoscale.py
+#
+def sge_job_handler(job):
+  # The 'job' parameter is a dictionary containing the data present in a 'qstat -j <jobID>':
+    hard_resources = {'slot_type': 'execute', 'affinity_group' : 'default' }
 
-        # Don't modify anything if the job already has a slot type
-        # You could modify the slot type at runtime by not checking this
-        if 'hard_resources' in job and 'slot_type' in job['hard_resources']:
-            return hard_resources
+  # Don't modify anything if the job already has a slot type
+  # You could modify the slot type at runtime by not checking this
+  if 'hard_resources' in job and 'slot_type' in job['hard_resources']:
+      return hard_resources
 
-        # If the job's script name contains the string 'gpu' then it's assumed to be a GPU job.
-        # Return a dictionary containing the new job_slot requirement to be updated.
-        # For example: 'big_data_gpu.sh' would be run on a 'gpu' node.
-        if job['job_name'].find('gpu') != -1:
-            hard_resources {'slot_type': 'gpu'}
-        else:
-            return hard_resources
+  # If the job's script name contains the string 'gpu' then it's assumed to be a GPU job.
+  # Return a dictionary containing the new job_slot requirement to be updated.
+  # For example: 'big_data_gpu.sh' would be run on a 'gpu' node.
+  if job['job_name'].find('gpu') != -1:
+      hard_resources {'slot_type': 'gpu'}
+  else:
+      return hard_resources
+```
 
 The parameter 'job' passed in is a dictionary that contains the data in a 'qstat -j <jobID>' call:
 
-
-      {
-          "job_number": 5,
-          "job_name": "test.sh",
-          "script_file": "test.sh",
-          "account": "sge",
-          "owner": "cluster.user",
-          "uid": 100,
-          "group": "cluster.user",
-          "gid": 200,
-          "submission_time": "2013-10-09T09:09:09",
-          "job_args": ['arg1', 'arg2', 'arg3'],
-          "hard_resources": {
-             'mem_free': '15G',
-             'slot_type': 'execute'
-          }
-      }
-
+``` python
+{
+    "job_number": 5,
+    "job_name": "test.sh",
+    "script_file": "test.sh",
+    "account": "sge",
+    "owner": "cluster.user",
+    "uid": 100,
+    "group": "cluster.user",
+    "gid": 200,
+    "submission_time": "2013-10-09T09:09:09",
+    "job_args": ['arg1', 'arg2', 'arg3'],
+    "hard_resources": {
+       'mem_free': '15G',
+       'slot_type': 'execute'
+    }
+}
+```
 
 You can use this scripting functionality to automatically assign 'slot_type's based on any parameter defined in the job such as arguments, other resource requirements like memory, submitting user, etc.
 
 If you were to submit 5 jobs of each 'slot_type':
 
-    qsub -t 1:5 gpu_job.sh
-    qsub -t 1:5 normal_job.sh
+``` CLI
+qsub -t 1:5 gpu_job.sh
+qsub -t 1:5 normal_job.sh
+```
 
 There would now be 10 jobs in the queue. Because of the script defined above, the five jobs with 'gpu' in the name would be automatically configured to only run on nodes of 'slot_type=gpu'. The CycleCloud autoscale mechanism would detect that there are  5 'gpu' jobs and 5 'execute' jobs. Since the 'gpu' nodearray is defined as having 2 slots per node, CycleCloud would start 3 of these nodes (5/2=2.5 rounded up to 3). There are 5 normal jobs, since the machine type for the 'execute' nodearray has 4 CPU's each, CycleCloud would start 2 of these nodes to handle the jobs (5/4=1.25 rounded up to 2). After a short period of time for the newly started nodes to boot and configure, all 10 jobs would run to completion and then the 5 nodes would automatically shutdown before you are billed again by the Cloud Provider.
 
 Jobs are assumed to have a duration of one hour. If the job runtime is known the autoscale algorithm can benefit from this information. Inform autoscale of the expected job run time by adding it to the job context. The following example tells autoscale that the job runtime is on average 10 minutes:
 
-      qsub -ac average_runtime=10 job_with_duration_of_10m.sh
-
+``` CLI
+qsub -ac average_runtime=10 job_with_duration_of_10m.sh
+```
 
 ## Grid Engine Configuration Reference
 
@@ -188,26 +215,29 @@ CycleCloud supports a `standard set <autostop-attributes>` of autostop attribute
 
 The [PBS Pro Scheduler (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Pro cluster are the 'master' node which provides a shared filesystem on which the PBS Pro software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
-      [cluster my-pbspro]
+``` ini
+[cluster my-pbspro]
 
-      [[node master]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A4 # 8 cores
+[[node master]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
 
-          [[[configuration]]]
-          run_list = role[pbspro_master_role]
+    [[[configuration]]]
+    run_list = role[pbspro_master_role]
 
-      [[nodearray execute]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A1  # 1 core
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1  # 1 core
 
-          [[[configuration]]]
-          run_list = role[pbspro_execute_role]
+    [[[configuration]]]
+    run_list = role[pbspro_execute_role]
+```
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
 
-      cyclecloud add_node my-pbspro -t execute -c 10
-
+``` CLI
+cyclecloud add_node my-pbspro -t execute -c 10
+```
 
 ## PBS Pro Configuration Reference
 
@@ -232,42 +262,46 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
 
 [HTCondor](http://research.cs.wisc.edu/htcondor/manual/latest) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. There are three basic components of an HTCondor cluster. The first is the "central manager" which provides the scheduling and management daemons. The second component of an HTCondor cluster is one or more schedulers from which jobs are submitted into the system. The final component is one or more execute nodes which are the hosts perform the computation. A simple HTCondor template may look like:
 
-      [cluster htcondor]
+``` ini
+[cluster htcondor]
 
-          [[node manager]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A4 # 8 cores
+    [[node manager]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
 
-              [[[configuration]]]
-              run_list = role[central_manager]
+        [[[configuration]]]
+        run_list = role[central_manager]
 
-          [[node scheduler]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A4 # 8 cores
+    [[node scheduler]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
 
-              [[[configuration]]]
-              run_list = role[condor_scheduler_role],role[filer_role],role[scheduler]
+        [[[configuration]]]
+        run_list = role[condor_scheduler_role],role[filer_role],role[scheduler]
 
-          [[nodearray execute]]
-          ImageName = cycle.image.centos7
-          MachineType = Standard_A1 # 1 core
-          Count = 1
+    [[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1 # 1 core
+    Count = 1
 
-              [[[configuration]]]
-              run_list = role[usc_execute]
+        [[[configuration]]]
+        run_list = role[usc_execute]
+```
 
 Importing and starting a cluster with definition in CycleCloud will yield a "manager" and a "scheduler" node, as well as one "execute" node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. To add 10 more execute nodes:
 
-      cyclecloud add_node htcondor -t execute -c 10
+``` CLI
+cyclecloud add_node htcondor -t execute -c 10
+```
 
 ## HTCondor Autoscaling
 
 CycleCloud supports autoscaling for HTCondor, which means that the software will monitor the status of your queue and turn on and off nodes as needed to complete the work in an optimal amount of time/cost. You can enable autoscaling for HTCondor by adding `Autoscale=true` to your cluster definition:
 
-      [cluster htcondor]
-      Autoscale = True
-
-      ...
+``` ini
+[cluster htcondor]
+Autoscale = True
+```
 
 > [!NOTE]
 > For autoscaling to work, the nodes in the cloud **must** have a route back to the CycleCloud Server machine. The easiest way to accomplish this is to install your CycleCloud instance in the cloud along with the nodes it will be spinning up. Alternatively if you are in a VPC environment you can set up a route back to your machine or port forward the CycleCloud port on your router to your machine.
@@ -279,12 +313,13 @@ If you know the average runtime of jobs, you can define `average_runtime` (in mi
 ## Autoscale Nodearray
 By default, HTCondor will request cores from the nodearray called 'execute'. If a job requires a different nodearray (for example if certain jobs within a workflow have a high memory requirement), you can specify a `slot_type` attribute for the job. For example, adding `+slot_type = "highmemory"` will cause HTCondor to request a node from the "highmemory" nodearray instead of "execute" (note that this currently requires `htcondor.slot_type = "highmemory"` to be set in the nodearray's `[[[configuration]]]` section). This will not affect how HTCondor schedules the jobs, so you may want to include the `slot_type` startd attribute in the job's `requirements` or `rank` expressions. For example: `Requirements = target.slot_type = "highmemory"`.
 
-
 ## Submitting Jobs to HTCondor
 
 The most generic way to submit jobs to an HTCondor scheduler is the command (run from a scheduler node):
 
-      condor_submit my_job.submit
+``` CLI
+condor_submit my_job.submit
+```
 
 A sample submit file might look like this:
 

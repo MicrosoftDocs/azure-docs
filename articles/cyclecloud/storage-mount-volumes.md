@@ -1,32 +1,47 @@
+---
+title: Azure CycleCloud Volume Mount | Microsoft Docs
+description: Manage volume storage options within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
 # Mounting Volumes
 
-Specifying a volume attaches the device(s) to your instance, but does not mount and format the device.
-If you prefer to have the volumes mounted and formatted when the node is started, set
+Specifying a volume attaches the device(s) to your instance, but does not mount and format the device. If you prefer to have the volumes mounted and formatted when the node is started, set
 the optional attribute `Mount` to the name of the mountpoint configuration you wish to use with that volume:
 
-    [[[volume reference-data]]]
-    Size = 100
-    Mount = data              # The name of the mountpoint to use with this volume
+``` ini
+[[[volume reference-data]]]
+Size = 100
+Mount = data              # The name of the mountpoint to use with this volume
+```
 
 The mountpoint named `data` is then defined in the configuration section on the node:
 
-    [[[configuration cyclecloud.mounts.data]]]
-    mountpoint = /mount
-    fs_type = ext4
+``` ini
+[[[configuration cyclecloud.mounts.data]]]
+mountpoint = /mount
+fs_type = ext4
+```
 
 The above configuration specifies that you are configuring a `cyclecloud.mountpoint`
-named `data` using all volumes which include `Mount = data`.
-This volume would be formatted with the `ext4` filesystem and would appear at `/mount`.
+named `data` using all volumes which include `Mount = data`. This volume would be formatted with the `ext4` filesystem and would appear at `/mount`.
 
 ## Devices
 
 By defining volumes with a `Mountpoint` attribute, the device names will be automatically assigned and used for a given mountpoint. You can, however, customize a mountpoint with your own device names if there is a need. For example:
 
-    [[node master]]
-      [[[configuration cyclecloud.mounts.data]]]
-      mountpoint = /data
-      Azure.LUN=0
+``` ini
+[[node master]]
+  [[[configuration cyclecloud.mounts.data]]]
+  mountpoint = /data
+  Azure.LUN=0
+```
 
 In Azure, devices are assigned using [Logical Unit Numbers (LUN)](https://docs.microsoft.com/en-us/powershell/module/azure/add-azuredatadisk?view=azuresmps-4.0.0). The `devices` parameter is used to manually specify each underlying device that is part of the mountpoint configuration.
 
@@ -39,26 +54,28 @@ In most cases, Azure CycleCloud will automatically assign devices for you. Speci
 
 The previous example was a fairly simple: mounting a single, pre-formatted snapshot to a node. However, more advanced mounting can take place, including RAIDing multiple devices together, encrypting, and formatting new filesystems. As an example, the following will describes how to RAID several EBS volumes together and encrypt them before mounting them as a single device on a node:
 
-    [[node master]]
-    ....
-      [[[volume vol1]]]
-      VolumeId = vol-1234abcd
-      Mount = giant
+``` ini
+[[node master]]
+....
+  [[[volume vol1]]]
+  VolumeId = vol-1234abcd
+  Mount = giant
 
-      [[[volume vol2]]]
-      VolumeId = vol-5678abcd
-      Mount = giant
+  [[[volume vol2]]]
+  VolumeId = vol-5678abcd
+  Mount = giant
 
-      [[[volume vol3]]]
-      VolumeId = vol-abcd1234
-      Mount = giant
+  [[[volume vol3]]]
+  VolumeId = vol-abcd1234
+  Mount = giant
 
-      [[[configuration cyclecloud.mounts.giant]]]
-      mountpoint = /mnt/giant
-      fs_type = xfs
-      raid_level = 0
-      encryption.bits = 256
-      encryption.key = "0123456789abcdef9876543210"
+  [[[configuration cyclecloud.mounts.giant]]]
+  mountpoint = /mnt/giant
+  fs_type = xfs
+  raid_level = 0
+  encryption.bits = 256
+  encryption.key = "0123456789abcdef9876543210"
+```
 
 The above example shows there are three EBS volumes that should be attached to the node named `master`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
@@ -66,23 +83,27 @@ The above example shows there are three EBS volumes that should be attached to t
 
 By default, ephemeral devices for a node will be automatically attached and then RAIDed with using RAID0 and mounted to `/mnt`. This is the suggested way of using ephemeral devices within CycleCloud, however you can override the default behavior if necessary. All ephemeral devices are automatically assigned a mountpoint of `ephemeral`, so you can use this default behavior to customize the mountpoint as follows:
 
-      [[[configuration cyclecloud.mounts.ephemeral]]]
-      mountpoint = /mnt/ephemeral
-      fs_type = ext4
-      raid_level = 1
+``` ini
+[[[configuration cyclecloud.mounts.ephemeral]]]
+mountpoint = /mnt/ephemeral
+fs_type = ext4
+raid_level = 1
+```
 
 This configuration will instruct Azure CycleCloud to combine all the ephemeral device using RAID1, format them using ext4, then mount them at the alternative location of `/mnt/ephemeral`, which is different from the default of `/mnt`.
 
 You can manually define ephemeral volumes using the following syntax, although it is not required in most cases as reasonable defaults are already in place:
 
-      [[node master]]
-      [[[volume ephemeral0]]]
-      Ephemeral = true
-      Mount = ephemeral
+``` ini
+[[node master]]
+[[[volume ephemeral0]]]
+Ephemeral = true
+Mount = ephemeral
 
-      [[[volume ephemeral1]]]
-      Ephemeral = true
-      Mount = ephemeral
+[[[volume ephemeral1]]]
+Ephemeral = true
+Mount = ephemeral
+```
 
 > [!NOTE]
 > If you do not want any ephemeral automatically mapped for you, meaning you will either use no ephemeral storage or will rely on another form of attaching/mounting, you can set the `DisableAutomaticEphemeral` to true:

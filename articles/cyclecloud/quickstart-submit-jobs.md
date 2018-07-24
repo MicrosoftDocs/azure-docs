@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart | Microsoft Docs
+title: Azure CycleCloud QuickStart - Submit and AutoScale | Microsoft Docs
 description: Azure CycleCloud QuickStart - Submitting Jobs and AutoScale
 services: azure cyclecloud
 author: KimliW
@@ -83,7 +83,7 @@ At this point, no execute nodes have been provisioned because the cluster is con
 
 In our quickstart, you submitted 100 jobs. 100 cores will be requested, but the cluster has a scale limit of 16 in place, meaning no more than 16 cores will be provisioned:
 
-(kimliscreenshothereok)
+(kimli screenshot)
 
 When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
 
