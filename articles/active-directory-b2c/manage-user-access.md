@@ -8,12 +8,12 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Manage user access in Azure AD B2C
+# Manage user access in Azure Active Directory B2C
 
 This article discusses how to manage user access to your applications by using Azure Active Directory (Azure AD) B2C. Access management in your application includes:
 
