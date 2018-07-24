@@ -51,61 +51,77 @@ as the first step in your logic app
   your logic app must start with a trigger.
 
 * An Azure function app, which is a container for Azure functions, 
-and your Azure function. Your function app must belong to the same 
-Azure subscription as your logic app.
+and your Azure function. If you don't have a function app, you must 
+[create your function app first](../azure-functions/functions-create-first-azure-function.md). 
+You can then create your function either 
+[separately outside your logic app](#create-function-external), 
+or [from inside your logic app](#create-function-designer) 
+in the Logic App Designer.
 
-  If you don't have a function app, you must 
-  [create your function app first](../azure-functions/functions-create-first-azure-function.md). 
-  You can then create your function either 
-  [separately outside your logic app](#create-function-external), 
-  or [from inside your logic app](#create-function-designer) 
-  in the Logic App Designer.
+  Both new and existing Azure function apps and functions 
+  have the same requirements for working with your logic apps:
+
+  * Your function app must belong to the same Azure subscription as your logic app.
+
+  * Your function must use the **Generic webhook** function template for 
+  either **JavaScript** or **C#**. This template can accept content that has 
+  `application/json` type from your logic app. These templates also help the 
+  Logic App Designer find and show the custom functions that you create with 
+  these templates when you add those functions to your logic apps.
+
+  * Check that your function template's **Mode** property is set to 
+  **Webhook** and the **Webhook type** property is set to **Generic JSON**.
+
+    1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+    2. On the main Azure menu, select **Function Apps**. 
+    3. In the **Function Apps** list, select your function app, 
+    expand your function, and select **Integrate**. 
+    4. Check your template's **Mode** property 
+    is set to **Webhook** and that the **Webhook type** 
+    property is set to **Generic JSON**. 
+
+  * If your function has an 
+  [API definition](../azure-functions/functions-openapi-definition.md), 
+  formerly known as a [Swagger file](http://swagger.io/), the Logic Apps Designer 
+  offers a richer experience for work with function parameters. 
+  Before your logic app can find and access functions that have Swagger descriptions, 
+  [set up your function app by following these steps](#function-swagger).
 
 <a name="create-function-external"></a>
 
 ## Create functions outside logic apps
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-create your Azure function app, and then create your Azure function. 
+create your Azure function app, which must have the same Azure subscription 
+as your logic app, and then create your Azure function. 
 If you're new to Azure Functions, learn how to 
 [create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
 but note these requirements for creating Azure functions 
 that you can add and call from logic apps.
 
-* Make sure you use one of these function templates, 
-which can accept content that has `application/json` 
-type from your logic app:
-
-  * **Generic webhook - JavaScript** 
-  * **Generic webhook - C#**
-
-  These templates also help the Logic App Designer find 
-  and show the custom functions that you create with these 
-  templates when you add those functions to your logic apps.
+* Make sure you select the **Generic webhook** 
+function template for either **JavaScript** or **C#**.
 
   ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
 
-* After you create your Azure function, check that the 
+* After you create your Azure function, check that the template's 
 **Mode** and **Webhook type** properties are set correctly.
 
   1. In the **Function Apps** list, expand your function, 
   and select **Integrate**. 
 
-  2. Check that your template's **Mode** property 
-  is set to **Webhook** and that the **Webhook type** 
-  property is set to **Generic JSON**. 
+  2. Check that your template's **Mode** property is set to **Webhook** 
+  and that the **Webhook type** property is set to **Generic JSON**. 
 
-     ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+     ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
 <a name="function-swagger"></a>
 
 * Optionally, if you [generate an API definition](../azure-functions/functions-openapi-definition.md), 
-formerly known as a [Swagger file](http://swagger.io/), 
-for your function, you can get a richer experience when 
-you work with function parameters in the Logic Apps Designer. 
-
-  To set up your function app so your logic app can find 
-  and access functions that have Swagger descriptions:
+formerly known as a [Swagger file](http://swagger.io/), for your function, 
+you can get a richer experience when you work with function parameters 
+in the Logic Apps Designer. To set up your function app so your logic 
+app can find and access functions that have Swagger descriptions:
 
   * Make sure your function app is actively running.
 
