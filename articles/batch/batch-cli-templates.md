@@ -1,5 +1,5 @@
 ﻿---
-title: Run Azure Batch jobs end-to-end without writing code | Microsoft Docs
+title: Run Azure Batch jobs end-to-end using templates | Microsoft Docs
 description: Create Batch pools, jobs, and tasks with template files and the Azure CLI. 
 services: batch
 author: dlepow
@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/11/2018
+ms.date: 07/24/2018
 ms.author: danlep
 
 ---
@@ -20,7 +20,7 @@ ms.author: danlep
 Using an Azure Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
 
 Create and use JSON template files with the Azure CLI to create Batch
-pools, jobs, and tasks. Easily upload job input files to
+pools, jobs, and tasks. Use CLI extension commands to easily upload job input files to
 the storage account associated with the Batch account, and download job output files.
 
 ## Overview
@@ -32,18 +32,11 @@ required. Run the CLI commands directly or integrate them into scripts.
 
 Batch templates build on the [existing Batch support in the Azure
 CLI](batch-cli-get-started.md#json-files-for-resource-creation) for JSON files to specify property values when creating pools,
-jobs, tasks, and other items. For example:
-
-```azurecli
-az batch pool create –-json-file AppPool.json
-```
-
-With Batch templates, the following capabilities
-are added over what is possible with the JSON files:
+jobs, tasks, and other items. Batch templates add the following capabilities:
 
 -   Parameters can be defined. When the template is used, only the parameter
     values are specified to create the item, with other item property values
-    being specified in the template body. A user who understands Batch and the
+    specified in the template body. A user who understands Batch and the
     applications to be run by Batch can create templates, specifying pool, job,
     and task property values. A user less familiar with Batch and/or the
     applications only needs to specify the values for the defined
@@ -92,7 +85,7 @@ following CLI command:
 az extension add --name azure-batch-cli-extensions
 ```
 
-For more detailed information about the Batch CLI extension, see the [GitHub repo](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
+For more information about the Batch CLI extension and additional installation options, see the [GitHub repo](https://github.com/Azure/azure-batch-cli-extensions).
 
 
 To use the CLI extension features, you need an Azure Batch account with a linked storage account.
@@ -131,7 +124,7 @@ the following main concepts:
     -   Some higher-level constructs are available in the template
         that are not yet
         available in the Batch APIs. For example, a task factory can be defined
-        in a job template that creates multiple tasks for the job using a
+        in a job template that creates multiple tasks for the job, using a
         common task definition. These constructs avoid the need to code to
         dynamically create multiple JSON files, such as one file per task, as
         well as create script files to install applications via a package
@@ -338,15 +331,15 @@ az batch file download --file-group ffmpeg-output --local-path
 
 Pool and job templates allow files stored in file groups to be specified for
 copy onto pool nodes or off pool nodes back to a file group. For example, in the
-job template specified previously, the file group “ffmpeg-input” is specified
+job template specified previously, the file group *ffmpeg-input* is specified
 for the task factory as the location of the source video files copied down to
-the node for transcoding. The file group “ffmpeg-output” is the location
+the node for transcoding. The file group *ffmpeg-outpu* is the location
 where the transcoded output files are copied from the node running each task.
 
 ## Summary
 
 Template and file transfer support have currently been added only to the Azure CLI. The goal is to expand the audience that can use Batch to users
-who do not need to develop code using the Batch APIs, such as researchers, IT users, and so on. Without coding, users with knowledge of Azure, Batch, and the applications to be run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
+who do not need to develop code using the Batch APIs, such as researchers and IT users,. Without coding, users with knowledge of Azure, Batch, and the applications to be run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
 
 Try out the Batch extension for the Azure CLI and provide us with any feedback or suggestions, either in the comments for this article or via the [Batch Community repo](https://github.com/Azure/Batch).
 
