@@ -18,6 +18,7 @@ metadata:
 abstract:
   description: Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
 sections:
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -25,6 +26,10 @@ sections:
   - type: list
     style: icon48
     items: 
+    - image: 
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
     - image: 
         src: media/index/cli.svg
       text: Azure CLI

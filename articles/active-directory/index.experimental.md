@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
+ms.author: mtillman
 experimental: false
 experiment_id: "50f26fb6-3aa0-42"
 ---
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Authentication</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-passwords-overview">Passwords</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-factor authentication</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-factor authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
                         <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
                         </p>
@@ -98,7 +98,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged identity management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged identity management</a>
                         </p>
                     </div>
                 </div>

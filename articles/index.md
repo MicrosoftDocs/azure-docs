@@ -814,7 +814,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                            <a href="/azure/cognitive-services/translator-speech/">
                                                 <img src="media/index/API_TranslatorSpeech.svg" alt="" />
                                                 <p>Translator Speech API</p>
                                             </a>
