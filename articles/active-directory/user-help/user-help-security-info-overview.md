@@ -8,6 +8,7 @@ ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
+ms.component: user-help
 ms.topic: overview
 ms.date: 07/25/2018
 ms.author: lizross
@@ -27,10 +28,10 @@ You and add any of the following verification methods, including:
 
 |Article |Description |
 |------|------------|
-|[Set up your security info to use a phone number](security-info-setup-phone-number.md)| Describes how to set up your phone number as your verification method.|
-|[Set up your security info to use a text message](security-info-setup-text-msg.md)|Describes how to set up your phone number as your verification method.|
-|[Set up your security info to use an authenticator app](security-info-setup-auth-app.md)|Describes how to set up an authenticator app as your verification method.|
-|[Set up your security info to use your email address](security-info-setup-email.md)|Describes how to set up your email address to help you reset your password.|
-|[Set up your security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to use security questions to help you reset your password.|
+|[Set up security info to use phone calls](security-info-setup-phone-number.md)| Describes how to set up your phone number as your verification method.|
+|[Set up security info to use text messaging](security-info-setup-text-msg.md)|Describes how to set up your phone number as your verification method.|
+|[Set up security info to use an authenticator app](security-info-setup-auth-app.md)|Describes how to set up an authenticator app as your verification method.|
+|[Set up security info to use email](security-info-setup-email.md)|Describes how to set up your email address to help you reset your password.|
+|[Set up security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to use security questions to help you reset your password.|
 |[Manage your security info](security-info-manage-settings.md)|Describes how to update your security info and work with your app passwords.|
 |[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified verification method.|

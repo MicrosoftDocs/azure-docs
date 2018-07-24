@@ -7,13 +7,14 @@ manager: mtillman
 ms.reviewer: sahenry
 
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: lizross
 ---
 
-# How to: Manage your security info (preview)
+# Manage your security info (preview)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -34,15 +35,15 @@ You can update or add security info or change your default, based on what's allo
 
     ![Profile screen with Edit security info link highlighted](media/security-info/security-info-profile.png)
 
-4. Use your default verification method to approve the access and to see your current security info details, if your admin has set this up for your organization.
+4. Use your default method to approve the access and to see your current security info details, if your admin has set up this experience for your organization.
 
 5. On the **Keep your account secure** page, you can:
 
-    - Select **Add security info** to add additional, available verification methods.
+    - Select **Add security info** to add additional methods.
 
-    - Select **Change default** to change your default verification method.
+    - Select **Change default** to change your default method.
 
-    - Select the **pencil** icon next to an existing verification method to update your info.
+    - Select the **pencil** icon next to an existing method to update your info.
 
     ![Security info screen with existing, editable info](media/security-info/security-info-edit.png)
 
@@ -131,13 +132,13 @@ This article helps you to troubleshoot your security info, including two-step ve
 
 |Problem|Solution|
 |-------|--------|
-|I don't have my phone with me|It's possible that you don't have your phone with you at all times, but that you'll still want to sign in to your work or school account. To fix this problem, you can sign in using a different authentication method that doesn't require your phone, such as your email address or your office phone number. To add additional verification methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
+|I don't have my phone with me|It's possible that you don't have your phone with you at all times, but that you'll still want to sign in to your work or school account. To fix this problem, you can sign in using a different authentication method that doesn't require your phone, such as your email address or your office phone number. To add additional methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
 |I lost my phone or it was stolen|Unfortunately, losing your phone or it being stolen can happen. In this situation, it's highly recommended that you let your organization know so your IT staff can reset your app passwords and clear any remembered devices from your trusted devices list. You can also forget your own trusted devices by following the steps in the [Manage your security info for a lost or potentially compromised device](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) section.|
-|I got a new phone number|There are two ways to fix this problem. You can sign in using an alternate authentication method that doesn't require your phone number, such as email, or if that's not an option, you can contact your organization's IT staff and have them clear your settings. To add additional verification methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
-|My default verification method is wrong|You can update your default verification method in your security options. For specific details, you can go to the [Change your info](#change-your-info) section.|
-|I'm not receiving a text or call on my mobile device|If you've successfully received texts or phone calls to your mobile device in the past, then this issue is most-likely with the phone provider, not your account. Make sure that you have good cell signal, and that you're able to receive text messages and phone calls. You can ask a friend to call or text you as a test.<br><br>If you can successfully receive text and phone messages, but you still haven't gotten the notification, you can try using a different verification method. You can add additional verification methods to your security info by following the steps in the [Change your info](#change-your-info) section. If you don’t have another method to add, you can contact your company support and ask them to clear your settings so you can set up your verification methods the next time you sign in.<br><br>If you often have delays due to bad cell signal, we recommend you use the Microsoft Authenticator app on your mobile device. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection. For more info about the Microsoft Authenticator app, see the [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) article.|
+|I got a new phone number|There are two ways to fix this problem. You can sign in using an alternate authentication method that doesn't require your phone number, such as email, or if that's not an option, you can contact your organization's IT staff and have them clear your settings. To add additional methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
+|My default method is wrong|You can update your default method in your security options. For specific details, you can go to the [Change your info](#change-your-info) section.|
+|I'm not receiving a text or call on my mobile device|If you've successfully received texts or phone calls to your mobile device in the past, then this issue is most-likely with the phone provider, not your account. Make sure that you have good cell signal, and that you're able to receive text messages and phone calls. You can ask a friend to call or text you as a test.<br><br>If you can successfully receive text and phone messages, but you still haven't gotten the notification, you can try using a different method. You can add additional methods to your security info by following the steps in the [Change your info](#change-your-info) section. If you don’t have another method to add, you can contact your company support and ask them to clear your settings so you can set up your methods the next time you sign in.<br><br>If you often have problems because of bad cell reception, we recommend you use the Microsoft Authenticator app on your mobile device. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection. For more info about the Microsoft Authenticator app, see the [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) article.|
 |My app passwords aren't working|Make sure you typed your password correctly. If you're sure you entered your password correctly, you can try to sign in again and create a new app password. If neither of those options fix your problem, contact your company support so they can delete your existing app passwords, letting you create brand-new ones.|
-|None of the options in this table has solved my problem|If you've tried these troubleshooting steps, but are still running into problems; contact your company support. Your company support should be able to assist you.|
+|None of the options in this table has solved my problem|If you've tried these troubleshooting steps, but are still running into problems; contact your company support, they should be able to help you.|
 
 ## Next steps
 
@@ -147,15 +148,15 @@ This article helps you to troubleshoot your security info, including two-step ve
 
 - Follow one of these how-to articles to learn about how to set up your devices in the security info area:
 
-    - [Set up your security info to use the Microsoft Authenticator app](security-info-setup-auth-app.md)
+    - [Set up security info to use an authenticator app](security-info-setup-auth-app.md)
 
-    - [Set up your security info to use a phone number](security-info-setup-phone-number.md)
+    - [Set up security info to use phone calls](security-info-setup-phone-number.md)
 
-    - [Set up your security info to use a text message](security-info-setup-text-msg.md)
+    - [Set up security info to use text messages](security-info-setup-text-msg.md)
 
-    - [Set up your security info to use an email address](security-info-setup-email.md)
+    - [Set up security info to use email](security-info-setup-email.md)
 
-    - [Set up your security info to use security questions](security-info-setup-questions.md)
+    - [Set up security info to use security questions](security-info-setup-questions.md)
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
 

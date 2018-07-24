@@ -7,6 +7,7 @@ manager: mtillman
 ms.reviewer: sahenry
 
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 07/25/2018
