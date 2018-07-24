@@ -66,7 +66,7 @@ A member of the Azure Redis team wrote an open-source tool that copies data from
 This approach takes advantage of features only available in the Premium tier.
 
 - Create a new Premium tier Redis instance in the target region. Use the same size as the source Redis instance.
-- [Export data from source cache](../azure/redis-cache/cache-how-to-import-export-data.md) or with the [Export-AzureRmRedisCache PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
+- [Export data from source cache](../redis-cache/cache-how-to-import-export-data.md) or with the [Export-AzureRmRedisCache PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
 
 > [!NOTE]
 > The export storage account must be in the same region as the cache instance.

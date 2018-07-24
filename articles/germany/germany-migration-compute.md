@@ -45,64 +45,54 @@ When replication has succeeded the first time, you should test the scenario by d
 > [!CAUTION]
 > There is no synchronization back to the source VM. If you want to re-migrate, you must clean up everything and start again at the beginning!
 
-### Links
-
-- [Overview of Azure Site Recovery](../site-recovery/site-recovery-overview.md)
-- [Replication architecture](../site-recovery/physical-azure-architecture.md)
-- [Replicate an Azure VM](../site-recovery/azure-to-azure-quickstart.md)
-
 ## Cloud Services
 
 Cloud Services can be redeployed by providing the `.cspkg` and `.cscfg` definitions again.
 
 ### By portal
 
-[Create a new Cloud Service](../cloud-services/cloud-services-how-to-create-deploy-portal.md) with your `.cspkg` and `.cscfg`.
-
-Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
-
-Delete your old cloud service in Azure Germany after your traffic is pointing to the new Cloud Service.
+- [Create a new Cloud Service](../cloud-services/cloud-services-how-to-create-deploy-portal.md) with your `.cspkg` and `.cscfg`.
+- Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
+- Delete your old cloud service in Azure Germany after your traffic is pointing to the new Cloud Service.
 
 ### By PowerShell
 
-[Create a new Cloud Service](/powershell/module/azure/new-azureservice?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`.
-
-    New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
-
-[Create a new deployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`. See details [here].
-
-    New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
-
-Update the [CName or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
-
-[Delete your old Cloud Service](/powershell/module/azure/remove-azureservice?view=azuresmps-4.0.0) in Azure Germany after your traffic is pointing to the new Cloud Service.
-
+- [Create a new Cloud Service](/powershell/module/azure/new-azureservice?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`.
+```powershell
+New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
+```
+- [Create a new deployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0) with your `.cspkg` and `.cscfg`. See details [here].
+```powershell
+New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
+```
+- Update the [CName or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new Cloud Service.
+- [Delete your old Cloud Service](/powershell/module/azure/remove-azureservice?view=azuresmps-4.0.0) in Azure Germany after your traffic is pointing to the new Cloud Service.
+```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>
+```
 
 ### By REST API
 
-[Create a new cloud service](/rest/api/compute/cloudservices/rest-create-cloud-service).
-
-    https://management.core.windows.net/<subscription-id>/services/hostedservices
-
-Create a new deployment by using the [create deployment API](https://msdn.microsoft.com/en-us/library/azure/ee460813.aspx). If you need to find your `.cspkg` and `.cscfg`, you can call [Get-Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
-
-    https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
-
-[Delete your old Cloud Service](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Germany after your traffic is pointing to the new Cloud Service.
-
-    https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
+- [Create a new cloud service](/rest/api/compute/cloudservices/rest-create-cloud-service) in the target environment.
+```http
+https://management.core.windows.net/<subscription-id>/services/hostedservices
+```
+- Create a new deployment by using the [create deployment API](https://msdn.microsoft.com/en-us/library/azure/ee460813.aspx). If you need to find your `.cspkg` and `.cscfg`, you can call [Get-Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+```http
+https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
+```
+- [Delete your old Cloud Service](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-delete-cloud-service) in Azure Germany after your traffic is pointing to the new Cloud Service.
+```http
+https://management.core.cloudapi.de/<subscription-id>/services/hostedservices/<old-cloudservice-name>
+```
 
 ## Service Fabric
 
 When the network connectivity between Azure Germany and the target region is enabled, follow these steps:
 
 - [Enable network ports](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG)
-
 - [Scale out capacity](../service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.md) for the cluster by including resources from target region
-
 - [Use placement constraints](../service-fabric/service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) to distribute load to the target region
-
 - Drain out the workload in the Azure Germany region and remove machines from the cluster
 
 Without network connectivity between Azure Germany and target region, you need to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
@@ -119,17 +109,13 @@ Redeploy your deployment scripts, templates, or code in the new region, includin
 - Create new storage accounts, databases, or whatever services used to persist input and output data.
 - Update configuration and code to point to new Batch account and use new credentials.
 
-### Links
-
-- [Azure Batch documentation](../batch/batch-technical-overview.md)
-
 ## Functions
 
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
 - [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
 - [Azure locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
-- Change Key Vault secrets, certs, and other GUIDs to be consistent with new Region (location).
+- Change Key Vault secrets, certs, and other GUIDs to be consistent with new region (location).
 - [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
 
 ## Virtual Machines Scale Set
@@ -142,3 +128,14 @@ The migration of App Services from Azure Germany to global Azure isn't supported
 - [Azure locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/)
 - Change Key Vault secrets, certs, and other GUIDs to be consistent with new Region (location).
 - [Redeploy the application](../azure-resource-manager/resource-group-template-deploy.md)
+
+## Next steps
+
+- Compute Services in Azure
+  - [Overview](https://docs.microsoft.com/en-us/azure/index#pivot=products&panel=Compute)
+- Compute IaaS
+  - [Overview of Azure Site Recovery](../site-recovery/site-recovery-overview.md)
+  - [Replication architecture](../site-recovery/physical-azure-architecture.md)
+  - [Replicate an Azure VM](../site-recovery/azure-to-azure-quickstart.md)
+- Batch
+  - [Azure Batch documentation](../batch/batch-technical-overview.md)

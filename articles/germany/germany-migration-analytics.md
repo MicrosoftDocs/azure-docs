@@ -12,7 +12,7 @@ ms.custom: bfmigrate
 
 ## Event Hubs
 
-Follow the recommendations at [Integration - ServiceBus](./germany-migration-integration#servicebus)
+Follow the recommendations at [Integration - ServiceBus](./germany-migration-integration.md#service-bus)
 
 ## HDInsight
 
