@@ -2,13 +2,13 @@
 title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use batch testing to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
-author: v-geberr
+author: diberry
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Batch testing in LUIS
