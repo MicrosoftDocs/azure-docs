@@ -169,7 +169,7 @@ To revert to community version, do the following steps:
 
 9. Refresh the Spark history server web UI, it will be reverted to community version.
 
-### 2. Upload history server log
+### 2. Upload history server event
 
 If you run into history server error, follow the steps to provide the event:
 1. Download event by clicking **Download** in history server web UI.
