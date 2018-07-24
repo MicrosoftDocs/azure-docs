@@ -28,7 +28,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * You can pass three different types of arguments into functions:
   
-  1. Attributes, which must be enclosed in square square brackets. For example: [attributeName]
+  1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
