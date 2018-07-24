@@ -64,11 +64,11 @@ You can use the device simulation web app to configure and run simulations:
 
 ## Design principles
 
-All the solution accelerators follow the same design principles and goals. They are designed to be:
+All the solution accelerators follow the same design principles and goals. They're designed to be:
 
 * **Scalable**, letting you connect and manage millions of connected devices.
 * **Extensible**, enabling you to customize them to meet your requirements.
-* **Comprehensible**, enabling you to understand how they work and how they are implemented.
+* **Comprehensible**, enabling you to understand how they work and how they're implemented.
 * **Modular**, letting you swap out services for alternatives.
 * **Secure**, combining Azure security with built-in connectivity and device security features.
 
@@ -101,7 +101,7 @@ The cost of running a solution accelerator is an aggregate of the [cost of the u
 
 To try out one of the IoT solution accelerators, check out the quickstarts:
 
-* [Try a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md)
+* [Try a remote monitoring solution](quickstart-remote-monitoring-deploy.md)
 * [Try a connected factory solution](quickstart-connected-factory-deploy.md)
 * [Try a predictive maintenance solution](quickstart-predictive-maintenance-deploy.md)
 * [Try a device simulation solution](quickstart-device-simulation-deploy.md)
