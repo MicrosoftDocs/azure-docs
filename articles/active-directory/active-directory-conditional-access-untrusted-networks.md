@@ -8,13 +8,14 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
+ms.component: protection
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
 
