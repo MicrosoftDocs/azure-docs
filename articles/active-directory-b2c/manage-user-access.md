@@ -24,8 +24,7 @@ This article discusses how to manage user access to your applications by using A
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
->[!Note] 
->This article provides information that you can use to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-stponly.md)]
 
 ## Control minor access
 
