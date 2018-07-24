@@ -179,8 +179,8 @@ Where:
 
 The following examples show DNS queries for partitioned services running on a cluster that has default settings for `PartitionPrefix` and `PartitionSuffix`: 
 
-- To resolve partition “0” of a service with DNS name `BackendRangedSchemeSvc.Application` that uses a ranged partitioning scheme, use `BackendRangedSchemeSvc-0.Application`.
-- To resolve partition “first” of a service with DNS name `BackendNamedSchemeSvc.Application` that uses a named partitioning scheme, use `BackendNamedSchemeSvc-first.Application`.
+- To resolve partition “0” of a service with DNS name `backendrangedschemesvc.application` that uses a ranged partitioning scheme, use `backendrangedschemesvc-0.application`.
+- To resolve partition “first” of a service with DNS name `backendnamedschemesvc.application` that uses a named partitioning scheme, use `backendnamedschemesvc-first.application`.
 
 The DNS service returns the IP address of the primary replica of the partition. If no partition is specified, the service returns the IP address of the primary replica of a randomly selected partition.
 
