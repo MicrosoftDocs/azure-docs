@@ -6,14 +6,15 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1807 update 
+      href: azure-stack-update-1807.md 
     - name: 1805 update
       href: azure-stack-update-1805.md
     - name: 1804 update
       href: azure-stack-update-1804.md
     - name: 1803 update
       href: azure-stack-update-1803.md
-    - name: 1802 update 
-      href: azure-stack-update-1802.md 
+
 - name: Quickstarts
   expanded: true
   items:
@@ -140,6 +141,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
+        - name: Add scale unit nodes
+          href: azure-stack-add-scale-node.md
     - name: Replace hardware
       items:
       - name: Node actions
