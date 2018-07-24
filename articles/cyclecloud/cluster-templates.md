@@ -166,10 +166,12 @@ Parameter references in the template can take one of two forms:
 
 `${expr}`: Evaluates `expr` in the context of all parameters, which lets you compute dynamic values. For example:
 
-      Attribute = ${(a > b ? a : b) * 100}
+``` parameters
+Attribute = ${(a > b ? a : b) * 100}
+```
 
-  This would take the larger of two parameters, `a` and `b`, and multiply it by 100.
-  The expression is interpreted and evaluated according to the [ClassAd language specification](http://research.cs.wisc.edu/htcondor/classad/refman.pdf).
+This would take the larger of two parameters, `a` and `b`, and multiply it by 100.
+The expression is interpreted and evaluated according to the [ClassAd language specification](http://research.cs.wisc.edu/htcondor/classad/refman.pdf).
 
 If a parameter reference exists by itself, the value of the parameter is used,
 which supports non-string types like booleans, integers, and nested structures such as lists.

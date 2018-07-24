@@ -108,8 +108,10 @@ Mount = ephemeral
 > [!NOTE]
 > If you do not want any ephemeral automatically mapped for you, meaning you will either use no ephemeral storage or will rely on another form of attaching/mounting, you can set the `DisableAutomaticEphemeral` to true:
 
-    [[node master]]
-    DisableAutomaticEphemeral = true  # No ephemeral disks will be automatically attached to this instance
+``` ini
+[[node master]]
+DisableAutomaticEphemeral = true  # No ephemeral disks will be automatically attached to this instance
+```
 
 ## Mounting Configuration Options
 

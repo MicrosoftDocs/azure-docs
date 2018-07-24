@@ -36,11 +36,13 @@ $ az ad sp create-for-rbac --name CCLab
 
 The output will display a series of information. You will need to save the App ID, password, and tenant ID:
 
+``` output
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "displayName": "CcIntroTraining",
     "name": "http://CcIntroTraining",
     "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
 
 ### SSH KeyPair
 
@@ -106,6 +108,7 @@ To copy the ssh key, open the **exported** public key, and copy the contents of 
 
 An example `params-cyclecloud.json` might look like this:
 
+``` sample-json
       {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
@@ -117,6 +120,7 @@ An example `params-cyclecloud.json` might look like this:
       WW06Sn1CKTW0Vo0MMEshdpMRDqsELx0vTF4uev5sQrsDTbWgFoM9mgJ4GdweW0sJ
       80uAUQlCcalQNW+FAgMBAAE="}
       }
+```
 
 ### Application Parameters
 

@@ -57,9 +57,11 @@ $ qstat -f
 ```
 The output should confirm that no jobs are running and no execute nodes are provisioned:
 
+``` output
       queuename                      qtype resv/used/tot. load_avg arch          states
       ---------------------------------------------------------------------------------
       all.q@ip-0A000404              BIP   0/0/8          0.46     linux-x64
+```
 
 Submit 100 test "hostname" jobs with:
 
@@ -69,11 +71,15 @@ $ qsub -t 1:100 -b y -cwd hostname
 
 You should receive confirmation that the job request has been submitted:
 
-      Your job-array 1.1-100:1 ("hostname") has been submitted
+``` output
+Your job-array 1.1-100:1 ("hostname") has been submitted
+```
 
 The command you ran, `$ qsub -t 1:100 -b y -cwd hostname`, tells the node the following:
 
-    Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
+``` output
+Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
+```
 
 Confirm the jobs are in the queue with the `qstat` command.
 

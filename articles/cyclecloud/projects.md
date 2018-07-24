@@ -70,6 +70,7 @@ To create a new project, use the CLI command `cyclecloud project init myproject`
 
 The following directories will be created by the project command:
 
+``` directories
       \myproject
           ├── project.ini
           ├── blobs
@@ -84,6 +85,7 @@ The following directories will be created by the project command:
           │         ├── site-cookbooks
           │         ├── data_bag
           │         └── roles
+```
 
 The **templates** directory will hold your cluster templates, while **specs** will contain the specifications defining your project. **spec** has two subdirectories: cluster-init and custom chef. cluster-init contains directories which have special meaning, such as the **scripts** directory (contains scripts that are executed in lexicographical order on the node), **files** (raw data files to will be put on the node), and **tests** (contains tests to be run when a cluster is started in testing mode).
 
@@ -328,7 +330,9 @@ jetpack converge --cluster-init
 
 Output from the command will both go to STDOUT as well as jetpack.log. Each script will also have its output logged to:
 
+``` outfile
       $JETPACK_HOME/logs/cluster-init/(project)/(spec)/scripts/(script.sh).out
+```
 
 ## Custom chef and Composable Specs
 

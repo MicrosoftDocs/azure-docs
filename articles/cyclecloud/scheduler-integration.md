@@ -93,6 +93,7 @@ In the above example, there are now two node arrays: One is a 'standard' execute
 
 You can verify the number of slots and slot_type your machines have by running the command:
 
+``` output
     -bash-4.1# qstat -F slot_type
     queuename                      qtype resv/used/tot. load_avg arch          states
     ---------------------------------------------------------------------------------
@@ -103,6 +104,7 @@ You can verify the number of slots and slot_type your machines have by running t
         hf:slot_type=gpu
     ---------------------------------------------------------------------------------
     all.q@ip-10-183-146-119.ec2.in BIP   0/0/4          0.25     linux-x64
+```
 
 Notice that there are one of each 'slot_type' that we specified (execute and gpu) and the number of slots for the 'execute' slot is 4, which is the number of CPUs on the machine. The number of slots for the 'gpu' slot type is 2, which we specified in our cluster configuration template. The third machine is the master node which does not run jobs.
 
@@ -257,7 +259,6 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
 | cyclecloud.cluster.autoscale.idle_time_after_jobs     | The amount of time (in seconds) for a node to sit idle after completing jobs before it is scaled down.    |
 | cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |
 
-
 ## HTCondor
 
 [HTCondor](http://research.cs.wisc.edu/htcondor/manual/latest) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. There are three basic components of an HTCondor cluster. The first is the "central manager" which provides the scheduling and management daemons. The second component of an HTCondor cluster is one or more schedulers from which jobs are submitted into the system. The final component is one or more execute nodes which are the hosts perform the computation. A simple HTCondor template may look like:
@@ -265,27 +266,27 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
 ``` ini
 [cluster htcondor]
 
-    [[node manager]]
-    ImageName = cycle.image.centos7
-    MachineType = Standard_A4 # 8 cores
+  [[node manager]]
+  ImageName = cycle.image.centos7
+  MachineType = Standard_A4 # 8 cores
 
-        [[[configuration]]]
-        run_list = role[central_manager]
+      [[[configuration]]]
+      run_list = role[central_manager]
 
-    [[node scheduler]]
-    ImageName = cycle.image.centos7
-    MachineType = Standard_A4 # 8 cores
+  [[node scheduler]]
+  ImageName = cycle.image.centos7
+  MachineType = Standard_A4 # 8 cores
 
-        [[[configuration]]]
-        run_list = role[condor_scheduler_role],role[filer_role],role[scheduler]
+      [[[configuration]]]
+      run_list = role[condor_scheduler_role],role[filer_role],role[scheduler]
 
-    [[nodearray execute]]
-    ImageName = cycle.image.centos7
-    MachineType = Standard_A1 # 1 core
-    Count = 1
+  [[nodearray execute]]
+  ImageName = cycle.image.centos7
+  MachineType = Standard_A1 # 1 core
+  Count = 1
 
-        [[[configuration]]]
-        run_list = role[usc_execute]
+      [[[configuration]]]
+      run_list = role[usc_execute]
 ```
 
 Importing and starting a cluster with definition in CycleCloud will yield a "manager" and a "scheduler" node, as well as one "execute" node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. To add 10 more execute nodes:
@@ -323,6 +324,7 @@ condor_submit my_job.submit
 
 A sample submit file might look like this:
 
+``` submit
       Universe = vanilla
       Executable = do_science
       Arguments = -v --win-prize=true
@@ -333,6 +335,7 @@ A sample submit file might look like this:
       +average_runtime = 10
       +slot_type = "highmemory"
       Queue
+```
 
 ## HTCondor Configuration Reference
 
