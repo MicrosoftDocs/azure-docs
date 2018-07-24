@@ -589,4 +589,7 @@ function load(filePath) {
 
 ## Next steps
 
-Learn how to [manage your devices](howto-manage-devices.md) in the device explorer. 
+Now that you have learned how to export your data, here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [How to visualize in Power BI](howto-visualize-in-powerbi.md)
