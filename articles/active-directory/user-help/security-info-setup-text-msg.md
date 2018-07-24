@@ -24,7 +24,7 @@ Setting up your security info requires you to sign in to your work or school acc
 
 Depending on your organization’s settings, you may be prompted to add text messaging to your security info when you sign in. Otherwise, to begin setting up text messaging in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
-The text message option is a part of the phone option, so you'll set everything up the same way you would for your phone number, but instead of having Microsoft call you, you'll choose to use a text message. If you don't see the phone option, it's possible that your organization doesn't allow you to use a phone number for verification. If this is the case, you'll need to choose another verification method or contact your administrator for more help.
+The text message option is a part of the phone option, so you'll set everything up the same way you would for your phone number, but instead of having Microsoft call you, you'll choose to use a text message. If you don't see the phone option, it's possible that your organization doesn't allow you to use a phone number for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To use a text message
 
@@ -49,18 +49,16 @@ The text message option is a part of the phone option, so you'll set everything 
 
 You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or self-service password reset verification. For step-by-step instructions about how to verify your identity with a text message (SMS), see the [Set your verification method to a text message](#set-your-verification-method-to-a-text-message) section of this article.
+- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set security info to use an authenticator app](security-info-setup-auth-app.md).
 
-- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or self-service password reset verification. For step-by-step instructions about how to verify your identity with the Microsoft Authenticator app, see the [Set your security info to use an authenticator app](security-info-setup-auth-app.md) article.
+- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
 
-- **Mobile device or work phone call.** Enter your mobile or work phone number to get a verification call or text message for two-step verification or self-service password reset verification. For step-by-step instructions about how to verify your identity with a phone number, see the [Set up your security info to use a phone number](security-info-setup-phone-number.md) article.
+- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
+   
+    >[!Note]
+    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
-- **Email address.** Enter your work or school email address to get a verification email for self-service password reset. For step-by-step instructions about how to set up your email verification, see the [Set up your security info to use email](security-info-setup-email.md) article.
-
-- **Security questions.** Answer some security questions created by your administrator for your organization for self-service password reset. For step-by-step instructions about how to set up your security questions, see the [Set up your security info to use security questions](security-info-setup-questions.md) article.
-
->[!Note]
->If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
+- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
 
 ## Next steps
 
