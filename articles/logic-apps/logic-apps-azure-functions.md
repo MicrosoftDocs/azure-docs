@@ -52,9 +52,7 @@ as the first step in your logic app
 
 * An Azure function app, which is a container for Azure functions, 
 and your Azure function. Your function app must belong to the same 
-Azure subscription as your logic app. Also, when you include a Swagger 
-description with your function, the Logic Apps Designer can provide 
-a richer experience for you when working with function parameters.
+Azure subscription as your logic app.
 
   If you don't have a function app, you must 
   [create your function app first](../azure-functions/functions-create-first-azure-function.md). 
@@ -98,6 +96,22 @@ type from your logic app:
   property is set to **Generic JSON**. 
 
      ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+
+* Optionally, if you [generate an API definition](..//azure-functions/functions-openapi-definition.md), 
+formerly known as a [Swagger file](http://swagger.io/), 
+for your function, you can get a richer experience when 
+working with function parameters in the Logic Apps Designer. 
+
+  Before your logic app can fetch actions that have Swagger descriptions, 
+  you must add your logic app's URL to your function's 
+  [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) list. 
+  CORS lets you make cross-origin calls. 
+
+  1. To find your logic app's URL, 
+  go to your logic app's menu, and select **Overview**. 
+  
+
+  2. 
 
 ### Access property values inside HTTP requests
 
