@@ -1,6 +1,6 @@
 ---
 title: Debug Azure Data Lake Analytics code locally | Microsoft Docs
-description: 'Learn how to use Azure Data Lake tools for Visual Studio to debug U-SQL jobs on your local workstation.'
+description: 'Learn how to use Azure Data Lake Tools for Visual Studio to debug U-SQL jobs on your local workstation.'
 services: data-lake-analytics
 documentationcenter: ''
 author: yanancai
@@ -19,9 +19,9 @@ ms.author: yanacai
 ---
 # Debug Azure Data Lake Analytics code locally
 
-You can use Azure Data Lake tools for Visual Studio to run and debug Azure Data Lake Analytics code on your local workstation. This works the same as it does in Azure Data Lake Analytics.
+You can use Azure Data Lake Tools for Visual Studio to run and debug Azure Data Lake Analytics code on your local workstation. This debug works the same as it does in Azure Data Lake Analytics.
 
-Learn [how to run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md).
+Learn how to [run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## Debug scripts and C# assemblies locally
 
@@ -45,7 +45,7 @@ You can debug C# assemblies without submitting and registering them to Azure Dat
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
         
 3. Set breakpoints in the C# code.
-4. Select **F5** to debug the script by referencing the C# **DLL* file locally.
+4. Select **F5** to debug the script by referencing the C# **DLL** file locally.
 
 
 ## Next steps

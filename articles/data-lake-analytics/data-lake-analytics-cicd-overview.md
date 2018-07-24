@@ -42,7 +42,7 @@ Before you set up a build task for a U-SQL project, make sure you have the lates
 If not, you have two options to migrate the project:
 
 - Option 1: Change the old import item to the preceding one.
-- Option 2: Open the old project in the Azure Data Lake tools for Visual Studio. Use a version newer than 2.3.3000.0. The old project template will be upgraded automatically to the newest version. New projects created with versions newer than 2.3.3000.0 use the new template.
+- Option 2: Open the old project in the Azure Data Lake Tools for Visual Studio. Use a version newer than 2.3.3000.0. The old project template will be upgraded automatically to the newest version. New projects created with versions newer than 2.3.3000.0 use the new template.
 
 ### Get NuGet
 
@@ -296,7 +296,7 @@ UploadResources
 
 ## CI/CD for a U-SQL database
 
-Azure Data Lake tools for Visual Studio provide U-SQL database project templates that help you develop, manage, and deploy U-SQL databases. Learn more about a [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
+Azure Data Lake Tools for Visual Studio provide U-SQL database project templates that help you develop, manage, and deploy U-SQL databases. Learn more about a [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 ## Build a U-SQL database project
 
