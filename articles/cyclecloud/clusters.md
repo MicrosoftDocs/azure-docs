@@ -18,10 +18,10 @@ Azure CycleCloud comes with a set of pre-installed templates that can be used to
 
 ## Further Reading
 
-* Create a [Cluster Template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates)
-* [Start a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/start-cluster)
-* [Auto Scaling](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale)
-* [Terminate a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/end-cluster)
+* Create a [Cluster Template](cluster-templates.md)
+* [Start a Cluster](start-cluster.md)
+* [Auto Scaling](autoscale.md)
+* [Terminate a Cluster](end-cluster.md)
 
 ## Nodes and Node Arrays
 
@@ -33,4 +33,4 @@ To get the capacity needed for your job, node arrays can span multiple machine t
 
 ## Further Reading
 
-* [Node Configuration Reference](https://docs.microsoft.com/en-us/azure/cyclecloud/node-configuration-reference)
+* [Node Configuration Reference](node-configuration-reference.md)
