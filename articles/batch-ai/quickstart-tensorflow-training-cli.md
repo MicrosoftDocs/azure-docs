@@ -234,7 +234,7 @@ export JOB_OUTPUT_PATH=$(az batchai job show --name myjob --experiment myexperim
 
 az storage directory list \
     --share-name batchaishare \
-    --directory-name logs \
+    --directory-name batchaishare/logs \
     --path $JOB_OUTPUT_PATH/stdouterr \
     --output table
 ```
