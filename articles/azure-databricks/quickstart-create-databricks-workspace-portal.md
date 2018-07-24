@@ -61,6 +61,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
+> [!NOTE] 
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/en-us/free/).  
+
 3. In the **New cluster** page, provide the values to create a cluster.
 
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
@@ -81,6 +84,28 @@ Download a sample JSON data file and save it into Azure blob storage.
 
 1. Download this sample JSON data file [from Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) onto your local computer. Right-click and save as to save the raw file locally. 
 
+https://github.com/MicrosoftDocs/azure-docs-pr/pull/47247
+
+2. If you don't already have a storage account, create one. 
+   - In the Azure portal, select **Create a resource**.  Select the **Storage** category, and select **Storage Accounts**  
+   - Provide a unique name for the storage account.
+   - Select **Account Kind**: **Blob Storage**
+   - Select a **Resource Group** name. Use the same resource group you created the Databricks workspace.
+   
+   For more information, see [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+3. Create a storage Container in the Blob Storage account and upload the sample json file into the container. You can use the Azure portal or the  [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload the file.
+
+   - Open the storage account in the Azure portal.
+   - Select **Blobs**.
+   - Select **+ Container** to create a new empty container.
+   - Provide a **Name** for the container, such as `databricks`. 
+   - Select  **Private (non anonymous access)** access level.
+   - Once the container is created, select the container name.
+   - Select the **Upload** button.
+   - On the **Files** page, select the **Folder icon** to browse and select the sample file `small_radio_json.json` for upload. 
+   - Select **Upload** to upload the file.
+   
    
 ## Run a Spark SQL job
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
