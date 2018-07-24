@@ -46,6 +46,7 @@
 ## Manage users
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
@@ -140,13 +141,11 @@
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## Manage passwords(active-directory/authentication/concept-sspr-howitworks.md)
+## [Manage passwords](authentication/concept-sspr-howitworks.md)
 ### User documents
 #### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
-### IT Admins: Reset passwords
-#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
