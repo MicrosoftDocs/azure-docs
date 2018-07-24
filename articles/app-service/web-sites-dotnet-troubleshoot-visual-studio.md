@@ -57,7 +57,7 @@ Visual Studio provides access to a subset of the web app management functions an
 
     For more information about connecting to Azure resources from Visual Studio, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. In **Server Explorer**, expand **Azure** and expand **App Service**.
-3. Expand the resource group that includes the web app that you created in [Create an ASP.NET web app in Azure][app-service-web-get-started-dotnet-framework.md], and then right-click the web app node and click **View Settings**.
+3. Expand the resource group that includes the web app that you created in [Create an ASP.NET web app in Azure](app-service-web-get-started-dotnet-framework.md), and then right-click the web app node and click **View Settings**.
 
     ![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
