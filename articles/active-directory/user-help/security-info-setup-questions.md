@@ -25,19 +25,25 @@ Setting up your security info requires you to sign in to your work or school acc
 Depending on your organization’s settings, you may be prompted to add security questions to your security info when you sign in. Otherwise, to begin setting up security questions in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
 >[!Note]
->The number of security questions are determined by your administrator. If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To choose and answer your security questions
 
-1. text
+1. Select **Set up** for the **Security questions** option, and then choose the security questions you want to answer. 
+
+    The number of security questions you have to pick are determined by your administrator.
+
+    ![Security info page, pick your security questions](media/security-info/security-info-keep-secure-setup-pick-questions.png)
+
+2. Answer your selected questions, and then select **Done**.
 
 ## Additional security info options
 
 You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
-- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set security info to use an authenticator app](security-info-setup-auth-app.md).
+- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
 
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up your security info to use a text message (SMS)](security-info-setup-text-msg.md).
+- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
 
 - **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
 
