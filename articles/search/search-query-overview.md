@@ -12,14 +12,11 @@ ms.date: 07/13/2018
 ---
 # Basic query construction in in Azure Search
 
-strings provide instructions that determine the type of query (term or phrase query), what parts of the index are searched, what to search for, and how to handle results. Syntactically, it's all of the name-value pairs in the other side of the **search=** parameter.
-
-
-## Scope
+A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. A query string takes parameters for specifying the syntax type (simple or full), and criterion for the search.
 
 Query execution is always against one index. You cannot join indexes or create custom or temporary data structures as a query target. 
 
-Query scope is primarily formulated on the query string. Unspecified, a query runs against all searchable fields. However, because the index schema is user-defined, you control through attributes whether fields are searchable, how text content is analyzed, . 
+The substance of the query request specifies its scope: which fields to include in search, in the result set, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, and returns a result set in arbitrary order.
 
 ## Query statements
 
@@ -30,9 +27,7 @@ In .NET, a search request is implemented in your code as a method.
 Interactively using built-in Search explorer, it is a string in a search box.
 
 
-## Code examples
 
-The following example functions and methods are derived from current samples.
 
 ## Requirements
 
@@ -42,10 +37,11 @@ The following example functions and methods are derived from current samples.
 + queryType (specifies the parser and associated syntax)
 + query string determines the type of query that occurs: full text, geo-search, fuzzy search
 
+## Query examples
 
-## Query string examples
+## Code examples
 
-
+The following example functions and methods are derived from current samples.
 
 ## Original
 

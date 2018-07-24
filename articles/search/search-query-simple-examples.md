@@ -13,9 +13,9 @@ ms.author: heidist
 
 # Simple syntax query examples for building queries in Azure Search
 
-[Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is the default query parser for constructing full text search queries against an Azure Search index. The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, which sometimes take additional time to process. 
+[Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) is the default query parser for constructing full text search queries against an Azure Search index. The simple query analyzer is fast and handles common scenarios in Azure Search, including full text search, filtered search, faceted search, geo-search, and so forth. In this article, step through examples demonstrating query operations available when using the simple syntax.
 
-The simple query analyzer is fast and handles primary use cases in Azure Search, including full text search, filtered search, faceted search, geo-search, and so forth. In this article, step through examples demonstrating query operations available when using the simple syntax.
+The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, which sometimes take additional time to process. For more information and examples, see [Lucene syntax query examples](search-query-lucene-examples.md).
 
 ## Formulate requests in Postman
 
@@ -41,13 +41,13 @@ Important points include the following items:
 
 ## Send your first query
 
-As a verification step, paste the following request into GET and click **Send**.
+As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
-Results are returned as verbose JSON documents. The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
+The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
 
 Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (2802 in the case of NYC Jobs).
 
@@ -57,7 +57,7 @@ For interactive queries, you don't have to specify anything: simple is the defau
 
 ## Example 1: field-scoped query
 
-The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON reponse. For brevity, the query specifies only business titles are returned. 
+The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON response. For brevity, the query specifies only business titles are returned. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
@@ -73,14 +73,31 @@ You might have noticed that the search score is also returned for every document
 
 ## Example 2: Lookup a specific document
 
-This example is a bit atypical, but when testing your indexing code, verification that a specific document is loaded in the index is a common requirement. The way to fully validate whether a document is indexed is to do a lookup by ID.
+This example is a bit atypical, but when testing your indexing code, you might want to verify whether a specific document is loaded or refreshed in the index. The way to fully validate whether a document is indexed is to do a [lookup by ID](https://docs.microsoft.com/rest/api/searchservice/lookup-document). You can use the simple syntax for that.
+
+All documents have a unqiue identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the "id" field.
 
 ```http
- TBD
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
  ```
 
+The next example is a lookup query returning a specific document based on id "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns the entire document, not just selected fields. 
 
-## Example 3: Em
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
+ ```
+
+## Example 3: Term and phrase queries
+
+## Example 4: Boolean operators
+
+## Example 5: Filtered query
+
+## Example 6: Sorted results
+
+## Example 7: Hit highlighting
+
+## Example 8: Paged results
 
 ## Next steps
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
@@ -93,3 +110,4 @@ Try specifying the Lucene Query Parser in your code. The following links explain
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
 + [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 + [Full Lucene query](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)

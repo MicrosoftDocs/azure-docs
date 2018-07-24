@@ -44,13 +44,13 @@ Important points include the following items:
 
 ## Send your first query
 
-As a verification step, paste the following request into GET and click **Send**.
+As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
-Results are returned as verbose JSON documents. The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
+The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
 
 Optionally, you can add **`$count=true`** to the URL to return a count of the documents matching the search criteria. On an empty search string, this is all the documents in the index (2802 in the case of NYC Jobs).
 
@@ -66,7 +66,7 @@ All of the examples in this article specify the **queryType=full** search parame
 
 ## Example 1: field-scoped query
 
-The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON reponse. For brevity, the query specifies only business titles are returned. 
+The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON response. For brevity, the query specifies only business titles are returned. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
@@ -152,7 +152,7 @@ Consider a scoring profile that boosts matches in a certain field, such as **gen
 When setting the factor level, the higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.2).
 
 
-## Example 6: Regular expressions
+## Example 6: Regex
 
 A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
