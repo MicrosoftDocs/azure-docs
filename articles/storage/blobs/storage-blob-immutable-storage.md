@@ -114,7 +114,7 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
 
     ![Lock Policy](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can longer be deleted and only extensions of the retention interval will be allowed.
+    Click on Lock Policy and the policy state will now show as locked. Once locked, the policy can not longer be deleted and only extensions of the retention interval will be allowed.
 
 6. To enable legal holds, click on + Add Policy and  choose Legal hold from the drop-down menu
 
