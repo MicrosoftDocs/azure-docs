@@ -40,7 +40,8 @@ Install Eclipse Neon or later from the [Eclipse site](https://www.eclipse.org). 
 Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New Software**.
 1. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
 2. Click **Add**.
-    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
+
+   ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
 3. Select the Service Fabric plug-in, and then click **Next**.
 4. Complete the installation steps, and then accept the Microsoft Software License Terms.
   
@@ -82,7 +83,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 
     ![Service Fabric New Project page 6][create-application/p6]
 
-## Build and deploy a Service Fabric application in Eclipse
+## Build a Service Fabric application in Eclipse
 
 1.  Right-click your new Service Fabric application, and then select **Service Fabric**.
 
@@ -99,16 +100,23 @@ After you have built your Service Fabric application, follow these steps to depl
 
 1. If you haven't started the local cluster, follow the instructions in [Set up a local cluster](./service-fabric-get-started-linux.md#set-up-a-local-cluster) to start your local cluster and make sure that it is running.
 
-2. Right-click the Service Fabric application, and then select **Service Fabric**.
+2. Right-click your Service Fabric application, and then select **Service Fabric**.
 
 3.  From the context menu, click **Deploy Application**.
-4.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand the **Applications** node and make sure your application is running. To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java).
+4.  You can follow the progress of the deploy operation in the Console window.
+5.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand the **Applications** node and make sure your application is running. To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java).
+
+You can also deploy your application to the local cluster from the Publish Application menu:
+
+1. Right-click your Service Fabric application, and then select **Service Fabric**.
+2. From the context menu, click **Publish Application...**.
+3. In the **Publish Application** window, choose **PublishProfiles/Local.json** as the Target Profile and click **Publish**. By default, the Local.json publishing profile is set up to publish to the local cluster. For more information about the connection and endpoint parameters present in publishing profiles, see the next section.
 
 ## Publish your Service Fabric application to Azure with Eclipse
 
 To publish your application to the cloud, follow these steps:
 
-1. To publish your application to a secure cluster in the cloud, you need a PEM file that contains the certificate you use to communicate with your cluster. In test environments this is often the cluster certificate. In production environments this should be a client certificate, which is distinct from the cluster certificate. If your certificate is in a PFX file, you can create a PEM file that contains it with the following command:
+1. To publish your application to a secure cluster in the cloud, you need an X.509 certificate to use to communicate with your cluster. In test and development environments, the certificate used is often the cluster certificate. In production environments, the certificate should be a client certificate, which is distinct from the cluster certificate. You need both the certificate and the private key. The certificate (and key) file must be PEM-formatted. You can create a PEM file that contains the certificate and private key from a PFX file with the following openssl command:
 
     ```bash
     openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
@@ -116,11 +124,11 @@ To publish your application to the cloud, follow these steps:
 
    If the PFX file is not password protected, use `--passin pass:` for the last parameter.
 
-2. Open the **Cloud.json** file under the **PublishProfiles** directory. You need to configure the cluster endpoint and security credentials appropriately for your cluster. 
+2. Open the **Cloud.json** file under the **PublishProfiles** directory. You need to configure the cluster endpoint and security credentials appropriately for your cluster.
 
    - The `ConnectionIPOrURL` field contains the IP address or URL of your cluster. Note that the value does not contain the URL scheme (`https://`).
    - By default the `ConnectionPort` field should be `19080`, unless you explicitly have changed this port for your cluster.
-   - The `ClientKey` field should point to a PEM-formatted .pem or .key file on your local machine that contains the public key for your client or cluster certificate.
+   - The `ClientKey` field should point to a PEM-formatted .pem or .key file on your local machine that contains the private key for your client or cluster certificate.
    - The `ClientCert` field should point to a PEM-formatted .pem or .crt file on your local machine that contains the certificate data for your client or cluster. certificate. 
 
     ```bash
@@ -135,25 +143,20 @@ To publish your application to the cloud, follow these steps:
     }
     ```
 
-3. Right click on the project and select **Publish Application...** under the **Service Fabric** dropdown. Choose **PublishProfiles/Cloud.json** as the Target Profile and click Publish.
+2. Right-click your Service Fabric application, and then select **Service Fabric**.
+
+3. From the context menu, click **Publish Application...**.
+3. In the **Publish Application** window, choose **PublishProfiles/Cloud.json** as the Target Profile and click **Publish**.
 
     ![Publish Dialog Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 
-> [!IMPORTANT]
-> On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+4.  You can follow the progress of the publish operation in the Console window.
+5.  To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
+
+
+On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
 For a quick walk through of how to deploy a Service Fabric Reliable Services application written in Java to a secure Linux cluster, see [Quckstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
-
-
-1. 
-    -   To deploy to your local cluster, click **Deploy Application**.
-    -   In the **Publish Application** dialog box, select a publish profile:
-        -  **Local.json**
-        -  **Cloud.json**
-
-     These JavaScript Object Notation (JSON) files store information (such as connection endpoints and security information) that is required to connect to your local or cloud (Azure) cluster.
-
-  ![Service Fabric Publish menu][publish/Publish]
 
 ## Deploy (publish) a Service Fabric application by using Eclipse run configurations
 
