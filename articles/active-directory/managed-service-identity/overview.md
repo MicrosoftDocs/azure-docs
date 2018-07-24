@@ -57,7 +57,7 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
 Using the same diagram, here's an example of how a user-assigned works with Azure Virtual Machines.
-<!-- Linguist comment: The subject in the sentence below is missing. It used to be "MSI", so we will use this term for the time being. Please clarify-->
+<!-- Linguist comment: The subject in the sentence above is missing. It used to be "MSI", so we will use this term for the time being. Please clarify-->
 
 1. Azure Resource Manager receives a request to create a user assigned identity.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the user assigned identity. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
