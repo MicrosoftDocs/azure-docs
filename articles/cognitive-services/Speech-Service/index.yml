@@ -25,7 +25,7 @@ abstract:
     &nbsp;&#8226; <a href="speech-translation">Speech-translation</a>&#58; Speak in one language and hear it in another<br/>
     &nbsp;&#8226; <a href="text-to-speech">Text-to-speech</a> (TTS)&#58; Synthesis
 sections:
-- title: 10-minute download and quickstart for the Speech SDK
+- title: 5-minute SDK download and quickstart
   items:
   - type: paragraph
     text: Learn how to download, install, and use by clicking on the desired arrow link <img src="media/index/link.jpg" height="15" width="15"></img> below.
