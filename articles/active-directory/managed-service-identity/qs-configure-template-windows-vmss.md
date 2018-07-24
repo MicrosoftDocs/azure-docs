@@ -95,12 +95,23 @@ In this section, you will enable and disable the system assigned identity using 
 
 ### Disable a system assigned identity from an Azure virtual machine scale set
 
-> [!NOTE]
-> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
+If you have a virtual machine scale set that no longer needs a managed service identity:
 
-If you have a virtual machine scale set that no longer needs a system assigned identity but still needs user assigned identities:
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-- Load the template into an editor and change the identity type to `'UserAssigned'`
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has system assigned identity, you can disable it by changing the the identity type to `None`.  If your virtual machine scale set has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities.  The following example shows you how remove a system assigned identity from a virtual machine scale set with no user assigned identities:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
 
 ## User assigned identity
 
@@ -130,6 +141,7 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
 
     }
     ```
+
 2. (Optional) Add the following entry under the `extensionProfile` element to assign the managed identity extension to your VMSS. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
    
     ```JSON
@@ -148,12 +160,37 @@ In this section, you assign a user assigned identity to an Azure VMSS using Azur
                         "protectedSettings": {}
                     }
                 }
-   ```
+    ```
+
 3.  When you are done, your template should look similar to the following:
    
       ![Screenshot of user assigned identity](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
+### Remove user assigned identity from an Azure virtual machine scale set
+
+If you have a virtual machine scale set that no longer needs a managed service identity:
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user assigned identity, you can disable it by changing the the identity type to `None`.  If your virtual machine scale set has both system and user assigned identities and you would like to keep system assigned identity, remove `UserAssigned` from the identity type along with the `identityIds` array of the user assigned identities.
+    
+   To remove a a single user assigned identity from a virtual machine scale set, remove it from the `identityIds` array.
+   
+   The following example shows you how remove a user assigned identity from a virtual machine scale set with no system assigned identities:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
+
 ## Next steps
 
-- For a broader perspective about MSI, read the [Managed Service Identity overview](overview.md).
+- For a broader perspective about Managed Service Identity, read the [Managed Service Identity overview](overview.md).
 

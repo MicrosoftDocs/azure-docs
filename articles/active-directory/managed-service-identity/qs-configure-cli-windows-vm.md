@@ -86,14 +86,21 @@ If you need to enable the system assigned identity on an existing VM:
 
 ### Disable the system assigned identity from an Azure VM
 
-> [!NOTE]
-> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
-
-If you have a Virtual Machine that no longer needs the system assigned identity but still needs user assigned identities, use the following command:
+If you have a Virtual Machine that no longer needs the system assigned identity, but still needs user assigned identities, use the following command:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
 ```
+
+If you have a virtual machine that no longer needs system assigned identity and it has no user assigned identities, use the following command:
+
+> [!NOTE]
+> The value `none` is case sensitive. It must be lowercase. 
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none"
+```
+
 To remove the MSI VM extension, user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
@@ -180,14 +187,21 @@ The response contains details for the user assigned MSI created, similar to the 
 
 ### Remove a user assigned identity from an Azure VM
 
-> [!NOTE]
-> Removing all user assigned identities from a Virtual Machine is currently not supported, unless you have a system assigned identity.
-
-If your VM has multiple user assigned identities, you can remove all but the last one using [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned identity's `name` property, which can be found by in the identity section of the VM using `az vm show`:
+To remove a user assigned identity from a VM use [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned identity's `name` property, which can be found by in the identity section of the VM using `az vm identity show`:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 ```
+
+If your VM does not have a system assigned identity and you want to remove all user assigned identities from it, use the following command:
+
+> [!NOTE]
+> The value `none` is case sensitive. It must be lowercase.
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
 If your VM has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command:
 
 ```azurecli-interactive
