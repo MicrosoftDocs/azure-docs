@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Deep learning training - Azure CLI | Microsoft Docs
-description: Quickly learn to run a TensorFlow deep learning training job on a single GPU with Batch AI using the Azure CLI
+description: Quickly learn to train a TensorFlow deep learning neural network on a single GPU with Batch AI using the Azure CLI
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,15 +14,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 07/12/2018
+ms.date: 07/20/2018
 ms.author: danlep
 ---
 
-# Quickstart: Run your first Batch AI training job using the Azure CLI
+# Quickstart: Train a deep learning model with Batch AI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a deep learning model with Batch AI. In this example, you set up a single GPU node to train an example [TensorFlow](https://www.tensorflow.org/) model on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a sample deep learning model with a GPU virtual machine managed by Batch AI. In this example, you train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
 
-After completing this quickstart, you'll understand key concepts of using Batch AI to train a deep learning model, and be ready to try training jobs at larger scale with different frameworks.
+After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ az batchai workspace create \
 To create a Batch AI cluster, use the [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command. The following example creates a cluster with the following properties:
 
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
-* Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
+* Runs a default Ubuntu Server image designed to host container-based applications. You can use this distribution for most training workloads. 
 * Adds a user account named *myusername*, and generates SSH keys if they don't already exist in the default key location (*~/.ssh*) in your local environment. 
 * Automatically creates (through the `--use-auto-storage` option) an associated storage account, to store files for training jobs. Batch AI mounts a file share and storage container in that account on each cluster node.  
 
@@ -96,30 +96,24 @@ Continue the following steps to upload the training script and create the traini
 
 ## Upload training script
 
-Use the storage account associated with the cluster to store your training script and training output. To simplify the CLI commands to work with the storage account, first set the following environment variables in your shell:
+Use the storage account associated with the cluster to store your training script and training output. To make it easier to run the CLI commands that manage the storage account, first set an environment variable with the name of your storage account:
 
 ```bash
 export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query "nodeSetup.mountVolumes.azureFileShares[0].accountName" | sed s/\"//g)
-
-export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT --resource-group batchaiautostorage --query [0].value)
 ```
 
-Create Azure file shares in the storage account with the [az storage share create](/cli/azure/storage/share#az-storage-share-create) command. The `scripts` share is for the training script, and `logs` for training output:
-
-```azurecli-interactive
-az storage share create \
-    --name scripts
-
-az storage share create \
-    --name logs
-```
-
-In your `scripts` share, use the [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) command to create a folder named `tensorflow`:
+Use the [az storage directory create](/cli/azure/storage/directory#az-storage-direcotry-create) command to create directories in the `batchaishare` Azure file share that was automatically set up in the storage account. The `scripts` directory is for the training script, and `logs` for training output:
 
 ```azurecli-interactive
 az storage directory create \
-    --share-name scripts \
-    --name tensorflow
+    --name scripts \
+    --share-name batchaishare \
+    --account-name $AZURE_STORAGE_ACCOUNT
+
+az storage directory create \
+    --name logs \
+    --share-name batchaishare \
+    --account-name $AZURE_STORAGE_ACCOUNT
 ```
 
 Create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample. The script trains a convolutional neural network on the MNIST image set of 60,000 handwritten digits from 0 through 9. Then it tests the model on a set of test examples.
@@ -128,13 +122,14 @@ Create a local working directory, and download the TensorFlow [convolutional.py]
 wget https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py
 ```
 
-Upload the script to the `tensorflow` folder in the share using the [az storage file upload](/cli/azure/storage/file#az-storage-file-upload) command.
+Upload the script to the `scripts` directory in the share using the [az storage file upload](/cli/azure/storage/file#az-storage-file-upload) command.
 
 ```azurecli-interactive
 az storage file upload \
-    --share-name scripts \
-    --path tensorflow \
-    --source convolutional.py
+    --share-name batchaishare \
+    --path scripts \
+    --source convolutional.py \
+    --account-name $AZURE_STORAGE_ACCOUNT
 ```
 
 ## Submit training job
@@ -148,7 +143,8 @@ az batchai experiment create \
     --resource-group myResourceGroup
 ```
 
-In your working directory, create a training job configuration file `job.json` with the following content. You pass this configuration file when you submit the training job. Update with the name of your storage account in the two places indicated (use the value of the $AZURE_STORAGE_ACCOUNT variable, similar to *baixxxxxxxxxxxxxxxxx*).
+In your working directory, create a training job configuration file `job.json` with the following content. You pass this configuration file when you submit the training job. 
+This `job.json` file includes settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the job's output files that are saved to Azure storage.
 
 ```json
 {
@@ -156,21 +152,9 @@ In your working directory, create a training job configuration file `job.json` w
     "properties": {
         "nodeCount": 1,
         "tensorFlowSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/tensorflow/convolutional.py"
+            "pythonScriptFilePath": "$AZ_BATCHAI_MOUNT_ROOT/autoafs/scripts/convolutional.py"
         },
-        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
-        "mountVolumes": {
-            "azureFileShares": [
-                {
-                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/logs",
-                    "relativeMountPath": "logs"
-                },
-                {
-                    "azureFileUrl": "https://<YOUR_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
-                    "relativeMountPath": "scripts"
-                }
-            ]
-        },
+        "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/autoafs/logs",
         "containerSettings": {
             "imageSourceRegistry": {
                 "image": "tensorflow/tensorflow:1.8.0-gpu"
@@ -179,8 +163,6 @@ In your working directory, create a training job configuration file `job.json` w
     }
 }
 ```
-
-This `job.json` file includes settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the job's log files that are saved to Azure storage.
 
 Use the [az batchai job create](/cli/azure/batchai/job#az-batchai-job-create) command to submit the job on the node, passing the `job.json` configuration file:
 
@@ -194,7 +176,7 @@ az batchai job create \
     --config-file job.json
 ```
 
-The command returns quickly with the job properties. The job takes a couple of minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file in the standard output directory on the node. This file gets generated after the job starts running.  
+The command returns quickly with the job properties. The job takes a couple of minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file from the standard output directory on the node. The training script generates this file after the job starts running.  
 
 ```azurecli-interactive
 az batchai job file stream \
@@ -241,17 +223,17 @@ Validation error: 0.9%
 Test error: 0.8%
 ```
 
-The streaming stops when the job completes 10 *epochs*, or cycles through the training data set of images. In this example, after 10 epochs, the trained model performs with a test error of only 0.8%.
+The streaming stops when the job completes. The sample script trains over 10 *epochs*, or passes through the training data set. In this example, after 10 epochs, the trained model performs with a test error of only 0.8%.
 
 ## Get job output
 
-Batch AI creates a unique folder structure in the storage account for each job's output. Set the JOB_OUTPUT_PATH environment variable with this path. Then, list the output files in storage using the [az storage file list](/cli/azure/storage/file#az-storage-file-list) command:
+Batch AI creates a unique folder structure in the storage account for each job's output. Set the JOB_OUTPUT_PATH environment variable with this path. Then, list the output files in storage using the [az storage file list](/cli/azure/storage/directory#az-storage-file-list) command:
 
 ```azurecli-interactive
 export JOB_OUTPUT_PATH=$(az batchai job show --name myjob --experiment myexperiment --workspace myworkspace --resource-group myResourceGroup --query jobOutputDirectoryPathSegment | sed s/\"//g)
 
 az storage file list \
-    --share-name logs \
+    --share-name batchaishare/logs \
     --path $JOB_OUTPUT_PATH/stdouterr \
     --output table
 ```
@@ -270,7 +252,7 @@ Use the [az storage file download](/cli/azure/storage/file#az-storage-file-downl
 
 ```azurecli-interactive
 az storage file download \
-    --share-name logs \
+    --share-name batchaishare/logs \
     --path $JOB_OUTPUT_PATH/stdouterr/stdout-wk-0.txt
 ```
 
@@ -299,6 +281,6 @@ az group delete --name batchaiautostorage
 ```
 
 ## Next steps
-In this quickstart, you learned how to run an example TensorFlow training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
+In this quickstart, you learned how to train an example TensorFlow deep learning model on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI to train models in different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
 
 For more information about the TensorFlow model used in this quickstart, see the [TensorFlow documentation](https://www.tensorflow.org/tutorials/layers).
