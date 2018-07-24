@@ -17,37 +17,44 @@ When constructing queries for Azure Search, you can replace the default [simple 
 The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements. In this article, you can step through examples demonstrating query operations available when using the full syntax.
 
 > [!Note]
-> Many of the specialized query constructions enabled through the full Lucene query syntax are not [analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
+> Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
 >
 
-## Formulate requests in Postman
+## Prerequisites
 
-The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft. You do not need an Azure subscription or Azure Search to try these queries.
+The following examples leverage the realestate-sample-us search index consisting of made-up real estate data for listings in Washington state. Sample data is hosted by the Azure Search team. Using the built-in **Import data** wizard, you can generate an index containing this data in your own search service.
 
-You will need Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Test with REST clients](search-fiddler.md).
++ [An Azure Search service](search-create-service-portal.md)
++ [realestate-sample-us index](search-get-started-portal.md) generated in minutes using hosted, built-in data
 
-Request headers must have Content-Type set to `application/json` and an api-key set to `252044BE3886FE4A8E3BAA4F595114BB`. After you specify the request header, you can reuse it for all of the queries, swapping out only the **search=** string. 
+You will need Postman or an equivalent tool for issuing HTTP request on GET or POST methods. For more information, see [Test with REST clients](search-fiddler.md).
+
+### Setting the header
+
+Request headers must have Content-Type set to `application/json` and an api-key set to a long alpha-numeric string generated for your service when it was created, found in the **Keys** page of your Azure Search servicein the portal. After you specify the request header, you can reuse it for all of the queries, swapping out only the **search=** string. 
 
   ![Postman request header](media/search-query-lucene-examples/postman-header.png)
 
-Request is a GET command paired with a URL containing the Azure Search endpoint and search string.
+### Request body
+
+Queries can be either a GET or POST methods. Below, GET is paired with a URL containing the Azure Search endpoint and search string.
 
   ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 Important points include the following items:
 
-+ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
-+ **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
-+ **`docs`** is the documents collection containing all searchable content. The query api-key provided for NYC Jobs index only works on requests targeting read operations on the documents collection.
-+ **`api-version=2017-11-11`** is required on every request.
++ **`https://<your-search-service>.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
++ **`indexes/realestate-sample-us/`** is the realestate demo index in the indexes collection of that service. Both the service name and index are required on the request.
++ **`docs`** is the documents collection containing all searchable content.
++ **`api-version=2017-11-11`** specifies which version of the REST API is used. This parameter is required on every request.
 + **`search=*`** is the query string, which in the initial query is null, returning the first 50 results (by default).
 
 ## Send your first query
 
 As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
 
-  ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  ```GET
+  https://<your-search-service>.search.windows.net/indexes/realestate-us-sample/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
 The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
@@ -58,7 +65,7 @@ Optionally, you can add **`$count=true`** to the URL to return a count of the do
 
 Add **queryType=full** to invoke the full query syntax, overriding the default simple query syntax. 
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&queryType=full&search=*
 ```
 
@@ -68,7 +75,7 @@ All of the examples in this article specify the **queryType=full** search parame
 
 The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON response. For brevity, the query specifies only business titles are returned. 
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
 ```
 
@@ -84,7 +91,7 @@ You might have noticed that the search score is also returned for every document
 
 Full Lucene syntax supports expressions within a field. This query searches for business titles with the term senior in them, but not junior:
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
 ```
 
@@ -104,7 +111,7 @@ To do a fuzzy search, append the tilde `~` symbol at the end of a single word wi
 
 This query searches for jobs with the term "associate" (deliberately misspelled):
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
 ```
 
@@ -119,13 +126,13 @@ Proximity searches are used to find terms that are near each other in a document
 
 In this query, for jobs with the term "senior analyst" where it is separated by no more than one word:
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
 ```
 
 Try it again removing the words between the term "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
 ```
 
@@ -134,13 +141,13 @@ Term boosting refers to ranking a document higher if it contains the boosted ter
 
 In this "before" query, search for jobs with the term *computer analyst* and notice there are no results with both words *computer* and *analyst*, yet *computer* jobs are at the top of the results.
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
 ```
 
 In the "after" query, repeat the search, this time boosting results with the term *analyst* over the term *computer* if both words do not exist. 
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
 ```
 A more human readable version of the above query is `search=business_title:computer analyst^2`. For a workable query, `^2` is encoded as `%5E2`, which is harder to see.
@@ -158,7 +165,7 @@ A regular expression search finds a match based on the contents between forward 
 
 In this query, search for jobs with either the term Senior or Junior: `search=business_title:/(Sen|Jun)ior/``.
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
 ```
 > [!Note]
@@ -170,7 +177,7 @@ You can use generally recognized syntax for multiple (\*) or single (?) characte
 
 In this query, search for jobs that contain the prefix 'prog' which would include business titles with the terms programming and programmer in it.
 
-```http
+```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
 ```
 You cannot use a * or ? symbol as the first character of a search.
