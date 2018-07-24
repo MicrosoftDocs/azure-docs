@@ -33,7 +33,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
+2. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
@@ -55,14 +55,14 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Spark cluster in Databricks
 
+> [!NOTE] 
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/en-us/free/).  
+
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
 2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
-
-> [!NOTE] 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/en-us/free/).  
 
 3. In the **New cluster** page, provide the values to create a cluster.
 
