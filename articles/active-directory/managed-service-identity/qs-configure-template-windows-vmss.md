@@ -176,7 +176,7 @@ If you have a virtual machine scale set that no longer needs a managed service i
     
    To remove a a single user assigned identity from a virtual machine scale set, remove it from the `identityIds` array.
    
-   The following example shows you how remove a user assigned identity from a virtual machine scale set with no system assigned identities:
+   The following example shows you how to remove all user assigned identities from a virtual machine scale set with no system assigned identities:
    
    ```json
    {

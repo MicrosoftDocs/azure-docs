@@ -228,7 +228,7 @@ If you have a VM that no longer needs a managed service identity:
     
    To remove a a single user assigned identity from a VM, remove it from the `identityIds` array.
    
-   The following example shows you how remove a user assigned identity from a VM with no system assigned identities:
+   The following example shows you how remove all user assigned identities from a VM with no system assigned identities:
    
    ```JSON
     {
