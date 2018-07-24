@@ -1,17 +1,18 @@
 ---
 title: Tutorial for indexing Azure SQL databases in Azure Search | Microsoft Docs
-description: Crawl Azure SQL database to extract searchable data and populate an Azure Search index.
+description: In this tutorial, crawl Azure SQL database to extract searchable data and populate an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
+#Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
-# How to crawl an Azure SQL database using Azure Search indexers
+# Tutorial: Crawl an Azure SQL database using Azure Search indexers
 
 This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 
@@ -28,9 +29,9 @@ In this tutorial, using the [Azure Search .NET client libraries](https://aka.ms/
 > * Search the index
 > * View indexer configuration in the portal
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An active Azure account. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/free/). 
+## Prerequisites
 
 * An Azure Search service. For help setting one up, see [Create a search service](search-create-service-portal.md).
 
@@ -264,21 +265,14 @@ All indexers, including the one you just created programmatically, are listed in
 
   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## Clean up resources
 
-If you're not going to continue to using these services, follow these steps to delete all resources created by this tutorial in the Azure portal. 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete resource group**, type the name of the resource to delete in the text box, and then click **Delete**.
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
 
 ## Next steps
 
-For more information and tasks specific to other supported data sources, see the following articles:
+You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
 
-* [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)
-* [Indexing JSON blobs with Azure Search Blob indexer](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
