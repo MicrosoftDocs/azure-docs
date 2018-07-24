@@ -66,9 +66,9 @@ The resource group you just created is used throughout this article.
 
 ## Create an Azure Key Vault
 
-Next you create a Key Vault in the resource group created in the previous step. Although “ContosoKeyVault” is used as the name for the Key Vault throughout this tutorial, you have to use a unique name. Provide the following information:
+Next you create a Key Vault in the resource group created in the previous step. Provide the following information:
 
-* Vault name - **Please Select a Key Vault Name here**.
+* Vault name - **Please Select a Key Vault Name here**. Key Vault name must be a string 3-24 characters in length containing only (0-9, a-z, A-Z, and -).
 * Resource group name - **Please Select a Resource Group Name here**.
 * The location - **East US**.
 
@@ -85,13 +85,13 @@ We're adding a secret to help illustrate how this works. You could be storing a 
 Type the commands below to create a secret in Key Vault called **AppSecret** that will store the value **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
+az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
 To view the value contained in the secret as plain text:
 
 ```azurecli
-az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
+az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
 This command shows the secret information including the URI. After completing these steps, you should have a URI to a secret in an Azure Key Vault. Make note of this information. You need it in a later step.
