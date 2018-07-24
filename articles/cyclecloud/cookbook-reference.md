@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Cookbook Reference | Microsoft Docs
+description: Reference resource for Chef Cookbooks in Azure CycleCloud
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: reference
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Common Cookbooks Reference
 
 Azure CycleCloud clusters are built and configured using a combination of a base machine image, CycleCloud Cluster Init, and the Chef infrastructure automation framework.
@@ -17,22 +29,23 @@ However, CycleCloud clusters are provisioned using a set of *Common Cookbooks* a
 
 Common Cookbook attributes are subject to change. Attribute settings are commonly superceded as the features they control are made available as more general/powerful features of CycleCloud itself. If a customization is available in both the Cluster Template and via a Chef attribute, always prefer the Cluster Template method since it is the more general solution.
 
-For more information on the Opscode Chef framework itself, see the [Opscode website](http://docs.opscode.com/).
+For more information on the Opscode Chef framework itself, see the [Opscode website](https://docs.opscode.com/).
 
 ## Using Chef Attributes
 
-Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer::
+Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer:
 
-    [[node cycle_server]]
+``` ini
+[[node cycle_server]]
 
-  	[[[configuration]]]
+[[[configuration]]]
 
-  	run_list = role[monitor], recipe[cyclecloud::searchable], recipe[cfirst], \
-    recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
-    recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
+run_list = role[monitor], recipe[cyclecloud::searchable], recipe[cfirst], \
+recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
+recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
 
-  	cycle_server.admin.pass=P\@ssw0rd
-
+cycle_server.admin.pass=P\@ssw0rd
+```
 
 ## Thunderball
 
@@ -40,14 +53,15 @@ Cycle Computing provides a Chef resource called `thunderball` to simplify downlo
 from cloud services to nodes. thunderball automatically handles retrying failed download and
 supports multiple configurations. By default, thunderball will download a file from the CycleCloud
 package repository and writes it to `$JETPACK_HOME/system/chef/cache/thunderballs`. An example
-using the default configuration::
+using the default configuration:
 
-      thunderball "condor" do
-          url "cycle/condor-8.2.9.tgz"
-      end
+``` txt
+thunderball "condor" do
+    url "cycle/condor-8.2.9.tgz"
+end
+```
 
 The table below lists all of the attributes of the thunderball resource.
-
 
 | Attribute  | Description                                                                      |
 | ---------- | -------------------------------------------------------------------------------- |
@@ -72,24 +86,7 @@ Custom configuration sections can be used in order to download objects from anot
 | user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
 | username    | Access_key/username for Azure.                                                                                                                           |
 
-> [!NOTE]
-> AWS only: The `[:region:]` special symbol can be used to configure thunderball on a per-region basis
-> (e.g. by using a `base` of `s3://com.example.cyclecloud-packages.[:region:]`)
-
-An example of using a custom configuration to download an application tarball:
-
-      thunderball_config "our_repo" do
-          base 's3://com.example.packages/cyclecloud'
-          endpoint 's3.amazonaws.com'
-          filename '/root/our_repo.cfg'
-      done
-
-      thunderball "Download application" do
-          config 'our_repo'
-          url 'application-1.2.3.tgz'
-      done
-
-# Attribute Reference
+## Attribute Reference
 
 ## CycleServer Cookbook
 

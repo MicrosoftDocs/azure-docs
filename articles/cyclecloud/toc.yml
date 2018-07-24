@@ -1,33 +1,31 @@
-- name: Azure CycleCloud Documentation
+- name: Azure CycleCloud
   href: index.yml
 - name: Overview
   items:
   - name: About Azure CycleCloud
     href: overview.md
-- name: Quickstarts
+- name: QuickStarts
   items:
-  - name: Install CycleCloud
-    href: quickstart1.md
-  - name: Create a Simple HPC Cluster
-    href: quickstart2.md
-  - name: Run Jobs on your HPC Cluster
-    href: quickstart3.md
+  - name: Overview
+    href: quickstart-overview.md
+  - name: Install and Setup Azure CycleCloud
+    href: quickstart-install-cyclecloud.md
+  - name: Create and Run a Simple HPC Cluster
+    href: quickstart-create-and-run-cluster.md
+  - name: Submit and Auto Scale
+    href: quickstart-submit-jobs.md
   - name: Clean Up Resources
-    href: quickstart4.md
-- name: Tutorials
-  items:
-  - name: Start to Finish How-To Specific Task
-    href:
+    href: quickstart-clean-up-resources.md
 - name: Concepts
   items:
   - name: CycleCloud
     href: cyclecloud-application.md
   - name: Clusters and Nodes
     items:
-    - name: Clusters
+    - name: Clusters and Nodes
       href: clusters.md
-    - name: Scale Your Cluster
-      href: scale-your-cluster.md
+    - name: Auto Scale
+      href: autoscale.md
   - name: Cluster Templates
     items:
       - name: Cluster Templates
@@ -62,8 +60,8 @@
       href: network-security.md
     - name: Proxy Traffic
       href: proxy-traffic.md
-    - name: SSL
-      href: ssl.md
+    - name: SSL Configuration
+      href: ssl-configuration.md
   - name: Monitoring and Reporting
     items:
     - name: Monitoring
@@ -96,28 +94,24 @@
     href: start-cluster.md
   - name: Terminate a Cluster
     href: end-cluster.md
-  - name: Create Custom Images
+  - name: Work with Custom Images
     href: custom-images.md
   - name: Transfer Data
     href: transfer-data.md
   - name: Enable Return Proxy
     href: return-proxy.md
-  - name: Tags
+  - name: Use Tags
     href: tag-nodes.md
-  - name: Images
+  - name: Use Images
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Cluster User Management
-    href:
 - name: Reference
   items:
   - name: Cluster Reference
     href: cluster-reference.md
   - name: Jetpack
     href: jetpack.md
-  - name: CLI
-    href:
   - name: Common Cookbook Reference
     href: cookbook-reference.md
   - name: Node Configuration
@@ -136,67 +130,19 @@
     href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
-  - name: CycleServer Datastore
-    href:
-    items:
-    - name: RESTful Interface
-      href:
-    - name: Notifications
-      href:
-    - name: Identifiers
-      href:
-    - name: Type Definitions
-      href:
-    - name: Views
-      href:
-    - name: Plugin API
-      href:
-    - name: Informal Syntax
-      href:
-  - name: Plugins
-    href:
-    items:
-    - name: Plugin Development
-      href:
-    - name: WebContent Plugins
-      href:
-    - name: Plugin Configuration
-      href:
-    - name: Debugging
-      href:
-    - name: Formatter Plugins
-      href:
-    - name: HTML Template Plugins
-      href:
-    - name: Actions
-      href:
-    - name: Task Execution
-      href:
-    - name: Email
-      href:
-    - name: RESTful Library
-      href:
-    - name: Event Log
-      href:
-    - name: Java Plugins
-      href:
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href:
-  - name: FAQ
-    href:
-  - name: Public data sets
-    href:
-  - name: Troubleshoot connectivity
-    href:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: Get Azure CycleCloud
+    href: https://aka.ms/azurecyclecloud
+  - name: Release Notes
+    items:
+    - name: GA Release
+      href:
+  - name: CycleCloud Cluster Templates
+    href: https://github.com/CycleCloud
+  - name: CycleCloud Community
+    href: https://github.com/CycleCloudCommunity
+  - name: Azure Community Forums
+    href: https://social.msdn.microsoft.com/Forums/en-US/home
+  - name: Usage Data Policy
+    href: data-policy.md

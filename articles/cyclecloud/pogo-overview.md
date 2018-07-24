@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud pogo Introduction | Microsoft Docs
+description: Installing and using Azure CycleCloud's pogo tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # pogo
 
 This document is a comprehensive guide to Azure CycleCloud's **pogo** (put
@@ -26,30 +38,12 @@ pogo is supported on the following operating systems:
 > manager installed is strongly encouraged. The rest of this guide
 > assumes pip is available.
 
-## Cloud Provider Prerequisites
-
-### Azure
+## Prerequisites
 
 For pogo, you will need to have the following:
 
   - Azure Storage Account and Access Key
   - At least one container in your Azure Storage Account
-
-### Amazon Web Services
-
-For pogo, you will need to have the following:
-
-  - Amazon Access Key and Secret Key
-  - An S3 bucket
-
-### Google Cloud
-
-You will need to have the following:
-
-  - Membership in a GC project
-  - A Client ID and Client secret pair from GC Client ID for native
-    application within that project
-  - A GC Storage bucket
 
 ## pogo Installation
 

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Configuration | Microsoft Docs
+description: Configure your Azure credentials to work with Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Configuring Azure Credentials
 
 ## Cloud Provider
@@ -29,7 +41,7 @@ You will need the following:
 - A Network Security Group set up to allow CycleCloud to communicate with Azure
 - A [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for CycleCloud
 
-Azure uses a subscription ID and authentication certificate for account validation. You can download these in a .publishsettings format by logging into [this Azure service](https://windows.azure.com/download/publishprofile.aspx). This format easily integrates with CycleCloud.
+Azure uses a subscription ID and authentication certificate for account validation. You can download these in a .publishsettings format using `Get-AzurePublishSettingsFile`. This format easily integrates with CycleCloud.
 
 ### Creating the Azure Application Registration
 
@@ -67,7 +79,7 @@ To give CycleCloud the required access to your Azure Application Registration, y
 5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
 
 > [!NOTE]
->You must be the owner or have owner rights of the subscription to assign the Contributor role. 
+>You must be the owner or have owner rights of the subscription to assign the Contributor role.
 
 ### Creating a Network Security Group
 
@@ -100,8 +112,7 @@ In the dashboard, click on the name of the Network Security Group you just creat
 
 ### Creating a Virtual Network
 
-You will need to set up a Virtual Network within Azure to work with CycleCloud. From the main menu, click
-on **Virtual Network**. If you don't see the option, click on **All Services** and either search for Virtual Networks or scroll down to the **Networking** section.
+You will need to set up a Virtual Network within Azure to work with CycleCloud. From the main menu, click on **Virtual Network**. If you don't see the option, click on **All Services** and either search for Virtual Networks or scroll down to the **Networking** section.
 
 1. Click **+ Add**
 2. Enter a unique name for your Virtual Network

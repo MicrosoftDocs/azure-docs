@@ -39,10 +39,6 @@ To edit the alert, budget, or notification settings, click **Manage** from the a
 
 CycleCloud collects pricing for instances running in all cloud providers. The data is updated constantly throughout the day to provide accurate estimates.
 
-Each provider has its own pricing rules.
-
-### Microsoft Azure
-
 Includes:
 
 - Base price of VMs, including preview-only machine types, at standard "pay-as-you-go" rates
@@ -53,37 +49,8 @@ Does NOT Include:
 - Boot disks
 - Attached disks
 
-### Amazon Web Services
-
-Includes:
-
-- The base price of both on-demand and spot instances, including dedicated tenancy
-- Linux/Windows surcharges
-
-Does NOT Include:
-
-- Volumes
-- Reserved Instance (RI) discounts
-- Preview-only machine types
-
 > [!NOTE]
-> The price of each spot instance reflects the market at each billing hour for that instance (that is, it takes into account the fact that spot prices vary over time).
-
-### Google Cloud
-
-Includes:
-
-- Base price of the VM
-- Any local SSDs
-- Attached persistent disks
-- Linux/Windows surcharges
-
-Does NOT Include:
-
-- Non-attached persistent disks
-- Sustained-usage discounts
-- Preview-only machine types
-
+> Each provider has its own pricing rules.
 
 > [!NOTE]
 > All usage and cost numbers are **approximations**.

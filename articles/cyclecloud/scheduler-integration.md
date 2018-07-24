@@ -2,7 +2,7 @@
 
 The Azure CycleCloud platform has built-in, first-class support for several grid scheduling software solutions allowing for simplified resource and job management in the cloud. Azure CycleCloud can automatically create, manage, and scale several well known and widely adopted scheduling technologies including but not limited to: [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net), [HTCondor](https://research.cs.wisc.edu/htcondor/), [PBS Pro](http://pbspro.org/), and [Torque](http://www.adaptivecomputing.com/products/open-source/torque/), as well as Cycle's own Jupiter scheduler.
 
-# Open Grid Scheduler (Grid Engine)
+## Open Grid Scheduler (Grid Engine)
 
 [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an azure CycleCloud cluster by modifying the "run_list" in the cluster definition. The two basic components of a Grid Engine cluster are the 'master' node which provides a shared filesystem on which the Grid Engine software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple Grid Engine cluster template snippet may look like:
 
@@ -93,15 +93,11 @@ Notice that there are one of each 'slot_type' that we specified (execute and gpu
 The above configuration settings allow for advanced customization of nodes and node arrays. For example, if jobs require a specific amount of memory, say 10GB each, you can define an execute nodearray that starts machines with 60GB of memory, then add in the configuration options `grid_engine.slots = 6` to ensure that only 6 jobs can concurrently run on this type of node (ensuring that each job will have at least 10GB of memory to work with).
 
 ## Grouped Nodes in Grid Engine
-When a parallel job is submitted to grid engine, the default autoscale behavior that CycleCloud will use is
-to treat each MPI job as a grouped node request. Grouped nodes are tightly-coupled and ideally suited for MPI workflows.
+When a parallel job is submitted to grid engine, the default autoscale behavior that CycleCloud will use is to treat each MPI job as a grouped node request. Grouped nodes are tightly-coupled and ideally suited for MPI workflows.
 
-When a set of grouped nodes join an Grid Engine cluster, the group id of each node is used as the value of
-the complex value `affinity_group`. By requiring an `affinity_group` to be specified for jobs, it allows the
-Grid Engine scheduler to ensure that jobs only land on machines that are in the same group.
+When a set of grouped nodes join an Grid Engine cluster, the group id of each node is used as the value of the complex value `affinity_group`. By requiring an `affinity_group` to be specified for jobs, it allows the Grid Engine scheduler to ensure that jobs only land on machines that are in the same group.
 
-CycleCloud's automation will automatically request grouped nodes and assign them to available affinity groups
-when parallel jobs are encountered.
+CycleCloud's automation will automatically request grouped nodes and assign them to available affinity groups when parallel jobs are encountered.
 
 ## Submitting Jobs to Grid Engine
 
@@ -188,7 +184,7 @@ The following are the Grid Engine specific configuration options you can toggle 
 
 CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
 
-# PBS Pro
+## PBS Pro
 
 The [PBS Pro Scheduler (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Pro cluster are the 'master' node which provides a shared filesystem on which the PBS Pro software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
@@ -232,7 +228,7 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
 | cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |
 
 
-# HTCondor
+## HTCondor
 
 [HTCondor](http://research.cs.wisc.edu/htcondor/manual/latest) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. There are three basic components of an HTCondor cluster. The first is the "central manager" which provides the scheduling and management daemons. The second component of an HTCondor cluster is one or more schedulers from which jobs are submitted into the system. The final component is one or more execute nodes which are the hosts perform the computation. A simple HTCondor template may look like:
 

@@ -1,3 +1,15 @@
+---
+title: Endpoint Creation in Azure CycleCloud | Microsoft Docs
+description: Manage data endpoints in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Endpoint Creation
 
 Endpoints are logical connections to storage providers and can be any of the following:
@@ -41,7 +53,7 @@ Click the **+** to generate a new line, then enter the path. Click **Save** to c
 | SSH User                                                                      | Remote login name                                                         |
 | Credential                                                                    | The SSH keypair to use when logging into a remote host                    |
 | SSH Port                                                                      | Port for connections via SSH                                              |
-| [pogo](https://review.docs.microsoft.com/en-us/cycle/pogo?branch=master) path | Path to the pogo executable on the remote host                            |
+| [pogo](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview) path | Path to the pogo executable on the remote host                            |
 
 ## Adding Cloud Provider Credentials
 
@@ -50,16 +62,11 @@ You will need to add credentials for each of the cloud provider accounts you wis
 - Click on the host name in the upper left and select **Add Endpoint**
 - Click on the green plus sign next to **Credential**, which will open a new window called **Create Credential**
 - Enter a descriptive name for the credential
-- Select the appropriate Type:
-
-  - Azure: Azure Access Key
-  - AWS: Amazon
-  - Google: Google Cloud Private Key
-
+- Select `Azure` as the Type
 - Enter your Access and Secret Keys
 - Select your default region
 - Confirm your entries by clicking **Test**
-- Click "Save" to save your credentials. You can now use the credentials to create an Amazon S3, Azure Block Storage, or Google Cloud Storage endpoint.
+- Click "Save" to save your credentials. You can now use the credentials to create an Azure Block Storage endpoint.
 
 ## Adding Endpoints
 

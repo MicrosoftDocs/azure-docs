@@ -1,3 +1,16 @@
+---
+title: Azure CycleCloud Data Encryption | Microsoft Docs
+description: Generate encryption keys and encrypt your files within Azure CycleCloud.
+keywords: clusters alerts notifications
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Data Encryption
 
 Azure CycleCloud can encrypt files using strong AES 256-bit encryption. The encryption is
@@ -9,7 +22,7 @@ encryption of data. When uploading data, encryption is performed in parallel as 
 minimize the impact on transfer performance.
 
 Users can generate or import encryption keys and use them to encrypt data when uploading
-to Azure Block Storage, Amazon S3, or Google Cloud Storage. CycleCloud also provides
+to Azure Block Storage. CycleCloud also provides
 a way to export the encryption keys for backup purposes. Administrative users may specify
 a key backup script, which can be run at scheduled intervals to backup keys to a secure
 location. The cycle_server account and the key backup script must be secured in

@@ -55,7 +55,7 @@ Double-clicking a queued transfer displays further details about the scheduled t
 
 ![CycleCloud Data Transfer Request Details](~/images/transfer_request_details.png)
 
-# Transfer Listeners
+## Transfer Listeners
 Azure CycleCloud's Data Management tool supports writing plugins that are executed based on transfer events such as individual file transfer completion or failure or entire transfer completion or failure. Listener plugins must set the Implements attribute to be `DataTransferStateListener` and can subscribe to the states that they are interested in receiving events for. For example, if individual file upload events are of interest, the plugin must subscribe to the events from the "Transferring" state. Other attributes pertaining to the plugin can be set on the DataTransferStateListener attribute as a nested record. Currently supported attributes are:
 
 | Attribute               | Description                                                                                                        |
@@ -79,7 +79,7 @@ An example of the record that is sent to plugin method as an argument:
 
      [ Bytes=1024.0; FileCount=1.0; FileName="dir1/file1001.txt"; State="Transferring" ]
 
-# Advanced Settings
+## Advanced Settings
 
 In order to tune Azure CycleCloud transfers, a number of settings can be adjusted. Open the settings page from the user drop-down menu on the top right of the screen.
 

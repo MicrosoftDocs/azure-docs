@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Alerts and Notifications | Microsoft Docs
+description: View or customize alerts and notifications within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Alerting
 
 Azure CycleCloud can send notifications when various conditions are met on a monitored resource or
@@ -42,7 +54,7 @@ are displayed at the top of the rule form:
 * Send alert emails to: One or more email addresses to receive notifications. For multiple addresses, separate each address with a comma. Note that this requires SMTP to be configured in CycleCloud.
 * Priority: The relative priority of this message. See above for descriptions of these priorities.
 
-# Query­-Based Alerting Rules
+## Query­-Based Alerting Rules
 
 Query­-based rules are the most common type, and are highly customizable. Queries are written using CycleCloud's SQL­-like query language.
 
@@ -73,12 +85,16 @@ filter expressions.
 
 Example 1: Alert on instances running outside of the "us­east­1" region
 
-    WHERE !startswith("us­east", Region)
+``` Query
+WHERE !startswith("us­east", Region)
+```
 
 Example 2: Alert on execute nodes in the "example" cluster which were running for less
 than 1 hour
 
-	  WHERE ClusterName === "example" && SessionUpTime < `1h` && startswith("execute", NodeName) && MachineState === “Terminated”
+``` Query
+WHERE ClusterName === "example" && SessionUpTime < `1h` && startswith("execute", NodeName) && MachineState === “Terminated”
+```
 
 > [!NOTE]
 > When writing a query for the first time, it can be helpful to use the `cycle_server execute` command to > test out various queries. Switch to the CycleCloud installation directory and run `./cycle_server execute <query>` to view instant results. For example: `./cycle_server execute 'SELECT Region, InstanceId FROM Cloud.Instance WHERE !startswith("us­east", Region)`
@@ -99,18 +115,20 @@ and loop over the result set in the body, printing out details of each record. B
 of a message subject and body for reporting on instances running outside of the 'us­east'
 regions:
 
-    Subject:
-    {%= size(Results) %} instances found running outside of us­east
+``` EmailTemplate
+Subject:
+{%= size(Results) %} instances found running outside of us­east
 
-    Body:
-    <h2>The following instances are running outside of us­east:</h2>
-    <ul>
-    {% for Instance in Results %}
-    <li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
-    {% endfor %}
-    </ul>
+Body:
+<h2>The following instances are running outside of us­east:</h2>
+<ul>
+{% for Instance in Results %}
+<li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
+{% endfor %}
+</ul>
+```
 
-# Email Configuration and Logging Levels
+## Email Configuration and Logging Levels
 
 Logging in CycleCloud can be configured to output different levels of detail. The available levels are:
 

@@ -1,6 +1,18 @@
+---
+title: Azure CycleCloud Network Connectivity Configuration | Microsoft Docs
+description: Configure Azure CycleCloud to access your Virtual Machines
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Network Connectivity
 
-Azure CycleCloud supports [Virtual Networks](https://docs.microsoft.com/en-ca/azure/virtual-network/), [Virtual Private Clouds](https://aws.amazon.com/documentation/vpc/), and [Virtual Machines](https://cloud.google.com/compute/docs/instances/). When it is not possible to connect to these instances directly due to your network security configuration, there are several ways to connect to your cluster:
+Azure CycleCloud supports [Virtual Networks](https://docs.microsoft.com/en-ca/azure/virtual-network/). When it is not possible to connect to these instances directly due to your network security configuration, there are several ways to connect to your cluster:
 
 * VPN connection
 * Bastion Server
@@ -20,23 +32,23 @@ option is to create an external-facing server (also called a bastion server or j
 ## Proxy Node
 
 Instead of using a dedicated bastion server, you can configure one of the nodes
-in your cluster to act as a proxy for communicating back to CycleCloud. For this to work, you will need to
-configure the public subnet to automatically assign public IP addresses:
+in your cluster to act as a proxy for communicating back to CycleCloud. For this to work, you will need to configure the public subnet to automatically assign public IP addresses:
 
-    [cluster htcondor]
-      [[node proxy]]
-      # this attribute configures the instance to act as a proxy
-      IsReturnProxy = true
-      credentials = cloud
-      MachineType = t2.micro
-      # this is the public subnet
-      subnetid = subnet-1234557
-      ImageName = cycle.image.centos7
+``` ini
+[cluster htcondor]
+  [[node proxy]]
+  # this attribute configures the instance to act as a proxy
+  IsReturnProxy = true
+  credentials = cloud
+  MachineType = t2.micro
+  # this is the public subnet
+  subnetid = subnet-1234557
+  ImageName = cycle.image.centos7
 
-      [[node private]]
-      # this is the private subnet
-      subnetid = subnet-1234557
-
+  [[node private]]
+  # this is the private subnet
+  subnetid = subnet-1234557
+```
 
 Please note that `proxy` node in this cluster template only proxies
 communication from instances to CycleCloud. It does not proxy communication to
@@ -49,8 +61,7 @@ After providing connectivity to your cluster, your cluster must still access the
 ## Connection Commands
 
 You can use either `cyclecloud connect` or raw SSH client commands to access
-private servers within your virtual setup. These instructions assume you are using SSH, with public-key
-authentication. This is typical for Linux instances. For Windows, you
+private servers within your virtual setup. These instructions assume you are using SSH, with public-key authentication. This is typical for Linux instances. For Windows, you
 can use this method to set up an RDP tunnel.
 
 First, make the private key accessible to the target instance. The
@@ -62,12 +73,16 @@ machine, the one which has your private key.
 
 From your local machine, start the agent with the `ssh-agent` command:
 
-    exec ssh-agent bash
+``` script
+exec ssh-agent bash
+```
 
 If the private key is not your default private key (~/.ssh/id_rsa or
 ~/.ssh/identity), add it to the agent:
 
-    ssh-add PATH_TO_KEYPAIR
+``` script
+ssh-add PATH_TO_KEYPAIR
+```
 
 Those commands only need to be run once (or after you reboot).
 
@@ -75,7 +90,9 @@ Those commands only need to be run once (or after you reboot).
 
 You can connect to an instance via a bastion server by specifying the IP address on the command line:
 
-    $ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
+``` CLI
+$ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
+```
 
 The above command assumes `cyclecloud` as the username, 22 as the port, and loads your
 default SSH key. To customize these values, see the `--bastion-*` help options for the
@@ -84,8 +101,10 @@ default SSH key. To customize these values, see the `--bastion-*` help options f
 Alternately, the `cyclecloud` can detect the bastion host for you if you add the following
 directive to your `~/.cycle/config.ini`:
 
-    [cyclecloud]
-    bastion_auto_detect = true
+``` ini
+[cyclecloud]
+bastion_auto_detect = true
+```
 
 With the above directive, you can run `cyclecloud connect htcondor-master` without
 specifying any details about the bastion server.
@@ -94,24 +113,30 @@ You can also use `cyclecloud connect` to connect a Windows instance. Executing t
 command will create an RDP connection over an SSH tunnel. Additionally, it will launch the
 Microsoft RDP client on OS X and Windows:
 
-    $ cyclecloud connect windows-execute-1
+``` CLI
+$ cyclecloud connect windows-execute-1
+```
 
 > [!NOTE]
 > CycleCloud chooses an unused ephemeral port for the tunnel to the Windows instance.
 
 Additionally, you configure the `cyclecloud` command to use a single bastion host for all your connections:
 
-    [cyclecloud]
-    bastion_host = 1.1.1.1
-    bastion_user = example_user
-    bastion_key = ~/.ssh/example_key.pem
-    bastion_port = 222
+``` ini
+[cyclecloud]
+bastion_host = 1.1.1.1
+bastion_user = example_user
+bastion_key = ~/.ssh/example_key.pem
+bastion_port = 222
+```
 
 ### Using Raw SSH Commands
 
 You can connect to an internal server via the bastion server using agent forwarding:
 
-    ssh -A -t ec2-user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP
+``` CLI
+ssh -A -t ec2-user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP
+```
 
 This connects to the bastion and then immediately runs ssh again, so
 you get a terminal on the target instance. The default NAT ami uses
@@ -130,7 +155,10 @@ the target instance is Windows, you can create a Remote Desktop tunnel
 by connecting to the target instance with a similar SSH command from
 above, using the -L argument:
 
-    ssh -A -t ec2-user@BASTION_SERVER_IP  -L 33890:TARGET:3389 ssh -A root@TARGET_SERVER_IP
+
+``` CLI
+ssh -A -t ec2-user@BASTION_SERVER_IP  -L 33890:TARGET:3389 ssh -A root@TARGET_SERVER_IP
+```
 
 This will tunnel port 3389 on target to 33890 on your local
 machine. Then if you connect to `localhost:33890` you will actually

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Overview | Microsoft Docs
+description: Azure CycleCloud overview and introduction.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Azure CycleCloud Overview
 
 Azure CycleCloud makes it easy to create HPC clusters in the cloud, orchestrating workloads from the user to overcome the challenges typically associated with cloud HPC. CycleCloud works with VPC so it can run inside your firewall (on-site or cloud based). It includes support for the GridEngine and HTCondor schedulers, and clusters can be configured with the same cluster-init specification. It imports cluster definitions from PBSPro and Singularity, and includes a RESTful API and command-line tools to manage compute clusters.

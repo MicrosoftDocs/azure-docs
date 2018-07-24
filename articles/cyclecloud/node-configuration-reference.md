@@ -1,17 +1,25 @@
+---
+title: Azure CycleCloud Node Configuration Resource | Microsoft Docs
+description: Resource information for Node Configuration in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: reference
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Node Configuration Reference
 
 Once an Azure CycleCloud node has been started, the configuration of the node itself is determined by using the software already installed via the image used to start the node, user defined actions specified in cluster­-init, or by specifying configuration parameters to the node at launch time. Here are some of the most commonly used parameters that can be set on nodes to customize their behavior at runtime.
 
-All configuration parameters go inside a [[[configuration]]] section for a node defined in a [cluster template](https://review.docs.microsoft.com/en-us/cycle/cyclecloud-cluster-templates?branch=master).
+All configuration parameters go inside a [[[configuration]]] section for a node defined in a [cluster template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates).
 
 Clusters consist of nodes, which define a single instance, and node arrays, which can be automatically scaled on demand. Node arrays support two size limits: `MaxCount`, which limits how many instances to start, and `MaxCoreCount`, which limits how many cores to start. The `MaxCount` and `MaxCoreCount` limits can also be set on the cluster to keep the size of clusters as a whole bounded. These maximums are hard limits, meaning no nodes will be started at any time if they would violate these constraints. That being said, neither setting will terminate existing instances.
 
+## CycleCloud
 
-CycleCloud
-----------
-
-Configuration attributes in the "cyclecloud" namespace are general parameters available on any node in a
-CycleCloud cluster.
+Configuration attributes in the "cyclecloud" namespace are general parameters available on any node in a CycleCloud cluster.
 
 | Parameter                                      | Description                                                                                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -22,16 +30,15 @@ CycleCloud cluster.
 | cyclecloud.discoverable                        | Whether or not this node can be “discovered” (searched for) by other nodes started by CycleCloud. Default: "false".                                                                                                                                                                                                                          |
 | cyclecloud.autoscale.forced_shutdown_timeout   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: 15                                                                                                                                                                                                            |
 | cyclecloud.hyperthreading.enabled              | Linux only. Whether or not to enable hyperthreading on the node. Default: "true"                                                                                                                                                                                                                                                             |
-| cyclecloud.security.limits                  | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](http://linux.die.net/man/5/limits.conf) defined. Defaults: cyclecloud.security.limits.*.hard.nofile = 524288 and cyclecloud.security.limits.*.soft.nofile = 1048576                                                        |
+| cyclecloud.security.limits                  | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: cyclecloud.security.limits.*.hard.nofile = 524288 and cyclecloud.security.limits.*.soft.nofile = 1048576                                                        |
 | cyclecloud.shared_user.name                    | The username for the shared cluster user which is available on every node in the cluster. Default: “cluster.user”                                                                                                                                                                                                                            |
 | cyclecloud.shared_user.password                | The password for the shared cluster user which is available on every node in the cluster. Default: Randomly generated if not specified.                                                                                                                                                                                                      |
-| cyclecloud.mounts.                             | For [NFS exporting and mounting](https://review.docs.microsoft.com/en-us/cycle/cyclecloud-storage-nfs-mounts?branch=master) and volume mounting.                                                                                                                                                        |
+| cyclecloud.mounts.                             | For [NFS exporting and mounting](https://docs.microsoft.com/en-us/azure/cyclecloud/storage-nfs-mounts) and volume mounting.                                                                                                                                                        |
 | cyclecloud.selinux.policy                      | 	Linux only. Add "cyclecloud.selinux.policy = permissive" to your configuration to bypass an enforced selinux policy for custom images. Already disabled on core CycleCloud images.                                                                                                                                                          |
 
 ## CycleServer
 
-Configuration attributes in the "cycle_server" namespace are available for any node running CycleServer
-monitoring software.
+Configuration attributes in the "cycle_server" namespace are available for any node running CycleServer monitoring software.
 
 | Parameter                           | Description                                                                                                                              |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,7 +115,7 @@ HTCondor has large number of configuration settings, including user-defined attr
 
 ## Cluster­ Init
 
-Configuration attribute in the [cluster_init](https://review.docs.microsoft.com/en-us/cycle/cyclecloud-cluster-init?branch=master) namespace are available to all nodes started by CycleCloud, and are used for customizing how cluster-init operates.
+Configuration attribute in the [cluster_init](https://docs.microsoft.com/en-us/cycle/cyclecloud-cluster-init) namespace are available to all nodes started by CycleCloud, and are used for customizing how cluster-init operates.
 
 | Parameter                          | Description                                                                                                                                           |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

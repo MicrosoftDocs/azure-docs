@@ -12,7 +12,7 @@ To demarcate a node as the return proxy, add the following attributes to the nod
     IsReturnProxy = true  # access to CycleServer is proxied through this node
     KeyPairLocation = ~/.ssh/custom-keypair.pem
 
-- `IsReturnProxy` specifies that the node is the proxy. Only one node should be the designated proxy or the cluster will fail to start.
-- `KeyPairLocation` determines the SSH private key used to start the SSH tunnel. This SSH connection is initiated with the `cyclecloud` user by default.
+- `IsReturnProxy` specifies that the node is the proxy. Only one node should be the designated proxy or the cluster will fail to start
+- `KeyPairLocation` determines the SSH private key used to start the SSH tunnel. This SSH connection is initiated with the `cyclecloud` user by default
 
 The return proxy is assumed to be running within the same Azure VNET as the nodes of the cluster, and by default the private network address of the proxy is used for the nodes to communicate with it. However it is possible to specify that the public IP address of the proxy node be used for inter-node communication instead. To do so include the attribute `ReturnProxyAddress = public` when defining the proxy node.
