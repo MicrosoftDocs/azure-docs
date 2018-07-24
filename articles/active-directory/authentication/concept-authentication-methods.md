@@ -41,7 +41,7 @@ Microsoft highly recommends Administrators enable users to select more than the 
 
 ## Converged user registration (preview)
 
-To enable users to register authentication methods for both Azure Multi-Factor Authentication and self-service password reset, using the same portal, complete the following steps.
+To enable users to register authentication methods for both Azure Multi-Factor Authentication and self-service password reset, using the same portal, complete the following steps:
 
 1. Sign in to the Azure portal as a global administrator.
 1. Browse to **Azure Active Directory**, **User settings**, **Manage settings for access panel preview features**.

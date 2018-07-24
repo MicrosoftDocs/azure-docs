@@ -81,7 +81,7 @@ When using a mobile app, like the Microsoft Authenticator app, as a method for p
 
 | Number of methods required | One | Two |
 | :---: | :---: | :---: |
-| Mobile app features availalbe | Code | Code or Notification |
+| Mobile app features available | Code | Code or Notification |
 
 ### Change authentication methods
 
