@@ -7,6 +7,7 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/24/2018
 ms.author: victorh
+#Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtul networks.
 ---
 
 # Tutorial: Create an Azure DNS private zone using Azure PowerShell
@@ -36,7 +37,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 ## Create the resource group
 
-Before creating the DNS zone, a resource group is created to contain the DNS zone. The following example shows the command.
+First, create a resource group to contain the DNS zone: 
 
 ```powershell
 New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
@@ -44,9 +45,9 @@ New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet together with a value of "Private" for the ZoneType parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
+A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
 
-Note that if the *ZoneType* parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
+Note that if the ***ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
 
 ```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -81,7 +82,7 @@ Get-AzureRmDnsZone
 
 ## Create the test virtual machines
 
-Now create two virtual machines so you can test your private DNS zone:
+Now, create two virtual machines so you can test your private DNS zone:
 
 ```
 New-AzureRmVm `
@@ -105,7 +106,7 @@ New-AzureRmVm `
 
 ## Create an additional DNS record
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name "db" in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
@@ -113,7 +114,7 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -Resource
 
 ### View DNS records
 
-To list the DNS records in your zone, use:
+To list the DNS records in your zone, run:
 
 ```powershell
 Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
@@ -126,7 +127,7 @@ Now you can test the name resolution for your **contoso.local** private zone.
 
 ### Configure VMs to allow inbound ICMP
 
-You can use the *ping* command to test name resolution. So, configure the firewall on both virtual machines to allow inbound ICMP packets.
+You can use the ping command to test name resolution. So, configure the firewall on both virtual machines to allow inbound ICMP packets.
 
 1. Connect to myVM01, and open a Windows PowerShell window with administrator privileges.
 2. Run the following command:
