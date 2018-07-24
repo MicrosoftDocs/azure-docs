@@ -23,7 +23,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
 
-## Basic Concepts
+## Basic concepts
 
 Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates.
 Below are some key terms:
@@ -32,7 +32,7 @@ Below are some key terms:
 - **Vault Consumer** - can perform actions on the assets inside the Key Vault when the vault owner grants him/her access which depend on the permissions granted.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** is the Azure AD service for a given tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure Tenant ID** - This is a unique way to identify an Azure Active Directory within a Azure Subscription. 
-- **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity (MSI)makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview.md)
+- **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity(MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview.md)
 
 ## Key vault roles
 
@@ -58,7 +58,7 @@ This administrator would then provide developers with URIs to call from their ap
 
 Developers can also manage the keys directly, by using APIs. For more information, see [the Key Vault developer's guide](key-vault-developers-guide.md).
 
-## Next Steps
+## Next steps
 
 For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
 

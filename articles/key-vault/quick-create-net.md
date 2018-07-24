@@ -50,7 +50,7 @@ Before we go any further, read the basic concepts especially [Managed Service Id
 az login
 ```
 
-## Create resource group
+## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -78,7 +78,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-## Add a secret to key vault
+## Add a secret to Key Vault
 
 We're adding a secret to help illustrate how this works. You could be storing a SQL connection string or any other information that you need to keep securely but make available to your application. In this tutorial, the password will be called **AppSecret** and will store the value of **MySecret** in it.
 
@@ -96,7 +96,7 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 
 This command shows the secret information including the URI. After completing these steps, you should have a URI to a secret in an Azure Key Vault. Make note of this information. You need it in a later step.
 
-## Clone the Repo
+## Clone the repo
 
 Clone the repo in order to make a local copy for you to edit the source by running the following command:
 
@@ -104,7 +104,7 @@ Clone the repo in order to make a local copy for you to edit the source by runni
 git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 ```
 
-## Open and Edit the solution
+## Open and edit the solution
 
 Edit the program.cs file in order to run the sample with your specific key vault name.
 
@@ -128,9 +128,7 @@ We are publishing this app to Azure to see it live as a web app and also see tha
 4. Change the App Name to be "keyvaultdotnetcorequickstart"
 5. Select **Create**.
 
-![Publish](media/quick-create-net/PublishToAzure.gif)
-
-## Enable Managed Service Identity
+## Enable Managed Service Identities (MSI)
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Azure Key Vault to retrieve them. Managed Service Identity (MSI) makes this easier by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
@@ -164,7 +162,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ## Next steps
 
-* [Azure Key Vault Home Page](https://azure.microsoft.com/en-us/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
+* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
 * [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Azure REST API Reference](https://docs.microsoft.com/en-us/rest/api/keyvault/?redirectedfrom=AzureSamples)
+* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
