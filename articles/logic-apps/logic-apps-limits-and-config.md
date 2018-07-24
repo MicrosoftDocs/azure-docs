@@ -101,8 +101,9 @@ Here are the limits for a single logic app run:
 | Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across more than one app as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes| 45,000 | Can distribute workload across more than one app as needed. | 
-|||| 
+| Runtime endpoint: Invoke calls per 5 minutes| 45,000 | Can distribute workload across more than one app as needed. |
+| Content throughput per 5 minutes | 600 MB | Can distribute workload across more than one app as needed. |  
+||||| 
 
 To go above these limits in normal processing, 
 or run load testing that might go above these limits, 
