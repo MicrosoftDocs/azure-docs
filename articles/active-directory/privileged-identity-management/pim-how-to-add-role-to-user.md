@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 07/12/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ---
 
@@ -18,7 +18,7 @@ ms.author: rolyon
 
 With Azure Active Directory (Azure AD), a Global Administrator can make **permanent** directory role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) application also allows privileged role administrators to make permanent directory role assignments. Additionally, privileged role administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done. For information about the roles that you can manage using PIM, see [Directory roles you can manage using Azure AD PIM](pim-roles.md).
+The Azure AD Privileged Identity Management (PIM) service also allows privileged role administrators to make permanent directory role assignments. Additionally, privileged role administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done. For information about the roles that you can manage using PIM, see [Directory roles you can manage using Azure AD PIM](pim-roles.md).
 
 ## Make a user eligible for a role
 
@@ -50,7 +50,7 @@ Follow these steps to make a user eligible for an Azure AD directory role.
 
 1. In Add managed members, click **OK** to add the user to the role.
 
-     When the role is assigned, the user you selected will appear in the members list as eligible for the role.
+     When the role is assigned, the user you selected will appear in the members list as **eligible** for the role.
 
     ![User eligible for a role](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
@@ -70,13 +70,13 @@ By default, new users are only eligible for a directory role. Follow these steps
 
     ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Click an eligible role that you want to make permanent.
+1. Click an **eligible** role that you want to make permanent.
 
-1. Click **More** and then **Make perm**.
+1. Click **More** and then click **Make perm**.
 
     ![Make role assignment permanent](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
-    The role is now listed as permanent.
+    The role is now listed as **permanent**.
 
     ![List of members with permanent change](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
@@ -96,7 +96,7 @@ Follow these steps to remove a specific user from a directory role.
 
 1. Click a role assignment you want to remove.
 
-1. Click **More** and then **Remove**.
+1. Click **More** and then click **Remove**.
 
     ![Remove a role](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
