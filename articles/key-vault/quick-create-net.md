@@ -6,7 +6,7 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
 
@@ -128,6 +128,8 @@ We are publishing this app to Azure to see it live as a web app and also see tha
 3. Create a new **App Service**, select **Publish**.
 4. Change the App Name to be "keyvaultdotnetcorequickstart"
 5. Select **Create**.
+
+>[!VIDEO https://channel9.msdn.com/Blogs/CoolMoose/Publish-web-app-to-Azure]
 
 ## Enable Managed Service Identities (MSI)
 
