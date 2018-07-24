@@ -6946,8 +6946,13 @@
             "redirect_document_id": false
         },
         { 
-            "source_path": "articles/azure-stack/azure-stack/azure-stack-update-1807.md",
-            "redirect_url": "/azure/azure-stack/azure-stack",
+            "source_path": "articles/azure-stack/azure-stack-update-1807.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/azure-stack-add-scale-node.md",
+            "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
