@@ -227,14 +227,13 @@ The streaming stops when the job completes. The sample script trains over 10 *ep
 
 ## Get job output
 
-Batch AI creates a unique folder structure in the storage account for each job's output. Set the JOB_OUTPUT_PATH environment variable with this path. Then, list the output files in storage using the [az storage directory list](/cli/azure/storage/directory#az-storage-directory-list) command:
+Batch AI creates a unique folder structure in the storage account for each job's output. Set the JOB_OUTPUT_PATH environment variable with this path. Then, list the output files in storage using the [az storage file list](/cli/azure/storage/directory#az-storage-file-list) command:
 
 ```azurecli-interactive
 export JOB_OUTPUT_PATH=$(az batchai job show --name myjob --experiment myexperiment --workspace myworkspace --resource-group myResourceGroup --query jobOutputDirectoryPathSegment | sed s/\"//g)
 
-az storage directory list \
-    --share-name batchaishare \
-    --directory-name batchaishare/logs \
+az storage file list \
+    --share-name batchaishare/logs \
     --path $JOB_OUTPUT_PATH/stdouterr \
     --output table
 ```
