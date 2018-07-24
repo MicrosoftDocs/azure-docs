@@ -56,6 +56,7 @@ The following section provides you with a complete overview of all possible erro
 
 |Error|Description|
 |---|---|
+|16000|This is an internal implementation detail and not an error condition. You can safely ignore this reference.|
 |20001|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20012|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20033|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
@@ -97,7 +98,7 @@ The following section provides you with a complete overview of all possible erro
 |50089|Flow token expired - Authentication Failed. Have user try signing-in again with username -password|
 |50097|Device Authentication Required - DeviceId -DeviceAltSecId claims are null OR no device corresponding to the device identifier exists|
 |50099|JWT signature is invalid. Contact the application owner.|
-|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Requested federation realm object does not exist. Contact the tenant admin.|
 |50120|Issue with JWT header. Contact the tenant admin.|
 |50124|Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy.|
@@ -171,6 +172,7 @@ The following section provides you with a complete overview of all possible erro
 |81001|User's Kerberos ticket is too large. This can happen if the user is in too many groups and thus the Kerberos ticket contains too many group memberships. Reduce the user's group memberships and try again.|
 |81005|Authentication Package Not Supported|
 |81007|Tenant is not enabled for Seamless SSO|
+|81012|This is not an error condition. It indicates that user trying to sign in to Azure AD is different from the user signed into the device. You can safely ignore this code in the logs.|
 |90010|The request is not supported for various reasons. For example, the request is made using an unsupported request method (only POST method is supported) or the token signing algorithm that was requested is not supported. Contact the application developer.|
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|

@@ -1,14 +1,14 @@
 ---
 title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Language Understanding (LUIS)
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Language Understanding FAQ
 
@@ -46,6 +46,10 @@ See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-
 
 ### Should variations of an example utterance include punctuation? 
 Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
+
+### Does LUIS currently support Cortana?
+
+Cortana prebuilt apps were deprecated in 2017. They are no longer supported. 
 
 ## LUIS endpoint
 
