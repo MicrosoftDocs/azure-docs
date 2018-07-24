@@ -10,20 +10,19 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create webhooks on rules in Azure IoT Central
+# Create webhook actions on rules in Azure IoT Central
 
-Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever rules are triggered in your IoT Central app. Your IoT Central app will ping the other application's HTTP endpoint whenever a rule is triggered with a payload containing device details and rule trigger details. 
+Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever rules are triggered in your IoT Central app. Your IoT Central app will send an HTTP POST request to the other application's HTTP endpoint whenever a rule is triggered with a payload containing device details and rule trigger details. 
 
 ## How to set up the webhook
 In this example we will use RequestBin to get notified when rules fire using webhooks. 
 
 1. Open [RequestBin](http://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
-![requestbin bin URL](...)
-1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). 
+1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). Save the rule and add a new action.
+![Webhook creation screen](media/howto-create-webhooks/webhookcreate.png)
 1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL. 
-![webhook screen](...)
-1. Save the action. 
+1. Save the rule
 
 Now when the rule fires, you should see a new request appear in RequestBin.
 
