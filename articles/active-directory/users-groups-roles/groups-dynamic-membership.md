@@ -266,7 +266,9 @@ The underscore (\_) syntax matches occurrences of a specific value in one of the
 
 Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds any user with proxy address that contains "contoso" to the group.
 
-```(user.proxyAddresses -any (_ -contains "contoso"))```
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
+```
 
 ## Use of Null values
 
