@@ -3,7 +3,7 @@ title: Get started with Azure DNS private zones using PowerShell | Microsoft Doc
 description: Learn how to create a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using PowerShell.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Get started with Azure DNS private zones using PowerShell
@@ -36,33 +36,33 @@ These instructions assume you have already installed and signed in to Azure Powe
 Before creating the DNS zone, a resource group is created to contain the DNS zone. The following example shows the command.
 
 ```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+New-AzureRMResourceGroup -name MyAzureResourceGroup -location "westus"
 ```
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet together with a value of "Private" for the ZoneType parameter. The following example creates a DNS zone called *contoso.local* in the resource group called *MyResourceGroup* and makes the DNS zone available to the virtual network called *MyAzureVnet*. Use the example to create a DNS zone, substituting the values for your own.
+A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet together with a value of "Private" for the ZoneType parameter. The following example creates a DNS zone called *contoso.local* in the resource group called *MyAzureResourceGroup* and makes the DNS zone available to the virtual network called *MyAzureVnet*. Use the example to create a DNS zone, substituting the values for your own.
 
 Note that if the ZoneType parameter is omitted, the Zone will be created as a Public zone, so it is required if you need to create a Private Zone. 
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -ResolutionVirtualNetworkId @($vnet.Id)
+$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName MyAzureResourceGroup
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup -ZoneType Private -ResolutionVirtualNetworkId @($vnet.Id)
 ```
 
 If you need Azure to automatically create hostname records in the zone, use the *RegistrationVirtualNetworkId* parameter instead of *ResolutionVirtualNetworkId*.  Registration virtual networks are automatically enabled for resolution.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
+$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName MyAzureResourceGroup
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
 ## Create a DNS record
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name "db" in the DNS Zone "contoso.local", in resource group "MyResourceGroup". The fully-qualified name of the record set is "db.contoso.local". The record type is "A", with IP address "10.0.0.4", and the TTL is 3600 seconds.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name "db" in the DNS Zone "contoso.local", in resource group "MyAzureResourceGroup". The fully-qualified name of the record set is "db.contoso.local". The record type is "A", with IP address "10.0.0.4", and the TTL is 3600 seconds.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.0.0.4")
+New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.0.0.4")
 ```
 
 For other record types, for record sets with more than one record, and to modify existing records, see [Manage DNS records and record sets using Azure PowerShell](dns-operations-recordsets.md). 
@@ -72,7 +72,7 @@ For other record types, for record sets with more than one record, and to modify
 To list the DNS records in your zone, use:
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
 
 # List DNS private zones
@@ -98,15 +98,15 @@ The below example replaces the Registration Virtual Network linked to a zone, to
 Please note that you must not specify the ZoneType parameter for update, unlike for create. 
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -RegistrationVirtualNetworkId @($vnet.Id)
+$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyAzureResourceGroup
+Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
 The below example replaces the Resolution Virtual Network linked to a zone, to a new one named "MyNewAzureVnet".
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ResolutionVirtualNetworkId @($vnet.Id)
+$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyAzureResourceGroup
+Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup -ResolutionVirtualNetworkId @($vnet.Id)
 ```
 
 ## Delete a DNS private zone
@@ -131,14 +131,14 @@ Remove-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGrou
 You can specify the zone to be deleted using a `$zone` object returned by `Get-AzureRmDnsZone`.
 
 ```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup
+$zone = Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup
 Remove-AzureRmDnsZone -Zone $zone
 ```
 
 The zone object can also be piped instead of being passed as a parameter:
 
 ```powershell
-Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup | Remove-AzureRmDnsZone
+Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone
 
 ```
 
@@ -160,7 +160,7 @@ For more information about `-Confirm` and `$ConfirmPreference`, see [About Prefe
 To delete all resources created in this article, take the following step:
 
 ```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## Next steps

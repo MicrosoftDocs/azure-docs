@@ -51,7 +51,7 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 5. To select a new **Resource Group** in which to create your virtual machine, choose **Create New**. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the Settings page, keep the defaults, and click **OK**.
 
-   ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM 
 
@@ -61,7 +61,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without nee
 2. On the left navigation bar click **Configuration**. 
 3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
 4. Ensure you click **Save** to save the configuration.  
-   ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## Create a Cosmos DB account 
 
