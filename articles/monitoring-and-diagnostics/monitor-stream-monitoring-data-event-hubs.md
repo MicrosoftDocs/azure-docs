@@ -13,6 +13,8 @@ ms.component: ""
 
 Azure Monitor provides a single pipeline for getting access to all of the monitoring data from your Azure environment, enabling you to easily set up partner SIEM and monitoring tools to consume that data. This article walks through setting up different tiers of data from your Azure environment to be sent to a single Event Hubs namespace or event hub, where it can be collected by an external tool.
 
+> [!VIDEO https://www.youtube.com/watch?v=SPHxCgbcvSw]
+
 ## What data can I send into an event hub? 
 
 Within your Azure environment, there are several 'tiers' of monitoring data, and the method of accessing data from each tier varies slightly. Typically, these tiers can be described as:
