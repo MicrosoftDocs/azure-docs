@@ -47,7 +47,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 ### Add a work or school account
 
-1. If possible, go to the [Additional security verification](aka.ms/mfasetup) screen on another PC or device. For information about how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) or contact your administrator.
+1. If possible, go to the [Additional security verification](http://aka.ms/mfasetup) screen on another PC or device. For information about how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) or contact your administrator.
 
     >[!Note]
     >If your administrator has turned on the security info preview experience, you can follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section.
