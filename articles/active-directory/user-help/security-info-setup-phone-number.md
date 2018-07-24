@@ -18,9 +18,37 @@ ms.author: lizross
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info verification method requires you to sign in to your work or school account and then complete the registration process. If you've never set up your verification methods, you'll be asked to do it now.
+Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
-You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
+## Set up phone calls
+
+Depending on your organization’s settings, you may be prompted to add a phone number to your security info when you sign in. Otherwise, to begin setting up phone calls in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+
+>[!Note]
+>If you don't see the phone option, it's possible that your organization doesn't allow you to use phone calls for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+
+### To use your phone number
+
+1. Select **Set up** for the **Phone** option.
+
+    The **Setup your phone** wizard appears.
+
+    ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-phone.png)
+
+2. Pick your **Country or Region** from the drop-down box, type your phone number (including area code, if applicable) into the **Phone Number** box, select the **Call me** option, and then select **Next**.
+
+    You'll receive a phone call to make sure you typed the right phone number. At that time, you'll be asked to push the pound (#) key to confirm and to complete your setup.
+
+    ![Verify your phone screen, showing that the call was successfully answered](media/security-info/security-info-keep-secure-verify-phone-call.png)
+
+    Your security info is updated to use your phone number to verify your identity when using two-step verification or self-service password reset.
+
+    >[!Note]
+    >If you want to receive a text message instead of a phone call to your mobile device, follow the steps in the [Set up your security info to use a text message (SMS)](security-info-setup-text-msg.md) article.
+
+## Additional security info options
+
+You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
 - **Mobile device or work phone call.** Enter your mobile or work phone number to get a verification call or text message for two-step verification or self-service password reset verification. For step-by-step instructions about how to verify your identity with a phone number, see the [Set your verification method to your phone number](#set-your-verification-method-to-your-phone-number) section of this article.
 
@@ -34,46 +62,6 @@ You have options for how your organization contacts you to verify your identity,
 
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
-
-## Set up phone calls
-
-Follow this process to set your security info to use your mobile or office phone number for both two-step verification and self-service password reset.
-
-### To use your phone number
-
-1. Sign in to your work or school account.
-
-    The **More information required** box appears.
-
-    ![More info required box](media/security-info/security-info-more-info.png)
-
-    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
-
-2. Select **Next** to begin setting up your security info.
-
-    The **Keep your account secure** page appears.
-
-     ![Security info page, with two-step verification options](media/security-info/security-info-keep-secure-phone.png)
-
-    >[!Note]
-    >If you don't see the phone option, it's possible that your organization doesn't allow you to use a phone number for verification. If this is the case, you'll need to choose another verification method or contact your administrator for more help.
-
-3. Select **Set up** for the **Phone** option.
-
-    The **Setup your phone** wizard appears.
-
-    ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-phone.png)
-
-4. Pick your **Country or Region** from the drop-down box, type your phone number (including area code, if applicable) into the **Phone Number** box, select the **Call me** option, and then select **Next**.
-
-    You'll receive a phone call to make sure you typed the right phone number. At that time, you'll be asked to push the pound (#) key to confirm and to complete your setup.
-
-    ![Verify your phone screen, showing that the call was successfully answered](media/security-info/security-info-keep-secure-verify-phone-call.png)
-
-    Your security info is updated to use your phone number to verify your identity when using two-step verification or self-service password reset.
-
-    >[!Note]
-    >If you want to receive a text message instead of a phone call to your mobile device, follow the steps in the [Set up your security info to use a text message (SMS)](security-info-setup-text-msg.md) article.
 
 ## Next steps
 

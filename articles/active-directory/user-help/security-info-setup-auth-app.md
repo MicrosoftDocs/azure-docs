@@ -18,16 +18,16 @@ ms.author: lizross
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info verification method requires you to sign in to your work or school account and then complete the registration process. If you've never set up a verification method for your account, you'll be asked to do it now.
+Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
 ## Set up the Microsoft Authenticator app
 
-Depending on your organization’s settings, you may be prompted to set up the Microsoft Authenticator app when you sign in. Otherwise, to begin setting up the Microsoft Authenticator app, follow the steps in [Manage your security info](security-info-manage-settings.md) to add security info.
+Depending on your organization’s settings, you may be prompted to set up the Microsoft Authenticator app when you sign in. Otherwise, to begin setting up the Microsoft Authenticator app in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
 To download and learn more about the Microsoft Authenticator app, see [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md).
 
 >[!Note]
->If you don't want to use the Microsoft Authenticator app, you can choose a different app during set up. This article uses the Microsoft Authenticator app.
+>If you don't want to use the Microsoft Authenticator app, you can choose a different app during set up. This article uses the Microsoft Authenticator app. If you don't see the authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To use the Microsoft Authenticator app
 

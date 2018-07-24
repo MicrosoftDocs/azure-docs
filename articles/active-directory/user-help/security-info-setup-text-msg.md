@@ -18,7 +18,34 @@ ms.author: lizross
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info verification method requires you to sign in to your work or school account and then complete the registration process. If you've never set up your verification methods, you'll be asked to do it now.
+Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
+
+## Set up text messaging
+
+Depending on your organization’s settings, you may be prompted to add text messaging to your security info when you sign in. Otherwise, to begin setting up text messaging in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+
+The text message option is a part of the phone option, so you'll set everything up the same way you would for your phone number, but instead of having Microsoft call you, you'll choose to use a text message. If you don't see the phone option, it's possible that your organization doesn't allow you to use a phone number for verification. If this is the case, you'll need to choose another verification method or contact your administrator for more help.
+
+### To use a text message
+
+1. Select **Set up** for the **Phone** option.
+
+    The **Setup your phone** wizard appears.
+
+    ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-text.png)
+
+2. Pick your **Country or Region** from the drop-down box, type your phone number (including area code, if applicable) into the **Phone Number** box, select the **Text me a code** option, and then select **Next**.
+
+    You'll receive a text message with a code you'll need to enter into a verification page.
+
+    ![Verification page to enter text message code](media/security-info/security-info-keep-secure-verify-text-msg.png)
+
+    Your security info updates to send you a text message to verify your identity when using two-step verification or self-service password reset.
+
+    >[!Note]
+    >If you want to receive a phone call instead of a text message, follow the steps in the [Set up your security info to use your phone number](security-info-setup-phone-number.md) article.
+
+## Additional security info options
 
 You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
@@ -34,46 +61,6 @@ You have options for how your organization contacts you to verify your identity,
 
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
-
-## Set up text messaging
-
-Follow this process to set your security info to use your phone number for both two-step verification and self-service password reset.
-
->[!Note]
->The text message option is a part of the phone option, so you'll set everything up the same way you would for your phone number, but instead of having Microsoft call you, you'll choose to use a text message. If you don't see the phone option, it's possible that your organization doesn't allow you to use a phone number for verification. If this is the case, you'll need to choose another verification method or contact your administrator for more help.
-
-### To use a text message
-
-1. Sign in to your work or school account.
-
-    The **More information required** box appears.
-
-    ![More info required box](media/security-info/security-info-more-info.png)
-
-    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
-
-2. Select **Next** to begin setting up your security info.
-
-    The **Keep your account secure** page appears.
-
-     ![Security info page, with two-step verification options](media/security-info/security-info-keep-secure-phone.png)
-
-3. Select **Set up** for the **Phone** option.
-
-    The **Setup your phone** wizard appears.
-
-    ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-text.png)
-
-4. Pick your **Country or Region** from the drop-down box, type your phone number (including area code, if applicable) into the **Phone Number** box, select the **Text me a code** option, and then select **Next**.
-
-    You'll receive a text message with a code you'll need to enter into a verification page.
-
-    ![Verification page to enter text message code](media/security-info/security-info-keep-secure-verify-text-msg.png)
-
-    Your security info updates to send you a text message to verify your identity when using two-step verification or self-service password reset.
-
-    >[!Note]
-    >If you want to receive a phone call instead of a text message, follow the steps in the [Set up your security info to use your phone number](security-info-setup-phone-number.md) article.
 
 ## Next steps
 

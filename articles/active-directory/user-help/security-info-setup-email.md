@@ -18,7 +18,33 @@ ms.author: lizross
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info verification method requires you to sign in to your work or school account and then complete the registration process. If you've never set up your verification methods, you'll be asked to do it now.
+Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
+
+## Set up email
+
+Depending on your organization’s settings, you may be prompted to add an email address to your security info when you sign in. Otherwise, to begin setting up email in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+
+>[!Note]
+>If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+
+### To use your email address
+
+1. Select **Set up** for the **Email** option, and then type your email address into the box.
+
+     ![Security info page, with email entry box](media/security-info/security-info-keep-secure-setup-email.png)
+
+2. Check for an email from Microsoft for your organization, type the included verification code into the **Verify your email** box, and then select **Done**.
+
+     ![Security info page, with email verification code entry box](media/security-info/security-info-verify-email.png)
+
+    >[!Note]
+    >If you don't see an email from Microsoft on behalf of your organization, make sure you typed your email address correctly, and then check your Junk or Spam folders.
+
+3. In the **Keep your account secure** page, select **Done**.
+
+    Your security info is updated to use your email address to verify your identity when using two-step verification.
+
+## Additional security info options
 
 You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
@@ -33,42 +59,7 @@ You have options for how your organization contacts you to verify your identity,
 - **Security questions.** Answer some security questions created by your administrator for your organization for self-service password reset. For step-by-step instructions about how to set up your security questions, see the [Set up your security info to use security questions](security-info-setup-questions.md) article.
 
 >[!Note]
->If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
-
-## Set up email
-
-Follow this process to set your verification method to use your work or school email address.
-
-### To use your email address
-
-1. Sign in to your work or school account.
-
-    The **More information required** box appears.
-
-    ![More info required box](media/security-info/security-info-more-info.png)
-
-    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
-
-2. Select **Next** to begin setting up your security info.
-
-    The **Keep your account secure** page appears.
-
-     ![Security info page, with two-step verification options](media/security-info/security-info-keep-secure-email.png)
-
-3. Select **Set up** for the **Email** option, and then type your email address into the box.
-
-     ![Security info page, with email entry box](media/security-info/security-info-keep-secure-setup-email.png)
-
-4. Check for an email from Microsoft for your organization, type the included verification code into the **Verify your email** box, and then select **Done**.
-
-     ![Security info page, with email verification code entry box](media/security-info/security-info-verify-email.png)
-
-    >[!Note]
-    >If you don't see an email from Microsoft on behalf of your organization, make sure you typed your email address correctly, and then check your Junk or Spam folders.
-
-5. In the **Keep your account secure** page, select **Done**.
-
-    Your security info is updated to use your email address to verify your identity when using two-step verification.
+>If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
 ## Next steps
 

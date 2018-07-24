@@ -18,7 +18,20 @@ ms.author: lizross
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info verification method requires you to sign in to your work or school account and then complete the registration process. If you've never set up your verification methods, you'll be asked to do it now.
+Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
+
+## Set up security questions
+
+Depending on your organization’s settings, you may be prompted to add security questions to your security info when you sign in. Otherwise, to begin setting up security questions in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+
+>[!Note]
+>The number of security questions are determined by your administrator. If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+
+### To choose and answer your security questions
+
+1. text
+
+## Additional security info options
 
 You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
 
@@ -34,27 +47,6 @@ You have options for how your organization contacts you to verify your identity,
 
 >[!Note]
 >If some of these options are missing, it's most likely because your organization doesn't allow those methods for secondary verification. If this is the case, you'll need to choose an available verification method or contact your administrator for more help.
-
-## Set up security questions
-
-Your security info is updated to use several pre-defined questions set up by your administrator to verify your identity when using two-step verification.
-
-### To choose and answer your security questions
-
-Follow this process to choose and answer your security questions. The number of questions you have to answer is determined by your administrator.
-
-1. Sign in to your work or school account.
-
-    The **More information required** box appears.
-
-    ![More info required box](media/security-info/security-info-more-info.png)
-
-    Depending on your organization, you might be allowed to wait 14 days before adding your security info. If you don't see this option, it means that it's not available.
-
-2. Select **Next** to begin setting up your security info.
-
-    >[!Note]
-    >If you don't see the security questions option, it's possible that your organization doesn't allow you to use this method for verification. If this is the case, you'll need to choose another verification method or contact your administrator for more help.
 
 ## Next steps
 
