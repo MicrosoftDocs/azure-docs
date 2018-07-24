@@ -1,14 +1,14 @@
 ---
 title: Use Microsoft Azure Traffic Manager to increase endpoint quota in Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Use Microsoft Azure Traffic Manager to spread endpoint quota across several subscriptions in Language Understanding (LUIS) to increase endpoint quota 
-author: v-geberr
+author: diberry
 manager: kaiqb
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
 
