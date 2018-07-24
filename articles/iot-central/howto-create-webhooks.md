@@ -12,10 +12,10 @@ manager: peterpr
 
 # Create webhook actions on rules in Azure IoT Central
 
-Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever rules are triggered in your IoT Central app. Your IoT Central app will send an HTTP POST request to the other application's HTTP endpoint whenever a rule is triggered with a payload containing device details and rule trigger details. 
+Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever a rule is triggered in your IoT Central app. Your IoT Central app will send a POST request to the other application's HTTP endpoint whenever a rule is triggered. The payload will contain device details and rule trigger details. 
 
 ## How to set up the webhook
-In this example we will use RequestBin to get notified when rules fire using webhooks. 
+In this example, you will connect to RequestBin to get notified when rules fire using webhooks. 
 
 1. Open [RequestBin](http://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
@@ -27,7 +27,7 @@ In this example we will use RequestBin to get notified when rules fire using web
 Now when the rule fires, you should see a new request appear in RequestBin.
 
 ## Payload
-When a rule is triggered, an HTTP POST request is made to the callback URL containing a json payload with the measurements, device, rule, and application details. For a telemetry rule, the payload looks something like this:
+When a rule is triggered, an HTTP POST request is made to the callback URL containing a json payload with the measurements, device, rule, and application details. For a telemetry rule, the payload can look like the following:
 
 ```json
 {
@@ -77,7 +77,7 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
 ## Known limitations
 Currently there is no programmatic way of subscribing/unsubscribing from these webhooks through an API.
 
-If you have ideas for how to improve this feature, please post your suggestions to our [Uservoice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
+If you have ideas for how to improve this feature, post your suggestions to our [Uservoice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## Next steps
 Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
