@@ -95,10 +95,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 ### Using your device's fingerprint or facial recognition capabilities
 
-Your organization may require a PIN to complete your identity verification. You can set up the Microsoft Authenticator app to use your device's fingerprint or facial recognition capabilities instead of a PIN. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
-
-#### Set up Touch ID
-To set up Touch ID for the authenticator app, you'll need to first go through the sign-in process using your PIN. The authenticator app automatically sets up Touch ID if your device supports it.
+Your organization might require a PIN to complete your identity verification. You can set up the Microsoft Authenticator app to use your device's fingerprint or facial recognition capabilities instead of a PIN. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
 
 ## Use the app when you sign in
 
