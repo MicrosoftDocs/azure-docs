@@ -56,7 +56,7 @@ After the cluster is deployed, browse to the auto-created AKS resource group and
 
 The HTTP application routing solution may only be triggered on Ingress resources that are annotated as follows:
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
@@ -115,7 +115,7 @@ spec:
 
 Use the [kubectl apply][kubectl-apply] command to create the resources.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -125,7 +125,7 @@ ingress "party-clippy" created
 
 Use cURL or a browser to navigate to the hostname specified in the host section of the samples-http-application-routing.yaml file. The application can take up to one minute before it's available via the internet.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -144,6 +144,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
     |\_/|
     \___/
 
+```
+
+## Remove HTTP routing
+
+The HTTP routing solution can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
 ```
 
 ## Troubleshoot
