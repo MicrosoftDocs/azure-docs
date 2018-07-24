@@ -19,9 +19,9 @@ ms.author: juliako
 ---
 # Azure Government Media Services 
  
-For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
+For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
-Azure Media Services (AMS) is currently generally available in Azure Government.
+Azure Media Services (AMS) v2 is currently generally available in Azure Government.
 
 ## Connecting  
 
