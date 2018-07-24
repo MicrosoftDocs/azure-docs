@@ -12,7 +12,7 @@ ms.date: 07/27/2018
 
 # How to migrate to the latest version of Azure Machine Learning Services 
 
-**If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed or an experimentation account, you don't need to migrate anything.
+**If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
 Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you'll need to register the artifacts again with the updated Azure Machine Learning offering. 
 
@@ -39,7 +39,7 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 ## Azure resources
 
-Resources such as your experimentation account and model management account, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
+Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
 Get started with the latest version by creating an Azure Machine Learning Workspace:
 + In the [Azure portal](quickstart-get-started.md)
@@ -53,7 +53,7 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release.
 
-To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. When you attach that project to the workspace, you can also start a run history file in the workspace for that project by specifying a name for that history.  
+To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. When you attach that project to the workspace, you need to specify a run history name so all the run history from the execution of this project can be stored there.  
 
 Attach your existing local project directory to the workspace using one of these methods. Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.
 
