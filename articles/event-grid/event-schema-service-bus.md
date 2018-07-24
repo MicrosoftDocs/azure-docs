@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
 ---
 
@@ -89,7 +89,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | The Service Bus namespace the resource exists in. |
+| namespaceName | string | The Service Bus namespace the resource exists in. |
 | requestUri | string | The URI to the specific queue or subscription emitting the event. |
 | entityType | string | The type of Service Bus entity emitting events (queue or subscription). |
 | queueName | string | The queue with active messages if subscribing to a queue. Value null if using topics / subscriptions. |
