@@ -180,7 +180,6 @@ Pass-through Authentication now supports legacy protocols and apps. The followin
 This update lets you see which policies are evaluated when a user signs in along with the policy outcome. In addition, the report now includes the type of client app used by the user, so you can identify legacy protocol traffic. Report entries can also now be searched for a correlation ID, which can be found in the user-facing error message and can be used to identify and troubleshoot the matching sign-in request.
 
 <!--waiting for info
----
 
 ### Azure AD Activity Logs are now available through Azure Monitor
 
