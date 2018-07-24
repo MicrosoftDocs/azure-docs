@@ -51,6 +51,7 @@
 ## [Deployment guide](deployment-guide.md)
 ## [DBMS deployment guide](dbms-guide.md)
 ## [Azure Site Recovery for SAP Disaster Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
+## [SAP LaMa connector for Azure](lama-installation.md)
 # AAD SAP Identity Integration and Single-Sign-On
 ## [Integration with SAP Cloud](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD Integration with SAP Cloud Platform Identity Authentication](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
