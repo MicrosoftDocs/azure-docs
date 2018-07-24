@@ -135,8 +135,8 @@ var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
 This string can be saved to a file with the **.graphrunbook** extension, and this file can be imported into Azure Automation.
-The serialized format will change in the future versions of `Orchestrator.GraphRunbook.Model.dll`. We promise backward compatibility: any runbook serialized with an older version of `Orchestrator.GraphRunbook.Model.dll` can be deserialized by any newer version. Forward compatibility is not guaranteed: a runbook serialized with a newer version may not be deserializable by older versions.
+The serialized format may change in the future versions of `Orchestrator.GraphRunbook.Model.dll`. We promise backward compatibility: any runbook serialized with an older version of `Orchestrator.GraphRunbook.Model.dll` can be deserialized by any newer version. Forward compatibility is not guaranteed: a runbook serialized with a newer version may not be deserializable by older versions.
 
-## Next Steps
+## Next steps
 
 To learn more about Graphical Runbooks in Azure Automation, see [Graphical Authoring introduction](automation-graphical-authoring-intro.md)
