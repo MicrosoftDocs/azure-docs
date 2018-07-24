@@ -1,21 +1,16 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Microsoft Docs'
+title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal'
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
@@ -80,14 +75,30 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+
+## Download a sample data file
+1. Download this sample JSON data file [from Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) onto your local computer. Right-click and save as to save the raw file locally. 
+
+2. If you don't already have a storage account, create one. 
+   - In the Azure portal, select **Create a resource**.  Select the **Storage** category, and select **Storage Accounts**  
+   - Provide a unique name for the storage account.
+   - Select **Account Kind**: **Blob Storage**
+   - Select a **Resource Group** name. Use the same resource group you created the Databricks workspace.
+   
+   For more information, see [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+3. Create a storage Container in the Blob Storage account and upload the sample json file into the container. You can use the Azure portal or the  [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload the file.
+
+   - Open the storage account in the Azure portal.
+   - Select **Blobs**.
+   - Select **+ Container**
+   - Provide a **Name** for the container, such as `databricks`. 
+   - Select  **Private (non anonymous access)** access level.
+   - Once the container is created, select the container name.
+   - Select the **Upload** button.
+   - On the Files page, select the folder icon to browser to a local file for upload. 
+   
 ## Run a Spark SQL job
-
-Before you begin with this section, you must complete the following prerequisites:
-
-* [Create an Azure Blob storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
-
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
