@@ -230,11 +230,7 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-#### Use underscore (\_) to add users based on proxyAddresses
 
-The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users to a dynamic group. It is used with the -any or -all operators.
-
-Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds to the group any user with proxy address that contains "contoso."
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
@@ -248,6 +244,7 @@ Allowed operators
 | Properties | Values | Usage |
 | --- | --- | --- |
 | assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
 
@@ -262,10 +259,16 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 > [!NOTE]
 > This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
 
-The following expression will select all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
+The following expression selects all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
+
+### Using the underscore (\_) syntax
+
+The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.
+
+Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds any user with proxy address that contains "contoso" to the group.
 
 ## Use of Null values
 
