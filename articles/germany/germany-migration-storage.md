@@ -26,11 +26,13 @@ and for global Azure:
 
     https://<storageaccountname>.blob.core.windows.net/<containername>/<blobname>
 
-You get the three parts of the URI from portal, PowerShell, or CLI. The blob name can be in the URI or as a pattern, like *vm121314.vhd*.
+You get the three parts (storageaccountname, containername, blobname) for the URI from portal, PowerShell, or CLI. The blobname can be in the URI or as a pattern, like *vm121314.vhd*.
 
 You also need the storage keys to access the storage account. Get them from the portal, PowerShell, or CLI. For example:
 
-    Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
+```powershell
+Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
+```
 
 As always, you need only one of the two keys available for each storage account.
 
@@ -72,7 +74,7 @@ AzCopy is also described at [Blob Migration](#blob). Use it (or any other tool) 
 
     <https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D>
 
-The source parameters for AzCopy are
+The parameters for AzCopy are
 
     /source:" <https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd>"
 
@@ -80,7 +82,7 @@ The source parameters for AzCopy are
 
 And the complete commandline:
 
-    azcopy -v /source:\"https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd\" /sourceSAS:\"?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D\" /dest:\"https://migratetarget.blob.core.windows.net/targetcontainer/newdisk.vhd\" /DestKey:\"o//ucD... Kdpw==\"
+    azcopy -v /source:"https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd" /sourceSAS:"?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D" /dest:"https://migratetarget.blob.core.windows.net/targetcontainer/newdisk.vhd" /DestKey:"o//ucD... Kdpw=="
 
 ### Step 3: Create a new managed disk in the target environment
 

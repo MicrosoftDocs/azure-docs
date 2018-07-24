@@ -37,11 +37,11 @@ Manually recreate the entire setup in a global Azure region of your choice using
 
 - [Create a Stream Analytics job using PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md)
 
-# SQL Data Warehouse
+## SQL Data Warehouse
 
 This service is already covered under [Databases](./germany-migration-databases.md#sql-data-warehouse)
 
-# Azure Analysis Service
+## Azure Analysis Service
 
 You can use backup/restore to migrate your models. There's [some pretty good documentation available](../analysis-services/analysis-services-backup.md).
 

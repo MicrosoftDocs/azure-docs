@@ -8,18 +8,18 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-## Internet of Things (IoT)
+# Internet of Things (IoT)
 
-# Azure Cosmos DB
+## Azure Cosmos DB
 
 This service is already covered under [Databases](./germany-migration-databases.md#azure-cosmos-db)
 
-# Functions
+## Functions
 
 This service is already covered under [Compute](./germany-migration-compute.md#functions)
 
-# Notification Hub
+## Notification Hub
 
 This service is already covered under [Web](./germany-migration-web.md#notification-hubs)
 
-# IoT Hub
+## IoT Hub

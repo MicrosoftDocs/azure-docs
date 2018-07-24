@@ -42,7 +42,7 @@ Migration of ExpressRoute between Azure Germany and global Azure isn't supported
 
 Migration of Virtual Private Network (VPN) Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new VPN Gateway.
 
-Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with *Get-AzureRmVirtualNetworkGateway\**.
+Collect information about your current VPN gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmVirtualNetworkGateway\*`.
 
 Don't forget to update your on-premise configuration and delete any existing rules for the old IP ranges once you updated your Azure network environment.
 
@@ -56,7 +56,7 @@ Don't forget to update your on-premise configuration and delete any existing rul
 
 Migration of Application Gateways between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create and configure a new Gateway.
 
-Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with *Get-AzureRmApplicationGateway\**.
+Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmApplicationGateway\*`.
 
 ### Links
 

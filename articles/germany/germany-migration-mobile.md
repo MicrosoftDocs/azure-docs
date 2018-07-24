@@ -8,8 +8,8 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-## Mobile
+# Mobile
 
-# Notification Hub
+## Notification Hub
 
 This service is already covered under [Web / Notification Hubs](./germany-migration-web.md#notification-hubs)

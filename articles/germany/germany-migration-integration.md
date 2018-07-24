@@ -16,7 +16,8 @@ ms.custom: bfmigrate
 
 Service Bus and Event Hubs services don't have data export or import capabilities. However, you can export the Service Bus and Event Hub resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then adopt the exported template for global Azure and recreate the resources.
 
-**Note**: This doesn't copy the data (for example messages), it's only recreating the metadata.
+> [!NOTE]
+> This doesn't copy the data (for example messages), it's only recreating the metadata.
 
 ### Metadata Service Bus
 
