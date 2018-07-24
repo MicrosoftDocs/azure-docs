@@ -27,7 +27,7 @@ Spark History Server is the web UI for completed and running Spark applications.
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
-    ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
+    ![Spark History Server](./media/apache-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### To open the Spark History Server Web UI by URL
 Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
@@ -38,7 +38,7 @@ Open the Spark History Server by browsing to the following URL, replace <Cluster
 
 The Spark History Server web UI looks like:
 
-![HDInsight Spark History Server](./media/apache-spark-resource-manager/hdinsight-spark-history-server.png)
+![HDInsight Spark History Server](./media/apache-spark-history-server/hdinsight-spark-history-server.png)
 
 
 ## Open the Data tab from Spark History Server
@@ -52,7 +52,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data copy](./media/apache-spark-history-server/sparkui-data-copy.png)
 
-+ Save all data as CSV file by clicking button **CSV**.
++ Save all data as CSV file by clicking button **csv**.
 
     ![Data save](./media/apache-spark-history-server/sparkui-data-save.png)
 
@@ -76,7 +76,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data page](./media/apache-spark-history-server/sparkui-data-page.png)
 
-+ Hover on the question mark beside Data to show the tooltip, and click it to get more information.
++ Hover on the question mark beside Data to show the tooltip, or click the question mark to get more information.
 
     ![Data more info](./media/apache-spark-history-server/sparkui-data-more-info.png)
 
@@ -224,16 +224,16 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
-    + **Script type**, select **Custom**.
-    + **Name**, specify a script name.
-    + **Bash script URI**, upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
+    + **Script type**: select **Custom**.
+    + **Name**: specify a script name.
+    + **Bash script URI**: upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
     
    ```upgrade_spark_enhancement
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
     + Check on **Head** and **Worker**.
-    + **Parameters**, set the parameters follow the bash usage.
+    + **Parameters**: set the parameters follow the bash usage.
 
     ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload2.png)
 
