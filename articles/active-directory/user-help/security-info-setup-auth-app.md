@@ -31,7 +31,7 @@ To download and learn more about the Microsoft Authenticator app, see [Get start
 
 ### To use the Microsoft Authenticator app
 
-1. Select **Set up** for the **Authenticator app** option.
+1. Select the **Authenticator app** option.
 
     The **Get the app** wizard appears.
 

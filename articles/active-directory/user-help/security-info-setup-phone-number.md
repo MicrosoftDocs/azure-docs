@@ -29,7 +29,7 @@ Depending on your organization’s settings, you may be prompted to add a phone 
 
 ### To use your phone number
 
-1. Select **Set up** for the **Phone** option.
+1. Select the **Phone** option.
 
     The **Setup your phone** wizard appears.
 

@@ -29,7 +29,7 @@ Depending on your organization’s settings, you may be prompted to add an email
 
 ### To use your email address
 
-1. Select **Set up** for the **Email** option, and then type your email address into the box.
+1. Select the **Email** option, and then type your email address into the box.
 
      ![Security info page, with email entry box](media/security-info/security-info-keep-secure-setup-email.png)
 

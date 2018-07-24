@@ -28,7 +28,7 @@ The text message option is a part of the phone option, so you'll set everything 
 
 ### To use a text message
 
-1. Select **Set up** for the **Phone** option.
+1. Select the **Phone** option.
 
     The **Setup your phone** wizard appears.
 
