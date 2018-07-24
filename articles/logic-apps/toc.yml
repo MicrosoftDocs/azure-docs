@@ -282,6 +282,8 @@
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items: 
+      - name: Data operations - code examples
+        href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
       - name: Build a serverless app - Visual Studio
