@@ -35,11 +35,8 @@ Microsoft expects to release software update packages on a monthly cadence. Howe
 
 Find documentation on how to plan for and manage updates, and how to determine your current version in [Manage updates overview](azure-stack-updates.md). 
 For information about a specific update, including how to download it, see the release notes for that update: 
-- [Azure Stack 1807 update](azure-stack-update-1807.md)
 - [Azure Stack 1805 update](azure-stack-update-1805.md)
 - [Azure Stack 1804 update](azure-stack-update-1804.md)
-
-
 
 ## Hotfixes
 Occasionally, Microsoft provides hotfixes for Azure Stack that address a specific issue that is often preventative or time-sensitive.  Each hotfix is released with a corresponding Microsoft Knowledge Base article that details the issue, cause, and resolution. 
