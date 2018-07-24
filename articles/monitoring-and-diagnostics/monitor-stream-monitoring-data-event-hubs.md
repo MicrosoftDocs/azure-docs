@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ""
 ---
