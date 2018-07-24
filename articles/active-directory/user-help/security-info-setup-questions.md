@@ -29,13 +29,13 @@ Depending on your organization’s settings, you may be prompted to add security
 
 ### To choose and answer your security questions
 
-1. Select **Set up** for the **Security questions** option, and then choose the security questions you want to answer. 
+1. Select **Security questions**, and then choose which security questions you want to answer. 
 
     The number of security questions you have to pick are determined by your administrator.
 
     ![Security info page, pick your security questions](media/security-info/security-info-keep-secure-setup-pick-questions.png)
 
-2. Answer your selected questions, and then select **Done**.
+2. Provide answers for your selected questions, and then select **Done**.
 
 ## Additional security info options
 
