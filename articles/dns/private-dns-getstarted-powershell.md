@@ -47,7 +47,7 @@ New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
 
-Note that if the ***ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
+Note that if the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
 
 ```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -186,6 +186,7 @@ Repeat for myVM02.
        Minimum = 0ms, Maximum = 0ms, Average = 0ms
    PS C:\>
    ```
+
 ## Delete all resources
 
 When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this tutorial.
