@@ -43,7 +43,7 @@ Before you start with this tutorial, make sure to meet the following requirement
 - Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 - Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-## Log in to the Azure Portal
+## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
@@ -87,7 +87,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    Accept all other default values other than the following:
+    Accept all other defaults other than the following values:
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime. 
@@ -241,7 +241,7 @@ Perform the following steps to grant these permissions.
 
     ![Add Data Lake Store access](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Add Data Lake Store access")
 
-7. Under **Access** select **Add**. Under **Assign permissions**, click **Select user or group** and search for the Azure Active Directory service principal you created earlier.
+7. Under **Access**, select **Add**. Under **Assign permissions**, click **Select user or group** and search for the Azure Active Directory service principal you created earlier.
 
     ![Add Data Lake Store access](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Add Data Lake Store access")
 
@@ -371,7 +371,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 
 In this section, you upload the transformed data into Azure SQL Data Warehouse. Using the Azure SQL Data Warehouse connector for Azure Databricks, you can directly upload a dataframe as a table in SQL data warehouse.
 
-As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage as a temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
+As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage as temporary storage location to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
 
 1. Provide the configuration to access the Azure Storage account from Azure Databricks.
 
