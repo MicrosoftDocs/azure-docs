@@ -275,6 +275,15 @@ select **Output**.
 
    ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
 
+<a name="create-csv-table-example-definitions"></a>
+
+### Create CSV table example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Create CSV table** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+
 <a name="create-html-table-action"></a>
 
 ## Create HTML table action
@@ -371,6 +380,15 @@ select **Output**.
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Create HTML table" action results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+
+<a name="create-html-table-example-definitions"></a>
+
+### Create HTML table example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Create HTML table** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 <a name="filter-array-action"></a>
 
@@ -473,6 +491,15 @@ enter this expression that includes the **Filter array** action's name:
 
    ![Email with "Filter array" action results](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
 
+<a name="filter-array-example-definitions"></a>
+
+### Filter array example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Filter array** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+
 <a name="join-action"></a>
 
 ## Join action
@@ -554,6 +581,15 @@ select **Output**.
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-email-results.png)
+
+<a name="join-example-definitions"></a>
+
+### Join example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Join** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 <a name="parse-json-action"></a>
 
@@ -653,6 +689,15 @@ you can now select the properties from the parsed JSON content.
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Join" action results](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+
+<a name="parse-json-example-definitions"></a>
+
+### Parse JSON example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Parse JSON** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 <a name="select-action"></a>
 
@@ -756,6 +801,15 @@ enter this expression that includes the **Select** action's name:
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
+
+<a name="select-example-definitions"></a>
+
+### Select example - action definitions
+
+If you prefer working in the code view editor, you can copy 
+and paste the definitions for the **Select** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 ## Get support
 
