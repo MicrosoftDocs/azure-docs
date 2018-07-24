@@ -1,6 +1,6 @@
 ---
 title: Use Text to Speech using Speech services | Microsoft Docs
-description: Learn how to use Use Text to Speech in the Speech service.
+description: Learn how to use Text to Speech in the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
