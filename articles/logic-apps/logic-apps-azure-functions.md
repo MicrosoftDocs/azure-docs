@@ -293,9 +293,14 @@ From the actions list, select this action:
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 4. From the function apps list, select your function app. 
-After the functions list appears, select your function: 
+After the functions list appears, select your function. 
 
    ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
+
+   For functions that have API definitions (Swagger descriptions) 
+   and that are [set up so your logic app can find and access those functions](#function-swagger), you can select **Swagger actions**:
+
+   ![Select your function app, "Swagger actions"", and your Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 5. In the **Request Body** box, specify the context object 
 to pass as your function's input, which must be formatted 
