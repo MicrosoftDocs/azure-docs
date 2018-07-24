@@ -41,7 +41,9 @@ Microsoft highly recommends Administrators enable users to select more than the 
 
 ## Converged user registration (preview)
 
-To enable users to register authentication methods for both Azure Multi-Factor Authentication and self-service password reset, using the same portal, complete the following steps:
+Until now, users were required to register authentication methods for MFA and SSPR in two different portals. Many users were confused by the fact that similar methods were used in both MFA and SSPR and would not register in both portals. This led to some users being unable to use either MFA or SSPR when needed, leading to a helpdesk call, and an upset user.
+
+To enable your users to register authentication methods for both Azure Multi-Factor Authentication and self-service password reset, using the same portal, complete the following steps:
 
 1. Sign in to the Azure portal as a global administrator.
 1. Browse to **Azure Active Directory**, **User settings**, **Manage settings for access panel preview features**.
@@ -137,16 +139,18 @@ The Microsoft Authenticator app is available for [Android](https://go.microsoft.
 The Microsoft Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select Verify. Otherwise, they can select Deny.
 
 > [!WARNING]
-> For self-service password reset when only one method is required for reset verification code is the only option avaialbe to users.
-> 
+> For self-service password reset when only one method is required for reset, verification code is the only option available to users.
+>
 > When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
+>
 
 ### Verification code from mobile app
 
-The Microsoft Authenticator app or other third-party apps can be used as a software token to generate an OAuth verification code. After entering your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.
+The Microsoft Authenticator app or other third-party apps can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the app into the sign-in screen. The verification code provides a second form of authentication.
 
 > [!WARNING]
-> For self-service password reset when only one method is required for reset verification code is the only option avaialbe to users.
+> For self-service password reset when only one method is required for reset verification code is the only option available to users.
+>
 
 ## Mobile phone
 
