@@ -249,7 +249,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 ## Verify agent and solution deployment
 With agent version *06072018* or later, you can verify that both the agent and the solution were deployed successfully. With earlier versions of the agent, you can verify only agent deployment.
 
-### Agent version 06072018 and higher
+### Agent version 06072018 or later
 Run the following command to verify that the agent is deployed successfully. 
 
 ```
