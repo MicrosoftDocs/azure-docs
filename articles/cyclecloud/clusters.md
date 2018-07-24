@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Clusters and Nodes | Microsoft Docs
+description: Learn about Azure CycleCloud clusters, nodes, and node arrays.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Clusters
 
 A *cluster* is a group of connected computers (*nodes*) working together as one unit. Within a cluster, multiple nodes are set to perform the same task. The how, what, when, and where of the task is controlled by software like Azure CycleCloud.

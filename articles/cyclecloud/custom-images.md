@@ -1,4 +1,14 @@
-
+---
+title: Azure CycleCloud Custom Images | Microsoft Docs
+description: Create and modify custom images or Marketplace Images for Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Custom Images in a CycleCloud Cluster
 
 An Azure CycleCloud installation uses recommended OS images for clusters, but the use of Azure Marketplace images or custom images in nodes and nodearrays is also supported.

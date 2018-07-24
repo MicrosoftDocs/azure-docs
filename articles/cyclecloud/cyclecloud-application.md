@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud | Microsoft Docs
-description: About Azure CycleCloud
+title: Azure CycleCloud Introduction | Microsoft Docs
+description: Create, manage, operate, and optimize HPC & Big Compute clusters of any scale in Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud pogo Configuration | Microsoft Docs
+description: Configure Azure CycleCloud's pogo tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # pogo Configuration
 
 To use pogo, you need to configure one or more endpoints - remote
@@ -39,13 +51,15 @@ The common settings listed below apply to all types of endpoints.
 You can also add encryption keys to the pogo.ini. To specify a default
 key, add the key name and encryption mode as per the sample below:
 
-    [[encryptionkeys]]
-    ExampleKey = 7468697369736173616d706c656b6579
+``` pogo-ini
+[[encryptionkeys]]
+ExampleKey = 7468697369736173616d706c656b6579
 
-    [[pogo ExampleSection]]
-    type = az
-    encryption_mode = pogo
-    encryption_keyname = ExampleKey
+[[pogo ExampleSection]]
+type = az
+encryption_mode = pogo
+encryption_keyname = ExampleKey
+```
 
 Keys are in string hex format, and by default the system creates 128-bit
 keys. To use 192 or 256 bit keys, you will need the Java Cryptography
@@ -95,9 +109,11 @@ Valid Azure Credentials
 Attributes that apply to file system endpoints only can be added as a
 `[pogo default-fs]` section such as:
 
-    [pogo default-fs]
-      type = fs
-      follow_links = true
+``` pogo-ini
+[pogo default-fs]
+  type = fs
+  follow_links = true
+```
 
 If `follow_links` attribute = true, listing or copying from a file
 system will include or transverse into symbolic links.

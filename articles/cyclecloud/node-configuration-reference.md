@@ -1,3 +1,14 @@
+---
+title: Azure CycleCloud Node Configuration Resource | Microsoft Docs
+description: Resource information for Node Configuration in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: reference
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Node Configuration Reference
 
 Once an Azure CycleCloud node has been started, the configuration of the node itself is determined by using the software already installed via the image used to start the node, user defined actions specified in cluster­-init, or by specifying configuration parameters to the node at launch time. Here are some of the most commonly used parameters that can be set on nodes to customize their behavior at runtime.

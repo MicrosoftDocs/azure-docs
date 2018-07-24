@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud Auto-Scale | Microsoft Docs
-description: Auto-Scaling within Azure CycleCloud.
+description: Auto-Scaling your jobs within Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Configuration | Microsoft Docs
+description: Configure your Azure credentials to work with Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Configuring Azure Credentials
 
 ## Cloud Provider
@@ -100,8 +112,7 @@ In the dashboard, click on the name of the Network Security Group you just creat
 
 ### Creating a Virtual Network
 
-You will need to set up a Virtual Network within Azure to work with CycleCloud. From the main menu, click
-on **Virtual Network**. If you don't see the option, click on **All Services** and either search for Virtual Networks or scroll down to the **Networking** section.
+You will need to set up a Virtual Network within Azure to work with CycleCloud. From the main menu, click on **Virtual Network**. If you don't see the option, click on **All Services** and either search for Virtual Networks or scroll down to the **Networking** section.
 
 1. Click **+ Add**
 2. Enter a unique name for your Virtual Network

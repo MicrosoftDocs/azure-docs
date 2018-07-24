@@ -1,3 +1,15 @@
+---
+title: Endpoint Creation in Azure CycleCloud | Microsoft Docs
+description: Manage data endpoints in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Endpoint Creation
 
 Endpoints are logical connections to storage providers and can be any of the following:

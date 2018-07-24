@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud HealthCheck Service | Microsoft Docs
+description: Learn about the Azure CycleCloud HealthCheck service.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # HealthCheck
 
 Azure CycleCloud provides a mechanism for terminating instances that are in an undesired state called HealthCheck. HealthCheck scripts are run on a periodic basis (every 5 minutes on Windows, every 10 minutes on Linux). HealthCheck scripts are arbitrary Python or shell/batch scripts. This allows administrators to define conditions under which instances should be terminated without having to manually monitor and remediate.
