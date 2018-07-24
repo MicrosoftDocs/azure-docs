@@ -17,15 +17,15 @@ ms.date: 02/20/2018
 ms.author: daveba
 ---
 
-# Configure a VMSS Managed Service Identity by using a template
+# Configure Managed Service Identity on virtual machine scale using a template
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to perform the following Managed Service Identity operations on an Azure VMSS, using Azure Resource Manager deployment template:
-- Enable and disable the system assigned identity on an Azure VMSS
-- Add and remove a user assigned identity on an Azure VMSS
+In this article, you learn how to perform the following Managed Service Identity operations on an Azure virtual machine scale set, using Azure Resource Manager deployment template:
+- Enable and disable the system assigned identity on an Azure virtual machine scale set
+- Add and remove a user assigned identity on an Azure virtual machine scale set
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 In this section, you will enable and disable the system assigned identity using an Azure Resource Manager template.
 
-### Enable system assigned identity during creation of an Azure VMSS, or an existing Azure VMSS
+### Enable system assigned identity during creation the creation of or an existing Azure virtual machine scale set
 
 1. Load the template into an editor, locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. Yours might look slightly different from the following screenshot, depending on the editor you're using and whether you are editing a template for a new deployment or existing one.
    
