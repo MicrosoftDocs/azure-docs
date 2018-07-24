@@ -141,7 +141,7 @@
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## [Manage passwords](active-directory/authentication/concept-sspr-howitworks.md)
+## [Manage passwords](authentication/concept-sspr-howitworks.md)
 ### User documents
 #### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
