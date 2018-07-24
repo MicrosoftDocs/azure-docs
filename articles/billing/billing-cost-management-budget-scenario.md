@@ -127,7 +127,7 @@ The following steps are needed to create the logic app that will perform the abo
 
 2.	In the **Create logic app** blade, provide the details need to create your logic app, select **Pin to dashboard**, and click **Create**. 
 
-    ![Azure - Create a Logic App](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
+    ![Azure - Create a Logic App](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png)
 
 After Azure deploys your logic app, the **Logic Apps Designer** opens and shows a blade with an introduction video and commonly used triggers. 
 
