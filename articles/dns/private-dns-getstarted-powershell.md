@@ -58,7 +58,9 @@ $vnet = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+   -ZoneType Private `
+   -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
 If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *ResolutionVirtualNetworkId* parameter instead of the *RegistrationVirtualNetworkId* parameter.
@@ -104,12 +106,16 @@ New-AzureRmVm `
     -OpenPorts 3389
 ```
 
+This will take a few minutes to complete.
+
 ## Create an additional DNS record
 
 You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
+New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+   -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
+   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### View DNS records
@@ -131,9 +137,11 @@ You can use the ping command to test name resolution. So, configure the firewall
 
 1. Connect to myVM01, and open a Windows PowerShell window with administrator privileges.
 2. Run the following command:
+
    ```
    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
    ```
+
 Repeat for myVM02.
 
 ### Ping the VMs by name
