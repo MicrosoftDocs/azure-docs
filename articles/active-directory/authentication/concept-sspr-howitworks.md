@@ -77,9 +77,9 @@ If a user does not have the minimum required methods registered, they see an err
 
 #### Mobile app and SSPR (Preview)
 
-When using a mobile app, like the Microsoft Authenticator app, as a method for password reset users be aware of the following. 
+When using a mobile app, like the Microsoft Authenticator app, as a method for password reset users be aware of the following. For self-service password reset when only one method is required for reset verification code is the only option avaialbe to users. When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
 
-| Number of methods required | One | Two |
+| Number of methods required to reset | One | Two |
 | :---: | :---: | :---: |
 | Mobile app features available | Code | Code or Notification |
 
