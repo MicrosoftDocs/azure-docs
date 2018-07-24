@@ -49,7 +49,7 @@ Finally, Azure Key Vault is designed so that Microsoft does not see or extract y
 
 ### Monitor access and use
 
-Once you have created a couple of Key Vaults you will want to monitor how and when your keys and secrets are being accessed. You can do this by enabling logging for Key Vault. You can configure Azure Key Vault to:
+Once you have created a couple of Key Vaults, you will want to monitor how and when your keys and secrets are being accessed. You can do this by enabling logging for Key Vault. You can configure Azure Key Vault to:
 
 - Archive to a storage account.
 - Stream to an event hub.
@@ -61,9 +61,9 @@ You have control over your logs and you may secure them by restricting access an
 
 When storing valuable data, you must take several steps. Security information must be secured, it must follow a lifecycle, it must be highly available. Azure Key Vault simplifies a lot of this by:
 
-- Removing the need for in-house knowledge of HSMs.
+- Removing the need for in-house knowledge of [HSMs](https://en.wikipedia.org/wiki/Hardware_security_module).
 - Scaling up on short notice to meet your organization’s usage spikes.
-- Replicating the contents of your Key Vault within a region and to a secondary region. This ensures high availability and takes away the need of any action from the administrator to trigger the fail over.
+- Replicating the contents of your Key Vault within a region and to a secondary region. Key Vault ensures high availability and takes away the need of any action from the administrator to trigger the failover.
 - Providing standards Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enroll and renew.
 
@@ -71,7 +71,7 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 
 ### Integrate with other Azure services
 
-As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs and log analytics.
+As a secure store in Azure, Key Vault has been used to simplify scenarios like [Azure Disk Encryption](../security/azure-security-disk-encryption.md), the [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL, [Azure web apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
 
 ## Next steps
 
