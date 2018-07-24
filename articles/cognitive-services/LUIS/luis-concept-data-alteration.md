@@ -3,12 +3,12 @@ title: Understand data alteration concepts in LUIS - Azure | Microsoft Docs
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: kaiqb
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: diberry
+ms.author: dina.berry
 ---
 
 # Data alterations

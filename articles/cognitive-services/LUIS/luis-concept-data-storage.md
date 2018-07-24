@@ -3,12 +3,12 @@ title: Understand data storage in LUIS - Azure | Microsoft Docs
 description: Learn how data is stored in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: kaiqb
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: diberry
+ms.author: dina.berry
 ---
 
 # Data storage and removal
