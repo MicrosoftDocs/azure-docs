@@ -26,7 +26,7 @@ Service Bus emits the following event types:
 
 ## Example event
 
-The following example shows the schema of a active messages with no listeners event:
+The following example shows the schema of active messages with no listeners event:
 
 ```json
 [{
