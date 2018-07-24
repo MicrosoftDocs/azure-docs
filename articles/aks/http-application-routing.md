@@ -61,7 +61,7 @@ annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the last step of this article.
+Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the previous step of this article.
 
 
 ```yaml
@@ -171,7 +171,7 @@ These records can also be seen on the DNS zone resource in the Azure portal.
 
 Use the [kubectl logs][kubectl-logs] command to view the application logs for the Nginx Ingress controller. The logs should confirm the `CREATE` of an Ingress resource and the reload of the controller. All HTTP activity is logged.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 Remove the associated Kubernetes objects created in this article.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted
