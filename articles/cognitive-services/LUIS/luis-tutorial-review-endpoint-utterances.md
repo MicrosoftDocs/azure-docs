@@ -222,7 +222,7 @@ Try an utterance close to the corrected utterance.
 }
 ```
 
-The correct intent was predicted with a high score and the the **Job** entity is detected as `natural language processing`. 
+The correct intent was predicted with a high score and the **Job** entity is detected as `natural language processing`. 
 
 ## Can reviewing be replaced by adding more utterances? 
 You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage. 
