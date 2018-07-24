@@ -36,7 +36,6 @@ The reporting architecture relies on two main pillars:
 ![Reporting](./media/active-directory-reporting-azure-portal/01.png)
 
 
-
 ## Security reports
 
 The security reports in Azure Active Directory help you to protect your organization's identities.  
@@ -84,7 +83,7 @@ For more details, see **Comparing generally available features of the Free, Basi
 
 
 
-The **sign-ins activity report** enables to to find answers to questions such as:
+The **sign-ins activity report** enables you to find answers to questions such as:
 
 - What is the sign-in pattern of a user?
 - How many users have users signed in over a week?
