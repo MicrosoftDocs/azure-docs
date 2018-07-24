@@ -181,74 +181,9 @@ select **Output**.
 ### Compose example - action definitions
 
 If you prefer working in the code view editor, you can copy 
-and paste these **Compose** and **Initialize variable** action 
-definitions from the example into your own logic app workflow 
-definition and have them appear in the Logic App Designer and 
-in the correct sequence. 
-
-```json
-"actions": {
-  "Compose": {
-    "type": "Compose",
-    "inputs": {
-      "age": "@variables('ageVar')",
-      "fullName": "@{variables('lastNameVar')}, @{variables('firstNameVar')}"
-    },
-    "runAfter": {
-      "Initialize_variable_-_ageVar": [
-          "Succeeded"
-      ]
-    }
-  },
-  "Initialize_variable_-_firstNameVar": {
-    "type": "InitializeVariable",
-    "inputs": {
-      "variables": [
-        {
-          "name": "firstNameVar",
-          "type": "String",
-          "value": "Sophie "
-        }
-      ]
-    },
-    "runAfter": {}
-  },
-  "Initialize_variable_-_lastNameVar": {
-    "type": "InitializeVariable",
-    "inputs": {
-      "variables": [
-        {
-          "name": "lastNameVar",
-          "type": "String",
-          "value": "Owen"
-        }
-      ]
-    },
-    "runAfter": {
-      "Initialize_variable_-_firstNameVar": [
-        "Succeeded"
-      ]
-    }
-  },
-  "Initialize_variable_-_ageVar": {
-    "type": "InitializeVariable",
-    "inputs": {
-      "variables": [
-        {
-          "name": "ageVar",
-          "type": "Integer",
-          "value": 35
-        }
-      ]
-    },
-    "runAfter": {
-      "Initialize_variable_-_lastNameVar": [
-        "Succeeded"
-      ]
-    }
-  }
-},
-```
+and paste the definitions for the **Compose** and 
+**Initialize variable** actions from this article: 
+[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 <a name="create-csv-table-action"></a>
 
