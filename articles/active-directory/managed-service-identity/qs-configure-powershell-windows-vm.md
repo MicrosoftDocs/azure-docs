@@ -92,9 +92,6 @@ If you need to enable a system assigned identity on an existing Virtual Machine:
 
 ## Disable the system assigned identity from an Azure VM
 
-> [!NOTE]
->  Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
-
 If you have a Virtual Machine that no longer needs the system assigned identity but still needs user assigned identities, use the following cmdlet:
 
 1. Sign in to Azure using `Login-AzureRmAccount`. Use an account that is associated with the Azure subscription that contains the VM.
@@ -103,10 +100,20 @@ If you have a Virtual Machine that no longer needs the system assigned identity 
    Login-AzureRmAccount
    ```
 
-2. Run the following cmdlet: 
-    ```powershell    	
-    Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
-    ```
+2. Retrieve the VM properties using the `Get-AzureRmVM` cmdlet and set the `-IdentityType` parameter to `UserAssigned`:
+
+   ```powershell   
+   $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM	
+   Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   ```
+
+If you have a virtual machine that no longer needs system assigned identity and it has no user assigned identities, use the following commands:
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+
 To remove the MSI VM extension, user the -Name switch with the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, specifying the same name you used when you added the extension:
 
    ```powershell
@@ -175,23 +182,23 @@ To assign a user assigned identity to an existing Azure VM:
 
 ### Remove a user assigned managed identity from an Azure VM
 
-> [!NOTE]
->  Removing all user assigned identities from a Virtual Machine is currently not supported, unless you have a system assigned identity. Check back for updates.
-
-If your VM has multiple user assigned identities, you can remove all but the last one using the following commands. Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` is the user assigned identity's name property, which should remain on the VM. This information can be found by in the identity section of the VM using `az vm show`:
+If your VM has multiple user assigned identities, you can remove all but the last one using the following commands. Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` is the user assigned identity's name property, which should remain on the VM. This information can be found in the identity section of the VM using `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
+If your VM does not have a system assigned identity and you want to remove all user assigned identities from it, use the following command:
 
-If your VM has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command:
+```powershell
+$vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+If your VM has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned.
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = $null
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm -IdentityType "SystemAssigned"
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
 ## Related content
