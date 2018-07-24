@@ -17,7 +17,7 @@ ms.custom: it-pro
 #As a new Azure AD identity administrator, I want to understand relationships between my user management tools, so I can use groups, administrator roles, and licenses to perform my top identity user management tasks at scale.”
 ---
 
-# What tools does Azure Active Directory provide to manage users as my company grows?
+# What Azure Active Directory tools can help me manage more users as my company grows?
 
 User management is the basis of identity management in Azure Active Directory (Azure AD). As you organization grows, you can use Azure AD groups as a user management tool and a licensing tool, and Azure AD an administrative management tool. The users that you manage belong to groups and need licenses to use online services. You can assign licenses to groups instead of individuals, or delegate permissions to distribute the overhead of Azure AD management. These tools help you accomplish your top tasks more quickly and accommodate growth. This article introduces new Azure AD administrators to the relationship between top identity management tasks for users and their groups, licenses, and administrator roles.
 
