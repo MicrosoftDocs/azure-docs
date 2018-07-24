@@ -2,8 +2,8 @@
 title: Known Issues and Troubleshooting Guide | Microsoft Docs
 description: List of known issues and a guide to help troubleshoot 
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning

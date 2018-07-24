@@ -12,7 +12,7 @@ ms.date: 07/27/2018
 ---
 # What happened to Azure Machine Learning Workbench?
  
-In September 2017, Azure Machine Learning Services first went Public Preview in Azure portal. Since then, our customers have shared their feedback and we've been listening. 
+In September 2017, Azure Machine Learning Services previewed in Azure portal. Since then, our customers have shared their feedback and we've been listening. 
 
 We are pleased to announce that the September 2018 Public Preview Refresh version contains many significant updates based on that feedback to improve your experience. The core functionality of the backend services from experiment execution to model deployment have not changed. Some early features, such as the installed Workbench, were also deprecated to make way for a newer, better [architecture](concept-azure-machine-learning-architecture.md). 
 
@@ -26,9 +26,9 @@ While the overall workflow hasn't changed, the latest release of Azure Machine L
 + A new, more comprehensive [Python SDK](reference-azure-machine-learning-sdk.md)
 + An updated and expanded [Azure CLI extension](reference-azure-machine-learning-sdk.md)
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create your workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  Workspaces can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. 
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. 
 
-While Azure Machine Learning still offers CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run history, but now you can do so in the Azure portal online. In the Azure portal's workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models, Docker images, and even deploy web services.
+While Azure Machine Learning still offers CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run histories, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 <a name="timeline"></a>
 
@@ -49,17 +49,15 @@ While you can still use the older features, you'll be able to find that document
 
 ## How do I migrate?
 
-Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you'll need to register the artifacts again with the updated Azure Machine Learning offering. 
-
-Learn what you can migrate to the latest Azure Machine Learning Services and how to do so in this [migration article](how-to-migrate.md).
+Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you'll need to register the artifacts again with the updated Azure Machine Learning offering. Learn what you can migrate and how to do so in this [migration article](how-to-migrate.md).
 
 ## Will projects persist?
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, projects are local directories that are attached to the new workspace. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-Since much of the project contents was already on your local machine, you just need to register the local project directory with your new workspace. Learn how to create a new project [in Python with the new SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
+Since much of the project contents was already on your local machine, you just need to attach this local project directory to your new workspace. [Learn how migrate your existing projects.](how-to-migrate.md#projects)
 
-With a few lines of code, your existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate.md#projects)
+Learn how to create a new project [in Python with the new SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
 
 ## What about web services?
 
@@ -69,11 +67,11 @@ In the newer version, models are deployed as web services to [Azure Container In
 
 ## What about run histories?
 
-The older run histories are accessible until WHEN???. When you ready to move to the new version of Azure Machine Learning Services, you can export these run histories if you want to keep a copy. 
+The older run histories are accessible until **WHEN???**. When you ready to move to the new version of Azure Machine Learning Services, you can export these run histories if you want to keep a copy. 
 
 In the latest version of Azure Machine Learning Services, you can still collect the run history of your models and explore them using the new SDK and CLI as well as in the web portal. 
 
-@@ Portal screenshot?
+**@@ Portal screenshot?**
 
 ## Will the SDK and CLI still work?
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). But, you can start creating your new experiments and models with the latest SDK and/or CLI.
@@ -82,18 +80,18 @@ In the latest release, the new Python SDK allows you to interact with the Azure 
  
 ## How does this affect experimentation and deployment?
 
-@@@Service and workflow continue to work the same.
+**@@@Service and workflow continue to work the same.**
 
 ## Can I still prepare data?
-(Short answer followed by links to Quickstarts and tutorials that help someone get started with latest functionality)
+**(Short answer followed by links to Quickstarts and tutorials that help someone get started with latest functionality)**
 
-@@@@@@ Pendleton availability? WHat's the story???
+**@@@@@@ Pendleton availability? WHat's the story???**
 
-Data Prep UX in the Workbench desktop client is not going to be available in new Workspace Web UI in Azure portal. Some of the Data Prep capabilities will surface through the Python SDK in the near future; and the plan for the Data Prep UX is still being finalized.
+**Data Prep UX in the Workbench desktop client is not going to be available in new Workspace Web UI in Azure portal. Some of the Data Prep capabilities will surface through the Python SDK in the near future; and the plan for the Data Prep UX is still being finalized.**
  
 
 ## What about Visual Studio Code Tools for AI?
 
 With this latest release, the Visual Studio Code Tools for AI extension has been expanded and improved to work with the above new features.
 
-@@Screenshot showing code + run history too
+**@@Screenshot showing code + run history too**
