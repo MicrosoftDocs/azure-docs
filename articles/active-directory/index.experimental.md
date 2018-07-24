@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Authentication</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-passwords-overview">Passwords</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-factor authentication</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-factor authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
                         <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
                         </p>
