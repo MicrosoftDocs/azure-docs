@@ -33,6 +33,6 @@ Install the Azure Service Fabric Mesh CLI extension module using following comma
 az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
 ```
 
-You can also set up up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+You can also set up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli
