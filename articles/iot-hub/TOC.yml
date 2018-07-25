@@ -30,7 +30,7 @@
   items:
   - name: Routing messages
     href: tutorial-routing.md
-  - name: Perform Manual Failover
+  - name: Perform manual failover
     href: tutorial-manual-failover.md
   - name: Configure your devices
     href: tutorial-device-twins.md
