@@ -55,13 +55,6 @@ To complete this tutorial, you must have the following prerequisites.
    ```
 
 ## Get sample data and notebook
-### Download the Jupyter notebook
-
-Download the Jupyter notebook to run this tutorial yourself.
-
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
-
 ### Download the sample data
 
 Download the MNIST dataset from Yan LeCun's web site directly and save the dataset in a local data folder called `tutorial-data`.    
@@ -113,9 +106,20 @@ plt.show()
 The output resembles the following image.
 ![png](media/tutorial-train-models-with-azure-machine-learning/explore-images.png)
 
+### Download the Jupyter notebook
+
+Download the Jupyter notebook to run the code in this tutorial yourself.
+
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
+
+
 ## Get the right workspace and project
 
-1. Get the right workspace and project @@@@@ HOW DO YOU DO THAT??
+1. what directory should i be in?
+1. load =the right workspace 
+1. Get the right project @@@@@ 
+1. HOW DO YOU DO THAT??
 
 
 ## Upload dataset to the default datastore 
