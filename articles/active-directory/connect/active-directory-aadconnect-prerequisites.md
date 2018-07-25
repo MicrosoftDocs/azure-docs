@@ -38,7 +38,6 @@ Before you install Azure AD Connect, there are a few things that you need.
 * The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
 * If you plan to use the feature **password writeback**, then the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2), then you must also apply [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 * The domain controller used by Azure AD must be writable. It is **not supported** to use a RODC (read-only domain controller) and Azure AD Connect does not follow any write redirects.
-* It is **not supported** to use on-premises forests/domains using SLDs (Single Label Domains).
 * It is **not supported** to use on-premises forests/domains using "dotted" (name contains a period ".") NetBios names.
 * It is recommended to [enable the Active Directory recycle bin](active-directory-aadconnectsync-recycle-bin.md).
 
