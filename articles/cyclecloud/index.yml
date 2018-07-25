@@ -49,7 +49,7 @@ sections:
           html: <p><a href="clusters">Clusters and Nodes</a></p><p><a href="cluster-templates">Cluster Templates</a></p><p><a href="projects">CycleCloud Projects</a></p><p><a href="custom-images">Custom Images</a></p>
         - title: Storage
           html: <p><a href="attach-storage">Attach Storage</a></p><p><a href="storage-mount-volumes">Mount Volumes</a></p><p><a href="storage-nfs-mounts">Configure NFS Mounts</a></p><p><a href="storage-blobs">Blobs and Lockers</a></p>
-        - title: Auto-Scale
+        - title: Auto Scale
           html: <p><a href="autoscale">Auto Scale</a></p><p><a href="autoscale-api">Auto Scale Plugins</a></p>
         - title: Tools
           html: <p><a href="pogo-overview">pogo</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="scheduler-integration">Scheduler Integration</a></p><p><a href="healthcheck">HealthCheck</a></p>
