@@ -37,11 +37,11 @@ This page is updated monthly, so revisit it regularly.
 
 ### Improvements to Azure Active Directory email notifications
 
-**Type:** Plan for change  
+**Type:** Changed feature  
 **Service category:** Other  
 **Product capability:** Identity lifecycle management
  
-At the **end of July 2018**, Azure Active Directory (Azure AD) emails will feature an updated design, as well as changes to the sender email address and sender display name, when sent from the following services:
+Azure Active Directory (Azure AD) emails now feature an updated design, as well as changes to the sender email address and sender display name, when sent from the following services:
  
 - Azure AD Access Reviews
 - Azure AD Connect Health 
