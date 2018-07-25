@@ -155,7 +155,7 @@ your underlying workflow definition, see the
 
 ### Test your logic app
 
-To check that the **Compose** action creates the expected results, 
+To confirm whether the **Compose** action creates the expected results, 
 send yourself a notification that includes output from the **Compose** action.
 
 1. In your logic app, add an action that can send you 
@@ -254,7 +254,7 @@ see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#tab
 
 ### Test your logic app
 
-To check that the **Create CSV table** action creates the expected results, 
+To confirm whether the **Create CSV table** action creates the expected results, 
 send yourself a notification that includes output from the **Create CSV table** action.
 
 1. In your logic app, add an action that can send you 
@@ -354,7 +354,7 @@ see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#tab
 
 ### Test your logic app
 
-To check that the **Create HTML table** action creates the expected results, 
+To confirm whether the **Create HTML table** action creates the expected results, 
 send yourself a notification that includes output from the **Create HTML table** action.
 
 1. In your logic app, add an action that can send you 
@@ -449,7 +449,7 @@ From the actions list, select this action: **Data Operations - Filter array**
    ![Select array output for creating filtered array](./media/logic-apps-perform-data-operations/configure-filter-array-action.png)
 
 5. For the condition, specify the array items to compare, 
-select the comparsion operator, and specify the comparison value.
+select the comparison operator, and specify the comparison value.
 
    This example uses the **item()** function for accessing 
    each item in the array while the **Filter array** action 
@@ -464,7 +464,7 @@ see [Query action](../logic-apps/logic-apps-workflow-actions-triggers.md#query-a
 
 ### Test your logic app
 
-To check that the **Filter array** action creates the expected results, 
+To confirm whether **Filter array** action creates the expected results, 
 send yourself a notification that includes output from the **Filter array** action.
 
 1. In your logic app, add an action that can send you 
@@ -542,7 +542,7 @@ From the actions list, select this action:
 4. In the **From** box, provide the array that has the items you want to join as a string. 
 
    For this example, when you click inside the **From** box, 
-   the dynamic content list that appears so you can selected 
+   the dynamic content list that appears so you can select 
    the previously created variable:  
 
    ![Select array output for creating the string](./media/logic-apps-perform-data-operations/configure-join-action.png)
@@ -561,7 +561,7 @@ see the [Join action](../logic-apps/logic-apps-workflow-actions-triggers.md#join
 
 ### Test your logic app
 
-To check that the **Join** action creates the expected results, 
+To confirm whether the **Join** action creates the expected results, 
 send yourself a notification that includes output from the **Join** action. 
 
 1. In your logic app, add an action that can send you 
@@ -664,7 +664,7 @@ see [Parse JSON action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 ### Test your logic app
 
-To check that the **Parse JSON** action creates the expected results, 
+To confirm whether the **Parse JSON** action creates the expected results, 
 send yourself a notification that includes output from the **Parse JSON** action.
 
 1. In your logic app, add an action that can send you 
@@ -775,7 +775,7 @@ see [Select action](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 ### Test your logic app
 
-To check that the **Select** action creates the expected results, 
+To confirm whether the **Select** action creates the expected results, 
 send yourself a notification that includes output from the **Select** action.
 
 1. In your logic app, add an action that can send you 
