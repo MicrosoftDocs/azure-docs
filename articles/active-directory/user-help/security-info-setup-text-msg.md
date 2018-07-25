@@ -43,7 +43,7 @@ The text message option is a part of the phone option, so you'll set everything 
     Your security info updates to send you a text message to verify your identity when using two-step verification or self-service password reset.
 
     >[!Note]
-    >If you want to receive a phone call instead of a text message, follow the steps in the [Set up your security info to use your phone number](security-info-setup-phone-number.md) article.
+    >If you want to receive a phone call instead of a text message, follow the steps in the [Set up security info to use phone calls](security-info-setup-phone-number.md) article.
 
 ## Additional security info options
 
