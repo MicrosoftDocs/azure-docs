@@ -355,36 +355,38 @@ Use patterns to make the correct intent's score significantly higher in percenta
     }
     ```
 
-The intent prediction is now significantly higher. 
+The intent prediction is now significantly higher.
 
 ## Working with optional text and prebuilt entities
-The previous pattern template utterances in this tutorial had a few examples of optional text such as the possessive use of the letter s, `'s`, and the use of the question mark, `?`. Suppose the endpoint utterances show that managers and Human Resources representatives are looking for historical data as well as planned employee moves within the company happening at a future date. 
+
+The previous pattern template utterances in this tutorial had a few examples of optional text such as the possessive use of the letter s, `'s`, and the use of the question mark, `?`. Suppose the endpoint utterances show that managers and Human Resources representatives are looking for historical data as well as planned employee moves within the company happening at a future date.
 
 Example utterances are:
 
 |Intent|Example utterances with optional text and prebuilt entities|
-|OrgChart-Manager|Who was Jill Jones manager on March 3?|
-|OrgChart-Manager|Who is Jill Jones manager now?|
-|OrgChart-Manager|Who will be Jill Jones manager in a month?|
-|OrgChart-Manager|Who will be Jill Jones manager on March 3?|
+|:--|:--|
+|OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
+|OrgChart-Manager|`Who is Jill Jones manager now?`|
+|OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
+|OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Each of these examples uses a verb tense, `was`, `is`, `will be`, as well as a date, `March 3`, `now`, and `in a month`, that LUIS needs to predict the query correctly. Notice that the last two examples use almost the same text except for `in` and `on`.
+Each of these examples uses a verb tense, `was`, `is`, `will be`, as well as a date, `March 3`, `now`, and `in a month`, that LUIS needs to predict correctly. Notice that the last two examples use almost the same text except for `in` and `on`.
 
 Example template utterances:
 |Intent|Example utterances with optional text and prebuilt entities|
-|--|--|
-|OrgChart-Manager|who was {Employee}['s] manager [[on]{datetimeV2}?]|
-|OrgChart-Manager|who is {Employee}['s] manager [[on]{datetimeV2}?]|
-|OrgChart-Manager|who will be {Employee}['s] manager [[in]{datetimeV2}?]|
-|OrgChart-Manager|who will be {Employee}['s] manager [[on]{datetimeV2}?]|
+|:--|:--|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-**Question: Why couldn't the last two example utterances combine into a single template utterance?** The pattern template doesn't support OR syntax. 
+**Question: Why couldn't the last two example utterances combine into a single template utterance?** The pattern template doesn't support OR syntax. In order to catch both the `in` version and the `on` version, each needs to be a separate template utterance.
 
-**Question: Why are all the `w` letters, the first letter in each template utterance lowercase? Shouldn't they be optionally upper or lowercase?** The utterance submitted to the query endpoint, by the client application, is converted into lowercase. The template utterance can be uppercase or lowercase and the endpoint utterance can also be either. The comparison is always done after the conversion to lowercase.
+**Question: Why are all the `w` letters, the first letter in each template utterance, lowercase? Shouldn't they be optionally upper or lowercase?** The utterance submitted to the query endpoint, by the client application, is converted into lowercase. The template utterance can be uppercase or lowercase and the endpoint utterance can also be either. The comparison is always done after the conversion to lowercase.
 
-**Question: Why isn't prebuilt number part of the template utterance if March 3 is predicted both as number `3` and date `March 3`?** The template utterance contextually is using a date, either literally as in `March 3` or abstracted as `in a month`. A date can contain a number but a number may not necessarily be seen as a date. Always use the entity that best represents what you expect to be returned in the prediction JSON results.  
+**Question: Why isn't prebuilt number part of the template utterance if March 3 is predicted both as number `3` and date `March 3`?** The template utterance contextually is using a date, either literally as in `March 3` or abstracted as `in a month`. A date can contain a number but a number may not necessarily be seen as a date. Always use the entity that best represents the type you want returned in the prediction JSON results.  
 
-**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. LUIS, also, will not find it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. 
+**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. LUIS, also, will not find it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS.
 
 **Remember: entities are found first, then the pattern is matched.**
 
@@ -394,21 +396,19 @@ Example template utterances:
 
 2. Find the existing template utterance, `Who is {Employee}['s] manager[?]`, and select the ellipsis (***...***) to the right. 
 
-3. Select **Edit** from the pop-up. 
+3. Select **Edit** from the pop-up menu. 
 
 4. Change the template utterance to: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
 
 ## Add new pattern template utterances
-1. While still in the **Patterns** section of **Build**, add several new pattern template utterances. 
-
-2. Select **OrgChart-Manager** from the Intent drop-down menu and enter each of the following template utterances:
+1. While still in the **Patterns** section of **Build**, add several new pattern template utterances. Select **OrgChart-Manager** from the Intent drop-down menu and enter each of the following template utterances:
 
     |Intent|Example utterances with optional text and prebuilt entities|
     |--|--|
-    |OrgChart-Manager|who was {Employee}['s] manager [[on]{datetimeV2}?]|
-    |OrgChart-Manager|who is {Employee}['s] manager [[on]{datetimeV2}?]|
-    |OrgChart-Manager|who will be {Employee}['s] manager [[in]{datetimeV2}?]|
-    |OrgChart-Manager|who will be {Employee}['s] manager [[on]{datetimeV2}?]|
+    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 3. Train the app.
 
@@ -421,9 +421,9 @@ Example template utterances:
     |Utterance|
     |--|
     |Who will be Jill Jones manager|
-    |Who will be Jill Jones's manager|
+    |who will be jill jones's manager|
     |Who will be Jill Jones's manager?|
-    |Who will be Jill Jones manager on March 3|
+    |who will be Jill jones manager on March 3|
     |Who will be Jill Jones manager next Month|
     |Who will be Jill Jones manager in a month?|
 
