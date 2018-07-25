@@ -138,9 +138,9 @@
       items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure long-term backup retention - SQL storage
+      - name: Configure using Axure blob storage
         href: sql-database-long-term-backup-retention-configure.md
-      - name: Configure long-term backup retention - Azure vault (deprecated)
+      - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Failover groups and geo-replication
       items: 
