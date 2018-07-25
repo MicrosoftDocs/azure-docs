@@ -381,7 +381,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <% } %>
     ```
 
-5. Let's make this look good by adding a layout. Create the '/views/layout.ejs' view under the root directory.
+5. Let's make this look good by adding a layout. Create the `/views/layout.ejs` view under the root directory.
 
     ```HTML
 

@@ -1,9 +1,9 @@
 ---
-title: Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight | Microsoft Docs
+title: Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 description: Learn how to create HDInsight clusters with secure transfer enabled Azure storage accounts.
-keywords: hadoop getting started,hadoop linux,hadoop quickstart,secure transfer,azure storage account
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,8 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
+ms.date: 07/24/2018
 ---
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
@@ -30,7 +29,7 @@ Before you begin this tutorial, you must have:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in [Gibhub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). The template is located in [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
@@ -91,5 +90,3 @@ To learn more about creating or managing an HDInsight cluster, see the following
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-

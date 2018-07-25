@@ -1,6 +1,6 @@
 ---
-title: Use a Windows VM MSI to access Azure Cosmos DB
-description: A tutorial that walks you through the process of using a System-Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Cosmos DB.
+title: Use a Windows VM Managed Service Identity to access Azure Cosmos DB
+description: A tutorial that walks you through the process of using a System-Assigned Managed Service Identity on a Windows VM, to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -16,17 +16,17 @@ ms.date: 04/10/2018
 ms.author: daveba
 ---
 
-# Tutorial: Use a Windows VM MSI to access Azure Cosmos DB
+# Tutorial: Use a Windows VM Managed Service Identity to access Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to create and use a Windows VM MSI to access Cosmos DB. You learn how to:
+This tutorial shows you how to create and use a Windows VM Managed Service Identity to access Cosmos DB. You learn how to:
 
 > [!div class="checklist"]
-> * Create a MSI enabled Windows VM 
+> * Create a Managed Service Identity enabled Windows VM 
 > * Create a Cosmos DB account
-> * Grant Windows VM MSI access to the Cosmos DB account access keys
-> * Get an access token using the Windows VM's MSI to call Azure Resource Manager
+> * Grant Windows VM Managed Service Identity access to the Cosmos DB account access keys
+> * Get an access token using the Windows VM's Managed Service Identity to call Azure Resource Manager
 > * Get access keys from Azure Resource Manager to make Cosmos DB calls
 
 ## Prerequisites
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Windows virtual machine in a new resource group
 
-For this tutorial, we create a new Windows VM.  You can also enable MSI on an existing VM.
+For this tutorial, we create a new Windows VM.  You can also enable Managed Service Identity on an existing VM.
 
 1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
@@ -53,13 +53,13 @@ For this tutorial, we create a new Windows VM.  You can also enable MSI on an ex
 
    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## Enable MSI on your VM 
+## Enable Managed Service Identity on your VM 
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling MSI on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
+A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without needing to put credentials into your code. Under the covers, enabling Managed Service Identity on a Virtual Machine via the Azure portal does two things: it registers your VM with Azure AD to create a managed identity and configures the identity on the VM.
 
-1. Select the **Virtual Machine** that you want to enable MSI on.  
+1. Select the **Virtual Machine** that you want to enable Managed Service Identity on.  
 2. On the left navigation bar click **Configuration**. 
-3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No. 
+3. You see **Managed Service Identity**. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No. 
 4. Ensure you click **Save** to save the configuration.  
    ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -82,18 +82,18 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Grant Windows VM MSI access to the Cosmos DB account access keys
+## Grant Windows VM Managed Service Identity access to the Cosmos DB account access keys
 
-Cosmos DB does not natively support Azure AD authentication. However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, and use the key to access Cosmos DB. In this step, you grant your MSI access to the keys to the Cosmos DB account.
+Cosmos DB does not natively support Azure AD authentication. However, you can use an Managed Service Identity to retrieve a Cosmos DB access key from the Resource Manager, and use the key to access Cosmos DB. In this step, you grant your Managed Service Identity access to the keys to the Cosmos DB account.
 
-To grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using PowerShell, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
+To grant the Managed Service Identity identity access to the Cosmos DB account in Azure Resource Manager using PowerShell, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## Get an access token using the Windows VM's MSI to call Azure Resource Manager
+## Get an access token using the Windows VM's Managed Service Identity to call Azure Resource Manager
 
 For the remainder of the tutorial, we will work from the VM we created earlier. 
 
@@ -104,7 +104,7 @@ You will also need to install the latest version of [Azure CLI 2.0](https://docs
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
+4. Using Powershell’s Invoke-WebRequest, make a request to the local Managed Service Identity endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
