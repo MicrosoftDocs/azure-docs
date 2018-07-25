@@ -23,7 +23,7 @@ ms.reviewer: johnhas
 
 The execution of a test can be monitored by viewing the **Operations** page for test suites that are in progress or completed. This page details the status of the test and its operations.
 
-# Monitor a test
+## Monitor a test
 
 1. Select a solution.
 
