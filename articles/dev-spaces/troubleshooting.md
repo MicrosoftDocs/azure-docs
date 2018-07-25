@@ -22,7 +22,7 @@ You might see this error when something goes wrong with the creation of the cont
 
 ### Try:
 
-To delete the controller, you must buse the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
