@@ -126,16 +126,6 @@ Azure AD Connect Health introduces self-service remediation to help you highligh
 - No upgrade or configuration is required to turn on and use this feature
 
 ---
- 
-### Make sure users meet conditional access policies while managing their security info
-
-**Type:** New feature  
-**Service category:** MFA  
-**Product capability:** User Authentication
-
-Organizations using the new converged security info experience must make sure that their users register and manage their security information safely. This feature lets admins apply conditional access policies to the converged security info management experience. These policies apply any time the user registers, adds, or changes their security information for MFA/SSPR.
-
----
 
 ### Visual updates to the Azure AD and MSA sign-in experiences
 
@@ -201,6 +191,20 @@ Pass-through Authentication now supports legacy protocols and apps. The followin
 
 ---
  
+### Converged security info management for self-service password reset and multi-factor authentication
+
+**Type:** New feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+This new feature lets users manage their security info (for example, phone number, email address, mobile app, and so on) for self-service password reset (SSPR) and Multi-Factor Authentication (MFA) in a single experience. Users will no longer have to register the same security info for SSPR and MFA in two different experiences. This new experience also applies to users who have either SSPR or MFA.
+
+If an organization isn't enforcing MFA or SSPR registration, users can register their security info through the **My Apps** portal. From there, users can register any methods enabled for MFA or SSPR. 
+
+This is an opt-in public preview. Admins can turn on the new experience (if desired) for a selected group of users or all users in a tenant.
+
+---
+ 
 ### Use the Microsoft Authenticator app to verify your identity when you reset your password
 
 **Type:** Changed feature  
@@ -212,8 +216,6 @@ This feature lets non-admins verify their identity while resetting a password us
 Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
 
 ---
-
-<!--waiting for info
 
 ### Azure AD Activity Logs are now available through Azure Monitor
 
@@ -229,7 +231,9 @@ The Azure AD Activity Logs are now available in public preview for the Azure Mon
 
 - Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
 
-For more information about these new capabilities, see our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview)-->
+For more information about these new capabilities, see the blog and our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview)
+
+---
 
 ## June 2018
 
