@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud Auto-Scale | Microsoft Docs
-description: Auto-Scaling within Azure CycleCloud.
+description: Auto-Scaling your jobs within Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
@@ -20,11 +20,11 @@ When creating a new cluster via the GUI, the **Compute Backend** tab allows you 
 
 ![Auto-Scale Setting for New Cluster](~/images/autoscale-setting.jpg)
 
-Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](https://docs.microsoft.com/en-us/azure/cyclecloud/usage) when submitting your job to ensure a budget is not exceeded.
+Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](usage.md) when submitting your job to ensure a budget is not exceeded.
 
 ## Auto-Scaling in Cluster Template
 
-By default, auto-scaling is disabled for all new clusters. To enable it, add the following to your [cluster template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates):
+By default, auto-scaling is disabled for all new clusters. To enable it, add the following to your [cluster template](cluster-templates.md):
 
 ``` ini
 Autoscale = true
@@ -34,6 +34,6 @@ MaxCoreCount = xx
 
 ## Further Reading
 
-* Create a [Cluster Template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates)
-* [Start a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/start-cluster)
-* [AutoScale for non-standard Cluster Types](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale-api)
+* Create a [Cluster Template](cluster-templates.md)
+* [Start a Cluster](start-cluster.md)
+* [AutoScale for non-standard Cluster Types](autoscale-api.md)

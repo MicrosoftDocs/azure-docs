@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Jetpack Tool | Microsoft Docs
+description: Learn about the Jetpack tool in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Jetpack
 
 When a virtual machine is provisioned to become a node in a cluster, Jetpack is automatically installed when using Azure CycleCloud. Jetpack is required on every node of a cluster, as it provides three main functions:
@@ -12,7 +24,7 @@ Jetpack manages communication between the node and the Azure CycleCloud applicat
 
 3. HeathCheck
 
-Jetpack runs [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) on VMs, and terminates them if they are unhealthy.
+Jetpack runs [HealthCheck](healthcheck.md) on VMs, and terminates them if they are unhealthy.
 
 ## Jetpack Installation
 
@@ -29,7 +41,7 @@ In addition to creating this directory, the Jetpack installer:
   * Creates system init startup scripts which configure a VM as a cluster
     node
   * Creates udev rules on Linux
-  * Installs the [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) service
+  * Installs the [HealthCheck](healthcheck.md) service
   * Sets the environment variable `CYCLECLOUD_HOME`
 
 ### Jetpack Subdirectories
@@ -91,16 +103,22 @@ period or indefinitely. By default, termination is delayed for one hour.
 
 To delay system termination by one hour:
 
-    $ jetpack keepalive
+``` CLI
+$ jetpack keepalive
+```
 
 To disable the HealthCheck service entirely, i.e. delay termination
 indefinitely:
 
-    $ jetpack keepalive forever
+``` CLI
+$ jetpack keepalive forever
+```
 
 To delay system termination by six hours:
 
-    $ jetpack keepalive 6h
+``` CLI
+$ jetpack keepalive 6h
+```
 
 ## jetpack log
 
@@ -120,21 +138,29 @@ Cluster UI page to avoid flooding the page with low priority messages.
 
 To send an informational log message that will appear on the Cluster UI page:
 
-    $ jetpack log 'system is now ready'
+``` CLI
+$ jetpack log 'system is now ready'
+```
 
 To send a low priority log message that you do not want to appear on the Cluster
 UI page:
 
-    $ jetpack log 'system is now ready' --priority low
+``` CLI
+$ jetpack log 'system is now ready' --priority low
+```
 
 By default, messages with a level of *error* have a high priority. To send an
 error message:
 
-    $ jetpack log 'the machine cannot process jobs' --level error
+``` CLI
+$ jetpack log 'the machine cannot process jobs' --level error
+```
 
 To send a trivial error message:
 
-    $ jetpack log 'the machine cannot process jobs' --level error --priority low
+``` CLI
+$ jetpack log 'the machine cannot process jobs' --level error --priority low
+```
 
 ## jetpack send
 

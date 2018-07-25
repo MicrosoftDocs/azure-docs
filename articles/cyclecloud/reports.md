@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Reporting Options | Microsoft Docs
+description: View, Edit, and Create Reports within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Reporting
 
 The reports page is accessible from the main menu and enables long­-term tracking of usage
@@ -66,5 +78,3 @@ form and descriptions of each section:
 3. **Partitions** ­is a list of discrete values to use to partition the derived type data. Each partition multiplies the number of data points stored for each interval by the number of discrete values contained in that partition. Because of this, partitions should be chosen carefully, using only attributes that contain a limited number of possible values such as cluster name, machine state, etc.
 
 4. **Metric/Partition options** determine ­the definition for the selected partition or metric. Changes will not take effect until the save button is pressed.
-
-

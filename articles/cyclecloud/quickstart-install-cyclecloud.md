@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart | Microsoft Docs
+title: Azure CycleCloud QuickStart - Install and Setup CycleCloud | Microsoft Docs
 description: Azure CycleCloud QuickStart - Install and Setup CycleCloud
 services: azure cyclecloud
 author: KimliW
@@ -22,7 +22,7 @@ The full list of prerequisites is available on the QuickStart Overview.
 
 Run this command to list all available Azure subscription IDs:
 
-``` CLI
+``` CMD
 $ az account list -o table
 ```
 
@@ -30,17 +30,19 @@ $ az account list -o table
 
 If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CCLab" can be replaced with whatever you like:
 
-``` CLI
+``` CMD
 $ az ad sp create-for-rbac --name CCLab
 ```
 
 The output will display a series of information. You will need to save the App ID, password, and tenant ID:
 
+``` output
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "displayName": "CcIntroTraining",
     "name": "http://CcIntroTraining",
     "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
 
 ### SSH KeyPair
 
@@ -59,14 +61,14 @@ This lab uses an Azure Resource Manager template to:
 2.	Create and configure the network for the CycleCloud environment
 3.	Create a bastion host for enabling more secure access to the CycleCloud instance
 
-For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the Manual CycleCloud Installation documentation.
+For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
 ## Clone the Repo
 
 Start by cloning the CycleCloud repo:
 
-``` CLI
-$ git clone https://github.com/CycleCloud/cyclecloud_arm.git
+``` CMD
+$ git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
 ```
 
 There are two ARM templates in the .git file:
@@ -80,13 +82,13 @@ There are two ARM templates in the .git file:
 
 Create a resource group in the region of your choice. Note that resource group names are unique within a subscription:
 
-``` CLI
+``` CMD
 az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 ```
 
 For example, you could use "CCLab" as the resource group name and southern US as the region:
 
-``` CLI
+``` CMD
 az group create --name "CCLab" --location "South Central US"
 ```
 
@@ -106,6 +108,7 @@ To copy the ssh key, open the **exported** public key, and copy the contents of 
 
 An example `params-cyclecloud.json` might look like this:
 
+``` sample-json
       {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
@@ -117,6 +120,7 @@ An example `params-cyclecloud.json` might look like this:
       WW06Sn1CKTW0Vo0MMEshdpMRDqsELx0vTF4uev5sQrsDTbWgFoM9mgJ4GdweW0sJ
       80uAUQlCcalQNW+FAgMBAAE="}
       }
+```
 
 ### Application Parameters
 
@@ -136,7 +140,7 @@ Specify a password for the CycleCloud application server `admin` user. The passw
 
 Deploy the CycleCloud VM using the edited `params-cyclecloud.json`:
 
-``` CLI
+``` CMD
 $ az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
 ```
 
@@ -146,4 +150,4 @@ To connect to the CycleCloud webserver, retrieve the FQDN (Fully Qualified Domai
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
-That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [QuickStart 2](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-create-and-run-cluster) now!
+That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [QuickStart 2](quickstart-create-and-run-cluster.md) now!

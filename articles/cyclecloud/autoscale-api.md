@@ -39,7 +39,7 @@ developers who understand the systems in their clusters.
 Cluster-side plugins are executables running on one or more nodes in the cluster
 (often as system services or cron jobs or scheduled tasks in Windows). They may
 be installed and configured using Chef or Cluster-Init, or they may be baked into
-the image. They may also include [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) scripts to ensure that scale-down occurs in the case of failures.
+the image. They may also include [HealthCheck](healthcheck.md) scripts to ensure that scale-down occurs in the case of failures.
 
 The executables are responsible for monitoring the cluster and reporting demand
 for scale-up and scale-down to CycleCloud.

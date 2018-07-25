@@ -33,8 +33,7 @@ page may be reached by selecting "Alerting" from the user menu in the upper righ
 of the screen.
 
 On the left­-hand side of the screen there is a list of named alerting rules (e.g. "Hosts Not
-Responding", "Jobs in Error State"). To view or edit one of these rules, simply select it in the list.
-At the bottom of the list are icons to create, delete, or duplicate these rules.
+Responding", "Jobs in Error State"). To view or edit one of these rules, simply select it in the list. At the bottom of the list are icons to create, delete, or duplicate these rules.
 
 Alerting rules come in two forms: query­-based rules and plugin­-based rules. Query­-based rules
 are generic alerting rules which may be created and edited through the web interface.

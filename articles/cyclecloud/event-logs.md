@@ -1,3 +1,14 @@
+---
+title: Azure CycleCloud Event Logs | Microsoft Docs
+description: Review all activity with the Azure CycleCloud Event Log.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Event Logging
 
 A log of all Azure CycleCloud activity can be found in the Event Log, which is located in the user menu:

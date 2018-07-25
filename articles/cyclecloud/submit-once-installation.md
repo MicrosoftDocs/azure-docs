@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Submit Once Installation | Microsoft Docs
+description: Manually install the Submit Once tool for Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # SubmitOnce Installation
 
 SubmitOnce is a component of the CycleServer software platform. SubmitOnce and CycleServer will monitor each HPC cluster and act as a job router and meta-scheduler.
@@ -13,14 +25,18 @@ Different user accounts maybe configured for any cluster that does not have a `c
 
 Note that when CycleServer itself is installed, it creates a local `cycle_server` user with no login access by default. If CycleServer is installed on a node capable of submitting to the local Grid Engine cluster, then the local `cycle_server` user may be used by configuring shell access for the user. For most systems the following command is all that is required:
 
-    sudo chsh -s /bin/bash cycle_server
+``` CLI
+sudo chsh -s /bin/bash cycle_server
+```
 
 ## Setup the SubmitOnce Home Directory
 
 In **each** cluster, create a directory that SubmitOnce can use as scratch space. By default, the absolute path for this directory is `/shared/ss`:
 
-    mkdir /shared/ss
-    chown cycle_server:cycle_server /shared/ss
+``` CLI
+mkdir /shared/ss
+chown cycle_server:cycle_server /shared/ss
+```
 
 If you use a path other than /shared/ss, you must configure this inside of CycleServer. Log in as an administrator, click the "Admin > System Settings" menu, double-click the settings item for SubmitOnce and change the value of "SubmitOnce Home".
 
@@ -30,11 +46,13 @@ Alternatively, if there is no appropriate shared file system available for $SO_H
 
 Next, the cluster administrator must create a bin directory within $SO_HOME and copy the SubmitOnce scheduler tools to it from the SubmitOnce distribution:
 
-    cd /tmp
-    tar xzfv submitonce-schedtools.tar.gz
-    mkdir /shared/ss/bin
-    cp /tmp/submitonce-schedtools/* /shared/ss/bin
-    chown -R cycle_server:cycle_server /shared/ss/bin
+``` CLI
+cd /tmp
+tar xzfv submitonce-schedtools.tar.gz
+mkdir /shared/ss/bin
+cp /tmp/submitonce-schedtools/* /shared/ss/bin
+chown -R cycle_server:cycle_server /shared/ss/bin
+```
 
 SubmitOnce will create additional directories for it's own use as needed.  After the first submission to a remote cluster, $SO_HOME will contain, at least, the following directory structure:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart | Microsoft Docs
+title: Azure CycleCloud QuickStart - Submit and AutoScale | Microsoft Docs
 description: Azure CycleCloud QuickStart - Submitting Jobs and AutoScale
 services: azure cyclecloud
 author: KimliW
@@ -57,9 +57,11 @@ $ qstat -f
 ```
 The output should confirm that no jobs are running and no execute nodes are provisioned:
 
+``` output
       queuename                      qtype resv/used/tot. load_avg arch          states
       ---------------------------------------------------------------------------------
       all.q@ip-0A000404              BIP   0/0/8          0.46     linux-x64
+```
 
 Submit 100 test "hostname" jobs with:
 
@@ -69,11 +71,15 @@ $ qsub -t 1:100 -b y -cwd hostname
 
 You should receive confirmation that the job request has been submitted:
 
-      Your job-array 1.1-100:1 ("hostname") has been submitted
+``` output
+Your job-array 1.1-100:1 ("hostname") has been submitted
+```
 
 The command you ran, `$ qsub -t 1:100 -b y -cwd hostname`, tells the node the following:
 
-    Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
+``` output
+Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
+```
 
 Confirm the jobs are in the queue with the `qstat` command.
 
@@ -83,8 +89,8 @@ At this point, no execute nodes have been provisioned because the cluster is con
 
 In our quickstart, you submitted 100 jobs. 100 cores will be requested, but the cluster has a scale limit of 16 in place, meaning no more than 16 cores will be provisioned:
 
-(kimliscreenshothereok)
+(kimli screenshot)
 
 When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
 
-QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity. Continue on to [QuickStart 4](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-clean-up-resources) now!
+QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity. Continue on to [QuickStart 4](quickstart-clean-up-resources.md) now!

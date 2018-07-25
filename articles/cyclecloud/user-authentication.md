@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud User Authentication | Microsoft Docs
+description: Use Active Directory to manage user accounts in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # User Authentication
 
 ## Authentication
