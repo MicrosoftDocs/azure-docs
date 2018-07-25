@@ -44,13 +44,11 @@ There are a few pre-requisites to account for before you configure multi-tenancy
 
  - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
-## Configure Azure Stack directory
+### Configure Azure Stack directory
 
 In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure AD directory tenants.
 
-### Onboard guest directory tenant
-
-Next, onboard the Guest Directory Tenant (Fabrikam) to Azure Stack.  This step configures Azure Resource Manager to accept users and service principals from the guest directory tenant.
+Onboard the Guest Directory Tenant (Fabrikam) to Azure Stack by configuring Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
 ````PowerShell  
 ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -72,11 +70,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -ResourceGroupName $ResourceGroupName
 ````
 
-## Configure guest directory
+### Configure guest directory
 
 After you complete steps in the Azure Stack directory, Mary must provide consent to Azure Stack accessing the guest directory and register Azure Stack with the guest directory. 
 
-### Registering Azure Stack with the guest directory
+#### Registering Azure Stack with the guest directory
 
 Once the guest directory administrator has provided consent for Azure Stack to access Fabrikam's directory, Mary must register Azure Stack with Fabrikam's directory tenant.
 
@@ -94,11 +92,11 @@ Register-AzSWithMyDirectoryTenant `
 ````
 
 > [!IMPORTANT]
-> If your Azure Stack Administrator installs new services or updates in the future, you may need to run this script again.
+> If your Azure Stack administrator installs new services or updates in the future, you may need to run this script again.
 >
 > Run this script again at any time to check the status of the Azure Stack applications in your directory.
 
-## Direct users to sign in
+### Direct users to sign in
 
 Now that you and Mary have completed the steps to onboard Mary's directory, Mary can direct Fabrikam users to sign in.  Fabrikam users (that is, users with the fabrikam.onmicrosoft.com suffix) sign in by visiting https://portal.local.azurestack.external.  
 
@@ -106,9 +104,9 @@ Mary will direct any [foreign principals](../role-based-access-control/rbac-and-
 
 ## Disable multi-tenancy
 
-If you no longer want multiple tenants in Azure Stack, you can disable multi-tenancy doing the following steps in order.
+If you no longer want multiple tenants in Azure Stack, you can disable multi-tenancy by doing the following steps in order:
 
-1. The administrator of the guest directory (Mary in this scenario) runs “Unregister-AzSWithMyDirectoryTenant”. This uninstalls all the Azure Stack applications from the new directory.
+1. As the administrator of the guest directory (Mary in this scenario), run *Unregister-AzSWithMyDirectoryTenant*. The cmdlet uninstalls all the Azure Stack applications from the new directory.
 
     ``` PowerShell
     ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -123,7 +121,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
      -Verbose 
     ```
 
-2.	The service adminstrator of Azure stack (you in this scenario) runs  “Unregister-AzSGuestDirectoryTenant”. 
+2. As the service administrator of Azure Stack (you in this scenario), run *Unregister-AzSGuestDirectoryTenant*. 
 
     ``` PowerShell  
     ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
