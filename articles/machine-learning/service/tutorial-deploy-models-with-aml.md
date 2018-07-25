@@ -12,22 +12,22 @@ ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
-# Tutorial: Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
+# Tutorial #2: Deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-In this tutorial, you'll train a multi-class DNN on a Azure Batch AI cluster with Azure Machine Learning Services. This DNN identifies numerical digits that are present in an image. You'll also deploy it as a web service in an Azure Container Instance (ACI).
-
-As you familiarize yourself with the Azure Machine Learning Services workflow, you'll learn how to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services to:
 
 > [!div class="checklist"]
-> * Build a DNN in TensorFlow
-> * Configure a compute target for training
-> * Train the model
-> * Submit a job to a target
-> * Review run histories and accuracy
+> * Choose the best model
 > * Test the model
 > * Deploy as a web service
 
-This tutorial uses the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset.  MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing digit from 0 to 9. 
+## Prerequisites
+To complete this tutorial, you must have the following prerequisites.
+
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+1. The workspace, project, and data from [part 1 of the Tutorial](tutorial-train-models-with-aml.md)
+- A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn how to install Docker here: https://docs.docker.com/engine/installation/.
 
 ## Prerequisites
 

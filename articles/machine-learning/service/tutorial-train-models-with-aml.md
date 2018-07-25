@@ -12,7 +12,7 @@ ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
-# Tutorial: Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow
+# Tutorial #1: Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow
 
 In this tutorial, you will train a simple deep neural network (DNN) using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and TensorFlow with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing number from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure. Deployment is covered in second part of this two part tutorial.
 
@@ -24,22 +24,24 @@ This tutorial is **part one of a two-part series**. In this tutorial, you walk t
 > * Train the model
 > * Submit a job to a target
 > * Review run histories and accuracy
-> * Test the model
-> * Deploy as a web service
+
+You'll learn how to select a model and deploy in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later.
 
 ## Prerequisites
 To complete this tutorial, you must have the following prerequisites.
 
-1. Get these assets and resources: 
-   - The Azure Machine Learning SDK for Python installed
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+1. The following resources and assets must be available:
    - [Python 3.5 or higher](https://www.python.org/) installed
    - A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html)
-   - An Azure Machine Learning Workspace named XYZ 
-   - A local project directory named XYZ
+   - The Azure Machine Learning SDK for Python installed
+   - An Azure Machine Learning Workspace named docs-ws 
+   - A local project directory named docs-prj
 
-   Learn how to get these prerequisites using the [Quickstart: Get started with Azure Machine Learning Services](quickstart-get-started.md).
+   If these are not yet created or installed, then learn how to get these prerequisites in the [Get started with Azure Machine Learning Services](quickstart-get-started.md).
 
-1. Install these package dependencies (tensorflow, matplotlib, and numpy) in the conda environment where Azure Machine Learning SDK is installed.
+1. The following package dependencies (tensorflow, matplotlib, and numpy) must be installed in the conda environment where Azure Machine Learning SDK is installed.
    ```python
     conda install -y matplotlib tensorflow
 

@@ -77,10 +77,6 @@ In the latest version of Azure Machine Learning Services, you can still collect 
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). But, you can start creating your new experiments and models with the latest SDK and/or CLI.
 
 In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning services in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md),with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
- 
-## How does this affect experimentation and deployment?
-
-**@@@Service and workflow continue to work the same.**
 
 ## Can I still prepare data?
 **(Short answer followed by links to Quickstarts and tutorials that help someone get started with latest functionality)**
