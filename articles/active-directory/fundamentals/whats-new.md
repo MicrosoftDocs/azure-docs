@@ -125,6 +125,8 @@ Azure AD Connect Health introduces self-service remediation to help you highligh
 
 - No upgrade or configuration is required to turn on and use this feature
 
+For more information, see [Diagnose and remediate duplicated attribute sync errors](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors)
+
 ---
 
 ### Visual updates to the Azure AD and MSA sign-in experiences
