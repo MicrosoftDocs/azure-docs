@@ -65,9 +65,9 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the if-condition activity. | String | Yes
 type | Must be set to **IfCondition** | String | Yes
-expression | Expression that must evaluate to true or false | Yes
-ifTrueActivities | Set of activities that are executed when the expression evaluates to `true`. | Yes
-ifFalseActivities | Set of activities that are executed when the expression evaluates to `false`. | Yes
+expression | Expression that must evaluate to true or false | Expression with result type boolean | Yes
+ifTrueActivities | Set of activities that are executed when the expression evaluates to `true`. | Array | Yes
+ifFalseActivities | Set of activities that are executed when the expression evaluates to `false`. | Array | Yes
 
 ## Example
 The pipeline in this example copies data from an input folder to an output folder. The output folder is determined by the value of pipeline parameter: routeSelection. If the value of routeSelection is true, the data is copied to outputPath1. And, if the value of routeSelection is false, the data is copied to outputPath2. 

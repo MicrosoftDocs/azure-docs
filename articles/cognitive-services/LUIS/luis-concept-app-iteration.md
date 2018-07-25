@@ -2,13 +2,13 @@
 title: Understand LUIS iterative app design -Azure | Microsoft Docs
 description: LUIS apps require design iterations to train LUIS to get the best data extraction.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Authoring cycle
 LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
@@ -45,5 +45,3 @@ Batch testing is a way to see how many example utterances are scored by LUIS. Th
 ## Next steps
 
 Learn concepts about [collaboration](luis-concept-collaborator.md).
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

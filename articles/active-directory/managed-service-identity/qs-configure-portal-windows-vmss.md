@@ -10,29 +10,30 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
 ---
 
-# Configure a VMSS Managed Service Identity (MSI) using the Azure portal
+# Configure a virtual machine scale set Managed Service Identity (MSI) using the Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and disable the system assigned identity for a VMSS, using the Azure portal. Assigning and removing user assigned identities from an Azure VMSS is not currently supported via the Azure Portal.
+In this article, you will learn how to enable and disable the system assigned identity for a virtual machine scale set, using the Azure portal. Assigning and removing user assigned identities from an Azure virtual machine scale set is not currently supported via the Azure portal.
 
 > [!NOTE]
 > Currently, user assigned identity operations are not supported via the Azure Portal. Check back for updates.
 
 ## Prerequisites
 
-
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+- To perform the management operations in this article, your account needs the following role assignment:
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove system assigned managed identity from a virtual machine scale set.
 
 ## Managed Service Identity during creation of an Azure virtual machine scale set
 
@@ -52,7 +53,7 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
 3. Enable the system assigned identity on the VM by selecting "Yes" under "Managed service identity" and then click **Save**. This operation can take 60 seconds or more to complete:
 
-   [![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## Remove Managed Service Identity from an Azure virtual machine scale set
 
@@ -64,7 +65,7 @@ If you have a virtual machine scale set that no longer needs an MSI:
 
 3. Disable the system assigned identity on the VM by selecting "No" under "Managed service identity", then click Save. This operation can take 60 seconds or more to complete:
 
-   ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Configuration page screenshot](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## Related Content
 
