@@ -28,7 +28,7 @@ This document assumes that you have an RBAC-enabled AKS cluster. If you need an 
 
 ## Gather information
 
-To generate the permissions for your cluster autoscaler to run in your cluster, run this simple bash script:
+To generate the permissions for your cluster autoscaler to run in your cluster, run this bash script:
 
 ```sh
 #! /bin/bash
@@ -105,9 +105,9 @@ NAME                       STATUS    ROLES     AGE       VERSION   LABELS
 aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=eastus,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
  ```
 
-Then, extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
+Then, extract the value of the label **agent pool**. The default name for the node pool of a cluster is "nodepool1".
 
-Now using your secret and nodepool, you can create a deployment chart.
+Now using your secret and node pool, you can create a deployment chart.
 
 ## Create a deployment chart
 
@@ -297,7 +297,7 @@ spec:
       restartPolicy: Always
 ```
 
-Copy and paste the secret created in the previous step and insert it at the start of the file.
+Copy and paste the secret created in the previous step, and insert it at the start of the file.
 
 Next, to set the range of nodes, fill in the argument for `--nodes` under `command` in the form MIN:MAX:NODE_POOL_NAME. For example: `--nodes=3:10:nodepool1` sets the minimum number of nodes to 3, the maximum number of nodes to 10, and the node pool name to nodepool1.
 
