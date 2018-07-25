@@ -129,7 +129,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
   |PrivilegedEndpointCredential|The credentials used to [access the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). The username is in the format **AzureStackDomain\CloudAdmin**.|
   |PrivilegedEndpoint|A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. To learn more, refer to the [using the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) article.|
   |BillingModel|The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development.|
-  | RegistrationName | Set a unique name for the registration if you are running the registration script on more than one instance of Azure Stack. The parameter has a default value. However, if you use the same name on more than one instance of Azure Stack, the script will produce an error. |
+  | RegistrationName | Set a unique name for the registration if you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID. The parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail. |
 
   The process will take between 10 and 15 minutes. When the command completes, you will see the message **"Your environment is now registered and activated using the provided parameters."**
 
@@ -175,7 +175,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 
 ### Connect to Azure and register
 
-On the computer that is connected to the Internet, perform the same steps to import the RegisterWithAzure.psm1 module and sign in to the correct Azure Powershell context. Then call Register-AzsEnvironment. Specify the registration token to register with Azure. If you are registering more than one instance of Azure Stack, specify a unique registration name. Run the following cmdlet:
+On the computer that is connected to the Internet, perform the same steps to import the RegisterWithAzure.psm1 module and sign in to the correct Azure Powershell context. Then call Register-AzsEnvironment. Specify the registration token to register with Azure. If you are registering more than one instance of Azure Stack using the same Azure Subscription ID, specify a unique registration name. Run the following cmdlet:
 
   ```PowerShell  
   $registrationToken = "<Your Registration Token>"
