@@ -1,5 +1,4 @@
 ---
-
 title: Attribute-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
 services: active-directory
@@ -12,15 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
-
 ---
-# Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create custom rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+
+# Create dynamic groups with attribute-based membership in Azure Active Directory
+
+In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
@@ -32,6 +32,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
 ## To create an advanced rule
+
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **Users and groups**.
 3. Select **All groups**, and select **New group**.
@@ -56,6 +57,7 @@ You can see the membership processing status and the last updated date on the Ov
 
 
 The following status messages can be shown for **Membership processing** status:
+
 * **Evaluating**:  The group change has been received and the updates are being evaluated.
 * **Processing**: Updates are being processed.
 * **Update complete**: Processing has completed and all applicable updates have been made.
@@ -63,6 +65,7 @@ The following status messages can be shown for **Membership processing** status:
 * **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
 The following status messages can be shown for **Membership last updated** status:
+
 * &lt;**Date and time**&gt;: The last time the membership was updated.
 * **In Progress**: Updates are currently in progress.
 * **Unknown**: The last update time cannot be retrieved. It may be due to the group being newly created.
@@ -72,6 +75,7 @@ If an error occurs while processing the membership rule for a specific group, an
 ![processing error message](./media/groups-dynamic-membership/processing-error.png)
 
 ## Constructing the body of an advanced rule
+
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
 
 * Left parameter
@@ -94,6 +98,7 @@ The total length of the body of your advanced rule cannot exceed 2048 characters
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 
 ## Supported expression rule operators
+
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
 
 | Operator | Syntax |
@@ -112,6 +117,7 @@ The following table lists all the supported expression rule operators and their 
 ## Operator precedence
 
 All Operators are listed below per precedence from lower to higher. Operators on same line are in equal precedence:
+
 ````
 -any -all
 -or
@@ -119,15 +125,20 @@ All Operators are listed below per precedence from lower to higher. Operators on
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
 For example:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 is equivalent to:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## Using the -In and -notIn operators
 
 If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
@@ -138,6 +149,7 @@ Note the use of the "[" and "]" at the beginning and end of the list of values. 
 
 
 ## Query error remediation
+
 The following table lists common errors and how to correct them
 
 | Query Parse Error | Error Usage | Corrected Usage |
@@ -147,9 +159,11 @@ The following table lists common errors and how to correct them
 | Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "\@domain.ext$")|
 
 ## Supported properties
+
 The following are all the user properties that you can use in your advanced rule:
 
 ### Properties of type boolean
+
 Allowed operators
 
 * -eq
@@ -161,6 +175,7 @@ Allowed operators
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### Properties of type string
+
 Allowed operators
 
 * -eq
@@ -204,6 +219,7 @@ Allowed operators
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### Properties of type string collection
+
 Allowed operators
 
 * -contains
@@ -215,6 +231,7 @@ Allowed operators
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Multi-value properties
+
 Allowed operators
 
 * -any (satisfied when at least one item in the collection matches the condition)
@@ -223,6 +240,7 @@ Allowed operators
 | Properties | Values | Usage |
 | --- | --- | --- |
 | assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
 
@@ -232,14 +250,24 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(The Guid identifier identifies the Exchange Online (Plan 2) service plan.)
+(The GUID identifier identifies the Exchange Online (Plan 2) service plan.)
 
 > [!NOTE]
 > This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
 
-The following expression will select all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
+The following expression selects all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### Using the underscore (\_) syntax
+
+The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.
+
+Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds any user with proxy address that contains "contoso" to the group.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## Use of Null values
@@ -254,14 +282,17 @@ Extension attributes and custom attributes are supported in dynamic membership r
 
 Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
-An example of a rule that uses a custom attribute is
+
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in Azure AD and [Attribute] is the name of the attribute as it was created. An example of a rule that uses a custom attribute is
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
 ## "Direct Reports" Rule
