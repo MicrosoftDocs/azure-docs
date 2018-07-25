@@ -24,7 +24,7 @@ When using a Video Indexer free trial account, you're limited by the quota and n
 
 * An Azure Active Directory (AD) domain. 
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../active-directory/users-groups-roles/domains-manage.md)
+    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
 * A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
 
