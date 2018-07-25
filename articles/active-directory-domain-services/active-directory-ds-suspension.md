@@ -19,7 +19,7 @@ ms.author: ergreenl
 
 ---
 # Suspended domains
-When Azure AD Domain Services is unable to service a managed domain for a long period of time, the managed domain is put into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
+When Azure AD Domain Services is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
 
 
 ## States your managed domain can be in
@@ -41,7 +41,7 @@ A managed domain that is configured correctly and operating regularly is in the 
 ### "Needs Attention" state
 A managed domain is in the **Needs Attention** state if one or more issues require an administrator to take action. The health page of your managed domain lists one or more alerts in this state. 
 
-For example, if you've configured a restrictive NSG for your virtual network, Microsoft may be unable to update and monitor your managed domain. This invalid configuration results in an alert being generated and your managed domain being put in the "Needs Attention" state.
+For example, if you've configured a restrictive NSG for your virtual network, Microsoft might not be able to update and monitor your managed domain. This invalid configuration triggers an alert that puts your managed domain into the "Needs Attention" state.
 
 Each alert has a set of resolution steps. Some alerts are transient and get automatically resolved by the service. You can resolve some other alerts by following the instructions in the corresponding resolution steps for that alert. For some critical alerts, you need to contact Microsoft support to get a resolution.
 
@@ -49,13 +49,13 @@ For more information, see [How to troubleshoot alerts on a managed domain](activ
 
 **What to expect**
 
-In some instances (for example, if you have an invalid network configuration), the domain controllers for your managed domain might be unreachable. Microsoft can't guarantee that your managed domain is monitored, patched, updated, or backed-up on a regular basis in this state.
+In some cases (for example, if you have an invalid network configuration), the domain controllers for your managed domain might be unreachable. When in it's in the "Needs Attention" state, Microsoft can't guarantee that your managed domain will be monitored, patched, updated, or backed-up on a regular basis.
 
 * Your managed domain is in an unhealthy state and ongoing health monitoring may stop until the alert is resolved.
 * Domain controllers for your managed domain can't be patched or updated.
 * Changes from Azure Active Directory might not be synchronized to your managed domain.
 * Backups for your managed domain might be taken, if possible.
-* If you resolve the alerts that are impacting your managed domain, it might be possible to restore your managed domain to the "Running" state.
+* If you resolve the alerts that are impacting your managed domain, you might be able to restore your managed domain to the "Running" state.
 * Critical alerts are triggered for configuration issues where Microsoft is unable to reach your domain controllers. If such alerts aren't resolved within 15 days, your managed domain will be put in the "Suspended" state.
 
 
