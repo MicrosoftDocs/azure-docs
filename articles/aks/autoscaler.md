@@ -323,6 +323,57 @@ To view the status of the cluster autoscaler, run
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
 
+## Interpreting the cluster autoscaler status
+
+```console
+C:\windows\system32>kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+The cluster autoscaler status allows you to see the state of the cluster autoscaler on two different levels: cluster-wide and within each node group. Since AKS currently only supports one node pool, these metrics are the same.
+
+Under Health, the status indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". By the Health status, we have a breakdown of the status of different nodes. "Ready" means a node is a ready to have pods scheduled on it. "Registered" nodes are nodes that 
+
+Under ScaleUp, you can check when the cluster was last probed to determine if a ScaleUp event should occur, and when the last transition occured. A transition is when the number of nodes within the cluster is changed that pods are rescheduled accordingly. The number of ready nodes is the number of nodes available and ready in the cluster. The cloudProviderTarget is the number of nodes the cluster autoscaler has determined the cluster needs to handle its workload.
+
+Under ScaleDown, you can check if there are candidates for scale down. A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. Likewise, you can also see the last time the cluster was checked for scale down candidates and its last transition time.
+
+Finally, under Events, you can see any scale up or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
+
 ## Next steps
 
 To use the cluster autoscaler with the horizontal pod autoscaler, check out [scaling Kubernetes application and infrastructure][aks-tutorial-scale].
