@@ -1,6 +1,6 @@
 ---
-title: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL
-description: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL
+title: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL Workloads
+description: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL Workloads
 services: security
 author: jomolesk
 
@@ -40,7 +40,7 @@ To deploy this blueprint, an Azure subscription is required. If you do not have 
 
 This blueprint delivers a web application hosting solution in an Azure cloud environment that supports UK OFFICIAL workloads. The architecture delivers a secure environment that leverages Azure platform as a service capabilities. Within the environment, two App Service web apps are deployed (one for public users and one for back office users), with an API App tier to provide the business services for the web front end. An Azure SQL Database is deployed as a managed relational data store for the application. Connectivity to these components from outside the platform and between all these components is encrypted through TLS 1.2 to ensure data in transport privacy, with access authenticated by Azure Active Directory.
 
-![PaaS Web Application for UK OFFICIAL reference architecture diagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Web Application for UK OFFICIAL reference architecture diagram")
+![PaaS Web Application Hosting for UK OFFICIAL Workloads reference architecture diagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Web Application Hosting for UK OFFICIAL Workloads reference architecture diagram")
 
 As part of the deployment architecture, secure storage provision, monitoring & logging, unified security management & advanced threat protection, and management capabilities are also deployed to ensure that customers have all the tools required to secure and monitor their environment for this solution.
 
@@ -198,7 +198,7 @@ This template uses the following Application Insights components:
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/ukofficial-paaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for UK OFFICIAL threat model](images/ukofficial-paaswa-threat-model.png?raw=true " PaaS Web Application for UK OFFICIAL threat model")
+![PaaS Web Application Hosting for UK OFFICIAL Workloads threat model](images/ukofficial-paaswa-threat-model.png?raw=true "PaaS Web Application Hosting for UK OFFICIAL Workloads threat model")
 
 ## NCSC Cloud Security Principles compliance documentation
 
