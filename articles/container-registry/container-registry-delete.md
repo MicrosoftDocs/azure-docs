@@ -1,6 +1,6 @@
 ---
 title: Delete image resources in Azure Container Registry
-description: Details on how to effectively managed registry size by deleting container image data.
+description: Details on how to effectively manage registry size by deleting container image data.
 services: container-registry
 author: mmacy
 manager: jeconnoc
