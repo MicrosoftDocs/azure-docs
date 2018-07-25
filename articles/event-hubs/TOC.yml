@@ -4,7 +4,7 @@
   items:
   - name: What is Event Hubs?
     href: event-hubs-about.md
-  - name: Event Hubs for Kafka ecosystems
+  - name: Event Hubs for Kafka 
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Event Hubs Capture
     href: event-hubs-capture-overview.md
@@ -17,22 +17,17 @@
     href: event-hubs-quickstart-cli.md
   - name: Process event streams - Azure PowerShell
     href: event-hubs-quickstart-powershell.md
+  - name: Stream into Event Hubs for Kafka ecosystem
+    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Tutorials
   items:
   - name: Visualize data anomalies on Event Hubs data streams
     href: event-hubs-tutorial-visualize-anomalies.md
-  - name: Capture events using Event Hubs Capture
-    items:
-    - name: Azure portal
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Resource Manager template
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+  - name: Stream big data into a data warehouse
+    href: ../event-grid/event-grid-event-hubs-integration.md
+    maintainContext: true    
   - name: Event Hubs for Kafka 
     items:
-      - name: Create Kafka-enabled event hubs
-        href: event-hubs-create-kafka-enabled.md
-      - name: Stream into Event Hubs for Kafka ecosystem
-        href: event-hubs-quickstart-kafka-enabled-event-hubs.md
       - name: Kafka MirrorMaker with Event Hubs
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Apache Flink with Event Hubs 
@@ -83,6 +78,10 @@
     href: event-hubs-dotnet-framework-getstarted-send.md
   - name: Receive events using .NET Framework
     href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+  - name: Event Hubs for Kafka 
+    items:
+      - name: Create Kafka-enabled event hubs
+        href: event-hubs-create-kafka-enabled.md    
   - name: Available APIs
     href: event-hubs-api-overview.md
     items:
@@ -106,6 +105,12 @@
       href: event-hubs-java-get-started-receive-eph.md
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Capture events
+    items:
+    - name: Use the Azure portal to enable Event Hubs Capture
+      href: event-hubs-capture-enable-through-portal.md
+    - name: Use a Resource Manager template to enable Event Hubs Capture
+      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
   - name: Manage
     items:
     - name: Monitor Event Hubs with Azure Monitoring
