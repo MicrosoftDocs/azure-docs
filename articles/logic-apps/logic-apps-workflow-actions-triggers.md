@@ -1,4 +1,4 @@
-﻿---
+---
 # required metadata
 title: Workflow Definition Language triggers and actions reference - Azure Logic Apps | Microsoft Docs
 description: This technical reference describes built-in triggers and actions for automating workflows with Azure Logic Apps
