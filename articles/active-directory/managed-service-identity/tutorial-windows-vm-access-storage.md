@@ -87,7 +87,7 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's MSI access to use storage account access keys 
+## Grant your VM's Managed Service Identity access to use storage account access keys 
 
 Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve storage account access keys from the Resource Manager, then use a key to access storage.  In this step, you grant your VM Managed Service Identity access to the keys to your storage account.   
 

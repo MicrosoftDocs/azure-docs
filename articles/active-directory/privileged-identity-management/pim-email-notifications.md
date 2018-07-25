@@ -11,12 +11,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ---
-
 
 # Email notifications in Azure AD PIM
 
@@ -28,7 +27,7 @@ When key events occur in Azure AD Privileged Identity Management (PIM), email no
 - When a privileged role is assigned
 - When Azure AD PIM is enabled
 
-Starting at the end of July 2018, email notifications sent through PIM will have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. This update is solely a visual change with no changes to functionality.
+Starting at the end of July 2018, email notifications sent through PIM will have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. Some emails will have updated content providing more targeted information.
 
 ## Sender email address
 
@@ -41,6 +40,12 @@ Previously, email notifications had the following address:
 
 - Email address:  **azureadnotifications@microsoft.com**
 - Display name: Microsoft Azure AD Notification Service
+
+## Email subject line
+
+Starting at the end of July 2018, email notifications for both Azure AD and Azure resource roles will have a **PIM** prefix in the subject line. Here's an example:
+
+- PIM: Alain Charon was permanently assigned the Backup Reader role.
 
 ## PIM emails for Azure AD roles
 
