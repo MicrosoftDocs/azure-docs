@@ -119,7 +119,7 @@ After you run a build, all scripts in the U-SQL project are built and output to 
 
 Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 * Learn how to [add test cases for U-SQL scripts and extended C# code](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Learn how to [run test cases in Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-services).
+* Learn how to [run test cases in Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-service).
 
 ## Deploy a U-SQL job
 
