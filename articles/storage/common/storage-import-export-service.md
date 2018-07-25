@@ -70,10 +70,15 @@ At a high level, an import job involves the following steps:
 4. Provide the return address and carrier account number for shipping the drives back to you.
 5. Ship the disk drives to the shipping address provided during job creation.
 6. Update the delivery tracking number in the import job details and submit the import job.
-7. Drives are received and processed at the Azure data center.
-8. Drives are shipped using your carrier account to the return address provided in the import job. For local deliveries please share a domestic account and for abroad shipments an international one.
-    
-    ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
+7. The drives are received and processed at the Azure data center.
+8. The drives are shipped using your carrier account to the return address provided in the import job.
+
+> [!NOTE]
+> For local (within data center country) shipments, please share a domestic carrier account 
+>
+> For abroad (outside data center country) shipments, please share a international carrier account
+
+ ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
 For step-by-step instructions on data import, go to:
 
@@ -96,9 +101,14 @@ At a high level, an export job involves the following steps:
 7. Update the delivery tracking number in the export job details and submit the export job.
 8. The drives are received and processed at the Azure data center.
 9. The drives are encrypted with BitLocker and the keys are available via the Azure portal.  
-10. The drives are shipped using your carrier account to the return address provided in the import job.  For local deliveries please     share a domestic account and for abroad shipments an international one.
+10. The drives are shipped using your carrier account to the return address provided in the import job.
+
+> [!NOTE]
+> For local (within data center country) shipments, please share a domestic carrier account 
+>
+> For abroad (outside data center country) shipments, please share a international carrier account
   
-    ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
+ ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
 For step-by-step instructions on data export, go to [Export data from Azure Blobs](storage-import-export-data-from-blobs.md).
 
