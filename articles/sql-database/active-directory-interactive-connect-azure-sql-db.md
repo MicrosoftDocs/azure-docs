@@ -118,7 +118,7 @@ One namespaces that the C# example relies on is **System.Data.SqlClient**. Of sp
 
 - **SqlAuthenticationMethod.ActiveDirectory*Interactive***:&nbsp;  Use this with an Azure AD user name, to achieve multi-factor authentication MFA.
     - This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user.
-    - This value is available starting with with .NET Framework version 4.7.2.
+    - This value is available starting with .NET Framework version 4.7.2.
 
 - **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp;  Use this for a *federated* account. For a federated account, the user name is known to the Windows domain. This method does not support MFA.
 
