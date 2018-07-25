@@ -3,7 +3,7 @@ title: DNS in Azure Stack | Microsoft Docs
 description: Using DNS in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
-ms.author: mabrigg
+ms.author: brenduns
 
 ---
 # Using DNS in Azure Stack
