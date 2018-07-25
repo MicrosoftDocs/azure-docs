@@ -51,7 +51,7 @@ For more information, see [How to troubleshoot alerts on a managed domain](activ
 
 In some cases (for example, if you have an invalid network configuration), the domain controllers for your managed domain might be unreachable. When in it's in the "Needs Attention" state, Microsoft can't guarantee that your managed domain will be monitored, patched, updated, or backed-up on a regular basis.
 
-* Your managed domain is in an unhealthy state and ongoing health monitoring may stop until the alert is resolved.
+* Your managed domain is in an unhealthy state and ongoing health monitoring might stop until the alert is resolved.
 * Domain controllers for your managed domain can't be patched or updated.
 * Changes from Azure Active Directory might not be synchronized to your managed domain.
 * Backups for your managed domain might be taken, if possible.
@@ -71,17 +71,17 @@ Managed domains are suspended when Microsoft is unable to manage, monitor, patch
 **What to expect**
 * Domain controllers for your managed domain are de-provisioned and aren't reachable within the virtual network.
 * Secure LDAP access to the managed domain over the Internet (if it's enabled) stops working.
-* You notice failures in authenticating to the managed domain, logging on to domain-joined virtual machines, and connecting over LDAP/LDAPS.
+* You notice failures in authenticating to the managed domain, logging on to domain-joined virtual machines, or connecting over LDAP/LDAPS.
 * Backups for your managed domain are no longer taken.
 * Synchronization with Azure AD stops.
 
-After you resolve the alert, your managed domain goes into the 'Suspended' state. Then you need to contact support.
+After you resolve the alert, your managed domain goes into the "Suspended" state. Then you need to contact support.
 Support might restore your managed domain, but only if a backup that is less than 30 days old exists.
 
 The managed domain only stays in a suspended state for 15 days. To recover your managed domain, Microsoft recommends that you resolve critical alerts immediately.
 
 
-### 'Deleted' state
+### "Deleted" state
 A managed domain that stays in the 'Suspended' state for 15 days is **Deleted**.
 
 **What to expect**
@@ -111,5 +111,5 @@ Your managed domain can only be restored to the date of last backup. The date of
 - [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
 - [Contact the product team](active-directory-ds-contact-us.md)
 
-## Contact Us
+## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
