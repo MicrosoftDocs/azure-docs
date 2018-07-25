@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -32,7 +32,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-## 1.1.879.0
+## 1.1.880.0
 
 ### Release status
 
