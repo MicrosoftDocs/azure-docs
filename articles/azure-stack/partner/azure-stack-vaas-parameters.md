@@ -11,11 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 07/24/2018
-=======
-ms.date: 06/15/2018
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 ms.author: mabrigg
 ms.reviewer: johnhas
 

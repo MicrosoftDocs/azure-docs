@@ -11,21 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 07/24/2018
-=======
-ms.date: 04/02/2018
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 ms.author: mabrigg
 ms.reviewer: John.Haskin
 
 ---
 
-<<<<<<< HEAD
 # Release notes - 1803
-=======
-# Release Notes
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 

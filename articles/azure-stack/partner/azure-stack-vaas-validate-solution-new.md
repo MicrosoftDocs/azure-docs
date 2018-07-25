@@ -11,11 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-<<<<<<< HEAD
 ms.date: 07/24/2018
-=======
-ms.date: 07/11/2018
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -25,11 +21,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-<<<<<<< HEAD
 Learn how to you can use the solution validation workflow for certifying new Azure Stack solutions.
-=======
-Learn how to you can use the solution validation workflow for certifying new Azure Stack solutions. 
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 
 An Azure Stack solution is a hardware bill of materials (BoM) that has been jointly agreed upon with Microsoft and has passed the Windows Server logo certification requirements. You can also use the solution validation workflow when there has been a change to the hardware BoM that would cause a solution to be classified as *new*. If there are questions about what would trigger a **new** or **recertification** of a solution contact at [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
@@ -103,9 +95,5 @@ Add the following common test parameters:
 
 ## Next steps
 
-<<<<<<< HEAD
 - [Reschedule or cancel a test](azure-stack-vaas-monitor-test.md#reschedule-a-test)
-=======
-- [Reschedule or cancel a test](azure-stack-vaas-reschedule-cancel-test.md)
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).

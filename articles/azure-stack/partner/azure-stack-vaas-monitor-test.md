@@ -11,11 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-<<<<<<< HEAD
 ms.date: 07/24/2018
-=======
-ms.date: 07/11/2018
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -43,7 +39,6 @@ The execution of a test can be monitored by viewing the **Operations** page for 
 
 For tests that have finished running, logs can be downloaded from the test summary page by clicking on **Download logs** in a test's context menu **[...]**. Azure Stack partners can use these logs to debug issues for failed tests.
 
-<<<<<<< HEAD
 ## Open the test pass summary
 
 1. Open the portal. 
@@ -129,8 +124,6 @@ You can select and drag a column into the header to create a group on the column
 1. [Open the test pass summary](#open-the-test-pass-summary).
 2. Select **Download logs** to reschedule the test pass.  
     A zip file named ReleaseYYYY-MM-DD.zip containing the logs downloads.
-=======
->>>>>>> 68043189935c57468b6cab4552de26f8403f6c35
 
 ## Next steps
 
