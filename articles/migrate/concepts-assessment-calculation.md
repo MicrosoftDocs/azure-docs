@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 07/25/2018
 ms.author: raynew
 ---
 
@@ -53,7 +53,8 @@ Windows Server 2016 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 R2 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure
-Windows Server 2003-2008 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
+Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure
+Windows Server 2003, 2003 R2 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with Visual Studio subscription only. | Conditionally ready for Azure
 Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
