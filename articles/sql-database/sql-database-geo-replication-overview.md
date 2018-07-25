@@ -116,7 +116,7 @@ To build a highly available service that uses Azure SQL database, you should fol
 
 ## Failover groups and network security 
 
-For some applications the security rules require that the network access to the data tier is restricted to specific components such as specific VMs, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. You should consider the following options when implementing such restricted access.
+For some applications the security rules require that the network access to the data tier is restricted to a specific component or components such as a VM, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. You should consider the following options when implementing such restricted access.
 
 ### Using failover groups and virtual network rules
 
