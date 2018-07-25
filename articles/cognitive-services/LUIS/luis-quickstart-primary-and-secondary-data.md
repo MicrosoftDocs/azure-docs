@@ -2,14 +2,14 @@
 title: Tutorial creating a LUIS app to extract data - Azure | Microsoft Docs 
 description: In this tutorial, learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund 
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
