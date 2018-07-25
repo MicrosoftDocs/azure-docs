@@ -97,11 +97,15 @@ sections:
     className: cardsD
     items:
     - title: Samples
-      html: <ul><li><a href="speech-to-text-sample.md">Speech-to-text (SR)</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
+      html: |
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
+        &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
+        &nbsp;&#8226; <a href="translation.md">Translation</a>
     - title: API Reference
       html: |
-        <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a></li>
-        <li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a></li></ul>
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
 - title: Customizing speech with your own data
   items:
   - type: paragraph
