@@ -18,6 +18,11 @@ ms.reviewer: sahenry
 
 How does self-service password reset (SSPR) work? What does that option mean in the interface? Continue reading to find out more about Azure Active Directory (Azure AD) SSPR.
 
+|     |
+| --- |
+| Mobile app notification and Mobile app code as methods for Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
+
 ## How does the password reset portal work?
 
 When a user goes to the password reset portal, a workflow is kicked off to determine:
@@ -51,6 +56,8 @@ Read through the following steps to learn about the logic behind the password re
 
 If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it.
 
+* Mobile app notification (preview)
+* Mobile app code (preview)
 * Email
 * Mobile phone
 * Office phone
@@ -67,6 +74,16 @@ This option determines the minimum number of the available authentication method
 Users can choose to supply more authentication methods if the administrator enables that authentication method.
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request that an administrator reset their password.
+
+#### Mobile app and SSPR (Preview)
+
+When using a mobile app, like the Microsoft Authenticator app, as a method for password reset users be aware of the following. For self-service password reset when only one method is required for reset verification code is the only option available to users. When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
+
+| Number of methods required to reset | One | Two |
+| :---: | :---: | :---: |
+| Mobile app features available | Code | Code or Notification |
+
+Users will not have the option to register their mobile app when registering for self-service password reset. Instead, users can register their mobile app at aka.ms/mfasetup or in the security info registration preview at aka.ms/setupsecurityinfo. 
 
 ### Change authentication methods
 
