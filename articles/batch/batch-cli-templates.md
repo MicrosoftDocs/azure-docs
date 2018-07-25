@@ -339,7 +339,7 @@ where the transcoded output files are copied from the node running each task.
 ## Summary
 
 Template and file transfer support have currently been added only to the Azure CLI. The goal is to expand the audience that can use Batch to users
-who do not need to develop code using the Batch APIs, such as researchers and IT users,. Without coding, users with knowledge of Azure, Batch, and the applications to be run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
+who do not need to develop code using the Batch APIs, such as researchers and IT users. Without coding, users with knowledge of Azure, Batch, and the applications to be run by Batch can create templates for pool and job creation. With template parameters, users without detailed knowledge of Batch and the applications can use the templates.
 
 Try out the Batch extension for the Azure CLI and provide us with any feedback or suggestions, either in the comments for this article or via the [Batch Community repo](https://github.com/Azure/Batch).
 
