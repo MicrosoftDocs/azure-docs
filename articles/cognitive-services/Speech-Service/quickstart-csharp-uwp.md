@@ -45,7 +45,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
    ![Switch the build platform to x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > At this time, the Speech SDK supports Intel-compatible processors, not ARM.
+   > At this time, the Speech SDK supports Intel-compatible processors, but not ARM.
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
