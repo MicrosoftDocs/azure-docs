@@ -79,7 +79,7 @@ You can exclude specific apps from a policy. However, these apps are still subje
 
 ## Sign-in risk
 
-A sign-in risk is an indicator of the high, medium, or low likelihood that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign in. The calculated sign-in risk level can be a condition in a conditional access policy. 
+A sign-in risk is an indicator of the high, medium, or low likelihood that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. The calculated sign-in risk level can be a condition in a conditional access policy. 
 
 ![Sign-in risk levels](./media/active-directory-conditional-access-conditions/22.png)
 
@@ -88,7 +88,7 @@ To use this condition, you need to have [Azure Active Directory Identity Protect
 Common use cases for this condition are policies that have the following protections: 
 
 - Block users with a high sign-in risk. This protection prevents potentially non-legitimate users from accessing your cloud apps. 
-- Require multifactor authentication for users with a medium sign-in risk. By enforcing multifactor authentication, you can provide additional confidence that the sign in is done by the legitimate owner of an account.
+- Require multifactor authentication for users with a medium sign-in risk. By enforcing multifactor authentication, you can provide additional confidence that the sign-in is done by the legitimate owner of an account.
 
 For more information, see [Risky sign-ins](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
