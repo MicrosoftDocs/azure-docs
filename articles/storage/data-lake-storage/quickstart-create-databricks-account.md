@@ -32,9 +32,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Set aside storage account configuration
 
-During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
-
-From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both vaules are needed for commands coming later.
+> [IMPORTANT] During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
+>
+> From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both values are needed for commands coming later.
 
 ## Create an Azure Databricks workspace
 
@@ -102,7 +102,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. Enter the following code into the first cell, replacing the placeholder values with your account name, key, and a name for your file system.
+4. In the following code, replace the **ACCOUNT_NAME** and **ACCOUNT_KEY** text with the values you preserved at the start of this quickstart. Also replace the **FILE_SYSTEM_NAME** text with the name you would like your file system to have. Then enter the code into the first cell.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
