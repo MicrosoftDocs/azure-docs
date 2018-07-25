@@ -1,8 +1,18 @@
+---
+title: Azure CycleCloud Data Usage Policy | Microsoft Docs
+description: How telemetry data is collected and used within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 
-# Usage Data Policy
+# Data Usage Policy
 
 The Azure CycleCloud tool collects anonymized usage data by default and sends this telemetry data to Microsoft. Microsoft may use this data to understand how users interact with CycleCloud to support and improve the CycleCloud product. The data is anonymized and does not include any personally or organizationally identifying data. The collected data is governed by the [Microsoft Privacy Policy](http://aka.ms/privacy). You may opt out of sending the usage data to Microsoft by following the instructions below.
-
 
 ## Data Collected
 
@@ -10,7 +20,7 @@ A summary of the usage data that is collected.
 
 ### Common Properties
 
-* Application Version: current CycleCloud version 
+* Application Version: current CycleCloud version
 * Client OS: installation OS
 * Site ID: Anonymized and unique ID each install 
 * Node Id: Anonymized and unique ID for each install host
@@ -48,17 +58,3 @@ You can disable usage data collection if you would prefer to not send telemetry 
 
 > [!WARNING]
 > Disabling usage collection may impact CycleCloud’s ability to generate usage reports or to perform usage audits.
-
----
-title: Azure CycleCloud Data Usage Policy | Microsoft Docs
-description: How telemetry data is collected and used within Azure CycleCloud.
-services: azure cyclecloud
-author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: a-kiwels
----
-
-# Data Usage Policy 
