@@ -216,7 +216,7 @@ Fixing the app requires LUIS to correctly determine the variations of SQL jobs. 
 
 These tasks are left for you to do.
 
-Adding a [pattern](luis-concept-patterns.md) before the entity is correctly predicted is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
+Adding a [pattern](luis-concept-patterns.md) before the entity is correctly predicted, is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
 
 ## What has this tutorial accomplished?
 
