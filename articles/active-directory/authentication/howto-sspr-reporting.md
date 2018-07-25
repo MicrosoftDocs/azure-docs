@@ -35,6 +35,10 @@ The following questions can be answered by the reports that exist in the [Azure 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
+## Converged registration (preview)
+
+If you are participating in the public preview of converged registration information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
+
 ## Power BI content pack
 
 If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
