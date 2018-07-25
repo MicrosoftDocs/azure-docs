@@ -1,6 +1,6 @@
 ---
-title: Azure Security and Compliance Blueprint - Three-Tier PaaS Web Application for UK OFFICIAL
-description: Azure Security and Compliance Blueprint - Three-Tier PaaS Web Application for UK OFFICIAL
+title: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL
+description: Azure Security and Compliance Blueprint - PaaS Web Application Hosting for UK OFFICIAL
 services: security
 author: jomolesk
 
