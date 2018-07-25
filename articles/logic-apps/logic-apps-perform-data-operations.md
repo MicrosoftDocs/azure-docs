@@ -86,15 +86,12 @@ as the first step in your logic app
 ## Compose action
 
 To construct a single output such as a JSON object from multiple inputs, 
-you can use the **Data Operations - Compose** action. 
-Your inputs can have various types such as integers, 
-Booleans, arrays, JSON objects, and any other native 
-type that Azure Logic Apps supports, for example, 
-binary and XML. You can then use the output in 
-actions that follow after the **Compose** action. 
-The **Compose** action can also save you from 
-entering the same inputs repeatedly while 
-building your logic app's workflow. 
+you can use the **Data Operations - Compose** action. Your inputs can have 
+various types such as integers, Booleans, arrays, JSON objects, and any 
+other native type that Azure Logic Apps supports, for example, binary and XML. 
+You can then use the output in actions that follow after the **Compose** action. 
+The **Compose** action can also save you from repeatedly entering the same inputs 
+while you build your logic app's workflow. 
 
 For example, you can construct a JSON message from multiple variables, 
 such as string variables that store people's first names and last names, 
@@ -108,8 +105,10 @@ and creates this output:
 `{"age":35,"fullName":"Owens,Sophie"}`
 
 To try an example, follow these steps by using the Logic App Designer. 
-Or, if you're comfortable working with the underlying definitions in 
-the code view editor, see [Compose example - action definitions](#compose-example-definitions).
+Or, if you prefer working in the code view editor, you can copy the 
+example **Compose** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-examples.md#compose-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -117,7 +116,7 @@ or Visual Studio, open your logic app in Logic App Designer.
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and several **Initialize variable** actions. 
    These actions are set up for creating two string variables 
-   and an integer variable. When you test your logic app later, 
+   and an integer variable. When you later test your logic app, 
    you can manually run your app without waiting for the trigger to fire.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
@@ -180,34 +179,29 @@ select **Output**.
 
    ![Email with "Compose" action results](./media/logic-apps-perform-data-operations/compose-email-results.png)
 
-<a name="compose-example-definitions"></a>
-
-### Compose example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Compose** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
-
 <a name="create-csv-table-action"></a>
 
 ## Create CSV table action
 
-To create a comma-separated value (CSV) table that has 
-the properties and values from JSON objects in an array, 
-use the **Data Operations - Create CSV table** action. 
-You can then use this table in actions that follow after the **Create CSV table** action.
+To create a comma-separated value (CSV) table that has the properties 
+and values from JavaScript Object Notation (JSON) objects in an array, 
+use the **Data Operations - Create CSV table** action. You can then use 
+the resulting table in actions that follow the **Create CSV table** action. 
+
+If you prefer working in the code view editor, you can copy the 
+example **Create CSV table** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Create CSV table](../logic-apps/logic-apps-data-operations-code-examples.md#create-csv-table-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and an **Initialize variable** action. 
-   The action is set up for creating a variable whose initial 
-   value is an array that has some properties and values in 
-   JavaScript Object Notation (JSON) format. When you test 
-   your logic app later, you can manually run your app 
-   without waiting for the trigger to fire.
+   The action is set up for creating a variable whose initial value 
+   is an array that has some properties and values in JSON format. 
+   When you later test your logic app, you can manually run your 
+   app without waiting for the trigger to fire.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
@@ -279,35 +273,30 @@ select **Output**.
 
    ![Email with "Create CSV table" action results](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
 
-<a name="create-csv-table-example-definitions"></a>
-
-### Create CSV table example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Create CSV table** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
-
 <a name="create-html-table-action"></a>
 
 ## Create HTML table action
 
-To create an HTML table that has the properties 
-and values from JSON objects in an array, 
+To create an HTML table that has the properties and values 
+from JavaScript Object Notation (JSON) objects in an array, 
 use the **Data Operations - Create HTML table** action. 
-You can then use this table in actions that follow after 
-the **Create HTML table** action.
+You can then use the resulting table in actions that 
+follow the **Create HTML table** action.
+
+If you prefer working in the code view editor, you can copy the 
+example **Create HTML table** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Create HTML table](../logic-apps/logic-apps-data-operations-code-examples.md#create-html-table-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and an **Initialize variable** action. 
-   The action is set up for creating a variable whose initial 
-   value is an array that has some properties and values in 
-   JavaScript Object Notation (JSON) format. When you test 
-   your logic app later, you can manually run your app 
-   without waiting for the trigger to fire.
+   The action is set up for creating a variable whose initial value 
+   is an array that has some properties and values in JSON format. 
+   When you later test your logic app, you can manually run your 
+   app without waiting for the trigger to fire.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
@@ -385,15 +374,6 @@ select **Output**.
 
    ![Email with "Create HTML table" action results](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
-<a name="create-html-table-example-definitions"></a>
-
-### Create HTML table example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Create HTML table** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
-
 <a name="filter-array-action"></a>
 
 ## Filter array action
@@ -410,15 +390,20 @@ You can then use the filtered array in actions that follow after the **Filter ar
 > either those actions must accept arrays as input, or you might 
 > have to transform the output array into another compatible format. 
 
+If you prefer working in the code view editor, you can copy the 
+example **Filter array** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-examples.md#filter-array-action-example) 
+
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and an **Initialize variable** action. 
    The action is set up for creating a variable whose initial 
-   value is an array that has some sample integers. 
-   When you test your logic app later, you can manually 
-   run your app without waiting for the trigger to fire.
+   value is an array that has some sample integers. When you 
+   later test your logic app, you can manually run your app 
+   without waiting for the trigger to fire.
 
    > [!NOTE]
    > Although this example uses a simple integer array, 
@@ -495,15 +480,6 @@ enter this expression that includes the **Filter array** action's name:
 
    ![Email with "Filter array" action results](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
 
-<a name="filter-array-example-definitions"></a>
-
-### Filter array example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Filter array** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
-
 <a name="join-action"></a>
 
 ## Join action
@@ -512,6 +488,11 @@ To create a string that has all the items from an array and
 separate those items with a specific delimiter character, 
 use the **Data Operations - Join** action. You can then use 
 the string in actions that follow after the **Join** action.
+
+If you prefer working in the code view editor, you can copy the 
+example **Join** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-examples.md#join-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -586,26 +567,22 @@ select **Output**.
 
    ![Email with "Join" action results](./media/logic-apps-perform-data-operations/join-email-results.png)
 
-<a name="join-example-definitions"></a>
-
-### Join example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Join** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
-
 <a name="parse-json-action"></a>
 
 ## Parse JSON action
 
-To reference or use the properties in JSON content, 
-you can create user-friendly fields or tokens for those 
-properties by using the **Data operations - Parse JSON** action.
+To reference or access properties in JavaScript Object Notation (JSON) content, 
+you can create user-friendly fields or tokens for those properties 
+by using the **Data operations - Parse JSON** action.
 That way, you can select those properties from the dynamic 
 content list when you specify inputs for your logic app. 
 For this action, you can either provide a JSON schema 
 or generate a JSON schema from your sample JSON content or payload.
+
+If you prefer working in the code view editor, you can copy the 
+example **Parse JSON** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-examples.md#parse-json-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -614,7 +591,7 @@ or Visual Studio, open your logic app in Logic App Designer.
    **Recurrence** trigger and an **Initialize variable** action. 
    The action is set up for creating a variable whose initial 
    value is a JSON object that has properties and values. 
-   When you test your logic app later, you can manually 
+   When you later test your logic app, you can manually 
    run your app without waiting for the trigger to fire.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
@@ -694,15 +671,6 @@ you can now select the properties from the parsed JSON content.
 
    ![Email with "Join" action results](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
-<a name="parse-json-example-definitions"></a>
-
-### Parse JSON example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Parse JSON** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
-
 <a name="select-action"></a>
 
 ## Select action
@@ -721,6 +689,11 @@ always has the same number of items as the source array.
 > either those actions must accept arrays as input, or you might 
 > have to transform the output array into another compatible format. 
 
+If you prefer working in the code view editor, you can copy the 
+example **Select** and **Initialize variable** action definitions 
+from this article into your own logic app's underlying workflow definition: 
+[Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-examples.md#select-action-example) 
+
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
@@ -728,7 +701,7 @@ or Visual Studio, open your logic app in Logic App Designer.
    **Recurrence** trigger and an **Initialize variable** action. 
    The action is set up for creating a variable whose initial 
    value is an array that has some sample integers. 
-   When you test your logic app later, you can manually 
+   When you later test your logic app, you can manually 
    run your app without waiting for the trigger to fire.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
@@ -805,15 +778,6 @@ enter this expression that includes the **Select** action's name:
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
-
-<a name="select-example-definitions"></a>
-
-### Select example - action definitions
-
-If you prefer working in the code view editor, you can copy 
-and paste the definitions for the **Select** and 
-**Initialize variable** actions from this article: 
-[Data operation code samples for Azure Logic Apps](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 ## Get support
 
