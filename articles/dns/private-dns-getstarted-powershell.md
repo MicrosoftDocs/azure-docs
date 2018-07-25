@@ -49,7 +49,7 @@ New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
 
-Note that if the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
+If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
 
 ```azurepowershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -68,7 +68,7 @@ New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
 If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *ResolutionVirtualNetworkId* parameter instead of the *RegistrationVirtualNetworkId* parameter.
 
 > [!NOTE]
-> You won't be able to see these automatically created hostname records. But later, you will test to ensure they exist.
+> You won't be able to see the automatically created hostname records. But later, you will test to ensure they exist.
 
 ### List DNS private zones
 
@@ -140,7 +140,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 1. Connect to myVM01, and open a Windows PowerShell window with administrator privileges.
 2. Run the following command:
 
-   ```windowspowershell
+   ```powershell
    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
    ```
 

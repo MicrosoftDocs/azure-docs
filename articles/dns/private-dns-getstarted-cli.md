@@ -10,8 +10,7 @@ ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Create an Azure DNS private zone using using Azure CLI
-
+# Create an Azure DNS private zone using Azure CLI
 
 This tutorial walks you through the steps to create your first private DNS zone and record using Azure CLI.
 
@@ -44,85 +43,93 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
+A DNS zone is created by using the `az network dns zone create` command with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **contoso.local** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
 
-Note that if the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
+If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone.
 
-```powershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName MyAzureResourceGroup `
-  -Location eastus `
-  -Name myAzureVNet `
-  -AddressPrefix 10.2.0.0/16 `
-  -Subnet $backendSubnet
+```azurecli
+az network vnet create \
+  --name myAzureVNet \
+  --resource-group MyAzureResourceGroup \
+  --location eastus \
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name backendSubnet \
+  --subnet-prefix 10.2.0.0/24
 
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
-   -ZoneType Private `
-   -RegistrationVirtualNetworkId @($vnet.Id)
+az network dns zone create -g MyAzureResourceGroup \
+   -n contoso.local \
+  --zone-type Private \
+  --registration-vnets myAzureVNet
 ```
 
-If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *ResolutionVirtualNetworkId* parameter instead of the *RegistrationVirtualNetworkId* parameter.
+If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *resolution-vnets* parameter instead of the *registration-vnets* parameter.
 
 > [!NOTE]
-> You won't be able to see these automatically created hostname records. But later, you will test to ensure they exist.
+> You won't be able to see the automatically created hostname records. But later, you will test to ensure they exist.
 
 ### List DNS private zones
 
-By omitting the zone name from `Get-AzureRmDnsZone`, you can enumerate all zones in a resource group. This operation returns an array of zone objects.
+To enumerate DNS zones, use `az network dns zone list`. For help, see `az network dns zone list --help`.
 
-```powershell
-Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+Specifying the resource group lists only those zones within the resource group:
+
+```azurecli
+az network dns zone list \
+  --resource-group MyAzureResourceGroup
 ```
 
-By omitting both the zone name and the resource group name from `Get-AzureRmDnsZone`, you can enumerate all zones in the Azure subscription.
+Omitting the resource group lists all zones in the subscription:
 
-```powershell
-Get-AzureRmDnsZone
+```azurecli
+az network dns zone list 
 ```
 
 ## Create the test virtual machines
 
 Now, create two virtual machines so you can test your private DNS zone:
 
-```powershell
-New-AzureRmVm `
-    -ResourceGroupName "myAzureResourceGroup" `
-    -Name "myVM01" `
-    -Location "East US" `
-    -subnetname backendSubnet `
-    -VirtualNetworkName "myAzureVnet" `
-    -addressprefix 10.2.0.0/24 `
-    -OpenPorts 3389
+```azurecli
+az vm create \
+ -n myVM01 \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --image win2016datacenter
 
-New-AzureRmVm `
-    -ResourceGroupName "myAzureResourceGroup" `
-    -Name "myVM02" `
-    -Location "East US" `
-    -subnetname backendSubnet `
-    -VirtualNetworkName "myAzureVnet" `
-    -addressprefix 10.2.0.0/24 `
-    -OpenPorts 3389
+az vm create \
+ -n myVM02 \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --image win2016datacenter
 ```
 
 This will take a few minutes to complete.
 
 ## Create an additional DNS record
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
+To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help with adding A records for example, see `azure network dns record-set A add-record --help`.
 
-```powershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
-   -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
+ The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4".
+
+```azurecli
+az network dns record-set a add-record \
+  -g MyAzureResourceGroup \
+  -z contoso.local \
+  -n db \
+  -a 10.2.0.4
 ```
 
 ### View DNS records
 
 To list the DNS records in your zone, run:
 
-```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+```azurecli
+az network dns record-set list \
+  -g MyAzureResourceGroup \
+  -z contoso.local
 ```
 Remember, you won't see the automatically created A records for your two test virtual machines.
 
@@ -190,8 +197,8 @@ Repeat for myVM02.
 
 When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this tutorial.
 
-```powershell
-Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
+```azurecli
+az group delete --name MyAzureResourceGroup
 ```
 
 ## Next steps
