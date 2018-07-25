@@ -59,6 +59,26 @@ For an example of some of the new e-mail designs and more information, see [Emai
 
 ---
 
+### Conditional access information added to the Azure AD sign-ins report
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Identity Security & Protection
+ 
+This update lets you see which policies are evaluated when a user signs in along with the policy outcome. In addition, the report now includes the type of client app used by the user, so you can identify legacy protocol traffic. Report entries can also now be searched for a correlation ID, which can be found in the user-facing error message and can be used to identify and troubleshoot the matching sign-in request.
+
+---
+
+### View legacy authentications through Sign-ins activity logs
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
+
+---
+
 ### New Federated Apps available in Azure AD app gallery - July 2018
 
 **Type:** New feature  
@@ -104,6 +124,16 @@ Azure AD Connect Health introduces self-service remediation to help you highligh
 - Applies a fix for dedicated Azure AD scenarios, resolving errors in a single step
 
 - No upgrade or configuration is required to turn on and use this feature
+
+---
+ 
+### Make sure users meet conditional access policies while managing their security info
+
+**Type:** New feature  
+**Service category:** MFA  
+**Product capability:** User Authentication
+
+Organizations using the new converged security info experience must make sure that their users register and manage their security information safely. This feature lets admins apply conditional access policies to the converged security info management experience. These policies apply any time the user registers, adds, or changes their security information for MFA/SSPR.
 
 ---
 
@@ -171,13 +201,17 @@ Pass-through Authentication now supports legacy protocols and apps. The followin
 
 ---
  
-### Conditional access information added to the Azure AD sign-ins report
+### Use the Microsoft Authenticator app to verify your identity when you reset your password
 
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Identity Security & Protection
- 
-This update lets you see which policies are evaluated when a user signs in along with the policy outcome. In addition, the report now includes the type of client app used by the user, so you can identify legacy protocol traffic. Report entries can also now be searched for a correlation ID, which can be found in the user-facing error message and can be used to identify and troubleshoot the matching sign-in request.
+**Type:** Changed feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn this self-service password reset method on, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
+
+Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
+
+---
 
 <!--waiting for info
 
@@ -196,18 +230,6 @@ The Azure AD Activity Logs are now available in public preview for the Azure Mon
 - Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
 
 For more information about these new capabilities, see our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview)-->
-
----
-
-### View legacy authentications through Sign-ins activity logs
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
-
----
 
 ## June 2018
 
