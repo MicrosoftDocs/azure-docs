@@ -100,7 +100,7 @@
     - name: Text To Speech FAQ
       href: faq-text-to-speech.md
     - name: Translator FAQ
-      href: https://www.microsoft.com/en-us/translator/faq.aspx
+      href: https://www.microsoft.com/translator/faq.aspx
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice
