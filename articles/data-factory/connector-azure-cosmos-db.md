@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/25/2018
 ms.author: jingwang
 
 ---
@@ -161,6 +161,7 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
+| writeBehavior |Describe how to write data into Cosmos DB. Allowed values are: `insert` and `upsert`. The behavior of upsert is to insert if not exist and replace if exist. |No, default is insert |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 
 **Example:**
@@ -187,7 +188,8 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

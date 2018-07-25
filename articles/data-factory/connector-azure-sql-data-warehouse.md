@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/25/2018
 ms.author: jingwang
 
 ---
@@ -399,7 +399,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
    3. `encodingName` is set to **utf-8**, which is the default value.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` aren't specified.
+   4. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
@@ -410,7 +410,8 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 	       "columnDelimiter": "<any delimiter>",
 	       "rowDelimiter": "\n",
 	       "nullValue": "",
-	       "encodingName": "utf-8"
+	       "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
 	   },
 	   "compression": {
 	       "type": "GZip",
@@ -418,9 +419,6 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 	   }
 	},
 	```
-
-3. There's no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for Copy Activity in the pipeline.
-4. There's no `sliceIdentifierColumnName` setting under **SqlDWSink** for Copy Activity in the pipeline. PolyBase guarantees that all data is updated, or nothing is updated in a single run. To achieve **repeatability**, use `sqlWriterCleanupScript`.
 
 ```json
 "activities":[
