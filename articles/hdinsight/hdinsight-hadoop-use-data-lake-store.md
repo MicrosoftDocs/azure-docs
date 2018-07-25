@@ -3,8 +3,8 @@ title: Use Data Lake Store with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Store and to store results of your analysis.
 services: hdinsight,storage
 tags: azure-portal
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
@@ -22,7 +22,7 @@ In this article, you learn how Data Lake Store works with HDInsight clusters. To
 > [!NOTE]
 > Data Lake Store is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 > 
-> 
+
 
 ## Availability for HDInsight clusters
 
@@ -130,8 +130,8 @@ Use the following links for detailed instructions on how to create HDInsight clu
 The following example PowerShell code reads a local certificate file, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Store. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
 
 ```powershell-interactive
-$clusterName = 'MyCluster'
-$resourceGroupName = 'MyResourceGroup'
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
 $generateSelfSignedCert = $false

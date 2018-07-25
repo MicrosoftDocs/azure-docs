@@ -17,7 +17,7 @@ ms.date: 09/14/2017
 ms.author: daveba
 ---
 
-# Configure Managed Service Identity (MSI) on an Azure VM using Azure CLI
+# Configure Managed Service Identity on an Azure VM using Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -101,7 +101,7 @@ If you have a virtual machine that no longer needs system assigned identity and 
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-To remove the MSI VM extension, user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+To remove the Managed Service Identity VM extension, user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -115,7 +115,7 @@ In this section, you will learn how to add and remove a user assigned identity f
 
 This section walks you through creation of a VM with assignment of a user assigned identity. If you already have a VM you want to use, skip this section and proceed to the next.
 
-1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your MSI, using [az group create](/cli/azure/group/#az_group_create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
+1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your Managed Service Identity, using [az group create](/cli/azure/group/#az_group_create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -161,7 +161,7 @@ This section walks you through creation of a VM with assignment of a user assign
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-The response contains details for the user assigned MSI created, similar to the following. The resource `id` value assigned to the user assigned identity is used in the following step.
+The response contains details for the user assigned managed identity created, similar to the following. The resource `id` value assigned to the user assigned identity is used in the following step.
 
    ```json
    {
