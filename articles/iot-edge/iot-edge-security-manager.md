@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 The Azure IoT Edge Security Manager (ESM) is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. It is the focal point for security hardening and provides Original Device Manufacturers (OEM) the opportunity to harden their devices based on their choice of hardware root of trust or Hardware Secure Modules (HSM).
 
-![IoT Edge security manager](media/iot-edge-security-manager.png "Azure IoT Edge Security Manager")
+![IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png "Azure IoT Edge Security Manager")
 
 ESM aims to defend the interity of the IoT Edge device and all inherent software operations.  It does so by transitioning trust from an underlying hardware root of trust where available to securely boostrap the Edge runtime to a trusted operational state, and then continue to monitor the integrity of operations within the device.  The IoT Edge Security Manager in essence comprises software working in conjunction with secure silicon hardware where available and enabled to help deliver the highest security assurances possible.  
 
@@ -65,7 +65,7 @@ Another core principle for the Edge Security Daemon is to minimize churn.  For t
 
 ### Architecture of IoT Edge Security Daemon
 
-![IoT Edge security daemon](media/iot-edge-security-daemon.png "Azure IoT Edge Security Daemon")
+![IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png "Azure IoT Edge Security Daemon")
 
 The IoT Edge Security Daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  Moreso, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technology that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge Security Daemon are role specific interfaces  to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and it's operations.
 
@@ -87,7 +87,9 @@ IoT Edge Daemon offers the Container Interface to interact with the container sy
 
 #### Workload API
 
-The workload API is a IoT Edge Security Daemon API which is accessible by all active modules, including the Edge Agent. It provides proof of identity, in the form a HSM rooted signed token or X509 certificate, and corresponding trust bundle to a module. The trust bundle contains CA certificates for all of the other servers that the modules should trust.  The IoT Edge Security Daemon uses an attestation process to guard this API. When a module calls this API, the IoT Edge Security Daemon attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new HSM rooted signed token or X509 certificate is generated, and the corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. 
+The workload API is a IoT Edge Security Daemon API which is accessible by all active modules, including the Edge Agent. It provides proof of identity, in the form a HSM rooted signed token or X509 certificate, and corresponding trust bundle to a module. The trust bundle contains CA certificates for all of the other servers that the modules should trust.
+
+The IoT Edge Security Daemon uses an attestation process to guard this API. When a module calls this API, the IoT Edge Security Daemon attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new HSM rooted signed token or X509 certificate is generated, and the corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. When the signed token or certificate nears expiration, it is the responsibility of the module to request a new certificate.  Additional considerations are incorporated into the design to make the identity renewal process as seamless as possible.
 
 ### Integration and Maintenance
 
