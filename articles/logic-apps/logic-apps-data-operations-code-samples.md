@@ -1,4 +1,4 @@
----
+-
 # required metadata
 title: Data operation samples - Azure Logic Apps | Microsoft Docs
 description: Code samples for data operation action definitions in Azure Logic Apps
@@ -17,12 +17,12 @@ ms.suite: integration
 
 # Data operation code samples for Azure Logic Apps
 
-Here are the code samples for the data operation actions in the article, 
-[Perform data operations](../logic-apps/logic-apps-perform-data-operations.md) 
-for when you're working with a logic app's underlying definition. 
-To try these examples with your own logic app, Azure subscription, 
-and API connections, you can copy and paste these action definitions into 
-your logic app's workflow definition through the code view editor. 
+Here are the code samples for the data operation action definitions in the article, 
+[Perform data operations](../logic-apps/logic-apps-perform-data-operations.md). 
+You can use these samples for when you want to try the examples with your own 
+logic app's underlying workflow definition, Azure subscription, and API connections. 
+Just copy and paste these action definitions into the code view editor for 
+your logic app's workflow definition, and then modify the definitions for your specific workflow. 
 
 Based on JavaScript Object Notation (JSON) standards, 
 these action definitions appear in alphabetical order. 
