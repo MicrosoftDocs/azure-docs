@@ -37,7 +37,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Converged registration (preview)
 
-If you are participating in the public preview of converged registration information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
 
 ## Power BI content pack
 
