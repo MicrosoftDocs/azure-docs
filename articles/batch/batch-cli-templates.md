@@ -333,7 +333,7 @@ Pool and job templates allow files stored in file groups to be specified for
 copy onto pool nodes or off pool nodes back to a file group. For example, in the
 job template specified previously, the file group *ffmpeg-input* is specified
 for the task factory as the location of the source video files copied down to
-the node for transcoding. The file group *ffmpeg-outpu* is the location
+the node for transcoding. The file group *ffmpeg-output* is the location
 where the transcoded output files are copied from the node running each task.
 
 ## Summary
