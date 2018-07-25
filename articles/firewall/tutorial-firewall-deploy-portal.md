@@ -229,7 +229,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 4. For **Action**, select **Allow**.
 
 6. Under **Rules**, for **Name**, type **AllowDNS**.
-8. For **Protocol**, select **TCP**.
+8. For **Protocol**, select **UDP**.
 9. For **Source Addresses**, type **10.0.2.0/24**.
 10. For Destination address, type **209.244.0.3,209.244.0.4**
 11. For **Destination Ports**, type **53**.
