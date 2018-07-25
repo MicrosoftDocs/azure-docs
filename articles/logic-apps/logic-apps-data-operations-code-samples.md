@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 07/27/2018
+ms.date: 07/25/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -21,11 +21,11 @@ Here are the code samples for the data operation actions in the article,
 [Perform data operations](../logic-apps/logic-apps-perform-data-operations.md) 
 for when you're working with a logic app's underlying definition. 
 To try these examples with your own logic app, Azure subscription, 
-and API connections, copy and paste these action definitions into 
+and API connections, you can copy and paste these action definitions into 
 your logic app's workflow definition through the code view editor. 
 
 Based on JavaScript Object Notation (JSON) standards, 
-these action definitions appear in alphabetical order, 
+these action definitions appear in alphabetical order. 
 However, in the Logic App Designer, each definition appears 
 in the correct sequence within your workflow because each 
 action definition's `runAfter` property specifies the run order. 
