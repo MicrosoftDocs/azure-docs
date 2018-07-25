@@ -91,6 +91,7 @@ Now, create two virtual machines so you can test your private DNS zone:
 ```azurecli
 az vm create \
  -n myVM01 \
+ --admin-username test-user \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
@@ -99,6 +100,7 @@ az vm create \
 
 az vm create \
  -n myVM02 \
+ --admin-username test-user \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
