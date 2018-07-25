@@ -202,21 +202,21 @@ After filling in the text box and confirming the input mode, click **Yes** to su
 
 After you have successfully created and tested your voice model, you deploy it in a custom Text to Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text to Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you used to deploy the font.
 
-To create a new custom endpoint, choose **Endpoints** from the Custom Voice menu at the top of the page. The Deployment page appears, with its table of current custom voice endpoints, if any.
+To create a new custom endpoint, choose **Endpoints** from the Custom Voice menu at the top of the page. The My Deployed Voices page appears, with its table of current custom voice endpoints, if any. The current locale is reflected in the first row of the table. To create a deployment for a different language, change the displayed locale. (It must match the voice you are deploying.)
 
-Click the **Deploy voices** button to create a new endpoint. In the Create Endpoint” page, the current locale is reflected in the first row of the table. To create a deployment for a different language, change the displayed locale. (It must match the voice you are deploying.) Enter the Name and Description of your custom endpoint.
+Click the **Deploy voices** button to create a new endpoint. Enter the Name and Description of your custom endpoint.
 
 From the Subscription menu, choose the subscription that you want to use. Free subscription users can have only one model deployed at a time. Standard subscription users can create up to 20 endpoints, each with its own custom voice.
 
 ![Create Endpoint](media/custom-voice/create-endpoint.png)
 
-After selecting the model to be deployed, click **Create**. The Deployment page reappears, now with an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is Succeeded, the endpoint is ready for use.
+After selecting the model to be deployed, click **Create**. The My Deployed Voices page reappears, now with an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is Succeeded, the endpoint is ready for use.
 
 ![My Deployed Voices](media/custom-voice/my-deployed-voices.png)
 
-When the deployment status is Succeeded, the endpoint of your deployed voice font appears in the My deployed voices table. You can use this URI directly in an HTTP request.
+When the deployment status is Succeeded, the endpoint of your deployed voice font appears in the My Deployed Voices table. You can use this URI directly in an HTTP request.
 
-Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the Custom Voice drop-down menu. The endpoint testing page appears. Choose a voice that you have deployed, and input the text to be spoken (in either plain text or SSML format) into the text box.
+Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the Custom Voice drop-down menu. The endpoint testing page appears. Choose a deployed custom voice and enter the text to be spoken (in either plain text or SSML format) in the text box.
 
 > [!NOTE] 
 > When using SSML, the `<voice>` tag must specify the name you gave your custom voice when you created it.
