@@ -30,7 +30,7 @@ The text message option is a part of the phone option, so you'll set everything 
 
 1. Select the **Phone** option.
 
-    The **Setup your phone** wizard appears.
+    The **Set up your phone** wizard appears.
 
     ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-text.png)
 
