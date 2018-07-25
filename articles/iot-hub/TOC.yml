@@ -30,6 +30,8 @@
   items:
   - name: Routing messages
     href: tutorial-routing.md
+  - name: Manual Failover
+    href: tutorial-manual-failover.md
   - name: Configure your devices
     href: tutorial-device-twins.md
   - name: Manage firmware updates
