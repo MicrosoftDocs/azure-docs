@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud QuickStart - Create and Run a Cluster | Microsoft Docs
+description: Azure CycleCloud QuickStart - Create and Run a Cluster
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: quickstart
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
 
 Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleCloud. The steps from this point forward will be done within the GUI to familiarize you with the graphical interface of the tool.
@@ -11,7 +23,7 @@ Click on "Clusters" in the main menu, which will bring up the list of available 
 
 In this quickstart, you will create an HPC cluster configured with [Open Grid Scheduler](http://gridscheduler.sourceforge.net/), which is the open source version of the Sun Grid Engine job scheduler. Click on **Grid Engine** to bring up the cluster creation wizard.
 
-![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) (kimli replace)
+![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) (kimli screenshot)
 
 ## New Cluster Settings
 
@@ -43,8 +55,8 @@ Set the Budget to $100.00 per month. Enable the Notifications, and add your emai
 
 It's time to put your cluster to work. In the cluster summary window, click **Start** under the cluster name.
 
-(screeeeeen)
+(Kimli screenshot)
 
 Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
-QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-submit-jobs) now!
+QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](quickstart-submit-jobs.md) now!

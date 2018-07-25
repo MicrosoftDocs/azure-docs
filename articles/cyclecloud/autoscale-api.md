@@ -39,7 +39,7 @@ developers who understand the systems in their clusters.
 Cluster-side plugins are executables running on one or more nodes in the cluster
 (often as system services or cron jobs or scheduled tasks in Windows). They may
 be installed and configured using Chef or Cluster-Init, or they may be baked into
-the image. They may also include [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) scripts to ensure that scale-down occurs in the case of failures.
+the image. They may also include [HealthCheck](healthcheck.md) scripts to ensure that scale-down occurs in the case of failures.
 
 The executables are responsible for monitoring the cluster and reporting demand
 for scale-up and scale-down to CycleCloud.
@@ -60,63 +60,72 @@ There are two easy ways to make this API call: using the Python API or the jetpa
 
 ### Jetpack CLI
 
-      $ jetpack autoscale --name=execute --corecount=128
+``` CLI
+$ jetpack autoscale --name=execute --corecount=128
+```
 
 ### Jetpack API
 
-      import jetpack.autoscale
+``` API
+import jetpack.autoscale
 
-      jetpack.autoscale.set(name='execute', corecount=128)
+jetpack.autoscale.set(name='execute', corecount=128)
+```
 
 The above methods are intended to simplify setting the size on a single pre-existing node array.
 This is equivalent to the more general way to autoscale a set of node arrays:
 
-      array = {
-          'Name': 'execute',
-          'TargetCoreCount': 128
-      }
-      jetpack.autoscale.update([array])
+``` API
+array = {
+    'Name': 'execute',
+    'TargetCoreCount': 128
+}
+jetpack.autoscale.update([array])
+```
 
 Note that in this example you are passing in a list of node array definitions. You
 can also change any other attribute that is settable on a node array, for example
 the machine type, or node configuration:
 
-      import jetpack.autoscale
+``` API
+import jetpack.autoscale
 
-      array = {
-          'Name': 'execute',
-          'TargetCoreCount': 128,
-          'MachineType': "c3.xlarge",
-          'Configuration': {
-              'custom_setting': 123
-          }
-      }
-      jetpack.autoscale.update([array])
+array = {
+    'Name': 'execute',
+    'TargetCoreCount': 128,
+    'MachineType': "c3.xlarge",
+    'Configuration': {
+        'custom_setting': 123
+    }
+}
+jetpack.autoscale.update([array])
+```
 
 The definition given is merged with the existing definition, so you only need to
 specify attributes whose values you intend to set.
 
 The `update` function takes a list of node arrays so that you can specify all the node arrays currently needed. Certain types of jobs require different configurations. In this case, you
-can add a "dynamic" node array to the list for those jobs only if you find jobs of that type in the queue.
-Instead of updating the execute array, for instance, you can create a new node array on the fly that
+can add a "dynamic" node array to the list for those jobs only if you find jobs of that type in the queue. Instead of updating the execute array, you can create a new node array on the fly that
 extends `execute` with some custom settings.
 
-      import jetpack.autoscale
+``` API
+import jetpack.autoscale
 
-      execute = {
-          'Name': 'execute',
-          'TargetCoreCount': 128
-      }
-      dynamic = {
-          'Name': 'dynamic_array',
-          'Extends': 'execute',
-          'TargetCount': 3,
-          'Configuration': {
-              'application_version': '1.2.3'
-          },
-          'Dynamic': True
-      }
-      jetpack.autoscale.update([execute, dynamic])
+execute = {
+    'Name': 'execute',
+    'TargetCoreCount': 128
+}
+dynamic = {
+    'Name': 'dynamic_array',
+    'Extends': 'execute',
+    'TargetCount': 3,
+    'Configuration': {
+        'application_version': '1.2.3'
+    },
+    'Dynamic': True
+}
+jetpack.autoscale.update([execute, dynamic])
+```
 
 In the above case we have updated the `execute` array to be set to 128 cores, while also creating
 a new array called `dynamic_array` that is based on `execute`, but with a TargetCount of 3
@@ -135,18 +144,19 @@ If you want to scale more than one completely independent set of resources, you 
 
 ## Auto-Scaling Grouped Nodes
 
-When autoscaling up, CycleCloud can request tightly-coupled nodes. Grouped nodes are meant for MPI-type jobs where the interconnect between the nodes is just as important as the compute power of each
-individual node. Requesting a grouped set of nodes is very similar to requesting regular nodes when autoscaling.
+When autoscaling up, CycleCloud can request tightly-coupled nodes. Grouped nodes are meant for MPI-type jobs where the interconnect between the nodes is just as important as the compute power of each individual node. Requesting a grouped set of nodes is very similar to requesting regular nodes when autoscaling.
 
-      import jetpack.autoscale
+``` API
+import jetpack.autoscale
 
-      array = {
-          'Name': 'execute',
-          'TargetGroupCount': 4,
-          'GroupCoreCount': 64,
-          'MachineType': "c3.xlarge"
-      }
-      jetpack.autoscale.update([array])
+array = {
+    'Name': 'execute',
+    'TargetGroupCount': 4,
+    'GroupCoreCount': 64,
+    'MachineType': "c3.xlarge"
+}
+jetpack.autoscale.update([array])
+```
 
 The above request shows that we want to allocate 4 groups of tightly-coupled nodes, each group having 64 cores. The machine type in this case is a `c3.xlarge` which has 4 cores, so each group would be 16 nodes meaning that the total request is for 64 c3.xlarge instances. If you want to organize groups by instances instead of cores, you can use the `GroupInstanceCount` attribute. For example, the above request could be changed to use a `GroupInstanceCount` of 16 instead of a `GroupCoreCount` of 64. The end result is that 4 groups of 16 instances will be allocated. If multiple machine types are specified, a group will be created consisting of a single machine type, starting from the beginning of the list. For example, if c3.8xlarge, c3.4xlarge are both specified, groups will be made using c3.8xlarge until there is no more capacity at which time c3.4xlarge machines will be used to create groups.
 
@@ -171,19 +181,25 @@ receiving the request.
 
 ## Usage
 
-      GET <AUTOSTOP_URL>?instance=<INSTANCE_ID>
+``` CLI
+GET <AUTOSTOP_URL>?instance=<INSTANCE_ID>
+```
 
 There are two basic ways to capture the Auto-stop REST URL from a node in CycleCloud.
 
 From the shell or a cluster-init script, using Jetpack:
 
-      AUTOSTOP_URL = $( jetpack config cyclecloud.cluster.autoscale.stop_callback )
-      INSTANCE_ID  = $( jetpack config cyclecloud.instance.id )
+``` ini
+AUTOSTOP_URL = $( jetpack config cyclecloud.cluster.autoscale.stop_callback )
+INSTANCE_ID  = $( jetpack config cyclecloud.instance.id )
+```
 
 From Chef, in a custom recipe:
 
-      AUTOSTOP_URL = node[:cyclecloud][:cluster][:autoscale][:stop_callback]
-      INSTANCE_ID  = node[:cyclecloud][:instance][:id]
+``` Chef
+AUTOSTOP_URL = node[:cyclecloud][:cluster][:autoscale][:stop_callback]
+INSTANCE_ID  = node[:cyclecloud][:instance][:id]
+```
 
 ## Server-Side API
 

@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Return Proxy Enable | Microsoft Docs
+description: Enable Return Proxy for Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Enable Return Proxy
 
 Nodes in a cluster need to communicate with the Azure CycleCloud server to report status, as well as making API requests for auto-scaling and distributed synchronization. Both HTTPS and AMQP protocols are used with the default TCP ports (443 and 5672 respectively).
@@ -8,9 +20,11 @@ Azure CycleCloud currently only supports Linux VMs as a return proxy.
 
 To demarcate a node as the return proxy, add the following attributes to the node definition:
 
-    [[node proxy]]
-    IsReturnProxy = true  # access to CycleServer is proxied through this node
-    KeyPairLocation = ~/.ssh/custom-keypair.pem
+``` ini
+[[node proxy]]
+IsReturnProxy = true  # access to CycleServer is proxied through this node
+KeyPairLocation = ~/.ssh/custom-keypair.pem
+```
 
 - `IsReturnProxy` specifies that the node is the proxy. Only one node should be the designated proxy or the cluster will fail to start
 - `KeyPairLocation` determines the SSH private key used to start the SSH tunnel. This SSH connection is initiated with the `cyclecloud` user by default

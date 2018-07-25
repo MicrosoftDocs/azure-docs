@@ -1,8 +1,21 @@
+---
+title: Azure CycleCloud pogo Commands | Microsoft Docs
+description: Using Azure CycleCloud's pogo tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Using pogo
 
 The Pogo call structure is as follows:
 
-    pogo [options] <command> <source_url> [destination_url]
+``` CLI
+pogo [options] <command> <source_url> [destination_url]
+```
 
 ## Supported Commands
 
@@ -20,7 +33,9 @@ Pogo provides help output at the top level by running `pogo --help`. In
 addition, each of the supported commands has its own help output. For
 example:
 
-    pogo del --help
+``` CLI
+pogo del --help
+```
 
 gives usage information for the del (delete) command.
 
@@ -61,11 +76,14 @@ To upload a file, use `pogo put <filename> <URL>`. For example, to
 upload data.zip from the local directory to the data_backups
 directory:
 
-    pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups
+``` CLI
+pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups
+```
 
 To give the file a different name in Azure, append the desired name:
-
-    pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data-20150311.zip
+``` CLI
+pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data-20150311.zip
+```
 
 `pogo put` will recursively upload a directory with pogo put <directory>
 <URL>. The behavior is identical to the sync behavior described below.
@@ -82,12 +100,16 @@ To download a file, use `pogo get <URL> [<filename>]`. For example,
 to download /mycontainer/my/path/data_backups/data.zip to the local
 directory:
 
-    pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
+``` CLI
+pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
+```
 
 To save the file as data-download.zip, use the optional filename
 argument:
 
-    pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip
+``` CLI
+pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip
+```
 
 ## Synchronizing Directories
 
@@ -96,11 +118,15 @@ directory, use the `pogo sync` command. The source of the files is listed
 first, followed by the destination. To sync the data_backups directory
 from Azure to a local data_backups directory:
 
-    pogo sync http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/ data_backups
+``` CLI
+pogo sync http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/ data_backups
+```
 
 To sync the the local data_backups directory to Azure:
 
-    pogo sync data_backups http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
+``` CLI
+pogo sync data_backups http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
+```
 
 >[!Note]
 > `pogo sync` will not re-transfer unchanged objects.
@@ -111,12 +137,16 @@ To remove a file from a remote endpoint, use the pogo del command. For
 example, to remove the data.zip file from the data_backups directory in
 the /mycontainer/my/path/data_backups/ bucket:
 
-    pogo del http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
+``` CLI
+pogo del http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
+```
 
 To remove an entire directory, use the --recursive option. For example,
 to remove the data_backups directory in the /mycontainer/my/path/data_backups/ bucket:
 
-    pogo del --recursive http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
+``` CLI
+pogo del --recursive http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
+```
 
 ## Other pogo Commands
 
@@ -134,7 +164,9 @@ to remove the data_backups directory in the /mycontainer/my/path/data_backups/ b
 the local machine. The endpoints do not have to use the same credentials
 or be of the same type. The command syntax looks like `pogo [OPTIONS] cp [CP OPTIONS] <source> <destination>`. For example:
 
-    pogo --dryrun cp --recursive az://portal12345/my_container/ s3://com.example.pogo.quickstart/my_directory
+``` CLI
+pogo --dryrun cp --recursive s3://com.example.pogo.quickstart/my_directory az://portal12345/my_container/
+```
 
 The [OPTIONS] are zero or more of the general options described in the
 Options section above. [CP OPTIONS] are zero or more of the options
@@ -154,7 +186,9 @@ file using a browser or command line utility like curl. Generated URLs
 will be valid immediately after generation up until the duration
 specified with -d/--duration, or 600 seconds by default. For example:
 
-  pogo sign [OPTIONS] URL
+``` CLI
+pogo sign [OPTIONS] URL
+```
 
 ### sign options
 

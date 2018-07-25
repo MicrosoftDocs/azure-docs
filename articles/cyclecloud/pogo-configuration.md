@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud pogo Configuration | Microsoft Docs
+description: Configure Azure CycleCloud's pogo tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # pogo Configuration
 
 To use pogo, you need to configure one or more endpoints - remote
@@ -39,13 +51,15 @@ The common settings listed below apply to all types of endpoints.
 You can also add encryption keys to the pogo.ini. To specify a default
 key, add the key name and encryption mode as per the sample below:
 
-    [[encryptionkeys]]
-    ExampleKey = 7468697369736173616d706c656b6579
+``` pogo-ini
+[[encryptionkeys]]
+ExampleKey = 7468697369736173616d706c656b6579
 
-    [[pogo ExampleSection]]
-    type = az
-    encryption_mode = pogo
-    encryption_keyname = ExampleKey
+[[pogo ExampleSection]]
+type = az
+encryption_mode = pogo
+encryption_keyname = ExampleKey
+```
 
 Keys are in string hex format, and by default the system creates 128-bit
 keys. To use 192 or 256 bit keys, you will need the Java Cryptography
@@ -63,6 +77,7 @@ your own key(s).
 | application_id      | Your Azure Application ID, e.g. 77777777-7777-7777-7777-777777777777                                                                                                                                          |
 | application_secret  | Your Azure Application Secret, e.g. U3VjaCBhbiBpbnF1aXNpdGl2ZSBtaW5kIQ==                                                                                                                                      |
 | access_key          | The Azure storage account access key, e.g. Q29uZ3JhdHVsYXRpb25zISBZb3VyIGN1cmlvc2l0eSBrbm93cyBubyBib3VuZHMh                                                                                                   |
+| sas_token  | The full query string (SAS token) that would be appended to the end of a url including the question mark, e.g. ?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2018-02-01T00:00:00Z&st=2018-01-01T00:00:00Z&spr=https&sig= YSBmYWtlIHNhcyB0b2tlbiBmb3IgdGhpcyBkb2MgICA%3D                                                                                                                                   |
 
 >[!Note]
 >There are four different configurations for Azure credentials:
@@ -95,9 +110,11 @@ Valid Azure Credentials
 Attributes that apply to file system endpoints only can be added as a
 `[pogo default-fs]` section such as:
 
-    [pogo default-fs]
-      type = fs
-      follow_links = true
+``` pogo-ini
+[pogo default-fs]
+  type = fs
+  follow_links = true
+```
 
 If `follow_links` attribute = true, listing or copying from a file
 system will include or transverse into symbolic links.

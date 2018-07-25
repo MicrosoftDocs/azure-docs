@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Storage - Blobs and Lockers | Microsoft Docs
+description: Project and User Blobs for storage within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Blobs and Lockers
 
 Azure CycleCloud supports blobs for project use.
@@ -12,8 +24,10 @@ Project Blobs are binary files provided by the author of the project with the as
 
 To add blobs to projects, add the file(s) to your **project.ini**:
 
-    [[blobs optionalname]]
-      Files = projectblob1.tgz, projectblob2.tgz, projectblob3.tgz
+``` ini
+[[blobs optionalname]]
+Files = projectblob1.tgz, projectblob2.tgz, projectblob3.tgz
+```
 
 Multiple blobs can be separated by a comma. You can also specify the relative path to the project's blob directory.
 

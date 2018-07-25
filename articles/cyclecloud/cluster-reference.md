@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud AutoScale | Microsoft Docs
-description: Autoscaling within Azure CycleCloud.
+title: Azure CycleCloud Cluster Reference | Microsoft Docs
+description: Using Clusters with Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud

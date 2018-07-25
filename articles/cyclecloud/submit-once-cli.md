@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Submit Once CLI | Microsoft Docs
+description: Use the Submit Once Command Line Interface in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Submit Once Command Line Interface
 
 The SubmitOnce CLI is distributed as a single executable named "submitonce" and a set of Grid Engine
@@ -14,28 +26,38 @@ counterparts, listed below:
 Each line of ouput from these scripts will generally be prefixed with a corresponding cluster name.
 For example:
 
-    $ cstat
-    external > [output from a cluster named "external"]
-    internal > [output from a cluster named "internal"]
+``` script
+$ cstat
+external > [output from a cluster named "external"]
+internal > [output from a cluster named "internal"]
+```
 
 Note that each wrapper script corresponds to the first argument of the 'submitonce' command, so:
 
-    cstat -c external
+``` script
+cstat -c external
+```
 
 is the same as calling:
 
-    submitonce cstat -c external
+``` script
+submitonce cstat -c external
+```
 
 ## CLI Installation
 
 To install the SubmitOnce CLI, first unpack the tarball:
 
-    tar -xzvf submitonce-2.4.0.linux64.tar.gz
+``` CLI
+tar -xzvf submitonce-2.4.0.linux64.tar.gz
+```
 
 then make sure that the bin directory is on your $PATH. One way to do this would be to edit
 `.bash_profile` in your home directory and add a line like this:
 
-    export PATH=$PATH:/path/to/submitonce-2.4.0/bin
+``` bash
+export PATH=$PATH:/path/to/submitonce-2.4.0/bin
+```
 
 ## CLI Configuration
 
@@ -48,7 +70,9 @@ to `http://localhost:8080`.
 
 The configure the SubmitOnce CLI for the first time, you should run the "initialize" command:
 
-    $ submitonce initialize
+``` CLI
+$ submitonce initialize
+```
 
 This will ask you a set of questions to configure connectivity to SubmitOnce and the various
 clusters in your environment. This creates a file "~/.cycle/config.ini" which you may edit in the
@@ -75,17 +99,21 @@ the remote cluster. This sync process is performed automatically using the rsync
 file typically stored at `~/.cycle/config.ini`. Below is an example of how to add additional
 rsync options to all transfers::
 
-    [submitonce]
-    homecluster = home
-    allow_local_failback = no
-    rsync_options = --copy-links --copy-dirlinks --keep-dirlinks
+``` config-ini
+[submitonce]
+homecluster = home
+allow_local_failback = no
+rsync_options = --copy-links --copy-dirlinks --keep-dirlinks
+```
 
 ## Adding Clusters to SubmitOnce
 
 To submit work to clusters via SubmitOnce, the clusters must be configured via either the GUI or
 the CLI. To configure a cluster from the CLI, use the `add_cluster` command:
 
-    $ submitonce add_cluster CLUSTER_NAME
+``` CLI
+$ submitonce add_cluster CLUSTER_NAME
+```
 
 The `add_cluster` command will prompt you for all the information that SubmitOnce requires to use
 the cluster.

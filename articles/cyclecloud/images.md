@@ -1,22 +1,40 @@
+---
+title: Azure CycleCloud Images | Microsoft Docs
+description: Attach and manage images within Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Images
 
 Azure CycleCloud ships with support for standard operating systems. You can specify the image with `Image`:
 
-    [[node defaults]]
-    Image = Cycle Windows 2016
+``` ini
+[[node defaults]]
+Image = Cycle Windows 2016
+```
 
 You can also specify by `ImageName`:
 
-    [[node defaults]]
-    ImageName = cycle.image.win2016
+``` ini
+[[node defaults]]
+ImageName = cycle.image.win2016
+```
 
 Finally, you can always select a specific image by `ImageId` or `ImageUrl`:
 
-    [[node defaults]]
-    ImageId = order66
+``` ini
+[[node defaults]]
+ImageId = order66
 
-    [[node defaults]]
-    ImageUrl = http://cloud-provider/path/to/custom-image
+[[node defaults]]
+ImageUrl = http://cloud-provider/path/to/custom-image
+```
 
 CycleCloud automatically uses the latest released version of the image for the cloud provider and region that the instance is in.
 

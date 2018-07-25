@@ -1,3 +1,14 @@
+---
+title: Azure CycleCloud Data Transfer Options | Microsoft Docs
+description: Scheduled or recurring data transfers with Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
 # Transfer Data with Azure CycleCloud
 
 Azure CycleCloud supports both on-demand and scheduled data transfers between endpoints.
@@ -29,11 +40,9 @@ allow you to transfer files:
 * Scheduled: transfer once, at a set time
 * Recurring: transfer on a regular schedule
 
-If you wish to encrypt your data, you can import or create a new encryption key in the **Advanced** section
-of the Scheduler.
+If you wish to encrypt your data, you can import or create a new encryption key in the **Advanced** section of the Scheduler.
 
-Once your scheduled or recurring transfer has been created, click **Go** to schedule it. To view, edit, or delete
-your scheduled transfer(s), click the **Scheduled Transfers** tab at the bottom of the page.
+Once your scheduled or recurring transfer has been created, click **Go** to schedule it. To view, edit, or delete your scheduled transfer(s), click the **Scheduled Transfers** tab at the bottom of the page.
 
 ## Monitor Transfer Details
 
@@ -65,19 +74,25 @@ Azure CycleCloud's Data Management tool supports writing plugins that are execut
 
 The plugin function is provided with a record containing the details of the transfer event, such as FileName transferred, number of bytes transferred, number of files transferred, etc:
 
-      Implements = DataTransferStateListener
-      DataTransferStateListener := [States={"Transferring","Completed"}; FunctionName="handleTransferEvent"]
+``` plugin
+Implements = DataTransferStateListener
+DataTransferStateListener := [States={"Transferring","Completed"}; FunctionName="handleTransferEvent"]
+```
 
 An example plugin that implements the handleTransferEvent method:
 
-     from application import logger
+``` plugin
+from application import logger
 
-     def handleTransferEvent(record):
-        logger.info("Triggerring transfer event handler for %s" % record.getAsString("FileName"))
+def handleTransferEvent(record):
+  logger.info("Triggerring transfer event handler for %s" % record.getAsString("FileName"))
+```
 
 An example of the record that is sent to plugin method as an argument:
 
-     [ Bytes=1024.0; FileCount=1.0; FileName="dir1/file1001.txt"; State="Transferring" ]
+``` plugin
+[ Bytes=1024.0; FileCount=1.0; FileName="dir1/file1001.txt"; State="Transferring" ]
+```
 
 ## Advanced Settings
 

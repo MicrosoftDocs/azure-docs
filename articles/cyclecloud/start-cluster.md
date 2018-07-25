@@ -1,3 +1,15 @@
+---
+title: Starting a Cluster in Azure CycleCloud | Microsoft Docs
+description: Clusters and Cluster Status in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Start a Cluster
 
 Azure CycleCloud has predefined cluster types built into the software. Users can select parameters via the GUI to start a predefined cluster, or create their own in a text file and import it into Azure CycleCloud using the CLI.

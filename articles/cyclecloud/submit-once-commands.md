@@ -1,3 +1,15 @@
+---
+title: Azure CycleCloud Submit Once Command List | Microsoft Docs
+description: Commands you can use with Azure CycleCloud's Submit Once tool.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Submit Once Commands
 
 Below is a listing of available commands. Note that most of the Grid Engine specific commands (csub, cstat, etc.) take the same arguments and output the same information as their Grid Engine counterparts, but there are some important differences as highlighted below.
@@ -85,23 +97,29 @@ The following diagram shows the clusters used in the example.
 
 First let's try submitting a simple sleep job. On a node in the internal cluster, run the following commands:
 
-    $ mkdir -p ~/sleep
-    $ cd ~/sleep
-    $ touch sleep.sh
+``` CLI
+$ mkdir -p ~/sleep
+$ cd ~/sleep
+$ touch sleep.sh
+```
 
 The contents of sleep.sh should be:
 
-    #!/bin/bash
-    #$ -N sleep
+``` script
+#!/bin/bash
+#$ -N sleep
 
-    # Sleep for 5 minutes
-    /bin/sleep 300
+# Sleep for 5 minutes
+/bin/sleep 300
+```
 
 To submit the sleep job, execute the csub command:
 
-    $ csub sleep.sh
-    Submission ID: 116
-    Your job 11 ("sleep") has been submitted
+``` CLI
+$ csub sleep.sh
+Submission ID: 116
+Your job 11 ("sleep") has been submitted
+```
 
 You may view the status of your job using either the SubmitOnce submission ID or the regular Grid Engine job number:
 
@@ -127,42 +145,54 @@ Note that in either case, the output is prefixed by the cluster name (internal i
 
 If you want to know where your jobs will land before running csub, use the croute command:
 
-    # This job will go to the "internal" cluster
-    $ croute sleep.sh
-    internal
+``` CLI
+# This job will go to the "internal" cluster
+$ croute sleep.sh
+internal
+```
 
 Because this is only a single job, and there are 2 execute nodes (1 free slot each) in the internal cluster, that's where it will run. All things being equal, jobs will prefer to run locally due to the lack of file transfer time. Try submitting a task array of 100 and you'll see a different result:
 
-    $ croute -t 1-100 sleep.sh
-    external
+``` CLI
+$ croute -t 1-100 sleep.sh
+external
+```
 
 Because there are twice the number of free slots on the external cluster and there aren't enough slots to run the job locally, this job will run externally.
 
 Lastly, if you want to force the task array to run locally anyway, you can use the "-c targetcluster" option:
 
-    $ croute -t 1-100 -c "internal" sleep.sh
-    internal
+``` CLI
+$ croute -t 1-100 -c "internal" sleep.sh
+internal
+```
 
 ## Example #3: Deleting Jobs
 
 Using cdel, you can delete jobs across clusters without worrying about overlapping job ids. Let's submit a new task array then delete it:
 
-    $ csub -t 1-4 sleep.sh
-    Submission ID: 353
-    Your job-array 8.1-4:1 ("sleep") has been submitted
+``` CLI
+$ csub -t 1-4 sleep.sh
+Submission ID: 353
+Your job-array 8.1-4:1 ("sleep") has been submitted
+```
 
 The first line of output gives the SubmitOnce submission ID, which you can use to delete jobs across clusters:
 
-    $ cdel -cid 353
-    external > cluster.user has registered the job-array task 8.1 for deletion
-    external > cluster.user has registered the job-array task 8.2 for deletion
-    external > cluster.user has registered the job-array task 8.3 for deletion
-    external > cluster.user has registered the job-array task 8.4 for deletion
+``` CLI
+$ cdel -cid 353
+external > cluster.user has registered the job-array task 8.1 for deletion
+external > cluster.user has registered the job-array task 8.2 for deletion
+external > cluster.user has registered the job-array task 8.3 for deletion
+external > cluster.user has registered the job-array task 8.4 for deletion
+```
 
 Alternatively, you can delete the jobs by their Grid Engine job numbers using the -c flag to specify the cluster to delete from:
 
-    $ cdel -c external -j 8
-    external > cluster.user has registered the job-array task 8.1 for deletion
-    external > cluster.user has registered the job-array task 8.2 for deletion
-    external > cluster.user has registered the job-array task 8.3 for deletion
-    external > cluster.user has registered the job-array task 8.4 for deletion
+``` CLI
+$ cdel -c external -j 8
+external > cluster.user has registered the job-array task 8.1 for deletion
+external > cluster.user has registered the job-array task 8.2 for deletion
+external > cluster.user has registered the job-array task 8.3 for deletion
+external > cluster.user has registered the job-array task 8.4 for deletion
+```

@@ -1,3 +1,15 @@
+---
+title: Endpoint Creation in Azure CycleCloud | Microsoft Docs
+description: Manage data endpoints in Azure CycleCloud.
+services: azure cyclecloud
+author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2018
+ms.author: a-kiwels
+---
+
 # Endpoint Creation
 
 Endpoints are logical connections to storage providers and can be any of the following:
@@ -41,7 +53,7 @@ Click the **+** to generate a new line, then enter the path. Click **Save** to c
 | SSH User                                                                      | Remote login name                                                         |
 | Credential                                                                    | The SSH keypair to use when logging into a remote host                    |
 | SSH Port                                                                      | Port for connections via SSH                                              |
-| [pogo](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview) path | Path to the pogo executable on the remote host                            |
+| [pogo](pogo-overview.md) path | Path to the pogo executable on the remote host                            |
 
 ## Adding Cloud Provider Credentials
 
