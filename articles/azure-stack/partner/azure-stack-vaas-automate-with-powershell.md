@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/24/2018
