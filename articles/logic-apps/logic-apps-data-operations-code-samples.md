@@ -17,12 +17,12 @@ ms.suite: integration
 
 # Data operation code samples for Azure Logic Apps
 
-If you prefer to work with a logic app's underlying definition, 
-here are the code samples for the data operation actions in the 
-article for [how to perform data operations](../logic-apps/logic-apps-perform-data-operations.md). 
+Here are the code samples for the data operation actions in the article, 
+[Perform data operations](../logic-apps/logic-apps-perform-data-operations.md) 
+for when you're working with a logic app's underlying definition. 
 To try these examples with your own logic app, Azure subscription, 
-and API connections, you can copy and paste these action definitions 
-into your logic app's workflow definition through the code view editor. 
+and API connections, copy and paste these action definitions into 
+your logic app's workflow definition through the code view editor. 
 
 Based on JavaScript Object Notation (JSON) standards, 
 these action definitions appear in alphabetical order, 
@@ -32,7 +32,7 @@ action definition's `runAfter` property specifies the run order.
 
 <a name="compose-action-example"></a>
 
-## Compose action definition example
+## Compose
 
 To try the [**Compose** action example](../logic-apps/logic-apps-perform-data-operations.md#compose-action), 
 here are the action definitions you can use:
@@ -103,7 +103,7 @@ here are the action definitions you can use:
 
 <a name="create-csv-table-action-example"></a>
 
-## Create CSV table action definition example
+## Create CSV table
 
 To try the [**Create CSV table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), 
 here are the action definitions you can use:
@@ -149,7 +149,7 @@ here are the action definitions you can use:
 
 <a name="create-html-table-action-example"></a>
 
-## Create HTML table action definition example
+## Create HTML table
 
 To try the [**Create HTML table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), 
 here are the action definitions you can use:
@@ -195,7 +195,7 @@ here are the action definitions you can use:
 
 <a name="filter-action-example"></a>
 
-## Filter array action definition example
+## Filter array
 
 To try the [**Filter array** action example](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), 
 here are the action definitions you can use:
@@ -237,7 +237,7 @@ here are the action definitions you can use:
 
 <a name="join-action-example"></a>
 
-## Join action definition example
+## Join
 
 To try the [**Join** action example](../logic-apps/logic-apps-perform-data-operations.md#join-action), 
 here are the action definitions you can use:
@@ -279,7 +279,7 @@ here are the action definitions you can use:
 
 <a name="parse-json-action-example"></a>
 
-## Parse JSON action definition example
+## Parse JSON
 
 To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), 
 here are the action definitions you can use:
@@ -339,7 +339,7 @@ here are the action definitions you can use:
 
 <a name="select-action-example"></a>
 
-## Select action definition example
+## Select
 
 To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), 
 here are the action definitions you can use:
