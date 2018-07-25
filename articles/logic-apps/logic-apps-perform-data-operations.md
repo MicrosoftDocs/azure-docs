@@ -108,7 +108,7 @@ To try an example, follow these steps by using the Logic App Designer.
 Or, if you prefer working in the code view editor, you can copy the 
 example **Compose** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-examples.md#compose-action-example) 
+[Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -191,7 +191,7 @@ the resulting table in actions that follow the **Create CSV table** action.
 If you prefer working in the code view editor, you can copy the 
 example **Create CSV table** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Create CSV table](../logic-apps/logic-apps-data-operations-code-examples.md#create-csv-table-action-example) 
+[Data operation code examples - Create CSV table](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -286,7 +286,7 @@ follow the **Create HTML table** action.
 If you prefer working in the code view editor, you can copy the 
 example **Create HTML table** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Create HTML table](../logic-apps/logic-apps-data-operations-code-examples.md#create-html-table-action-example) 
+[Data operation code examples - Create HTML table](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -393,7 +393,7 @@ You can then use the filtered array in actions that follow after the **Filter ar
 If you prefer working in the code view editor, you can copy the 
 example **Filter array** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-examples.md#filter-array-action-example) 
+[Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -492,7 +492,7 @@ the string in actions that follow after the **Join** action.
 If you prefer working in the code view editor, you can copy the 
 example **Join** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-examples.md#join-action-example) 
+[Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -582,7 +582,7 @@ or generate a JSON schema from your sample JSON content or payload.
 If you prefer working in the code view editor, you can copy the 
 example **Parse JSON** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-examples.md#parse-json-action-example) 
+[Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -692,7 +692,7 @@ always has the same number of items as the source array.
 If you prefer working in the code view editor, you can copy the 
 example **Select** and **Initialize variable** action definitions 
 from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-examples.md#select-action-example) 
+[Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
