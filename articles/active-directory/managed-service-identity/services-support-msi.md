@@ -13,7 +13,7 @@ manager: mtillman
 
 # Services that support Managed Service Identity 
 
-Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating MSI and Azure AD authentication across Azure. Check back often for updates.
+Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating Managed Service Identity and Azure AD authentication across Azure. Check back often for updates.
 
 ## Azure services that support Managed Service Identity
 
