@@ -242,7 +242,7 @@ Use patterns to make the correct intent's score significantly higher in percenta
 
     The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
     
-    Entities with roles use syntax that includes the role name,  , and are covered in a [separate tutorial for roles](luis-tutorial-pattern-roles.md). 
+    Entities with roles use syntax that includes the role name, and are covered in a [separate tutorial for roles](luis-tutorial-pattern-roles.md). 
 
     The optional syntax, `[]`, marks words or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
@@ -414,7 +414,7 @@ Example template utterances:
 
 4. Select **Test** at the top of the panel to open the testing panel. 
 
-5. Enter several test utterances to verify that the pattern is matched and the intent score is significanly high. 
+5. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high. 
 
     After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results.
 
