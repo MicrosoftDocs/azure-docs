@@ -193,7 +193,7 @@ here are the action definitions you can use:
 },
 ```
 
-<a name="filter-action-example"></a>
+<a name="filter-array-action-example"></a>
 
 ## Filter array
 
