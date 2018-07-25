@@ -51,10 +51,10 @@ An image's *tag* specifies its version. A single image within a repository can b
 
 The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
 
-In the case of a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the image in the 'test' namespace in the previous section would be:
+In a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the first image in the 'marketing' namespace in the previous section would be:
 
 ```
-myregistry.azurecr.io/acr-helloworld/test:v3
+myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
 For a discussion on image tagging best practices, see the [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] blog post on MSDN.
@@ -261,7 +261,7 @@ Use the following sample scripts with caution--deleted image data is UNRECOVERAB
 The following Bash script deletes all untagged images from a repository. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
-> If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
+> If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -289,10 +289,10 @@ fi
 
 **Azure CLI in PowerShell**
 
-The following PowerShell script deletes all untagged images from a repository. It requires the PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `$TRUE` to enable image deletion.
+The following PowerShell script deletes all untagged images from a repository. It requires PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `$TRUE` to enable image deletion.
 
 > [!WARNING]
-> If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
+> If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!
