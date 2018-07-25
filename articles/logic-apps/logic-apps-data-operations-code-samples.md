@@ -1,4 +1,4 @@
--
+---
 # required metadata
 title: Data operation samples - Azure Logic Apps | Microsoft Docs
 description: Code samples for data operation action definitions in Azure Logic Apps
