@@ -121,12 +121,12 @@
       href: batch-efficient-list-queries.md
   - name: Use scripting tools
     items:
-    - name: Use PowerShell cmdlets
+    - name: Use Azure PowerShell
       href: batch-powershell-cmdlets-get-started.md
     - name: Use Azure CLI
       href: batch-cli-get-started.md
       items:
-      - name: Use Azure CLI templates
+      - name: Use Batch CLI templates 
         href: batch-cli-templates.md
   - name: Use Batch Node.js SDK
     href: batch-nodejs-get-started.md
