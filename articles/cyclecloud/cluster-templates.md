@@ -188,6 +188,10 @@ The value of `Attribute1` would be the number `456`, but the value of `Attribute
 
 `Attribute3` would look for the parameter named `param789`, but Attribute4 would use the value of `param` to get `"123456789"`.
 
+## Machine Types
+
+Azure CycleCloud supports multiple machine types via the `MachineType` attribute. It will attempt to acquire capacity in the order listed.
+
 ## Cluster Init Specs
 
 The Azure CycleCloud web application allows users to select cluster-init project specs when creating a new cluster. The project specs are set up within the cluster template:
