@@ -126,7 +126,7 @@
       href: pogo-configuration.md
     - name: Using pogo
       href: pogo-guide.md
-  - name: Auto-Scale
+  - name: Auto Scale
     href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
