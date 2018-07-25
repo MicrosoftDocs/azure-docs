@@ -94,7 +94,7 @@ Here is how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter number, or an underscore (_)</li><li>•	Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
