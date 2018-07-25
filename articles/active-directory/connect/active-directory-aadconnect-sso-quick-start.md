@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -43,6 +43,8 @@ Ensure that the following prerequisites are in place:
     * Contains users you want to enable for Seamless SSO.
     
 * **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
+
+* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), you need versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
