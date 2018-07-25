@@ -39,7 +39,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 First, create a resource group to contain the DNS zone: 
 
-```Azure powershell
+```powershell
 New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
@@ -49,7 +49,7 @@ A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet with a value of *
 
 Note that if the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
 
-```Azure powershell
+```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
@@ -72,13 +72,13 @@ If you wanted to create a zone just for name resolution (no automatic hostname c
 
 By omitting the zone name from `Get-AzureRmDnsZone`, you can enumerate all zones in a resource group. This operation returns an array of zone objects.
 
-```Azure powershell
+```powershell
 Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
 By omitting both the zone name and the resource group name from `Get-AzureRmDnsZone`, you can enumerate all zones in the Azure subscription.
 
-```Azure powershell
+```powershell
 Get-AzureRmDnsZone
 ```
 
@@ -86,7 +86,7 @@ Get-AzureRmDnsZone
 
 Now, create two virtual machines so you can test your private DNS zone:
 
-```Azure PowerShell
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM01" `
@@ -112,7 +112,7 @@ This will take a few minutes to complete.
 
 You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
 
-```Azure powershell
+```powershell
 New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
    -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
@@ -122,7 +122,7 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 
 To list the DNS records in your zone, run:
 
-```Azure powershell
+```powershell
 Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
 Remember, you won't see the automatically created A records for your two test virtual machines.
@@ -138,7 +138,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 1. Connect to myVM01, and open a Windows PowerShell window with administrator privileges.
 2. Run the following command:
 
-   ```Windows PowerShell
+   ```powershell
    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
    ```
 
