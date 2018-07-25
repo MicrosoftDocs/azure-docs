@@ -16,6 +16,8 @@ ms.author: juliako
 
 This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
+To estimate how long it will take to index your video, use the following formula: 15 min + 1.5 x  video duration / 1 hour.
+
 ## Configurations and params
 
 This section describes some of the optional parameters and when you would want to set them.
@@ -33,6 +35,14 @@ Use this parameter if raw or external recordings contain background noise. This 
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
 
 Price depends on the selected indexing option.  
+
+### callbackUrl
+
+A url to notify when indexing is completed. It should be a POST url and VideoIndexer will add 2 additional query string parameters to it: id and state.
+
+For example, if the callback url is 'https://test.com/notifyme?projectName=MyProject', the notification will be sent with additional parameters to 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+You can also add more parameters to the url before POSTing the call to VI and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the VI supplied info.) 
 
 ### streamingPereset
 
