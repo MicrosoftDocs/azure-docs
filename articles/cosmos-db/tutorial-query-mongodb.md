@@ -26,7 +26,7 @@ This article covers the following tasks:
 
 You can get started by watching this video with Azure Cosmos DB Program Manager Andy Hoh about querying MongoDB:
 
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+> [!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## Sample document
 
