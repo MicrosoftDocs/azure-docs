@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
 ---
 
@@ -58,8 +58,6 @@ Requirements for batch testing:
 
 1. Select **Test** in the top navigation bar. 
 
-    [ ![Screenshot of LUIS app with Test highlighted in top, right navigation bar](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Select **Batch testing panel** in the right-side panel. 
 
     [ ![Screenshot of LUIS app with Batch test panel highlighted](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
@@ -75,8 +73,6 @@ Requirements for batch testing:
     ![Select file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Select the **Run** button. Wait until the test is done.
-
-    [ ![Screenshot of LUIS app with Run highlighted](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Select **See results**.
 
@@ -114,13 +110,10 @@ You might also wonder about removing utterances from **ApplyForJob** until the u
 The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` and `apply` toward the **ApplyForJob** intent. 
 
 ### Add more utterances to **GetJobInformation**
+
 1. Close the batch test panel by selecting the **Test** button in the top navigation panel. 
 
-    [ ![Screenshot of LUIS with Test button highlighted](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. Select **GetJobInformation** from the intents list. 
-
-    [ ![Screenshot of LUIS with Test button highlighted](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume`, `c.v.`, and `apply`:
 
@@ -147,6 +140,7 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
 4. Train the app by selecting **Train** in the top right navigation.
 
 ## Verify the fix worked
+
 In order to verify that the utterances in the batch test are correctly predicted, run the batch test again.
 
 1. Select **Test** in the top navigation bar. If the batch results are still open, select **Back to list**.  
@@ -158,6 +152,7 @@ In order to verify that the utterances in the batch test are correctly predicted
     ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## Create batch file with entities 
+
 In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
 The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
@@ -188,11 +183,10 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 6. Select the **Run** button. Wait until the test is done.
 
-    [ ![Screenshot of LUIS app with Run highlighted](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Select **See results**.
 
 ## Review entity batch results
+
 The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
 
 1. Select the **Job** entity in the filter.
