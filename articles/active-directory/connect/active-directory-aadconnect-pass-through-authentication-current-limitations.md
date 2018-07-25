@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -30,7 +30,7 @@ The following scenarios are supported:
 - User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, EAS, SMTP, POP and IMAP.
 - User sign-ins to legacy Office client applications and Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2010, 2013 and 2016 versions.
 - User sign-ins to legacy protocol applications such as PowerShell version 1.0 and others.
-- Azure AD domain joins for Windows 10 devices.
+- Azure AD joins for Windows 10 devices.
 - App passwords for Multi-Factor Authentication.
 
 ## Unsupported scenarios
