@@ -211,9 +211,7 @@ definition later for *policyDefB* with goals similar to that of *policyDefA*, yo
 *initiativeDefC* and track them better that way.
 - Keep in mind that once you have created an initiative assignment from an initiative definition,
 any new policy definitions added to the initiative definition automatically roll under the
-initiative assignment(s) under that initiative definition. However, if there’s a new parameter
-introduced to the new policy definition, you need to update the initiative definition and
-assignments by editing the initiative definition or assignment.
+initiative assignment(s) under that initiative definition.
 - Once an initiative assignment is triggered, all policies within the initiative will be triggered
 as well. However, if you needed to execute a policy individually, it is better to not include it in
 an initiative.
