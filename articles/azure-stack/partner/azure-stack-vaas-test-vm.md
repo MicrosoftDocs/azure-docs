@@ -8,10 +8,10 @@ manager: femila
 
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/11/2018
+ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -78,7 +78,7 @@ Azure Stack is the system under test. The machine should not be part of Azure St
     | aadServiceAdminUser | The global admin user for your Azure AD tenant. For example it may be, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | The password for the global admin user. |
     | AadTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
-    | ExternalFqdn | `Need info on how to get this.` |
+    | ExternalFqdn | You can get the fully qualified domain name from the configuration file. For instruction, see [Test parameters for validation as a service Azure Stack](azure-stack-vaas-parameters-test.md). |
     | Region | The region of your Azure AD tenant. |
 
 The command downloads a public image repository (PIR) image (OS VHD) and copy from an Azure blob storage to your Azure Stack storage. 
