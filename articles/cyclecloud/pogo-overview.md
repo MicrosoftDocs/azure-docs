@@ -47,27 +47,4 @@ For pogo, you will need to have the following:
 
 ## pogo Installation
 
-To install pogo, follow the instructions for your operating system.
-
-### Linux (64-bit)
-
-  - Download the provided tarball and extract it: tar xf
-    pogo-cli-version.linux64.tar.gz
-  - (optional) Copy the pogo executable to /usr/local/bin or another
-    location within your PATH environment variable. The rest of this
-    guide assumes the executable is in your PATH.
-
-### Windows (64-bit)
-
-  - Download the provided zip file and extract it.
-  - (optional) Copy the pogo executable to a location within the Windows
-    PATH environment variable. The rest of this guide assumes the
-    executable is in your current working directory or in the PATH.
-
-### Other Operating Systems
-
-  - Download the provided tarball
-  - Install with pip: pip install pogo-cli.tar.gz
-
->[!Note]
-> Installation with pip may require root/Administrator privileges.
+pogo is installed along with the [CycleCloud CLI](install-cyclecloud-cli.md). 

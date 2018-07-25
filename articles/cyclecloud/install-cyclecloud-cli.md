@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Install Azure CycleCloud CLI
 
-The Azure CycleCloud Command Line Interface (CLI) provides console access to the CycleCloud application, making functions seen in the GUI available from the command line. It can be used to control CycleCloud and CycleCloud Clusters directly or via script.
+The Azure CycleCloud Command Line Interface (CLI) provides console access to the CycleCloud application, making functions seen in the GUI available from the command line. It can be used to control CycleCloud and CycleCloud Clusters directly or via script. CycleCloud's [pogo tool](pogo-overview.md) is packaged with the CLI, and will be installed at the same time.
 
 ## Pre-Requisites
 
@@ -20,7 +20,7 @@ The CycleCloud CLI requires an existing installation of Python 2.7. While most L
 
 ## CycleCloud CLI Installer File
 
-The CLI installer is distributed as part of the CycleCloud installation package and can be found in the `cycle_server/cli/` sub-directory. After installing CycleCloud, the CLI installer is also available in the `tools/` sub-directory of the CycleCloud installation directory, and from the About page.
+The CLI installer is distributed as part of the CycleCloud installation package and can be found in the `cycle_server/tools/` sub-directory. After installing CycleCloud, the CLI installer is also available in the `tools/` sub-directory of the CycleCloud installation directory, and from the About page.
 
 ## CycleCloud CLI Installation for Linux
 
