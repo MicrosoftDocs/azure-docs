@@ -2032,7 +2032,12 @@
         },
         {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
-            "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
+            "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/xplat-cli-azure-resource-manager.md",
+            "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
             "redirect_document_id": false
         },
         {
