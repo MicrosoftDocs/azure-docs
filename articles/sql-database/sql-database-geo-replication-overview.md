@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -101,10 +101,6 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 
 * **Multiple failover groups**: You can configure multiple failover groups for the same pair of servers to control the scale of failovers. Each group fails over independently. If your multi-tenant application uses elastic pools, you can use this capability to mix primary and secondary databases in each pool. This way you can reduce the impact of an outage to only half of the tenants.
 
-> [!IMPORTANT]
-> Failover Groups configured with an automatic failover policy are currently not supported on servers configured with [virtual network rules](sql-database-vnet-service-endpoint-rule-overview). Configure the failover group with manual failover policy.
->
-
 ## Best practices of building highly available service
 
 To build a highly available service that uses Azure SQL database, you should follow these guidelines:
@@ -117,6 +113,40 @@ To build a highly available service that uses Azure SQL database, you should fol
 
 > [!IMPORTANT]
 > Elastic pools with 800 or less DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
+
+## Failover groups and network security 
+
+For some applications the security rules require that the network access to the data tier is restricted to specific components such as specific VMs, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. You should consider the following options when implementing such restricted access.
+
+### Using failover groups and virtual network rules
+
+If you are using [Virtual Network service endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL database, be aware that Each Virtual Network service endpoint applies to only one Azure region. The endpoint does not enable other regions to accept communication from the subnet. Since the failover results in the SQL client sessions being rerouted to the server in the different (secondary) region, these sessions will fail if originated from a client outside of that region. For that reason, the automatic failover policy cannot be enabled if the participating servers are included in the Virtual Network rules. To support manual failover, follow these steps:
+
+1.	Provision the redundant copies of the front end components of your application (web service, virtual machines etc.) in the secondary region
+2.	Configure the [virtual network rules](sql-database-vnet-service-endpoint-rule-overview) individually for primary and secondary server
+3.	Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+4.	Initiate manual failover when the outage is detected
+
+This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage. 
+
+### Using failover groups and SQL database firewall rules
+
+If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules.  To support automatic failover, follow these steps:
+
+1.	[Create a public IP](./virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 
+2.	[Create a public load balancer](./load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) and assign the public IP to it. 
+3.	[Create a virtual network and the virtual machines](./load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) for your front-end components 
+4.	[Create network security group](./virtual-network/security-overview.md) and configure inbound connections. 
+5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](./virtual-network/security-overview.md#service-tags). 
+5.	Create a [SQL database firewall rule](sql-database-firewall-configure.md) to allow inbound traffic from the public IP address you create in step 1. 
+
+For more information about on how to configure outbound access and what IP to use in the firewall rules,see [Load balancer outbound connections](./load-balancer/load-balancer-outbound-connections.md).
+
+The above configuration will ensure that the automatic failover will not block connections from the front-end components and assumes that the application can tolerate the longer latency between the front end and the data tier.
+
+> [!IMPORTANT]
+> To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases. 
+>
 
 ## Upgrading or downgrading a primary database
 You can upgrade or downgrade a primary database to a different performance level (within the same service tier) without disconnecting any secondary databases. When upgrading, we recommend that you upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: downgrade the primary first, and then downgrade the secondary. When you upgrade or downgrade the database to a different service tier, this recommendation is enforced. 
