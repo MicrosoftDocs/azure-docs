@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 The Azure IoT Edge Security Manager (ESM) is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. It is the focal point for security hardening and provides Original Device Manufacturers (OEM) the opportunity to harden their devices based on their choice of hardware root of trust or Hardware Secure Modules (HSM).
 
-![IoT Edge security manager](../media/iot-edge-security-manager.png "Azure IoT Edge Security Manager")
+![IoT Edge security manager](media/iot-edge-security-manager.png "Azure IoT Edge Security Manager")
 
 ESM aims to defend the interity of the IoT Edge device and all inherent software operations.  It does so by transitioning trust from an underlying hardware root of trust where available to securely boostrap the Edge runtime to a trusted operational state, and then continue to monitor the integrity of operations within the device.  The IoT Edge Security Manager in essence comprises software working in conjunction with secure silicon hardware where available and enabled to help deliver the highest security assurances possible.  
 
@@ -65,7 +65,7 @@ Another core principle for the Edge Security Daemon is to minimize churn.  For t
 
 ### Architecture of IoT Edge Security Daemon
 
-![IoT Edge security daemon](../media/iot-edge-security-daemon.png "Azure IoT Edge Security Daemon")
+![IoT Edge security daemon](media/iot-edge-security-daemon.png "Azure IoT Edge Security Daemon")
 
 The IoT Edge Security Daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  Moreso, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technology that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge Security Daemon are role specific interfaces  to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and it's operations.
 
@@ -115,10 +115,11 @@ One major goal of the IoT Edge Security Manager is to identity and isolate the c
 
 ## Next steps
 
-Read the blog on [Securing the intelligent edge](https://azure.microsoft.com/en-us/blog/securing-the-intelligent-edge/)
-Create and provision an Edge device with a [virtual TPM on a Linux virtual machine](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-linux).
-Create and provision a [simulated TPM Edge device on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-windows).
+Read the blog on [Securing the intelligent edge](https://azure.microsoft.com/en-us/blog/securing-the-intelligent-edge/).
 
+Create and provision an Edge device with a [virtual TPM on a Linux virtual machine](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-linux).
+
+Create and provision a [simulated TPM Edge device on Windows](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-windows).
 
 <!-- Links -->
 [lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 
