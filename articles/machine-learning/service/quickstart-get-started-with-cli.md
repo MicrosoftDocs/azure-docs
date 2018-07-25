@@ -129,4 +129,4 @@ You have now created the necessary resources to start experimenting and deployin
 For an in-depth workflow experience, follow the Azure Machine Learning tutorial on building, training, and deploying a model.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
+> [Tutorial: Build, train, and deploy](tutorial-train-models-with-aml.md)

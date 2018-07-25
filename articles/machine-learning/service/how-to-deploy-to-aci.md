@@ -25,9 +25,9 @@ When you're ready to use your models and web services for high-scale, production
 
 - An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
 
-- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md).  
+- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  
 
-While the [tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) shows deployment, this article shows a more advanced approach that gives you more control over model versions and Docker image versions.  
+While the [tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over model versions and Docker image versions.  
 
 ## Install libraries and initialize your workspace
 

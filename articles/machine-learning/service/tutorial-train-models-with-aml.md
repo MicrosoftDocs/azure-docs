@@ -12,7 +12,7 @@ ms.reviewer: jmartens
 ms.date: 7/27/2018
 ---
 
-# Tutorial: Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow
+# Tutorial #1: Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow
 
 In this tutorial, you will train a simple deep neural network (DNN) using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and TensorFlow with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing number from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure. Deployment is covered in second part of this two part tutorial.
 
@@ -24,22 +24,24 @@ This tutorial is **part one of a two-part series**. In this tutorial, you walk t
 > * Train the model
 > * Submit a job to a target
 > * Review run histories and accuracy
-> * Test the model
-> * Deploy as a web service
+
+You'll learn how to select a model and deploy in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later.
 
 ## Prerequisites
 To complete this tutorial, you must have the following prerequisites.
 
-1. Get these assets and resources: 
-   - The Azure Machine Learning SDK for Python installed
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+1. The following resources and assets must be available:
    - [Python 3.5 or higher](https://www.python.org/) installed
    - A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html)
-   - An Azure Machine Learning Workspace named XYZ 
-   - A local project directory named XYZ
+   - The Azure Machine Learning SDK for Python installed
+   - An Azure Machine Learning Workspace named docs-ws 
+   - A local project directory named docs-prj
 
-   Learn how to get these prerequisites using the [Quickstart: Get started with Azure Machine Learning Services](quickstart-get-started.md).
+   If these are not yet created or installed, then learn how to get these prerequisites in the [Get started with Azure Machine Learning Services](quickstart-get-started.md).
 
-1. Install these package dependencies (tensorflow, matplotlib, and numpy) in the conda environment where Azure Machine Learning SDK is installed.
+1. The following package dependencies (tensorflow, matplotlib, and numpy) must be installed in the conda environment where Azure Machine Learning SDK is installed.
    ```python
     conda install -y matplotlib tensorflow
 
@@ -53,13 +55,6 @@ To complete this tutorial, you must have the following prerequisites.
    ```
 
 ## Get sample data and notebook
-### Download the Jupyter notebook
-
-Download the Jupyter notebook to run this tutorial yourself.
-
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
-
 ### Download the sample data
 
 Download the MNIST dataset from Yan LeCun's web site directly and save the dataset in a local data folder called `tutorial-data`.    
@@ -111,14 +106,25 @@ plt.show()
 The output resembles the following image.
 ![png](media/tutorial-train-models-with-azure-machine-learning/explore-images.png)
 
+### Download the Jupyter notebook
+
+Download the Jupyter notebook to run the code in this tutorial yourself.
+
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
+
+
 ## Get the right workspace and project
 
-1. Get the right workspace and project @@@@@ HOW DO YOU DO THAT??
+1. what directory should i be in?
+1. load =the right workspace 
+1. Get the right project @@@@@ 
+1. HOW DO YOU DO THAT??
 
 
 ## Upload dataset to the default datastore 
 
-Upload the MNIST dataset to the default datastore in the Azure blob storage account created with your workspace.
+Upload the MNIST dataset to the default datastore in the Azure blob storage account. A blob storage account was created automatically when you created your workspace.
 
 ```python
 ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True)
@@ -140,32 +146,19 @@ batchai_cluster_name = "gpucluster"
 
 found = False
 
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if ct.name == batchai_cluster_name and type(ct) is BatchAiCompute:
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
-    print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+print('creating a new compute target...')
+provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            autoscale_enabled = True,
+                                                            cluster_min_nodes = 1, 
+                                                            cluster_max_nodes = 4)
 
-    # create the cluster
-    compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
+# create the cluster
+compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
+compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
     
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
-    
-     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
+# Show current status of Batch AI cluster using 'status' property
+print(compute_target.status.serialize())
 ```
 
 ## Clean up resources
@@ -176,8 +169,10 @@ if not found:
 
 In this Azure Machine Learning tutorial, you used Python to:
 > [!div class="checklist"]
-> * Train a model locally 
-> * Train a model on remote Data Science Virtual Machine (DSVM)
-> * Deploy and test a web service to Azure Container Instances
+> * Create a Batch AI cluster 
+> * Load data into the default blob storage
+> * Train a model locally
 
-@@WHat's next best to try out?
+You are ready to move on to the next part in the tutorial series, where you learn how to build an Azure Machine Learning model:
+> [!div class="nextstepaction"]
+> [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
