@@ -134,7 +134,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "compose" as your filter. 
-From the actions list, select this action: **Data Operations - Compose**
+From the actions list, select this action: **Compose**
 
    ![Select "Compose" action](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -218,7 +218,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create csv table" as your filter. 
-From the actions list, select this action: **Data Operations - Create CSV table**
+From the actions list, select this action: **Create CSV table**
 
    ![Select "Create CSV table" action](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -313,7 +313,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "create html table" as your filter. 
-From the actions list, select this action: **Data Operations - Create HTML table**
+From the actions list, select this action: **Create HTML table**
 
    ![Select "Create HTML table" action](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -425,7 +425,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "filter array" as your filter. 
-From the actions list, select this action: **Data Operations - Filter array**
+From the actions list, select this action: **Filter array**
 
    ![Select "Filter array" action](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -520,7 +520,7 @@ follow one of these steps:
 
 3. In the search box, enter "join" as your filter. 
 From the actions list, select this action: 
-**Data Operations - Join**
+**Join**
 
    ![Select "Data Operations - Join" action](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -609,7 +609,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "parse json" as your filter. 
-From the actions list, select this action: **Data Operations - Parse JSON**
+From the actions list, select this action: **Parse JSON**
 
    ![Select "Parse JSON" action](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -719,7 +719,7 @@ follow one of these steps:
    Choose the plus sign, and then select **Add an action**.
 
 3. In the search box, enter "select" as your filter. 
-From the actions list, select this action: **Data Operations - Select**
+From the actions list, select this action: **Select**
 
    ![Select the "Select" action](./media/logic-apps-perform-data-operations/select-select-action.png)
 
