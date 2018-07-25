@@ -129,18 +129,22 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 
 This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage. 
 
+> [!NOTE]
+> If you are using the **read-only listener** to load-balance a read-only workload make sure that this workload is executed in a VM or other resorce in the secondary region so it can connect to the secondary database.
+>
+
 ### Using failover groups and SQL database firewall rules
 
 If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules.  To support automatic failover, follow these steps:
 
-1.	[Create a public IP](./virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 
-2.	[Create a public load balancer](./load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) and assign the public IP to it. 
-3.	[Create a virtual network and the virtual machines](./load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) for your front-end components 
-4.	[Create network security group](./virtual-network/security-overview.md) and configure inbound connections. 
-5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](./virtual-network/security-overview.md#service-tags). 
+1.	[Create a public IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 
+2.	[Create a public load balancer](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) and assign the public IP to it. 
+3.	[Create a virtual network and the virtual machines](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) for your front-end components 
+4.	[Create network security group](../virtual-network/security-overview.md) and configure inbound connections. 
+5. Ensure that the outbound connections are open to Azure SQL database by using ‘Sql’ [service tag](../virtual-network/security-overview.md#service-tags). 
 5.	Create a [SQL database firewall rule](sql-database-firewall-configure.md) to allow inbound traffic from the public IP address you create in step 1. 
 
-For more information about on how to configure outbound access and what IP to use in the firewall rules,see [Load balancer outbound connections](./load-balancer/load-balancer-outbound-connections.md).
+For more information about on how to configure outbound access and what IP to use in the firewall rules,see [Load balancer outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 The above configuration will ensure that the automatic failover will not block connections from the front-end components and assumes that the application can tolerate the longer latency between the front end and the data tier.
 
