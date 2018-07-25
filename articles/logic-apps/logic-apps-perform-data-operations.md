@@ -17,18 +17,22 @@ ms.suite: integration
 
 # Perform data operations in Azure Logic Apps
 
-This article shows how you can work with data by adding 
-actions that perform tasks such as create tables from arrays, 
-create arrays from other arrays based on a condition, 
-create user-friendly tokens from JSON object properties 
-so you can more easily use those properties in your workflow, 
-and so on. If you don't find the action you want here, 
-try browsing the many [functions for manipulating data](../logic-apps/workflow-definition-language-functions-reference.md) 
-that Logic Apps provides.
+This article shows how you can work with data in your logic apps by 
+adding actions for these tasks and more:
 
-These tables summarize the data operation actions 
-based on the source data types they work on, 
-but the operation descriptions appear alphabetically.
+* Create tables from arrays.
+* Create arrays from other arrays based on a condition.
+* Create user-friendly tokens from JavaScript Object Notation (JSON) 
+object properties so you can easily use those properties in your workflow.
+
+If you don't find the action you want here, 
+try browsing the many various 
+[data manipulation functions](../logic-apps/workflow-definition-language-functions-reference.md) 
+that Logic Apps provides. 
+
+These tables summarize the data operations you can use 
+and are organized based on the source data types that 
+the operations work on, but each description appears alphabetically.
 
 **Array actions** 
 
@@ -72,18 +76,18 @@ To follow the examples in this article, you need these items:
 * A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 as the first step in your logic app 
 
-  Data operations are currently available only as actions. 
-  Before you can use these actions, your logic app 
-  must start with a trigger and include any other actions 
-  required for creating the outputs you want.
+  Data operations are available only as actions, 
+  so before you can use these actions, start your 
+  logic app with a trigger and include any other 
+  actions required for creating the outputs you want.
 
 <a name="compose-action"></a>
 
 ## Compose action
 
-To construct a single output, such as a JSON object, from multiple inputs, 
+To construct a single output such as a JSON object from multiple inputs, 
 you can use the **Data Operations - Compose** action. 
-These inputs can have various types, such as integers, 
+Your inputs can have various types such as integers, 
 Booleans, arrays, JSON objects, and any other native 
 type that Azure Logic Apps supports, for example, 
 binary and XML. You can then use the output in 
