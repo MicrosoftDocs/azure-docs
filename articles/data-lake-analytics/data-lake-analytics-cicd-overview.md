@@ -298,7 +298,7 @@ UploadResources
 
 Azure Data Lake Tools for Visual Studio provide U-SQL database project templates that help you develop, manage, and deploy U-SQL databases. Learn more about a [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
-## Build a U-SQL database project
+## <a name="build-a-U-SQL-database-project"></a> Build a U-SQL database project
 
 ### Get the NuGet package
 
@@ -357,7 +357,7 @@ Adding test cases for table-valued functions and stored procedures directly isn'
 2.	Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.	Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## Deploy a U-SQL database through Visual Studio Team Services
+## <a name="deploy-a-U-SQL-database-through-visual-studio-team-services"></a> Deploy a U-SQL database through Visual Studio Team Services
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help deploy U-SQL database deployment packages, **.usqldbpack**. The SDK is included in the [U-SQL SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at **build/runtime/PackageDeploymentTool.exe**. By using `PackageDeploymentTool.exe`, you can deploy U-SQL databases to both Azure Data Lake Analytics and local accounts.
 
