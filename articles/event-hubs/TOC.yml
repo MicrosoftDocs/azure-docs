@@ -26,6 +26,8 @@
   - name: Stream big data into a data warehouse
     href: ../event-grid/event-grid-event-hubs-integration.md
     maintainContext: true    
+  - name: Stream data into Azure Databricks using Event Hubs
+    href: ../azure-databricks/databricks-stream-from-eventhubs
   - name: Event Hubs for Kafka 
     items:
       - name: Kafka MirrorMaker with Event Hubs
