@@ -19,7 +19,7 @@ In this article, you learn how to create a C# console application for .NET Core 
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> .NET Core is an open-source, cross-platform .NET platform implementing the [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) specification.
+> .NET Core is an open-source, cross-platform .NET platform implementing the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
 
 ## Prerequisites
 
