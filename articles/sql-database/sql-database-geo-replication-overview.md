@@ -101,9 +101,8 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 
 * **Multiple failover groups**: You can configure multiple failover groups for the same pair of servers to control the scale of failovers. Each group fails over independently. If your multi-tenant application uses elastic pools, you can use this capability to mix primary and secondary databases in each pool. This way you can reduce the impact of an outage to only half of the tenants.
 
-## Best practices of building highly available service
-
-To build a highly available service that uses Azure SQL database, you should follow these guidelines:
+## Best practices of designing for business continuity
+When designing a service with business continuity in mind, you should follow these guidelines:
 
 - **Use failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. The failover group creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service level objective as the primary.
 - **Use read-write listener for OLTP workload**: When performing OLTP operations, use **&lt;failover-group-name&gt;.database.windows.net** as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
@@ -130,7 +129,7 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage. 
 
 > [!NOTE]
-> If you are using the **read-only listener** to load-balance a read-only workload make sure that this workload is executed in a VM or other resorce in the secondary region so it can connect to the secondary database.
+> If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resorce in the secondary region so it can connect to the secondary database.
 >
 
  ### Using failover groups and SQL database firewall rules
