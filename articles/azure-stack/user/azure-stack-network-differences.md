@@ -32,13 +32,12 @@ This article provides an overview of the unique considerations for Azure Stack n
 |  | DNS record sets per zone | 5000 (default)<br>Can be increased on request. | 5000 |
 |  | Name servers for zone delegation | Azure provides four name servers for each user (tenant) zone that is created. | Azure Stack provides two name servers for each user (tenant) zone that is created. |
 | Virtual Network | Virtual network peering | Connect two virtual networks in the same region through the Azure backbone network. | Not yet supported |
-|  | IPv6 addresses | You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). |  |
-| Only IPv4 is supported. |  |  |  |
+|  | IPv6 addresses | You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Only IPv4 is supported. |
 |  | DDoS Protection Plan | Supported | Not yet supported. |
 |  | Scale Set IP Configurations | Supported | Not yet supported. |
 |  | Private Access Services (Subnet) | Supported | Not yet supported. |
 |  | Service Endpoints | Supported for internal (non-Internet) connection to Azure Services. | Not yet supported. |
-|  | Service Endpoint Policies | Supported | Not yet supported. |
+| Only IPv4 is supported. | Service Endpoint Policies | Supported | Not yet supported. |
 |  | Service Tunnels | Supported | Not yet supported. |
 | Route Tables | Route Tables | Supported | Net yet supported. |
 | Network Security Groups | Augmented Security Rules | Supported | Not yet supported. |
@@ -46,7 +45,7 @@ This article provides an overview of the unique considerations for Azure Stack n
 |  | Application Security Groups | Supported | Not yet supported. |
 | Virtual Network Gateways | Point-to-Site VPN Gateway | Supported | Not yet supported. |
 |  | Vnet-to-Vnet Gateway | Supported | Not yet supported. |
-|  | Virtual Network Gateway Type | Azure Supports VPN | Express Route | Hyper Net | Azure Stack supports only VPN type at this time. |
+|  | Virtual Network Gateway Type | Azure Supports VPN<br> Express Route <br> Hyper Net | Azure Stack supports only VPN type at this time. |
 |  | VPN Gateway SKUs | Support for Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. | Support for Basic, Standard, and High-Performance SKUs. |
 |  | VPN Type | Azure supports both Policy Based and Route Based. | Azure Stack supports Route Based only. |
 |  | BGP Settings | Azure supports configuration of BGP Peering Address and Peer Weight. | BGP Peering Address and Peer Weight are auto-configured in Azure Stack. There is no way for the user to configure these settings with their own values. |
