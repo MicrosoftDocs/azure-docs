@@ -23,9 +23,14 @@ It's not possible to migrate the content of an Azure Machine Learning workspace 
 - Press *Run* again in the auto-generated predictive experiment.
 - Press *Deploy* button to deploy a new web service.
 
-### Links
+### Next steps
 
 - [How to create an Azure ML Studio workspace](../machine-learning/studio/create-workspace.md)
 - [Create your first experiment](../machine-learning/studio/create-experiment.md)
 - [Walkthrough: create a predictive analytics solution in ML Studio](../machine-learning/studio/walkthrough-develop-predictive-solution.md)
 - [Azure ML Web services: deployment and consumption](../machine-learning/studio/deploy-consume-web-service-guide.md)
+
+### References
+
+- [Overview of Azure ML Studio](../machine-learning/studio/what-is-ml-studio.md)
+- 
