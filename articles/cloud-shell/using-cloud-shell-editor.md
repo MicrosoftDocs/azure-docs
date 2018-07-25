@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2018
+ms.date: 07/24/2018
 ms.author: juluk
 ---
 
 # Using the Azure Cloud Shell editor
 
-Azure Cloud Shell includes an integrated file editor built from the open-source [Monaco Editor](https://github.com/Microsoft/monaco-editor). The Cloud Shell editor supports Monaco features such as language highlighting, 
+Azure Cloud Shell includes an integrated file editor built from the open-source [Monaco Editor](https://github.com/Microsoft/monaco-editor). The Cloud Shell editor supports features such as language highlighting, the command palette, and a file explorer.
 
 ![Cloud Shell editor](media/using-cloud-shell-editor/open-editor.png)
 
 ## Opening the editor
 
-For simple file creation and editing, launch the editor by running `code .` in the Cloud Shell terminal. This action opens the editor's file explorer with your active working directory set in the terminal.
+For simple file creation and editing, launch the editor by running `code .` in the Cloud Shell terminal. This action opens the editor with your active working directory set in the terminal.
 
 To directly open a file for quick editing, run `code <filename>` to open the editor without the file explorer.
 
@@ -33,12 +33,14 @@ To open the editor via UI button, click the `{}` editor icon from the toolbar. T
 
 ## Closing the editor
 
-To close the editor, open the action panel and select `Close editor`.
+To close the editor, open the `...` action panel in the top right of the editor and select `Close editor`.
+
 ![Close editor](media/using-cloud-shell-editor/close-editor.png)
 
 ## Command palette
 
-To launch the command palette use the `F1` key when focus is set on the editor. Opening the command palette can also be done through the action panel.
+To launch the command palette, use the `F1` key when focus is set on the editor. Opening the command palette can also be done through the action panel.
+
 ![Cmd palette](media/using-cloud-shell-editor/cmd-palette.png)
 
 ## Contributing to the Monaco Editor

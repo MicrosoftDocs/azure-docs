@@ -9,8 +9,8 @@
 ## [PowerShell - Features & tools](features-powershell.md)
 
 # How-to
-## [Bash - Persisting storage](persisting-shell-storage.md)
-## [PowerShell - Persisting storage](persisting-shell-storage-powershell.md)
+## [PowerShell Cloud Shell for Windows users](cloud-shell-windows-users.md)
+## [Persist files in storage](persisting-shell-storage.md)
 ## [Use the window](using-the-shell-window.md)
 ## [Use MSI in Cloud Shell](msi-authorization.md)
 ## [Embed Cloud Shell](embed-cloud-shell.md)
