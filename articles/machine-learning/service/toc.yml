@@ -19,7 +19,9 @@
     href: quickstart-get-started-with-cli.md   
 - name: Tutorials
   items:
-  - name: Train and deploy models
+  - name: 1. Train models
+    href: tutorial-train-models-with-azure-machine-learning.md
+  - name: 2. Deploy models
     href: tutorial-build-train-deploy-with-azure-machine-learning.md
 - name: Concepts   
   items: 
