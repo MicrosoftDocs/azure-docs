@@ -25,7 +25,7 @@ In this article, we share many marketing best practices for growing your busines
 
 ## App listing best practices
 
-The following tables provide suggestions on creating an engaging Marketplace offer. You use the [Cloud Partner portal](https://cloudpartner.azure.com/#insights) to write and configure these marketing materials. 
+The tables in the next sections provide suggestions for creating engaging Marketplace offers. To write and configure your marketing materials, go to the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
 
 
 ### Offer identity
@@ -65,11 +65,11 @@ After you’ve created a great listing, the following marketing initiatives will
 
 * Create a unique landing page on your site to make your app listing stand out.<br>Drive traffic from your site to your offer and make a great first impression. Based on your offer listing, customers decide whether they want to learn more and try your solutions.
 
-* Enable a test drive or other trial experience.<br>Users want to experience your app first hand. Publishers have historically seen much higher lead conversions from listings that offer a test drive or trial.
+* Enable a test drive or other trial experience.<br>Users want to experience your app firsthand. Publishers have historically seen much higher lead conversion rates from listings that offer a test drive or trial.
 
 * Optimize your listing to help boost search engine rankings.<br>Incorporate search keywords in your app name, summary, and listing. 
 
-* Enable lead sharing.<br>Obtain your customers' contact information when they try your app right in your CRM system. Make sure you have a process in place to follow up on these leads.
+* Enable lead sharing.<br>Obtain your customers' contact information when they try your app right in your CRM system. Make sure you have a process in place to follow up on these new leads.
 
 * Build your demand-generation plan.<br>Use your Marketplace offer listing as the landing page for marketing calls to action. If you've enabled lead sharing, each time customers try, test drive, or deploy your offer from the landing page, you obtain their name and contact information.
 
@@ -77,7 +77,7 @@ After you’ve created a great listing, the following marketing initiatives will
 
 * Create marketing and promotion campaigns.<br>Plan and build campaigns to drive awareness and engagement, with a clear call to action that directs traffic to your Marketplace listing.
 
-* Get customer feedback.<br>Invite your customers to submit a rating and review of your listing site. After they've started a trial, they receive an email asking them to share their experience with other customers.
+* Get customer feedback.<br>Invite your customers to submit a rating and review of your listing site. After they've started a trial, they receive an email message inviting them to share their experience with other customers.
 
 * Get actionable insights.<br>View the Insights dashboard in the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). Track how many visitors your app listing gets, and how many try your app. Learn details about the performance of your marketing campaigns and which content performs best.
 
@@ -88,7 +88,7 @@ After you’ve created a great listing, the following marketing initiatives will
 A marketing campaign is a series of promotional activities or marketing tactics that are aimed at driving your audience to a desired action or outcome. As you're designing your campaign, consider the following best practices:
 
 ### Know your audience
-First, determine the actual buyer versus the purchase influencer. They might be different people within an organization, and your tactics and calls to action for each group might differ. Ask these evaluation questions to help you better understand your audience:
+First, determine the actual buyer versus the purchase influencer. They might be different people within an organization, and your tactics and calls to action for each role might differ. Ask these evaluation questions to help you better understand your audience:
 
 * How much control does the buyer have over the purchasing decision?
 * How much influence does the influencer have?
