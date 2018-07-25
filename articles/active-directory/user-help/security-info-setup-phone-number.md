@@ -31,7 +31,7 @@ Depending on your organization’s settings, you may be prompted to add a phone 
 
 1. Select the **Phone** option.
 
-    The **Setup your phone** wizard appears.
+    The **Set up your phone** wizard appears.
 
     ![Set up your country or region code and phone number](media/security-info/security-info-keep-secure-setup-phone.png)
 

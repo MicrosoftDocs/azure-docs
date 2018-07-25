@@ -39,7 +39,7 @@ To download and learn more about the Microsoft Authenticator app, see [Get start
 
     If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link from the **Get the app** screen.
 
-2. Select **Next**.
+2. After you install the Microsoft Authenticator app, select **Next**.
 
     If you're prompted, allow notifications, add a new account, and then select **Work or school account**.
 
