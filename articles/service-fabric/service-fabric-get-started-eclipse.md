@@ -104,9 +104,11 @@ After you have built your Service Fabric application, follow these steps to depl
 
 3.  From the context menu, click **Deploy Application**.
 4.  You can follow the progress of the deploy operation in the Console window.
-5.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand the **Applications** node and make sure your application is running. To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java).
+5.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand the **Applications** node and make sure your application is running. 
 
-You can also deploy your application to the local cluster from the Publish Application menu:
+To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java.md).
+
+You can also deploy your application to the local cluster wuth the **Publish Application** command:
 
 1. Right-click your Service Fabric application, and then select **Service Fabric**.
 2. From the context menu, click **Publish Application...**.
