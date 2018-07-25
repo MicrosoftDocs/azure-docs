@@ -2,14 +2,14 @@
 title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
 description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
@@ -27,7 +27,7 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -293,7 +293,7 @@ Your chatbot now has enough information to determine the primary action, `MoveEm
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **Mu apps** on the top, left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **Mu apps** on the top, left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.author: nolachar
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below ('urls' in the string kb) that will provide content. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
+Two sample FAQ URLs are given below (in 'kb.urls' of **getKB()**) that will provide content. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
@@ -279,6 +279,7 @@ public class CreateKB {
 A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
 {
   "operationState": "NotStarted",
   "createdTimestamp": "2018-04-13T01:52:30Z",
@@ -286,7 +287,7 @@ A successful response is returned in JSON, as shown in the following example. Yo
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
-...
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
 {
   "operationState": "Running",
   "createdTimestamp": "2018-04-13T01:52:30Z",
@@ -294,7 +295,8 @@ A successful response is returned in JSON, as shown in the following example. Yo
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
-...
+Waiting 30 seconds...
+Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
 {
   "operationState": "Succeeded",
   "createdTimestamp": "2018-04-13T01:52:30Z",
@@ -303,8 +305,9 @@ A successful response is returned in JSON, as shown in the following example. Yo
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
+Press any key to continue.
 ```
-
+   
 ## Next steps
 
 > [!div class="nextstepaction"]

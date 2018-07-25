@@ -7,11 +7,12 @@ manager: mtillman
 
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Tutorial: Create an Azure Active Directory B2C tenant
 
 Before your applications can interact with Azure Active Directory (Azure AD) B2C, they must be registered in a tenant that you manage.

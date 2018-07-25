@@ -2,13 +2,13 @@
 title: Deploy multi-container groups in Azure Container Instances
 description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: mvc
 ---
 

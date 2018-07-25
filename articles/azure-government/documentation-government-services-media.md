@@ -19,23 +19,13 @@ ms.author: juliako
 ---
 # Azure Government Media Services 
  
-For details on this service and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
+For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
-Azure Media Services (AMS) is currently generally available in Azure Government.
+Azure Media Services (AMS) v2 is currently generally available in Azure Government.
 
 ## Connecting  
 
 For information on how to connect to AMS, see [connecting to AMS](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md)
-
-When connecting to Media Services in Azure Government, use the following values:
-
-### ACS scope
-
-The context scope should be set to "urn:WindowsAzureMediaServices".
-
-### ACS
-
-The ACS base address should be set to "https://ams-usge-0-acs-global-1-1.accesscontrol.usgovcloudapi.net"
 
 ### REST endpoints
 

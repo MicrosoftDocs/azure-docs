@@ -70,7 +70,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-The dataset used in this scenario contains text summaries and associated meta data for each legislative action taken by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers/api).
+The dataset used in this scenario contains text summaries and associated meta data for each legislative action taken by the US Congress. The data is collected from [GovTrack.us](https://www.govtrack.us/), which tracks the activities of United States Congress and helps Americans participate in their national legislative process. The bulk data can be downloaded via [this link](https://www.govtrack.us/data/congress/) using a manual script, which is not included in this scenario. The details of how to download the data could be found in the [GovTrack API documentation](https://www.govtrack.us/developers).
 
 ### Data source
 

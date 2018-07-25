@@ -12,7 +12,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
 
@@ -74,13 +74,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
+## Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use the [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) command:
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) command:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -192,7 +188,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) command:
+To find resources with a tag name and value, use the [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) command:
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name
