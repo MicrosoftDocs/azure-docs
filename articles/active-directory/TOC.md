@@ -114,26 +114,32 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
+### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
+
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
+#### [Route activity logs to an Azure event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Archive activity logs to an Azure storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Errors in Azure Active Directory Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-
+#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
