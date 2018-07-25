@@ -22,7 +22,7 @@ The full list of prerequisites is available on the QuickStart Overview.
 
 Run this command to list all available Azure subscription IDs:
 
-``` CLI
+``` CMD
 $ az account list -o table
 ```
 
@@ -30,7 +30,7 @@ $ az account list -o table
 
 If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CCLab" can be replaced with whatever you like:
 
-``` CLI
+``` CMD
 $ az ad sp create-for-rbac --name CCLab
 ```
 
@@ -61,14 +61,14 @@ This lab uses an Azure Resource Manager template to:
 2.	Create and configure the network for the CycleCloud environment
 3.	Create a bastion host for enabling more secure access to the CycleCloud instance
 
-For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the Manual CycleCloud Installation documentation.
+For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
 ## Clone the Repo
 
 Start by cloning the CycleCloud repo:
 
-``` CLI
-$ git clone https://github.com/CycleCloud/cyclecloud_arm.git
+``` CMD
+$ git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
 ```
 
 There are two ARM templates in the .git file:
@@ -82,13 +82,13 @@ There are two ARM templates in the .git file:
 
 Create a resource group in the region of your choice. Note that resource group names are unique within a subscription:
 
-``` CLI
+``` CMD
 az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 ```
 
 For example, you could use "CCLab" as the resource group name and southern US as the region:
 
-``` CLI
+``` CMD
 az group create --name "CCLab" --location "South Central US"
 ```
 
@@ -140,7 +140,7 @@ Specify a password for the CycleCloud application server `admin` user. The passw
 
 Deploy the CycleCloud VM using the edited `params-cyclecloud.json`:
 
-``` CLI
+``` CMD
 $ az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
 ```
 

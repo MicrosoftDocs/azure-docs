@@ -77,6 +77,7 @@ your own key(s).
 | application_id      | Your Azure Application ID, e.g. 77777777-7777-7777-7777-777777777777                                                                                                                                          |
 | application_secret  | Your Azure Application Secret, e.g. U3VjaCBhbiBpbnF1aXNpdGl2ZSBtaW5kIQ==                                                                                                                                      |
 | access_key          | The Azure storage account access key, e.g. Q29uZ3JhdHVsYXRpb25zISBZb3VyIGN1cmlvc2l0eSBrbm93cyBubyBib3VuZHMh                                                                                                   |
+| sas_token  | The full query string (SAS token) that would be appended to the end of a url including the question mark, e.g. ?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2018-02-01T00:00:00Z&st=2018-01-01T00:00:00Z&spr=https&sig= YSBmYWtlIHNhcyB0b2tlbiBmb3IgdGhpcyBkb2MgICA%3D                                                                                                                                   |
 
 >[!Note]
 >There are four different configurations for Azure credentials:

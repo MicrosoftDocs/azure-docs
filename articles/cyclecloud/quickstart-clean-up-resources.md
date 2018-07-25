@@ -22,13 +22,13 @@ When all submitted jobs are complete, you no longer need the cluster. To clean u
 
 To remove the resources you created for the QuickStart, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
 
-``` CLI
+``` CMD
 az group delete --name "{RESOURCE GROUP}"
 ```
 
 Using the example created in the first QuickStart:
 
-``` CLI
+``` CMD
 az group delete --name "CCLab"
 ```
 
@@ -36,7 +36,7 @@ az group delete --name "CCLab"
 
 Run the following command to delete the service principal created at the start of the lab, substituting the name used if other than the example name:
 
-``` CLI
+``` CMD
 az ad sp delete --id "http://CCLab"
 ```
 
