@@ -2,14 +2,14 @@
 title: Tutorial create a LUIS app that returns key phrases - Azure | Microsoft Docs 
 description: In this tutorial, learn how to add and return keyPhrase entity to your LUIS app to analyze utterances for key subject matter. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As a new user, I want to understand key subject matter in a user's utterances. 
 
 --- 
