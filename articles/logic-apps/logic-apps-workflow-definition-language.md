@@ -129,7 +129,7 @@ review the logic app's run history and
 details in the Azure portal or use the 
 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
-PowerBI so that you can create dashboards. 
+Power BI so that you can create dashboards. 
 
 <a name="expressions"></a>
 
