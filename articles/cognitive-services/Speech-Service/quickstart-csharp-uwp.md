@@ -19,8 +19,7 @@ In this article, you learn how to create a Universal Windows Platform (UWP) appl
 The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> UWP apps built with the Speech SDK do not yet pass the Windows App Certification Kit (WACK).
-> It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
+> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices. Apps using the Speech SDK do not yet pass the Windows App Certification Kit (WACK). It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
 
 ## Prerequisites
 
