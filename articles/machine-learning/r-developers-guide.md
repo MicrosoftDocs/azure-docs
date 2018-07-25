@@ -196,3 +196,7 @@ when tackling large-scale data projects.
 * [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server in the Cloud](https://docs.microsoft.com/en-us/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/en-us/machine-learning-server/resources-more)
+
+---
+
+<sub>The R logo is &copy; 2016 The R Foundation and is used under the terms of the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).</sub>
