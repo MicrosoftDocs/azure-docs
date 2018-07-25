@@ -21,32 +21,34 @@ In this tutorial, use patterns to increase intent and entity prediction.
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app
-* How to create a pattern 
+* How to create a pattern
 * How to verify pattern prediction improvements
 
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Before you begin
+
 If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Patterns teach LUIS common utterances with fewer examples
+
 Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
-```
-Who does Jill Jones report to?
-Who reports to Jill Jones? 
-```
+|Utterances|
+|--|
+|Who does Jill Jones report to?|
+|Who reports to Jill Jones?|
 
 These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
 
 Example template utterances for this intent include:
 
-```
-Who does {Employee} report to?
-Who reports to {Employee}? 
-```
+|Example template utterances|
+|--|
+|Who does {Employee} report to?|
+|Who reports to {Employee}?|
 
 The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of regular expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent.
 
@@ -57,15 +59,18 @@ In order for a pattern to be matched to an utterance, the entities within the ut
 Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
 
 ## Create new intents and their utterances
+
 Add two new intents: `OrgChart-Manager` and `OrgChart-Reports`. Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
 
-```
+```Javascript
 OrgChart-Manager(employee){
     ///
 }
 ```
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+
+    [![Screenshot of Human Resources app on intents list page](media/luis-tutorial-pattern/hr-first-image.png "Screenshot of Human Resources app on intents list page")](media/luis-tutorial-pattern/hr-first-image.png#lightbox)
 
 2. On the **Intents** page, select **Create new intent**. 
 
@@ -83,7 +88,7 @@ OrgChart-Manager(employee){
     |Who does Jill Jones directly report to?|
     |Who is Jill Jones supervisor?|
 
-    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Screenshot of LUIS adding new utterances to intent](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Don't worry if the keyPhrase entity is labeled in the utterances of the intent instead of the employee entity. Both are correctly predicted in the Test pane and at the endpoint. 
 
@@ -104,9 +109,11 @@ OrgChart-Manager(employee){
     |Who does Jill Jones supervise?|
 
 ## Caution about example utterance quantity
+
 The quantity of example utterances in these intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
 
 ## Train the LUIS app
+
 The new intent and utterances require training. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
@@ -118,21 +125,18 @@ The new intent and utterances require training.
     ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained-inline.png)
 
 ## Publish the app to get the endpoint URL
+
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-2. Select the Production slot and the **Publish** button.
+2. In the pop-up box, select the Production slot and the **Publish** button.
 
-    [ ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+3. Publishing is complete when you see the green status bar at the top of the website confirming success. Select the link in the green bar to go to the publised endpoint page.
 
 ## Query the endpoint with a different utterance
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    [ ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
-
+1. Select the endpoint URL for the key and region you want to query. A new browser window opens with that endopint URL.
 
 2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -223,6 +227,8 @@ Did this query succeed? For this training cycle it did succeed. The scores of th
 
 Use patterns to make the correct intent's score significantly higher in percentage and farther from the next highest score. 
 
+Leave this second browser window open. You use it again later in the tutorial. 
+
 ## Add the template utterances
 
 1. Select **Build** in the top menu.
@@ -241,16 +247,14 @@ Use patterns to make the correct intent's score significantly higher in percenta
     |Who is the boss of {Employee}[?]|
 
     The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
-    
+
     Entities with roles use syntax that includes the role name, and are covered in a [separate tutorial for roles](luis-tutorial-pattern-roles.md). 
 
     The optional syntax, `[]`, marks words or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
     If you type the template utterance, LUIS helps you fill in the entity when you enter the left curly bracket, `{`.
 
-    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-
+    [![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
 4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
@@ -267,7 +271,7 @@ Use patterns to make the correct intent's score significantly higher in percenta
 
 1. Train and publish the app again.
 
-2. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+2. Switch browser tabs back to the endpoint URL tab.
 
 3. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -403,6 +407,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 4. Change the template utterance to: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
 
 ## Add new pattern template utterances
+
 1. While still in the **Patterns** section of **Build**, add several new pattern template utterances. Select **OrgChart-Manager** from the Intent drop-down menu and enter each of the following template utterances:
 
     |Intent|Example utterances with optional text and prebuilt entities|
@@ -412,11 +417,11 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-3. Train the app.
+2. Train the app.
 
-4. Select **Test** at the top of the panel to open the testing panel. 
+3. Select **Test** at the top of the panel to open the testing panel. 
 
-5. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high. 
+4. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high. 
 
     After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results.
 
@@ -432,6 +437,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 All of these utterances found the entities inside, therefore they match the same pattern, and have a high prediction score.
 
 ## Clean up resources
+
 When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
