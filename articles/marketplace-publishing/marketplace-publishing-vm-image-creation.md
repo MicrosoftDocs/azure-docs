@@ -455,7 +455,7 @@ Following are the steps for generating SAS URL by using Azure CLI
 
     Following is the example code after updating proper parameters
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 

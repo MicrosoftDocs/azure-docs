@@ -66,7 +66,7 @@ While the channel is starting, you can [configure the encoder](media-services-co
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>Configure the Telestream Wirecast encoder
+## <a id="configure_wirecast_rtmp" /a>Configure the Telestream Wirecast encoder
 In this tutorial, the following output settings are used. The rest of this section describes configuration steps in more detail.
 
 **Video**:

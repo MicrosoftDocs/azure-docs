@@ -2,9 +2,9 @@
 title: Automate Azure Analysis Services tasks with service principals  | Microsoft Docs
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 

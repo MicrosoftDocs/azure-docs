@@ -4,7 +4,7 @@ description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -39,7 +39,7 @@ ms.author: sedusch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
@@ -72,8 +72,8 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
-  The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
+* [SUSE SAP HA Best Practice Guides][suse-ha-guide]
+  The guides contains all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Please use this guides as a general baseline. They provide much more detailed information.
 * [Highly Available NFS Storage with DRBD and Pacemaker][suse-drbd-guide]
   The guide contains all required information to set up a highly available NFS server. Use this guide as a baseline.
 

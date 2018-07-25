@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# 2 - Configure rules and actions for your device in Azure IoT Central
+# Tutorial: Configure rules and actions for your device in Azure IoT Central
 
 This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Microsoft Azure IoT Central application.
 
@@ -35,17 +35,17 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     You see the **Connected Air Conditioner (1.0.0)** device template and the **Connected Air Conditioner-1** device you created in the previous tutorial.
 
-1. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
+2. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
 
     ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. To start adding a rule in the **Rules** view, choose **Rules**:
+3. To start adding a rule in the **Rules** view, choose **Rules**:
 
     ![Rules view](media/tutorial-configure-rules/builderrulesview.png)
 
-1. In this tutorial, you add a threshold-based telemetry rule. To start creating a threshold-based rule, choose **New Rule**, then **Telemetry**.
+4. To start creating the threshold-based telemetry rule, choose **New Rule**, then **Telemetry**.
 
-1. To define your rule, use the information in the following table:
+5. To define your rule, use the information in the following table:
 
     | Setting     | Value                          |
     | ----------- | ------------------------------ |
@@ -63,7 +63,7 @@ When you define a rule, you also define an action to run when the rule condition
 
     ![Temperature rule action](media/tutorial-configure-rules/builderaddaction.png)
 
-1. To define your action, use the information in the following table:
+2. To define your action, use the information in the following table:
 
     | Setting   | Value                          |
     | --------- | ------------------------------ |
@@ -75,7 +75,7 @@ When you define a rule, you also define an action to run when the rule condition
 
     ![Application Builder Temperature action](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Choose **Save**. Your rule is listed on the **Rules** page:
+3. Choose **Save**. Your rule is listed on the **Rules** page:
 
     ![Application Builder rules](media/tutorial-configure-rules/builderrules.png)
 

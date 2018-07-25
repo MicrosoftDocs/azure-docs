@@ -10,7 +10,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 05/17/2018
+ms.date: 06/28/2018
 ms.author: HeidiSteen
 
 ---
@@ -23,19 +23,21 @@ This article describes the `api-version=2017-11-11-Preview` version of Azure Sea
 
 ## New in 2017-11-11-Preview
 
-[Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+[**Auto-complete**](search-autocomplete-tutorial.md) joins the existing [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) to add complementary type-ahead experiences to the search bar. Auto-complete returns candidate query terms a user can choose as the query string for a subsequent search. Suggestions returns actual documents in response to partial inputs: search results are immediate and change dynamically as the search term input grows in length and specificity.
 
-The following two operations are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
+[**Cognitive search**](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search. The following resources are introduced or modified in the preview REST API. All other REST APIs are the same whether you call the generally available or preview version.
 
-+ [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
++ [Skillset operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
-+ [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
++ [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-All other REST APIs are the same whether you call the generally available or preview version. For example, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` and `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (without `Preview`) are functionally equivalent.
++ [Predefined skills](cognitive-search-predefined-skills.md)
+
+All other REST APIs are the same regardless of how you set the api-version. For example, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` and `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (without `Preview`) are functionally equivalent.
 
 ## Other preview features
 
-Features from earlier previews are still in public preview. If you're calling this API with an earlier api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
+Features announced in earlier previews are still in public preview. If you're calling an API with an earlier preview api-version, you can continue to use that version or switch to `2017-11-11-Preview` with no changes to expected behavior.
 
 + [CSV files in Azure Blob indexing](search-howto-index-csv-blobs.md), introduced in `api-version=2015-02-28-Preview`, remains a preview feature. This feature is part of Azure Blob indexing and is invoked through a parameter setting. Each line in a CSV file is indexed as a separate document.
 

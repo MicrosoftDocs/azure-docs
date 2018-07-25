@@ -38,3 +38,7 @@ Learn more about the classes and methods used in this article:
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+For more code examples to add to your maps, see the following articles: 
+* [Show directions from A to B](./map-route.md)
+* [Show traffic](./map-show-traffic.md)

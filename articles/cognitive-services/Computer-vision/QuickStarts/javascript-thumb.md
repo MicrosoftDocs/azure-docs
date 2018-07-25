@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with JavaScript
+# Quickstart: Generate a thumbnail with JavaScript
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

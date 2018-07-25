@@ -1,17 +1,14 @@
 ﻿---
 title: Provision a simulated X.509 device to Azure IoT Hub using Node.js | Microsoft Docs
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
-services: iot-dps 
-keywords: 
-author: bryanla
-ms.author: v-masebo;bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
 ---
 
@@ -39,6 +36,14 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     >
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
+
+In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+You will use sample code from the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
+
 
 1. Open a command prompt. Clone the GitHub repo for the code samples:
     

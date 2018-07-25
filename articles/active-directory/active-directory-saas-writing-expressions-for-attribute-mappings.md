@@ -28,13 +28,13 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * You can pass three different types of arguments into functions:
   
-  1. Attributes, which must be enclosed in square square brackets. For example: [attributeName]
+  1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### Append
@@ -101,6 +101,20 @@ Returns a substring of the source value. A substring is a string that contains o
 | **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
 
 - - -
+### NormalizeDiacritics
+**Function:**<br> 
+NormalizeDiacritics(source)
+
+**Description:**<br> 
+Requires one string argument. Returns the string, but with any diacritical characters replaced with equivalent non-diacritical characters. Typically used to convert first names and last names containing diacritical characters (accent marks) into legal values that can be used in various user identifiers such as user principal names, SAM account names, and email addresses.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String | Usually a first name or last name attribute |
+
+- - -
 ### Not
 **Function:**<br> 
 Not(source)
@@ -137,7 +151,6 @@ Replaces values within a string. It works differently depending on the parameter
   * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 **Parameters:**<br> 
-
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
@@ -154,7 +167,7 @@ Replaces values within a string. It works differently depending on the parameter
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:**<br> 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. Note that the best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable.
+Requires one string argument. Returns the string, but with any diacritical characters repalced with equivalent non-diacritical characters.
 
 **Parameters:**<br> 
 
@@ -229,16 +242,16 @@ You need to generate a user alias by taking first 3 letters of user's first name
 * **INPUT** (surname): "Doe"
 * **OUTPUT**:  "JohDoe"
 
-### Remove diacritics from a string and convert to lowercase
-You need to remove special characters from a string and convert uppercase characters to lowercase.
+### Remove diacritics from a string
+You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
 
 **Expression:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **Sample input/output:** <br>
 
 * **INPUT** (givenName): "Zoë"
-* **OUTPUT**:  "zoe"
+* **OUTPUT**:  "Zoe"
 
 ### Output date as a string in a certain format
 You want to send dates to a SaaS application in a certain format. <br>
@@ -271,7 +284,7 @@ If the state code doesn't match any of the predefined options, use default value
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-* [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps](saas-apps/tutorial-list.md)
 

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
 ---
 
@@ -120,7 +120,7 @@ Event Grid connects your app with other services. For example, create a custom t
 
 ## How much does Event Grid cost?
 
-Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use. The first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use. The first 100,000 operations per month are free. Operations are defined as event ingress, subscription delivery attempts, management calls, and filtering by subject suffix. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Next steps
 

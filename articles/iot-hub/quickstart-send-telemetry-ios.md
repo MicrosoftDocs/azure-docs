@@ -1,20 +1,14 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
 description: In this quickstart, you run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
-
 ms.service: iot-hub
-ms.devlang: 
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/20/2018
 ms.author: kgremban
-
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
@@ -137,9 +131,7 @@ If you get an error when you run the iothub-explorer command, double check that 
 
 ## Clean up resources
 
-If you plan to continue testing IoT Hub with other articles, leave the your resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 
@@ -151,7 +143,7 @@ To learn how to control your simulated device from a back-end application, conti
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

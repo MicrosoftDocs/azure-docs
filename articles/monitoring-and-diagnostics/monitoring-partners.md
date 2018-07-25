@@ -1,21 +1,13 @@
 ---
-title: Azure Monitor partner integrations | Microsoft Docs
+title: Partners who intergrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
-
+ms.component: ""
 ---
 # Azure Monitor partner integrations
 | Partners |  |  |
@@ -84,7 +76,7 @@ Grafana is an open source application that enables you to visualize time series 
 [Go to the documentation.][grafana-doc]
 
 ## Logic Monitor
-LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premise, and hybrid cloud resources, all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
+LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources, all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
 [Go to the documentation.][logicmonitor-doc]
 
@@ -92,7 +84,7 @@ LogicMonitor® is the leading SaaS-based, performance monitoring platform for co
 Moogsoft AIOps accelerates the agile business transformation.
 
 Microsoft Azure Automation and Control tools provide a real-time window into the status of the Applications and microservices deployed in Azure, and help orchestrate diagnostics and runbooks for faster remediation.
-Other third party tools provide a window into the on premise Applications and infrastructure status.
+Other third party tools provide a window into the on-premises Applications and infrastructure status.
 
 Moogsoft AIOps automates the Event to Remediation workflow without changing existing processes and organizational structure. 
 

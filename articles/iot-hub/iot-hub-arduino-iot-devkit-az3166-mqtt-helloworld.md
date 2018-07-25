@@ -1,21 +1,14 @@
 ---
-title: 'Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs.'
-description: Use the DevKit as a client to send messages to an MQTT server.
-services: iot-hub
-documentationcenter: ''
+title: Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs
+description: Use the DevKit as a client to send messages to an MQTT server
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-
 ---
 
 # Send messages to an MQTT server

@@ -1,21 +1,13 @@
 ---
-title: Webhook actions for log alerts in Azure Alerts  | Microsoft Docs
+title: Webhook actions for log alerts in Azure Alerts
 description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 
 # Webhook actions for log alert rules
@@ -45,11 +37,11 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Severity |#severity |Severity set for the fired log alert. |
 | AlertThresholdOperator |#thresholdoperator |Threshold operator for the alert rule.  *Greater than* or *Less than*. |
 | AlertThresholdValue |#thresholdvalue |Threshold value for the alert rule. |
-| LinkToSearchResults |#linktosearchresults |Link to Log Analytics log search that returns the records from the query that created the alert. |
+| LinkToSearchResults |#linktosearchresults |Link to Analytics portal that returns the records from the query that created the alert. |
 | ResultCount |#searchresultcount |Number of records in the search results. |
-| Search Interval End time |#searchintervalendtimeutc |End time for the query in UTC format. |
-| Search Interval |#searchinterval |Time window for the alert rule. |
-| Search Interval StartTime |#searchintervalstarttimeutc |Start time for the query in UTC format. 
+| Search Interval End time |#searchintervalendtimeutc |End time for the query in UTC, format - mm/dd/yyyy HH:mm:ss AM/PM. |
+| Search Interval |#searchinterval |Time window for the alert rule, format - HH:mm:ss. |
+| Search Interval StartTime |#searchintervalstarttimeutc |Start time for the query in UTC, format - mm/dd/yyyy HH:mm:ss AM/PM.. 
 | SearchQuery |#searchquery |Log search query used by the alert rule. |
 | SearchResults |"IncludeSearchResults": true|Records returned by the query as a JSON Table, limited to the first 1,000 records; if "IncludeSearchResults": true is added in custom JSON webhook definition as a top-level property. |
 | WorkspaceID |#workspaceid |ID of your Log Analytics workspace. |
@@ -72,6 +64,7 @@ This example payload would resolve to something like the following when sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+As all variables in a custom webhook have to specified within JSON enclosure like "#searchinterval", the resultant webhook will also have variable data inside enclosure like "00:05:00".
 
 To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top-level property in the json payload. 
 

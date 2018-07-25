@@ -4,7 +4,7 @@ description: Quickly get an Oracle Golden Gate up and running in your Azure envi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

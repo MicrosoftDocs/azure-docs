@@ -1,8 +1,8 @@
 ---
 title: Interactive Map Search with Azure Maps | Microsoft Docs
 description: Azure Quickstart - Launch a demo interactive map search using Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
@@ -70,3 +70,11 @@ In this Quickstart, you created your Maps account and launched a demo app. To le
 
 > [!div class="nextstepaction"]
 > [Search for points of interest with Maps](./tutorial-search-location.md)
+
+For more code examples and an interactive coding experience, see below How-to guides.
+
+> [!div class="nextstepaction"]
+> [How to search for an address using Azure Maps REST APIs](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [How to use Azure Maps map control](./how-to-use-map-control.md)

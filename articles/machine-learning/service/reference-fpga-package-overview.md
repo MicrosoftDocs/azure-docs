@@ -5,8 +5,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
 ---
 # Azure Machine Learning Hardware Acceleration package

@@ -40,7 +40,7 @@ First, you must place the installer package on a network location that can be ac
    
     ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Complete the **New Share Wizard** and set permissions to ensure that it can be accessed from your users' machines. [Learn more about shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copy the installer package to a desired location on the share.
    
     ![Copy the .msi file to the share.](./media/active-directory-saas-ie-group-policy/copy-package.png)

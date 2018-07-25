@@ -30,6 +30,8 @@
     href: vpn-gateway-highlyavailable.md
   - name: About Point-to-Site connections
     href: point-to-site-about.md
+  - name: About Point-to-Site VPN routing
+    href: vpn-gateway-about-point-to-site-routing.md
 - name: How-to guides
   items:
   - name: Configure Site-to-Site connections
@@ -104,6 +106,8 @@
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
+  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+    href: create-zone-redundant-vnet-gateway.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway

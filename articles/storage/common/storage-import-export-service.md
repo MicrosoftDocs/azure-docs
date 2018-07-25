@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: alkohli
@@ -7,13 +7,15 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
 
 ---
 # What is Azure Import/Export service?
 
 Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disks can be imported either to Azure Blob storage or Azure Files. 
+
+Azure Import/Export service requires you to supply your own disks. If you want to transfer data using disks supplied by Microsoft, you can use Azure Data Box Disk to import data into Azure. Microsoft ships up to 5 encrypted solid-state disks (SSDs) with a 40 TB capacity per order, to your datacenter through a regional carrier. You can quickly configure disks, copy data to disks over a USB 3.0 connection, and ship the disks back to Azure. For more information, go to [Azure Data Box Disk overview](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## Azure Import/Export usecases
 
@@ -65,13 +67,18 @@ At a high level, an import job involves the following steps:
 1. Determine data to be imported, number of drives you need, destination blob location for your data in Azure storage.
 2. Use the WAImportExport tool to copy data to disk drives. Encrypt the disks with BitLocker.
 3. Create an import job in your target storage account in Azure portal. Upload the drive journal files.
-2. Provide the return address and carrier account number for shipping the drives back to you.
-3. Ship the disk drives to the shipping address provided during job creation.
-4. Update the delivery tracking number in the import job details and submit the import job.
-5. Drives are received and processed at the Azure data center.
-6. Drives are shipped using your carrier account to the return address provided in the import job.
-  
-    ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
+4. Provide the return address and carrier account number for shipping the drives back to you.
+5. Ship the disk drives to the shipping address provided during job creation.
+6. Update the delivery tracking number in the import job details and submit the import job.
+7. The drives are received and processed at the Azure data center.
+8. The drives are shipped using your carrier account to the return address provided in the import job.
+
+> [!NOTE]
+> For local (within data center country) shipments, please share a domestic carrier account 
+>
+> For abroad (outside data center country) shipments, please share a international carrier account
+
+ ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
 For step-by-step instructions on data import, go to:
 
@@ -95,8 +102,13 @@ At a high level, an export job involves the following steps:
 8. The drives are received and processed at the Azure data center.
 9. The drives are encrypted with BitLocker and the keys are available via the Azure portal.  
 10. The drives are shipped using your carrier account to the return address provided in the import job.
+
+> [!NOTE]
+> For local (within data center country) shipments, please share a domestic carrier account 
+>
+> For abroad (outside data center country) shipments, please share a international carrier account
   
-    ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
+ ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
 For step-by-step instructions on data export, go to [Export data from Azure Blobs](storage-import-export-data-from-blobs.md).
 

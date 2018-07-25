@@ -46,6 +46,41 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * A Java IDE. This article uses IntelliJ IDEA 18.1.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
+## Use IntelliJ to create application
+
+1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following: 
+
+   a. Select **HDInsight** > **Spark on HDInsight (Scala)**.
+
+   b. In the **Build tool** list, select either of the following, according to your need:
+
+      * **Maven**, for Scala project-creation wizard support
+      * **SBT**, for managing the dependencies and building for the Scala project
+
+   ![The New Project dialog box](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. Select **Next**.
+
+3. The Scala project-creation wizard automatically detects whether you've installed the Scala plug-in. Select **Install**.
+
+   ![Scala Plugin Check](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. To download the Scala plug-in, select **OK**. Follow the instructions to restart IntelliJ. 
+
+   ![The Scala plugin installation dialog box](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. In the **New Project** window, do the following:  
+
+    ![Selecting the Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. Enter a project name and location.
+
+   b. In the **Project SDK** drop-down list, select **Java 1.8** for the Spark 2.x cluster, or select **Java 1.7** for the Spark 1.x cluster.
+
+   c. In the **Spark version** drop-down list, Scala project creation wizard integrates the proper version for Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses **Spark 2.0.2 (Scala 2.11.8)**.
+
+6. Select **Finish**.
+
 ## Install Scala plugin for IntelliJ IDEA
 To install the Scala plugin, use the following steps:
 

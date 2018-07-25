@@ -1,21 +1,13 @@
-﻿---
-title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
+---
+title: Troubleshoot backup errors with Azure virtual machine
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-
+ms.author: trinadhk
 ---
 # Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
@@ -141,7 +133,7 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 
 1. WhiteList the Azure datacenter IP ranges.
    * Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
-   * Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+   * Unblock the IPs using the [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    * Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
    * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#establish-network-connectivity).

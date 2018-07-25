@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
+ms.author: mtillman
 experimental: true
 experiment_id: "50f26fb6-3aa0-42"
 ---
@@ -79,8 +79,8 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                     <div class="cardText">
                         <h3>Authentication</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-passwords-overview">Passwords</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-factor authentication</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-sspr-howitworks">Passwords</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-factor authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
                         <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Certificate-based authentication</a>
                         </p>
@@ -98,7 +98,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure">Privileged identity management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged identity management</a>
                         </p>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                         <h3>Apps</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">App management</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">App discovery</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">App migration</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise apps</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Access to apps</a>
                         </p>

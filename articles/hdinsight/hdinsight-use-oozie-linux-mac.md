@@ -2,8 +2,7 @@
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight | Microsoft Docs
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,10 +10,9 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
+ms.date: 06/26/2018
+ms.author: omidm
 
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -33,8 +31,6 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 > [!NOTE]
 > Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie is not enabled on domain-joined HDInsight.
 
 ## Prerequisites
 

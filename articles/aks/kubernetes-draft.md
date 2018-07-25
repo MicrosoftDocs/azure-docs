@@ -2,13 +2,13 @@
 title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -54,11 +54,11 @@ Draft builds the container images locally, and then either deploys them from the
 
 ### Create trust between AKS cluster and ACR
 
-To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Prinicipal used with AKS by adding the Contributor role to it with the scope of the ACR repository. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-repo-name&gt;_ with the resource group and repository name of your ACR repository with which you want to create trust.
+To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Prinicipal used with AKS by adding the Contributor role to it with the scope of the ACR registry. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-registry-name&gt;_ with the resource group and registry name of your ACR registry with which you want to create trust.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

@@ -21,17 +21,17 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: Bing Search SDK
+- name: SDK Quickstarts
   items:
   - name: SDK samples overview 
     href: sdk.md
   - name: Web Search SDK C# quickstart
     href: web-search-sdk-quickstart.md 
-  - name: Web Search SDK Node.js quickstart (preview)
+  - name: Web Search SDK Node.js quickstart
     href: web-search-sdk-node-quickstart.md 
-  - name: Web Search SDK Python quickstart (preview)
+  - name: Web Search SDK Python quickstart
     href: web-sdk-python-quickstart.md
-  - name: Web Search SDK Java quickstart (preview)
+  - name: Web Search SDK Java quickstart
     href: web-sdk-java-quickstart.md
 - name: Tutorials
   items:

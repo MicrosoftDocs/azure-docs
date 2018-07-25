@@ -3,9 +3,9 @@ title: Data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources supported for data models in Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -58,7 +58,8 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Dynamics CRM*     |  
 |Excel workbook     |  
 |Exchange*     |  
-|Folder*     | 
+|Folder*     |
+|IBM Informix* (Beta) |
 |JSON document*     |  
 |Lines from binary*     | 
 |MySQL Database     | 
@@ -66,6 +67,8 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |ODBC query     | 
 |OLE DB     |   
 |Postgre SQL Database*    | 
+|Salesforce Objects* |  
+|Salesforce Reports* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

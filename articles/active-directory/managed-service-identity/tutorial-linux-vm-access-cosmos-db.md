@@ -10,11 +10,11 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: skwan
+ms.author: daveba
 
 ---
 # Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 

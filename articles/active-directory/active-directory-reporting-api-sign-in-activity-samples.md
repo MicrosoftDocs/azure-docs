@@ -3,18 +3,19 @@ title: Azure Active Directory sign-in activity report API samples | Microsoft Do
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/21/2018
-ms.author: dhanyahk;markvi
+ms.component: compliance-reports
+ms.date: 05/31/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk 
 
 ---
@@ -87,9 +88,9 @@ if ($oauth.access_token -ne $null) {
 
 
 ## Executing the script
-Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.
+Once you finish editing the script, run it and verify that the expected data from the sign-in logs report is returned.
 
-The script returns output from the sign-in report in JSON format. It also creates an `SigninActivities.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
+The script returns output from the sign-in report in JSON format. It also creates an `SignIns.json` file with the same output. You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.
 
 ## Next Steps
 * Would you like to customize the samples in this article? Check out the [Azure Active Directory sign-in activity API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 

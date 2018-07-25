@@ -32,7 +32,7 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
 
 > [!IMPORTANT]
-> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## Planning
 
@@ -87,7 +87,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot network security groups](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]
         > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
@@ -104,7 +104,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
 4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 

@@ -3,7 +3,7 @@ title: Examples & common scenarios - Azure Logic Apps | Microsoft Docs
 description: Learn more about logic apps with examples, scenarios, tutorials, and walkthroughs
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter:
 

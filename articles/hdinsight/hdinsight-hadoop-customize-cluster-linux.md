@@ -54,7 +54,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
 
-    * An **Azure Data Lake Store** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * An **Azure Data Lake Store** account that is accessible by the HDInsight cluster. For information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         When using a script stored in Data Lake Store, the URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -169,9 +169,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a script action during cluster creation from the Azure portal
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stop when you reach the __Cluster summary__ section.
-
-2. From the __Cluster summary__ section, select the __edit__ link for __Advanced settings__.
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). During cluster creation, you will arrive at a __Cluster summary__ page. From the __Cluster summary__ page, select the __edit__ link for __Advanced settings__.
 
     ![Advanced settings link](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

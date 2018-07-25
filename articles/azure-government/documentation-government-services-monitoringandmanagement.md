@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: gsacavdm
 
 ---
@@ -49,11 +49,6 @@ For more information, see [Azure Government Backup](documentation-government-ser
 
 ## Policy
 Policy is generally available in Azure Government.
-
-### Variations
-The following Policy features are not currently available in Azure Government:
-* Provisioning and management of policies is available through [PowerShell](../azure-policy/assign-policy-definition-ps.md) and [CLI](../azure-policy/assign-policy-definition-cli.md). Policy enforcements (audit, append, deny, deployIfNotExists) are visible from the Azure Activity Log, however portal support to provision and manage policies is not available yet. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/32570320-azure-policy-in-azure-government)
-* Policy will only be enforced during resource creation. The ability to check for policy compliance on existing resources is not available yet. > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/32570320-azure-policy-in-azure-government).
 
 For more information, see [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
@@ -168,9 +163,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-portals.md#advanced-analytics-portal) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../log-analytics/log-analytics-concept-hybrid.md#network-firewall-requirements) |
 
 The following Log Analytics features behave differently in Azure Government:

@@ -9,7 +9,7 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
-ms.date: 11/31/2017
+ms.date: 11/30/2017
 ---
 # Debug user-defined C# code for failed U-SQL jobs
 

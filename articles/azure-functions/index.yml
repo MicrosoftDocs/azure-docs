@@ -77,7 +77,7 @@ sections:
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
     - html: <a href="/azure/azure-functions/functions-openapi-definition">Create an OpenAPI definition for a function</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automate resizing uploaded images using Event Grid</a>
-    - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">Create a serverless web application to host pictures in Cosmos DB</a> 
+    - html: <a href="https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database">Create a serverless web app to store pictures with metadata</a> 
 - title: Samples
   items:
   - type: list

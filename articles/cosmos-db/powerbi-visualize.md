@@ -5,14 +5,10 @@ keywords: power bi tutorial, visualize data, power bi connector
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: sngun
 
@@ -34,7 +30,7 @@ After completing this Power BI tutorial, you'll be able to answer the following 
 > The Power BI connector for Azure Cosmos DB connects to Power BI Desktop for extraction and transformation of data. Reports created in Power BI Desktop can then be published to PowerBI.com. Direct extraction and transformation of Azure Cosmos DB data cannot be performed in PowerBI.com. 
 
 > [!NOTE]
-> To connect Azure Cosmos DB to Power BI using the MongoDB API, you must use the [Simba MongoDB ODBC Driver](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL and MongoDB API accounts only. To connect Azure Cosmos DB to Power BI using the MongoDB API, you must use the [Simba MongoDB ODBC Driver](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
 ## Prerequisites
 Before following the instructions in this Power BI tutorial, ensure that you have access to the following resources:

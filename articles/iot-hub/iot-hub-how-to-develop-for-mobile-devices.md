@@ -1,21 +1,15 @@
 ---
 title: Develop for mobile devices using Azure IoT SDKs | Microsoft Docs
 description: Developer guide - Learn about how to develop for mobile devices using Azure IoT Hub SDKs.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: yizhon
-
 ---
+
 # Develop for mobile devices using Azure IoT SDKs
 
 Things in the Internet of Things may refer to a wide range of devices with varying capability: sensors, microcontrollers, smart devices, industrial gateways, and even mobile devices.  A mobile device can be an IoT device, where it is sending device-to-cloud telemetry and managed by the cloud.  It can also be the device running a back-end service application, which manages other IoT devices.  In both cases, [Azure IoT Hub SDKs][lnk-sdk-overview] can be used to develop applications that work for mobile devices.  

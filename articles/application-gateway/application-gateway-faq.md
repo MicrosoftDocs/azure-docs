@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
 
 ---
@@ -112,7 +112,7 @@ No, but you can deploy other application gateways in the subnet.
 
 Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
 
-* Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
+* Exceptions must be put in for incoming traffic on ports 65503-65534. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Outbound internet connectivity can't be blocked.
 
@@ -156,13 +156,17 @@ This scenario can be done using NSGs on Application Gateway subnet. The followin
 
 * Allow incoming traffic from source IP/IP range.
 
-* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md).
+* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
 
 * Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
 
 * Block all other incoming traffic with a Deny all rule.
 
 * Allow outbound traffic to the internet for all destinations.
+
+**Q. Can the same port be used for both public and private facing listeners?**
+
+No, this is not supported.
 
 ## Performance
 
@@ -194,10 +198,10 @@ You can create up to 50 application gateways per subscription, and each applicat
 
 The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
 
-| Back-end page response | Small | Medium | Large |
+| Average back-end page response size | Small | Medium | Large |
 | --- | --- | --- | --- |
-| 6K |7.5 Mbps |13 Mbps |50 Mbps |
-| 100K |35 Mbps |100 Mbps |200 Mbps |
+| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.

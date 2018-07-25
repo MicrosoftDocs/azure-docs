@@ -4,7 +4,7 @@ description: Move or migrate Azure BizTalk Services (MABS) to Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
 author: jonfancey
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 

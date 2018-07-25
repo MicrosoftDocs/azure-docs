@@ -76,4 +76,4 @@ az policy set-definition delete --name "skus-for-multiple-types"
 
 ## Next steps
 
-- Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md).
+- Review more examples at [Azure Policy samples](../json-samples.md).

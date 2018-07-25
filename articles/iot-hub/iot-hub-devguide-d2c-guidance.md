@@ -1,22 +1,15 @@
 ---
 title: Azure IoT Hub device-to-cloud options | Microsoft Docs
 description: Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-
 ---
+
 # Device-to-cloud communications guidance
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
 

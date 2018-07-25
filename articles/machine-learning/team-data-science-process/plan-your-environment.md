@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -93,9 +94,9 @@ There are lots of options here depending on what languages and development envir
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+   * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
+   * [Python Tools for Visual Studio](http://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter notebooks](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)

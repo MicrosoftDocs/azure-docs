@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +20,9 @@ ms.reviewer: jairoc
 ---
 # Azure Active Directory device management FAQ
 
+**Q: Can I register Android or iOS BYOD devices?**
 
+**A:** Yes, but only with Azure device registration service and for hybrid customers. It is not supported with on-premises device registration service in AD FS.
 
 **Q: How can I register a macOS device?**
 
@@ -39,7 +42,7 @@ ms.reviewer: jairoc
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**
 
 **A:** Windows 10 devices that are hybrid Azure AD joined do not show up under the USER devices.
-You need to use PowerShell to see all devices. 
+You need to use All devices view in Azure portal. You can also use PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under the USER devices:
 
@@ -47,27 +50,23 @@ Only the following devices are listed under the USER devices:
 - All non-Windows 10 / Windows Server 2016 devices.
 - All non-Windows devices 
 
----
-
-**Q: Why can I not see all the devices registered in Azure Active Directory in the Azure portal?** 
-
-**A:** You can now see them under Azure AD Directory -> all devices menu. 
-You can also use Azure PowerShell to find all devices. 
-For more details, see the [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
-
 --- 
 
 **Q: How do I know what the device registration state of the client is?**
 
-**A:** For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
+**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column.
 
-For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+If you want to check the local device registration state from a registered device:
+
+- For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
+- For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
-**Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**
+**Q: I have deleted in the Azure portal or using Windows PowerShell, but the local state on the device says that it is still registered?**
 
 **A:** This is by design. The device will not have access to resources in the cloud. 
+
 If you want to re-register again, a manual action must be to be taken on the device. 
 
 To clear the join state from Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
@@ -83,6 +82,25 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 1.	Open the command prompt as an administrator.
 2.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+---
+**Q: How do I unjoin an Azure AD Joined device locally on the device?**
+
+**A:** 
+- For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
+
+- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
+
+---
+
+**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
+
+**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
+
+---
+
+**Q: How do I connect to a remote Azure AD joined device?**
+**A:** Refer to the article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc for details.
 
 ---
 
@@ -117,8 +135,13 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 ---
 
+**Q: Why do some of my users do not get MFA prompts on Azure AD joined devices?**
 
-**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the client. Am I setup correctly for using conditional access?**
+**A:** If user joins or registers a device with Azure AD using multi-factor auth, the device itself will become a trusted second factor for that particular user. Subsequently, whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor and enables that user to seamlessly access their applications without additional MFA prompts. This behavior is not applicable to any other user signing into that device, so all other users accessing that device would still be prompted with an MFA challenge before accessing applications that require MFA.
+
+---
+
+**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
 For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).
@@ -137,6 +160,8 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 - Federated logins requires your federation server to support a WS-Trust active endpoint. 
 
+- You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
+
 ---
 
 **Q: Why do I see the “Oops… an error occurred!" dialog when I try do Azure AD join my PC?**
@@ -147,7 +172,7 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **Q: Why did my attempt to join a PC fail although I didn't get any error information?**
 
-**A:** A likely cause is that the user is logged in to the device using the built-in administrator account. 
+**A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
 
 ---
@@ -166,5 +191,6 @@ Please create a different local account before using Azure Active Directory Join
 
 - [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

@@ -1,22 +1,14 @@
 ---
-title: Back up Windows system state to Azure | Microsoft Docs
+title: Back up Windows system state to Azure
 description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
 keywords: how to backup; how to back up; backup files and folders
-
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-
 ---
 # Back up Windows system state in Resource Manager deployment
 This article explains how to back up your Windows Server system state to Azure. It's a tutorial intended to walk you through the basics.

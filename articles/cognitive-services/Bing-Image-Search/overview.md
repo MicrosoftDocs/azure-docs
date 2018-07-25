@@ -105,7 +105,7 @@ To get insights about the image, such as web pages that include the image or peo
 - [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)—Filter images by content (for example, images that show only a person's face)
 - [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)—Filter images by type (for example, clip art, animated GIFs, or transparent backgrounds)
 - [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)—Filter images by the type of license associated with the site
-- [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-eference#size)—Filter images by size, such as small images up to 200x200 pixels
+- [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)—Filter images by size, such as small images up to 200x200 pixels
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 

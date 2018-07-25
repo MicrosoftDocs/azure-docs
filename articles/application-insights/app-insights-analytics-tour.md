@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
 
@@ -178,7 +178,7 @@ Other examples:
 
 
 ## [Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): select, rename, and compute columns
-Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) to pick out just the columns you want:
+Use [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) to pick out just the columns you want:
 
 ```AIQL
 

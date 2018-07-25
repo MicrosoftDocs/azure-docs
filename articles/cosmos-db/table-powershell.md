@@ -1,20 +1,17 @@
-﻿---
+---
 title: Perform Azure Cosmos DB Table API operations with PowerShell | Microsoft Docs
 description: How to perform Azure Cosmos DB Table API operations with PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
+ms.author: sngun
 ---
 # Perform Azure Cosmos DB Table API operations with Azure PowerShell 
 
@@ -43,7 +40,7 @@ After Azure PowerShell is installed or updated, you must install module **AzureR
 Install-Module AzureRmStorageTable
 ```
 
-Then install the Azure Cosmos DB assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Then install the Azure Cosmos DB assemblies locally in order to use these PowerShell cmdlets. For instructions on how to do that, see [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/).
 
 To try out the following exercises, you need an Azure Cosmos DB database account. If you don't already have one, create a new Azure Cosmos DB account using the [Azure portal](https://portal.azure.com). For help creating a new database account, see [Azure Cosmos DB: Create a database account](create-table-dotnet.md#create-a-database-account).
 
@@ -86,7 +83,7 @@ You can't list the tables in the Azure Cosmos DB account using PowerShell, but y
 
 ## Delete a table 
 
-PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a table, go to the [Azure portal](https://azure.portal.com), locate the Azure Cosmos DB account you're using, then find and delete the table. 
+PowerShell doesn't support deleting tables from Azure Cosmos DB. To delete a table, go to the [Azure portal](https://portal.azure.com), locate the Azure Cosmos DB account you're using, then find and delete the table. 
 
 ## Clean up resources
 

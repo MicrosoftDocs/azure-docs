@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
@@ -40,11 +40,15 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 ## Requirements
 
+- Use a client other than the Remote Desktop web client, since the web client does not support Application Proxy.
+
 - Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway are published as a single application with Application Proxy so that you can have a single sign-on experience between the two applications.
 
 - You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-enable.md).
 
 - This scenario assumes that your end users go through Internet Explorer on Windows 7 or Windows 10 desktops that connect through the RD Web page. If you need to support other operating systems, see [Support for other client configurations](#support-for-other-client-configurations).
+
+- When publishing RD Web, it is recommended to use the same internal and external FQDN. If the internal and external FQDNs are different then you should disable Request Header Translation to avoid the client receiving invalid links. 
 
 - On Internet Explorer, enable the RDS ActiveX add-on.
 

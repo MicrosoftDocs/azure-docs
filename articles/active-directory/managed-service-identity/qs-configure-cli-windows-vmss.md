@@ -10,7 +10,7 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
@@ -32,12 +32,14 @@ In this article, you learn how to perform the following Managed Service Identity
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-
-To run the CLI script examples, you have three options:
-
-- Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
+- To perform the management operations in this article, your account needs the following role assignments:
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user assigned managed identity from a virtual machine scale set.
+    - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create a user assigned identity.
+    - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user assigned identity from and to a virtual machine scale set.
+- To run the CLI script examples, you have three options:
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -85,20 +87,26 @@ If you need to enable the system assigned identity on an existing Azure virtual 
 
 ### Disable system assigned identity from an Azure virtual machine scale set
 
-> [!NOTE]
-> Disabling Managed Service Identity from a Virtual Machine Scale Set is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities. Check back for updates.
-
-If you have a virtual machine scale set that no longer needs a system assigned identity, but still needs user assigned identities, perform the following command:
+If you have a virtual machine scale set that no longer needs the system assigned identity, but still needs user assigned identities, use the following command:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned' 
+az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+
+If you have a virtual machine that no longer needs system assigned identity and it has no user assigned identities, use the following command:
+
+> [!NOTE]
+> The value `none` is case sensitive. It must be lowercase. 
+
+```azurecli-interactive
+az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 To remove the MSI VM extension, use [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) command to remove the system assigned identity from a VMSS:
 
-   ```azurecli-interactive
-   az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-   ```
+```azurecli-interactive
+az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
+```
 
 ## User assigned identity
 
@@ -116,14 +124,12 @@ This section walks you through creation of an VMSS and assignment of a user assi
 
 2. Create a user assigned identity using [az identity create](/cli/azure/identity#az-identity-create).  The `-g` parameter specifies the resource group where the user assigned identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
-    > [!IMPORTANT]
-    > Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
-The response contains details for the user assigned identity created, similar to the following. The resource `id` value assigned to the user assigned identity is used in the following step.
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+   The response contains details for the user assigned identity created, similar to the following. The resource `id` value assigned to the user assigned identity is used in the following step.
 
    ```json
    {
@@ -173,26 +179,33 @@ The response contains details for the user assigned identity created, similar to
    }
    ```
 
-2. Assign the user assigned identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY ID>` will be the user assigned identity's resource `id` property, as created in the previous step:
+2. Assign the user assigned identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY ID>` will be the user assigned identity's resource `id` property, as created in the previous step:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
-### Remove a user assigned identity from an Azure VMSS
+### Remove a user assigned identity from an Azure virtual machine scale set
+
+To remove a user assigned identity from a virtual machine scale set use [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<MSI NAME>` will be the user assigned identity's `name` property, which can be found by in the identity section of the VM using `az vmss identity show`:
+
+```azurecli-interactive
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
+```
+
+If your virtual machine scale set does not have a system assigned identity and you want to remove all user assigned identities from it, use the following command:
 
 > [!NOTE]
->  Removing all user assigned identities from a Virtual Machine Scale Set is currently not supported, unless you have a system assigned identity. 
-
-If your VMSS has multiple user assigned identities, you can remove all but the last one using [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<MSI NAME>` is the user assigned identity's name property, which can be found by in the identity section of the VM using `az vm show`:
+> The value `none` is case sensitive. It must be lowercase.
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
 ```
-If your VMSS has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command: 
+
+If your virtual machine scale set has both system assigned and user assigned identities, you can remove all the user assigned identities by switching to use only system assigned. Use the following command:
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
 ```
 
 ## Next steps

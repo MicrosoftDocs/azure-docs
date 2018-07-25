@@ -82,7 +82,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePas
 To view the value contained in the secret as plain text:
 
 ```azurepowershell
-(get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
+(Get-AzureKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.

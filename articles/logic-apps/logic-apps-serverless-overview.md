@@ -4,7 +4,7 @@ description: Create powerful solutions in the cloud without having to think abou
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

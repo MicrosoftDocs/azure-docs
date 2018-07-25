@@ -1,18 +1,12 @@
 ---
-title: 'Use Azure device twins to control MXChip IoT DevKit user LED | Microsoft Docs'
+title: Use Azure device twins to control MXChip IoT DevKit user LED | Microsoft Docs
 description: In this tutorial, learn how to monitor DevKit states and control the user LED with Azure IoT Hub device twins.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ---

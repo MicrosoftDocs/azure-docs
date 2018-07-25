@@ -22,7 +22,7 @@ The SDK facilitates a variety of voice-enabled scenarios, such as drive-thru ord
 
 
 
-## Development Kit Providers
+## Development kit providers
 
 Complete, end-to-end system reference designs. More coming soon!
 

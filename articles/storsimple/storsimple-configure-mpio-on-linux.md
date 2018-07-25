@@ -116,7 +116,7 @@ This section details the configuration prerequisites for CentOS server and your 
    4. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
       
        `chkconfig iscsi on`
-   5. To verify that that it was properly setup, run the command:
+   5. To verify that it was properly setup, run the command:
       
        `chkconfig --list | grep iscsi`
       
@@ -441,5 +441,5 @@ For more information, go to [use troubleshooting interactive command for multipa
 As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
 
 * [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
 

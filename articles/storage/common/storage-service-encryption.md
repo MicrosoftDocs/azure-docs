@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
 
 ---
@@ -37,7 +37,7 @@ To view settings for Storage Service Encryption, sign in to the [Azure portal](h
 
 **Q: I have a classic storage account. Can I enable Storage Service Encryption on it?**
 
-A: Storage Service Encryption is enabled by default for all storage accounts (classic and Resource Manager).
+A: Storage Service Encryption is enabled for all storage accounts (classic and Resource Manager).
 
 **Q: How can I encrypt data in my classic storage account?**
 
@@ -49,7 +49,7 @@ A: Storage Service Encryption is enabled by default on all existing Resource Man
 
 **Q: How do I encrypt the data in a Resource Manager storage account?**
 
-A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager, any existing files in the storage account created before encryption was enabled will retroactively get encrypted by a background encryption process.
+A: Storage Service Encryption is enabled for all storage accounts--classic and Resource Manager, any existing files in the storage account created before encryption was enabled will retroactively get encrypted by a background encryption process.
 
 **Q: Can I create storage accounts with Storage Service Encryption enabled by using Azure PowerShell and Azure CLI?**
 
@@ -69,7 +69,7 @@ A: Yes, if you [use your own encryption keys](storage-service-encryption-custome
 
 **Q: Is Storage Service Encryption enabled by default when I create a storage account?**
 
-A: Yes, Storage Service Encryption is enabled by default for all storage accounts and for all Azure Storage services.
+A: Yes, Storage Service Encryption is enabled for all storage accounts and for all Azure Storage services.
 
 **Q: How is this different from Azure Disk Encryption?**
 
@@ -89,7 +89,11 @@ A: Encryption is enabled by default, and there is no provision to disable encryp
 
 **Q: Is Storage Service Encryption permitted only in specific regions?**
 
-A: Storage Service Encryption is available in all regions for all services. 
+A: Storage Service Encryption is available in all regions for all services.
+
+**Q: Is Storage Service Encryption FIPS 140-2 compliant?**
+
+A: Yes, Storage Service Encryption is FIPS 140-2 compliant.
 
 **Q: How do I contact someone if I have any problems or want to provide feedback?**
 

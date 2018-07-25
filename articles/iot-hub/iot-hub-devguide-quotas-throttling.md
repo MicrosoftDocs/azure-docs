@@ -1,26 +1,19 @@
 ---
 title: Understand Azure IoT Hub quotas and throttling | Microsoft Docs
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-
 ---
+
 # Reference - IoT Hub quotas and throttling
 
 ## Quotas and throttling
-Each Azure subscription can have at most 10 IoT hubs, and at most 1 Free hub.
+Each Azure subscription can have at most 50 IoT hubs, and at most 1 Free hub.
 
 Each IoT hub is provisioned with a certain number of units in a specific tier. For more information, see [Azure IoT Hub Pricing][lnk-pricing]. The tier and number of units determine the maximum daily quota of messages that you can send.
 

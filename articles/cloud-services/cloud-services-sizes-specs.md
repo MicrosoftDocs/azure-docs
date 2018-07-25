@@ -3,7 +3,7 @@ title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Sizes for Cloud Services
@@ -81,13 +81,13 @@ The following tables show the sizes and the capacities they provide.
 | Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / low |
-| Small           | 1         | 1.75         | 70                   | 1 / moderate |
-| Medium          | 2         | 3.5          | 135                  | 1 / moderate |
-| Large           | 4         | 7            | 285                  | 2 / high |
-| ExtraLarge      | 8         | 14           | 605                  | 4 / high |
-| A5              | 2         | 14           | 135                  | 1 / moderate |
-| A6              | 4         | 28           | 285                  | 2 / high |
-| A7              | 8         | 56           | 605                  | 4 / high |
+| Small           | 1         | 1.75         | 225                  | 1 / moderate |
+| Medium          | 2         | 3.5          | 490                  | 1 / moderate |
+| Large           | 4         | 7            | 1000                 | 2 / high |
+| ExtraLarge      | 8         | 14           | 2040                 | 4 / high |
+| A5              | 2         | 14           | 490                  | 1 / moderate |
+| A6              | 4         | 28           | 1000                 | 2 / high |
+| A7              | 8         | 56           | 2040                 | 4 / high |
 
 ## A-series - compute-intensive instances
 For information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

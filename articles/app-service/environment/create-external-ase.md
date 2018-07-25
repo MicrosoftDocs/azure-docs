@@ -36,7 +36,7 @@ After you create your ASE, you can't change the following:
 - Subnet size
 
 > [!NOTE]
-> When you choose a VNet and specify a subnet, make sure that it's large enough to accommodate future growth. We recommend a size of `/25` with 128 addresses.
+> When you choose a VNet and specify a subnet, make sure that it's large enough to accommodate future growth and scaling needs. We recommend a size of `/24` with 256 addresses.
 >
 
 ## Three ways to create an ASE ##
@@ -191,7 +191,7 @@ To learn more about ASEv1, see [Introduction to the App Service Environment v1][
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

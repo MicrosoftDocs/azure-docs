@@ -13,6 +13,6 @@ manager: "douge"
 ---
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based environment in Azure that is optimized for development.
+- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
 - Iteratively develop code in containers using VS Code and the command line.
 - Productively develop and test your code in a team environment.

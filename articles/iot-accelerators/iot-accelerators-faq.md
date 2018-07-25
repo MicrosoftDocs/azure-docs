@@ -43,7 +43,7 @@ Yes, the new Remote Monitoring is available in the same geographic regions.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsuite.com?
 
-* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsolutions.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
 * If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the solution accelerator.
 
 ### Can I continue to leverage my existing investments in Azure IoT solution accelerators?
@@ -81,7 +81,7 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://b
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

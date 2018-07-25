@@ -1,22 +1,16 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs'
+title: IoT DevKit to cloud -- Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
 description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-
 ---
+
 # Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -276,7 +270,7 @@ The DevKit reboots and starts running the code.
 
 ## Test the project
 
-In VS Code, following these steps to open and set up the Serial Monitor:
+In VS Code, follow these steps to open and set up the Serial Monitor:
 
 1. Click the `COM[X]` word on the status bar to set the right COM port with `STMicroelectronics`:
   ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
@@ -290,7 +284,7 @@ In VS Code, following these steps to open and set up the Serial Monitor:
 The sample application is running successfully when you see the following results:
 
 * The Serial Monitor displays the same information as the content in the screenshot below.
-* The LED on MXChip IoT DevKit is blinking.
+* The RGB LED on MXChip IoT DevKit is blinking.
 
 ![Final output in VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

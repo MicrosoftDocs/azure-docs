@@ -80,7 +80,9 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md      
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -175,7 +177,7 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
+    - name: Prepay for VMs - reserved instances
       href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
@@ -437,7 +439,7 @@
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST
-    href: /rest/api/manageddisks
+    href: /rest/api/compute/disks
 - name: Resources
   items:
   - name: Author templates

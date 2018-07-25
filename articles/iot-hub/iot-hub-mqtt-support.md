@@ -1,23 +1,15 @@
 ---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Developer guide - support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-
 ---
+
 # Communicate with your IoT hub using the MQTT protocol
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
@@ -82,7 +74,9 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
 
-  When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the [Device Explorer][lnk-device-explorer] tool or the cross-platform [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to quickly generate a SAS token that you can copy and paste into your own code:
+
+For Device Explorer:
 
   1. Go to the **Management** tab in **Device Explorer**.
   2. Click **SAS Token** (top right).
@@ -96,6 +90,13 @@ If a device cannot use the device SDKs, it can still connect to the public devic
      The part of this token to use as the **Password** field to connect using MQTT is:
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     
+For Azure IoT Toolkit:
+
+  1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
+  2. Right-click your device and select **Generate SAS Token for Device**.
+  3. Set **expiration time** and press 'Enter'.
+  4. The SAS token is created and copied to clipboard.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
 

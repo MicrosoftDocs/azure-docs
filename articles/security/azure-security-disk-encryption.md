@@ -422,7 +422,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
 > [!NOTE]
 > This template creates a new encrypted Windows VM that uses the Windows Server 2012 gallery image.
 
-You can enable disk encryption on a new IaaS RedHat Linux 7.2 VM with a 200-GB RAID-0 array by using this [Resource Manager template](https://aka.ms/fde-rhel). After you deploy the template, verify the VM encryption status by using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet, as described in [Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm). When the machine returns a status of _VMRestartPending_, restart the VM.
+You can enable disk encryption on a new IaaS Red Hat Linux 7.2 VM with a 200-GB RAID-0 array by using this [Resource Manager template](https://aka.ms/fde-rhel). After you deploy the template, verify the VM encryption status by using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet, as described in [Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm). When the machine returns a status of _VMRestartPending_, restart the VM.
 
 The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Azure AD client ID:
 

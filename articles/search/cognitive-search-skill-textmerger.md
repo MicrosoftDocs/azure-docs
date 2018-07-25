@@ -140,4 +140,4 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 + [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](ref-create-indexer.md)
++ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

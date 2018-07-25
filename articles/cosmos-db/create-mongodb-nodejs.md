@@ -2,15 +2,12 @@
 title: Connect a MongoDB app to Azure Cosmos DB by using Node.js | Microsoft Docs
 description: Learn how to connect an existing Node.js MongoDB app to Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017

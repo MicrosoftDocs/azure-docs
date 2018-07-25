@@ -29,7 +29,7 @@ This section details the technology choices made in the Remote Monitoring soluti
 ![Core Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
 
 ### Cloud Gateway
-The Azure IoT Hub is used as the the Remote Monitoring solution cloud gateway.  The IoT Hub offers secure, bi-directional communication with devices. You can learn more about IoT Hub [here](https://azure.microsoft.com/services/iot-hub/). For IoT device connectivity, the .NET Core and Java IoT Hub SDKs are used.  The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
+The Azure IoT Hub is used as the Remote Monitoring solution cloud gateway.  The IoT Hub offers secure, bi-directional communication with devices. You can learn more about IoT Hub [here](https://azure.microsoft.com/services/iot-hub/). For IoT device connectivity, the .NET Core and Java IoT Hub SDKs are used.  The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
 
 ### Stream processing
 For stream processing the Remote Monitoring solution uses Azure Stream Analytics for complex rule processing.  For customers wanting simpler rules, we also have a custom microservice with support for processing of simple rules, although this set-up not part of the out of the box deployment. The reference architecture recommends use of Azure Functions for simple rule processing and Azure Stream Analytics (ASA) for complex rule processing.  
@@ -47,6 +47,6 @@ The web UI is built with JavaScript React.  React offers a commonly used industr
 The application runtime chosen for subsystem implementation in the Remote Monitoring solution is Docker containers with Kubernetes as the orchestrator for horizontal scale.  This architecture allows for individual scale definition per subsystem however incurs DevOps costs in keeping VMs and containers up-to-date from a security perspective.  Alternatives to Docker and Kubernetes include hosting microservices in PaaS services (for example, Azure App Service) or using Service Fabric, DCOS, Swarm, etc. as an orchestrator.
 
 ## Next steps
-* Deploy your the Remote Monitoring solution [here](https://www.azureiotsuite.com/).
+* Deploy your Remote Monitoring solution [here](https://www.azureiotsolutions.com/).
 * Explore GitHub code in [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * Learn more about the IoT Reference Architecture [here](https://aka.ms/iotrefarchitecture).

@@ -2,14 +2,11 @@
 title: 'Quickstart: Table API with Python - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Python
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
@@ -30,9 +27,8 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 In addition:
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-* Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
-* Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
+* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
+* Also select the Python 2 option in the **Python development** workload, or download Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## Create a database account
 
