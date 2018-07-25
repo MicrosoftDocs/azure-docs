@@ -28,41 +28,71 @@ This document assumes that you have an RBAC-enabled AKS cluster. If you need an 
 
 ## Gather information
 
-The following list shows all of the information you must provide in the autoscaler definition.
+To generate the permissions for your cluster autoscaler to run in your cluster, run this simple bash script:
 
-- *Subscription ID*: ID corresponding to the subscription used for this cluster
-- *Resource Group Name* : Name of resource group the cluster belongs to 
-- *Cluster Name*: Name of the cluster
-- *Client ID*: App ID granted by permission generating step
-- *Client Secret*: App secret granted by permission generating step
-- *Tenant ID*: ID of the tenant (account owner)
-- *Node Resource Group*: Name of resource group containing the agent nodes in the cluster
-- *Node Pool Name*: Name of the node pool you would like the scale
-- *Minimum Number of Nodes*: Minimum number of nodes to exist in the cluster
-- *Maximum Number of Nodes*: Maximum number of nodes to exist in the cluster
-- *VM Type*: Service used to generate the Kubernetes cluster
+```sh
+#! /bin/bash
+ID=`az account show --query id`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Get your subscription ID with: 
+TENANT=`az account show --query tenantId`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID"`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+	name: cluster-autoscaler-azure
+	namespace: kube-system
+data:
+	ClientID: $CLIENT_ID
+	ClientSecret: $CLIENT_SECRET
+	ResourceGroup: $RESOURCE_GROUP
+	SubscriptionID: $SUBSCRIPTION_ID
+	TenantID: $TENANT_ID
+	VMType: QUtTCg==
+	ClusterName: $CLUSTER_NAME
+	NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Generate a set of Azure credentials by running the following command:
+After following the steps in the script, the script will output your details in the form of a secret, like so:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>
+  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-The App ID, Password, and Tenant ID will be your clientID, clientSecret, and tenantID in the following steps.
-
-Get the name of your node pool by running the following command. 
+Next, get the name of your node pool by running the following command. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -77,49 +107,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Then, extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
 
-To get the name of your node resource group, extract the value of the label **kubernetes.azure.com<span></span>/cluster**. The node resource group name is generally of the form MC_[resource-group]\_[cluster-name]_[location].
-
-The vmType parameter refers to the service being used, which here, is AKS.
-
-Now, you should have the following information:
-
-- SubscriptionID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-Next, encode all of these values with base64. For example, to encode the VMType value with base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## Create secret
-Using this data, create a secret for the deployment using the values found in the previous steps in the following format:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Now using your secret and nodepool, you can create a deployment chart.
 
 ## Create a deployment chart
 
