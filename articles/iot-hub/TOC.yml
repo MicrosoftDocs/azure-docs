@@ -30,6 +30,8 @@
   items:
   - name: Routing messages
     href: tutorial-routing.md
+  - name: Perform manual failover
+    href: tutorial-manual-failover.md
   - name: Configure your devices
     href: tutorial-device-twins.md
   - name: Manage firmware updates
@@ -124,19 +126,22 @@
   items:
   - name: Develop
     items:
-    - name: Use the IoT device SDK for C
-      href: iot-hub-device-sdk-c-intro.md
+    - name: Use device and service SDKs
+      href: iot-hub-devguide-sdks.md
       items:
-      - name: Use the IoTHubClient
-        href: iot-hub-device-sdk-c-iothubclient.md
-      - name: Use the serializer
-        href: iot-hub-device-sdk-c-serializer.md
-    - name: Develop for constrained devices
-      href: iot-hub-devguide-develop-for-constrained-devices.md
-    - name: Develop for mobile devices
-      href: iot-hub-how-to-develop-for-mobile-devices.md
-    - name: Manage connectivity and reliable messaging
-      href: iot-hub-reliability-features-in-sdks.md
+      - name: Use the IoT device SDK for C
+        href: iot-hub-device-sdk-c-intro.md
+        items:
+        - name: Use the IoTHubClient
+          href: iot-hub-device-sdk-c-iothubclient.md
+        - name: Use the serializer
+          href: iot-hub-device-sdk-c-serializer.md
+      - name: Develop for constrained devices
+        href: iot-hub-devguide-develop-for-constrained-devices.md
+      - name: Develop for mobile devices
+        href: iot-hub-how-to-develop-for-mobile-devices.md
+      - name: Manage connectivity and reliable messaging
+        href: iot-hub-reliability-features-in-sdks.md
     - name: Query Avro data from a hub route
       href: iot-hub-query-avro-data.md
     - name: Send cloud-to-device messages
