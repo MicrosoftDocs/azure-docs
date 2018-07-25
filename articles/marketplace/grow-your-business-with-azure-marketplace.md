@@ -31,27 +31,27 @@ The tables in the next sections provide suggestions for creating engaging Market
 ### Offer identity
 
 ### Storefront details > Offer details
-| Storefront settings | Best practices |
+| Storefront setting | Best practice |
 |:--- |:--- |  
 | Offer Name | Provide a strong title:<br>Your app name should communicate the core value that your customers receive. Including search keywords in your app title can help your app to be ranked higher in search engine results.<br><br>Follow a set title format for consulting service listings:<br>[Offer Name]: [Duration] [Offer Type] (for example, *Contoso: 2-Week Implementation*)<br><br>Adhere to brand guidelines:<br>Follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when you refer to Microsoft trademarks and the names of Microsoft software, products, and services. |
 | Offer Description | Provide a clear offer description:<br>Clearly describe your offer's value proposition in the first few sentences of your description. Keep in mind that the first few sentences might be displayed in search engine results. Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. Use industry-specific vocabulary or benefit-based wording as much as possible.<br><br>Core components of your value proposition should include the following information:<ul><li>Description of the product</li><li>Type of user that benefits from the product</li><li>Customer need or pain that the product addresses</li></ul> |
 
 ### Storefront details > Listing details
-| Storefront settings | Best practices |
+| Storefront setting | Best practice |
 |:--- |:--- |  
-| Industries: AppSource apps and consulting services only | Select industries if your offer addresses industry-specific requirements. Call out industry-specific capabilities in your offer description.<br><br>**Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
-| Categories | Select categories that align best with your offer. Choose the categories carefully, because customers use them to search for relevant apps. Be sure to call out how your offer supports category-specific needs in the offer description.<br><br> **Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
-| Products that your app works with (3&nbsp;max): AppSource apps only | List additional products and technologies that your solution uses or extends (for example, Azure IOT Hub or Azure Machine Learning). |
-| Search keywords (3&nbsp;max) | Search keywords help business users find your offer when they search in the Azure Marketplace and on AppSource or by using search engines. Identify the top three search keywords for your offer; incorporate the search keywords in your offer summary and description; and list the search keywords here. |
+| Industries: AppSource apps and consulting services only | Select industries if your offer addresses industry-specific requirements:<br>Call out industry-specific capabilities in your offer description.<br><br>**Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
+| Categories | Select categories that align best with your offer:<br>Choose the categories carefully, because customers use them to search for relevant apps. Be sure to call out how your offer supports category-specific needs in the offer description.<br><br> **Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
+| Products that your app works with (3&nbsp;max): AppSource apps only | List additional products and technologies that your solution uses or extends:<br>For example, Azure IOT Hub or Azure Machine Learning. |
+| Search keywords (3&nbsp;max) | Use search keywords that help business users find your offer when they search in the Azure Marketplace and on AppSource or by using search engines:<br>Identify the top three search keywords for your offer; incorporate the search keywords in your offer summary and description; and list the search keywords here. |
 
 ### Storefront details > Marketing artifacts
-| Storefront settings | Best practices |
+| Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer logo (PNG format, 48&nbsp;&times;&nbsp;48): search page | Your logo should be designed and optimized for a digital medium. Upload the logo in PNG format to the search page of your offer. |
-| Offer logo (PNG format, 216&nbsp;&times;&nbsp;216): app details page | Your logo should be designed and optimized for a digital medium. Upload the logo in PNG format to the app details listing page of your offer. |
-| "Learn more" documents | Include supporting sales and marketing assets under "Learn more" (for example, white papers, brochures, checklists, or PowerPoint presentations). All files should be in PDF format. Your goal should be to educate customers, not sell to them.<br><br>Add a link to your app landing page to all your documents, and add URL parameters to help you track visitors and trials. |
-| Videos: AppSource, consulting services, and SaaS offers only | The strongest videos communicate the value of your offer in narrative form. Make your customer, not your company, the hero of the story. Your video should address the principal challenges and goals of your target customer.<br><br>Recommended length: 60-90 seconds.<br><br>Incorporate key search words that use the name of the videos.<br><br>Consider adding additional videos, such as a how-to, getting started, or customer testimonial video. |
-| Screenshots (1280&nbsp;&times;&nbsp;720) | Add up to five screenshots. Incorporate key search words in the file names. |
+| Offer logo (PNG format, 48&nbsp;&times;&nbsp;48): search page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the search page of your offer. |
+| Offer logo (PNG format, 216&nbsp;&times;&nbsp;216): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. |
+| "Learn more" documents | Include supporting sales and marketing assets under "Learn more":<br>For example, white papers, brochures, checklists, or PowerPoint presentations. Save all files in PDF format. Your goal should be to educate customers, not sell to them.<br><br>Add a link to your app landing page to all your documents, and add URL parameters to help you track visitors and trials. |
+| Videos: AppSource, consulting services, and SaaS offers only | The strongest videos communicate the value of your offer in narrative form:<br>Make your customer, not your company, the hero of the story. Your video should address the principal challenges and goals of your target customer.<br><br>Recommended length: 60-90 seconds.<br><br>Incorporate key search words that use the name of the videos.<br><br>Consider adding additional videos, such as a how-to, getting started, or customer testimonial video. |
+| Screenshots (1280&nbsp;&times;&nbsp;720) | Add up to five screenshots:<br>Incorporate key search words in the file names. |
 
 ## Marketing best practices 
 
