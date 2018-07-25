@@ -26,7 +26,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 <!-- link to free account -->
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
-<a name="create-luis-subscription-key">
+<a name="create-luis-subscription-key"></a>
 
 ## Create LUIS endpoint key
 
