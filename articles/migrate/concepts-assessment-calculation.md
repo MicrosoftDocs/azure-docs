@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 07/24/2018
 ms.author: raynew
 ---
 
@@ -35,7 +35,7 @@ Azure Migrate reviews the following properties of the on-premises VM to identify
 --- | --- | ---
 **Boot type** | Azure supports VMs with boot type as BIOS, and not UEFI. | Conditionally ready for Azure if boot type is UEFI.
 **Cores** | The number of cores in the machines must be equal to or less than the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor. | Not ready if number of cores is greater than 32.
-**Memory** | The machine memory size must be equal to or less than the maximum memory (448 GB) allowed for an Azure VM. <br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> | Not ready if memory size is greater than 448 GB.
+**Memory** | The machine memory size must be equal to or less than the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) allowed for an Azure VM. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> | Not ready if memory size is greater than 448 GB.
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. | Not ready if any disk has size greater than 4 TB or if there are more than 65 disks attached to the machine.
 **Networking** | A machine must have 32 or less NICs attached to it. | Not ready if the machine has more than 32 NICs
 

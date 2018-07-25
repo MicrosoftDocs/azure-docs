@@ -12,7 +12,7 @@ ms.date: 07/27/2018
 
 # How to migrate to the latest version of Azure Machine Learning Services 
 
-**If you have previously installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed or an experimentation account, you don't need to migrate anything.
+**If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
 Most artifacts created in the first preview of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning offering. 
 
@@ -20,12 +20,15 @@ The following table and article explain what you can do with your existing asset
 
 |Previous preview asset or resource|Can I migrate?|Actions|
 |-----------------|:-------------:|-------------|
-|Machine learning models|Yes|None. Works as before.|
-|Model dependencies & schemas|Yes|None. Works as before.|
+|Machine learning models (as local files)|Yes|None. Works as before.|
+|Model dependencies & schemas (as local files)|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
-|Deployments: web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
+|Registered Models|No|You must re-register the model under a the new workspace.|
+|Registered Manifests|No|None. Manifests no longer exists as a concept in the new workspace.|
+|Registered Images|No|You must re-create the deployment Docker image under a new workspace.|
+|Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
 |Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|
 
@@ -39,7 +42,7 @@ Learn more about [what changed in this release](overview-what-happened-to-workbe
 
 ## Azure resources
 
-Resources such as your experimentation account and model management account, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
+Resources such as your experimentation accounts, model management accounts, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
 Get started with the latest version by creating an Azure Machine Learning Workspace:
 + In the [Azure portal](quickstart-get-started.md)
