@@ -120,7 +120,7 @@ The output resembles the following image.
 
 ## Upload dataset to the default datastore 
 
-Upload the MNIST dataset to the default datastore in the Azure blob storage account created with your workspace.
+Upload the MNIST dataset to the default datastore in the Azure blob storage account. A blob storage account was created automatically when you created your workspace.
 
 ```python
 ds.upload(src_dir = './data', target_path = 'mnist', overwrite = True)
@@ -142,32 +142,19 @@ batchai_cluster_name = "gpucluster"
 
 found = False
 
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if ct.name == batchai_cluster_name and type(ct) is BatchAiCompute:
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
-    print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+print('creating a new compute target...')
+provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            autoscale_enabled = True,
+                                                            cluster_min_nodes = 1, 
+                                                            cluster_max_nodes = 4)
 
-    # create the cluster
-    compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
+# create the cluster
+compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
+compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
     
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
-    
-     # For a more detailed view of current Batch AI cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
+# Show current status of Batch AI cluster using 'status' property
+print(compute_target.status.serialize())
 ```
 
 ## Clean up resources
@@ -178,8 +165,10 @@ if not found:
 
 In this Azure Machine Learning tutorial, you used Python to:
 > [!div class="checklist"]
-> * Train a model locally 
-> * Train a model on remote Data Science Virtual Machine (DSVM)
-> * Deploy and test a web service to Azure Container Instances
+> * Create a Batch AI cluster 
+> * Load data into the default blob storage
+> * Train a model locally
 
-@@WHat's next best to try out?
+You are ready to move on to the next part in the tutorial series, where you learn how to build an Azure Machine Learning model:
+> [!div class="nextstepaction"]
+> [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
