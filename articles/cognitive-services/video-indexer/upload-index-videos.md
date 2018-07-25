@@ -16,8 +16,6 @@ ms.author: juliako
 
 This article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos with Azure Video Indexer. It also discusses some of the parameters that you can set on the API to change the process and output of the API.
 
-To estimate how long it will take to index your video, use the following formula: 15 min + 1.5 x  video duration / 1 hour.
-
 ## Configurations and params
 
 This section describes some of the optional parameters and when you would want to set them.
