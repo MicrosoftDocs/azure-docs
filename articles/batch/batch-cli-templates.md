@@ -313,6 +313,18 @@ az batch job create --template job-ffmpeg.json
 
 As before, the CLI prompts you to provide values for the parameters. You can also supply the parameters in a JSON file.
 
+### Use templates in Batch Explorer
+
+You can upload a Batch CLI template to the [Batch Explorer](https://github.com/Azure/BatchExplorer) desktop application (formerly called BatchLabs) to create a Batch pool or job. You can also select from predefined pool and job templates in the Batch Explorer Gallery.
+
+To upload a template:
+
+1. In Batch Explorer, select **Gallery** > **Local templates**.
+
+2. Select, or drag and drop, a local pool or job template.
+
+3. Select **Use this template**, and follow the on-screen prompts.
+
 ## File groups and file transfer
 
 Most jobs and tasks require input files and produce output files. Usually, input files and output files are transferred, either from the client to the node, or from the node to the client. The Azure Batch CLI extension abstracts away file transfer and utilizes the storage account that you can associate with each Batch account.
@@ -345,7 +357,8 @@ Try out the Batch extension for the Azure CLI and provide us with any feedback o
 
 ## Next steps
 
-- See the Batch templates blog post: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Detailed installation and usage documentation, samples, and source code are
 available in the [Azure GitHub
 repo](https://github.com/Azure/azure-batch-cli-extensions).
+
+- Learn more about using [Batch Explorer](https://github.com/Azure/BatchExplorer) to create and manage Batch resources.
