@@ -2,7 +2,7 @@
 title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
