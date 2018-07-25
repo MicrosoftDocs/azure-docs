@@ -18,6 +18,9 @@ ms.author: wolfma
 In this article, you learn how to create a Universal Windows Platform (UWP) application using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
+> [!NOTE]
+> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices. Apps using the Speech SDK do not yet pass the Windows App Certification Kit (WACK). It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
+
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
