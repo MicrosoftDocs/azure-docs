@@ -21,7 +21,7 @@ metadata:
 abstract:
   description: |
     Via our Speech SDK, the <a href="overview">Speech Service</a> helps developers add speech-enabled features to their apps.<br/>
-    Examples include&#58; text-to-speech (speech recognition/SR), translation, and text-to-speech (TTS).
+    Features include&#58; <i>text-to-speech</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS).
 
 sections:
 - title: 5-minute SDK download and quickstart
