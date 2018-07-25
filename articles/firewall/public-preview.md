@@ -37,6 +37,30 @@ After the registration is complete, run the following command:
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
+
+## Enable using Azure CLI
+
+To enable the Azure Firewall public preview, use the following Azure CLI commands:
+
+```console
+az feature register --name AllowRegionalGatewayManagerForSecureGateway --namespace Microsoft.Network
+
+az feature register --name AllowAzureFirewall --namespace Microsoft.Network
+```
+
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI commands:
+
+```console
+az feature show --name AllowRegionalGatewayManagerForSecureGateway --namespace Microsoft.Network
+
+az feature show --name AllowAzureFirewall --namespace Microsoft.Network
+```
+After the registration is complete, run the following command:
+
+```console
+az provider register --namespace Microsoft.Network
+```
+
 ## Next steps
 
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
