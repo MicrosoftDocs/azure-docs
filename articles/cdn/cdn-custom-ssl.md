@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -174,7 +174,7 @@ Your CNAME record should be in the following format, where *Name* is your custom
 
 For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
 Automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
 
@@ -211,7 +211,7 @@ Follow the instructions on the form; you have two verification options:
 
 - You can approve just the specific host name used in this request. Additional approval is required for subsequent requests.
 
-After approval, DigiCert adds your custom domain name to the SAN certificate. The certificate is valid for one year and will be auto-renewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be auto-renewed before it's expired.
 
 ## Wait for propagation
 
@@ -285,11 +285,11 @@ The following table shows the operation progress that occurs when you disable HT
 
 1. *Who is the certificate provider and what type of certificate is used?*
 
-    With **Azure CDN from Verizon**, a Subject Alternative Names (SAN) certificate provided by DigiCert is used. A SAN certificate can secure multiple fully qualified domain names with one certificate. With **Azure CDN Standard from Microsoft**, a single certificate provided by DigiCert is used.
+    For both **Azure CDN from Verizon** and **Azure CDN from Microsoft**, a dedicated/single certificate provided by Digicert is used for your custom domain. 
 
-2. Do you use IP-based or SNI TLS/SSL?
+2. *Do you use IP-based or SNI TLS/SSL?*
 
-    **Azure CDN from Verizon** uses IP-based TLS/SSL. **Azure CDN Standard from Microsoft** uses SNI TLS/SSL.
+    Both **Azure CDN from Verizon** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
@@ -306,6 +306,10 @@ The following table shows the operation progress that occurs when you disable HT
 6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
     No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
+
+7. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
+
+    Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application. If Microsoft detects there some non-SNI client requests made to your application, your domains will stay in the SAN certificate with IP-based TLS/SSL. In any case, there will be no interruption to your service or support to your client requests regardless of whether those requests are SNI or non-SNI.
 
 
 ## Next steps

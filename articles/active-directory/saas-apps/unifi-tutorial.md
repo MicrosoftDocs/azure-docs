@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Provider Name** textbox, type the name of the Identity Provider..
 
-	b. In the the **Provider URL** textbox paste the **SAML Single Sign-On Service URL** value, which you have copied from Azure portal.
+	b. In the **Provider URL** textbox paste the **SAML Single Sign-On Service URL** value, which you have copied from Azure portal.
 
 	c. Open the Certificate that you have downloaded from the Azure portal in notepad, remove the **---BEGIN CERTIFICATE---** and **---END CERTIFICATE---** tag and then paste the remaining content in the **Certificate** textbox.
 
@@ -225,7 +225,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the UNIFI tile in the Access Panel, you should get automatically signed-on to your UNIFI application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -37,39 +37,10 @@ ms.author: maquaran
 
 ## Release notes
 
-### Stable builds
+### v2 builds
 
-### <a name="1.3.3"/>1.3.3
-* Added more logging.
-* Fixed a DocumentClient leak when calling the pending work estimation multiple times.
-
-### <a name="1.3.2"/>1.3.2
-* Fixes in the pending work estimation.
-
-### <a name="1.3.1"/>1.3.1
-* Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
-* Support for manual checkpointing.
-* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
-
-### <a name="1.2.0"/>1.2.0
-* Adds support for .NET Standard 2.0. The package now supports `netstandard2.0` and `net451` framework monikers.
-* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.17.0 and above.
-* Compatible with [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versions 1.5.1 and above.
-
-### <a name="1.1.1"/>1.1.1
-* Fixes an issue with the calculation of the estimate of remaining work when the Change Feed was empty or no work was pending.
-* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.13.2 and above.
-
-### <a name="1.1.0"/>1.1.0
-* Added a method to obtain an estimate of remaining work to be processed in the Change Feed.
-* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.13.2 and above.
-
-### <a name="1.0.0"/>1.0.0
+### <a name="2.0.4"/>2.0.4
 * GA SDK
-* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
-
-### Pre-release builds
 
 ### <a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Fixed the following issues:
@@ -104,6 +75,39 @@ ms.author: maquaran
 * 100% backward compatible with v1 API.
 * New code base.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21.1 and above.
+
+### v1 builds
+
+### <a name="1.3.3"/>1.3.3
+* Added more logging.
+* Fixed a DocumentClient leak when calling the pending work estimation multiple times.
+
+### <a name="1.3.2"/>1.3.2
+* Fixes in the pending work estimation.
+
+### <a name="1.3.1"/>1.3.1
+* Stability improvements.
+  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+* Support for manual checkpointing.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
+
+### <a name="1.2.0"/>1.2.0
+* Adds support for .NET Standard 2.0. The package now supports `netstandard2.0` and `net451` framework monikers.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.17.0 and above.
+* Compatible with [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versions 1.5.1 and above.
+
+### <a name="1.1.1"/>1.1.1
+* Fixes an issue with the calculation of the estimate of remaining work when the Change Feed was empty or no work was pending.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.13.2 and above.
+
+### <a name="1.1.0"/>1.1.0
+* Added a method to obtain an estimate of remaining work to be processed in the Change Feed.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.13.2 and above.
+
+### <a name="1.0.0"/>1.0.0
+* GA SDK
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
+
 
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.

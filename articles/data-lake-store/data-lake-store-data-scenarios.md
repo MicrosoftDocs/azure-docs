@@ -1,21 +1,22 @@
 ---
-title: Data scenarios involving Data Lake Store | Microsoft Docs
-description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in a Data Lake Store
+title: Data scenarios involving Data Lake Storage Gen1 | Microsoft Docs
+description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
 
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
-# Using Azure Data Lake Store for big data requirements
+# Using Azure Data Lake Storage Gen1 for big data requirements
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 There are four key stages in big data processing:
 
 * Ingesting large amounts of data into a data store, at real-time or in batches

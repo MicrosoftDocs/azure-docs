@@ -25,7 +25,7 @@ This article explains how to assign an administrative role to a user in Azure Ac
 
     ![Opening user management](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. For the selected user, select **Directory role**, select **Add role**, and then pick the appropriate admin roles from the **Directory roles** list, such as **Conditional access administrator**. For more information about administrative roles, see [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md). 
+3. For the selected user, select **Directory role**, select **Add role**, and then pick the appropriate admin roles from the **Directory roles** list, such as **Conditional access administrator**. For more information about administrative roles, see [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
 
     ![Assigning a user to a role](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

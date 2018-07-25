@@ -113,7 +113,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In this tutorial focuses on the `runAsync()` entry point method. This method is where you can immediately start running your code.
+This tutorial focuses on the `runAsync()` entry point method. This is where you can immediately start running your code.
 
 ### RunAsync
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
@@ -233,7 +233,7 @@ Operations on Reliable HashMaps are asynchronous. This is because write operatio
 Reliable HashMap operations are *transactional*, so that you can keep state consistent across multiple Reliable HashMaps and operations. For example, you may get a work item from one Reliable Dictionary, perform an operation on it, and save the result in another Reliable HashMap, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 
-## Run the application
+## Build the application
 
 The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
 application. To run the application, first build the application with gradle:
@@ -244,14 +244,36 @@ $ gradle
 
 This produces a Service Fabric application package that can be deployed using Service Fabric CLI.
 
-### Deploy with Service Fabric CLI
+## Deploy the application
 
-The install.sh script contains the necessary Service Fabric CLI commands to deploy the application package. Run the
-install.sh script to deploy the application.
+Once the application is built, you can deploy it to the local cluster.
 
-```bash
-$ ./install.sh
-```
+1. Connect to the local Service Fabric cluster.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
+    ```bash
+    ./install.sh
+    ```
+
+Deploying the built application is the same as any other Service Fabric application. See the documentation on
+[managing a Service Fabric application with the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md) for
+detailed instructions.
+
+Parameters to these commands can be found in the generated manifests inside the application package.
+
+Once the application has been deployed, open a browser and navigate to
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
+[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+that there is now an entry for your application type and another for the first instance of that type.
+
+> [!IMPORTANT]
+> To deploy the application to a secure Linux cluster in Azure, you need to configure a certificate to validate your application with the Service Fabric runtime. Doing so enables your Reliable Services services to communicate with the underlying Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## Next steps
 

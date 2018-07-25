@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Custom activities in Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
@@ -973,7 +973,7 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Basics of Batch](../../batch/batch-technical-overview.md)
   * [Overview of Batch features](../../batch/batch-api-basics.md)
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
-  * [Get started with the Batch client library for .NET](../../batch/batch-dotnet-get-started.md)
+  * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

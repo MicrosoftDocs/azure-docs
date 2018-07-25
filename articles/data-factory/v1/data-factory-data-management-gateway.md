@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Data Management Gateway
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Data Management Gateway has now been rebranded as Self-hosted Integration Runtime.  
@@ -287,12 +287,12 @@ You can disable/enable the auto-update feature by doing the following steps:
 	```PowerShell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
 	```
-[For multi-node highly available and scalable gateway (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+[For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Launch Windows PowerShell on the gateway machine.
 2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
-	For gateway with high availability feature (preview), an extra AuthKey param is required.
+	For gateway with high availability feature, an extra AuthKey param is required.
 	```PowerShell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
 	```

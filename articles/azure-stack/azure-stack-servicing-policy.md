@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
 
@@ -37,8 +37,6 @@ Find documentation on how to plan for and manage updates, and how to determine y
 For information about a specific update, including how to download it, see the release notes for that update: 
 - [Azure Stack 1805 update](azure-stack-update-1805.md)
 - [Azure Stack 1804 update](azure-stack-update-1804.md)
-- [Azure Stack 1803 update](azure-stack-update-1803.md)
-
 
 ## Hotfixes
 Occasionally, Microsoft provides hotfixes for Azure Stack that address a specific issue that is often preventative or time-sensitive.  Each hotfix is released with a corresponding Microsoft Knowledge Base article that details the issue, cause, and resolution. 

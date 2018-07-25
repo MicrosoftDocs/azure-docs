@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
@@ -776,7 +776,7 @@ As a rough decision tree to decide whether an SAP system fits into Azure Virtual
 ![Decision tree to decide ability to deploy SAP on Azure][planning-guide-figure-700]
 
 **Step 1**: The most important information to start with is the SAPS requirement for a given SAP system. The SAPS requirements need to be separated out into the DBMS part and the SAP application part, even if the SAP system is already deployed on-premises in a 2-tier configuration. For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found here:
-<http://global.sap.com/campaigns/benchmark/index.epx>.
+<https://sap.com/about/benchmark.html>.
 For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
 See also this blog and attached document for SAP sizing on Azure:
 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
@@ -994,7 +994,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 * Upload the VHD with Powershell or Azure CLI
 * (Optional) Create a Managed Disk from the VHD with Powershell, Azure CLI or the Azure portal
-* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Deployment of a VM Image
 To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] of this document.

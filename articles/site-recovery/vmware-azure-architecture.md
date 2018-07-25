@@ -3,8 +3,7 @@ title: VMware to Azure replication architecture in Azure Site Recovery | Microso
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 

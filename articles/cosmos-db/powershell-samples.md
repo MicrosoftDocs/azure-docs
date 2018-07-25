@@ -16,7 +16,7 @@ ms.author: sngun
 
 # Azure PowerShell samples for Azure Cosmos DB
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time, you can only manage the Azure Cosmos DB account via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
+The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time, you can only manage the Azure Cosmos DB account via PowerShell; other resources such as databases and containers cannot be managed via PowerShell.
 
 | |  |
 |---|---|
