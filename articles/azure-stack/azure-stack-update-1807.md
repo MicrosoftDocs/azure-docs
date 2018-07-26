@@ -47,7 +47,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2508488 |  IS   -->   Expand capacity by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
 
-- <!-- 2753130 |  IS, ASDK   -->  **ARM templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present.
+- <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present.
 
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](user/azure-stack-network-differences.md) for functionality differences.
 
@@ -279,7 +279,7 @@ The following are post-installation known issues for this build version.
 
 - <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
 
-- <!-- No Number - IS, ASDK -->  | Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+- <!-- No Number - IS, ASDK -->  Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
 
 - <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
@@ -313,7 +313,8 @@ The following are post-installation known issues for this build version.
 You can download the Azure Stack 1807 update package from [here](https://aka.ms/azurestackupdatedownload).
 
 
-## See also
-- To use the Privileged End Point (PEP) to monitor and resume updates, see [Monitor updates in Azure Stack using the privileged endpoint](azure-stack-monitor-update.md).
-- For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).
-- For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+## Next steps
+- To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  
+- To use the Privileged End Point (PEP) to monitor and resume updates, see [Monitor updates in Azure Stack using the privileged endpoint](azure-stack-monitor-update.md).  
+- For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).  
+- For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).  

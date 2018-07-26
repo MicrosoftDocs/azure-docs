@@ -323,7 +323,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
 
-- <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
+- <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. <!-- In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type. -->
 
 #### Usage  
 - <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
@@ -337,7 +337,7 @@ This build includes the following improvements and fixes for Azure Stack.
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update.
+- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. <!-- We will announce the availability to use these subscription types in with a future update. -->
 
   These new subscription types are visible, but part of a larger change to secure the Default Provider subscription, and to make it easier to deploy shared resources, like SQL Hosting servers.
 

@@ -43,7 +43,8 @@ The operation to add a new node can take several hours or days to complete.
 >  - Repair scale unit node
 
 
-## Add scale unit nodes 
+## Add scale unit nodes
+
 The following steps are a high-level overview of how to add a node. Don't follow these steps without first referring to your OEM-provided capacity expansion documentation.
 
 1. Place the new physical server in the rack and cable it appropriately. 
@@ -52,10 +53,12 @@ The following steps are a high-level overview of how to add a node. Don't follow
 4. Run the Add node operation in the Azure Stack admin portal.
 5. Validate that the add node operation succeeds. To do so, check the [**Status** of the Scale Unit](#monitor-add-node-operations). 
 
-## Add the node 
+## Add the node
+
 You can use the admin console or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *compute* and *storage* scale together.
 
 ### Use the admin console
+
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
 2. Navigate to **Region management** > **Scale units**, and then select the scale unit that you want to expand capacity for.  
    ![Select scale unit](media/azure-stack-add-scale-node/select-node1.png)
@@ -90,7 +93,7 @@ Before using either of the following sample PowerShell scripts, replace the valu
   Add-AzsScaleUnitNode -NodeList @($NewNode1,$NewNode2) -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```
 
-## Monitor Add Node operations 
+## Monitor add node operations 
 You can use the admin portal or PowerShell to get the status of the add node operation. Add node operations can take several hours to days to complete.
 
 ### Use the admin console 
@@ -141,5 +144,5 @@ The following are common issues seen when adding a node.
 - Remediation: In this case, the storage configuration task has failed. This problem requires you to contact support.
 
 
-## Next Steps 
+## Next steps 
 Review [Node actions](azure-stack-node-actions.md) 
