@@ -19,6 +19,7 @@ Are you just starting to explore the functionality of the Speech service? Are yo
 > * Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists.
 > * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*.
 > * If you find an issue with one of the samples you can find on GitHub, raise a *GitHub* issue.
+> * Search for a solution in the *User Voice Forum*.
 
 ## Search
 
@@ -26,7 +27,7 @@ You may find the answer you need in the documentation, our samples, or answers t
 
 ### Scoped Search
 
-For faster results, scope your search to Stack Overflow, our documentation, and code samples by using the following on your [favorite search engine](https://bing.com):
+For faster results, scope your search to Stack Overflow, our documentation, and code samples by using the following query on your [favorite search engine](https://bing.com):
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
@@ -34,7 +35,7 @@ For faster results, scope your search to Stack Overflow, our documentation, and 
 
 Where *{Your Search Terms}* is your search keywords.
 
-[![Stack Overflow](/media/logos/logo_stackoverflow.svg)](https://www.stackoverflow.com)
+[![Stack Overflow](https://docs.microsoft.com/en-us/media/logos/logo_stackoverflow.svg)](https://www.stackoverflow.com)
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
@@ -54,7 +55,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 > * [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-[![GitHub](/media/logos/logo_octokitty.svg)](https://www.github.com)
+[![GitHub](https://docs.microsoft.com/en-us/media/logos/logo_octokitty.svg)](https://www.github.com)
 ## Create a GitHub issue
 
 Samples are often posted as open source. For questions and issues create an *issue* in the respective GitHub repository. You are also free to submit a pull request as well. The following list contains links to the sample repositories:
