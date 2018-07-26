@@ -222,7 +222,7 @@
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
-#### [Add an application](manage-apps/add-an-application-portal.md)
+#### [Add an application](manage-apps/add-application-portal.md)
 #### [View tenant apps](manage-apps/view-applications-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
