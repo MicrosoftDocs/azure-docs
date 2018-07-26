@@ -1,9 +1,8 @@
 ---
-title: Azure Cognitive Services Speech Service | Microsoft Docs
+title: Azure Cognitive Services Speech Service
 description: Learn how to customize pronunciation with the Speech Service Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article

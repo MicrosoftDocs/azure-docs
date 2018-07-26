@@ -105,7 +105,7 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: How soon after an action will the corresponding logs show up in Event Hubs?**
 
-**A:** The logs should show up in Event Hubs anywhere between two and five minutes of performing the action. For more information about event hubs, see [What is event hubs?](/azure/event-hubs/event-hubs-what-is-event-hubs.md)
+**A:** The logs should show up in Event Hubs anywhere between two and five minutes of performing the action. For more information about event hubs, see [What is event hubs?](../event-hubs/event-hubs-about.md)
 
 ---
 
@@ -129,13 +129,13 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: What SIEM tools are currently supported?** 
 
-**A:** Currently, Azure Monitor is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+**A:** Currently, Azure Monitor is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 ---
 
 **Q: Can I access the data from Event Hub without using an external SIEM tool?** 
 
-**A:** Yes, you can use the [Event Hub API](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph) to access the logs from your custom application. 
+**A:** Yes, you can use the [Event Hub API](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) to access the logs from your custom application. 
 
 ---
 
@@ -144,4 +144,4 @@ This section contains the frequently asked questions and known issues with Azure
 
 * [Archive activity logs to storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Route activity logs to Event Hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Read more about Azure Diagnostic Logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Read more about Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
