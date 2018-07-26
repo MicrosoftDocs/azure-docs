@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: charwen,cherylmc
+ms.author: charwen,cherylmc,rambala
 
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections
@@ -30,7 +30,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. 
 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).
@@ -87,7 +87,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Create a virtual network including Gateway Subnet. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

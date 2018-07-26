@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | tenant |Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
-| client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
+| client_secret |Required |The Application Secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent.|
 | grant_type |Required |Must be `client_credentials`. |
 
 ### Second case: Access token request with a certificate
