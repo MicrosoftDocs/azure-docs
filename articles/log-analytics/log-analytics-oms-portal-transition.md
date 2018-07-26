@@ -22,6 +22,15 @@ One piece of feedback heard repeatedly from Log Analytics customers is the need 
 
 We expect to close down the remaining gaps between the two portals by August 2018. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to LAUpgradeFeedback@microsoft.com. The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
 
+## Progress
+Following are updates that have been completed since previous versions of this article.
+
+### July 26
+
+- [DNS Analytics](log-analytics-dns.md) is now fully functional in the Azure portal.
+- [Update Management](../automation/automation-update-management.md) has been updated to be fully functional in the Azure portal. See [Migrate your OMS Update Deployments to Azure](../automation/migrate-oms-update-deployments.md) for details.
+- [Alerts]()#changes-to-lerts have now been fully extended into the Azure portal.
+
 
 ## What will change? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
@@ -46,11 +55,6 @@ There are currently some functionality gaps that require you to still use the OM
 -  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](#user-access-and-role-migration).
 - Custom logs preview feature can only be enabled through OMS Portal. By the end of June 2018, this will be automatically enabled for all work spaces.
 
-## Gaps that have been addressed
-Previous versions of this article idnentified gaps that have since been addressed. These include the following:
-
-- [DNS Analytics](log-analytics-dns.md) is now fully functional in the Azure portal.
-- [Update Management](../automation/automation-update-management.md) has been updated to be fully functional in the Azure portal. See [Migrate your OMS Update Deployments to Azure](../automation/migrate-oms-update-deployments.md) for details.
 
 ## What should I do now?  
 You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure portal as your primary experience. Send any feedback, questions, or concerns to LAUpgradeFeedback@microsoft.com.
