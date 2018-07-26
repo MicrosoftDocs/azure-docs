@@ -10,7 +10,7 @@ layout: LandingPage
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
-ms.date: 07/25/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ---
 

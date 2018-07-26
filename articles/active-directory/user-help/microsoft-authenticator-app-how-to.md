@@ -10,7 +10,7 @@ ms.service: active-directoary
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
 ---

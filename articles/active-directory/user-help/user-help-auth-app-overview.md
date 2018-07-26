@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ---
 
