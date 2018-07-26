@@ -6,7 +6,7 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Use a VM MSI to access Azure Resource Manager
+  - name: Use a VM Managed Identity to access Azure Resource Manager
     items: 
     - name: Windows VM
       href: tutorial-windows-vm-access-arm.md
@@ -82,7 +82,7 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
-  - name: Use a VM MSI
+  - name: Use a VM Managed Identity
     items:
     - name: Acquire an access token
       href: how-to-use-vm-token.md
