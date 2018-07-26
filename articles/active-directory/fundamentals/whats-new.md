@@ -233,7 +233,7 @@ The Azure AD Activity Logs are now available in public preview for the Azure Mon
 
 - Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
 
-For more information about these new capabilities, see the blog and our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview)
+For more information about these new capabilities, see [Azure Active Directory activity logs in Azure Monitor (preview)](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview)
 
 ---
 
