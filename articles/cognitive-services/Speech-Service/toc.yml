@@ -106,7 +106,7 @@
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Support
-    href: develop-help-support.md
+    href: support.md
   - name: Shipping your application
     href: ship-application.md
   - name: Pricing
