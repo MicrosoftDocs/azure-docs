@@ -47,43 +47,43 @@ sections:
       - image:
           src: media/index/gridengine-logo-small.jpg
         text: Grid Engine
-        href: clusters.md
+        href: cluster-templates.md
       - image:
           src: media/index/PBS-logo-small.png
         text: PBS Pro
-        href: app-service-deploy-ftp.md
+        href: cluster-templates.md
       - image:
           src: media/index/slurm-logo-small.png
         text: Slurm
-        href: app-service-deploy-local-git.md
+        href: cluster-templates.md
       - image:
           src: media/index/redis-logo-small.png
         text: Redis
-        href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+        href: cluster-templates.md
       - image:
           src: media/index/kafka-logo-small.png
         text: Kafka
-        href: app-service-continuous-deployment.md
+        href: cluster-templates.md
       - image:
           src: media/index/zookeeper-logo-small.png
         text: Zookeeper
-        href: app-service-continuous-deployment.md
+        href: cluster-templates.md
       - image:
           src: media/index/mrbayes-logo.jpg
         text: MrBayes
-        href: app-service-deploy-content-sync.md
+        href: cluster-templates.md
       - image:
           src: media/index/i_forks.svg
         text: LAMMPS
-        href: app-service-deploy-content-sync.md
+        href: cluster-templates.md
       - image:
           src: media/index/i_categorize.svg
-        text: Network File System
-        href: app-service-deploy-content-sync.md
+        text: NFS
+        href: cluster-templates.md
       - image:
           src: media/index/HTCondor_red_blk.png
         text: HTCondor
-        href: app-service-deploy-content-sync.md
+        href: cluster-templates.md
   - title: Reference
     items:
     - type: list
