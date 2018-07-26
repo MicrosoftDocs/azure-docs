@@ -52,8 +52,6 @@ The extracted data from the endpoint should contain this information and return 
 ## Create composite entity
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
-
 2. On the **Intents** page, select **MoveEmployee** intent. 
 
 3. Select the magnifying glass icon on the tool bar to filter the utterances list. 
@@ -77,7 +75,7 @@ The extracted data from the endpoint should contain this information and return 
 
 7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
 
-  ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
+    ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Select the magnifying glass on the toolbar to remove the filter. 
 
@@ -112,14 +110,10 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 2. Select the Production slot and the **Publish** button.
 
-    ![publish app](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
-
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Select endpoint URL](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. The last querystring parameter is `q`, the utterance query. 
 
