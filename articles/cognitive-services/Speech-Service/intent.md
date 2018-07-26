@@ -1,10 +1,9 @@
 ---
-title: Sample for Intent Recognition | Microsoft Docs
+title: Sample for Intent Recognition
 titleSuffix: "Microsoft Cognitive Services"
 description: Here is a sample for intent recognition.
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech
