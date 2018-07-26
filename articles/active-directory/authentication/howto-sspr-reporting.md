@@ -52,6 +52,10 @@ In the Azure portal experience, we have improved the way that you can view passw
 7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
 8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
+### Converged registration (preview)
+
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
+
 ## Description of the report columns in the Azure portal
 
 The following list explains each of the report columns in the Azure portal in detail:

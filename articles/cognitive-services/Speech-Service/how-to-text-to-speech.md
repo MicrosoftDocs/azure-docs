@@ -16,7 +16,7 @@ ms.author: v-jerkin
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+The body of the POST request for Text to Speech may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an [authorization](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 

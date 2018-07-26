@@ -58,6 +58,8 @@ Since most users are accustomed to using only passwords to authenticate, it is i
 
 ## Next steps
 
+- Get a step-by-step MFA [deployment plan](https://aka.ms/MFADeploymentPlan)
+
 - Find details about [licensing your users](concept-mfa-licensing.md)
 
 - Get details about [which version to deploy](concept-mfa-whichversion.md)

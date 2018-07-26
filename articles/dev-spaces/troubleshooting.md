@@ -16,9 +16,32 @@ manager: "douge"
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Error 'Failed to create Azure Dev Spaces controller'
+
+You might see this error when something goes wrong with the creation of the controller. If it's a transient error, deleting and recreating the controller will fix it.
+
+### Try:
+
+To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+And then run this command to delete the controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
+
+
 ## Error 'Service cannot be started.'
 
 You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, make the following changes to your commands and settings:
+
+### Try:
 
 On the command line:
 
