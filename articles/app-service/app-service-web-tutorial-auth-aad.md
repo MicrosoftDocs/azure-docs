@@ -406,6 +406,10 @@ Navigate to `http://<front_end_app_name>.azurewebsites.net` again. You should no
 
 Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
 
+## When access tokens expire
+
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
+
 ## Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:

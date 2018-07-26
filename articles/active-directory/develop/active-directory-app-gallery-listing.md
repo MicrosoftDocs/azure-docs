@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/14/2018
 ms.author: celested
-ms.reviewer: bryanla
+ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ---
 

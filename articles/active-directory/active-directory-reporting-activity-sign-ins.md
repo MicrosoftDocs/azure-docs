@@ -3,19 +3,19 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
-ms.author: rolyon
+ms.date: 06/21/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -37,7 +37,7 @@ This topic gives you an overview of the sign-in activities.
 ## Prerequisites
 
 ### Who can access the data?
-* Users in the Security Admin, Security Reader, or Report Reader role
+* Users in the Security Admin, Security Reader, Report Reader role
 * Global Admins
 * Any user (non-admins) can access their own sign-ins 
 
@@ -53,7 +53,7 @@ With the information provided by the user sign-in report, you find answers to qu
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.
+Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active Directory**.
 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")
@@ -66,7 +66,7 @@ A sign-ins log has a default list view that shows:
 - The application the user has signed-in to
 - The sign-in status
 - The status of the risk detection
-- The status of the multi-factor authentication (MFA) requirement 
+- The status of the multi-factor authentication (MFA) requirement
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/01.png "Sign-in activity")
 
@@ -82,6 +82,12 @@ By clicking an item in the list view, you get all available details about it in 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/03.png "Sign-in activity")
 
+> [!NOTE]
+> Customers can now troubleshoot conditional access policies through all sign-in reports. By clicking on the **Conditional access** tab for a sign-in record, customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+> For more information, see the [Frequently asked questions about CA information in all sign-ins](active-directory-reporting-faq.md#conditional-access).
+
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/ConditionalAccess.png "Sign-in activity")
+
 
 ## Filter sign-in activities
 
@@ -93,16 +99,15 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Status of the risk detection
 - Date
 
-
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/04.png "Sign-in activity")
 
-The **User** filter enables you to specify the name or the user principal name (UPN) of the user you care about. 
+The **User** filter enables you to specify the name or the user principal name (UPN) of the user you care about.
 
-The **Application** filter enables you to specify the name of the application you care about.  
+The **Application** filter enables you to specify the name of the application you care about.
 
 The **Sign-in status** filter enables you to select:
 
-- All 
+- All
 - Success
 - Failure
 
@@ -110,8 +115,7 @@ The **Risk Detected** filter enables you to select:
 
 - All
 - Yes
-- No 
-
+- No
 
 The **Date** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
@@ -139,24 +143,29 @@ If you add additional fields to your sign-ins view, these fields are automatical
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/12.png "Sign-in activity")
 
 
-> [!TIP] 
-> In addition to the default filters, all additional fields you are adding to your sign-ins view become filter fields.
-
-
 ## Download sign-in activities
 
-You can download the sign-in activities data if you want work with it outside the Azure portal. In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
+You can download the sign-in activities data if you want work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
 
 ![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
 
-Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a script that includes all the filters you have set. 
-In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
+If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 
+### Running the script on a Windows 10 machine
+
+If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
+
+1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
+3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
+4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
+
+In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
 
 
 ## Sign-in activities shortcuts
 
-In addition to Azure Active Directory, the Azure portal provides you with two additional entry points to sign-in activities data:
+In addition to Azure Active Directory, the Azure portal provides you with additional entry points to sign-in activities data:
 
 - The identity security protection overview
 - Users
@@ -172,14 +181,11 @@ With the information provided by the user sign-in report, you find answers to qu
 - How many users have users signed in over a week?
 - What’s the status of these sign-ins?
 
-
-
 Your entry point to this data is the user sign-in graph on the **identity security protection** overview page. The user sign-in graph shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/06.png "Sign-in activity")
 
 When you click on a day in the sign-in graph, you get an overview of the sign-in activities for this day.
-
 
 Each row in the sign-in activities list shows:
 
@@ -207,9 +213,6 @@ On the **Users** page, you get a complete overview of all user sign-ins by click
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/08.png "Sign-in activity")
 
-
-
-
 ## Usage of managed applications
 
 With an application-centric view of your sign-in data, you can answer questions such as:
@@ -218,7 +221,7 @@ With an application-centric view of your sign-in data, you can answer questions 
 * What are the top 3 applications in your organization?
 * I have recently rolled out an application. How is it doing?
 
-Your entry point to this data is the *top 3 applications in your organization within the last 30 days* report in the **Overview** section of the **Enterprise applications** page.
+Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/10.png "Sign-in activity")
 
@@ -228,13 +231,9 @@ The app usage graph weekly aggregations of sign ins for your top 3 applications 
 
 If you want to, you can set the focus on a specific application.
 
-
 ![Reporting](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Reporting")
 
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
-
-
-
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 

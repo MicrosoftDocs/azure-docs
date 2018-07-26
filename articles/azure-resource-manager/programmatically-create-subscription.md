@@ -157,7 +157,7 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 To use this preview module, install it by running `Install-Module AzureRM.Subscription -AllowPrerelease` first. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
 
-Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` object ID as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
+Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription) along with `enrollmentAccount` object ID as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
@@ -203,10 +203,10 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
 - There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions using Account Center.
-- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
+- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Next steps
 
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
-* To learn more about managing large numbers of subscriptions using Management Groups, see [Organize your resources with Azure Management Groups](management-groups-overview.md)
+* To learn more about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](management-groups-overview.md)

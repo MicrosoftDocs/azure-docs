@@ -33,7 +33,7 @@ You can place an SSL Certificate order by creating a new [App Service Certificat
 Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 > [!NOTE]
-> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. 
+> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** prepend the Host name with WWW. 
 >
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**

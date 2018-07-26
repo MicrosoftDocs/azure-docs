@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -27,7 +27,7 @@ A restored database incurs an extra storage cost under the following conditions:
 - Restore of P11–P15 to S4-S12 or P1–P6 if the database max size is greater than 500 GB.
 - Restore of P1–P6 to S4-S12 if the database max size is greater than 250 GB.
 
-The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount. For more information about database storage sizes and changing the database maximum size, see [single database DTU-based resource limits](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) and [single database vCore-based resource limits](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+The extra cost is because the max size of the restored database is greater than the amount of storage included for the performance level, and any extra storage provisioned above the included amount is charged extra.  For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).  If the actual amount of space used is less than the amount of storage included, then this extra cost can be avoided by reducing the database max size to the included amount.  
 
 > [!NOTE]
 > [Automated database backups](sql-database-automated-backups.md) are used when you create a [database copy](sql-database-copy.md). 

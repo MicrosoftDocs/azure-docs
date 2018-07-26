@@ -8,7 +8,7 @@ ms.author: haining
 manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018

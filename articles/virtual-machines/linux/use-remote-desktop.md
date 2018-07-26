@@ -3,7 +3,7 @@ title: Use Remote Desktop to a Linux VM in Azure | Microsoft Docs
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
@@ -97,6 +97,8 @@ Open your local remote desktop client and connect to the IP address or DNS name 
 After authenticating, the xfce desktop environment will load and look similar to the following example:
 
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](http://www.freerdp.com).
 
 
 ## Troubleshoot

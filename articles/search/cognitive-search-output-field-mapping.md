@@ -3,6 +3,7 @@ title: Map cognitive search enriched input fields to output fields in Azure Sear
 description: Extract and enrich source data fields, and map to output fields in an Azure Search index.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual

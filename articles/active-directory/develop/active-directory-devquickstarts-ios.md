@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
+ms.reviewer: jmprieur
 ---
 
 # Azure AD iOS getting started

@@ -1,5 +1,5 @@
 ---
-title: Access controls in Azure Active Directory conditional access | Microsoft Docs
+title: What are access controls in Azure Active Directory conditional access? | Microsoft Docs
 description: Learn how access controls in Azure Active Directory conditional access work.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+#Customer intent: As a IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
+
 ---
 
-# Access controls in Azure Active Directory conditional access 
+# What are access controls in Azure Active Directory conditional access? 
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
 
@@ -74,7 +76,7 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from [managed devices](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requiring a compliant device is one option you have to define what a managed device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are [registered](device-management-introduction.md) to your Azure Active Directory and are marked as compliant by your MDM solution.
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from [managed devices](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requiring a compliant device is one option you have to define what a managed device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are [registered](device-management-introduction.md) to your Azure Active Directory and are marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported.
 
 For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
@@ -108,7 +110,7 @@ You can create custom controls in Conditional Access that redirect your users to
 
 ## Custom controls
 
-Custom controls are a capability of the Azure Active Directory Premium P2 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the conditional access flow.
+Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the conditional access flow.
 
 These controls allow the use of certain external or custom services as conditional access controls, and generally extend the capabilities of Conditional Access.
 
@@ -170,6 +172,6 @@ To learn more about how to require limited access with SharePoint, see [control 
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

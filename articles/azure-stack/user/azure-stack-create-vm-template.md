@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: 
 ---
@@ -97,13 +97,13 @@ This template installs the following components:
    > The VM will be running when the deployment completes. 
 
 ## Start minikube and install an application
-Now that the Linux VM has been successfully created, you can log in to start minikube and install an application. 
+Now that the Linux VM has been successfully created, you can sign in to start minikube and install an application. 
 
 1. After the deployment completes, click **Connect** to view the Public IP address that will be used to connect to the Linux VM. 
 
    ![](media/azure-stack-create-vm-template/9.PNG)
 
-2. From an elevated command prompt, run **mstsc.exe** to open Remote Desktop Connection and connect to the Linux VM's public IP address discovered in the previous step. When prompted to log in to xRDP, use the credentials you specified when creating the VM.
+2. From an elevated command prompt, run **mstsc.exe** to open Remote Desktop Connection and connect to the Linux VM's public IP address discovered in the previous step. When prompted to sign in to xRDP, use the credentials you specified when creating the VM.
 
    ![](media/azure-stack-create-vm-template/10.PNG)
 

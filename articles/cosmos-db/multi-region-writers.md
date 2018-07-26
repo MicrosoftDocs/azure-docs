@@ -32,7 +32,7 @@ If you already have an Azure subscription, you can sign up to join the multi-mas
 
 2. In the New Account page, provide a name for your Azure Cosmos DB account, choose the API, Subscription, Resource Group and Location.  
 
-3. Next select **Sign up to preview today** under the Multi Mater Preview field.  
+3. Next select **Sign up to preview today** under the Multi Master Preview field.  
 
    ![Sign up for multi-master preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
 

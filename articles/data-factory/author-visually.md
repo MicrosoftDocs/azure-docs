@@ -59,11 +59,11 @@ The pane shows the following VSTS code repository settings:
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the VSTS code repository.<br/>**Note**: GitHub is not currently supported. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
-| **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | \<your account name> |
-| **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | \<your VSTS project name> |
-| **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | \<your VSTS code repository name> |
-| **Collaboration branch** | Your VSTS collaboration branch that will be used for publishing. By default, it is `master`. Change this in case you want to publish resources from another branch. | \<your collaboration branch name> |
-| **Root folder** | Your root folder in your VSTS collaboration branch. | \<your root folder name> |
+| **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | <your account name> |
+| **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | <your VSTS code repository name> |
+| **Collaboration branch** | Your VSTS collaboration branch that will be used for publishing. By default, it is `master`. Change this in case you want to publish resources from another branch. | <your collaboration branch name> |
+| **Root folder** | Your root folder in your VSTS collaboration branch. | <your root folder name> |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a VSTS Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
 #### Configuration method 2: UX authoring canvas
@@ -84,7 +84,7 @@ After you remove the association with the current repo, you can configure your G
 ### Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
-Each VSTS Git repository that's associated with a data factory has a a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
+Each VSTS Git repository that's associated with a data factory has a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
 
 ![Change the code by syncing or publishing](media/author-visually/sync-publish.png)
 

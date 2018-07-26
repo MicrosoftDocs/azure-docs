@@ -284,17 +284,16 @@ Your results resemble the following example:
 
 For more information about querying policy events, see the [Policy Events](/rest/api/policy-insights/policyevents) reference article.
 
-### Azure PowerShell (Preview)
+### Azure PowerShell
 
-The Azure PowerShell module for Policy is not yet final, but is currently available on the
-PowerShell Gallery as a [preview release](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights).
-If PowerShellGet is at least version 1.6.0 (required to support pre-release items), you can download
-the preview version using `Install-Module` (make sure you have the latest
-[Azure PowerShell](/powershell/azure/install-azurerm-ps) installed):
+The Azure PowerShell module for Policy is available on the PowerShell Gallery as
+[AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Using
+PowerShellGet, you can install the module using `Install-Module -Name AzureRM.PolicyInsights` (make sure you have the latest [Azure
+PowerShell](/powershell/azure/install-azurerm-ps) installed):
 
 ```powershell
-# Download preview from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
+# Install from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -303,7 +302,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount
 ```
 
-The preview module has three cmdlets:
+The module has three cmdlets:
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`
@@ -427,4 +426,4 @@ items, such as more than 10 in the last 24 hours.
 
 - Review the [Policy definition structure](policy-definition.md).
 - Review [Understanding policy effects](policy-effects.md).
-- Review what a management group is with [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
+- Review what a management group is with [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

@@ -4,13 +4,13 @@ description: Learn about how modules get deployed to edge devices
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand IoT Edge deployments for single devices or at scale - preview
+# Understand IoT Edge deployments for single devices or at scale
 
 Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is similar to other types of IoT devices:
 
@@ -18,7 +18,7 @@ Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is simila
 1. The devices are configured to run [IoT Edge modules][lnk-modules], and then monitored for health. 
 1. Finally, devices may be retired when they are replaced or become obsolete.  
 
-Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (that you used in the Azure IoT Edge tutorials), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure Portal and programmatically.
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge tutorials), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically.
 
 This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows:   
 
@@ -27,15 +27,15 @@ This article focuses on the configuration and monitoring stages for fleets of de
 1. The IoT Hub service retrieves status from the IoT Edge devices and surfaces those for the operator to monitor.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
 1. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group. 
  
-This article walks through each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale][lnk-howto].
+This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale][lnk-howto].
 
 ## Deployment
 
-An IoT Edge automatic deployment assigns IoT Edge module images to run as instances on a targeted set of IoT Edge devices. It works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters. A deployment can be assigned to a single device (usually based on Device Id) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the module container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.   
+An IoT Edge automatic deployment assigns IoT Edge module images to run as instances on a targeted set of IoT Edge devices. It works by configuring an IoT Edge deployment manifest to include a list of modules with the corresponding initialization parameters. A deployment can be assigned to a single device (based on Device ID) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the module container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.   
 
-Devices need to be provisioned as IoT Edge devices to be configured with a deployment. The following are prerequisites, and are not included in the deployment:
+Devices need to be provisioned as IoT Edge devices to be configured with a deployment. The following prerequisites must be on the device before it can receive the deployment:
 * The base operating system
-* Docker 
+* A container management system, like Moby or Docker
 * Provisioning of the IoT Edge runtime 
 
 ### Deployment manifest
@@ -47,12 +47,16 @@ The configuration metadata for each module includes: 
 * Type 
 * Status (e.g. Running or Stopped) 
 * Re-start policy 
-* Image and container repository 
+* Image and container registry
 * Routes for data input and output 
+
+If the module image is stored in a private container registry, the IoT Edge agent holds the registry credentials. 
 
 ### Target condition
 
-The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do through the life time of the deployment. The deployment will be reactivated if the service detects any target condition change. For instance, you have a deployment A which has a target condition tags.environment = 'prod'. When you kick off the deployment, there are 10 prod devices. The modules are successfully installed in these 10 devices. The IoT Edge Agent Status is shown as 10 total devices, 10 successfuly responses, 0 failure responses, and 0 pending responses. Now you add 5 more devices with tags.environment = 'prod'. The service detects the change and the IoT Edge Agent Status becomes 15 total devices, 10 successfuly responses, 0 failure responses, and 5 pending responses when it tries to deploy to the five new devices.
+The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do through the life time of the deployment. The deployment will be reactivated if the service detects any target condition change. 
+
+For instance, you have a deployment A with a target condition tags.environment = 'prod'. When you kick off the deployment, there are ten production devices. The modules are successfully installed in these ten devices. The IoT Edge Agent Status is shown as 10 total devices, 10 successful responses, 0 failure responses, and 0 pending responses. Now you add five more devices with tags.environment = 'prod'. The service detects the change and the IoT Edge Agent Status becomes 15 total devices, 10 successful responses, 0 failure responses, and 5 pending responses when it tries to deploy to the five new devices.
 
 Use any Boolean condition on device twins tags or deviceId to select the target devices. If you want to use condition with tags, you need to add "tags":{} section in the device twin under the same level as properties. [Learn more about tags in device twin](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -68,7 +72,7 @@ Here are some constrains when you construct a target condition:
 * In device twin, you can only build a target condition using tags or deviceId.
 * Double quotes aren't allowed in any portion of the target condition. Please use single quotes.
 * Single quotes represent the values of the target condition. Therefore, you must escape the single quote with another single quote if it's part of the device name. For example, the target condition for: operator'sDevice would need to be written as deviceId='operator''sDevice'.
-* Numbers, letters and the following characters are allowed in target condition values:-:.+%_#*?!(),=@;$
+* Numbers, letters, and the following characters are allowed in target condition values: `-:.+%_#*?!(),=@;$`.
 
 ### Priority
 

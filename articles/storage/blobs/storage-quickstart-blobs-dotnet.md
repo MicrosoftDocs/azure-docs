@@ -59,7 +59,7 @@ This command clones the repository to your local git folder. To open the Visual 
 
 ## Configure your storage connection string
 
-To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authenticate requests to Azure Storage.
+To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authorize requests to Azure Storage.
 
 After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 

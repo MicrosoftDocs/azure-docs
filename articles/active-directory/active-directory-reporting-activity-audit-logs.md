@@ -4,19 +4,19 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 04/19/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---

@@ -1,20 +1,14 @@
 ---
-title: Azure subscription limits and quotas | Microsoft Docs
+title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
-
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
 
 ---
@@ -49,6 +43,8 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Database for MySQL](#azure-database-for-mysql)
+* [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
@@ -59,13 +55,14 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Kubernetes Service](#container-service-aks-limits)
+* [Kubernetes Service](#kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -150,6 +147,9 @@ The following table details the features and limits of the Basic, Standard, and 
 #### DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### Azure Firewall limits
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### Storage limits
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 
@@ -212,6 +212,12 @@ The following table shows the limits for Azure Biztalk Services.
 
 ### Azure Cosmos DB limits
 Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, please send email to askcosmosdb@microsoft.com.
+
+### Azure Database for MySQL
+For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](mysql/concepts-limits.md).
+
+### Azure Database for PostgreSQL
+For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
 ### Mobile Engagement limits
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -321,7 +327,7 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
+For SQL Database limits, see [SQL Database Resource Limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database Resource Limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### SQL Data Warehouse limits
 For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

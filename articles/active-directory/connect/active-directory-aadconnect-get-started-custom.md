@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -62,7 +62,7 @@ This account is only used to create a service account in Azure AD and is not use
 If your global admin account has MFA enabled, then you need to provide the password again in the sign-in popup and complete the MFA challenge. The challenge could be a providing a verification code or a phone call.  
 ![User Sign in MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-The global admin account can also have [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) enabled.
+The global admin account can also have [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) enabled.
 
 If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
@@ -85,7 +85,7 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 ### Azure AD sign-in configuration
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
 
-![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value.
@@ -116,7 +116,7 @@ If you see this warning, make sure that these domains are indeed unreachable and
 #### Select how users should be identified in your on-premises directories
 The Matching across forests feature allows you to define how users from your AD DS forests are represented in Azure AD. A user might either be represented only once across all forests or have a combination of enabled and disabled accounts. The user might also be represented as a contact in some forests.
 
-![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![Unique](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | Setting | Description |
 | --- | --- |
@@ -151,7 +151,7 @@ In a full-blown production deployment, it is going to be hard to maintain a sing
 ### Optional Features
 This screen allows you to select the optional features for your specific scenarios.
 
-![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![Optional features](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
@@ -374,6 +374,28 @@ To validate end-to-end authentication is successful you should manually perform 
 * Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign-in with your logged in account. The built-in AD DS administrator account is not synchronized and cannot be used for verification.
 * Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
 * Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
+
+## Troubleshooting
+The following section contains troubleshooting and information that you can use if you encounter an issue installing Azure AD Connect.
+
+### “The ADSync database already contains data and cannot be overwritten” 
+When you custom install Azure AD Connect and select the option **Use an existing SQL server** on the **Install required components** page, you might encounter an error that states **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.**
+
+![Error](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+This is because there is already an existing database named **ADSync** on the SQL instance of the SQL server, which you specified in the above textboxes.
+
+This typically occurs after you have uninstalled Azure AD Connect.  The database will not be deleted from the SQL Server when you uninstall.
+
+To fix this issue, first verify that the **ADSync** database that was used by Azure AD Connect prior to being uninstalled, is no longer being used.
+
+Next, it is recommended that you backup the database prior to deleting it. 
+
+Finally, you need to delete the database.  You can do this by using **Microsoft SQL Server Management Studio** and connect to the SQL instance. Find the **ADSync** database, right click on it, and select **Delete** from the context menu.  Then click **OK** button to delete it.
+
+![Error](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+After you delete the **ADSync** database, you can click the **install** button, to retry installation.
 
 ## Next steps
 After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager or Synchronization Rule Editor.

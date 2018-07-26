@@ -56,7 +56,7 @@ Detailed next is step-by-step guide to using Azure alerts.
 
     > Activity Log alerts are also supported, but are in preview. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metric Alerts: Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
+5. *Metric Alerts*: Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -143,7 +143,13 @@ For **Log Alerts** alerts can be based on:
    ![Alert Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
     - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
-    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
+    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled 
+    
+
+        > [!NOTE]
+        > To ensure consistent dashboard with details on all fired alerts including log alerts for application insights and log analytics; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) should be used
+  
+  
 4. A list of all fired alerts is shown which the user can click to view details
 5. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*
 

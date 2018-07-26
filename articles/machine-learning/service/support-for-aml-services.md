@@ -7,7 +7,7 @@ ms.author: jmartens
 manager: cgronlund
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 03/01/2018 

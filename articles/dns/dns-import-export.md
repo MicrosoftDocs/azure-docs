@@ -3,7 +3,7 @@ title: Import and export a domain zone file to Azure DNS using Azure CLI 2.0 | M
 description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 2.0 
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 
 ms.assetid: f5797782-3005-4663-a488-ac0089809010
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Import and export a DNS zone file using the Azure CLI 2.0 

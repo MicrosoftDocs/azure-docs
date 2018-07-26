@@ -61,9 +61,9 @@ Here is what the custom environment setup looks like in Visual Studio.
 
 ![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
 
-See the [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for additional details on how to create Python Environments.
+See the [PTVS documentation](http://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.6) by right clicking the **Python environment**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS on the product [documentation](https://github.com/Microsoft/PTVS/wiki) page.
+Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.6) by right clicking the **Python environment**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](http://aka.ms/ptvsdocs).
 
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.

@@ -12,13 +12,13 @@ ms.author: juluk
 ---
 # Configure liveness probes
 
-Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working. 
+Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working.
 
 This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
 
 ## YAML deployment
 
-Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy. 
+Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -40,12 +40,12 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
   osType: Linux
-  restartPolicy: Never
+  restartPolicy: Always
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
@@ -76,9 +76,9 @@ The `periodSeconds` property designates the liveness command should execute ever
 
 Within the first 30 seconds, the `healthy` file created by the start command exists. When the liveness command checks for the `healthy` file's existence, the status code returns a zero, signaling success, so no restarting occurs.
 
-After 30 seconds, the `cat /tmp/healthy` will begin to fail, causing unhealthy and killing events to occur. 
+After 30 seconds, the `cat /tmp/healthy` will begin to fail, causing unhealthy and killing events to occur.
 
-These events can be viewed from the Azure portal or Azure CLI 2.0.
+These events can be viewed from the Azure portal or Azure CLI.
 
 ![Portal unhealthy event][portal-unhealthy]
 
@@ -96,7 +96,7 @@ Restart policies supersede the restart behavior triggered by liveness probes. Fo
 
 ## Next steps
 
-Task-based scenarios may require a liveness probe tom enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

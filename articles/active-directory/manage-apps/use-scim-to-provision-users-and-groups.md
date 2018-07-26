@@ -3,7 +3,7 @@ title: Automate provisioning of apps using SCIM in Azure Active Directory | Micr
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 
-ms.author: asmalser
+ms.author: barbkess
 
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
@@ -278,7 +278,7 @@ To host the service within Internet Information Services, a developer would buil
     }
 
     public void Configuration(
-      Owin.IAppBuilder builder) // Defined in in Owin.dll.  
+      Owin.IAppBuilder builder) // Defined in Owin.dll.  
     {
         this.starter.ConfigureApplication(builder);
     }
@@ -696,7 +696,7 @@ The following illustration shows the messages that Azure AcD sends to a SCIM ser
 * [Writing Expressions for Attribute Mappings](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Scoping Filters for User Provisioning](../active-directory-saas-scoping-filters.md)
 * [Account Provisioning Notifications](../active-directory-saas-app-provisioning.md)
-* [List of Tutorials on How to Integrate SaaS Apps](../active-directory-saas-tutorial-list.md)
+* [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

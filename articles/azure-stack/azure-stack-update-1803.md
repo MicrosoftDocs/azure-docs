@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -51,12 +51,7 @@ The Azure Stack 1803 update build number is **20180329.1**.
   
   Unlike updates to Azure Stack, installing this update does not change the version of Azure Stack. To confirm this update is installed, view the list of **Installed updates**.
 
-### Post-update steps
-- After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
 
-  - [KB 4294441 - Operations against tenant resources fail and unexpected shares are created on the same tenant or infrastructure volume](https://support.microsoft.com/en-us/help/4294441)
-
-- After installing this update, review your firewall configuration to ensure [necessary ports](azure-stack-integrate-endpoints.md) are open. For example, this update introduces Azure Monitor which includes a change of Audit logs to Activity logs. With this change, port 13012 is now used and must also be open.  
 
 ### New features 
 This update includes the following improvements and fixes for Azure Stack.
@@ -102,6 +97,15 @@ This update includes the following improvements and fixes for Azure Stack.
 
 ### Known issues with the update process    
 <!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+
+
+
+### Post-update steps
+- After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
+
+  - [KB 4344115 - Azure Stack Hotfix 1.0.180427.15](https://support.microsoft.com/help/4344115).
+
+- After installing this update, review your firewall configuration to ensure [necessary ports](azure-stack-integrate-endpoints.md) are open. For example, this update introduces *Azure Monitor* which includes a change of Audit logs to Activity logs. With this change, port 13012 is now used and must also be open.  
 
 
 ### Known issues (post-installation)

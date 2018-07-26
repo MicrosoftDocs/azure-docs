@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/12/2018
 ms.author: lakasa
 
 ---
@@ -144,9 +144,9 @@ A: No. When you first create the storage account, only Microsoft-managed keys ar
 
 A: No, you cannot disable encryption. Encryption is enabled by default for all services – Blob, File, Table and Queue storage. You can optionally switch from using Microsoft-managed keys to using customer-managed keys, and vice versa.
 
-**Q: Is SSE enabled by default when I create a new storage account?**
+**Q: Is SSE enabled when I create a new storage account?**
 
-A: SSE is enabled by default for all storage accounts and for all services – Blob, File, Table, and Queue storage.
+A: SSE is enabled for all storage accounts and for all services – Blob, File, Table, and Queue storage.
 
 **Q: I can't enable SSE using customer-managed keys on my storage account.**
 

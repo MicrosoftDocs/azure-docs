@@ -3,15 +3,16 @@ title: Automate Azure Log Analytics processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
 services: log-analytics
 documentationcenter: ''
-author: CFreemanwa
+author: mgoedtel
 manager: carmonm
 ms.service: log-analytics
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
+ms.component: na
 ---
 
 # Automate Log Analytics processes with the connector for Microsoft Flow

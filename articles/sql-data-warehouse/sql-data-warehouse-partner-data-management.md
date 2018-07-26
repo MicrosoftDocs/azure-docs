@@ -71,7 +71,7 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 <!--[inbrein_press]:-->
 <!--[infolibrarian_press]:-->
 [redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
-[sql_sentry_press]:https://www.sentryone.com/Company/News-Article/20160713-sql-sentry-performance-advisor-for-azure-sql-dw/
+[sql_sentry_press]:https://www.sentryone.com/sentryone-v-11.2-offers-new-insights-and-powerful-automation
 
 
 <!--YouTube links-->

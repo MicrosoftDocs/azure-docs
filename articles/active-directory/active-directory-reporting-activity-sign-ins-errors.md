@@ -3,19 +3,19 @@ title: Sign-in activity report error codes in the Azure Active Directory portal 
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -56,25 +56,27 @@ The following section provides you with a complete overview of all possible erro
 
 |Error|Description|
 |---|---|
+|16000|This is an internal implementation detail and not an error condition. You can safely ignore this reference.|
 |20001|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20012|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |20033|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |40008|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |40009|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
 |40014|There is an issue with your federated Identity Provider. Contact your IDP to resolve this issue.|
-|50000|There is an issue with our sign-in service. [Open a support ticket](active-directory-troubleshooting-support-howto.md) to resolve this issue.|
+|50000|There is an issue with our sign-in service. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) to resolve this issue.|
 |50001|The service principal name was not found in this tenant. This can happen if the application has not been installed by the administrator of the tenant. Or Resource principal was not found in the directory or is invalid.|
 |50002|Sign-in failed due to restricted proxy access on tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue|
 |50003|Sign-in failed due to missing signing key or certificate. This might be because there was no signing key configured in the application. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the application owner or the application admin|
 |50005|User tried to login to a device from a platform that's currently not supported through conditional access policy|
 |50006| Signature verification failed due to invalid signature. Check out the resolution outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). If you still see issues, contact the application owner or app admin|
-|50007|Partner encryption certificate was not found for this application. [Open a support ticket](active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed|
+|50007|Partner encryption certificate was not found for this application. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed|
 |50008|SAML assertion is missing or misconfigured in the token. Contact your federation provider.|
 |50010|Audience URI validation for the application failed since no token audiences were configured. Contact the application owner|
 |50011|The reply address is missing, misconfigured, or does not match reply addresses configured for the application. Try out the resolution listed at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). If you still see issues, contact the application owner or app admin|
+|50012| This is a generic error message that indicates that authentication failed. This can happen for reasons such as missing or invalid credentials or claims in the request. Ensure that the request is sent with the correct credentials and claims. |
 |50013|Assertion is invalid because of various reasons - The token issuer doesn't match the api version within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token.|
 |50017|Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments due to timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin.|
-|50020|User is unauthorized - unable to issue tokens because of version issue - issuer name is not specified - problems with issuer name (null -max length). Contact the app owner|
+|50020|The user is unauthorized for one of the following reasons.<ul><li>The user is attempting to login with an MSA account with the v1 endpoint</li><li>The user doesn't exist in the tenant.</li></ul> Contact the application owner.|
 |50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul>Contact the application owner|
 |50029|Invalid URI - domain name contains invalid characters. Contact the tenant admin.|
 |50034|User does not exist in directory. Contact your tenant admin.|
@@ -96,12 +98,12 @@ The following section provides you with a complete overview of all possible erro
 |50089|Flow token expired - Authentication Failed. Have user try signing-in again with username -password|
 |50097|Device Authentication Required - DeviceId -DeviceAltSecId claims are null OR no device corresponding to the device identifier exists|
 |50099|JWT signature is invalid. Contact the application owner.|
-|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|The signed in user is not assigned to a role for the signed in application. Assign the user  to the application. For more information: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|Requested federation realm object does not exist. Contact the tenant admin.|
 |50120|Issue with JWT header. Contact the tenant admin.|
 |50124|Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy.|
 |50125|Sign-in was interrupted due to a password reset or password registration entry|
-|50126|Invalid username or password or Invalid on-premise username or password.|
+|50126|Invalid username or password or Invalid on-premises username or password.|
 |50127|User needs to install a broker app to gain access to this content.|
 |50128|Invalid domain name - No tenant-identifying information found in either the request or implied by any provided credentials|
 |50129|Device is not Workplace joined - Workplace join is required to register the device.|
@@ -111,8 +113,8 @@ The following section provides you with a complete overview of all possible erro
 |50133|Session is invalid due to expiration or recent password change.|
 |50135|Password change is required due to account risk|
 |50136|Redirect msa session to app - Single MSA session detected |
-|50140|This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
-|50143|Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. [Open a support ticket](active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details.|
+|50140|This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
+|50143|Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details.|
 |50144|User's Active Directory password has expired. Generate a new password for the user or have the end user using self-service reset tool|
 |50146|This application is required to be configured with an application-specific signing key. It is either not configured with one, or the key has expired or is not yet valid. Contact the application owner|
 |50148|The code_verifier does not match the code_challenge supplied in the authorization request for PKCE. Contact the application developer. |
@@ -147,7 +149,7 @@ The following section provides you with a complete overview of all possible erro
 |70007|The application returned an unsupported value of 'response_mode' when requesting a token. Contact the app owner|
 |70008|The provided authorization code or refresh token is expired -revoked. Have the user retry signing in|
 |70011|The scope requested by the application is invalid. Contact the application owner|
-|70012|A server error occurred while authenticating an MSA (consumer) user. Please retry. If it continues to fail, [open a support ticket](active-directory-troubleshooting-support-howto.md) |
+|70012|A server error occurred while authenticating an MSA (consumer) user. Please retry. If it continues to fail, [open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Invalid verification code due to User typing in wrong user code for device code flow. Authorization is not approved|
 |70019|Verification code expired. Have the user retry the sign-in|
 |70037|Incorrect challenge response provided. Remote auth session denied.|
@@ -158,19 +160,23 @@ The following section provides you with a complete overview of all possible erro
 |75011|Authentication method by which the user authenticated with the service doesn't match requested authentication method. Contact the app owner|
 |75016|SAML2 Authentication Request has invalid NameIdPolicy. Contact the app owner|
 |80001|Authentication Agent unable to connect to Active Directory. Make sure the authentication agent is installed on a domain-joined machine that has line of sight to a DC that can serve the user's login request.|
-|80002|Internal error. Password validation request timed out. We were unable to either send the authentication request to the internal Hybrid Identity Service. [Open a support ticket](active-directory-troubleshooting-support-howto.md) to get more details on the error|
-|80003|Invalid response received by Authentication Agent. An unknown error occurred while attempting to authentication against Active Directory on-premises. [Open a support ticket](active-directory-troubleshooting-support-howto.md) to get more details on the error.|
-|80005|Authentication Agent: An unknown error occurred while processing the response from the Authentication Agent. [Open a support ticket](active-directory-troubleshooting-support-howto.md) to get more details on the error.|
+|80002|Internal error. Password validation request timed out. We were unable to either send the authentication request to the internal Hybrid Identity Service. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error|
+|80003|Invalid response received by Authentication Agent. An unknown error occurred while attempting to authentication against Active Directory on-premises. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error.|
+|80005|Authentication Agent: An unknown error occurred while processing the response from the Authentication Agent. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error.|
 |80007|Authentication Agent unable to validate user's password.|
 |80010|Authentication Agent unable to decrypt password. |
 |80011|Authentication Agent unable to retrieve encryption key.|
 |80012|The users attempted to log on outside of the allowed hours (this is specified in AD)|
 |80013|The authentication attempt could not be completed due to time skew between the machine running the authentication agent and AD. Fix time sync issues|
-|80014|Authentication agent timed out. [Open a support ticket](active-directory-troubleshooting-support-howto.md) with the error code, correlation ID, and Datetime to get more details on this error|
+|80014|Authentication agent timed out. [Open a support ticket](fundamentals/active-directory-troubleshooting-support-howto.md) with the error code, correlation ID, and Datetime to get more details on this error|
 |81001|User's Kerberos ticket is too large. This can happen if the user is in too many groups and thus the Kerberos ticket contains too many group memberships. Reduce the user's group memberships and try again.|
 |81005|Authentication Package Not Supported|
 |81007|Tenant is not enabled for Seamless SSO|
-
+|81012|This is not an error condition. It indicates that user trying to sign in to Azure AD is different from the user signed into the device. You can safely ignore this code in the logs.|
+|90010|The request is not supported for various reasons. For example, the request is made using an unsupported request method (only POST method is supported) or the token signing algorithm that was requested is not supported. Contact the application developer.|
+|90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
+|90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
+|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
 
 ## Next steps
 

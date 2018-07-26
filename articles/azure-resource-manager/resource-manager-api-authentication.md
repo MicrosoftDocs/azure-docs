@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
 
 ---
@@ -65,19 +65,25 @@ Manage your connected subscriptions:
 ## Register application
 Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, log in to the portal.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, sign in to the portal.
 
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-To log in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
+To sign in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 The following example shows how to register the app by using Azure CLI.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 The results include the AppId, which you need when authenticating as the application.
 
@@ -202,7 +208,7 @@ An example of the response to get user's permissions on subscription is:
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-The permissions API returns multiple permissions. Each permission consists of allowed actions (**actions**) and disallowed actions (**notactions**). If an action is present in the allowed actions of any permission and not present in the disallowed actions of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the **actions** and **notactions** of each permission.
+The permissions API returns multiple permissions. Each permission consists of allowed actions (**actions**) and disallowed actions (**notactions**). If an action is present in the allowed actions of any permission and not present in the disallowed actions of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the **actions** and **notactions** of each permission.
 
 ## Get app-only access token
 Now, you know if the user can assign access to the Azure subscription. The next steps are:

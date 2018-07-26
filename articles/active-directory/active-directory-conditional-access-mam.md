@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -57,7 +57,7 @@ This topic assumes that you are familiar with:
 
 - The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
+- How to [configure a conditional access policy](active-directory-conditional-access-app-based-mfa.md).
 
 - The [migration of conditional access policies](active-directory-conditional-access-best-practices.md#policy-migration).
  
@@ -440,6 +440,6 @@ See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/int
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

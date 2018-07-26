@@ -3,20 +3,24 @@ title: "Virtual Network service endpoints and rules for Azure SQL Database | Mic
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 author: DhruvMsft
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 07/18/2018
 ms.reviewer: genemi
 ms.author: dmalik
+ms.reviewer: carlrab
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL Database
+# Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
-*Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
-
 
 #### How to create a virtual network rule
 
@@ -135,7 +139,6 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 When using service endpoints for Azure SQL Database, review the following considerations:
 
 - **Outbound to Azure SQL Database Public IPs is required**: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG [Service Tags](../virtual-network/security-overview.md#service-tags) for Azure SQL Database.
-- **Azure Database for PostgreSQL and MySQL are unsupported**: Service endpoints are not supported for Azure Database for PostgreSQL or MySQL. Enabling service endpoints to SQL Database will break connectivity to these services. We have a mitigation for this, and you may contact *dmalik@microsoft.com* for more information.
 
 #### ExpressRoute
 

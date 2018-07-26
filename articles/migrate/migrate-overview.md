@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,8 +26,12 @@ Azure Migrate helps you to:
 ## Current limitations
 
 - Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
-- Support for Hyper-V is on our roadmap. In the interim, we recommend that you use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads.
-- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
+
+> [!NOTE]
+> Support for Hyper-V and Physical Servers is on our roadmap. In the interim, we recommend that you use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads and our [partner tools](https://azure.microsoft.com/migration/partners/) to plan migration of physical workloads.
+
+
+- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment. If you want to discover a larger environment you can split the discovery and create multiple projects, [learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - You can only create an Azure Migrate project in West Central US or East US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
 - Azure Migrate only supports managed disks for migration assessment.
 
@@ -46,7 +50,10 @@ An assessment helps you identify the Azure suitability of on-premises VMs, get r
 **Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions including Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, Germany Central, Germany Northeast, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2. By default, the target location is set to West US 2.
 **Storage type** | You can specify the type of disks you want to allocate in Azure. This property is applicable when the sizing criterion is as on-premises sizing. You can specify the target disk type either as Premium managed disks or Standard managed disks. The default value is Premium managed disks. For performance-based sizing, the disk recommendation is automatically done based on the performance data of the VMs. Note that Azure Migrate only supports managed disks for migration assessment.
 **Sizing Criterion** | The criterion to be used by Azure Migrate to right-size VMs for Azure. You can do sizing either based on *performance history* of the on-premises VMs or size the VMs *as on-premises* for Azure without considering the performance history. The default value is as on-premises sizing.
-**Pricing plans** | For cost calculations, an assessment considers whether you have software assurance, and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) that you might be enrolled to, and allows you to specify any subscription-specific discounts (%), that you may get on top of the offer.
+**Azure offer** | You can specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you are enrolled to and Azure Migrate estimates the cost accordingly.
+**Azure Hybrid Benefit** | You can specify if you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) to get the discounted costs.
+**Reserved Instances** |  You can also specify if you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure and Azure Migrate will estimate the cost accordingly.
+**VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration for which they would be running in Azure and the cost estimations will be done accordingly.
 **Pricing tier** | You can specify the [pricing tier (Basic/Standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you would like to consider the Standard tier, which provides VMs with low latency but may cost more. On the other hand, if you have a Dev-Test environment, you may want to consider the Basic tier that has VMs with higher latency and lower costs. By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
 **Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using the performance history of the last one day, with a 95% percentile value. You can modify these values in the assessment properties.
 **VM series** | You can specify the VM series that you would like to consider for right-sizing. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series and the right-sizing will be done only in the selected series.  

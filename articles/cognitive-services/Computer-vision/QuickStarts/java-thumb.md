@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with Java
+# Quickstart: Generate a thumbnail with Java
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

@@ -10,7 +10,9 @@ ms.date: 04/13/2018
 ms.author: chrisgre
 ---
 
-# Configure and monitor IoT devices at scale - preview
+# Configure and monitor IoT devices at scale using the Azure portal
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
 
@@ -23,9 +25,6 @@ Automatic device configurations work by updating a set of device twins with desi
 * The **target content** defines the desired properties to be added or updated in the targeted device twins. The content includes a path to the section of desired properties to be changed.
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated. 
-
-> [!Note]
-> During preview, this feature is not available for IoT Hubs in East US, West US, North Europe, and West Europe regions.
 
 ## Implement device twins to configure devices
 
@@ -47,7 +46,7 @@ Before you can create a configuration, you must specify which devices you want t
 ## Create a configuration
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration (preview)**.
+1. Select **IoT device configuration**.
 1. Select **Add Configuration**.
 
 There are five steps to create a configuration. The following sections walk through each one. 
@@ -91,7 +90,7 @@ Use the tags property from your device twins to target the specific devices that
 Since multiple configurations may target the same device, you should give each configuration a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
 
 1. Enter a positive integer for the configuration **Priority**. Highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
-1. Enter a **Target condition** to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. 
+1. Enter a **Target condition** to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices.
 1. Select **Next** to move on to the final step.
 
 ### Step 5: Review Configuration
@@ -103,8 +102,8 @@ Review your configuration information, then select **Submit**.
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration (preview)**.
-1. Inspect the configuration list. For each configuration, you can view the following details:
+1. Select **IoT device configuration**.
+2. Inspect the configuration list. For each configuration, you can view the following details:
    * **ID** - the name of the configuration.
    * **Target condition** - the query used to define targeted devices.
    * **Priority** - the priority number assigned to the configuration.
@@ -131,25 +130,25 @@ If you update the target condition, the following updates occur:
 To modify a configuration, use the following steps: 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration (preview)**. 
-1. Select the configuration that you want to modify. 
-1. Make updates to the following fields: 
+1. Select **IoT device configuration**. 
+2. Select the configuration that you want to modify. 
+3. Make updates to the following fields: 
    * Target condition 
    * Labels 
    * Priority 
    * Metrics
-1. Select **Save**.
-1. Follow the steps in [Monitor a configuration][anchor-monitor] to watch the changes roll out. 
+4. Select **Save**.
+5. Follow the steps in [Monitor a configuration][anchor-monitor] to watch the changes roll out. 
 
 ## Delete a configuration
 
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **IoT device configuration (preview)**. 
-1. Use the checkbox to select the configuration that you want to delete. 
-1. Select **Delete**.
-1. A prompt will ask you to confirm.
+1. Select **IoT device configuration**. 
+2. Use the checkbox to select the configuration that you want to delete. 
+3. Select **Delete**.
+4. A prompt will ask you to confirm.
 
 ## Next steps
 In this article, you learned how configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:

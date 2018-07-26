@@ -7,9 +7,9 @@ ms.author: haining
 manager: cgronlun
 ms.reviewer: garyericson, mldocs
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/11/2018
 ---
 

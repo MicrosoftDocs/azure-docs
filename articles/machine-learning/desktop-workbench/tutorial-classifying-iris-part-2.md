@@ -7,7 +7,7 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial

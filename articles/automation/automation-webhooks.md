@@ -80,11 +80,11 @@ Another strategy is to have the runbook perform some validation of an external c
 
 Use the following procedure to create a new webhook linked to a runbook in the Azure portal.
 
-1. From the **Runbooks page** in the Azure portal, click the runbook that the webhook starts to view its detail page.
-1. Click **Webhook** at the top of the page to open the **Add Webhook** page.
-1. Click **Create new webhook** to open the **Create webhook page**.
-1. Specify a **Name**, **Expiration Date** for the webhook and whether it should be enabled. See [Details of a webhook](#details-of-a-webhook) for more information these properties.
-1. Click the copy icon and press Ctrl+C to copy the URL of the webhook. Then record it in a safe place. **Once you create the webhook, you cannot retrieve the URL again.**
+1. From the **Runbooks page** in the Azure portal, click the runbook that the webhook starts to view its detail page. Ensure the runbook **Status** is **Published**.
+2. Click **Webhook** at the top of the page to open the **Add Webhook** page.
+3. Click **Create new webhook** to open the **Create webhook page**.
+4. Specify a **Name**, **Expiration Date** for the webhook and whether it should be enabled. See [Details of a webhook](#details-of-a-webhook) for more information these properties.
+5. Click the copy icon and press Ctrl+C to copy the URL of the webhook. Then record it in a safe place. **Once you create the webhook, you cannot retrieve the URL again.**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 

@@ -4,19 +4,20 @@ description: Log Analytics can collect events from text files on both Windows an
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Custom logs in Log Analytics
 The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 

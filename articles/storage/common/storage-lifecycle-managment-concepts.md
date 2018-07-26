@@ -261,7 +261,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
 
 ### Expire data based on age
 
-Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire date by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
+Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
 
 ```json
 {

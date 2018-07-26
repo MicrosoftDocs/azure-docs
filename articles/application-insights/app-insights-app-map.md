@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
-ms.reviewer: Soubhagya.Dash
+ms.date: 06/14/2018
+ms.reviewer: sdash
 ms.author: mbullwin
 
 ---
 # Application Map: Triage Distributed Applications
+
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies; and has health KPI and alerts status. You can click through from any component to more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also click through to Azure diagnostics, such as SQL Database Advisor recommendations.
 
 ## What is a Component?
@@ -28,105 +29,63 @@ Components are independently deployable parts of your distributed/microservices 
 * Components run on any number of server/role/container instances.
 * Components can be separate Application Insights instrumentation keys (even if subscriptions are different) or different roles reporting to a single Application Insights instrumentation key. The preview map experience shows the components regardless of how they are set up.
 
-## Composite Application Map (Preview)
-*This is an early preview, and we will be adding more features to this map. We would love to get your feedback on the new experience. You can switch between the preview and classic experiences easily.*
-
-Enable "Composite Application Map" from the [previews list](app-insights-previews.md), or click on "Preview map" in the toggle at the top-right corner. You can use this toggle to switch back to the classic experience.
-![Enable preview map](media/app-insights-app-map/preview-from-classic.png)
-
->[!Note]
-This preview replaces the prior "Multi-role Application Map" preview. At this time, use this to view the entire topology across multiple levels of application component dependencies. Give us your feedback, we will be adding more capabilities similar to what the classic map supports.
+## Composite Application Map
 
 You can see the full application topology across multiple levels of related application components. Components could be different Application Insights resources, or different roles in a single resource. The app map finds components by following HTTP dependency calls made between servers with the Application Insights SDK installed. 
 
-This experience starts with progressive discovery of the components. When you first load the preview, a set of queries are triggered to discover the components related to this component. A button at the top-left corner will update with the number of components in your application as they are discovered. 
-![Preview map](media/app-insights-app-map/preview.png)
+This experience starts with progressive discovery of the components. When you first load the application map, a set of queries are triggered to discover the components related to this component. A button at the top-left corner will update with the number of components in your application as they are discovered. 
 
 On clicking "Update map components", the map is refreshed with all components discovered until that point.
-![Preview loaded map](media/app-insights-app-map/components-loaded-hierarchical.png)
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
-One of the key objectives with the new experience is to be able to visualize complex topologies with hundreds of components. The new experience supports zooming, and adds detail as you zoom-in. You can zoom-out to view more components at a glance, and still spot components with higher failure rates. 
+![Application Map Screenshot](media/app-insights-app-map/001.png)
 
-![Zoom levels](media/app-insights-app-map/zoom-levels.png)
+One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 
 Click on any component to see related insights and go to the performance and failure triage experience for that component.
 
-![Flyout](media/app-insights-app-map/preview-flyout.png)
+![Flyout](media/app-insights-app-map/application-map-001.png)
 
+### Investigate failures
 
-## Classic Application Map
+Select **investigate failures** to launch the failures pane.
 
-The map shows:
+![Screenshot of investigate failures button](media/app-insights-app-map/investigate-failures.png)
 
-* Availability tests
-* Client-side component (monitored with the JavaScript SDK)
-* Server-side component
-* Dependencies of the client and server components
+![Screenshot of failures experience](media/app-insights-app-map/failures.png)
 
-![app map](./media/app-insights-app-map/02.png)
+### Investigate performance
 
-You can expand and collapse dependency link groups:
+To troubleshoot performance problems select **investigate performance**
 
-![collapse](./media/app-insights-app-map/03.png)
+![Screenshot of investigate performance button](media/app-insights-app-map/investigate-performance.png)
 
-If you have many dependencies of one type (SQL, HTTP etc.), they may appear grouped. 
+![Screenshot of performance experience](media/app-insights-app-map/performance.png)
 
-![grouped dependencies](./media/app-insights-app-map/03-2.png)
+### Go to details
 
-## Spot problems
-Each node has relevant performance indicators, such as the load, performance, and failure rates for that component. 
+Select **go to details** to explore the end-to-end transaction experience which can offer views done to the call stack level.
 
-Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%. If you want to adjust these thresholds, open Options.
+![Screenshot of go-to-details button](media/app-insights-app-map/go-to-details.png)
 
-![failure icons](./media/app-insights-app-map/04.png)
+![Screenshot of end-to-end transaction details](media/app-insights-app-map/end-to-end-transaction.png)
 
-Active alerts also show up: 
+### View in Analytics
 
-![active alerts](./media/app-insights-app-map/05.png)
+To query and investigate your applications data further click **view in analytics**.
 
-If you use SQL Azure, there's an icon that shows when there are recommendations on how you can improve performance. 
+![Screenshot of view in analytics button](media/app-insights-app-map/view-in-analytics.png)
 
-![Azure recommendation](./media/app-insights-app-map/06.png)
+![Screenshot of analytics experience](media/app-insights-app-map/analytics.png)
 
-Click any icon to get more details:
+### Alerts
 
-![azure recommendation](./media/app-insights-app-map/07.png)
+To view active alerts and the underlying rules that cause the alerts to be tiggered, select **alerts**.
 
-## Diagnostic click through
-Each of the nodes on the map offers targeted click through for diagnostics. The options vary depending on the type of the node.
+![Screenshot of alerts button](media/app-insights-app-map/alerts.png)
 
-![server options](./media/app-insights-app-map/09.png)
-
-For components that are hosted in Azure, the options include direct links to them.
-
-## Filters and time range
-By default, the map summarizes all the data available for the chosen time range. But you can filter it to include only specific operation names or dependencies.
-
-* Operation name: This includes both page views and server-side request types. With this option, the map shows the KPI on the server/client-side node for the selected operations only. It shows the dependencies called in the context of those specific operations.
-* Dependency base name: This includes the AJAX browser dependencies and server-side dependencies. If you report custom dependency telemetry with the TrackDependency API, they also appear here. You can select the dependencies to show on the map. Currently this selection does not filter the server-side requests, or the client-side page views.
-
-![Set filters](./media/app-insights-app-map/11.png)
-
-## Save filters
-To save the filters you have applied, pin the filtered view onto a [dashboard](app-insights-dashboards.md).
-
-![Pin to dashboard](./media/app-insights-app-map/12.png)
-
-## Error pane
-When you click a node in the map, an error pane is displayed on the right-hand side summarizing failures for that node. Failures are grouped first by operation ID and then grouped by problem ID.
-
-![Error pane](./media/app-insights-app-map/error-pane.png)
-
-Clicking on a failure takes you to the most recent instance of that failure.
-
-## Resource health
-For some resource types, resource health is displayed at the top of the error pane. For example, clicking a SQL node will show the database health and any alerts that have fired.
-
-![Resource health](./media/app-insights-app-map/resource-health.png)
-
-You can click the resource name to view standard overview metrics for that resource.
+![Screenshot of analytics experience](media/app-insights-app-map/alerts-view.png)
 
 ## Video
 
@@ -136,7 +95,6 @@ You can click the resource name to view standard overview metrics for that resou
 Please provide feedback through the portal feedback option.
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
-
 
 ## Next steps
 

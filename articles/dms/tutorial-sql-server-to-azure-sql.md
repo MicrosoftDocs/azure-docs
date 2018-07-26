@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 06/15/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database using DMS
@@ -176,7 +176,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     When a trusted certificate is not installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encyopted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You shoudl not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > SSL connections that are encrypted using a self-signed certificate do not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media\tutorial-sql-server-to-azure-sql\dms-source-details1.png)
   
