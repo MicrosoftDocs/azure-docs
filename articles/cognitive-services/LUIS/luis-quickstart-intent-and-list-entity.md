@@ -68,8 +68,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
-
 2. Select **Create new intent**. 
 
     [ ![Screenshot of Intents page with Create new intent button highlighted](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
@@ -154,18 +152,12 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    [![](media/luis-quickstart-intent-and-list-entity/publish.png "Screenshot of selecting publish button")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
-
 2. Select the Production slot and the **Publish** button. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "Screenshot of selecting Publish to production slot button")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Screenshot of endpoint url on Publish page")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
 2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
 
