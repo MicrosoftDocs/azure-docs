@@ -1,5 +1,5 @@
 ---
-title: Stream into Azure Event Hubs for Kafka Ecosystem | Microsoft Docs
+title: Stream into Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Stream into Event Hubs using the Kafka protocol and APIs.
 services: event-hubs
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.author: bahariri
 
 ---
 
-# Stream into Event Hubs for the Kafka Ecosystem
-This quickstart shows how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. You learn how to use your producers and consumers to talk to Kafka-enabled Event Hubs with just a configuration change in your applications. Azure Event Hubs for Kafka ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+# Stream into Event Hubs for the Apache Kafka
+This quickstart shows how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. You learn how to use your producers and consumers to talk to Kafka-enabled Event Hubs with just a configuration change in your applications. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs)
