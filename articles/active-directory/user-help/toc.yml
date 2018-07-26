@@ -37,6 +37,8 @@
     href: security-info-setup-email.md
   - name: Set up security questions
     href: security-info-setup-questions.md
+  - name: Set up app passwords
+    href: security-info-app-passwords.md
   - name: Manage your security info
     href: security-info-manage-settings.md
   - name: How to sign in

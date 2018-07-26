@@ -33,5 +33,6 @@ You and add any of the following methods, including:
 |[Set up security info to use an authenticator app](security-info-setup-auth-app.md)|Describes how to set up an authenticator app as your method.|
 |[Set up security info to use email](security-info-setup-email.md)|Describes how to set up your email address to help you reset your password.|
 |[Set up security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to use security questions to help you reset your password.|
+|[Set up app passwords](security-info-app-passwords.md)|Describes how to set up app passwords using security info.|
 |[Manage your security info](security-info-manage-settings.md)|Describes how to update your security info and work with your app passwords.|
 |[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified method.|
