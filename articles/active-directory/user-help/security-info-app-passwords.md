@@ -67,7 +67,7 @@ If your administrator hasn't turned on the security info experience, you must fo
 
 ### To delete app passwords using the My Apps portal
 
-1. On the **Keep your account secure** screen, select the **X** next to the App password you want to delete.
+1. On the **Keep your account secure** screen, select the **X** next to the app password to delete.
 
     ![Keep secure screen, delete app password](media/security-info/security-info-keep-secure-delete-app-password.png)
 
