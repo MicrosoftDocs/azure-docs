@@ -592,4 +592,4 @@ function load(filePath) {
 Now that you have learned how to export your data, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to visualize in Power BI](howto-visualize-in-powerbi.md)
+> [How to visualize your data in Power BI](howto-connect-powerbi.md)
