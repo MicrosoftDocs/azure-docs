@@ -326,7 +326,7 @@ kubectl -n kube-system describe configmap cluster-autoscaler-status
 ## Interpreting the cluster autoscaler status
 
 ```console
-C:\windows\system32>kubectl -n kube-system describe configmap cluster-autoscaler-status
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
 Name:         cluster-autoscaler-status
 Namespace:    kube-system
 Labels:       <none>
@@ -366,9 +366,19 @@ Events:  <none>
 
 The cluster autoscaler status allows you to see the state of the cluster autoscaler on two different levels: cluster-wide and within each node group. Since AKS currently only supports one node pool, these metrics are the same.
 
-Under Health, the status indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". By the Health status, we have a breakdown of the status of different nodes. "Ready" means a node is a ready to have pods scheduled on it. "Registered" nodes are nodes that 
+* Health indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". There's also a breakdown of the status of different nodes:
+    * "Ready" means a node is a ready to have pods scheduled on it.
+    * "Unready" means a node that broke down after it started.
+    * "NotStarted" means a node is not yet fully started.
+    * "LongNotStarted" means a node failed to start within a reasonable limit.
+    * "Registered means a node is registed in the group
+    * "Unregistered" means a node is present on the cluster provider side but failed to register in Kubernetes.
+  
 
-Under ScaleUp, you can check when the cluster was last probed to determine if a ScaleUp event should occur, and when the last transition occured. A transition is when the number of nodes within the cluster is changed that pods are rescheduled accordingly. The number of ready nodes is the number of nodes available and ready in the cluster. The cloudProviderTarget is the number of nodes the cluster autoscaler has determined the cluster needs to handle its workload.
+* ScaleUp allows you to check when the cluster was last probed to determine if a ScaleUp event should occur, and when the last transition occured.
+    * A transition is when the number of nodes within the cluster is changed that pods are rescheduled accordingly. 
+    * The number of ready nodes is the number of nodes available and ready in the cluster. 
+    * The cloudProviderTarget is the number of nodes the cluster autoscaler has determined the cluster needs to handle its workload.
 
 Under ScaleDown, you can check if there are candidates for scale down. A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. Likewise, you can also see the last time the cluster was checked for scale down candidates and its last transition time.
 
