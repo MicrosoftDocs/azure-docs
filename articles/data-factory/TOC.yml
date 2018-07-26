@@ -406,7 +406,7 @@
     - name: Configure high performance for Azure-SSIS IR
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
-      href: configure-bcdr-for-azure-ssis-integration-runtime.md
+      href: configure-bcdr-azure-ssis-integration-runtime.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger
