@@ -26,11 +26,7 @@ their existing skills with the [R programming language](https://www.r-project.or
 Azure offers many services that R developers can leverage to extend their data science workloads into the cloud.  Let's
 examine the various options and the most compelling scenarios for each one.
 
-## Best Bets
-There are many different ways that R developers can use the power of Azure for data processing and analysis.  However,
-some of these options are more robust than others.  Let's look at three options that are most widely applicable.
-
-### Data Science Virtual Machine
+## Data Science Virtual Machine
 The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has
 many popular data science tools, including
@@ -58,7 +54,7 @@ workstation.
 To learn more about the DSVM, consult the
 ["Introduction to Azure Data Science Virtual Machine for Linux and Windows."](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 
-### R Server on Azure HDInsight
+## R Server on Azure HDInsight
 [Microsoft R Server](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-overview) provides data
 scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on
 HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size,
@@ -77,7 +73,7 @@ For a walk-through on creating an R Server cluster, see the
 ["Get started with R Server on HDInsight"](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-get-started)
 article.
 
-### Azure Databricks
+## Azure Databricks
 [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is an Apache Spark-based analytics platform
 optimized for the Microsoft Azure cloud services platform.  Designed with the founders of Apache Spark, Databricks is
 integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables
@@ -96,12 +92,7 @@ work.
 The article ["What is Azure Databricks?"](https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks)
 can provide more details about the platform and help you get started.
 
-## Other Options
-In addition to the three options listed above, there are several other ways that R developers can migrate their
-workloads to Azure.  These other options, however, are not as broadly applicable as the solutions above.  Instead, they
-cover more targeted scenarios.
-
-### Machine Learning Studio
+## Machine Learning Studio
 [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/studio/what-is-machine-learning) is a
 cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics
 solutions.  The service currently provides two different tools for data scientists to create and manage their machine
@@ -136,7 +127,7 @@ functions as Azure ML web services, and to run R data through existing web servi
 This package makes it much easier to use Azure ML as a scalable deployment platform for your R code.  Instead of
 clicking and dragging in the UI, you can automate the entire deployment process using tools you already know.
 
-### Azure Functions
+## Azure Functions
 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) is a service that lets you
 execute small pieces of code in the cloud without worrying about the infrastructure underneath it.  You do not have to
 provision virtual machines or setup virtual networks.  Instead, you just write your code and let it run in the cloud.
@@ -149,7 +140,7 @@ built with R to the cloud.
 For full details on how this can be configured, please consult
 ["Go serverless with R Scripts on Azure Functions."](https://azure.microsoft.com/en-us/blog/azure-function-r/)
 
-### Azure Notebooks
+## Azure Notebooks
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working
 with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser
 using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable
@@ -159,7 +150,7 @@ While Azure Notebooks is a viable option for small-scale projects, it has some l
 for large-scale data science projects.  Currently, the service limits each notebook's process to 4 GB of memory and data
 sets can only be 1 GB.  However, for publishing smaller analyses, this is an easy, no-cost option.
 
-### Azure SQL Database
+## Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) is Microsoft's intelligent, fully managed
 relational cloud database service.  It allows you to use the full power of SQL Server without any hassle of setting up
 the infrastructure.  This includes
@@ -176,7 +167,7 @@ Database.  It is currently in
 [limited preview](https://docs.microsoft.com/en-us/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap)
 but will continue to evolve.
 
-### Azure Batch
+## Azure Batch
 For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/en-us/services/batch/).  This service
 provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or
 thousands of virtual machines.
@@ -191,7 +182,7 @@ economical way to run Spark jobs in Azure.  By using
 [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out
 in the cloud easily and economically.
 
-### Conclusion
+## Conclusion
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
 different options for R developers to run their code in Azure, the company is enabling data scientists to harness the
 power of the cloud when tackling large-scale data projects.
