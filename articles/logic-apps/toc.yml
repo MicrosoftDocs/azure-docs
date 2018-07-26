@@ -312,9 +312,9 @@
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 
-      - name: Workflow actions and triggers
+      - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Workflow Definition Language functions
+      - name: Functions reference
         href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md

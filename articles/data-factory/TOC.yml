@@ -387,24 +387,26 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
-    - name: Enable Azure AD authentication for Azure-SSIS IR
-      href: enable-aad-authentication-azure-ssis-ir.md
-    - name: Configure high performance for Azure-SSIS IR
-      href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Provision Enterprise Edition for Azure-SSIS IR
-      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-    - name: Customize setup for Azure-SSIS IR
-      href: how-to-configure-azure-ssis-ir-custom-setup.md
-    - name: Install licensed components for Azure-SSIS IR
-      href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Join Azure-SSIS IR to a virtual network
+      href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Enable Azure AD authentication for Azure-SSIS IR
+      href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Provision Enterprise Edition for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Customize setup for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Install licensed components for Azure-SSIS IR
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
+    - name: Configure high performance for Azure-SSIS IR
+      href: configure-azure-ssis-integration-runtime-performance.md
+    - name: Configure disaster recovery for Azure-SSIS IR
+      href: configure-bcdr-azure-ssis-integration-runtime.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger
