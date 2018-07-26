@@ -68,7 +68,9 @@ This update includes the following improvements for Azure Stack.
 
 ### Fixed issues
 
-- <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
+- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+- 
+- - <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
 - <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would would then fail when tirggered.)
 
@@ -80,7 +82,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
-- <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
