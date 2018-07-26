@@ -127,19 +127,6 @@ functions as Azure ML web services, and to run R data through existing web servi
 This package makes it much easier to use Azure ML as a scalable deployment platform for your R code.  Instead of
 clicking and dragging in the UI, you can automate the entire deployment process using tools you already know.
 
-## Azure Functions
-[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) is a service that lets you
-execute small pieces of code in the cloud without worrying about the infrastructure underneath it.  You do not have to
-provision virtual machines or setup virtual networks.  Instead, you just write your code and let it run in the cloud.
-
-Azure Functions support several programming languages.  Unfortunately, R is not currently one of these supported
-languages.  However, by using the <code>[R Site Extension](http://www.siteextensions.net/packages/R-3.3.3x64/)</code>
-for Azure Web Apps, you can get your R code running in Azure Functions.  This provides a simple way to deploy functions
-built with R to the cloud.
-
-For full details on how this can be configured, please consult
-["Go serverless with R Scripts on Azure Functions."](https://azure.microsoft.com/en-us/blog/azure-function-r/)
-
 ## Azure Notebooks
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working
 with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser
