@@ -39,7 +39,7 @@ The "Azure Media Indexer 2 Preview" Azure Media Analytics media processor is not
 
 There is no CDN integration with streaming endpoints in Azure Government DCs.
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
