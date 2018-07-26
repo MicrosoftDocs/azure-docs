@@ -95,19 +95,14 @@ work.
 The article ["What is Azure Databricks?"](https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks)
 can provide more details about the platform and help you get started.
 
-## Machine Learning Studio
-[Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/studio/what-is-machine-learning) is a
-cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics
-solutions.  The service currently provides two different tools for data scientists to create and manage their machine
-learning experiments:
-[Azure Machine Learning Studio](https://azure.microsoft.com/en-us/services/machine-learning-studio/),
-which is a web-based tool, and
-[Azure Machine Learning Workbench](https://azure.microsoft.com/en-us/services/machine-learning-services/),
-which is a desktop application and currently in public preview.
+## Azure Machine Learning Studio
+[Azure Machine Learning Studio](https://azure.microsoft.com/en-us/services/machine-learning-studio/) is a collaborative,
+drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables
+emerging data scientists to create and deploy machine learning models without the need to write much code.
 
-Currently, ML Workbench only supports Python, but ML Studio supports both R and Python.  You can use R with ML Studio in
-two ways.
+ML Studio supports both R and Python.  You can use R with ML Studio in two ways.
 
+### Custom R scripts in your experiments
 First, you can extend the data manipulation and machine learning capabilities of ML Studio by writing custom R scripts.
 Although ML Studio includes a wide variety of modules for preparing and analyzing data, it cannot match the capabilities
 of a mature language like R.  Therefore, the service was designed to allow you to introduce your own custom R scripts in
@@ -121,6 +116,7 @@ standard ML Studio model library.
 For a thorough introduction on using R within ML Studio experiments, check out the
 ["Quickstart tutorial for the R programming language for Azure Machine Learning."](https://docs.microsoft.com/en-us/azure/machine-learning/studio/r-quickstart)
 
+### Create, manage, and deploy experiments from your local R environment
 The other way that you can use R with ML Studio is to use the
 <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> package to
 monitor and control the experimentation process with the R programming environment.  This package, which is maintained
