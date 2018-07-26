@@ -95,6 +95,21 @@ To view additional logs, you can update the query for the *Category* name to *ku
 
 For more information on how to query and filter your log data, see [View or analyze data collected with Log Analytics log search][analyze-log-analytics].
 
+## Log event schema
+
+To help analyze the log data, the following table details the schema used for each event:
+
+| Field name               | Description |
+|--------------------------|-------------|
+| *resourceId*             | Azure resource that produced the log |
+| *time*                   | Timestamp of when the log was uploaded |
+| *category*               | Name of container/component generating the log |
+| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *properties.log*         | Full text of the log from the component |
+| *properties.stream*      | *stderr* or *stdout* |
+| *properties.pod*         | Pod name that the log came from |
+| *properties.containerID* | Id of the docker container this log came from |
+
 ## Next steps
 
 In this article, you learned how to enable and review the logs for the Kubernetes master components in your AKS cluster. To monitor and troubleshoot further, you can also [view the Kubelet logs][kubelet-logs] and [enable SSH node access][aks-ssh].
