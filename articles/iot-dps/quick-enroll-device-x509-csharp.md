@@ -56,6 +56,8 @@ To use this test tooling to generate certificates, perform the following steps:
 
 In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to perform proof-of-possession in C# with an existing X.509 intermediate or root CA certificate. 
 
+  > [!IMPORTANT]
+  > The certificates created with the SDK tooling are designed to be used for development only. To learn about obtaining certificates suitable for production code, see [How to get an X.509 CA certificate](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 
 ## Get the connection string for your provisioning service
 
