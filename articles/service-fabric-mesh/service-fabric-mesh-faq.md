@@ -23,7 +23,12 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 There are no charges for deploying applications or containers to Mesh preview. However you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it.
 
-**Is there a quota limit of the number of cores and RAM?**
+We plan to start charging the for use in the next few months. Before we start charging, there will be blog announcements on the [team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). We also plan to relax the quota limitations (see below) at that time. The exact dates are not yet known and still being planned. We will communicate the plan (via the team blog as well), as soon as it is finalized. You can review the [proposed Mesh preview pricing ](https://aka.ms/sfmeshpricing) for the regions that are live now and expected to be live in the next couple of months. The prices presented are the preview prices  and  are 50% off the anticipated GA prices. 
+
+**Can I request partial cores and RAM less than 1 GB for my containers?**
+Yes you can request partial cores and the memory that you need for your containers. 
+
+**Is there a quota limit of the number of cores and RAM in this preview?**
 
 Yes, the quotas for each subscription are:
 
