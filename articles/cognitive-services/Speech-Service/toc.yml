@@ -93,6 +93,8 @@
     href: speech-synthesis-markup.md
 - name: Resources
   items:
+  - name: Release notes
+    href: releasenotes.md
   - name: FAQ
     items:
     - name: Speech to Text FAQ
@@ -101,25 +103,25 @@
       href: faq-text-to-speech.md
     - name: Translator FAQ
       href: https://www.microsoft.com/translator/faq.aspx
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/912208-speech-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Privacy & cookies
-    href: https://privacy.microsoft.com/privacystatement
   - name: Troubleshooting
     href: troubleshooting.md
+  - name: Support
+    href: develop-help-support.md
   - name: Shipping your application
     href: ship-application.md
-  - name: Release notes
-    href: releasenotes.md
-  - name: Speech SDK License
-    href: license.md
-  - name: Speech Devices SDK License
-    href: speech-devices-sdk-license.md
-  - name: Third party notices
-    href: third-party-notices.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: License / Legal
+    items:
+    - name: Speech SDK License
+    - href: license.md
+    - name: Speech SDK Third party notices
+      href: third-party-notices.md
+    - name: Speech Devices SDK License
+      href: speech-devices-sdk-license.md
+    - name: Device SDK Third party notices
+      href: device-sdk-third-party-notices.md
+  - name: Azure Roadmap
+     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Privacy & cookies
+    href: https://privacy.microsoft.com/privacystatement
