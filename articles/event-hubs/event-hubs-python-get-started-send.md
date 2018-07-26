@@ -86,7 +86,7 @@ try:
     try:
         start_time = time.time()
         for i in range(100):
-            logger.info("Sending message: {}".format(i))
+            print("Sending message: {}".format(i))
             sender.send(EventData(str(i)))
     except:
         raise
