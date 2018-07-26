@@ -29,7 +29,7 @@ az group delete --name "{RESOURCE GROUP}"
 Using the example created in the first QuickStart:
 
 ``` CMD
-az group delete --name "CCLab"
+az group delete --name "CycleCloudApp"
 ```
 
 ## Delete the Service Principal
@@ -37,7 +37,7 @@ az group delete --name "CCLab"
 Run the following command to delete the service principal created at the start of the lab, substituting the name used if other than the example name:
 
 ``` CMD
-az ad sp delete --id "http://CCLab"
+az ad sp delete --id "http://CycleCloudApp"
 ```
 
 If you've gone through all four QuickStarts, you've covered the installation, setup, and configuration of Azure CycleCloud, created and ran a simple HPC cluster, added a cost usage alert, submitted 100 jobs, witnessed the auto scaling, and cleaned up after yourself. You've only begun to scratch the surface of what Azure CycleCloud offers - check out the product and documentation pages to learn more!

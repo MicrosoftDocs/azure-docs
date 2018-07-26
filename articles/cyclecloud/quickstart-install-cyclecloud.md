@@ -19,15 +19,6 @@ There are four parts to the Azure CycleCloud QuickStart:
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
 
-## Prerequisites
-
-The Azure CycleCloud quickstart has a few prerequisites:
-
-1.	An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
-2.	The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
-3.	A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
-4.	An SSH keypair
-
 Working through all the QuickStarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
 
 ## QuickStart 1: Install and Setup Azure CycleCloud
@@ -59,18 +50,18 @@ $ az account list -o table
 
 ### Service Principal
 
-If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CCLab" can be replaced with whatever you like:
+If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CycleCloudApp" can be replaced with whatever you like:
 
 ``` CMD
-$ az ad sp create-for-rbac --name CCLab
+$ az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
 The output will display a series of information. You will need to save the App ID, password, and tenant ID:
 
 ``` output
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "displayName": "CcIntroTraining",
-    "name": "http://CcIntroTraining",
+    "displayName": "CycleCloudApp",
+    "name": "http://CycleCloudApp",
     "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -110,10 +101,16 @@ Create a resource group in the region of your choice. Note that resource group n
 az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 ```
 
-For example, you could use "CCLab" as the resource group name and southern US as the region:
+For example, you could use "CycleCloudApp" as the resource group name and southern US as the region:
 
 ``` CMD
-az group create --name "CCLab" --location "South Central US"
+az group create --name "CycleCloudApp" --location "South Central US"
+```
+
+Next, create the Virtual Network and subnets. The default vnet name is **cyclevnet**:
+
+``` CMD
+az group deployment create --name "vnet_deployment" --resource-group "{RESOURCE_GROUP}" --template-file deploy-vnet.json --parameters params-vnet.json
 ```
 
 ## Add Parameters

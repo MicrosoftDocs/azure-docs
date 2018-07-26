@@ -27,5 +27,5 @@ az group delete --name "{RESOURCE GROUP}"
 Run the following command to delete the service principal created at the start of the lab, substituting the name used if other than the example name:
 
 ``` CLI
-az ad sp delete --id "http://CCLab"
+az ad sp delete --id "http://CycleCloudApp"
 ```
