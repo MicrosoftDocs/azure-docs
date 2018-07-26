@@ -13,7 +13,7 @@ ms.custom: mvc
 # As an operator of an IoT monitoring solution, I need to use alerts to identify and fix issues with my devices. 
 ---
 
-# Troubleshoot and fix device issues
+# Tutorial: Troubleshoot and fix device issues
 
 In this tutorial, you use the Remote Monitoring solution accelerator to identify and fix issues with your connected IoT devices. You use alerts in the solution accelerator dashboard to identify issues and then run remote jobs to fix those issues.
 
