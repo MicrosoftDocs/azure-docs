@@ -39,9 +39,9 @@ sections:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
 
-    - title: Create Clusters Quickly
-    - type: paragraph
-      text: 'Azure CycleCloud comes with default cluster templates for:'
+  - title: Create Clusters Quickly
+  - type: paragraph
+    text: 'Azure CycleCloud comes with default cluster templates for:'
     - type: list
       style: icon48
       items:
@@ -70,7 +70,7 @@ sections:
         text: Zookeeper
         href: app-service-continuous-deployment.md
       - image:
-          src: media/index/mrbayes-logo-jpg
+          src: media/index/mrbayes-logo.jpg
         text: MrBayes
         href: app-service-deploy-content-sync.md
       - image:
@@ -78,7 +78,7 @@ sections:
         text: LAMMPS
         href: app-service-deploy-content-sync.md
       - image:
-          src: media/index/i_catergorize.svg
+          src: media/index/i_categorize.svg
         text: Network File System
         href: app-service-deploy-content-sync.md
 
