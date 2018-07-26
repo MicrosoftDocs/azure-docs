@@ -20,9 +20,9 @@ This article requires an existing AKS cluster running in your Azure account. If 
 
 ## Enable diagnostics logs
 
-To help collect and review data from multiple sources, Log Analytics provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. For information, see [What is Azure Log Analytics?][log-analytics-overview]. To use a different platform to analyze the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub.
+To help collect and review data from multiple sources, Log Analytics provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. To use a different platform to analyze the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub. For more information, see [What is Azure Log Analytics?][log-analytics-overview].
 
-Log Analytics is enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, complete the following steps in the Azure portal:
+Log Analytics is enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, open the Azure portal in a web browser and complete the following steps:
 
 1. Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
 1. On the left-hand side, choose **Diagnostic settings**.
@@ -37,7 +37,7 @@ The following example portal screenshot shows the *Diagnostics settings* window 
 
 ![Enable OMS workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
-# Schedule a test pod on the AKS cluster
+## Schedule a test pod on the AKS cluster
 
 To generate some logs, create a new pod in your AKS cluster. The following example YAML manifest can be used to create a basic NGINX instance. Create a file named `nginx.yaml` in an editor of your choice and paste the following content:
 
@@ -45,7 +45,7 @@ To generate some logs, create a new pod in your AKS cluster. The following examp
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod
+  name: nginx
 spec:
   containers:
   - name: myfrontend
@@ -64,11 +64,11 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear in the OMS workspace. In the Azure portal, select your resource group, such as *myReosurceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
+It may take a few minutes for the diagnostics logs to be enabled and appear in the OMS workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
 
 ![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-On the left-hand side, choose **Log Search**. To view the *kube-controller-logs*, enter the following query in the text box:
+On the left-hand side, choose **Log Search**. To view the *kube-apiserver*, enter the following query in the text box:
 
 ```
 search *
@@ -77,13 +77,13 @@ search *
 | project log_s
 ```
 
-Many logs are likely returned for the API server. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *pods/mypod* as shown in the following example query:
+Many logs are likely returned for the API server. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *pods/nginx* as shown in the following example query:
 
 ```
 search *
 | where Type == "AzureDiagnostics"
 | where Category == "kube-apiserver"
-| where log_s contains "pods/mypod"
+| where log_s contains "pods/nginx"
 | project log_s
 ```
 
@@ -92,6 +92,8 @@ The specific logs for your NGINX pod are displayed, as shown in the following ex
 ![Log Analytics query results for sample NGINX pod](media/view-master-logs/log-analytics-query-results.png)
 
 To view additional logs, you can update the query for the *Category* name to *kube-controller-manager* or *kube-scheduler*, depending on what additional logs you enable. Additional *where* statements can then be used to refine the events you are looking for.
+
+For more information on how to query and filter your log data, see [View or analyze data collected with Log Analytics log search][analyze-log-analytics].
 
 ## Next steps
 
@@ -104,5 +106,6 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
+[analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: aks-ssh.md
