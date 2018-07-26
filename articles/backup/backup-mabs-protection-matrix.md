@@ -5,7 +5,7 @@ services: backup
 author: markgalioto
 ms.service: backup
 keywords: 
-ms.date: 11/28/2017
+ms.date: 7/14/2018
 ms.topic: conceptual
 ms.author: markgal
 manager: carmonm
