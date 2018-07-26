@@ -59,6 +59,24 @@ For an example of some of the new e-mail designs and more information, see [Emai
 
 ---
 
+### Azure AD Activity Logs are now available through Azure Monitor
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+The Azure AD Activity Logs are now available in public preview for the Azure Monitor (Azure's platform-wide monitoring service). Azure Monitor offers you long-term retention and seamless integration, in addition to these improvements:
+
+- Long-term retention by routing your log files to your own Azure storage account.
+
+- Seamless SIEM integration, without requiring you to write or maintain custom scripts.
+
+- Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
+
+For more information about these new capabilities, see our blog [Azure AD activity logs in Azure Monitor diagnostics is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) and our documentation, [Azure Active Directory activity logs in Azure Monitor (preview)](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview).
+
+---
+
 ### Conditional access information added to the Azure AD sign-ins report
 
 **Type:** New feature  
@@ -216,24 +234,6 @@ This is an opt-in public preview. Admins can turn on the new experience (if desi
 This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn this self-service password reset method on, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
 
 Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
-
----
-
-### Azure AD Activity Logs are now available through Azure Monitor
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-The Azure AD Activity Logs are now available in public preview for the Azure Monitor (Azure's platform-wide monitoring service). Azure Monitor offers you long-term retention and seamless integration, in addition to these improvements:
-
-- Long-term retention by routing your log files to your own Azure storage account.
-
-- Seamless SIEM integration, without requiring you to write or maintain custom scripts.
-
-- Seamless integration with your own custom solutions, analytics tools, or incident management solutions.
-
-For more information about these new capabilities, see our blog [Azure AD activity logs in Azure Monitor diagnostics is now in public preview](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) and our documentation, [Azure Active Directory activity logs in Azure Monitor (preview)](https://docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview).
 
 ---
 
