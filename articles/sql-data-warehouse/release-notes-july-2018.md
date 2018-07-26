@@ -15,7 +15,6 @@ ms.reviewer: twounder
 # What's new in Azure SQL Data Warehouse? July 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in July 2018.
 
-
 ## Finer granularity for cross region and server restores
 You can now restore across regions and servers using any restore point instead of selecting geo redundant backups that are taken every 24 hours. Cross region and server restore are supported for both user-defined or automatic restore points enabling finer granularity for additional data protection. With more restore points available, you can be assured that your data warehouse will be logically consistent when restoring across regions.
 
@@ -54,6 +53,55 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+## SP_REFRESHSQLMODULE
+The [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) stored procedure updates the metadata for a database object if the underlying metadata has become outdated due to changes of the underyling objects. This can occur if the base tables for a view are altered and the view hasn't been recreated. This saves you the step of dropping and recreating dependent objects.
+
+The example below shows a view that becomes stale due to the underlying table change. You'll notice that the data is correct for the first column change (1 to Mollie) but the column name is invalid and the second column is not present. 
+```sql
+CREATE TABLE base_table (Id INT);
+GO
+
+INSERT INTO base_table (Id) VALUES (1);
+GO
+
+CREATE VIEW base_view AS SELECT * FROM base_table;
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----
+-- 1
+
+DROP TABLE base_table;
+GO
+
+CREATE TABLE base_table (fname VARCHAR(10), lname VARCHAR(10));
+GO
+
+INSERT INTO base_table (fname, lname) VALUES ('Mollie', 'Gallegos');
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----------
+-- Mollie
+
+EXEC sp_refreshsqlmodule @Name = 'base_view';
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- fname     | lname
+-- ---------- ----------
+-- Mollie    | Gallegos
+```
+
+
 
 ## Next steps
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
