@@ -29,7 +29,7 @@ Following are updates that have been completed since previous versions of this a
 
 - [DNS Analytics](log-analytics-dns.md) is now fully functional in the Azure portal.
 - [Update Management](../automation/automation-update-management.md) has been updated to be fully functional in the Azure portal. See [Migrate your OMS Update Deployments to Azure](../automation/migrate-oms-update-deployments.md) for details.
-- [Alerts]()#changes-to-lerts have now been fully extended into the Azure portal.
+- [Alerts](#changes-to-alerts) have now been fully extended into the Azure portal.
 
 
 ## What will change? 
