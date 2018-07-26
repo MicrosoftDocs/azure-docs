@@ -15,6 +15,8 @@
 | Request time out max |24 hrs | |
 | Number of sites |20 |1 per HTTP Listeners |
 | URL Maps per listener |1 | |
+|Maximum URL length|8000|
 | Maximum file upload size Standard |2 GB | |
 | Maximum file upload size WAF |100 MB| |
+|WAF body size limit (without files)|128 KB|
 
