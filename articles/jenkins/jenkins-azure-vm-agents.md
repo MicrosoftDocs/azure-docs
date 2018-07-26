@@ -1,16 +1,13 @@
 ---
 title: Scale Jenkins deployments with Azure VM agents. 
 description: Add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
-services: multiple
-documentationcenter: ''
-author: rloutlaw
-manager: justhe
-ms.service: multiple
-ms.workload: multiple
-ms.topic: article
-ms.date: 8/25/2017
-ms.author: mlearned
-ms.custom: Jenkins
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
 ---
 
 # Scale your Jenkins deployments to meet demand with Azure VM agents
@@ -137,6 +134,10 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 3. Once the build is complete, go to **Console output**. You see that the build was performed remotely on an Azure agent.
 
 ![Console output](./media/jenkins-azure-vm-agents/console-output.png)
+
+## Troubleshooting
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 
