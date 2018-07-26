@@ -211,7 +211,7 @@ In the example below, you will modify an application’s manifest to add claims 
 3.	Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
 4.	Find the application you want to configure optional claims for in the list and click on it.
 5.	From the application page, click **Manifest** to open the inline manifest editor. 
-6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elemets will be added to the `OptionalClaims` property.
+6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 
