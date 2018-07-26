@@ -175,7 +175,7 @@ For example, the Windows Server 2016 Datacenter image doesn't have additional te
 
 ```powershell
 $version = "2016.127.20170406"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+Get-AzureRMVMImage -Location ($locName).ToLower() -Publisher ($pubName).ToLower() -Offer ($offerName).ToLower() -Skus ($skuName).ToLower() -Version $version
 ```
 
 Output:
@@ -273,6 +273,9 @@ Signature         : VNMTRJK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBL
 Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
+
+> [!Note]
+> Marketplace Terms have to be Accepted in lowercase, ARM Templates or DevTest Labs will not function correctly. You can however Accept and Reject with a different case (like CamelCase). This might result in multiple Marketplace terms for the same Sku/Image being set to Accepted but only lowercase will be correct when using ARM Templates or DevTest Labs.
 
 ### Deploy using purchase plan parameters
 After accepting the terms for the image, you can deploy a VM in the subscription. As shown in the following snippet, use the [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet to set the Marketplace plan information for the VM object. For a complete script to create network settings for the VM and complete the deployment, see the [PowerShell script examples](powershell-samples.md).
