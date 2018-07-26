@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 7/23/2018
+ms.date: 7/25/2018
 ms.author: erikre
  
 ---
