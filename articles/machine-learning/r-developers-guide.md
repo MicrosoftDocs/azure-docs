@@ -19,12 +19,12 @@ ms.author: jepeach
 # R Developer's Guide to Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
 
-Many data scientists dealing with ever-increasing volumes of data are looking for ways to harness the power of the
-cloud for their analyses.  This article provides an overview of the various ways that data scientists can leverage
+Many data scientists dealing with ever-increasing volumes of data are looking for ways to harness the power of
+cloud computing for their analyses.  This article provides an overview of the various ways that data scientists can leverage
 their existing skills with the [R programming language](https://www.r-project.org) in Azure.
 
-Azure is very friendly to R developers and offers many services that support the language.  Let's examine the various
-options and the most compelling scenarios for each one.
+Azure offers many services that R developers can leverage to extend their data science workloads into the cloud.
+Let's examine the various options and the most compelling scenarios for each one.
 
 ## Best Bets
 There are many different ways that R developers can use the power of Azure for data processing and analysis.  However, some
@@ -43,7 +43,7 @@ If you want to get started with R in the cloud quickly and easily, this is your 
 familiar to anyone who has worked with R on a local workstation.  However, instead of using local resources,
 the R environment runs on a VM in the cloud.  If your data is already stored in Azure, this has the added benefit of
 allowing your R scripts to run "closer to the data." Instead of transferring the data across the Internet, the data can
-be accessed over Azure's extremely fast internal network.
+be accessed over Azure's internal network, which provides much faster access times.
 
 The DSVM can be particularly useful to small teams of R developers.  Instead of investing in powerful workstations
 for each developer and requiring team members to synchronize on which versions of the various software packages they
@@ -63,13 +63,13 @@ scientists, statisticians, and R programmers with on-demand access to scalable, 
 HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size,
 loaded to either Azure Blob or Data Lake storage.
 
-This is the heavy-weight solution that allows you to scale your R code across a cluster.  By leveraging functions in
+This is an enterprise-grade solution that allows you to scale your R code across a cluster.  By leveraging functions in
 Microsoft's
 <code>[RevoScaleR](https://docs.microsoft.com/en-us/machine-learning-server/r-reference/revoscaler/revoscaler)</code>
 package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.
 This allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
 
-This power makes R Server on HDInsight a great option for R developers with massive data sets.  It provides a flexible
+This ability to scale makes R Server on HDInsight a great option for R developers with massive data sets.  It provides a flexible
 and scalable platform for running your R scripts in the cloud.
 
 For a walk-through on creating an R Server cluster, see the
@@ -87,7 +87,7 @@ with other users of the systems.  These notebooks allow users to write code that
 in the Databricks environment.  These notebooks fully support R and give users access to Spark through both the
 `SparkR` and `sparklyr` packages.
 
-Since Databricks is built on Spark and has a strong focus on collaboration, the platform is an excellent option for teams
+Since Databricks is built on Spark and has a strong focus on collaboration, the platform is often used by teams
 of data scientists that work together on complex analyses of large data sets.  Because the notebooks in Databricks support
 other languages in addition to R, it is especially useful for teams where analysts use different languages for their
 primary work.
@@ -96,8 +96,8 @@ The article ["What is Azure Databricks?"](https://docs.microsoft.com/en-us/azure
 can provide more details about the platform and help you get started.
 
 ## Other Options
-In addition to the three options listed above, there are several other ways that R developers can harness the power
-of Azure.  These other options, however, are not as broadly applicable as the solutions above.  Instead,
+In addition to the three options listed above, there are several other ways that R developers can migrate their workloads
+to Azure.  These other options, however, are not as broadly applicable as the solutions above.  Instead,
 they cover more targeted scenarios.
 
 ### Machine Learning Studio
@@ -114,11 +114,11 @@ Currently, ML Workbench only supports Python, but ML Studio supports both R and 
 in two ways.
 
 First, you can extend the data manipulation and machine learning capabilities of ML Studio by writing custom R scripts.
-Although ML Studio includes many powerful modules for preparing and analyzing data, it cannot match the capabilities
-of a mature and popular language like R.  Therefore, the service was designed to allow you to introduce your own
-custom R scripts in cases where the provided modules do not meet your needs.
+Although ML Studio includes a wide variety of modules for preparing and analyzing data, it cannot match the capabilities
+of a mature language like R.  Therefore, the service was designed to allow you to introduce your own custom R scripts
+in cases where the provided modules do not meet your needs.
 
-To leverage this capability, simply drag and drop an "Execute R Script" module into your experiment.  Then use the code
+To leverage this capability, drag and drop an "Execute R Script" module into your experiment.  Then use the code
 editor in the "Properties" pane to write a new R script or paste an existing script.  Within the script, you can
 reference external R packages.  You can use the script to manipulate data or to train complex ML models that are not
 part of the standard ML Studio model library.
@@ -138,9 +138,9 @@ and dragging in the UI, you can automate the entire deployment process using too
 ### Azure Functions
 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) is a service that lets
 you execute small pieces of code in the cloud without worrying about the infrastructure underneath it.  You do not
-have to provision virtual machines or setup virtual networks.  Just write your code and let it run in the cloud!
+have to provision virtual machines or setup virtual networks.  Instead, you just write your code and let it run in the cloud.
 
-Azure Function supports several programming languages.  Unfortunately, R is not currently one of these supported
+Azure Functions support several programming languages.  Unfortunately, R is not currently one of these supported
 languages.  However, by using the <code>[R Site Extension](http://www.siteextensions.net/packages/R-3.3.3x64/)</code>
 for Azure Web Apps, you can get your R code running in Azure Functions.  This provides a simple way to deploy
 functions built with R to the cloud.
@@ -154,7 +154,7 @@ with notebooks to bring their code to Azure.  It is a free service for anyone to
 using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable
 code, and graphics onto a single canvas.
 
-While Azure Notebooks is an excellent option for small-scale projects, it has some limitations that make it inappropriate
+While Azure Notebooks is a viable option for small-scale projects, it has some limitations that make it inappropriate
 for large-scale data science projects.  Currently, the service limits each notebook's process to 4 GB of memory and data
 sets can only be 1 GB.  However, for publishing smaller analyses, this is an easy, no-cost option.
 
@@ -182,10 +182,10 @@ virtual machines.
 One option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure portal.
 For a detailed walk-through, consult ["R Workloads on Azure Batch."](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/)
 
-Another, more powerful option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
+Another option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
 which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an economical way
 to run Spark jobs in Azure.  By using [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your
-R scripts can be scaled out in the cloud simply and cheaply.
+R scripts can be scaled out in the cloud easily and economically.
 
 ### Conclusion
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many different
