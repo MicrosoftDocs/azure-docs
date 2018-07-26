@@ -64,8 +64,6 @@ LUIS tokenizes the utterance when the utterance is added to an intent. The token
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
-
 2. Select **Create new intent**. 
 
     [ ![Screenshot of Intents page with Create new intent button highlighted](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
@@ -128,18 +126,12 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-quickstart-intents-regex-entity/publish-button.png)
-
 2. Select the Production slot and the **Publish** button.
-
-    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published in the last year?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
