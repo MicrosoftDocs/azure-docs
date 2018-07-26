@@ -13,7 +13,7 @@ ms.author: panosper
 
 # Text To Speech Frequently Asked Questions
 
-If you can't find answers to your questions in this FAQ, check out other support options [here](develop-help-support.md).
+If you can't find answers to your questions in this FAQ, check out other support options [here](support.md).
 
 ## General
 
