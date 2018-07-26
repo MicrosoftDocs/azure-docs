@@ -238,12 +238,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ---------------------------------------------------
    Repository     : SLE-12-SP3-SAP-Updates
    Name           : sap-suse-cluster-connector
-   **Version        : 3.0.0-2.2**
+   <b>Version        : 3.0.0-2.2</b>
    Arch           : noarch
    Vendor         : SUSE LLC <https://www.suse.com/>
    Support Level  : Level 3
    Installed Size : 41.6 KiB
-   **Installed      : Yes**
+   <b>Installed      : Yes</b>
    Status         : up-to-date
    Source package : sap-suse-cluster-connector-3.0.0-2.2.src
    Summary        : SUSE High Availability Setup for SAP Products
