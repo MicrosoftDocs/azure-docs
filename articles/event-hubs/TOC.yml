@@ -27,7 +27,7 @@
     href: ../event-grid/event-grid-event-hubs-integration.md
     maintainContext: true    
   - name: Stream data into Azure Databricks using Event Hubs
-    href: ../azure-databricks/databricks-stream-from-eventhubs
+    href: ../azure-databricks/databricks-stream-from-eventhubs.md
   - name: Event Hubs for Kafka 
     items:
       - name: Kafka MirrorMaker with Event Hubs
