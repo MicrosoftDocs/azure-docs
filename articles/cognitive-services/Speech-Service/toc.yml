@@ -49,7 +49,7 @@
     displayName: recognize speech, speech recognition, speech to text
   - name: Get the Speech Devices SDK
     href: get-speech-devices-sdk.md
-    displayName: roobo, speech devices sdk
+    displayName: roobo, speech devices sdk, download
 - name: Customization
   items:
   - name: Customize acoustic models
@@ -95,7 +95,7 @@
     displayName: translate speech, speech translation, translator
   - name: Speech SDK
     href: speech-sdk.md
-    displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+    displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
   - name: Speech Devices SDK
     href: speech-devices-sdk.md
     displayName: roobo, speech devices sdk
