@@ -1,8 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Visualize your IoT data in a Power BI dashboard | Microsoft Docs
+title: Visualize your Azure IoT Central data in a Power BI dashboard | Microsoft Docs
 description: Use the Azure IoT Central Analytics Power BI solution template to visualize and analyze your IoT Central data.
-services: iot-central
+ms.service: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
@@ -20,7 +20,7 @@ ms.prod: microsoft-iot-central
 manager: peterpr
 ---
 
-# Visualize and analyze your IoT data in a Power BI dashboard
+# Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
 ![Power BI solution template pipeline](media/howto-visualize-in-powerbi/iot-continuous-data-export.png)
 
