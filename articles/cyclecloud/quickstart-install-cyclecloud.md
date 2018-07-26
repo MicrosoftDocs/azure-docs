@@ -44,6 +44,8 @@ The output will display a series of information. You will need to save the App I
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
+The `password` shown here is the `applicationSecret` used below.
+
 ### SSH KeyPair
 
 In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a ssh keypair. You will need to do the following:
@@ -124,7 +126,7 @@ An example `params-cyclecloud.json` might look like this:
 
 ### Application Parameters
 
-`applicationSecret`, `tenantID`, and `applicationID` were all generated when setting up the Service Principal for your Azure Active Directory. Input those values now.
+`applicationSecret`, `tenantID`, and `applicationID` were all generated when setting up the Service Principal for your Azure Active Directory. Please note that `applicationSecret` is the `password` as displayed in the Service Principle output viewed previously. Input those values now.
 
 ### CycleCloud Admin Password
 

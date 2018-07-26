@@ -49,13 +49,13 @@ CycleCloud has internal projects that run by default on all nodes to perform spe
 The user is responsible to mirroring any additional projects to the locker. The CycleCloud CLI has methods to compose projects:
 
 ``` CLI
-cyclecloud init myproject
+cyclecloud project init myproject
 ```
 
 and mirror:
 
 ``` CLI
-cyclecloud init mylocker
+cyclecloud project init mylocker
 ```
 
 projects to lockers.  
