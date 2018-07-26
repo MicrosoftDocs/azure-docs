@@ -13,7 +13,7 @@ ms.author: sethm
 
 ---
 
-# Receive events to Event Hubs using Python
+# Receive events from Event Hubs using Python
 
 Azure Event Hubs is a highly scalable event management system that can handle millions of events per second, enabling applications to process and analyze massive amounts of data produced by connected devices and other systems. Once collected into an event hub, you can receive and handle events using in-process handlers or by forwarding to other analytics systems.
 
