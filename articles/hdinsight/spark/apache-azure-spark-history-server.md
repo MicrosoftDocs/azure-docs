@@ -27,7 +27,7 @@ Spark History Server is the web UI for completed and running Spark applications.
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
-    ![Spark History Server](./media/apache-spark-history-server/launch-history-server.png "Spark History Server")
+    ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### To open the Spark History Server Web UI by URL
 Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
@@ -38,7 +38,7 @@ Open the Spark History Server by browsing to the following URL, replace <Cluster
 
 The Spark History Server web UI looks like:
 
-![HDInsight Spark History Server](./media/apache-spark-history-server/hdinsight-spark-history-server.png)
+![HDInsight Spark History Server](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
 ## Open the Data tab from Spark History Server
@@ -46,43 +46,43 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 + Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
-    ![Data tabs](./media/apache-spark-history-server/sparkui-data-tabs.png)
+    ![Data tabs](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
 
 + Copy all rows by clicking button **Copy**.
 
-    ![Data copy](./media/apache-spark-history-server/sparkui-data-copy.png)
+    ![Data copy](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
 
 + Save all data as CSV file by clicking button **csv**.
 
-    ![Data save](./media/apache-spark-history-server/sparkui-data-save.png)
+    ![Data save](./media/apache-azure-spark-history-server/sparkui-data-save.png)
 
 + Search by entering keywords in field **Search**, the search result will display immediately.
 
-    ![Data search](./media/apache-spark-history-server/sparkui-data-search.png)
+    ![Data search](./media/apache-azure-spark-history-server/sparkui-data-search.png)
 
 + Click the column header to sort table, click the plus sign to expand a row to show more details, or click the minus sign to collapse a row.
 
-    ![Data table](./media/apache-spark-history-server/sparkui-data-table.png)
+    ![Data table](./media/apache-azure-spark-history-server/sparkui-data-table.png)
 
 + Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist any more, it will open a new tab to show the error messages.
 
-    ![Data download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
+    ![Data download row](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
 + Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
 
-    ![Data copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
+    ![Data copy path](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
 + Click the number below the table to navigate pages when too many rows to display in one page. 
 
-    ![Data page](./media/apache-spark-history-server/sparkui-data-page.png)
+    ![Data page](./media/apache-azure-spark-history-server/sparkui-data-page.png)
 
 + Hover on the question mark beside Data to show the tooltip, or click the question mark to get more information.
 
-    ![Data more info](./media/apache-spark-history-server/sparkui-data-more-info.png)
+    ![Data more info](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
 + Send feedback with issues by clicking **Provide us feedback**.
 
-    ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+    ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
 ## Open the Graph tab from Spark History Server
@@ -92,15 +92,15 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + By default, it will show all jobs, and it could be filtered by **Job ID**.
 
-    ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
+    ![graph job ID](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
 
 + By default, **Progress** is selected, user could check the data flow by selecting **Read/Written** in the dropdown list of **Display**.
 
-    ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
+    ![graph display](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
 
     The graph node display in color that shows the heatmap.
 
-    ![graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
+    ![graph heatmap](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 + Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
 
@@ -110,20 +110,21 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     + Blue for running: The task is running.
     + White for skipped or waiting: The task is waiting to run, or the stage has skipped.
 
-    ![graph color sample, running](./media/apache-spark-history-server/sparkui-graph-color-running.png)
+    ![graph color sample, running](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
-    ![graph color sample, failed](./media/apache-spark-history-server/sparkui-graph-color-failed.png)
+    ![graph color sample, failed](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > Note: Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
+    > [!NOTE]
+    > Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
 
 
 + Mouse scrolls to zoom in/out the job graph, or click **Zoom to fit** to make it fit to screen.
  
-    ![graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
+    ![graph zoom to fit](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
 
 + Hover on graph node to see the tooltip when there are failed tasks, and click on stage to open stage page.
 
-    ![graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
+    ![graph tooltip](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + The job graph node will display the following information of each stage:
     + ID.
@@ -135,13 +136,15 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
     + Progress.
 
-    >Note: By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
+    > [!NOTE]
+    > By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
 
-    >Note: For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
+    > [!NOTE]
+    > For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
 + Send feedback with issues by clicking **Provide us feedback**.
 
-    ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+    ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
 ## FAQ
@@ -157,15 +160,15 @@ To revert to community version, do the following steps:
 5. The property sets to **false** now.
 6. Click **Save** to save the configuration.
 
-    ![feature turns off](./media/apache-spark-history-server/sparkui-turn-off.png)
+    ![feature turns off](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
 
 7. Click **Spark2** in left panel, under **Summary** tab, click **Spark2 History Server**.
 
-    ![restart server1](./media/apache-spark-history-server/sparkui-restart-1.png) 
+    ![restart server1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
 
 8. Restart history server by clicking **Restart** of **Spark2 History Server**.
 
-    ![restart server2](./media/apache-spark-history-server/sparkui-restart-2.png)  
+    ![restart server2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
 
 9. Refresh the Spark history server web UI, it will be reverted to community version.
 
@@ -174,15 +177,15 @@ To revert to community version, do the following steps:
 If you run into history server error, follow the steps to provide the event:
 1. Download event by clicking **Download** in history server web UI.
 
-    ![download event](./media/apache-spark-history-server/sparkui-download-event.png)
+    ![download event](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
 2. Click **Provide us feedback** from data/graph tab.
 
-    ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+    ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 3. Provide the title and description of error, drag the zip file to the edit field, then click **Submit new issue**.
 
-    ![file issue](./media/apache-spark-history-server/sparkui-file-issue.png)
+    ![file issue](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
 
 
 ### 3. Upgrade jar file for hotfix scenario
@@ -260,7 +263,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
     + Check on **Head** and **Worker**.
     + **Parameters**: set the parameters follow the bash usage.
 
-    ![upload log or upgrade hotfix](./media/apache-spark-history-server/sparkui-upload2.png)
+    ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## Known issue

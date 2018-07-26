@@ -210,7 +210,7 @@
       - name: Manage cluster resources
         href: apache-spark-resource-manager.md
       - name: Manage spark applications using extended History Server
-        href: apache-spark-history-server.md
+        href: apache-azure-spark-history-server.md
       - name: Configure Spark settings
         href: apache-spark-settings.md
       - name: Optimize Spark jobs
