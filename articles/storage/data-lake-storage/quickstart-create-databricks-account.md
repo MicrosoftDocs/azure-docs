@@ -119,17 +119,17 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* Download **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account and file system you created:
+Enter the following code into a notebook cell:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy version 10 is only available to preview customers.
+In the cell, press `Shift` + `Enter` to run the code.
+
+Now in a new cell below this one, enter the following code (replace **FILE_SYSTEM** and **ACCOUNT_NAME** with the same values you used earlier:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+In the cell, press `Shift` + `Enter` to run the code.
 
 ## Run a Spark SQL Job
 
