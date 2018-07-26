@@ -61,7 +61,7 @@
     href: security-center-monitoring.md
     items:
     - name: Compute & apps security
-      href: security-center-virtual-machine-protection.md
+      href: security-center-virtual-machine-recommendations.md
       items:
       - name: Apply disk encryption
         href: security-center-apply-disk-encryption.md
@@ -85,8 +85,7 @@
         href: security-center-add-web-application-firewall.md
       - name: Finalize application protection
         href: security-center-add-web-application-firewall.md#finalize-application-protection
-      - name: Understand resource recommendations
-        href: security-center-virtual-machine-recommendations.md
+      
     - name: Network security
       href: security-center-network-recommendations.md
       items:
