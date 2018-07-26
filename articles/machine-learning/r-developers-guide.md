@@ -187,7 +187,7 @@ Microsoft has fully embraced the R programming language as a first-class tool fo
 different options for R developers to run their code in Azure, the company is enabling data scientists to harness the
 power of the cloud when tackling large-scale data projects.
 
-### Additional Articles
+### Next steps
 * [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server in the Cloud](https://docs.microsoft.com/en-us/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/en-us/machine-learning-server/resources-more)
