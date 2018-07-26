@@ -55,8 +55,6 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
-
 2. Select **Entities** from the left menu.
 
     [ ![Screenshot of LUIS app with Entities button hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
@@ -144,14 +142,10 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Screenshot of Publish page with endpoint url highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
 2. Go to the end of the URL in the address bar and enter `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
 
