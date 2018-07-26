@@ -16,12 +16,10 @@ ms.author: wolfma
 # Quickstart: Recognize speech in a UWP app using the Speech SDK
 
 In this article, you learn how to create a Universal Windows Platform (UWP) application using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> UWP apps built with the Speech SDK do not yet pass the Windows App Certification Kit (WACK).
-> Side-loading of apps is possible, submitting an app to Windows Store is not.
-> This will be fixed in a upcoming release.
+> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices. Apps using the Speech SDK do not yet pass the Windows App Certification Kit (WACK). It is possible to sideload your app, but it may not currently be submitted to the Windows Store.
 
 ## Prerequisites
 
@@ -42,12 +40,12 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
     ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
-1. If you're running on a 64-bit Windows installation, you may switch your build platform to `x64`:
+1. If you're running on a 64-bit Windows installation, you may switch your build platform to `x64`.
 
    ![Switch the build platform to x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > At this time, the Speech SDK does not support to target ARM processors.
+   > At this time, the Speech SDK supports Intel-compatible processors, but not ARM.
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
@@ -57,11 +55,11 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "Install Nuget package")
 
-1. In the license screen that pops up, accept the license:
+1. Accept the license in the dialog that appears.
 
     ![Accept the license](media/sdk/qs-csharp-uwp-06-nuget-license.png "Accept the license")
 
-1. In the Package Manager console you should see the following output line:
+1. The following output line appears in the Package Manager console.
 
    ```text
    Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
@@ -74,13 +72,14 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
    ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. Edit your app UI by double-clicking `MainPage.xaml` in the Solution Explorer.
-   When in the designer's XAML view, insert the following XAML snippet into the Grid tag (between `<Grid>` and `</Grid>`):
+1. Edit your application's user interface by double-clicking `MainPage.xaml` in the Solution Explorer. 
+
+    In the designer's XAML view, insert the following XAML snippet into the Grid tag (between `<Grid>` and `</Grid>`).
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
 1. Edit the XAML code-behind by double-clicking `MainPage.xaml.cs` in the Solution Explorer (it is grouped under the `MainPage.xaml` item).
-   Replace all code with the following:
+   Replace all the code in this file with the following.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
@@ -92,7 +91,7 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
 ## Build and run the sample
 
-1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now:
+1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
 
     ![Successful build](media/sdk/qs-csharp-uwp-08-build.png "Successful build")
 
@@ -104,8 +103,7 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
     ![Start the app into debugging](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
-1. Then click the **Speech recognition with microphone input** and speak a short phrase into your microphone.
-   The speech recognition result should be display in the GUI.
+1. Click the **Speech recognition with microphone input** and speak a short phrase into your device's microphone. The recognized text appears in the window.
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

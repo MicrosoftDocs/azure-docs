@@ -55,15 +55,15 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
 ## Create an IoT Edge module project
 The following steps create an IoT Edge module project that's based on the .NET Core 2.0 SDK by using Visual Studio Code and the Azure IoT Edge extension.
-1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-2. Select **View** > **Command Palette** to open the VS Code command palette. 
-3. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
-4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+
+1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette. 
+2. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
+3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
    3. Choose **C# Module** as the module template. 
-   4. Name your module **CSharpModule**. 
+   4. Replace the default module name with **CSharpModule**. 
    5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpmodule.
 
 4.  The VS Code window loads your IoT Edge solution workspace: the modules folder, a \.vscode folder, a deployment manifest template file, and a \.env file. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
@@ -103,6 +103,16 @@ The following steps create an IoT Edge module project that's based on the .NET C
     }
     ```
 
+8. The **Init** method declares a communication protocol for the module to use. Replace the MQTT settings with AMPQ settings. 
+
+   ```csharp
+   // MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+   // ITransportSettings[] settings = { mqttSetting };
+
+   AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
+   ITransportSettings[] settings = {amqpSetting};
+   ```
+
 8. In the **Init** method, the code creates and configures a **ModuleClient** object. This object allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. The connection string that's used in the **Init** method is supplied to the module by the IoT Edge runtime. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via the **input1** endpoint. Replace the **SetInputMessageHandlerAsync** method with a new one, and add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
@@ -119,7 +129,7 @@ The following steps create an IoT Edge module project that's based on the .NET C
     }
 
     // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
     // Register a callback for messages that are received by the module.
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
@@ -224,7 +234,11 @@ In the previous section, you created an IoT Edge solution and added code to the 
    ```
    Use the username, password, and login server that you copied from your Azure container registry in the first section. You can also retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The **CSharpModule.image** value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The **CSharpModule.image** value is set to a Linux amd64 version of the image. 
+
+   Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+
+   To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
 3. In the deployment.template.json file, the **registryCredentials** section stores your Docker registry credentials. The actual username and password pairs are stored in the .env file, which is ignored by git.  
 
