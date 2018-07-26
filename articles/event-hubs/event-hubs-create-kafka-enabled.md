@@ -1,5 +1,5 @@
 ---
-title: Create Kafka enabled Azure Event Hubs | Microsoft Docs
+title: Create Apache Kafka enabled Azure Event Hubs | Microsoft Docs
 description: Create a Kafka enabled Azure Event Hubs namespace using the Azure portal
 services: event-hubs
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.author: shvija
 
 ---
 
-# Create Kafka enabled event hubs
+# Create Apache Kafka enabled event hubs
 
 Azure Event Hubs is a Big Data streaming Platform as a Service (PaaS) that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
