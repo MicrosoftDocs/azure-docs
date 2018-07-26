@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: brenduns
 ms.reviewer: alfredop
 
@@ -36,7 +36,7 @@ The following roles are part of delegation:
 * The *Azure Stack operator* manages the Azure Stack
   infrastructure and creates an offer template. The operator delegates others to provide offers to their tenant.
 
-* The delegated Azure Stack operators are called *delegated providers*. They can belong to other organizations, such as other Azure Active Directory (Azure AD) users.
+* The delegated Azure Stack operators are called *delegated providers*. They can belong to other organizations, such as other Azure Active Directory (Azure AD) tenants.
 
 * *Users* sign up for the offers and use them for managing their workloads, creating VMs, storing data, and so on.
 
@@ -44,7 +44,7 @@ The following roles are part of delegation:
 
 There are two basic steps to setting up delegation:
 
-1. *Create a delegated provider* by subscribing a user to an offer containing only the subscriptions service. Users who subscribe to this offer can then extend offers and sign up users for the offers.
+1. *Create a delegated provider* by subscribing a user to an offer that includes only the subscriptions service. Users who subscribe to this offer can then extend offers and sign up users for the offers.
 
 2. *Delegate an offer to the delegated provider*. This offer is a template for what the delegated provider can offer. The delegated provider can now take the offer and offer it to other users.
 
@@ -145,9 +145,9 @@ Sign in to the user portal as the delegated provider and then create a new offer
 
 The process of delegating an offer is finished. Now a user can sign up for this offer by getting a subscription for it.
 
-## Moving subscriptions between providers
+## Move subscriptions between providers
 
-If needed, you can move a subscription between delegated providers. The PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin) allows you to move an existing subscription to a new offer. You can also use the cmdlet with a subscription that has been delegated to a different provider.
+If needed, you can move a subscription between delegated providers. You can use the PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin) to move an existing subscription to a new offer. You can also use the cmdlet with a subscription that has been delegated to a different provider.
 
 ## Next steps
 
