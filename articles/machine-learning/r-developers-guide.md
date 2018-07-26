@@ -157,13 +157,20 @@ but will continue to evolve.
 ## Azure Batch
 For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/en-us/services/batch/).  This service
 provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or
-thousands of virtual machines.
+thousands of virtual machines.  Since it is a generalized computing platform, there a few options for running R jobs on
+Azure Batch.
 
-One option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure
+One option is to use Microsoft's <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> package.  This
+R package is a parallel backend for the `foreach` package.  It allows each iteration of the `foreach` loop to run in
+parallel on a node within the Azure Batch cluster.  For an introduction to the package, please read the
+["doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session"](https://azure.microsoft.com/en-us/blog/doazureparallel/)
+blog post.
+
+Another option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure
 portal.  For a detailed walk-through, consult
 ["R Workloads on Azure Batch."](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/)
 
-Another option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
+A third option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
 which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an
 economical way to run Spark jobs in Azure.  By using
 [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out
