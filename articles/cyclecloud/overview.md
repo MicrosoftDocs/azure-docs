@@ -43,9 +43,6 @@ Once a cluster is created, you can manually add compute nodes and node arrays to
 
 CycleCloud administrative features provide and govern access to the CyleCloud cluster for other users in your organization. You can monitor, audit and alert on a number of metrics including usage, cost and quotas.
 
-> [!NOTE]
-> The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](pogo-overview.md), node configuration software known as [Jetpack](jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
-
 [//]: # (## What cluster types are available?)
 
 [//]: # (Provide a list of existing official templates?)
