@@ -108,18 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Relay State** textbox, type a value: `<ID>`
 
-	c. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	d. In the **Sign on URL** textbox, type the URL: `https://console.spotinst.com/auth/saml`
+	c. If you wish to configure the application in **SP** initiated mode, in the **Sign on URL** textbox, type the URL: `https://console.spotinst.com`
 
 	> [!NOTE]
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
 
-<<<<<<< HEAD
 4. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
-=======
-5. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
->>>>>>> 618c34bf3d994158d739dab1931cbcdfbf135027
 
 	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
 
