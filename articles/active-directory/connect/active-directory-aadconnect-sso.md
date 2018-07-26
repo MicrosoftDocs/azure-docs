@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -24,12 +24,12 @@ Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatic
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
+>Seamless SSO needs the user's device to be **domain-joined**, but doesn't need for the device to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
 
 ## Key benefits
 
