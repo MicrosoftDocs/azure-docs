@@ -40,8 +40,6 @@ sections:
           title: Clusters and Nodes
 
   - title: Create Clusters Quickly
-      - type: paragraph
-        text: 'Azure CycleCloud comes with default cluster templates for:'
     - type: list
       style: icon48
       items:
