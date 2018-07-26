@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: "On Demand"
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -28,7 +28,7 @@ The following table compares the ERT and RPO for each service tier for the three
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
 | Geo-restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
-| Restore from Azure Backup Vault |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk|ERT < 12h, RPO < 1 wk|
+| Restore from SQL long-term retention |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk|ERT < 12h, RPO < 1 wk|
 | Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
 ### Use point-in-time restore to recover a database
@@ -97,7 +97,7 @@ For more information and for detailed steps for restoring a deleted database usi
 
 ### Restore backups from long-term retention
 
-If the data loss occurred outside the current retention period for automated backups and your database is configured for long-term retention, you can restore from a full backup in the LTR storage to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a database using a full backup saved in the Azure Backup Vault.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
+If the data loss occurred outside the current retention period for automated backups and your database is configured for long-term retention using Azure blob storage, you can restore from a full backup in the Azure blob storage to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a database using a full backup saved in Azure blob storage.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region from an Azure regional data center outage
 <!-- Explain this scenario -->
