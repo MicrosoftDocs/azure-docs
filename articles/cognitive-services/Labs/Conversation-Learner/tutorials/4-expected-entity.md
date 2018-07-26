@@ -106,7 +106,7 @@ In the following examples, the "expected entity" heuristic triggers, but is inco
 2. Enter 'hello'.
 3. In response to 'what's your name', enter 'I am called frank'.
 	- The entire phrase is highlighted. This is because the statistical model did not find a name, so the heuristic fired and selected the entire answer as the name entity.
-2. To correct it, click on the highlighted phrase, then click on the red x. 
+2. To correct it, click on the highlighted phrase, then click on the red trash can icon. 
 3. Click to select frank, then click on name.
 2. Click Score Actions
 3. Select 'Hello $name'.
