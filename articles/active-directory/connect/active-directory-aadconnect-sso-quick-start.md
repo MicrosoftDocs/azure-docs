@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -44,7 +44,7 @@ Ensure that the following prerequisites are in place:
     
 * **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
 
-* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), you need versions 16.0.8730.xxxx or above.
+* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
@@ -189,7 +189,7 @@ Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers.
 
 To test the feature for a specific user, ensure that all the following conditions are in place:
   - The user signs in on a corporate device.
-  - The device is joined to your Active Directory domain.
+  - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
   - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
 

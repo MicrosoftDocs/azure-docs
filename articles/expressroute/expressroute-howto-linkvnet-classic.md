@@ -31,7 +31,9 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
-1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. Additionally, you need to make sure you download the ExpressRoute module. You can do this by running the following commands:
+1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+
+  Additionally, you need to download the ExpressRoute module. You can use the following example commands to download the Azure and ExpressRoute modules. When using these commands, note that the version number (in this example, 5.1.1) will change as newer versions of the cmdlets are released.
 
   ```powershell
   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
@@ -51,13 +53,17 @@ A single VNet can be linked to up to four ExpressRoute circuits. Use the process
 ## Connect a virtual network in the same subscription to a circuit
 You can link a virtual network to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
-    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-    Provisioned
+```powershell
+New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+Provisioned
+```
     
 ## Remove a virtual network link to a circuit
 You can remove a virtual network link to an ExpressRoute circuit by using the following cmdlet. Make sure that the current subscription is selected for the given virtual network. 
 
-    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```powershell
+Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```
  
 
 ## Connect a virtual network in a different subscription to a circuit
