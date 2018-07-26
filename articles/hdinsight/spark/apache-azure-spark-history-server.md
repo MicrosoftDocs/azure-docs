@@ -272,6 +272,11 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 2.	Input/output data using RDD will not show in data tab.
 
+## Next steps
+
+* [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)
+* [Configure Spark settings](apache-spark-settings.md)
+
 
 ## Contact us
 
