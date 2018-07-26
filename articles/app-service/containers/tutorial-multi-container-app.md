@@ -619,30 +619,6 @@ When the app setting has been created, Cloud Shell shows information similar to 
 ]
 ```
 
-### Add persistent storage
-
-Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
-
-### Configure environment variables
-
-To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
-
-```bash
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
-```
-
-When the app setting has been created, Cloud Shell shows information similar to the following example:
-
-```json
-[
-  {
-    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-    "slotSetting": false,
-    "value": "TRUE"
-  }
-]
-```
-
 ### Create a multi-container app (Kubernetes)
 
 In Cloud Shell, create a multi-container [web app](app-service-linux-intro.md) in the `myResourceGroup` resource group and the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
@@ -665,6 +641,30 @@ When the web app has been created, Cloud Shell shows output similar to the follo
   "enabled": true,
   < JSON data removed for brevity. >
 }
+```
+
+### Add persistent storage
+
+Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
+
+### Configure environment variables
+
+To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
+
+```bash
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
+```
+
+When the app setting has been created, Cloud Shell shows information similar to the following example:
+
+```json
+[
+  {
+    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+    "slotSetting": false,
+    "value": "TRUE"
+  }
+]
 ```
 
 ### Browse to the app
