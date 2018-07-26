@@ -13,7 +13,7 @@ ms.author: panosper
 
 # Text To Speech Frequently Asked Questions
 
-If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
+If you can't find answers to your questions in this FAQ, check out other support options [here](support.md).
 
 ## General
 
