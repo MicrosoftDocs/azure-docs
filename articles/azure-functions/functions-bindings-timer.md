@@ -221,7 +221,7 @@ Each field can have one of the following types of values:
 
 To specify months or days you can use numeric values, names, or abbreviations of names:
 
-*  For days, the numeric values are 0 to 6 where 0 starts with Sunday.
+* For days, the numeric values are 0 to 6 where 0 starts with Sunday.
 * Names are in English. For example: `Monday`, `January`.
 * Names are case-insensitive.
 * Names can be abbreviated. Three letters is the recommended abbreviation length.  For example: `Mon`, `Jan`. 
