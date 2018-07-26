@@ -20,18 +20,18 @@ This article requires an existing AKS cluster running in your Azure account. If 
 
 ## Enable diagnostics logs
 
-To help collect and review data from multiple sources, Log Analytics provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. For information, see [What is Azure Log Analytics?][log-analytics-overview]. To use a different platform to analyse the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub.
+To help collect and review data from multiple sources, Log Analytics provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. For information, see [What is Azure Log Analytics?][log-analytics-overview]. To use a different platform to analyze the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub.
 
-Log Analytics are enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, complete the following steps in the Azure portal:
+Log Analytics is enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, complete the following steps in the Azure portal:
 
-* Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
-* On the left-hand side, choose **Diagnostic settings**.
-* Select your AKS cluster, such as *myAKSCluster*, then choose to **Turn on diagnostics**.
-* Enter a name, such as *myAKSLogs*, then select the option to **Send to Log Analytics**.
+1. Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
+1. On the left-hand side, choose **Diagnostic settings**.
+1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Turn on diagnostics**.
+1. Enter a name, such as *myAKSLogs*, then select the option to **Send to Log Analytics**.
     * Choose to *Configure* Log Analytics, then select an existing workspace or **Create New Workspace**.
     * If you need to create a workspace, provide a name, a resource group, and a location.
-* In the list of available logs, select the logs you wish to enable, such as *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics are enabled.
-* When ready, select **Save** to enable collection of the selected logs.
+1. In the list of available logs, select the logs you wish to enable, such as *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics are enabled.
+1. When ready, select **Save** to enable collection of the selected logs.
 
 The following example portal screenshot shows the *Diagnostics settings* window and then option to create an OMS workspace:
 
