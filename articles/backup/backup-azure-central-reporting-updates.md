@@ -66,5 +66,6 @@ To make the reports more meaningful across workloads, the set of reports pre-con
     
 
 ## Next Steps:
-•    [Share Reports across your organisation](https://youtu.be/26zyOtyHPJM)
-•    [Azure Backup FAQ](backup-azure-backup-faq.md)
+
+* [Share Reports across your organisation](https://youtu.be/26zyOtyHPJM)
+* [Azure Backup FAQ](backup-azure-backup-faq.md)
