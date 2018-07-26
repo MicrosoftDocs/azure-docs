@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
 
-5. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+5. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
 
 	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
 
@@ -159,7 +159,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Copy the **Relay State** value for your instance and paste it in **Relay State** textbox in **Spotinst Domain and URLs** section on Azure portal.
 
-	b. Click **BROWSE** to upload the metadata xml file which you have downloaded from Azure portal
+	b. Click **BROWSE** to upload the metadata xml file that you have downloaded from Azure portal
 
 	c. Click **SAVE**.
 
@@ -219,7 +219,7 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	* In the **Email** textbox, enter the email address of the user like **brittasimon@contoso.com**.
 
-	* Select your organization specific details for the **Organization Role, Account Role, and Accounts**.
+	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 
 2. If you have configured the application in the **IDP** intiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
 
