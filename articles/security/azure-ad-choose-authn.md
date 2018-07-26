@@ -100,7 +100,7 @@ Refer to [implementing password hash synchronization](https://docs.microsoft.com
 
 	There's another benefit to deploying password hash synchronization in addition to pass-through authentication. It acts as a backup authentication method when the primary authentication method is no longer available.
 
-* **Considerations**. You might use password hash synchronization as a backup authentication method for pass-through authentication, and the agents can't validate a user's credentials. Then the failover to password hash synchronization doesn't happen automatically. Switch the sign-on method manually by using Azure AD Connect. 
+* **Considerations**. You can use password hash synchronization as a backup authentication method for pass-through authentication, when the agents can't validate a user's credentials due to a significant on-premises failure. Failover to password hash synchronization doesn't happen automatically and you must use Azure AD Connect to switch the sign-on method manually. 
 
 	For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
