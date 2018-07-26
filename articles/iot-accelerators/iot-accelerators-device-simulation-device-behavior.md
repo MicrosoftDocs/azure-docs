@@ -14,8 +14,8 @@ ms.topic: conceptual
 
 The article [Understand the device model schema](iot-accelerators-device-simulation-device-schema.md) described the schema that defines a simulated device model. That article referred to two types of JavaScript file that implement the behavior of a simulated device:
 
-- **State** JavaScript files that run at fixed intervals to update the internal state of the device.
-- **Method** JavaScript files that run when the solution invokes a method on the device.
+- **State**: JavaScript files that run at fixed intervals to update the internal state of the device.
+- **Method**: JavaScript files that run when the solution invokes a method on the device.
 
 In this article, you learn how to:
 
@@ -36,6 +36,6 @@ This article described how to define the behavior of your own custom simulated d
 > * Define how a simulated device responds to a method call from the IoT hub it's connected to
 > * Debug your scripts
 
-Now you've learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-test.md).
+Now that you've learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-test.md).
 
 For more developer information about the Device Simulation solution, see the [Developer Reference Guide](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).
