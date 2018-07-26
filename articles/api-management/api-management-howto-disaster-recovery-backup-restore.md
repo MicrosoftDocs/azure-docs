@@ -119,7 +119,7 @@ Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the follo
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice/backup) and [Api Management Service - Restore](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice/restore).
+The REST APIs are [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) and [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
