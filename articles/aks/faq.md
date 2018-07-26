@@ -2,13 +2,13 @@
 title: Frequently asked questions for Azure Kubernetes Service
 description: Provides answers to some of the common questions about Azure Kubernetes Service.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
-ms.author: nepeters
+ms.date: 07/20/2018
+ms.author: iainfou
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -17,17 +17,7 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
-- Australia East
-- Canada Central
-- Canada East
-- Central US
-- East US
-- East US2
-- North Europe
-- UK South
-- West Europe
-- West US
-- West US 2
+See the Azure Kubernetes Service [Regions and availability][aks-regions] documentation for a complete list.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -43,7 +33,7 @@ Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
-Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azure Resource Manager template. This functionality will soon come to the Azure portal.
+Yes, RBAC can be enabled when [deploying an AKS cluster from the Azure CLI or Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/aks/aad-integration). This functionality will soon come to the Azure portal.
 
 ## What Kubernetes admission controllers does AKS support? Can this be configured?
 
@@ -54,7 +44,7 @@ AKS supports the following [admission controllers][admission-controllers]:
 * ServiceAccount
 * DefaultStorageClass
 * DefaultTolerationSeconds
-* MutatingAdmissionWebhook 
+* MutatingAdmissionWebhook
 * ValidatingAdmissionWebhook
 * ResourceQuota
 * DenyEscalatingExec
@@ -66,13 +56,17 @@ It is not currently possible to modify the list of admission controllers in AKS.
 
 Yes, you can deploy an AKS cluster into an existing virtual network using the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
+## Can I restrict the Kubernetes API server to only be accessible within my virtual network?
+
+Not at this time. The Kubernetes API server is exposed as a public fully-qualified domain name (FQDN). You should control access to your cluster using [Kubernetes role-based access control (RBAC) and Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
+
 ## Is Azure Key Vault integrated with AKS?
 
 AKS is not natively integrated with Azure Key Vault at this time. However, there are community solutions like [the acs-keyvault-agent from Hexadite][hexadite].
 
 ## Can I run Windows Server containers on AKS?
 
-To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. You can, however, use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
 
 ## Why are two resource groups created with AKS?
 
@@ -83,6 +77,11 @@ If you are creating resources that will be used with your AKS cluster, such as s
 ## Does AKS offer a service level agreement?
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

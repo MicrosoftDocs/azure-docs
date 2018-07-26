@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 author: Jejiang 
-manager: omafnan
+manager: kfile
 editor: 
 tags: Azure Cosmos DB
 

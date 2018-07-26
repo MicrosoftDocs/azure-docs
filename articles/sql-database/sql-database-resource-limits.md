@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
 
 ---
@@ -22,10 +22,11 @@ This article provides an overview of the Azure SQL Database resource limits and 
 | Databases per server | 5000 |
 | Default number of servers per subscription in any region | 20 |
 | Max number of servers per subscription in any region | 200 |
+| DTU / eDTU quota per server | 54,000 |
 |||
 
 > [!NOTE]
-> To obtain more server quota than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”.
+> To obtain more DTU /eDTU quota or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
@@ -57,10 +58,6 @@ The maximum number of sessions and workers are determined by the service tier an
 
 When encountering high session or worker utilization, mitigation options include:
 - Increasing the service tier or performance level of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
-- Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
-When encountering high session or worker utilization, mitigation options include:
-- Increasing the service tier or performance level of the database. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## Next steps

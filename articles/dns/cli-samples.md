@@ -3,7 +3,7 @@ title: Azure CLI samples for Traffic Manager| Microsoft Docs
 description: Azure CLI samples for Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: tysonn
 tags:
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: victorh
 
 ---
 # Azure CLI samples for Traffic Manager

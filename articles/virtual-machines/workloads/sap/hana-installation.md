@@ -300,7 +300,7 @@ This section illustrates how to install SAP HANA on a HANA Large Instance unit. 
 
 - You provided Microsoft all the data to deploy you an SAP HANA Large Instance.
 - You received the SAP HANA Large Instance from Microsoft.
-- You created an Azure VNet that is connected to your on-premise network.
+- You created an Azure VNet that is connected to your on-premises network.
 - You connected the ExpressRotue circuit for HANA Large Instances to the same Azure VNet.
 - You installed an Azure VM you use as a jump box for HANA Large Instances.
 - You made sure that you can connect from the jump box to your HANA Large Instance unit and vice versa.

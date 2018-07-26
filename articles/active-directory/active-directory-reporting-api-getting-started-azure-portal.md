@@ -44,6 +44,13 @@ To access the reporting API, even if you are planning on accessing the API using
  
 For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
+## APIs with Graph Explorer
+
+You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+
+![Graph Explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modify permissions UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## Recommendation 
 

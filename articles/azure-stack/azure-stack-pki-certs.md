@@ -36,7 +36,7 @@ The following list describes the certificate requirements that are needed to dep
 - Your Azure Stack infrastructure must have network access to the certificate authority's Certificate Revocation List (CRL) location published in the certificate. This CRL must be an http endpoint
 - When rotating certificates, certificates must be either issued from the same internal certificate authority used to sign certificates provided at deployment or any public certificate authority from above
 - The use of self-signed certificates are not supported
-- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as **acs** and Key Vault where they are required. 
+- For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Note: both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
 - The certificate signature algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.

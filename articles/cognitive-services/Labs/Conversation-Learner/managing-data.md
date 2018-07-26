@@ -22,7 +22,7 @@ By default, the Conversation Learner cloud service logs interactions between end
 
 ## How to disable logging
 
-You can control whether conversations with end users are on the "Settings" page for your Conversation Learner application.  There is a checkbox for "Log Conversations."  By unchecking this box, conversations with end users will not be logged.
+You can control whether conversations with end users are on the "Settings" page for your Conversation Learner model.  There is a checkbox for "Log Conversations."  By unchecking this box, conversations with end users will not be logged.
 
 ## What is logged 
 
@@ -76,9 +76,10 @@ To obtain the raw data for a log dialog, you can use this HTTP call:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application, and `<logDialgoId>` is the ID of the log dialog you want to retrieve.  
+Where `<appId>` is the GUID for this Conversation Learner model, and `<logDialgoId>` is the ID of the log dialog you want to retrieve.  
 
-Note that log dialogs may be edited by the developer, and then stored as train dialogs.  When this is done, Conversation Learner stores the ID of the "source" log dialog with the train dialog.  Further, a train dialog can be "branched" in the UI; if a train dialog has an associated source log dialog ID, then branches from that train dialog will be marked with the same log dialog ID.
+> [!NOTE]
+> Log dialogs may be edited by the developer, and then stored as train dialogs.  When this is done, Conversation Learner stores the ID of the "source" log dialog with the train dialog.  Further, a train dialog can be "branched" in the UI; if a train dialog has an associated source log dialog ID, then branches from that train dialog will be marked with the same log dialog ID.
 
 To obtain all train dialogs that were derived from a log dialog, follow these steps.
 
@@ -88,7 +89,7 @@ First, retrieve all train dialogs:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application.  
+Where `<appId>` is the GUID for this Conversation Learner model.  
 
 This returns all train dialogs.  Search this list for the associated `sourceLogDialogId`, and note the associated `trainDialogId`. 
 
@@ -98,7 +99,7 @@ To a single train dialog by ID:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application, and `<trainDialogId>` is the ID of the train dialog you want to retrieve.  
+Where `<appId>` is the GUID for this Conversation Learner model, and `<trainDialogId>` is the ID of the train dialog you want to retrieve.  
 
 ## How to delete a logged dialog
 
@@ -108,7 +109,7 @@ If you wish to delete a log dialog given its ID, you can use this HTTP call:
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application, and `<logDialogId>` is the ID of the log dialog you wish to delete. 
+Where `<appId>` is the GUID for this Conversation Learner model, and `<logDialogId>` is the ID of the log dialog you wish to delete. 
 
 If you wish to delete a train dialog given its ID, you can use this HTTP call:
 
@@ -116,4 +117,4 @@ If you wish to delete a train dialog given its ID, you can use this HTTP call:
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application, and `<trainDialogId>` is the ID of the train dialog you wish to delete. 
+Where `<appId>` is the GUID for this Conversation Learner model, and `<trainDialogId>` is the ID of the train dialog you wish to delete. 

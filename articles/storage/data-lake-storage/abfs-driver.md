@@ -24,7 +24,7 @@ Thus, to overcome the inherent design deficiencies of WASB, the new Azure Data L
 
 ## The Azure Blob File System driver
 
-The [Azure Data Lake Storage REST interface](https://docs.microsoft.com/en-us/rest/api/datalakestorage/) is designed to support file system semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the Azure Blob File System driver (or ABFS) is a mere client shim for the REST API.
+The [Azure Data Lake Storage REST interface](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2) is designed to support file system semantics over Azure Blob Storage. Given that the Hadoop FileSystem is also designed to support the same semantics there is no requirement for a complex mapping in the driver. Thus, the Azure Blob File System driver (or ABFS) is a mere client shim for the REST API.
 
 However, there are some functions that the driver must still perform:
 

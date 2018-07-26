@@ -19,11 +19,13 @@
     href: quickstart-nodejs.md
   - name: Create Java app
     href: quickstart-java.md
+  - name: Create Python app
+    href: quickstart-python.md
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Create Docker/Go app
     href: quickstart-docker-go.md
-  - name: Create multicontainer app
+  - name: Create multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
   items:

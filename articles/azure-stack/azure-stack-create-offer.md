@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/2/2018
 ms.author: brenduns
 
 ---
@@ -55,7 +55,7 @@ ms.author: brenduns
      Select **All Resources**, search for your new offer, and then select the new offer. Select **Change State**, and then select **Public**.
 
    > [!NOTE]
-   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
 
 ## Next steps
 

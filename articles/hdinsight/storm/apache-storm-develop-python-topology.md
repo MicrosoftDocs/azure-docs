@@ -93,7 +93,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> This command requires a local Storm development environment. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)
+> This command requires a local Storm development environment. For more information, see [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 Once the topology starts, it emits information to the local console similar to the following text:
 

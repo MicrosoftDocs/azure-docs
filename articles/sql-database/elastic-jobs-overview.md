@@ -181,12 +181,12 @@ To ensure resources aren't overburdened when running jobs against databases in a
 
 ##	Differences between Elastic Jobs and SQL Server Agent
 
-It is worth noting a couple of differences between SQL Server Agent (available on-premise and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Server Agent (available on-premises and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
 
 
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
-|Scope     |  Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, all or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Scope     |  Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
 |Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

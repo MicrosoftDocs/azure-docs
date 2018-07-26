@@ -8,7 +8,7 @@ Customer intent: As someone with a basic network background, I want to understan
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
 
 ---
@@ -173,7 +173,7 @@ In this step, choose the instructions that apply to the gateway that you want to
 Request a public IP address with a **Standard** PublicIpaddress SKU and do not specify any zone. In this case, the Standard public IP address created will be a zone-redundant public IP.   
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
 ### <a name="ipzonalgw"></a>For zonal gateways
@@ -181,7 +181,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 Request a public IP address with a **Standard** PublicIpaddress SKU. Specify the zone (1, 2 or 3). All gateway instances will be deployed in this zone.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard -Zone 1
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
 ### <a name="ipregionalgw"></a>For regional gateways
@@ -202,10 +202,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 ## <a name="gwconfig"></a>7. Create the gateway
 
 Create the virtual network gateway.
-
->[!NOTE]
->At this time, you cannot specify the gateway SKU. The SKU will automatically default to ErGw1AZ for ExpressRoute, and VpnGw1AZ for VPN Gateway.
->
 
 ### For ExpressRoute
 
@@ -232,6 +228,10 @@ You can [self-enroll](#enroll) using the PowerShell commands in this article.
 ### What will change when I enroll?
 
 From your perspective, during Preview, you can deploy your gateways with zone-redundancy. This means that all instances of the gateways will be deployed across Azure Availability Zones, and each Availability Zone is a different fault and update domain. This makes your gateways more reliable, available, and resilient to zone failures.
+
+### Can I use the Azure portal?
+
+Yes, you can use the Azure portal for the Preview. However, you still need to enroll using PowerShell or you won't be able to use the portal during Preview.
 
 ### What regions are available for the Preview?
 

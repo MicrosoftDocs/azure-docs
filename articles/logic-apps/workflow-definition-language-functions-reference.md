@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Workflow Definition Language functions reference - Azure Logic Apps | Microsoft Docs
-description: This technical reference describes built-in functions for automating workflows with Azure Logic Apps
+title: Functions reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
+description: Learn about functions for creating logic apps with the Workflow Definition Language
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -15,10 +15,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Workflow Definition Language functions reference for Azure Logic Apps
+# Functions reference for Workflow Definition Language in Azure Logic Apps
 
-This article describes the built-in functions you can use when creating 
-workflows with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
+This article describes the functions you can use when creating 
+automated workflows with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
 To learn more about functions in logic app definitions, see 
 [Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 

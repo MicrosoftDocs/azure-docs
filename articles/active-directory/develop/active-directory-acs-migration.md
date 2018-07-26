@@ -54,7 +54,7 @@ To use these components, you must create one or more Access Control namespaces. 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://<namespace>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
+All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://&lt;namespace&gt;.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
 
 The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 

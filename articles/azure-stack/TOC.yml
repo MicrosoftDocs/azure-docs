@@ -12,8 +12,7 @@
       href: azure-stack-update-1804.md
     - name: 1803 update
       href: azure-stack-update-1803.md
-    - name: 1802 update 
-      href: azure-stack-update-1802.md 
+
 - name: Quickstarts
   expanded: true
   items:
@@ -269,6 +268,8 @@
         href: azure-stack-app-service-release-notes-update-one.md
       - name: App Service on Azure Stack update 2 release notes
         href: azure-stack-app-service-release-notes-update-two.md
+    - name: Deploy Ethereum
+      href: azure-stack-ethereum.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview

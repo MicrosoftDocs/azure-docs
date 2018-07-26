@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/28/2018
 ms.author: alkohli
 
 ---
@@ -55,9 +55,9 @@ If using a StorSimple Virtual Array, use the following table to determine what a
 
 | If your device is running  | Take the following action                                    |
 |----------------------------|--------------------------------------------------------------|
-| Update 1.0 or later and is offline. <br> You see an alert that the URL is not whitelisted.| Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). |
+| Update 1.0 or later and is offline. <br> You see an alert that the URL is not whitelisted.| 1. Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication). <br> 2. [Get the AAD registration key from the service](#aad-based-registration-keys). <br> 3. Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
 | Update 1.0 or later and the device is online.| No action is required.                                       |
-| Update 0.6 or earlier and the device is offline. | [Download Update 1.0 through catalog server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Apply Update 1.0 through the local web UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Get the AAD registration key from the service](#aad-based-registration-keys). <br> Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 0.6 or earlier and the device is offline. | 1. [Download Update 1.0 through catalog server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Apply Update 1.0 through the local web UI](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Get the AAD registration key from the service](#aad-based-registration-keys). <br>4. Perform steps 1-5 to [Connect to the Windows PowerShell interface of the virtual array](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Use `Invoke-HcsReRegister` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
 | Update 0.6 or earlier and the device is online | Modify the firewall rules to include the authentication URL.<br> Install Update 1.0 through the Azure portal. |
 
 ## AAD-based registration keys

@@ -35,6 +35,9 @@ sections:
     - image: 
         src: media/index/logo_python.svg
       title: Python
+    - image: 
+        src: media/index/logo_go.svg
+      title: Go
     rows:
     - title: Translate text from one language to another
       values:
@@ -42,25 +45,34 @@ sections:
       - href: quickstart-java-translate
       - href: quickstart-nodejs-translate
       - href: quickstart-python-translate
+      - href: quickstart-go-translate
     - title: Convert text from one script to another
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
       - href: quickstart-nodejs-transliterate
       - href: quickstart-python-transliterate
+      - href: quickstart-go-transliterate
     - title: Identify language of text
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
       - href: quickstart-nodejs-detect
       - href: quickstart-python-detect
+      - href: quickstart-go-detect
     - title: Get alternate translations and usage
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
       - href: quickstart-nodejs-dictionary
       - href: quickstart-python-dictionary
-
+      - href: quickstart-go-dictionary
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: "Learn how to develop applications using the Translator Text API:"
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
 - title: Reference
   items:
   - type: paragraph

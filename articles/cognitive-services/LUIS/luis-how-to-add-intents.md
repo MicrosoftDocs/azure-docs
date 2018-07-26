@@ -2,12 +2,12 @@
 title: Add intents in LUIS applications | Microsoft Docs
 description: Use Language Understanding (LUIS) to add intents to help apps understand user requests and react to them properly.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
 ---
 
@@ -70,9 +70,9 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 ## Edit an utterance on intent page
 
-To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
+To edit an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
 
-![Screenshot of Intents details page, with three dots icon highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Screenshot of Intents details page, with ellipsis button highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## Reassign utterances on intent page
 You can change the intent of one or more utterances by reassigning them to another intent. 
@@ -87,7 +87,7 @@ To change the intent of several utterances, select the checkboxes to the left of
 
 ## Delete utterances on intent page
 
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
+To delete an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
 
 ![Screenshot of Intents details page, with Delete option highlighted](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -134,7 +134,7 @@ Toggle **Tokens View** to view the tokens instead of the entity type names. On t
 ![Screenshot of BookFlight intent, with Token View highlighted](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## Train your app after changing model with intents
-After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 
