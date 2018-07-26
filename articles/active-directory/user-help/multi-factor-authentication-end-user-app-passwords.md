@@ -74,6 +74,46 @@ If you use two-step verification with your work or school account and your Offic
 
 5. Follow the steps for creating an app password to create your new app password.
 
+## Manage app passwords in the Azure portal
+
+If you use two-step verification with Azure, you want to create app passwords through the Azure portal.
+
+## Manage app passwords with the MyApps portal
+
+You can also create and delete app passwords through the My Apps portal.
+
+### To create an app password using the My Apps portal
+
+1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+2. Select your name at the top right, and choose **Profile**.
+
+3. Select **Additional Security Verification**.
+
+   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Select **App passwords**.
+
+   ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Click **Create**.
+
+6. Type a name for the app password, and then select **Next**.
+
+7. Copy the app password to the clipboard and paste it into your app.
+   
+    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### To delete an app password using the My Apps portal
+
+1. Go to your profile, and then select **Additional Security Verification**.
+
+2. Select **App passwords**, and then select **Delete** next to the app password you want to delete.
+
+   ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Select **Yes** to confirm you want to delete the password, and then select **Close**.
+
 ## If your app passwords aren't working properly
 
 Make sure you typed your password correctly. If you're sure you entered your password correctly, you can try to sign in again and create a new app password. If neither of those options fix your problem, contact your company support so they can delete your existing app passwords, letting you create brand-new ones. 
