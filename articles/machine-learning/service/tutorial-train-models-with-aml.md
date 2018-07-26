@@ -27,6 +27,7 @@ This tutorial is **part one of a two-part series**. In this tutorial, you walk t
 
 You'll learn how to select a model and deploy in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later.
 
+
 ## Prerequisites
 To complete this tutorial, you must have the following prerequisites.
 
@@ -108,10 +109,7 @@ The output resembles the following image.
 
 ### Download the Jupyter notebook
 
-Download the Jupyter notebook to run the code in this tutorial yourself.
-
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
+If you'd like to try the whole example out yourself, download and run [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification).
 
 
 ## Get the right workspace and project
