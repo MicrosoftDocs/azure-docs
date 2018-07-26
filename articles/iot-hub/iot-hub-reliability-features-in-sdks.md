@@ -112,3 +112,4 @@ For other languages, review the implementation documentation below.  Samples dem
 - [Use the IoT device SDK for C](.\iot-hub-device-sdk-c-intro.md)
 - [Develop for constrained devices](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [Develop for mobile devices](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Troubleshoot device disconnects](iot-hub-troubleshoot-connectivity.md)
