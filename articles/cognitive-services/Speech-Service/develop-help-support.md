@@ -7,22 +7,22 @@ manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.author: wolfma 
 ---
 
 # Support and help options for developers
 
-Are you just stating to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are hints where you can get help as a developer.
+Are you just starting to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are hints where you can get help as a developer.
 
 > [!div class="checklist"]
-> * Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists
-> * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*
-> * If you find an issue with one of the samples you can find on GitHub, raise a *GitHub* issue
+> * Search to check if your problem question has not been answered by the community, or if an existing documentation for the feature you are trying to implement already exists.
+> * If you can't find the answer from what you need, you may want to ask a question on *Stack Overflow*.
+> * If you find an issue with one of the samples you can find on GitHub, raise a *GitHub* issue.
 
 ## Search
 
-You may find the answer you need in the documentation, samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions, or our samples.
+You may find the answer you need in the documentation, our samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions, or our samples.
 
 ### Scoped Search
 

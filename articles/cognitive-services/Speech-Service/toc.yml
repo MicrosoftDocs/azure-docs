@@ -119,9 +119,9 @@
       href: third-party-notices.md
     - name: Speech Devices SDK License
       href: speech-devices-sdk-license.md
-    - name: Device SDK Third party notices
-      href: device-sdk-third-party-notices.md
+    - name: Devices SDK Third party notices
+      href: devices-sdk-third-party-notices.md
   - name: Azure Roadmap
-     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies
     href: https://privacy.microsoft.com/privacystatement
