@@ -183,7 +183,7 @@ The `context` parameter has the following properties:
 
 The `state` parameter contains the state of the device as maintained by the device simulation service.
 
-The `properties` parameter contains the properties of the device that are writtem as reported properties to the IoT Hub device twin.
+The `properties` parameter contains the properties of the device that are written as reported properties to the IoT Hub device twin.
 
 There are three global functions you can use to help implement the behavior of the method:
 
