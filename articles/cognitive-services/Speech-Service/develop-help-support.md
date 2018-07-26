@@ -1,6 +1,6 @@
 ---
-title: Support and help options for developers | Microsoft Docs
-description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft Cognitive Services Speech
+title: Support and help options | Microsoft Docs
+description: Know how to obtain help and support for questions and problems when creating application that integrate with Microsoft Cognitive Services Speech
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -11,7 +11,7 @@ ms.date: 07/26/2018
 ms.author: wolfma 
 ---
 
-# Support and help options for developers
+# Support and help options
 
 Are you just starting to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are hints where you can get help as a developer.
 
@@ -35,7 +35,6 @@ For faster results, scope your search to Stack Overflow, our documentation, and 
 
 Where *{Your Search Terms}* is your search keywords.
 
-[![Stack Overflow](https://docs.microsoft.com/en-us/media/logos/logo_stackoverflow.svg)](https://www.stackoverflow.com)
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
@@ -55,7 +54,6 @@ If you cannot find an answer to your problem via search, submit a new question t
 > * [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 > * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-[![GitHub](https://docs.microsoft.com/en-us/media/logos/logo_octokitty.svg)](https://www.github.com)
 ## Create a GitHub issue
 
 Samples are often posted as open source. For questions and issues create an *issue* in the respective GitHub repository. You are also free to submit a pull request as well. The following list contains links to the sample repositories:
