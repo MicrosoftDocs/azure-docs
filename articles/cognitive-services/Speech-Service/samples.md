@@ -1,10 +1,9 @@
 ---
-title: Cognitive Services Speech SDK sample code | Microsoft Docs
+title: Cognitive Services Speech SDK sample code
 description: Code samples for using the Microsoft Speech service
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
