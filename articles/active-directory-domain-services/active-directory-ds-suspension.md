@@ -49,14 +49,14 @@ For more information, see [How to troubleshoot alerts on a managed domain](activ
 
 **What to expect**
 
-In some cases (for example, if you have an invalid network configuration), the domain controllers for your managed domain might be unreachable. When your managed domain is in the "Needs Attention" state, Microsoft can't guarantee that your managed domain will be monitored, patched, updated, or backed-up on a regular basis.
+In some cases (for example, if you have an invalid network configuration), the domain controllers for your managed domain might be unreachable. When your managed domain is in the "Needs Attention" state, Microsoft can't guarantee that it will be monitored, patched, updated, or backed-up on a regular basis.
 
 * Your managed domain is in an unhealthy state and ongoing health monitoring might stop until the alert is resolved.
 * Domain controllers for your managed domain can't be patched or updated.
 * Changes from Azure Active Directory might not be synchronized to your managed domain.
 * Backups for your managed domain might be taken, if possible.
-* If you resolve the alerts that are impacting your managed domain, you might be able to restore your managed domain to the "Running" state.
-* Critical alerts are triggered for configuration issues where Microsoft is unable to reach your domain controllers. If such alerts aren't resolved within 15 days, your managed domain will be put in the "Suspended" state.
+* If you resolve alerts that are impacting your managed domain, you might be able to restore it to the "Running" state.
+* Critical alerts are triggered for configuration issues where Microsoft is unable to reach your domain controllers. If such alerts aren't resolved within 15 days, your managed domain is put in the "Suspended" state.
 
 
 ### The "Suspended" state
@@ -103,7 +103,7 @@ To restore a domain that's in the "Suspended" state, take the following steps:
 4. Select the alert. The alert ID will be either AADDS503 or AADDS504, depending on the cause of suspension.
 5. Select the resolution link that's provided in the alert. Then follow the steps to resolve the alert.
 
-Your managed domain can only be restored to the date of last backup. The date of your last backup is displayed on the Health page of your managed domain. Any changes that occurred after the last backup won't be restored. Backups for a managed domain are stored for up to 30 days. Backups that are older than 30 days are deleted.
+Your managed domain can only be restored to the date of the last backup. The date of your last backup is displayed on the Health page of your managed domain. Any changes that occurred after the last backup won't be restored. Backups for a managed domain are stored for up to 30 days. Backups that are older than 30 days are deleted.
 
 
 ## Next steps
