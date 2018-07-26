@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: jaredro
 
 ---
@@ -141,9 +141,9 @@ The following table shows locations by service provider. If you want to view ava
 | **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Chicago, Washington DC |
-| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supported |Supported |Phoenix |
+| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supported |Supported |Phoenix, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Chicago, New York+, Silicon Valley, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported | Supported | Chicago, Dallas, San Antonio |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Supported |Supported |Chicago, Dallas, New York, Washington DC |
 

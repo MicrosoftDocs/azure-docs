@@ -1,10 +1,9 @@
 ---
-title: Transcription guidelines for Speech training | Microsoft Docs
+title: Transcription guidelines for Speech training
 description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: PanosPeriorellis
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
