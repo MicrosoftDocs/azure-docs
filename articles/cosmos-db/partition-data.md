@@ -208,18 +208,22 @@ You can form a composite partition key by concatenating and padding multiple pro
 
 For example, you have a document that looks like:
 
+```json
 {
 "deviceId": "abc-123",
 "date": 2018
 }
+```
 
 One option is to set partitionKey on /deviceId or /date. If want to form a composite key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
 
+```json
 {
 "deviceId": "abc-123",
 "date": 2018,
 "partitionKey": "abc-123-2018"
 }
+```
 
 In real time scenarios you can have thousands of documents so you should define client side logic to concatenate values into a composite key, insert the composite key into the documents and then use it to specify partition key.
 
