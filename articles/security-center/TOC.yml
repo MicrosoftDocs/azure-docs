@@ -61,7 +61,7 @@
     href: security-center-monitoring.md
     items:
     - name: Compute & apps security
-      href: security-center-virtual-machine-recommendations.md
+      href: security-center-virtual-machine-protection.md
       items:
       - name: Apply disk encryption
         href: security-center-apply-disk-encryption.md
@@ -85,7 +85,8 @@
         href: security-center-add-web-application-firewall.md
       - name: Finalize application protection
         href: security-center-add-web-application-firewall.md#finalize-application-protection
-  
+      - name: Understand resource recommendations
+        href: security-center-virtual-machine-recommendations.md
     - name: Network security
       href: security-center-network-recommendations.md
       items:
@@ -185,8 +186,9 @@
 - name: Reference
   items:
   - name: REST APIs
-    href: https://msdn.microsoft.com/library/mt704034(Azure.100).aspx
-
+    href: https://docs.microsoft.com/rest/api/securitycenter/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=security-center
 - name: Resources
   items:
   - name: Manage user data
