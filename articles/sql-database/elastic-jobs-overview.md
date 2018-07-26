@@ -113,15 +113,10 @@ The following examples show how different target group definitions are dynamical
 
   ![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
 
-
 - *Example 5* and *Example 6* show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.
 - *Example 7* shows that the shards in a shard map can also be evaluated at job run time.
 
   ![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
-
-
-
-
 
 ### Job
 
