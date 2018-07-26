@@ -44,7 +44,7 @@ The border device must be configured with static routes pointing to the TOR devi
 
 The TOR devices come configured with a static default route sending all traffic to the border devices. The one traffic exception to the default rule is for the private space, which is blocked using an Access Control List applied on the TOR to border connection.
 
-Everything else should be the same as the first method. The BGP dynamic routing is used inside the rack because it is an essential tool for the SLB and other components and can’t be disabled or removed.
+Static routing applies only to the uplinks between the TOR and border switches. BGP dynamic routing is used inside the rack because it is an essential tool for the SLB and other components and can’t be disabled or removed.
 
 ![Static routing](media/azure-stack-border-connectivity/static-routing.png)
 
