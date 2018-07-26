@@ -29,10 +29,12 @@ examine the various options and the most compelling scenarios for each one.
 ## Data Science Virtual Machine
 The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has
-many popular data science tools, including
-[Microsoft R Open](https://mran.microsoft.com/open/),
-[RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop),
-and [RStudio Server](https://www.rstudio.com/products/rstudio/#Server).
+many popular data science tools, including:
+* [Microsoft R Open](https://mran.microsoft.com/open/)
+* [Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server)
+* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop),
+* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server).
+
 The DSVM can be provisioned with either Windows or Linux as the operating system.  You can use the DSVM in two
 different ways:  as an interactive workstation or as a compute platform for a custom cluster.
 
