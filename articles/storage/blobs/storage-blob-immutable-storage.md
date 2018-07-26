@@ -32,7 +32,7 @@ Immutable storage enables:
 
 - **Legal hold policy support**: When the retention interval is not known, users can set legal holds to store data immutably until the legal hold is cleared.  When a legal hold is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag that's used as an identifier string (such as a case ID).
 
-- **Support for all blob tiers**: WORM policies are independent of the Azure Blob storage tier and apply to all the tiers: hot, cool, and archive. Users can store the data in the most cost-optimized tier for your workloads while maintaining data immutability.
+- **Support for all blob tiers**: WORM policies are independent of the Azure Blob storage tier and apply to all the tiers: hot, cool, and archive. Users can store the data in the most cost-optimized tier for their workloads while maintaining data immutability.
 
 - **Container-level configuration**: Users can configure time-based retention policies and legal hold tags at the container level. By using simple container-level settings, users can create and lock time-based retention policies; extend retention intervals; set and clear legal holds; and more. These policies apply to all the blobs in the container, both existing and new.
 
