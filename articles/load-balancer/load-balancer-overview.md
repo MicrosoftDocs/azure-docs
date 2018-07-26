@@ -118,7 +118,7 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 >[!IMPORTANT]
 >Standard Load Balancer is a new Load Balancer product and largely a superset of Basic Load Balancer. There are important and deliberate differences between the two products. Any end-to-end scenario that's possible with Basic Load Balancer can also be created with Standard Load Balancer. If you're already used to Basic Load Balancer, you should familiarize yourself with Standard Load Balancer to understand the latest changes in behavior between Standard and Basic and their impact. Review this section carefully.
 
-[!INCLUDE [comparison table](../../../includes/load-balancer-comparison-table.md)]
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 For more information, see [service limits for Load Balancer](https://aka.ms/lblimits). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 

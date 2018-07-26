@@ -47,7 +47,7 @@ Review the table below for an overview of the differences between Standard Load 
 >[!NOTE]
 > New designs should adopt Standard Load Balancer. 
 
-[!INCLUDE [comparison table](../../../includes/load-balancer-comparison-table.md)]
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
