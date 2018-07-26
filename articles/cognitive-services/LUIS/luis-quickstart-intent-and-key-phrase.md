@@ -86,7 +86,7 @@ The new `keyphrase` version of the app needs to be trained.
 
 ## Query the endpoint with an utterance
 
-[!include[LUIS How to get endpoint first step](luis-include-tutorial-how-to-get-endpoint.md)]
+1. [!include[LUIS How to get endpoint first step](luis-include-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
 
