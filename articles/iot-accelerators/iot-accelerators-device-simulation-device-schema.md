@@ -1,6 +1,6 @@
 ---
-title: Device schema in remote monitoring solution - Azure | Microsoft Docs
-description: This article describes the JSON schema that defines a simulated device in the remote monitoring solution.
+title: Device schema in device simulation solution - Azure | Microsoft Docs
+description: This article describes the JSON schema that defines a simulated device in the device simulation solution.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -12,13 +12,13 @@ ms.topic: conceptual
 
 # Understand the device model schema
 
-You can use simulated devices in the Remote Monitoring solution to test its behavior. When you deploy the Remote Monitoring solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
+You can use the Device Simulation solution accelerator to generate test loads for solutions that use IoT Hub. When you deploy the Device Simulation solution, a collection of simulated devices is provisioned automatically. You can customize the existing simulated devices or create your own.
 
 This article describes the device model schema that specifies the capabilities and behavior of a simulated device. The device model is stored in a JSON file.
 
 The following articles are related to the current article:
 
-* [Implement the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
+* [Implement the device model behavior](iot-accelerators-device-simulation-device-behavior.md) describes the JavaScript files you use to implement the behavior of a simulated device.
 * [Create a new simulated device](iot-accelerators-remote-monitoring-test.md) puts it all together and shows you how to deploy a new simulated device type to your solution.
 
 In this article, you learn how to:
@@ -42,9 +42,6 @@ This article described how to create your own custom simulated device model. Thi
 > * Specify the telemetry the simulated device sends
 > * Specify the cloud-to-device methods the device responds to
 
-Now that you've learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-remote-monitoring-device-behavior.md).
+Now that you've learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-device-simulation-device-behavior.md).
 
-For more developer information about the Remote Monitoring solution, see:
-
-* [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+For more developer information about the Device Simulation solution, see the [Developer Reference Guide](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).
