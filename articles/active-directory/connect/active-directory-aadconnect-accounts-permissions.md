@@ -54,7 +54,7 @@ In Express settings, the installation wizard asks for the following:
   - Azure AD Global Administrator credentials
 
 ### AD DS Enterprise Admin credentials
-The AD DS Enterprise Admin account is used to confgiure your on-premises Active Directory. These credentials are only used during the installation and are not used after the installation has completed. The Enterprise Admin, not the Domain Admin should make sure the permissions in Active Directory can be set in all domains.
+The AD DS Enterprise Admin account is used to configure your on-premises Active Directory. These credentials are only used during the installation and are not used after the installation has completed. The Enterprise Admin, not the Domain Admin should make sure the permissions in Active Directory can be set in all domains.
 
 If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You also need Azure AD Global Administrator credentials.
 
