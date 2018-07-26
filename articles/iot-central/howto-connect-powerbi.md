@@ -22,7 +22,7 @@ manager: peterpr
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
-![Power BI solution template pipeline](media/howto-visualize-in-powerbi/iot-continuous-data-export.png)
+![Power BI solution template pipeline](media/howto-connect-powerbi/iot-continuous-data-export.png)
 
 Use the Azure IoT Central Analytics Power BI solution template to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
 - Track how much data your devices are sending over time
@@ -48,11 +48,11 @@ Two reports are generated automatically.
 
 The first report shows a historical view of measurements reported by devices, and breaks down the different types of measurements and devices that have sent the highest number of measurements.
 
-![Power BI report page 1](media/howto-visualize-in-powerbi/template-page1-hasdata.PNG)
+![Power BI report page 1](media/howto-connect-powerbi/template-page1-hasdata.PNG)
 
 The second report dives deeper into events and shows a historical view of errors and warnings reported. It also shows which devices are reporting the highest number of events all up, as well as specifically error events and warning events.
 
-![Power BI report page 2](media/howto-visualize-in-powerbi/template-page2-hasdata.PNG)
+![Power BI report page 2](media/howto-connect-powerbi/template-page2-hasdata.PNG)
 
 ## Resources
 
