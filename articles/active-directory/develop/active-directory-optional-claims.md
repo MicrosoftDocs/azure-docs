@@ -37,8 +37,8 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 | Account Type | V1.0 Endpoint                      | V2.0 Endpoint  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - RPS Tickets are used instead | Support coming |
-| AAD          | Supported                          | Supported      |
+| Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
+| Azure AD account          | Supported                          | Supported      |
 
 ## Standard optional claims set
 The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
