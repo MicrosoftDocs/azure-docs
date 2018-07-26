@@ -61,8 +61,8 @@ You can view details about your workspace in the Azure portal.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
     ![Azure hub](./media/log-analytics-manage-access/hub.png)  
 3. In the Log Analytics subscriptions blade, select a workspace.
-4. The workspace blade displays details about the workspace and links for additional information.  
-    ![workspace details](./media/log-analytics-manage-access/workspace-details.png)  
+4. The workspace blade displays details about getting stated and configuration and links for additional information.  
+    ![workspace details](./media/log-analytics-manage-access/)  
 
 
 ## Manage accounts and users
@@ -204,8 +204,6 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 4. In the workspace blade, under **General**, click **Pricing tier**.  
 5. Under **Pricing tier**, click select a pricing tier and then click **Select**.  
     ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. When you refresh your view in the Azure portal, you see **Pricing tier** updated for the tier you selected.  
-    ![updated plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
