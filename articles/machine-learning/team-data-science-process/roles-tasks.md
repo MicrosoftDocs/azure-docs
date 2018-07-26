@@ -23,11 +23,12 @@ ms.author: deguhath
 The Team Data Science Process is a framework developed by Microsoft that provides a structured methodology to build predictive analytics solutions and intelligent applications efficiently. This article outlines the key personnel roles, and their associated tasks that are handled by a data science team standardizing on this process. 
 
 This introduction links to tutorials that provide instructions on how to set up the TDSP environment for the entire data science group, data science teams, and projects. 
-It provides detailed guidance using Visual Studio Team Services (VSTS) in the tutorials as a code-hosting platform and agile planning tool to manage team tasks, control access, and manage the repositories. 
+It provides detailed guidance using Visual Studio Team Services (VSTS) in the tutorials.  VSTS provides a code-hosting platform and agile planning tool to manage team tasks, control access, and manage the repositories. 
 
-You will also be able to use this information to implement TDSP on your own code-hosting and agile planning tool. 
+You can use this information to implement TDSP on your own code-hosting and agile planning tool. 
 
 ## Structures of data science groups and teams
+
 Data science functions in enterprises may often be organized in the following hierarchy:
 
 1. ***Data science group/s***
@@ -135,7 +136,7 @@ For detailed step-by-step instructions on project execution workflow, see [Execu
 
 ## Project structure
 
-Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. This repository provides a standardized directory structure and document templates.
+Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. This repository gives you a standardized directory structure and document templates you can use for your own TDSP project.
 
 ## Next steps
 

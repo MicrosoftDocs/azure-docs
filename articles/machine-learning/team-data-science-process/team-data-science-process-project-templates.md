@@ -5,7 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
-
+services: machine-learning
 ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -52,6 +52,10 @@ If don’t have access to Microsoft Project, an Excel worksheet with all the sam
 You can pull it in to whatever tool you prefer to use.
 
 Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
+
+## Repository template
+
+Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. This repository gives you a standardized directory structure and document templates you can use for your own TDSP project.
 
 ## Next steps
 
