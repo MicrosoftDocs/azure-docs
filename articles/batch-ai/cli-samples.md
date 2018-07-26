@@ -28,4 +28,3 @@ The following table includes links to Azure CLI examples for Azure Batch AI.
 |**Create and manage a Batch AI cluster**||
 | [Create a cluster with dedicated nodes](./scripts/batch-ai-cli-sample-create-cluster-dedicated.md) | Creates a Batch AI cluster with dedicated nodes and an auto-storage account. |
 | [Create a cluster with low-priority nodes](./scripts/batch-ai-cli-sample-create-cluster-low-priority.md) | Creates a Batch AI cluster with low priority nodes and an auto-storage account. |
-ks. |
