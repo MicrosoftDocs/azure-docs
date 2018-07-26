@@ -17,22 +17,18 @@ ms.author: spelluru
 
 ---
 # Specify mandatory artifacts for your lab in Azure DevTest Labs
-As a lab owner, you can set a list of mandatory artifacts that are applied on every machine created within your lab.
-
-Imagine a scenario where you want each machine in your lab to be connected to your corporate network. In this case, each lab user would have to add a domain join artifact during virtual machine creation to make sure their machine is connected to the corporate domain. In other words, lab users would essentially have to re-create a machine in case they forget to apply mandatory artifacts on their machine. This feature saves your lab users the effort of adding such artifacts on a lab machine.  
+As a owner of a lab, you can specify mandatory artifacts that are applied to every machine created in the lab. Imagine a scenario where you want each machine in your lab to be connected to your corporate network. In this case, each lab user would have to add a domain join artifact during virtual machine creation to make sure their machine is connected to the corporate domain. In other words, lab users would essentially have to re-create a machine in case they forget to apply mandatory artifacts on their machine. As a lab owner, you make the domain join artifact as a mandatory artifact in your lab. This step makes sure that each machine is connected to the corporate network and saving the time and effort for your lab users.
  
-As a lab owner you make the domain join artifact as a mandatory artifact in your lab. This step makes sure that each machine is connected to the corporate network and saving the time and effort for your lab users. Other mandatory artifacts could include a common tool that your team uses, a platform-related security pack that each machine needs to have by default etc. In short, any common software that every machine in your lab must have becomes a mandatory artifact. If you create a custom image from a machine that has mandatory artifacts applied on it and then create a fresh machine from that image, the mandatory artifacts are reapplied on the machine during creation. This behavior also means that even though the custom image is old, every time you create a machine from it the most updated version of mandatory artifacts are applied on it during the creation flow. 
+Other mandatory artifacts could include a common tool that your team uses, or a platform-related security pack that each machine needs to have by default etc. In short, any common software that every machine in your lab must have becomes a mandatory artifact. If you create a custom image from a machine that has mandatory artifacts applied to it and then create a fresh machine from that image, the mandatory artifacts are reapplied on the machine during creation. This behavior also means that even though the custom image is old, every time you create a machine from it the most updated version of mandatory artifacts are applied to it during the creation flow. 
  
 Only artifacts that have no parameters are supported as mandatory ones. Your lab user doesn't need to enter additional parameters during lab creation and thus making the process of VM creation simple. 
-
 
 ## Specify mandatory artifacts
 You can select mandatory artifacts for Windows and Linux machines separately. You can also reorder these artifacts depending on the order in which you would like them to applied. 
 
-
-1. Select **Configuration and policies** under **SETTINGS**. 
-2. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
-3. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
+1. On the home page of your lab, select **Configuration and policies** under **SETTINGS**. 
+3. Select **Mandatory artifacts** under **EXTERNAL RESOURCES**. 
+4. Select **Edit** in the **Windows** section or the **Linux** section. This example uses the **Windows** option. 
 
     ![Mandatory artifacts page - Edit button](media/devtest-lab-mandatory-artifacts/mandatory-artifacts-edit-button.png)
 4. Select an artifact. This example uses **7-Zip** option. 
