@@ -3,7 +3,7 @@ title: Data Collection in Azure Security Center | Microsoft Docs
 description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
-ms.author: terrylan
+ms.date: 07/19/2018
+ms.author: rkarlin
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, AppLocker events, and tenant ID. The Microsoft Monitoring Agent also copies crash dump files to your workspace.
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent     
 Automatic provisioning is off by default. When automatic provisioning is enabled, Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended but manual agent installation is also available. [Learn how to install the Microsoft Monitoring Agent extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Disabling automatic provisioning limits security monitoring for your resources. To learn more, see [disable automatic provisioning](security-center-enable-data-collection.md#disable-automatic-provisioning) in this article. VM disk snapshots and artifact collection are enabled even if automatic provisioning is disabled.
->
+> - Disabling automatic provisioning limits security monitoring for your resources. To learn more, see [disable automatic provisioning](security-center-enable-data-collection.md#disable-automatic-provisioning) in this article. VM disk snapshots and artifact collection are enabled even if automatic provisioning is disabled.
+> - To enable data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 >
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
@@ -119,8 +119,8 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
->
+> - If you are using Group Policy Object (GPO), it is recommended that you enable audit policies Process Creation Event 4688 and the *CommandLine* field inside event 4688. For more information about Process Creation Event 4688, see Security Center's [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). For more information about these audit policies, see [Audit Policy Recommendations](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> -  To enable data collection for [Adaptive Application Controls](security-center-adaptive-application.md), Security Center configures a local AppLocker policy in Audit mode to allow all applications. This will cause AppLocker to generate events which are then collected and leveraged by Security Center. It is important to note that this policy will not be configured on any machines on which there is already a configured AppLocker policy. 
 >
 
 To choose your filtering policy:

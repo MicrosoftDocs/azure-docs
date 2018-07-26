@@ -1,6 +1,6 @@
 ---
 title: Collecting monitoring data in Azure | Microsoft Docs
-description: Overview of the monitoring data that's collected from application and services in Azure and the tools used to to analyze it.
+description: Overview of the monitoring data that's collected from application and services in Azure and the tools used to analyze it.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -17,7 +17,7 @@ ms.author: bwren
 ---
 
 # Collecting monitoring data in Azure
-This article provides an overview of the monitoring data that's collected from application and services in Azure and the tools used to to analyze it. 
+This article provides an overview of the monitoring data that's collected from application and services in Azure and the tools used to analyze it. 
 
 ## Types of monitoring data
 All monitoring data fits into one of two fundamental types, metrics or logs. Each type has distinct characteristics and is best suited for particular scenarios as described below.

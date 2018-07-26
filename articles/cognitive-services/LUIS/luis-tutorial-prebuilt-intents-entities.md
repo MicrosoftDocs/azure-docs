@@ -2,14 +2,14 @@
 title: Add prebuilt intents and entities to extract common data in Language Understanding - Azure | Microsoft Docs 
 description: Learn how to use prebuilt intents and entities to extract different types of entity data. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
+ms.author: diberry
 --- 
 
 # Tutorial: 2. Add prebuilt intents and entities

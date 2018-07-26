@@ -5,8 +5,8 @@ description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -51,6 +51,10 @@ In the Azure portal experience, we have improved the way that you can view passw
 6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
 7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
 8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
+
+### Converged registration (preview)
+
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 

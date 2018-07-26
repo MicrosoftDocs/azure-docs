@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -46,7 +46,7 @@ To check the versions of your Authentication Agents, on each server identified i
 
 1. Go to **Control Panel -> Programs -> Programs and Features** on the on-premises server.
 2. If there is an entry for "**Microsoft Azure AD Connect Authentication Agent**", you don't need to take any action on this server.
-3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", versions 1.5.132.0 or earlier, you need to manually upgrade on this server.
+3. If there is an entry for "**Microsoft Azure AD Application Proxy Connector**", you need to manually upgrade on this server.
 
 ![Preview version of Authentication Agent](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
@@ -55,7 +55,7 @@ To check the versions of your Authentication Agents, on each server identified i
 Before upgrading, ensure that you have the following items in place:
 
 1. **Create cloud-only Global Administrator account**: Don’t upgrade without having a cloud-only Global Administrator account to use in emergency situations where your Pass-through Authentication Agents are not working properly. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
-2.	**Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.	**Ensure high availability**: If not completed previously, install a second standalone Authentication Agent to provide high availability for sign-in requests, using these [instructions](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## Upgrading the Authentication Agent on your Azure AD Connect server
 

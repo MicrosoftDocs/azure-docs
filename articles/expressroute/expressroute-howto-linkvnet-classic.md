@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 07/25/2018
 ms.author: ganesr
 
 ---
@@ -53,6 +53,12 @@ You can link a virtual network to an ExpressRoute circuit by using the following
 
     New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
     Provisioned
+    
+## Remove a virtual network link to a circuit
+You can remove a virtual network link to an ExpressRoute circuit by using the following cmdlet. Make sure that the current subscription is selected for the given virtual network. 
+
+    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+ 
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
