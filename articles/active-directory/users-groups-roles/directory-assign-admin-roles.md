@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -45,7 +45,7 @@ The following administrator roles are available:
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
   
-* **[Dynamics 365 service administrator / CRM Service Administrator](#crm-service-administrator)**: Users with this role have global permissions within Microsoft CRM Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365 service administrator / CRM Service Administrator](#dynamics-365-service-administrator)**: Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Device Administrators](#device-administrators)**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
 
@@ -354,27 +354,6 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Update standard properties on ConditionalAccessPolicys in Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Update ConditionalAccessPolicys.Owners property in Azure Active Directory. |
 
-### CRM Service Administrator
-Can manage all aspects of the Dynamics 365 product.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Read Organizations.TrustedCAsForPasswordlessAuth property in Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Create and delete all resources, and read and update standard properties in Azure Access Control. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
-| microsoft.crm/AllEntities/AllActions | Manage all aspects of Dynamics 365. |
-
 ### Device Administrators
 Members of this role are added to the local administrators group on Azure AD-joined devices.
 
@@ -386,8 +365,8 @@ Members of this role are added to the local administrators group on Azure AD-joi
 | **Actions** | **Description** |
 | --- | --- |
 
-### Directory Reader
-Can read basic directory information. For granting access to applications
+### Directory Readers
+Can read basic directory information. For granting access to applications.
 
   > [!NOTE]
   > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
@@ -504,6 +483,27 @@ Can read & write basic directory information. For granting access to application
 | microsoft.aad.directory/User/Update | Update standard properties on Users in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Update Users.AppRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Update Users.Manager property in Azure Active Directory. |
+
+### Dynamics 365 Service Administrator
+Can manage all aspects of the Dynamics 365 product.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Read Organizations.TrustedCAsForPasswordlessAuth property in Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Create and delete all resources, and read and update standard properties in Azure Access Control. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
+| microsoft.crm/AllEntities/AllActions | Manage all aspects of Dynamics 365. |
 
 ### Exchange Service Administrator
 Can manage all aspects of the Exchange product.
