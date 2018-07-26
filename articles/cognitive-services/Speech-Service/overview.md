@@ -21,11 +21,14 @@ The Speech service is powered by the technologies used in other Microsoft produc
 
 With one subscription, our Speech service gives developers an easy way to give their applications powerful speech-enabled features. Your apps can now feature voice command, transcription, dictation, speech synthesis, and translation.
 
+## Speech service features
+
 |Function|Description|
 |-|-|
-|Speech to Text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
-|Text to Speech|Converts text to audio files of natural-sounding synthesized speech.|
-|Speech&nbsp;Translation|Provide translations of speech to other languages, with text or speech output.|
+|[Speech-to-text](speech-to-text.md)| Transcribes audio streams into text that your application can accept as input. Also integrates with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
+|[Text-to-speech](text-to-speech.md)| Converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages. |
+|[Speech-translation](speech-translation.md)| Can be used either to translate streaming audio in near-real-time or to process recorded speech. |
+|[Speech Devices SDK](speech-devices-sdk.md)| With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices |
 
 ## Using the Speech service
 
@@ -35,14 +38,6 @@ The Speech service is made available in two ways. [The SDK](speech-sdk.md) abstr
 |-|-|-|-|-|
 |[SDKs](speech-sdk.md)|Yes|No|Yes|Libraries for specific programming languages that simplify development.|
 |[REST](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your application.|
-
-* The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transcribes audio streams into text that your application can accept as input. 
-
-* The [Text to Speech](text-to-speech.md) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages.
-
-* The [Speech Translation](speech-translation.md) API can be used either to translate streaming audio in near-real-time or to process recorded speech. 
-
-* With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). 
 
 ## Next steps
 
