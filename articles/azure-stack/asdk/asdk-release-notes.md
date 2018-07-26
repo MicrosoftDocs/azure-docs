@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/02/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -39,7 +39,27 @@ This build includes the following improvements and fixes for Azure Stack.
 
 -	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.)
  
+- <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present.
+
+- <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](.\.\user\azure-stack-network-differences.md) for functionality differences.
+
+- <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
+
+- <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**. Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
+
+- <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack Syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software external to Azure Stack. The Syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
+
+  To configure how the Syslog client communicates (such as protocol, encryption, and authentication) with the Syslog server, use the Set-SyslogServer cmdlet. This cmdlet is available from the privileged endpoint (PEP). 
+
+  To add the client-side certificate for the Syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
+
+  With this preview, you can see a much larger number of audits and alerts. 
+
+  Because this feature is still in preview, you don't rely on it in production environments.
+
 ### Fixed issues
+
+-	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
 - <!-- 2448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
@@ -51,8 +71,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
--	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
+- <!-- 2551834 - IS, ASDK --> When you select Overview for a storage account in either the admin or user portals, the Essentials pane now displays all the expected information correctly. 
 
+- <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -63,16 +84,8 @@ This build includes the following improvements and fixes for Azure Stack.
 
 ### Known issues
 
-#### Portal
-- <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*.  
-
-  To view the unavailable information, use the [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet.
-
-- <!-- 2551834 - IS, ASDK --> When you select **Tags** for a storage account in either the admin or user portals, the information fails to load and does not display.  
-
-  To view the unavailable information, use the [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell cmdlet.
-
-- <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types were introduced with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+#### Portal  
+- <!-- TBD - IS ASDK --> Some administrative subscription types are not available. When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md) are not visible in the console. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
 
 - <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
   ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
