@@ -29,7 +29,7 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 ## Supported storage accounts
 
 Azure Import/Export service supports the following [Azure storage accounts](storage-account-options.md).
-- General Purpose v1 storage accounts (both Classic or ARM deployment)
+- General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
 - Blob Storage accounts
 - General Purpose v2 storage accounts
 
