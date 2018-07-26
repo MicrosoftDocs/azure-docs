@@ -12,4 +12,4 @@ ms.date: 07/26/2018
 ms.author: diberry
 --- 
 
-For this article, you can use the free [LUIS](luis-reference-regions.md#publishing-regions) account in order to author your LUIS application.
+For this article, you can use the free [LUIS](~/articles/cognitive-services/luis/luis-reference-regions.md#publishing-regions) account in order to author your LUIS application.
