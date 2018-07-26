@@ -115,7 +115,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
 
+<<<<<<< HEAD
 4. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
+=======
+5. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
+>>>>>>> 618c34bf3d994158d739dab1931cbcdfbf135027
 
 	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
 
