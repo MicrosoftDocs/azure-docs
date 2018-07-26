@@ -219,7 +219,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 >- Managed disks status storage access.
 >- Windows Diagnostics
 >
-> You can override this build-in infrastructure rule collection by creating a *deny all* application rule collection which is processed last. It will always be process before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
+> You can override this build-in infrastructure rule collection by creating a *deny all* application rule collection which is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 ## Configure network rules
 
