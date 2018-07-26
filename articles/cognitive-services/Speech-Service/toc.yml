@@ -2,11 +2,15 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is the Speech service?
-    href: overview.md
-    expanded: true
   - name: Speech Scenarios
     href: speech-scenarios.md
+    expanded: true
+  - name: Speech Service
+    href: overview.md
+  - name: Speech SDK
+    href: speech-sdk.md
+  - name: Speech Devices SDK
+    href: speech-devices-sdk.md    
 - name: Quickstarts
   items:
   - name: Try the Speech service for free
@@ -67,16 +71,12 @@
     href: translation.md
 - name: Concepts
   items:
-  - name: Speech to Text
+  - name: Speech-to-Text
     href: speech-to-text.md
-  - name: Text to Speech
+  - name: Text-to-Speech
     href: text-to-speech.md
-  - name: Speech Translation
+  - name: Speech-Translation
     href: speech-translation.md
-  - name: Speech SDK
-    href: speech-sdk.md
-  - name: Speech Devices SDK
-    href: speech-devices-sdk.md
 - name: Reference
   items:
   - name: Supported languages
