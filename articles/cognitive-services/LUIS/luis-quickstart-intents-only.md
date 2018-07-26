@@ -46,8 +46,6 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot of Intents list page")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
-
 ## Create GetJobInformation intention
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in your company.
 
