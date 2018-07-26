@@ -19,7 +19,7 @@ Azure Event Hubs is a highly scalable event management system that can handle mi
 
 To learn more about Event Hubs, see the [Event Hubs overview][Event Hubs overview].
 
-This tutorial describes how to send events to an event hub from applications written in Go. To receive events, use the **Go eph** (Event Processor Host) package as described in [the corresponding Receive article](event-hubs-go-get-started-receive-eph.md).
+This tutorial describes how to send events to an event hub from an application written in Go. To receive events, use the **Go eph** (Event Processor Host) package as described in [the corresponding Receive article](event-hubs-go-get-started-receive-eph.md).
 
 Code in this tutorial is taken from [these GitHub samples](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), which you can examine to see the full working application, including import
 statements and variable declarations.
