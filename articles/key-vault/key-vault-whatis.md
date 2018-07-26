@@ -34,7 +34,7 @@ Below are some key terms:
 - **Azure Tenant ID** - This is a unique way to identify an Azure Active Directory within a Azure Subscription. 
 - **Managed Service Identity** - Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed Service Identity(MSI) makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. To read more about MSI refer [here](../active-directory/managed-service-identity/overview.md)
 
-![MSI graphic](./media/key-vault-whatis/msi.png)
+    ![MSI graphic](./media/key-vault-whatis/msi.png)
 
 ## Key vault roles
 
