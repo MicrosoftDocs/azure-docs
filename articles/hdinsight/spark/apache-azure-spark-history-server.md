@@ -1,6 +1,6 @@
 ---
-title: 'Use extended Spark History Server to monitor Spark applications | Microsoft Docs'
-description: Use extended Spark History Server to monitor Spark applications.
+title: 'Use extended Spark History Server to debug and diagnose Spark applications | Microsoft Docs'
+description: Use extended Spark History Server to debug and diagnose Spark applications.
 services: hdinsight
 author: jejiang
 manager: DJ
@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: jejiang
 ---
-# Use extended Spark History Server to monitor Spark applications
+# Use extended Spark History Server to debug and diagnose Spark applications
 
 This article provides guidance on how to use extended Spark History Server to monitor completed and running Spark applications. The extension currently includes data tab and graph tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph.
 
