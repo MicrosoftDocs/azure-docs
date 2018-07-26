@@ -39,10 +39,11 @@ sections:
             src: media/index/i_get-started.svg
           title: Clusters and Nodes
 
-  - title: Create Clusters Quickly
-    - type: list
-      style: icon48
-      items:
+  - type: paragraph
+    text: 'Learn how to deploy your first application to the cloud using Web Apps:'
+  - type: list
+    style: icon48
+    items:
       - image:
           src: media/index/gridengine-logo-small.jpg
         text: Grid Engine
