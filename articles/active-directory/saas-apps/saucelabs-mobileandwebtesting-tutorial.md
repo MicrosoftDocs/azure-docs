@@ -70,7 +70,7 @@ To configure the integration of Sauce Labs - Mobile and Web Testing into Azure A
 
 4. In the search box, type **Sauce Labs - Mobile and Web Testing**, select **Sauce Labs - Mobile and Web Testing** from result panel then click **Add** button to add the application.
 
-	![Sauce Labs - Mobile and Web Testing in the results list](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_addfromgallery.png)
+	![Sauce Labs - Mobile and Web Testing in the results list](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -98,43 +98,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
 
-	![Single sign-on dialog box](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_samlbase.png)
+	![Single sign-on dialog box](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_samlbase.png)
 
 3. On the **Sauce Labs - Mobile and Web Testing Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
-	![Sauce Labs - Mobile and Web Testing Domain and URLs single sign-on information](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_url.png)
+	![Sauce Labs - Mobile and Web Testing Domain and URLs single sign-on information](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_url.png)
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_certificate.png)
+	![The Certificate download link](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_certificate.png)
 
 5. Click **Save** button.
 
-	![Configure Single Sign-On Save button](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_400.png)
+	![Configure Single Sign-On Save button](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_400.png)
 
 6. In a different web browser window, sign in to your Sauce Labs - Mobile and Web Testing company site as an administrator.
 
 7. Click on the **User icon** and select **Team Management** tab.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/configure1.png)
+	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
 
 8. Enter your **Domain name** in the textbox.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/configure2.png)
+	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
 
 9. Click **Configure** tab.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/configure3.png)
+	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
 10. In the **Configure Single Sign On** section, perform the following steps.
 
-	![Configure Single Sign-On](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/configure4.png)
+	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
 
 	a. Click **Browse** and upload the downloaded metadata file from the Azure AD.
 
 	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
 
-	c. Click **Save**.
+	c. Clcik **Save**.
 
 ### Create an Azure AD test user
 
@@ -146,19 +146,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
 
-    ![The Azure Active Directory button](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/create_aaduser_01.png)
+    ![The Azure Active Directory button](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups**, and then click **All users**.
 
-    ![The "Users and groups" and "All users" links](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/create_aaduser_02.png)
+    ![The "Users and groups" and "All users" links](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
-    ![The Add button](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/create_aaduser_03.png)
+    ![The Add button](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_03.png)
 
 4. In the **User** dialog box, perform the following steps:
 
-    ![The User dialog box](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/create_aaduser_04.png)
+    ![The User dialog box](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_04.png)
 
     a. In the **Name** box, type **BrittaSimon**.
 
@@ -188,7 +188,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Sauce Labs - Mobile and Web Testing**.
 
-	![The Sauce Labs - Mobile and Web Testing link in the Applications list](./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_app.png)  
+	![The Sauce Labs - Mobile and Web Testing link in the Applications list](./media/saucelabs-mobileandwebtesting-tutorial/tutorial_saucelabs_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -218,14 +218,14 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_04.png
+[1]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_01.png
+[2]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_02.png
+[3]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_03.png
+[4]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_100.png
+[100]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-saucelabs-mobileandwebtesting-tutorial/tutorial_general_203.png
+[200]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_200.png
+[201]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_201.png
+[202]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_202.png
+[203]: ./media/saucelabs-mobileandwebtesting-tutorial/tutorial_general_203.png

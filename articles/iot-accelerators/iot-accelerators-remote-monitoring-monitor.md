@@ -30,7 +30,7 @@ In this tutorial, you:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## Choose the devices to display
 
@@ -90,7 +90,7 @@ For truck-02, all the alerts are warnings of higher than normal cargo temperatur
 
 The same filters that set the time span for alerts and control which devices are displayed determine how the KPIs are aggregated. By default, the panel displays KPIs aggregated over the last hour.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 
