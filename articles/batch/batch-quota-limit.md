@@ -103,13 +103,13 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 ## Related quotas for VM pools
 
-Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in the network:
+Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
 * 1 [network security group](../virtual-network/security-overview.md#network-security-groups)
 * 1 [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 1 [load balancer](../load-balancer/load-balancer-overview.md)
 
-These resources are allocated in the subscription that is used to create the virtual network, and are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
+These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
 ## Related topics
