@@ -32,9 +32,9 @@ Azure Data Lake Tools for Visual Studio enables you to create U-SQL script test 
 1.	Right-click a U-SQL script in Solution Explorer, and then select **Create Unit Test**.
 2.	Create a new test project or insert the test case into an existing test project.
 
-    ![Data Lake Tools for Visual Studio -- create U-SQL test project](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
+    ![Data Lake Tools for Visual Studio -- create a U-SQL test project](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
 
-    ![Data Lake Tools for Visual Studio -- create U-SQL test project configuration](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
+    ![Data Lake Tools for Visual Studio -- create a U-SQL test project configuration](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
 
 ### Manage the test data source
 
