@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
 
 ---
@@ -621,7 +621,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/AdminClientX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for admin client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of admin client certificates must be in the list. |
 
 ## Security/ClientAccess
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -727,7 +727,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ClientX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of client certificates must be in the list.|
 
 ## Security/ClusterCertificateIssuerStores
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -737,7 +737,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ClusterX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for cluster operations. For a given “Name”,“Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of cluster certificates must be in the list.|
 
 ## Security/ServerCertificateIssuerStores
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -747,7 +747,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ServerX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for server operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of server certificates must be in the list.|
 
 ## Setup
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
