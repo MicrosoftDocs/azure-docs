@@ -130,4 +130,4 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 5. Enable the feature on your tenant
 
-To turn on the feature on your tenant, call `Enable-AzureADSSO` and enter **true** at the `Enable:` prompt.
+To turn on the feature on your tenant, call `Enable-AzureADSSO -Enable $true`.
