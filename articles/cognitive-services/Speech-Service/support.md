@@ -1,9 +1,8 @@
 ---
-title: Support and help options | Microsoft Docs
+title: Support and help options
 description: Know how to obtain help and support for questions and problems when creating application that integrate with Microsoft Cognitive Services Speech
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
