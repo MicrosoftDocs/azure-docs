@@ -4,7 +4,7 @@ description: Learn how to install and configure Linux Agent (waagent) to manage 
 services: virtual-machines-linux
 documentationcenter: ''
 
-author: danis
+author: zroiy
 manager: jeconnoc
 
 editor: ''
