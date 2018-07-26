@@ -6,8 +6,6 @@
     href: overview.md
 - name: QuickStarts
   items:
-  - name: Overview
-    href: quickstart-overview.md
   - name: Install and Setup Azure CycleCloud
     href: quickstart-install-cyclecloud.md
   - name: Create and Run a Simple HPC Cluster
@@ -18,8 +16,6 @@
     href: quickstart-clean-up-resources.md
 - name: Concepts
   items:
-  - name: CycleCloud
-    href: cyclecloud-application.md
   - name: Clusters and Nodes
     items:
     - name: Clusters and Nodes

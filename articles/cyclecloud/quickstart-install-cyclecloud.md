@@ -10,13 +10,44 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud QuickStart 1: Install and Setup CycleCloud
+# Azure CycleCloud QuickStarts
 
-Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. CycleCloud enables users to create environments for workloads on any point of the parallel and distributed processing spectrum, from loosely-coupled parallel workloads to tightly-coupled applications such as MPI jobs on Infiniband/RDMA. By managing resource provisioning, configuration, and monitoring, CycleCloud allows users and IT staff to focus on business needs instead infrastructure.
+There are four parts to the Azure CycleCloud QuickStart:
+
+1. Setup and install CycleCloud on a VM
+2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
+3. Submit jobs to observe the cluster autoscale up and down automatically
+4. Clean up resources
+
+## Prerequisites
+
+The Azure CycleCloud quickstart has a few prerequisites:
+
+1.	An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
+2.	The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
+3.	A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
+4.	An SSH keypair
+
+Working through all the QuickStarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
+
+## QuickStart 1: Install and Setup Azure CycleCloud
+
+Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this QuickStart, you will install CycleCloud on Azure resources, using an Azure Resource Manager template that is stored on GitHub. The ARM template:
+
+1.	Creates the VM for CycleCloud, and installs CycleCloud on that VM
+2.	Creates and configures the network for the CycleCloud environment
+3.	Creates a bastion host for enabling more secure access to the CycleCloud instance
+
+For the purposes of this QuickStart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
 ## Gather the Prerequisites
 
-The full list of prerequisites is available on the QuickStart Overview.
+For this QuickStart, you will need:
+
+1.	An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
+2.	The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
+3.	A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
+4.	An SSH keypair
 
 ### Subscription ID
 
@@ -55,15 +86,6 @@ In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows
   3. **Conversions - Export Open SSH Key**
 
 In Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
-
-## Install and Setup Azure CycleCloud
-
-This lab uses an Azure Resource Manager template to:
-1.	Create the VM for CycleCloud, and to install CycleCloud on that VM
-2.	Create and configure the network for the CycleCloud environment
-3.	Create a bastion host for enabling more secure access to the CycleCloud instance
-
-For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
 ## Clone the Repo
 

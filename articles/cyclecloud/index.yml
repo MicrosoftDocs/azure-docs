@@ -28,7 +28,7 @@ sections:
           image:
             src: media/index/ccswoosh.jpg
           title: About Azure CycleCloud
-        - href: quickstart-overview
+        - href: quickstart-install-cyclecloud
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
             src: media/index/i_quick-start.svg
