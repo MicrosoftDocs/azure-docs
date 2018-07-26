@@ -1,7 +1,7 @@
 ---
-title: How to create a "Hello World" Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
+title: How to create a "Hello World" Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to create a "Hello World" Conversation Learner application.
+description: Learn how to create a "Hello World" Conversation Learner model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,9 +12,14 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to create a "Hello World" application with Conversation Learner
+# How to create a "Hello World" model with Conversation Learner
 
 This tutorial shows how to get started with Conversation Learner, including creating actions, teaching interactively, and making corrections of logged dialogs from end users.
+
+## Video
+
+[![Tutorial 1 Preview](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## Requirements
 If you haven't already, first ensure all setup steps have been completed, including creating a `.env` file with your LUIS authoring key.  See [Quickstart](https://github.com/Microsoft/ConversationLearner-Samples) for details.
@@ -27,14 +32,14 @@ This tutorial requires that the general tutorial bot is running
 
 Start on the home page in the Web UI.
 
-### Create the app
-1. Click New App
+### Create the model
+1. Click New Model
 2. In the Name field, enter Hello World
 3. Click Create
 
 ### Create an Action
 
-1. Click on the Hello World app to start it
+1. Click on the Hello World model to start it
 2. Click Actions, then New Action
 	- An Action can be a text message that Conversation Learner returns to the user, an API call, or a card.
 3. In Response, type 'Hello World!'

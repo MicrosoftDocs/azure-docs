@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Windows Desktop using the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in C++ on Windows Desktop using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in C++ on Windows Desktop using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech
