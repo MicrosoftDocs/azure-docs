@@ -100,24 +100,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/spotinst-tutorial/tutorial_spotinst_samlbase.png)
 
-3. On the **Spotinst Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+3. On the **Spotinst Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
 
 	![Spotinst Domain and URLs single sign-on information](./media/spotinst-tutorial/tutorial_spotinst_url1.png)
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+	a. Check **Show advanced URL settings**.
 
-	![Spotinst Domain and URLs single sign-on information](./media/spotinst-tutorial/tutorial_spotinst_url.png)
+	b. In the **Relay State** textbox, type a value: `<ID>`
 
-    In the **Relay State** textbox, type a value: `<ID>`
-	 
-	> [!NOTE] 
+	c. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+	d. In the **Sign on URL** textbox, type the URL: `https://console.spotinst.com/auth/saml`
+
+	> [!NOTE]
 	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
 
-5. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for this.
+4. Spotinst application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. The following screenshot shows an example for it.
 
 	![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_Spotinst_attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Attribute Name | Attribute Value |
 	| ---------------| --------------- |
@@ -137,29 +139,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Leave the **Namespace** blank.
 
-	d. Click **Ok**
+	e. Click **Ok**
 
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/spotinst-tutorial/tutorial_spotinst_certificate.png) 
 
-8. Click **Save** button.
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/spotinst-tutorial/tutorial_general_400.png)
 
-9. In a different web browser window, login to Spotinst as a Security Administrator.
+8. In a different web browser window, login to Spotinst as a Security Administrator.
 
-10. Click on the **user icon** on the top right side of the screen and click **Settings**.
+9. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
 	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
-11. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
+10. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
 
 	![Spotinst security](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
 	a. Copy the **Relay State** value for your instance and paste it in **Relay State** textbox in **Spotinst Domain and URLs** section on Azure portal.
 
-	b. Click **BROWSE** to upload the metadata xml file which you have downloaded from Azure portal
+	b. Click **BROWSE** to upload the metadata xml file that you have downloaded from Azure portal
 
 	c. Click **SAVE**.
 
@@ -219,7 +221,7 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	* In the **Email** textbox, enter the email address of the user like **brittasimon@contoso.com**.
 
-	* Select your organization specific details for the **Organization Role, Account Role, and Accounts**.
+	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 
 2. If you have configured the application in the **IDP** intiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
 
