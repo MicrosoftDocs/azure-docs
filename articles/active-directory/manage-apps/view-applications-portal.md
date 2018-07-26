@@ -26,7 +26,7 @@ This quickstart uses the Azure portal to view the applications in your Azure Act
 
 ## Before you begin
 
-To see results, you need to have at least one application in your Azure AD tenant. To add an application, see the [Add an application](add-an-application-portal.md) quickstart.
+To see results, you need to have at least one application in your Azure AD tenant. To add an application, see the [Add an application](add-application-portal.md) quickstart.
 
 Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
 
@@ -46,23 +46,25 @@ To find your tenant applications:
    
 4. To view more applications, click **Show more** at the bottom of the list. Depending on the number of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
 
-## Choose options for viewing the tenant applications
+## Select viewing options
 
-You can view the applications according to options for **Application Type**, **Application Status**, and **Application visibility**. Select the options that work best for you, and click **Apply**.
+In this section, select the options according to what you are looking for.
 
-    ![Search options](media/view-applications-portal/search-options.png)
+1. You can view the applications according to options for **Application Type**, **Application Status**, and **Application visibility**. 
 
-1. Under **Application Type**, choose one of these options:
+    ![Options for searching](media/view-applications-portal/search-options.png)
+
+2. Under **Application Type**, choose one of these options:
 
     - **Enterprise Applications** shows non-Microsoft applications.
     - **Microsoft Applications** shows Microsoft applications.
     - **All Applications** shows both non-Microsoft and Microsoft applications.
 
-2. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
+3. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
 
-3. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but are not visible to users.
+4. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but are not visible to users.
 
-4. After choosing the options you want, click **Apply**.
+5. After choosing the options you want, click **Apply**.
  
 
 ## Search for a tenant application
@@ -83,7 +85,7 @@ To search for an particular application:
 
 In this quickstart, you learned how to view the applications in your Azure AD tenant, and how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
 
-Now that you have found the application you were looking for, you can continue to [Add more applications to your tenant](add-an-application-portal.md), or click the application to view or edit properties and configuration options. For example, you could configure single sign-on. 
+Now that you have found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md), or click the application to view or edit properties and configuration options. For example, you could configure single sign-on. 
 
 > [!div class="nextstepaction"]
 > [Configure single sign-on](configure-single-sign-on-portal.md)

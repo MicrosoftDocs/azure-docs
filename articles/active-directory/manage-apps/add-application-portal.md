@@ -40,26 +40,26 @@ To add a gallery application to your Azure AD tenant:
 
 2. In the **Azure Active Directory** blade, click **Enterprise applications**. 
 
-    ![Open enterprise applications](media/add-an-application-portal/open-enterprise-apps.png)
+    ![Open enterprise applications](media/add-application-portal/open-enterprise-apps.png)
 
 3. The **All applications** blade opens to show a random sample of the applications in your Azure AD tenant. 
 
-    ![All applications blade](media/add-an-application-portal/applications-blade.png)
+    ![All applications blade](media/add-application-portal/applications-blade.png)
 
 
 4. Click **New application** at the top of the **All applications** blade.
 
-    ![New application](media/add-an-application-portal/new-application.png)
+    ![New application](media/add-application-portal/new-application.png)
 
 5. To see a list of applications in the gallery, it's easiest to use the **Categories** since the icons under **Featured applications** are a random sample of gallery applications. 
 
-    ![Search by name or category](media/add-an-application-portal/categories.png)
+    ![Search by name or category](media/add-application-portal/categories.png)
 
     To see more applications, you could click **Show more**. We don't recommend searching this way since there are thousands of applications in the gallery.
 
 6. To search for an application, under **Add from the gallery** enter the name of the application you want to add. Select the application from the results, and click **Add**. The following example shows the **Add app** form that appears after searching for GitHub.com.
 
-	![Add an application](media/add-an-application-portal/add-an-application.png)
+	![Add an application](media/add-application-portal/add-an-application.png)
 
 6. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
 
@@ -67,7 +67,7 @@ To add a gallery application to your Azure AD tenant:
 
 9. A getting started page appears with the options for configuring the application for your organization. 
 
-    ![Get started menu](media/add-an-application-portal/get-started.png)
+    ![Get started menu](media/add-application-portal/get-started.png)
 
 You have finished adding your application. Feel free to take a break.  The next sections show you how to change the logo and edit other properties for your application.
 
@@ -85,7 +85,7 @@ Let's assume you had to leave and now you're returning to continue configuring y
 
 5. To quickly find an application in your tenant, enter the application name in the search box and click **Apply**. This example finds the GitHub-test application that we added previously.
 
-    ![Search for an application](media/add-an-application-portal/find-application.png)
+    ![Search for an application](media/add-application-portal/find-application.png)
 
 
 ## Configure user sign-in properties
@@ -97,7 +97,7 @@ To edit the application properties
 1. Click the application to open it.
 2. Click **Properties** to open the properties blade for editing.
 
-    ![Edit properties blade](media/add-an-application-portal/edit-properties.png)
+    ![Edit properties blade](media/add-application-portal/edit-properties.png)
 
 3. Take a moment to understand the sign-in options. The **Enabled for users to sign-in**, **User assignment required**, and **Visible to user** combine to determine whether users who are assigned or unassigned to the application can sign in.  They also determine if the user can see the application in the access panel. 
 
@@ -147,7 +147,7 @@ To update the application logo:
 4. If desired, upload a new logo to update the logo. 
 5. When you're finished, click **Save**.
 
-    ![Change the logo](media/add-an-application-portal/change-logo.png)
+    ![Change the logo](media/add-application-portal/change-logo.png)
 
 
 ## Next steps
