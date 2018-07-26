@@ -31,4 +31,4 @@ Two-step verification is more secure than just a password because it relies on t
 |[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified verification method.|
 |[Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Describes how to change your settings such as phone number or preferred enrollment method.|
 |[Help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) |Describes how to troubleshoot common problems with two-step verification.|
-|[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md) |Describes how to create and use app passwords.|
+|[Manage app passwords](multi-factor-authentication-end-user-app-passwords.md) |Describes how to create and use app passwords.|

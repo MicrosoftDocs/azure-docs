@@ -10,7 +10,7 @@
     href: multi-factor-authentication-end-user-manage-settings.md
   - name: Get help
     href: multi-factor-authentication-end-user-troubleshoot.md
-  - name: Use app passwords
+  - name: Manage app passwords
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md
@@ -37,7 +37,7 @@
     href: security-info-setup-email.md
   - name: Set up security questions
     href: security-info-setup-questions.md
-  - name: Set up app passwords
+  - name: Manage app passwords
     href: security-info-app-passwords.md
   - name: Manage your security info
     href: security-info-manage-settings.md
