@@ -43,7 +43,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 ## Call the Text Analytics API using the SDK
 1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in 3 sections (language extraction, key-phrase extraction and sentiment analysis).
 1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key valid for your subscription.
-1. Replace the location in `client.AzureRegion` (currently `AzureRegions.Westus`) to the region you signed up for.
+1. Replace the location in `client.BaseUri` to the endpoint you signed up for. You can find the endpoint on Azure Portal resource. The endpoint typically looks like "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0".
 1. Run the program.
 
 ```csharp
@@ -76,8 +76,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

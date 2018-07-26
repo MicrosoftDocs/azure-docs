@@ -47,8 +47,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Install the vcruntime using (you can skip this step on an IoT core Edge device):
@@ -131,30 +132,38 @@ Get the name of edge device using `hostname` command in PowerShell and set it as
   hostname: "edgedevice-1"
 ```
 
-Next, we'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** section of the configuration.
+Next, provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** and **listen:** sections of the configuration.
 
-For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the **vEthernet (nat)** interface as shown in the example below (the ip address on your system may be different):  
+To retrieve your ip address, enter `ipconfig` in your PowerShell window and copy the ip address of the **vEthernet (nat)** interface as shown in the following example (the ip address on your system may be different):  
 
 ![nat][img-nat]
 
+Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the vEthernet IP address that you copied.
+
 ```yaml
 connect:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Enter the same addresses in the **listen:** section of the configuration. For example:
+Enter the same addresses in the **listen:** section.
 
 ```yaml
 listen:
-  management_uri: "http://172.29.240.1:15580"
-  workload_uri: "http://172.29.240.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-In the PowerShell window, create an environment variable **IOTEDGE_HOST** with the **management_uri** address, example:
+In the PowerShell window, create an environment variable **IOTEDGE_HOST** with the **management_uri** address.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+Persist the environment variable across reboots.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 Finally, ensure the **network:** setting under **moby_runtime:** is uncommented and set to **nat**

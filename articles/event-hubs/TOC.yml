@@ -26,6 +26,10 @@
   items:
   - name: Event Processor Host overview
     href: event-hubs-event-processor-host.md
+  - name: IP connection filters
+    href: event-hubs-ip-filtering.md
+  - name: Virtual Network service endpoints
+    href: event-hubs-service-endpoints.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
   - name: Integrate with Event Grid
@@ -60,6 +64,20 @@
     href: event-hubs-dotnet-framework-getstarted-send.md
   - name: Receive events using .NET Framework
     href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+  - name: Event Hubs for Kafka
+    items:
+      - name: Event Hubs for Kafka ecosystems overview
+        href: event-hubs-for-kafka-ecosystem-overview.md
+      - name: Create Kafka-enabled event hubs
+        href: event-hubs-create-kafka-enabled.md
+      - name: Stream into Event Hubs for Kafka ecosystem
+        href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+      - name: Kafka MirrorMaker with Event Hubs tutorial
+        href: event-hubs-kafka-mirror-maker-tutorial.md
+      - name: Apache Flink with Event Hubs tutorial
+        href: event-hubs-kafka-flink-tutorial.md
+      - name: Akka Streams with Event Hubs tutorial
+        href: event-hubs-kafka-akka-streams-tutorial.md
   - name: Available APIs
     href: event-hubs-api-overview.md
     items:
@@ -136,7 +154,7 @@
   - name: FAQ
     href: event-hubs-faq.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Learning path
     href: https://azure.microsoft.com/documentation/learning-paths/event-hubs/
   - name: Pricing

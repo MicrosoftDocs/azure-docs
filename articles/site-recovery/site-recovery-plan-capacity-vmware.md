@@ -4,8 +4,8 @@ description: Use this article to plan capacity and scale when replicating VMware
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: rayne
 ---
 
@@ -29,9 +29,9 @@ Gather information about your replication environment by running the [Azure Site
 
 **CPU** | **Memory** | **Cache disk size** | **Data change rate** | **Protected machines**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 cores @ 2.5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB or less | Replicate less than 100 machines.
-12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) | 18 GB | 600 GB | 500 GB to 1 TB | Replicate between 100-150 machines.
-16 vCPUs (2 sockets * 8 cores @ 2.5 GHz) | 32 GB | 1 TB | 1 TB to 2 TB | Replicate between 150-200 machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB or less | Replicate less than 100 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 500 GB to 1 TB | Replicate between 100-150 machines.
+16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB | 1 TB | 1 TB to 2 TB | Replicate between 150-200 machines.
 Deploy another process server | | | > 2 TB | Deploy additional process servers if you're replicating more than 200 machines, or if the daily data change rate exceeds 2 TB.
 
 Where:
@@ -55,9 +55,9 @@ The following table describes a scenario in which:
 
 **Configuration server** | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory | 4 vCPUs (2 sockets * 2 cores @ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Replicate 85 or fewer machines.
-8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores @ 2.5 GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
-12 vCPUs (2 sockets * 6 cores @ 2.5 GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 16 GB memory | 4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Replicate 85 or fewer machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 16 GB memory | 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12 GB memory | 600 GB | 250 GB to 1 TB | Replicate between 85-150 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 18 GB memory | 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) 24 GB memory | 1 TB | 1 TB to 2 TB | Replicate between 150-225 machines.
 
 The way in which you scale your servers depends on your preference for a scale-up or scale-out model.  You scale up by deploying a few high-end configuration and process servers, or scale out by deploying more servers with fewer resources. For example, if you need to protect 220 machines, you could do either of the following:
 
@@ -102,24 +102,10 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 
 ## Deploy additional process servers
 
-If you have to scale out your deployment beyond 200 source machines, or you have a total daily churn rate of more than 2 TB, you need additional process servers to handle the traffic volume. Follow these instructions to set up the process server. After setting up the server, you migrate source machines to use it.
-
-1. In **Site Recovery servers**, click the configuration server, and then click **Process Server**.
-
-    ![Screenshot of Site Recovery servers option to add a process server](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. In **Server type**, click **Process server (on-premises)**.
-
-    ![Screenshot of Process Server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. Download the Site Recovery Unified Setup file, and run it to install the process server. This also registers it in the vault.
-4. In **Before you begin**, select **Add additional process servers to scale out deployment**.
-5. Complete the wizard in the same way you did when you [set up](#step-2-set-up-the-source-environment) the configuration server.
-
-    ![Screenshot of Azure Site Recovery Unified Setup wizard](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. In **Configuration Server Details**, specify the IP address of the configuration server, and the passphrase. To obtain the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
-
-    ![Screenshot of Configuration Server Details page](./media/site-recovery-vmware-to-azure/add-ps2.png)
+If you have to scale out your deployment beyond 200 source machines, or you have a total daily churn rate of more than 2 TB, you need additional process servers to handle the traffic volume. Follow instructions given on [this article](vmware-azure-set-up-process-server-scale.md) to set up the process server. After setting up the server, you can migrate source machines to use it.
 
 ### Migrate machines to use the new process server
+
 1. In **Settings** > **Site Recovery servers**, click the configuration server, and then expand **Process servers**.
 
     ![Screenshot of Process Server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
@@ -128,6 +114,30 @@ If you have to scale out your deployment beyond 200 source machines, or you have
     ![Screenshot of Configuration server dialog box](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
 
+## Deploy additional master target servers
+
+You will need additional master target server during the following scenarios
+
+1. If you are trying to protect a Linux-based virtual machine.
+2. If the master target server available on configuration server doesn't have access to the datastore of VM.
+3. If the total number of disks on master target server (no. of local disks on server + disks to be protected) exceeds 60 disks.
+
+To add a new master target server for **Linux-based virtual machine**, [click here](vmware-azure-install-linux-master-target.md).
+
+For **Windows-based virtual machine**, follow the below given instructions.
+
+1. Navigate to **Recovery Services Vault** > **Site Recovery Infrastructure** > **Configuration servers**.
+2. Click on the required configuration server > **+Master Target Server**.![add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. Download the unified set-up and run it on the VM to set up master target server.
+4. Choose **Install master target** > **Next**. ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. Choose default install location > click **Install**. ![MT-installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. Click on **Proceed to Configuration** to register master target with configuration server. ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. Enter the IP address of configuration server & passphrase. [Click here](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to learn how to generate passphrase.![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. Click **Register** and post registration click **Finish**.
+9. Upon successful registration, this server is listed on portal under **Recovery Services Vault** > **Site Recovery Infrastructure** > **Configuration servers** > master target servers of relevant configuration server.
+
+ >[!NOTE]
+ >You can also download the latest version of Master target server unified set-up for Windows [here](https://aka.ms/latestmobsvc).
 
 ## Next steps
 

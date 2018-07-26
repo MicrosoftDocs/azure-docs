@@ -5,12 +5,13 @@
   - name: What is Azure DNS?
     href: dns-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Name resolution - portal
     href: dns-getstarted-portal.md
-  - name: Create DNS zone and record - PowerShell
+  - name: Name resolution - PowerShell
     href: dns-getstarted-powershell.md
-  - name: Create DNS zone and record - CLI
+  - name: Name resolution - CLI
     href: dns-getstarted-cli.md
 - name: Tutorials
   items:
@@ -44,7 +45,7 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create custom DNS zone and record - Azure CLI
+  - name: Create private DNS zone and record - Azure CLI
     href: private-dns-getstarted-cli.md
   - name: Manage DNS zones
     items:

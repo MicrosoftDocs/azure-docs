@@ -2,13 +2,13 @@
 title: Collaborate with other contributors on LUIS apps in Azure | Microsoft Docs
 description: Learn how to Collaborate with other contributors on Language Understanding (LUIS) applications.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Collaborate with others on Language Understanding (LUIS) apps  
@@ -26,6 +26,8 @@ To allow collaborators to edit your LUIS app, on the **Settings** page of your L
 
 * Collaborators can sign in and edit your LUIS app at the same time you are working on the app. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
 * Collaborators cannot add other collaborators.
+
+See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 ## Set application as public
 See [Public app endpoint access](luis-concept-security.md#public-app-endpoint-access) for more information.

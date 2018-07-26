@@ -79,7 +79,8 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, the formal SLA for the completion of purge operations is set at 30 days.
+> [!IMPORTANT]
+>  While the vast majority of purge operations may complete much quicker than the SLA, due to their heavy impact on the data platform used by Application Insights, **the formal SLA for the completion of purge operations is set at 30 days**.
 
 ## Next steps
 To learn more about how data is collected, processed, and secured, see [Application Insights data security](app-insights-data-retention-privacy.md).

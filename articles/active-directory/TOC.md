@@ -46,6 +46,7 @@
 ## Manage users
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
@@ -83,29 +84,29 @@
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Manage group members](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assign licenses using groups](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-#### [Assign licenses to a group](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identify and resolve license problems in a group](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
-#### [Migrate users between product licenses](active-directory-licensing-group-product-migration.md)
-#### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
-#### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
-### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
-### [Enforce a naming policy for groups](groups-naming-policy.md)
+#### [Assign licenses to a group](users-groups-roles/licensing-groups-assign.md)
+#### [Identify and resolve license problems in a group](users-groups-roles/licensing-groups-resolve-problems.md)
+#### [Migrate individual licensed users to group-based licensing](users-groups-roles/licensing-groups-migrate-users.md)
+#### [Migrate users between product licenses](users-groups-roles/licensing-groups-change-licenses.md)
+#### [Additional scenarios for group-based licensing](users-groups-roles/licensing-group-advanced.md)
+#### [Azure PowerShell examples for group-based licensing](users-groups-roles/licensing-ps-examples.md)
+#### [Reference for products and service plans in Azure AD](users-groups-roles/licensing-service-plan-reference.md)
+### [Set up Office 365 groups expiration](users-groups-roles/groups-lifecycle.md)
+### [Enforce a naming policy for groups](users-groups-roles/groups-naming-policy.md)
 ### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
+### [Add group access to SaaS apps](users-groups-roles/groups-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
-#### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
-### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
+#### [Azure portal](users-groups-roles/groups-dynamic-membership.md)
+### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
+### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
 ## [Manage reports](active-directory-reporting-azure-portal.md)
 ### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
@@ -113,57 +114,43 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
+### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
+
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
+#### [Route activity logs to an Azure event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Archive activity logs to an Azure storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
-
+#### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-
+#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
+
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## Manage passwords
-### [Passwords overview](authentication/active-directory-passwords-overview.md)
+## [Manage passwords](authentication/concept-sspr-howitworks.md)
 ### User documents
-#### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-#### [Password best practices](active-directory-secure-passwords.md)
-#### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [SSPR How it works](authentication/concept-sspr-howitworks.md)
-### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
-### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR Policies ](authentication/concept-sspr-policy.md)
-### [SSPR Customization](authentication/concept-sspr-customization.md)
-### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
-### [SSPR Reporting](authentication/howto-sspr-reporting.md)
-### [Smart lockout](authentication/howto-password-smart-lockout.md)
-### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
-### [Configure the banned password list](authentication/howto-password-ban-bad.md)
-### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
-### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
-### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
-### IT Admins: Reset passwords
-#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [License SSPR](authentication/concept-sspr-licensing.md)
-### [Password writeback](authentication/howto-sspr-writeback.md)
-### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](authentication/active-directory-passwords-faq.md)
+#### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
+#### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
 
 
 ## Manage devices
@@ -172,8 +159,8 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
-#### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
+#### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
@@ -363,12 +350,12 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
-#### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
+#### [Add custom domain names](users-groups-roles/domains-manage.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Delete a directory](directory-delete-howto.md)
-### [Multiple directories](active-directory-licensing-directory-independence.md)
-### [Self-service signup](active-directory-self-service-signup.md)
-### [Take over an unmanaged directory](domains-admin-takeover.md)
+### [Delete a directory](users-groups-roles/directory-delete-howto.md)
+### [Multiple directories](users-groups-roles/licensing-directory-independence.md)
+### [Self-service signup](users-groups-roles/directory-self-service-signup.md)
+### [Take over an unmanaged directory](users-groups-roles/domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -380,12 +367,13 @@
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
-### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
+### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
+#### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
-### [Harden administrator role security](admin-roles-best-practices.md)  
-#### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
-### [Administrative units](active-directory-administrative-units-management.md)
+### [Administrator role security](users-groups-roles/directory-admin-roles-secure.md)  
+#### [Create emergency access administrator accounts](users-groups-roles/directory-emergency-access.md)
+### [Administrative units](users-groups-roles/directory-administrative-units.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Access reviews
@@ -405,6 +393,7 @@
 #### Quickstarts
 ##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
 ##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
+##### [Block access when a session risk is detected](active-directory-conditional-access-app-sign-in-risk.md)
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
@@ -443,10 +432,10 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrate other services with Azure AD 
-### [Integrate LinkedIn with Azure AD](linkedin-integration.md)
+### [Integrate LinkedIn with Azure AD](users-groups-roles/linkedin-integration.md)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -466,14 +455,14 @@
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
+## [Service limits and restrictions](users-groups-roles/directory-service-limits-restrictions.md)
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)

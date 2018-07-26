@@ -29,8 +29,7 @@ The following restrictions apply when using Run Command:
 * One script at a time may run
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
-
-**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
+* Outbound connectivity from the VM is required to return the results of the script.
 
 ## Run a command
 

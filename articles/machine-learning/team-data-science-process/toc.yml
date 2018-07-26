@@ -127,20 +127,6 @@
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up a Data Science VM
-      items:
-      - name: Create a Windows Data Science VM
-        href: ../data-science-virtual-machine/provision-vm.md
-        maintainContext: true
-      - name: Create an Ubuntu Data Science VM
-        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-        maintainContext: true
-      - name: Create a CentOS Data Science VM
-        href: ../data-science-virtual-machine/linux-dsvm-intro.md
-        maintainContext: true
-      - name: Create a Deep Learning VM
-        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario
@@ -218,8 +204,6 @@
       items:
       - name: Overview
         href: create-features.md
-      - name: Use Pandas
-        href: create-features-blob.md
       - name: Use SQL+Python
         href: create-features-sql-server.md
       - name: Use Hive queries
@@ -245,8 +229,8 @@
     maintainContext: true
   - name: Cortana Intelligence Partner Solutions
     items:
-    - name: Cortana Intelligence Gallery
-      href: https://gallery.cortanaintelligence.com
+    - name: Azure AI Gallery
+      href: https://gallery.azure.ai
     - name: Cortana Intelligence publishing guide
       href: cortana-intelligence-appsource-publishing-guide.md
     - name: Cortana Intelligence solution evaluation tool

@@ -49,7 +49,7 @@ The simplest way to do this is to use SQL Server Management Studio installed on 
 3. Install Azure AD Connect against the existing [remote SQL database](active-directory-aadconnect-existing-database.md).
    The article demonstrates how to migrate to using a local SQL database. If you are migrating to using a remote SQL database, in step 5 of the process you must also enter an existing service account that the Windows Sync service will run as. This sync engine service account is described here:
    
-      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md).
 
@@ -60,7 +60,7 @@ To keep things simple, we recommend that users who install Azure AD Connect be s
 All networking software, physical devices, or anything else that limits the maximum time that connections can remain open should use a threshold of at least five minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: Are single label domains (SLDs) supported?**  
-No, Azure AD Connect does not support on-premises forests or domains that use SLDs.
+While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly.
 
 **Q: Are Forests with disjoint AD domains supported?**  
 No, Azure AD Connect does not support on-premises forests that contain disjoint namespaces.
