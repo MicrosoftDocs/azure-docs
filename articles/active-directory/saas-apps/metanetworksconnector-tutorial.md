@@ -162,7 +162,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 10. Open a new tab in your browser and log in to your Meta Networks Connector administrator account.
 
 	> [!NOTE]
-	> Meta Networks Connector is a secure system. So before accessing their portal you need to get your public IP address whitekisted on their side. To get your public IP address,follow the below link specified [here](https://whatismyipaddress.com/). Send your IP address to the [Meta Networks Connector Client support team](mailto:support@metanetworks.com) to get your IP address whitelisted.
+	> Meta Networks Connector is a secure system. So before accessing their portal you need to get your public IP address whitelisted on their side. To get your public IP address,follow the below link specified [here](https://whatismyipaddress.com/). Send your IP address to the [Meta Networks Connector Client support team](mailto:support@metanetworks.com) to get your IP address whitelisted.
 
 11. Go to **Administrator** and select **Settings**.
 
