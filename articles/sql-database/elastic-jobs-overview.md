@@ -100,10 +100,28 @@ A *target group* defines the set of databases a job step will execute on. A targ
 > [!TIP]
 > At the moment of job execution, *dynamic enumeration* re-evaluates the set of databases in target groups that include servers or pools. Dynamic enumeration ensures that **jobs run across all databases that exist in the server or pool at the time of job execution**. Re-evaluating the list of databases at runtime is specifically useful for scenarios where pool or server membership changes frequently.
 
-
 Pools and single databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
 
 A target group can include databases in multiple subscriptions, and across multiple regions. Note that cross-region executions have higher latency than executions within the same region.
+
+The following examples show how different target group definitions are dynamically enumerated at the moment of job execution to determine which databases the job will run.
+
+
+
+
+
+![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+
+Example 1 in the previous image targets a specific list of databases so no explicit enumeration/evaluation other than connecting and running the job. All other examples dynamically enumerate the server/pool to build an up-to-date list of databases to execute jobs against.
+
+Additional target group examples reinforcing that you can define target groups to run jobs against any combination of databases.
+
+
+![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+
+
 
 
 ### Job
