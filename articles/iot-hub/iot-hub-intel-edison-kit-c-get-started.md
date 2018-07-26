@@ -22,7 +22,7 @@ Don't have a kit yet? Start [here](https://azure.microsoft.com/develop/iot/start
 
 ## What you do
 
-* Setup Intel Edison and and Grove modules.
+* Setup Intel Edison and Grove modules.
 * Create an IoT hub.
 * Register a device for Edison in your IoT hub.
 * Run a sample application on Edison to send sensor data to your IoT hub.
