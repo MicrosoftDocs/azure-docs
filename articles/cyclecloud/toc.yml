@@ -6,8 +6,6 @@
     href: overview.md
 - name: QuickStarts
   items:
-  - name: Overview
-    href: quickstart-overview.md
   - name: Install and Setup Azure CycleCloud
     href: quickstart-install-cyclecloud.md
   - name: Create and Run a Simple HPC Cluster
@@ -18,8 +16,6 @@
     href: quickstart-clean-up-resources.md
 - name: Concepts
   items:
-  - name: CycleCloud
-    href: cyclecloud-application.md
   - name: Clusters and Nodes
     items:
     - name: Clusters and Nodes
@@ -137,12 +133,14 @@
   - name: Release Notes
     items:
     - name: GA Release
-      href:
+      href: ga-release-notes.md
   - name: CycleCloud Cluster Templates
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
     href: https://github.com/CycleCloudCommunity
   - name: Azure Community Forums
     href: https://social.msdn.microsoft.com/Forums/en-US/home
+  - name: Service Policy
+    href: service-policy.md
   - name: Data Usage Policy
     href: data-policy.md
