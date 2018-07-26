@@ -107,3 +107,8 @@ For other languages, review the implementation documentation below.  Samples dem
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
+## Next steps
+- [Use device and service SDKs](.\iot-hub-devguide-sdks.md)
+- [Use the IoT device SDK for C](.\iot-hub-device-sdk-c-intro.md)
+- [Develop for constrained devices](.\iot-hub-devguide-develop-for-constrained-devices.md)
+- [Develop for mobile devices](.\iot-hub-how-to-develop-for-mobile-devices.md)

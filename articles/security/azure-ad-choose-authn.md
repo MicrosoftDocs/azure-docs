@@ -102,7 +102,7 @@ Refer to [implementing password hash synchronization](https://docs.microsoft.com
 
 * **Considerations**. You might use password hash synchronization as a backup authentication method for pass-through authentication, and the agents can't validate a user's credentials. Then the failover to password hash synchronization doesn't happen automatically. Switch the sign-on method manually by using Azure AD Connect. 
 
-	Pass-through Authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols. Some protocols are ActiveSync, POP3, and IMAP4. For example, Microsoft Office 2013 and later support modern authentication, but earlier versions don't. For more information on Office app support, see [Updated Office 365 modern authentication](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+	For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Refer to [implementing pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) for deployment steps.
 

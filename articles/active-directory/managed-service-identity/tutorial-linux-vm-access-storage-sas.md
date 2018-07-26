@@ -1,6 +1,6 @@
 ---
-title: Use a Linux VM MSI to access Azure Storage using a SAS credential
-description: A tutorial that shows you how to use a Linux VM Managed Service Identity (MSI) to access Azure Storage, using a SAS credential instead of a storage account access key.
+title: Use a Linux VM Managed Service Identity to access Azure Storage using a SAS credential
+description: A tutorial that shows you how to use a Linux VM Managed Service Identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -22,13 +22,13 @@ ms.author: daveba
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux Virtual Machine, then use the MSI to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to enable Managed Service Identity for a Linux Virtual Machine, then use the Managed Service Identity to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 A Service SAS provides the ability to grant limited access to objects in a storage account, for a limited time and a specific service (in our case, the blob service), without exposing an account access key. You can use a SAS credential as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we demonstrate uploading and downloading a blob using Azure Storage CLI. You will learn how to:
 
 
 > [!div class="checklist"]
-> * Enable MSI on a Linux Virtual Machine 
+> * Enable Managed Service Identity on a Linux Virtual Machine 
 > * Grant your VM access to a storage account SAS in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the SAS from Resource Manager 
 
@@ -44,7 +44,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux virtual machine in a new resource group
 
-For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
+For this tutorial, we create a new Linux VM. You can also enable Managed Service Identity on an existing VM.
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
@@ -56,20 +56,20 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. On the settings blade, keep the defaults and click **OK**.
 
-## Enable MSI on your VM
+## Enable Managed Service Identity on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM. 
+A Virtual Machine Managed Service Identity enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM. 
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
 2. Under the VM "Settings" on the left, click **Configuration**.
-3. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. To register and enable the Managed Service Identity, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM MSI access to the keys of an existing storage account. 
+If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM Managed Service Identity access to the keys of an existing storage account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
@@ -91,9 +91,9 @@ Later we will upload and download a file to the new storage account. Because fil
 
     ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## Grant your VM's MSI access to use a storage SAS 
+## Grant your VM's Managed Service Identity access to use a storage SAS 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM MSI access to your storage account SAS.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use an Managed Service Identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM Managed Service Identity access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account..   
 2. Click the **Access control (IAM)** link in the left panel.  

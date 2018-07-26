@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
 
 ---
@@ -156,8 +156,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |InstanceCount|int, default is -1|Static|default value is -1 which means that DnsService is running on every node. OneBox needs this to be set to 1 since DnsService uses well known port 53, so it cannot have multiple instances on the same machine.|
 |IsEnabled|bool, default is FALSE|Static|Enables/Disables DnsService. DnsService is disabled by default and this config needs to be set to enable it. |
-|PartitionPrefix|string, default is "-"|Static|Controls the partition prefix string value in DNS queries for partitioned services. For more info, please refer this link:[Service Fabric DNS Service.](service-fabric-dnsservice.md)|
-|PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services. For more info, please refer this link:[Service Fabric DNS Service.](service-fabric-dnsservice.md) |
+|PartitionPrefix|string, default is "-"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
+|PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services.The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md). |
 
 ## FabricClient
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -621,7 +621,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/AdminClientX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for admin client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of admin client certificates must be in the list. |
 
 ## Security/ClientAccess
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -727,7 +727,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ClientX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of client certificates must be in the list.|
 
 ## Security/ClusterCertificateIssuerStores
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -737,7 +737,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ClusterX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for cluster operations. For a given “Name”,“Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of cluster certificates must be in the list.|
 
 ## Security/ServerCertificateIssuerStores
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -747,7 +747,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security/ServerX509Names
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic| |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for server operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of server certificates must be in the list.|
 
 ## Setup
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
