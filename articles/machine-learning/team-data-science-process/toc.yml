@@ -15,8 +15,6 @@
     href: lifecycle-deployment.md
   - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
-  - name: With Azure ML
-    href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
