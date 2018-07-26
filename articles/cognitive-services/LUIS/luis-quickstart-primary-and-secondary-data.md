@@ -68,8 +68,6 @@ This LUIS app has job names in several intents. By labeling these words in all t
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
-
 2. On the **Intents** page, select **ApplyForJob** intent. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
@@ -142,14 +140,10 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 2. Select the Production slot and the **Publish** button.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 On the **Publish** page, select the **endpoint** link at the bottom of the page. 
-
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
 This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
