@@ -42,6 +42,6 @@ This article described how to create your own custom simulated device model. Thi
 > * Specify the telemetry the simulated device sends
 > * Specify the cloud-to-device methods the device responds to
 
-Now you've learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-device-simulation-device-behavior.md).
+Now that you've learned about the JSON schema, the suggested next step is to learn how to [implement the behavior of your simulated device](iot-accelerators-device-simulation-device-behavior.md).
 
 For more developer information about the Device Simulation solution, see the [Developer Reference Guide](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).
