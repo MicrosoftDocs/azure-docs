@@ -32,6 +32,13 @@ You can also use this operation if you want to change the subscription associate
 
 Note that only one Azure subscription can be associated with a tenant. If you try to add a second subscription to an existing tenant, the first subscription is over-written. 
 
+### Use API profiles
+
+The cmdlets in this article require that you specify an API profile when running PowerShell. API profiles represent a set of Azure resource providers and their API versions. They help you use the right version of the API when interacting with multiple Azure clouds, for instance when working with global Azure and Azure Stack. Profiles are specified by a name that matches their release date. With this article, you will need to use the **2017-09-03** profile.
+
+For more information about Azure Stack and API Profiles, see [Manage API version profiles in Azure Stack](user/azure-stack-version-profiles.md). For instructions on getting up and running with API Profile with PowerShell, see [Use API version profiles for PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### Parameters
 
 | Parameter                  | Description |
 |---                         | --- |
