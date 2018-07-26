@@ -19,7 +19,7 @@ ms.author: spelluru
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [add one VM at a time to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal, just as they do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
@@ -39,7 +39,7 @@ Learn more about the many [benefits of using Resource Manager templates](https:/
 
 As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. As a result, Resource Manager templates can be used across the entire release cycle, from the test environment to the production environment.
 
-Check out the templates created by the DevTest Labs team in the [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In this public repository, you can view templates shared by others that you can use directly or customize them to suit your needs. After you create your template, store it in this repository to share it with others. You can also set up your own Git repository with templates that can be used to set up envionrments in the cloud. 
+Check out the templates created by the DevTest Labs team in the [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In this public repository, you can view templates shared by others that you can use directly or customize them to suit your needs. After you create your template, store it in this repository to share it with others. You can also set up your own Git repository with templates that can be used to set up environments in the cloud. 
 
 There are a couple of rules to follow to organize your Azure Resource Manager templates in a repository:
 
@@ -142,13 +142,13 @@ Consider these limitations when using a Resource Manager template in DevTest Lab
 
    The only exception to this is that you **can** reference an existing virtual network. 
 
-- Formulas can't be created from lab VMs that were created from an Resource Manager template. 
+- Formulas can't be created from lab VMs that were created from a Resource Manager template. 
 
-- Custom images can't be created from lab VMs that were created from an Resource Manager template. 
+- Custom images can't be created from lab VMs that were created from a Resource Manager template. 
 
 - Most policies are not evaluated when you deploy Resource Manager templates.
 
-   For example, you might have a lab policy specifying that a user can only create five VMs. However, if the user deploys an Resource Manager template that creates dozens of VMs, that is allowed. Policies that are not evaluated include:
+   For example, you might have a lab policy specifying that a user can only create five VMs. However, a user can deploy a Resource Manager template that creates dozens of VMs. Policies that are not evaluated include:
 
    - Number of VMs per user
    - Number of premium VMs per lab user
