@@ -311,7 +311,7 @@ Deploy cluster-autoscaler by running
 kubectl create -f cluster-autoscaler-containerservice.yaml
 ```
 
-To check if the cluster autoscaler is running, use the following command and check the list of pods. If there's a pod prefixed with "cluster-autoscaler" running, your cluster autoscaler has been deployed.
+To check if the cluster autoscaler is running, use the following command and check the list of pods. There should be a pod prefixed with "cluster-autoscaler" running. If you see this, your cluster autoscaler has been deployed.
 
 ```console
 kubectl -n kube-system get pods
@@ -369,20 +369,21 @@ The cluster autoscaler status allows you to see the state of the cluster autosca
 * Health indicates the overall health of the nodes. If the cluster autoscaler struggles to create or removes nodes in the cluster, this status will change to "Unhealthy". There's also a breakdown of the status of different nodes:
     * "Ready" means a node is a ready to have pods scheduled on it.
     * "Unready" means a node that broke down after it started.
-    * "NotStarted" means a node is not yet fully started.
+    * "NotStarted" means a node isn't fully started yet.
     * "LongNotStarted" means a node failed to start within a reasonable limit.
-    * "Registered means a node is registed in the group
+    * "Registered means a node is registered in the group
     * "Unregistered" means a node is present on the cluster provider side but failed to register in Kubernetes.
   
-
-* ScaleUp allows you to check when the cluster was last probed to determine if a ScaleUp event should occur, and when the last transition occured.
-    * A transition is when the number of nodes within the cluster is changed that pods are rescheduled accordingly. 
+* ScaleUp allows you to check when the cluster determines a scale up should occur in your cluster.
+    * A transition is when the number of nodes in the cluster changes or the status of a node changes.
     * The number of ready nodes is the number of nodes available and ready in the cluster. 
     * The cloudProviderTarget is the number of nodes the cluster autoscaler has determined the cluster needs to handle its workload.
 
-Under ScaleDown, you can check if there are candidates for scale down. A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. Likewise, you can also see the last time the cluster was checked for scale down candidates and its last transition time.
+* ScaleDown allows you to check if there are candidates for scale down. 
+    * A candidate for scale down is a node the cluster autoscaler has determined can be removed without affecting the cluster's ability to handle its workload. 
+    * The times provided show the last time the cluster was checked for scale down candidates and its last transition time.
 
-Finally, under Events, you can see any scale up or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
+Finally, under Events, you can see up any scale or scale down events, failed or successful, and their times, that the cluster autoscaler has carried out.
 
 ## Next steps
 
