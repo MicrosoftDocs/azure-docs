@@ -1,5 +1,5 @@
 ---
-title: Use Apache Flink with Azure Event Hubs for the Kafka ecosystem | Microsoft Docs
+title: Use Apache Flink with Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Connecting Apache Flink to a Kafka enabled event hub
 services: event-hubs
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.author: bahariri
 
 ---
 
-# Apache Flink with Event Hubs for the Kafka ecosystem
+# Use Apache Flink with Azure Event Hubs for Apache Kafka
 
 One of the key benefits of using Apache Kafka is the ecosystem of frameworks it can connect to. Kafka enabled Event Hubs combines the flexibility of Kafka with the scalability, consistency, and support of the Azure ecosystem.
 
-This tutorial shows you how to connect Apache Flink to Kafka-enabled event hubs without changing your protocol clients or running your own clusters. Azure Event Hubs for Kafka ecosystem supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+This tutorial shows you how to connect Apache Flink to Kafka-enabled event hubs without changing your protocol clients or running your own clusters. Azure Event Hubs supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 ## Prerequisites
 
@@ -113,6 +113,6 @@ Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/f
 ## Next steps
 
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).
