@@ -58,7 +58,7 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs -y
+    sudo apt-get install nodejs npm node-semver
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
@@ -82,7 +82,6 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 1. To download and install the packages you need to complete the sample app, run the following commands:
 
     ```sh
-    npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
