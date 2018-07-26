@@ -6,33 +6,15 @@ author: markgalioto
 manager: carmonm
 keywords: backup and disaster recovery; backup service
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/21/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark; adigan;
-
+ms.topic: conceptual
+ms.date: 5/9/2018
+ms.author: markgal
 ---
 # Questions about the Azure Backup service
 This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 To quickly scan the sections in this article, use the links to the right, under **In this article**.
 
-| Operating System | Platform | SKU |
-|:--- | --- |:--- |
-| Windows 8 and latest SPs |64 bit |Enterprise, Pro |
-| Windows 7 and latest SPs |64 bit |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 and latest SPs |64 bit |Enterprise, Pro |
-| Windows 10 |64 bit |Enterprise, Pro, Home |
-| Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
-| Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
-| Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
-| Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
-| Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup |
-| Windows Server 2012 R2 and latest SPs |64 bit |Essential |
-| Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 ## Recovery services vault
 

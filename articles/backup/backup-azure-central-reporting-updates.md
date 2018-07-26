@@ -17,8 +17,9 @@ ms.date: 07/24/2018
 ms.author: adigan;
 
 ---
+# Updating Azure Backup Central Reporting Content Pack 
 
-[Azure Backup Content Pack](https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) can be used to view reports about backup centrally. The content pack is updated regularly to add more features, and for bug fixes. This article leads you through the steps to update the Content Pack, to delay the update, and the updates that are made over time.
+[Azure Backup Content Pack](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) can be used to view reports about backup centrally. The content pack is updated regularly to add more features, and for bug fixes. This article leads you through the steps to update the Content Pack, to delay the update, and the updates that are made over time.
 
 ## How to get updates to the content pack
 
@@ -64,6 +65,6 @@ To make the reports more meaningful across workloads, the set of reports pre-con
 ![Jobs](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-### Next Steps:
+## Next Steps:
 •    [Share Reports across your organisation](https://youtu.be/26zyOtyHPJM)
 •    [Azure Backup FAQ](backup-azure-backup-faq.md)
