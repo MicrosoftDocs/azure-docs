@@ -71,6 +71,6 @@ If your administrator hasn't turned on the security info experience, you must fo
 
     ![Keep secure screen, delete app password](media/security-info/security-info-keep-secure-delete-app-password.png)
 
-2. In the Delete application password screen, select Delete.
+2. In the **Delete application password** screen, select **Delete**.
 
-        ![Delete app password screen](media/security-info/security-info-keep-secure-delete-app-password2.png)
+    ![Delete app password screen](media/security-info/security-info-keep-secure-delete-app-password2.png)
