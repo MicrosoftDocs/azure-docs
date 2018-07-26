@@ -33,8 +33,10 @@ many popular data science tools, including
 [Microsoft R Open](https://mran.microsoft.com/open/),
 [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop),
 and [RStudio Server](https://www.rstudio.com/products/rstudio/#Server).
-The DSVM can be provisioned with either Windows or Linux as the operating system.
+The DSVM can be provisioned with either Windows or Linux as the operating system.  You can use the DSVM in two
+different ways:  as an interactive workstation or as a compute platform for a custom cluster.
 
+### As a workstation
 If you want to get started with R in the cloud quickly and easily, this is your best bet.  The environment will be
 familiar to anyone who has worked with R on a local workstation.  However, instead of using local resources, the R
 environment runs on a VM in the cloud.  If your data is already stored in Azure, this has the added benefit of allowing
@@ -45,6 +47,7 @@ The DSVM can be particularly useful to small teams of R developers.  Instead of 
 each developer and requiring team members to synchronize on which versions of the various software packages they will
 use, each developer can spin up an instance of the DSVM whenever needed.
 
+### As a compute platform
 In addition to being used as a workstation, the DSVM is also used as an elastically scalable compute platform for R
 projects.  Using the <code>[AzureDSVM](https://github.com/Azure/AzureDSVM)</code> R package, you can programmatically
 control the creation and deletion of DSVM instances.  You can form the instances into a cluster and deploy a distributed
