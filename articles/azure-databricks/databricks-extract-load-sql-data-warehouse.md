@@ -338,7 +338,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 2.  You can further transform this data to rename the column **level** to **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     You get an output as shown in the following snippet.
 
