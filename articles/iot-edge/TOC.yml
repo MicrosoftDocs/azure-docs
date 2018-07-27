@@ -46,14 +46,15 @@
       href: module-composition.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: IoT Edge security manager
-    href: iot-edge-security-manager.md
   - name: Deployments
     href: module-deployment-monitoring.md
   - name: IoT Edge device as a gateway
     href: iot-edge-as-gateway.md
   - name: Security
     href: security.md
+    items:
+    - name: IoT Edge security manager
+      href: iot-edge-security-manager.md
   - name: Platform support
     href: support.md
   - name: IoT Edge glossary
