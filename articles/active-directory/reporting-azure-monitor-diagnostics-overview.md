@@ -51,7 +51,7 @@ To use this feature, you need:
 Depending on where you want to route the audit log data, you need either of the following:
 
 * An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An Azure event hub namespace to integrate with third-party solutions.
+* An Azure Event Hubs namespace to integrate with third-party solutions.
 
 > [!NOTE]
 > To access the Azure AD activity logs, you need to be a *Global Administrator* or *Security Administrator* in the Azure AD tenant.
