@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to issues seen in Azure Data Box Disk.
+description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/27/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
