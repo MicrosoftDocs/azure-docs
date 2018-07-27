@@ -30,7 +30,7 @@ To use this feature, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure Active Directory tenant.
-* A user, who is a *global administrator* or *security administrator* for that tenant.
+* A user who is a *global administrator* or *security administrator* for the Azure AD tenant.
 * An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md).
 
 ## Archive logs to an event hub
@@ -40,9 +40,8 @@ To use this feature, you need:
 2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
 
 3. Select **Export Settings**.  
-    The **Diagnostic Settings** pane opens.
-
-4. Do either of the following:
+    
+4. In the **Diagnostic Settings** pane, do either of the following:
     * To change existing settings, select **Edit setting**.
     * To add new settings, select **Add diagnostic setting**.  
       You can have up to three settings.
@@ -56,9 +55,9 @@ To use this feature, you need:
 
 7. Select **OK** to exit the event hub configuration.
 
-8. Select the **AuditLogs** check box to send audit logs to the storage account. 
-
-9. Select the **SignInLogs** check box to send sign-in logs to the storage account.
+8. Do either of the following:
+    * To send audit logs to the storage account, select the **AuditLogs** check box. 
+    * To send sign-in logs to the storage account, select the **SignInLogs** check box.
 
 10. Select **Save** to save the setting.
 
@@ -66,7 +65,7 @@ To use this feature, you need:
 
 11. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
-![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png)
+    ![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png)
 
 ## Access data from your event hub
 
