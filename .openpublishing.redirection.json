@@ -1116,7 +1116,7 @@
             "redirect_document_id": false
         },
 	    {
-            "source_path": "articles/virtual-machines/windows/boot-diagnostics.md"
+            "source_path": "articles/virtual-machines/windows/boot-diagnostics.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
             "redirect_document_id": false
         },
