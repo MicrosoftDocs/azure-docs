@@ -145,6 +145,6 @@ This section answers frequently asked questions and discusses known issues with 
 
 ## Next steps
 
-* [Archive activity logs to storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Archive activity logs to a storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Route activity logs to an event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Read more about Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
