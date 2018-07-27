@@ -262,6 +262,8 @@ Learn how to [download metrics and diagnostics logs from Storage](../storage/blo
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, physical data read percentage, log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
 |||
 
+### Logs
+
 ### Query Store runtime statistics
 
 |Property|Description|
@@ -476,6 +478,36 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |DatabaseName_s|Name of the database. |
 |ResourceId|Resource URI.|
 |deadlock_xml_s|Deadlock report XML.|
+
+### Automatic tuning dataset
+
+|Property|Description|
+|---|---|
+|TenantId|Your tenant ID.|
+|SourceSystem|Always: Azure|
+|TimeGenerated [UTC]|Time stamp when the log was recorded.|
+|Type|Always: AzureDiagnostics|
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
+|Category|Name of the category. Always: AutomaticTuning|
+|Resource|Name of the resource.|
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
+|SubscriptionId|Subscription GUID that the database belongs to.|
+|ResourceGroup|Name of the resource group that the database belongs to.|
+|LogicalServerName_s|Name of the server that the database belongs to.|
+|LogicalDatabaseName_s|Name of the database.|
+|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
+|DatabaseName_s|Name of the database.|
+|ResourceId|Resource URI.|
+|RecommendationHash_s|Unique hash of Automatic tuning recommendation.|
+|OptionName_s|Automatic tuning operation.|
+|Schema_s|Database schema.|
+|Table_s|Table affected.|
+|IndexName_s|Index name.|
+|IndexColumns_s|Column name.|
+|IncludedColumns_s|Columns included.|
+|EstimatedImpact_s|Estimated impact of Automatic tuning recommendation JSON.|
+|Event_s|Type of Automatic tuning event.|
+|Timestamp_t|Last updated timestamp.|
 
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
