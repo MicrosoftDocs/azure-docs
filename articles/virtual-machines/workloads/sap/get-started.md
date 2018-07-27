@@ -306,8 +306,8 @@ Hosting SAP workload scenarios in Azure also can create requirements of Identity
 
 Documentation around SAP HANA Scale-out on Azure VM M128s got added to:
 
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
-- [SAP HANA availability within one Azure region](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [SAP HANA availability within one Azure region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## SAP HANA on SAP HANA on Azure (Large Instances)
