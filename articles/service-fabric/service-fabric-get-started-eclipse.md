@@ -118,7 +118,7 @@ You can also deploy your application to the local cluster wuth the **Publish App
 
 To publish your application to the cloud, follow these steps:
 
-1. To publish your application to a secure cluster in the cloud, you need an X.509 certificate to use to communicate with your cluster. In test and development environments, the certificate used is often the cluster certificate. In production environments, the certificate should be a client certificate, which is distinct from the cluster certificate. You need both the certificate and the private key. The certificate (and key) file must be PEM-formatted. You can create a PEM file that contains the certificate and private key from a PFX file with the following openssl command:
+1. To publish your application to a secure cluster in the cloud, you need an X.509 certificate to use to communicate with your cluster. In test and development environments, the certificate used is often the cluster certificate. In production environments, the certificate should be a client certificate that is distinct from the cluster certificate. You need both the certificate and the private key. The certificate (and key) file must be PEM-formatted. You can create a PEM file that contains the certificate and private key from a PFX file with the following openssl command:
 
     ```bash
     openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
@@ -160,16 +160,18 @@ On secure Linux clusters, if your application contains Reliable Services service
 
 For a quick walk through of how to deploy a Service Fabric Reliable Services application written in Java to a secure Linux cluster, see [Quckstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
 
-## Deploy (publish) a Service Fabric application by using Eclipse run configurations
+## Deploy a Service Fabric application by using Eclipse run configurations
 
 An alternate way to deploy your Service Fabric application is by using Eclipse run configurations.
 
-  1.    Go to **Run** > **Run Configurations**.
-  2.    Under **Gradle Project**, select the **ServiceFabricDeployer** run configuration.
-  3.    In the right pane, on the **Arguments** tab, for **publishProfile**, select **local** or **cloud**.  The default is **local**. To deploy to a remote or cloud cluster, select **cloud**.
-  4.    To ensure that the proper information is populated in the publish profiles, edit **Local.json** or **Cloud.json** as needed. You can add or update endpoint details and security credentials.
-  5.    Ensure that **Working Directory** points to the application you want to deploy. To change the application, click the **Workspace** button, and then select the application you want.
-  6.    Click **Apply**, and then click **Run**.
+1. In Eclipse, go to **Run** > **Run Configurations**.
+2. Under **Gradle Project**, select the **ServiceFabricDeployer** run configuration.
+3. In the right pane, on the **Arguments** tab, make sure the **ip**, **port**, **clientCert**, and **clientKey** parameters are set appropriately for your deployment. By default, the parameters are set to deploy to the local cluster as in the following screenshot. To publish your app to Azure you can modify the parameters to contain the endpoint details and security credentials for your Azure cluster. For more information, see the previous section, [Publish your Service Fabric application to Azure with Eclipse](#publish-your-service-fabric-application-to-azure-with-eclipse).
+
+    ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/run-config-local.png)
+
+5. Make sure that **Working Directory** points to the application you want to deploy. To change the application, click the **Workspace** button, and then select the application you want.
+6. Click **Apply**, and then click **Run**.
 
 Your application builds and deploys within a few moments. You can monitor the deployment status in Service Fabric Explorer.  
 
