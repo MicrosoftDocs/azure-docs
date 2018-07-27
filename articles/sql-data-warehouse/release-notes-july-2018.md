@@ -16,17 +16,17 @@ ms.reviewer: twounder
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in July 2018.
 
 ## Lightning fast query performance
-[Azure SQL Data Warehouse](https://aka.ms/sqldw) sets new performance benchmarks with the introduction of Instant Data Access that improves shuffle operations. This features reduces the overhead for data movement operations by leverage direct SQL Server to SQL Server native data operations. The integration with the SQL Server engine directly for data movement means that SQL Data Warehouse is now **67% faster than Amazon Redshift** using a workload derived from the well-recognized industry standard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
+[Azure SQL Data Warehouse](https://aka.ms/sqldw) sets new performance benchmarks with the introduction of Instant Data Access that improves shuffle operations. Instant Data Access reduces the overhead for data movement operations by using direct SQL Server to SQL Server native data operations. The integration with the SQL Server engine directly for data movement means that SQL Data Warehouse is now **67% faster than Amazon Redshift** using a workload derived from the well-recognized industry standard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
 
 ![Azure SQL Data Warehouse is faster and cheaper than Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
 <sub>Source: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-Beyond runtime performance, the [Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) report also measured the price-performance ratio to quantify the USD cost of specific workloads. SQL Data Warehouse was **at least 23 percent less expensive** then Redshift for 30TB workloads. With SQL Data Warehouse’s ability to scale compute elastically as well as pause and resume workloads, customers pay only when the service is in use, further decreasing their costs.
+Beyond runtime performance, the [Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) report also measured the price-performance ratio to quantify the USD cost of specific workloads. SQL Data Warehouse was **at least 23 percent less expensive** than Redshift for 30TB workloads. With SQL Data Warehouse’s ability to scale compute elastically as well as pause and resume workloads, customers pay only when the service is in use, further decreasing their costs.
 ![Azure SQL Data Warehouse is faster and cheaper than Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>Source: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 ###Query concurrency
-SQL Data Warehouse also ensures that data is accessible across your organizations. We have enhanced the service to support 128 concurrent queries so that more users can query the same database and not get blocked by other requests. In comparison, Amazon Redshift restricts maximum concurrent queries to 50, limiting data access within the organization.
+SQL Data Warehouse also ensures that data is accessible across your organizations. Microsoft has enhanced the service to support 128 concurrent queries so that more users can query the same database and not get blocked by other requests. In comparison, Amazon Redshift restricts maximum concurrent queries to 50, limiting data access within the organization.
 
 SQL Data Warehouse delivers these query performance and query concurrency gains without any price increase and building upon its unique architecture with decoupled storage and compute.
 
