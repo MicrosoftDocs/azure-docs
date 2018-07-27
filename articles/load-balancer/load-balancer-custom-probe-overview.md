@@ -28,14 +28,15 @@ Cloud service roles (worker roles and web roles) use a guest agent for probe mon
 
 ## Types of health probes
 
-You should always define an health probe explicitly. If you do not, Azure will use a guest agent probe as last resort, which is not as effective as explicitly defined probes.  Health probes can observe any port on the backend, including the port on which the actual service is provided.
+You should always define an health probe explicitly. If you do not, Azure will use a guest agent probe as last resort, which is not as effective as explicitly defined probes for most application scenarios.
+
+Health probes can observe any port on the backend, including the port on which the actual service is provided.
 
 ### TCP probe
 
-TCP  probes initiate a connection by performing a three-way handshake with the defined port.
+TCP probes initiate a connection by performing a three-way handshake with the defined port.
 
-#### What makes a TCP custom probe mark an instance as unhealthy?
-
+A TCP probe fails when:
 * The TCP server doesn't respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 * The probe receives a TCP reset from the role instance.
 
@@ -50,8 +51,7 @@ An HTTP custom probe can be useful if you want to implement your own logic to re
 > [!NOTE]
 > The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS isn't supported.
 
-#### What makes an HTTP custom probe mark an instance as unhealthy?
-
+An HTTP probe fails when:
 * The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This positive acknowledgment alerts you to take the application instance out of service right away.
 * The HTTP server doesn't respond at all after the timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * The server closes the connection via a TCP reset.
@@ -62,13 +62,13 @@ A guest agent probe is available for Azure Cloud Services only. Load Balancer ut
 
 For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating a public load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-#### What makes a guest agent probe mark an instance as unhealthy?
+If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending flows to that instance. The load balancer continues to check the instance. 
 
-If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending traffic to that instance. The load balancer continues to ping the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again.
+If the guest agent responds with an HTTP 200, the load balancer sends new flows to that instance again.
 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
-## Add healthy instances back into the load balancer rotation
+## Probe health
 
 TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
 
@@ -90,7 +90,7 @@ The timeout and frequency values set in SuccessFailCount determine whether an in
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. You can't have a different probe configuration for each role instance or VM in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
 > [!IMPORTANT]
-> A load balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios. The behavior includes configuring the same IP address range of 168.63.129.16 and duplicating IP addresses.
+> A load balancer health probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a packet from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios, including failure of your load balanced service. You should also not configure your VNet with an IP address range containing 168.63.129.16.  If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require uniquely source NAT'ing this address in the VM on a per interface basis.
 
 ## Probe down behavior
 
