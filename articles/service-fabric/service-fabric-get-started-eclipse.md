@@ -99,8 +99,9 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 After you have built your Service Fabric application, follow these steps to deploy it to the local cluster.
 
 1. If you haven't started the local cluster, follow the instructions in [Set up a local cluster](./service-fabric-get-started-linux.md#set-up-a-local-cluster) to start your local cluster and make sure that it is running.
-
 2. Right-click your Service Fabric application, and then select **Service Fabric**.
+
+    ![Service Fabric right-click menu][publish/RightClick]
 
 3.  From the context menu, click **Deploy Application**.
 4.  You can follow the progress of the deploy operation in the Console window.
@@ -112,7 +113,11 @@ You can also deploy your application to the local cluster wuth the **Publish App
 
 1. Right-click your Service Fabric application, and then select **Service Fabric**.
 2. From the context menu, click **Publish Application...**.
-3. In the **Publish Application** window, choose **PublishProfiles/Local.json** as the Target Profile and click **Publish**. By default, the Local.json publishing profile is set up to publish to the local cluster. For more information about the connection and endpoint parameters present in publishing profiles, see the next section.
+3. In the **Publish Application** window, choose **PublishProfiles/Local.json** as the Target Profile and click **Publish**.
+
+    ![Publish Dialog Local](./media/service-fabric-get-started-eclipse/localjson.png)
+
+    By default, the Local.json publishing profile is set up to publish to the local cluster. For more information about the connection and endpoint parameters present in publishing profiles, see the next section.
 
 ## Publish your Service Fabric application to Azure with Eclipse
 
@@ -146,11 +151,10 @@ To publish your application to the cloud, follow these steps:
     ```
 
 2. Right-click your Service Fabric application, and then select **Service Fabric**.
-
 3. From the context menu, click **Publish Application...**.
 3. In the **Publish Application** window, choose **PublishProfiles/Cloud.json** as the Target Profile and click **Publish**.
 
-    ![Publish Dialog Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
+    ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
 4.  You can follow the progress of the publish operation in the Console window.
 5.  To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
@@ -168,7 +172,7 @@ An alternate way to deploy your Service Fabric application is by using Eclipse r
 2. Under **Gradle Project**, select the **ServiceFabricDeployer** run configuration.
 3. In the right pane, on the **Arguments** tab, make sure the **ip**, **port**, **clientCert**, and **clientKey** parameters are set appropriately for your deployment. By default, the parameters are set to deploy to the local cluster as in the following screenshot. To publish your app to Azure you can modify the parameters to contain the endpoint details and security credentials for your Azure cluster. For more information, see the previous section, [Publish your Service Fabric application to Azure with Eclipse](#publish-your-service-fabric-application-to-azure-with-eclipse).
 
-    ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/run-config-local.png)
+    ![Run Configuration Dialog Local](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
 5. Make sure that **Working Directory** points to the application you want to deploy. To change the application, click the **Workspace** button, and then select the application you want.
 6. Click **Apply**, and then click **Run**.
