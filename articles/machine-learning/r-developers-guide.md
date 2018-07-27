@@ -28,15 +28,15 @@ examine the various options and the most compelling scenarios for each one.
 
 ## Summary
 The following table summarizes the options discussed in this article.
-|Service       |Description                                                                                                                        |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------|
-|[Data Science Virtual Machine](#data-science-virtual-machine)  |a customized VM to use as a data science workstation or as a custom compute target|
-|[R Server on Azure HDInsight](#r-server-on-azure-hdinsight)    |cluster-based system for running R analyses on large datasets across many nodes   |
-|[Azure Databricks](#azure-databricks)                          |collaborative Spark environment that supports R and other languages               |
-|[Azure Machine Learning Studio](#azure-machine-learning-studio)|run custom R scripts in Azure's machine learning experiments                      |
-|[Azure Batch](#azure-batch)                                    |offers a variety options for economically running R code across many nodes in a cluster|
-|[Azure Notebooks](#azure-notebooks)                            |a no-cost (but limited) cloud-based version of Jupyter notebooks                  |
-|[Azure SQL Database](#azure-sql-database)                      |run R scripts inside of the SQL Server database engine                            |
+|Service                                                          |Description                                                                       |
+|-----------------------------------------------------------------|----------------------------------------------------------------------------------|
+|[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
+|[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
+|[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
+|[Azure Machine Learning Studio](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
+|[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
+|[Azure Notebooks](#azure-notebooks)                              |a no-cost (but limited) cloud-based version of Jupyter notebooks                  |
+|[Azure SQL Database](#azure-sql-database)                        |run R scripts inside of the SQL Server database engine                            |
 
 ## Data Science Virtual Machine
 The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
@@ -44,8 +44,8 @@ The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machin
 many popular data science tools, including:
 * [Microsoft R Open](https://mran.microsoft.com/open/)
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server)
-* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop),
-* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server).
+* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop)
+* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server)
 
 The DSVM can be provisioned with either Windows or Linux as the operating system.  You can use the DSVM in two
 different ways:  as an interactive workstation or as a compute platform for a custom cluster.
@@ -71,8 +71,8 @@ workstation.
 To learn more about the DSVM, consult the
 ["Introduction to Azure Data Science Virtual Machine for Linux and Windows."](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 
-## R Server on Azure HDInsight
-[Microsoft R Server](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-overview) provides data
+## ML Services on HDInsight
+[Microsoft ML Services](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-overview) provide data
 scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on
 HDInsight.  This solution provides the latest capabilities for R-based analytics on datasets of virtually any size,
 loaded to either Azure Blob or Data Lake storage.
@@ -83,11 +83,11 @@ Microsoft's
 package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  This
 allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
 
-This ability to scale makes R Server on HDInsight a great option for R developers with massive data sets.  It provides a
+This ability to scale makes ML Services on HDInsight a great option for R developers with massive data sets.  It provides a
 flexible and scalable platform for running your R scripts in the cloud.
 
-For a walk-through on creating an R Server cluster, see the
-["Get started with R Server on HDInsight"](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-get-started)
+For a walk-through on creating an ML Services cluster, see the
+["Get started with ML Services on Azure HDInsight"](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-get-started)
 article.
 
 ## Azure Databricks
