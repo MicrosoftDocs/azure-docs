@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
 
@@ -57,8 +57,8 @@ ms.reviewer: xiaofmao
 
 ## View an existing quota
 
-1. Select **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
+1. On the default dashboard of the Admin portal, find the **Resource providers** tile.
+2. Select the service with the quota that you want to view, like **Compute** or **Storage**.
 3. Select **Quotas**, and then select the quota you want to view.
 
 ## Next steps

@@ -36,4 +36,4 @@ If you want a unique voice for your application, you can create [custom voice fo
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to synthesize speech via the REST API](how-to-text-to-speech.md)
