@@ -12,49 +12,50 @@ ms.author: liamca
 ---
 
 # Lucene syntax query examples for building advanced queries in Azure Search
-When constructing queries for Azure Search, you can replace the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) with the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) to formulate specialized and advanced query definitions. 
+When constructing queries for Azure Search, you can replace the default [simple query parser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) with the alternative [Lucene Query Parser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) to formulate specialized and advanced query definitions. 
 
-The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements. In this article, you can step through examples demonstrating query operations available when using the full syntax.
+The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy and wildcard search, proximity search, term boosting, and regular expression search. The additional power comes with additional processing requirements. In this article, you can step through examples demonstrating query operations available when using the full syntax.
 
 > [!Note]
-> Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing.
+> Many of the specialized query constructions enabled through the full Lucene query syntax are not [text-analyzed](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), which can be surprising if you expect stemming or lemmatization. Lexical analysis is only performed on complete terms (a term query or phrase query). Query types with incomplete terms (prefix query, wildcard query, regex query, fuzzy query) are added directly to the query tree, bypassing the analysis stage. The only transformation performed on incomplete query terms is lowercasing. 
 >
 
-## Prerequisites
+## Formulate requests in Postman
 
-The following examples leverage the realestate-sample-us search index consisting of made-up real estate data for listings in Washington state. Sample data is hosted by the Azure Search team. Using the built-in **Import data** wizard, you can generate an index containing this data in your own search service.
+The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Search to try these queries.
 
-+ [An Azure Search service](search-create-service-portal.md)
-+ [realestate-sample-us index](search-get-started-portal.md) generated in minutes using hosted, built-in data
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Test with REST clients](search-fiddler.md).
 
-You will need Postman or an equivalent tool for issuing HTTP request on GET or POST methods. For more information, see [Test with REST clients](search-fiddler.md).
+### Set the request header
 
-### Setting the header
+1. In the request header, set **Content-Type** set to `application/json`.
 
-Request headers must have Content-Type set to `application/json` and an api-key set to a long alpha-numeric string generated for your service when it was created, found in the **Keys** page of your Azure Search servicein the portal. After you specify the request header, you can reuse it for all of the queries, swapping out only the **search=** string. 
+2. Add an **api-key**, and set it to this string: `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
+
+After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
 
   ![Postman request header](media/search-query-lucene-examples/postman-header.png)
 
-### Request body
+### Set the request URL
 
-Queries can be either a GET or POST methods. Below, GET is paired with a URL containing the Azure Search endpoint and search string.
+Request is a GET command paired with a URL containing the Azure Search endpoint and search string.
 
   ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
-Important points include the following items:
+URL composition has the following elements:
 
-+ **`https://<your-search-service>.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
-+ **`indexes/realestate-sample-us/`** is the realestate demo index in the indexes collection of that service. Both the service name and index are required on the request.
-+ **`docs`** is the documents collection containing all searchable content.
-+ **`api-version=2017-11-11`** specifies which version of the REST API is used. This parameter is required on every request.
++ **`https://azs-playground.search.windows.net/`** is a sandbox search service maintained by the Azure Search development team. 
++ **`indexes/nycjobs/`** is the NYC Jobs index in the indexes collection of that service. Both the service name and index are required on the request.
++ **`docs`** is the documents collection containing all searchable content. The query api-key provided in the request header only works on read operations targeting the documents collection.
++ **`api-version=2017-11-11`** sets the api-version, which is a required parameter on every request.
 + **`search=*`** is the query string, which in the initial query is null, returning the first 50 results (by default).
 
 ## Send your first query
 
 As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
 
-  ```GET
-  https://<your-search-service>.search.windows.net/indexes/realestate-us-sample/docs?api-version=2017-11-11&$count=true&search=*
+  ```http
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
 The query string, **`search=*`**, is an unspecified search equivalent to null or empty search. It's not especially useful, but it is the simplest search you can do.
@@ -73,7 +74,7 @@ All of the examples in this article specify the **queryType=full** search parame
 
 ## Example 1: field-scoped query
 
-The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query that produces a reasonably readable JSON response. For brevity, the query specifies only business titles are returned. 
+The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
@@ -194,6 +195,7 @@ Try specifying the Lucene Query Parser in your code. The following links explain
 
 ## See also
 
++ [Simple syntax query examples](search-query-simple-examples.md)
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
-+ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
++ [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

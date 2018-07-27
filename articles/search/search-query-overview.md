@@ -12,15 +12,15 @@ ms.date: 07/13/2018
 ---
 # Basic query construction in Azure Search
 
-A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined but more likely consists of terms, phrases, and operators:
+A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`*`) but more likely consists of terms, phrases, and operators:
 
-```json
+```
 "search": "seattle townhouse +\"lake\""
 ```
 
 Other parameters are used to direct query processing or enhance the response. Setting the query parser (to use the simple or full syntax), fields, search mode, paging results, and adding counts are a few of the more notable parameters.
 
-```json
+```
 {  
     "search": "seattle townhouse* +\"lake\"",  
     "searchFields": "description, city",  
@@ -30,7 +30,11 @@ Other parameters are used to direct query processing or enhance the response. Se
  } 
 ```
 
-Query execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target. During index development, attributes on fields determine what is possible at query time. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*. 
+During index development, attributes on fields determine what is possible at query time. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
+
+Query execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target.  
+
+Query results are streamed as JSON documents in the REST API, but if you use .NET APIs, serialization is built in. 
 
 To summarize, the substance of the query request specifies scope and operations: which fields to include in search, which fields to include in the result set, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
@@ -47,13 +51,13 @@ The following table lists the APIs and tool-based approaches for submitting sque
 
 ## Required and optional elements
 
-Required elements on a query request include the following parameters:
+Required elements on a query request include the following components:
 
-+ Service endpoint and index documents collection, expressed as a URL `https://<your-service-name>`.
++ Service endpoint and index documents collection, expressed here as a URL `https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`.
 + API version (REST only), expressed as **api-version=**
 + query or admin api-key, expressed as **api-key=**
-+ query string expressed as **search=**, which can be unspecified if you want to perform an empty search
-+ **queryType=**, either simple or full, which can be omitted if you want to use the default simple syntax
++ query string expressed as **search=**, which can be unspecified if you want to perform an empty search. You can also send just a filter expression as **$filter=**.
++ **queryType=**, either simple or full, which can be omitted if you want to use the default simple syntax.
 
 All other search parameters are optional.
 
