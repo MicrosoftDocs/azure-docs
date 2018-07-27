@@ -28,7 +28,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/batch-ai/create-cluster/create-cluster-low-priority.sh "Create Batch AI cluster - low-priority nodes")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch-ai/create-cluster-low-priority.sh "Create Batch AI cluster - low-priority nodes")]
 
 ## Clean up deployment
 
