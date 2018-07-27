@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
 ---
 
@@ -62,7 +62,7 @@ Not at this time. The Kubernetes API server is exposed as a public fully-qualifi
 
 ## Is Azure Key Vault integrated with AKS?
 
-AKS is not natively integrated with Azure Key Vault at this time. However, there are community solutions like [the acs-keyvault-agent from Hexadite][hexadite].
+AKS is not natively integrated with Azure Key Vault at this time. However, the [KeyVault Flex Volume project](https://github.com/Azure/kubernetes-keyvault-flexvol) enables direct integration from Kubernetes pods to KeyVault secrets..
 
 ## Can I run Windows Server containers on AKS?
 
