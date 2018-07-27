@@ -122,15 +122,14 @@ Microsoft generates and supports the following client libraries:
 
 |API references|SDKs/Tools|Examples|
 |---|---|---|---|
-|[REST ref](https://go.microsoft.com/fwlink/p/?linkid=873030)|[REST SDK](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview)|[REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI ref](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI examples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET ref](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)|[.NET examples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media) (Choose the **.NET CLI** tab)|[.NET Core examples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java ref](https://docs.microsoft.com/java/api/overview/azure/mediaservices)|[Java SDK](https://github.com/Azure/azure-sdk-for-java/tree/master/mediaservices/resource-manager)||
-|[Node.js ref](https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)|[Node.js SDK]()|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python ref](https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python)|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc2/)||
-|[Go ref](https://godoc.org/github.com/Azure/azure-sdk-for-go)|[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/)||
-
+|[REST ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI examples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET examples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (Choose the **.NET CLI** tab)|[.NET Core examples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Java ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
+|[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Python ref](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
+|[Go ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
 
 ## Next steps
 
