@@ -6,7 +6,7 @@ keywords:
 author: mattbriggs
 manager: femila
 ms.author: brenduns
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
 ms.author: brenduns
@@ -38,8 +38,7 @@ This article provides an overview of the unique considerations for Azure Stack n
 |  | Private Access Services (Subnet) | Supported | Not yet supported. |
 |  | Service Endpoints | Supported for internal (non-Internet) connection to Azure Services. | Not yet supported. |
 | Only IPv4 is supported. | Service Endpoint Policies | Supported | Not yet supported. |
-|  | Service Tunnels | Supported | Not yet supported. |
-| Route Tables | Route Tables | Supported | Net yet supported. |
+|  | Service Tunnels | Supported | Not yet supported.  |
 | Network Security Groups | Augmented Security Rules | Supported | Not yet supported. |
 |  | Effective Security Rules | Supported | Not yet supported. |
 |  | Application Security Groups | Supported | Not yet supported. |
