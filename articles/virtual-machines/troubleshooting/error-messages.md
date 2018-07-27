@@ -1,14 +1,23 @@
 ---
- title: include file
- description: include file
- services: virtual-machines-windows
- author: genlin
- ms.service: virtual-machines-windows
- ms.topic: include
- ms.date: 04/25/2018
- ms.author: genli
- ms.custom: include file
+title: Common VM error codes in Azure | Microsoft Docs
+description: Understand some of the common error codes encountered when you provision and manage virtual machines in Azure
+services: virtual-machines
+documentationcenter: ''
+author: xujing-ms
+manager: jeconnoc
+editor: ''
+tags: azure-resource-manager
+
+ms.service: virtual-machines
+ms.topic: troubleshooting
+ms.workload: infrastructure
+ms.date: 5/22/2017
+ms.author: xujing
+
 ---
+# Understand common error messages when you manage virtual machines in Azure
+
+This article describes some of the most common error codes and messages you may encounter when you create or manage virtual machines (VMs) in Azure.
 
 >[!NOTE]
 > You can leave comments on this page for feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.

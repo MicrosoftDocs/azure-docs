@@ -14702,7 +14702,17 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
-            "redirect_url": "/azure/virtual-machines/windows/error-messages",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/error-messages.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/error-messages.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
             "redirect_document_id": false
         },
         {

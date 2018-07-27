@@ -12,3 +12,5 @@
   href: detailed-troubleshoot-rdp.md
 - name: SSH 
   href: detailed-troubleshoot-ssh-connection.md
+- name: Common error messages
+  href: error-messages.md
