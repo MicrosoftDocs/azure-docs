@@ -129,7 +129,7 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://aka.ms/azurecyclecloud
+    href: https://azure.microsoft.com/en-us/features/cyclecloud/
   - name: Release Notes
     href: release-notes.md
   - name: CycleCloud Cluster Templates
