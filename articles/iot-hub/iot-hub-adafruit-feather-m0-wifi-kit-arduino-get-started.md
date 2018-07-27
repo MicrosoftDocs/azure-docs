@@ -178,7 +178,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. Manually install `Adafruit_WINC1500`. Go to the [Adafruit_WINC1500 web page]https://github.com/adafruit/Adafruit_WINC1500) and click **Clone or download** > **Download ZIP**. Then in your Arduino IDE, go to **Sketch** > **Include Library** > **Add .zip Library** and add the zip file.
+3. Manually install `Adafruit_WINC1500`. Go to the [Adafruit_WINC1500 web page](https://github.com/adafruit/Adafruit_WINC1500) and click **Clone or download** > **Download ZIP**. Then in your Arduino IDE, go to **Sketch** > **Include Library** > **Add .zip Library** and add the zip file.
 
 ### Use the sample application if you don’t have a real BME280 sensor
 
