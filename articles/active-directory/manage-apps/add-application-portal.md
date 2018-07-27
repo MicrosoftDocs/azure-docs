@@ -137,14 +137,14 @@ To edit the application properties
 
     *Can the user see the application in the access panel or the Office 365 app launcher?
 
-## Change the application name and logo
+## Use a custom logo
 
-To update the application logo:
+To use a custom logo:
 
-1. Since you have already found your application, click on the application.
-2. In the left blade, click **Properties**
-3. If desired, update **Name**.
-4. If desired, upload a new logo to update the logo. 
+1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
+2. Since you have already found your application, click on the application.
+2. In the left blade, click **Properties**.
+4. Upload the logo.
 5. When you're finished, click **Save**.
 
     ![Change the logo](media/add-application-portal/change-logo.png)
