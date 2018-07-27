@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -143,27 +143,7 @@ There are two parts to this scenario:
 ### Import the download and publish to Azure Stack Marketplace
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
 
-2. Import the VHD image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
-
-   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location.
- 
-   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **About solution templates:**
-   Some templates can include a small 3 MB .VHD file with the name **fixed3.vhd**. You don't need to import that file to Azure Stack. Fixed3.vhd.  This file is included with some solution templates to meet publishing requirements for the Azure Marketplace.
-
-   Review the templates description and download and then import additional requirements like VHDs that are required to work with the solution template.
-
-3. Use the admin portal to upload the marketplace item package (the .azpkg file) to Azure Stack Blob storage. Upload of the package makes it available to Azure Stack so you can later publish the item the Azure Stack Marketplace.
+2. Use the admin portal to upload the marketplace item package (the .azpkg file) to Azure Stack Blob storage. Upload of the package makes it available to Azure Stack so you can later publish the item the Azure Stack Marketplace.
 
    Upload requires you to have a storage account with a publicly accessible container (see the prerequisites for this scenario)   
    1. In the Azure Stack admin portal, go to **More services** > **Storage accounts**.  
@@ -179,6 +159,26 @@ There are two parts to this scenario:
 
    5. Files that you upload appear in the container pane. Select a file and then copy the URL from the **Blob properties** pane. You'll use this URL in the next step when you import the marketplace item to Azure Stack.  In the following image, the container is *blob-test-storage* and the file is *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  The file URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       ![Blob properties](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. Import the VHD image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
+
+   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location. The *version* value is the version noted when downloading the item from Azure in the previous procedure. 
+ 
+   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. Replace *URI_path* with the path to the blob storage location for the item.
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **About solution templates:**
+   Some templates can include a small 3 MB .VHD file with the name **fixed3.vhd**. You don't need to import that file to Azure Stack. Fixed3.vhd.  This file is included with some solution templates to meet publishing requirements for the Azure Marketplace.
+
+   Review the templates description and download and then import additional requirements like VHDs that are required to work with the solution template.
 
 4.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
     ```PowerShell  
