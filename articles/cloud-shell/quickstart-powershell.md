@@ -121,7 +121,7 @@ However, you can always use `dir -Force` to get fresh data.
 
 ### Navigate storage resources
 
-By entering into the `StorageAccounts` directory you can easily navigate all your storage resources
+By entering into the `StorageAccounts` directory, you can easily navigate all your storage resources
 
 ```azureowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -220,7 +220,7 @@ You can also navigate to the `VirtualMachines` directory first and run `Enter-Az
 
 ### Discover WebApps
 
-By entering into the `WebApps` directory you can easily navigate your web apps resources
+By entering into the `WebApps` directory, you can easily navigate your web apps resources
 
 ```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -264,7 +264,7 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 ### Using SSH
 
 Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM cmdlets.
-Before calling into `New-AzureRmVM` to kick-off the deployment, add SSH public key to the VM configuration.
+Before calling into `New-AzureRmVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
 ```azurepowershell-interactive
