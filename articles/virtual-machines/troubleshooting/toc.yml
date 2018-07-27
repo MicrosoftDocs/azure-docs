@@ -1,8 +1,26 @@
-- name: Linux VMs Documentation
+- name: Troubleshooting Azure VMs
   href: ../index.md
 - name: Allocation failures
   items:
   - name: Allocation failures 
     href: allocation-failure.md
-  - name: Allocation failures-classic VM
+  - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
+- name: Boot diagnostics
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: Reset RDP
+    href: reset-rdp.md
+  - name: RDP troubleshooting
+    href: troubleshoot-rdp-connection.md
+  - name: Detailed RDP troubleshooting
+    href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot specific errors
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH 
+  items: 
+  - name: SSH troubleshooting
+    href: troubleshoot-ssh-connection.md
+  - name: Detailed SSH troubleshooting
+    href: detailed-troubleshoot-ssh-connection.md

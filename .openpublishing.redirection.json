@@ -1111,6 +1111,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/boot-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/boot-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/capture-image",
             "redirect_document_id": true
@@ -16897,7 +16907,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-reset-rdp.md",
-            "redirect_url": "/azure/virtual-machines/windows/reset-rdp",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-rdp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/reset-rdp.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-rdp",
             "redirect_document_id": false
         },
         {
@@ -17082,7 +17097,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-troubleshoot-specific-rdp-errors.md",
-            "redirect_url": "/azure/virtual-machines/windows/troubleshoot-specific-rdp-errors",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-specific-rdp-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors",
             "redirect_document_id": false
         },
         {
@@ -17173,6 +17193,26 @@
         {
             "source_path": "articles/virtual-machines/workloads/sap/sap-cal-ides-erp6-ehp7-sp3-sql.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/detailed-troubleshoot-rdp.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-rdp.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/detailed-troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-rdp-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection.md",
             "redirect_document_id": false
         },
         {
