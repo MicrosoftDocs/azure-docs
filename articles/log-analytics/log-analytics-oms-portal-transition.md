@@ -18,9 +18,9 @@ ms.component: na
 ---
 
 # OMS portal moving to Azure
-One piece of feedback heard repeatedly from Log Analytics customers is the need for a single user experience to monitor and manage both on-premises and Azure workloads. You probably know the Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. We are happy to announce most of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Manager are only available in the Azure portal. There are only a few gaps remaining, the most impactful being five solutions that are still in the process to be moved to Azure portal. If you are not using these features, you will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, we recommend you start using the Azure portal today! 
+One piece of feedback heard repeatedly from Log Analytics customers is the need for a single user experience to monitor and manage both on-premises and Azure workloads. You probably know the Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. We are happy to announce most of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. There are only a few gaps remaining including a few solutions that are still in the process to be moved to Azure portal. If you are not using these features, you will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, we recommend you start using the Azure portal today! 
 
-We expect to close down the remaining gaps between the two portals by August 2018. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to LAUpgradeFeedback@microsoft.com. The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
+We expect to close down the remaining gaps between the two portals by August 2018. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to [LAUpgradeFeedback@microsoft.com](LAUpgradeFeedback@microsoft.com). The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
 
 ## Progress
 Following are updates that have been completed since previous versions of this article.
@@ -30,7 +30,7 @@ Following are updates that have been completed since previous versions of this a
 - [DNS Analytics](log-analytics-dns.md) is now fully functional in the Azure portal.
 - [Update Management](../automation/automation-update-management.md) has been updated to be fully functional in the Azure portal. See [Migrate your OMS Update Deployments to Azure](../automation/migrate-oms-update-deployments.md) for details.
 - [Alerts](#changes-to-alerts) have now been fully extended into the Azure portal.
-
+- [Custom logs preview feature](log-analytics-data-sources-custom-logs.md) is now automatically enabled for all workspaces.
 
 ## What will change? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
@@ -41,7 +41,7 @@ The following changes are being announced with the deprecation of the OMS portal
 - The Application Insights Connector is no longer required since the same functionality can be enabled through cross-workspace queries.
 - The OMS Mobile App will be deprecated. 
 - The NSG solution is being replaced with enhanced functionality available via Traffic Analytics solution.
-
+- New connections from System Center Operations Manager to Log Analytics require updated management packs.
 
 
 ## Current known gaps 
@@ -53,7 +53,6 @@ There are currently some functionality gaps that require you to still use the OM
     - [Surface Hub](log-analytics-surface-hubs.md)
 
 -  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](#user-access-and-role-migration).
-- Custom logs preview feature can only be enabled through OMS Portal. By the end of June 2018, this will be automatically enabled for all work spaces.
 
 
 ## What should I do now?  
