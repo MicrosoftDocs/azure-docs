@@ -178,7 +178,15 @@ There are two parts to this scenario:
    **About solution templates:**
    Some templates can include a small 3 MB .VHD file with the name **fixed3.vhd**. You don't need to import that file to Azure Stack. Fixed3.vhd.  This file is included with some solution templates to meet publishing requirements for the Azure Marketplace.
 
-   Review the templates description and download and then import additional requirements like VHDs that are required to work with the solution template.
+   Review the templates description and download and then import additional requirements like VHDs that are required to work with the solution template.  
+   
+   **About extensions:** When you work with virtual machine image extensions, use the following parameters:
+   - *Publisher*
+   - *Type*
+   - *Version*  
+
+   You do not use *Offer* for extensions.   
+
 
 4.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
     ```PowerShell  
