@@ -22,7 +22,7 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: cyclecloud-application
+        - href: overview
           html: <p>Create, manage, operate, and optimize HPC & Big Compute clusters of any scale in Azure with CycleCloud.</p>
           image:
             src: media/index/ccswoosh.jpg
