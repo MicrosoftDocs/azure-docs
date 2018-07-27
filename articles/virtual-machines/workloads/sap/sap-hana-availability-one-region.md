@@ -47,16 +47,16 @@ A health check functionality monitors the health of every VM that's hosted on an
 
 - If the host signals a bad health state, a reboot of the host and a restart of the VMs that were running on the host.
 - If the host is not in a healthy state after the reboot, a reboot of the host and a restart of the VMs that were originally hosted on the host on a healthy host. In this case, the host is marked as not healthy. It won't be used for further deployments until it's cleared or replaced.
-- If the unhealthy host has problems during the reboot process, an immediate restart of the VMs on a healthy host. 
+- If the unhealthy host has problems during the reboot process, an immediate restart of the VMs on a healthy host is triggered. 
 
 With the host and VM monitoring provided by Azure, Azure VMs that experience host issues are automatically restarted on a healthy Azure host. 
 
 >[!IMPORTANT]
->Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically starting. Instead the default foresees to keep the OS that is in kernel panic in the current state to be able to attach a kernel debugger to analyze. Azure is honoring hat behavior by not automatically restarting a VM with the guest OS in a such a state. Assumption is that such occurrences are extremely rare. You could change the Linux default behavior that enables a restart of the VM. To change the default behavior by enabling the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. See also <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>.
+>Azure service healing will not restart Linux VMs where the guest OS is in a kernel panic state. The default settings of the commonly used Linux releases, are not automatically restarting VMs or server where the Linux kernel is in panic state. Instead the default foresees to keep the OS in kernel panic state to be able to attach a kernel debugger to analyze. Azure is honoring that behavior by not automatically restarting a VM with the guest OS in a such a state. Assumption is that such occurrences are extremely rare. You could overwrite the default behavior to enable a restart of the VM. To change the default behavior enable the parameter 'kernel.panic' in /etc/sysctl.conf. The time you set for this parameter is in seconds. Common recommended values are to wait for 20-30 seconds before triggering the reboot through this parameter. See also <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>.
 
 The second feature that you rely on in this scenario is the fact that the HANA service that runs in a restarted VM starts automatically after the VM reboots. You can set up [HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) through the watchdog services of the various HANA services.
 
-You might improve this single-VM scenario by adding a cold failover node to an SAP HANA configuration. In the SAP HANA documentation, this setup is called [host auto-failover](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/ae60cab98173431c97e8724856641207.html). This configuration might make sense in an on-premises deployment situation where the server hardware is limited, and you dedicate a single-server node as the host auto-failover node for a set of production hosts. But in Azure, where the underlying infrastructure of Azure provides a healthy target server for a successful VM restart, it doesn't make sense to deploy SAP HANA host auto-failover. Because of this, we have no reference architecture that foresees a standby node for HANA host auto-failover. This also applies to SAP HANA scale-out configurations.
+You might improve this single-VM scenario by adding a cold failover node to an SAP HANA configuration. In the SAP HANA documentation, this setup is called [host auto-failover](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/ae60cab98173431c97e8724856641207.html). This configuration might make sense in an on-premises deployment situation where the server hardware is limited, and you dedicate a single-server node as the host auto-failover node for a set of production hosts. But in Azure, where the underlying infrastructure of Azure provides a healthy target server for a successful VM restart, it doesn't make sense to deploy SAP HANA host auto-failover. Because of Azure  service healing, there is no reference architecture that foresees a standby node for HANA host auto-failover. 
 
 ### Special case of SAP HANA scale-out configurations in Azure
 High availability for SAP HANA scale-out configurations is relying on service healing of Azure VMs and the restart of the SAP HANA instance as the VM is up and running again. High availability architectures based on HANA System Replication are going to be introduced at a later time. 
@@ -84,14 +84,15 @@ While backups are being copied, you might be able to use a smaller VM than the m
 
 ### SAP HANA system replication without automatic failover
 
-The scenarios described in this section use SAP HANA system replication. For the SAP documentation, see [System replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Two Azure VMs in a single Azure region have different configurations, so there are some differences in RTO. In general, scenarios without automatic failover might not apply specifically to VMs in one Azure region. This is because for most failures in the Azure infrastructure, the Azure service healing restarts the primary VM on another host. There are some edge cases where this configuration might help in terms of failure scenarios. Or, in some cases, a customer might want to realize more efficiency.
+The scenarios described in this section use SAP HANA system replication. For the SAP documentation, see [System replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Scenarios without automatic failover are not very common for configurations within one Azure region. A configuration without automatic failover, though avoiding a Pacemaker setup, obligates you to monitor and failover manually. Since this takes and efforts as well, most customers are relying on Azure service healing instead. There are some edge cases where this configuration might help in terms of failure scenarios. Or, in some cases, a customer might want to realize more efficiency.
 
 #### SAP HANA system replication without auto failover and without data preload
 
 In this scenario, you use SAP HANA system replication to move data in a synchronous manner to achieve an RPO of 0. On the other hand, you have a long enough RTO that you don't need either failover or data preloading into the HANA instance cache. In this case, it's possible to achieve further economy in your configuration by taking the following actions:
 
-- Run another SAP HANA instance in the second VM. The SAP HANA instance in the second VM takes most of the memory of the virtual machine. Usually, this is in case a failover to the second VM occurs. You can shut down the second VM so that the replicated data can be loaded into the cache of the targeted HANA instance in the second VM.
-- Use a smaller VM size on the second VM. If a failover occurs, you have an additional step before the manual failover. In this step, you resize the VM to the size of the source VM. The scenario looks like this:
+- Run another SAP HANA instance in the second VM. The SAP HANA instance in the second VM takes most of the memory of the virtual machine. In case a failover to the second VM, you need to shut down the running SAP HANA instance that has the data fully loaded in the second VM, so that the replicated data can be loaded into the cache of the targeted HANA instance in the second VM.
+- Use a smaller VM size on the second VM. If a failover occurs, you have an additional step before the manual failover. In this step, you resize the VM to the size of the source VM. The scenario looks like
+- :
 
 ![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
 
@@ -112,7 +113,7 @@ The overall configuration looks like this:
 
 ![Diagram of two VMs with storage replication and failover](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
-You might choose this solution because it enables you to achieve an RPO=0 and an extremely low RTO. Configure the SAP HANA client connectivity so that the SAP HANA clients use the virtual IP address to connect to the HANA system replication configuration. This eliminates the need to reconfigure the application if a failover to the secondary node occurs. In this scenario, the Azure VM SKUs for the primary and secondary VMs must be the same.
+You might choose this solution because it enables you to achieve an RPO=0 and an low RTO. Configure the SAP HANA client connectivity so that the SAP HANA clients use the virtual IP address to connect to the HANA system replication configuration. Such a configuration eliminates the need to reconfigure the application if a failover to the secondary node occurs. In this scenario, the Azure VM SKUs for the primary and secondary VMs must be the same.
 
 ## Next steps
 
