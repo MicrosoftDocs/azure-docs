@@ -1,5 +1,5 @@
 ---
-title: Integrate QnA Maker and LUIS - Microsoft Cognitive Services | Microsoft Docs
+title: Integrate QnA Maker and LUIS(Language Understanding Intelligent Service) - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a step-by-step tutorial on integrating QnA Maker and LUIS
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: saneppal
 # Integrate QnA Maker and LUIS to distribute your knowledge base
 As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 
-While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
+While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS(Language Understanding Intelligent Service).
 
 ## Architecture
 
