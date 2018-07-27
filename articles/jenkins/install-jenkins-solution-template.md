@@ -1,15 +1,13 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
 ---
 
 # Create a Jenkins server on an Azure Linux VM from the Azure portal
@@ -83,6 +81,10 @@ Select **Build Now** to compile the code and package the sample app. When your b
 ![Browse to the workspace to get the JAR file from the build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
+
+## Troubleshooting
+
+If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
 
 ## Next Steps
 

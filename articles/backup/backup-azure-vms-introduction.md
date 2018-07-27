@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup vms, backup virtual machines
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/23/2018
+ms.date: 7/26/2018
 ms.author: markgal
 ---
 # Plan your VM backup infrastructure in Azure
@@ -105,7 +105,7 @@ A restore operation consists of two main sub tasks: Copying data back from the v
 We suggest following these practices while configuring backups for virtual machines:
 
 * Don't schedule more than 10 classic VMs from the same cloud service to back up at the same time. If you want to back up multiple VMs from same cloud service, stagger the backup start times by an hour.
-* Do not schedule more than 40 VMs to back up at the same time.
+* Do not schedule more than 100 VMs to back up at the same time from a single vault. 
 * Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the customer storage account to the vault.
 * Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 * Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
