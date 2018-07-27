@@ -22,23 +22,9 @@ ms.author: kumud
 
 Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows.   You can use health probes to detect the failure of an application on a backend instance.  You can also use the health probe response from your application to signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance to manage load or planned downtime.
 
-Health probes govern whether new flows are established to healthy backend instances. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether the flows is TCP or UDP as well as which Load Balancer SKU you are using.
+Health probes determine which healthy backend instances receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether the flows is TCP or UDP as well as which Load Balancer SKU you are using.
 
 Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom health probes must be configured when you use Cloud Services with IaaS VMs behind Load Balancer.
-
-## Understand probe count and timeout
-
-Probe behavior depends on:
-
-* The number of successful probes that allow an instance to be labeled as up.
-* The number of failed probes that cause an instance to be labeled as down.
-
-The timeout and frequency values set in SuccessFailCount determine whether an instance is confirmed to be running or not running. In the Azure portal, the timeout is set to two times the value of the frequency.
-
-The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. You can't have a different probe configuration for each role instance or VM in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
-
-> [!IMPORTANT]
-> A load balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios. The behavior includes configuring the same IP address range of 168.63.129.16 and duplicating IP addresses.
 
 ## Types of health probes
 
@@ -91,6 +77,20 @@ TCP and HTTP probes are considered healthy and mark the role instance as healthy
 
 > [!NOTE]
 > If the health of a role instance fluctuates, the load balancer waits longer before it puts the role instance back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
+
+## Understand probe count and timeout
+
+Probe behavior depends on:
+
+* The number of successful probes that allow an instance to be labeled as up.
+* The number of failed probes that cause an instance to be labeled as down.
+
+The timeout and frequency values set in SuccessFailCount determine whether an instance is confirmed to be running or not running. In the Azure portal, the timeout is set to two times the value of the frequency.
+
+The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. You can't have a different probe configuration for each role instance or VM in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
+
+> [!IMPORTANT]
+> A load balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios. The behavior includes configuring the same IP address range of 168.63.129.16 and duplicating IP addresses.
 
 ## Probe down behavior
 
