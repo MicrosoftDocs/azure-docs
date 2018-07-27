@@ -20,7 +20,7 @@ ms.author: kumud
 
 # Load Balancer probes
 
-Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows.   You can use health probes to detect the failure of an application on a backend instance.  You can also use the health probe response from your application to signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance to manage load or planned downtime.
+Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows.   You can use health probes to detect the failure of an application on a backend instance.  You can also use the health probe response from your application as a kind of flow control to signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance to manage load or planned downtime.
 
 Health probes determine which healthy backend instances receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether the flows is TCP or UDP as well as which Load Balancer SKU you are using.
 
@@ -28,7 +28,7 @@ Cloud service roles (worker roles and web roles) use a guest agent for probe mon
 
 ## Types of health probes
 
-You should always define an health probe explicitly. If you do not, Azure will use a guest agent probe as last resort.
+You should always define an health probe explicitly. If you do not, Azure will use a guest agent probe as last resort, which is not as effective as explicitly defined probes.  Health probes can observe any port on the backend, including the port on which the actual service is provided.
 
 ### TCP probe
 
