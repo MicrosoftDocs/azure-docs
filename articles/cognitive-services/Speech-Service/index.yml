@@ -89,20 +89,20 @@ sections:
         - href:
         - href: rest-apis
         - href: rest-apis
-
-- title: Speech SDK samples and reference
-  html: |
-    <table><tr><td>Samples</td><td>API Reference</td></tr>
-      <tr><td>
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Samples
+      html: |
         &nbsp;&#8226; <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
         &nbsp;&#8226; <a href="intent.md">Intent Recognition</a><br/>
         &nbsp;&#8226; <a href="translation.md">Translation</a>
-      </td>
-      <td>
+    - title: API Reference
+      html: |
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
-    </td></tr></table>
 - title: Customizing speech with your own data
   items:
   - type: paragraph
