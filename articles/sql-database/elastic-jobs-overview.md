@@ -6,7 +6,7 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
 ---
 # Manage groups of databases with Elastic Database Jobs
@@ -100,11 +100,23 @@ A *target group* defines the set of databases a job step will execute on. A targ
 > [!TIP]
 > At the moment of job execution, *dynamic enumeration* re-evaluates the set of databases in target groups that include servers or pools. Dynamic enumeration ensures that **jobs run across all databases that exist in the server or pool at the time of job execution**. Re-evaluating the list of databases at runtime is specifically useful for scenarios where pool or server membership changes frequently.
 
-
 Pools and single databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
 
 A target group can include databases in multiple subscriptions, and across multiple regions. Note that cross-region executions have higher latency than executions within the same region.
 
+The following examples show how different target group definitions are dynamically enumerated at the moment of job execution to determine which databases the job will run.
+
+- *Example 1* shows a target group that consists of a list of individual databases. When a job step is executed using this target group, the job step's action will be executed in each of those databases.
+- *Example 2* shows a target group that contains an Azure SQL Server as a target. When a job step is executed using this target group, the server is dynamically enumerated to determine the list of databases that are currently in the server. The job step's action will be executed in each of those databases.
+- *Example 3* shows a similar target group as *Example 2*, but an individual database is specifically excluded. The job step's action will *not* be executed in the excluded database.
+- *Example 4* shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
+
+  ![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+- *Example 5* and *Example 6* show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.
+- *Example 7* shows that the shards in a shard map can also be evaluated at job run time.
+
+  ![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
 
 ### Job
 
