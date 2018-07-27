@@ -52,7 +52,7 @@ URL composition has the following elements:
 
 ## Send your first query
 
-As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
+As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. You can copy-paste this URL in first example below.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
@@ -72,7 +72,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 All of the examples in this article specify the **queryType=full** search parameter, indicating that the full syntax is handled by the Lucene Query Parser. 
 
-## Example 1: field-scoped query
+## Example 1: Field-scoped query
 
 The first query is not a demonstration of full Lucene syntax (it works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
 
@@ -193,7 +193,7 @@ Try specifying the Lucene Query Parser in your code. The following links explain
 * [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
 * [Query your Azure Search Index using the REST API](search-query-rest-api.md)
 
-## See also
+Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Simple syntax query examples](search-query-simple-examples.md)
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)

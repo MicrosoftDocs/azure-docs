@@ -49,7 +49,7 @@ URL composition has the following elements:
 
 ## Send your first query
 
-As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. 
+As a verification step, paste the following request into GET and click **Send**. Results are returned as verbose JSON documents. You can copy-paste this URL in first example below.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
@@ -63,7 +63,7 @@ Optionally, you can add **`$count=true`** to the URL to return a count of the do
 
 For interactive queries, you don't have to specify anything: simple is the default. In code, if you previously invoked **queryType=full** for full query syntax, you could reset back to default with **queryType=simple**.
 
-## Example 1: field-scoped query
+## Example 1: Field-scoped query
 
 The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
 
@@ -79,7 +79,7 @@ Response for this query should look similar to the following screenshot.
 
 You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
 
-## Example 2: Lookup a specific document
+## Example 2: Lookup by ID
 
 This example is a bit atypical, but when testing your indexing code, you might want to verify whether a specific document is loaded or refreshed in the index. The way to fully validate whether a document is indexed is to do a [lookup by ID](https://docs.microsoft.com/rest/api/searchservice/lookup-document). You can use the simple syntax for that.
 
@@ -104,12 +104,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 ## Example 6: Sorted results
 
 ## Next steps
-Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
+Try specifying queries in your code. The following links explain how to set up search queries for both .NET and the REST API using the default simple syntax.
 
 * [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
 * [Query your Azure Search Index using the REST API](search-query-rest-api.md)
 
-## See also
+Additional syntax reference, query architecture, and examples can be found in the following links:
 
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
 + [How full text search works in Azure Search](search-lucene-query-architecture.md)
