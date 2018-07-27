@@ -36,15 +36,17 @@ To create an AKS cluster, complete the following steps:
     - *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
         - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
     
-    Select **Next: Authentication** when complete.
-    
     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+
+    Select **Next: Authentication** when complete.
 
 1. **Authentication**: Configure the following options:
     - Create a new service principal or *Configure* to use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
     - Enable the option for Kubernetes role-based access controls (RBAC). These controls provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     ![Create AKS cluster - configure authentication](media/kubernetes-walkthrough-portal/create-cluster-2.png)
+
+    Select **Next: Networking** when complete.
 
 1. **Networking**: Configure the following networking options, which should be set as default:
     
@@ -57,9 +59,9 @@ To create an AKS cluster, complete the following steps:
 
     Select **Yes** to enable container monitoring and select an existing Log Analytics workspace, or create a new one.
     
-    Select **Review + create** and then **Create** when complete.
+    Select **Review + create** and then **Create** when ready.
 
-After a short wait, the AKS cluster is deployed and ready to use. Browse to the AKS cluster resource group, such as *myResourceGroup*, and select the AKS resource, such as *myAKSCluster*. The AKS cluster dashboard is shown, as in the following example screenshot:
+It takes a few minutes to create the AKS cluster and to be ready for use. Browse to the AKS cluster resource group, such as *myResourceGroup*, and select the AKS resource, such as *myAKSCluster*. The AKS cluster dashboard is shown, as in the following example screenshot:
 
 ![Example AKS dashboard in the Azure portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -201,7 +203,7 @@ Open a web browser to the external IP address of your service to see the Azure V
 
 ## Monitor health and logs
 
-When you created the cluster, container insights monitoring was enabled. This monitoring provides health metrics for both the AKS cluster and pods running on the cluster. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
+When you created the cluster, container insights monitoring was enabled. This monitoring feature provides health metrics for both the AKS cluster and pods running on the cluster. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 It may take a few minutes for this data to populate in the Azure portal. To see current status, uptime, and resource usage for the Azure Vote pods, browse back to the AKS resource in the Azure portal, such as *myAKSCluster*. Choose **Monitor Container Health** > select the **default** namespace > then select **Containers**.  The *azure-vote-back* and *azure-vote-front* containers are shown:
 
