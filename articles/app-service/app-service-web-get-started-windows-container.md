@@ -64,11 +64,11 @@ Wait a few minutes and try again, until you get the IIS welcome page:
 
 ![](media/app-service-web-get-started-windows-container/app-running.png)
 
-**Congratulations!** You are running your first custom Windows container in Azure App Service.
+**Congratulations!** You're running your first custom Windows container in Azure App Service.
 
 ## See container start-up logs
 
-It may take some time for the Windows container to load. To see the its progress, navigate to the following URL by replacing *\<app_name>* with the name of your app.
+It may take some time for the Windows container to load. To see the progress, navigate to the following URL by replacing *\<app_name>* with the name of your app.
 ```
 https://<app_name>.scm.azurewebsites.net/api/logstream
 ```
