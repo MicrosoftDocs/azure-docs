@@ -1,0 +1,6 @@
+- name: Linux VMs Documentation
+  href: ../index.yml
+  - name: Allocation failures 
+    href: allocation-failure.md
+  - name: Allocation failures-classic VM
+    href: allocation-failure-classic.md
