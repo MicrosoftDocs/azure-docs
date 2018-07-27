@@ -146,6 +146,7 @@
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
   - name: Speech SDK
+    items:
     - name: Download
       href: 'speech-sdk.md#get-the-sdk'
     - name: Samples
