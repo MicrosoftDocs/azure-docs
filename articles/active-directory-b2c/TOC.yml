@@ -237,25 +237,39 @@
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
       - name: Identity Framework Experience schema
         items:
-        - name: Claims transformations
-          href: claims-transformations.md
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
           items:
-          - name: Boolean
-            href: boolean-transformations.md
-          - name: Date
-            href: date-transformations.md
-          - name: General
-            href: general-transformations.md
-          - name: Integer
-            href: integer-transformations.md
-          - name: JSON
-            href: json-transformations.md
-          - name: Social accounts
-            href: social-transformations.md
-          - name: StringCollection
-            href: stringcollection-transformations.md
-          - name: String
-            href: string-transformations.md 
+          - name: ClaimsSchema
+            href: claimsschema.md
+          - name: ClaimsTransformations
+            href: claimstransformations.md
+            items:
+            - name: Boolean
+              href: boolean-transformations.md
+            - name: Date
+              href: date-transformations.md
+            - name: General
+              href: general-transformations.md
+            - name: Integer
+              href: integer-transformations.md
+            - name: JSON
+              href: json-transformations.md
+            - name: Social accounts
+              href: social-transformations.md
+            - name: StringCollection
+              href: stringcollection-transformations.md
+            - name: String
+              href: string-transformations.md
+          - name: ContentDefinitions
+            href: contentdefinitions.md
+          - name: Localization
+            href: localization.md
+            items:
+            - name: Localization string Ids
+              href: localization-string-ids.md 
   - name: Reference
     items:
     - name: Code samples
