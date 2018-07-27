@@ -32,7 +32,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Set aside storage account configuration
 
-> [!IMPORTANT] During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
+> [!IMPORTANT]
+> During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
 >
 > From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both values are needed for commands coming later.
 
