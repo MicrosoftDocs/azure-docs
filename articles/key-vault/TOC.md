@@ -44,7 +44,7 @@
 ## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
 ## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
-## [Node.js]
+## Node.js
 ### [Vault Management](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/)
 ### [Vault Client Library](https://docs.microsoft.com/javascript/api/azure-keyvault/)
 ## Develop
