@@ -255,7 +255,6 @@ When you click the LinkedIn Learning tile in the Access Panel, you should get th
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 
