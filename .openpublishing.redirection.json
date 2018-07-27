@@ -17181,7 +17181,7 @@
             "redirect_document_id": false
         },
 	    {
-            "source_path": "articles/virtual-machines/linux/detailed-troubleshoot-ssh-connection.md"
+            "source_path": "articles/virtual-machines/linux/detailed-troubleshoot-ssh-connection.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md",
             "redirect_document_id": false
         },
