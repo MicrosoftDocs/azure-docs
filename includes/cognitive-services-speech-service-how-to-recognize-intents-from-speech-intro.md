@@ -11,7 +11,8 @@ ms.author: wolfma
 The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides a way to recognize intents from speech, powered by the Speech service and the [Language Understanding service (LUIS)](https://luis.ai).
 )
 
-1. Create a speech factory, providing a Language Understanding service subscription key and [region](~/articles/cognitive-services/speech-service/regions.md).
+1. Create a speech factory, providing a Language Understanding service subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition).
+
 
 1. Get an intent recognizer from the speech factory.
    A recognizer can use your device's default microphone, an audio stream, or audio from a file.
@@ -30,4 +31,4 @@ Below we show several code snippets for intent recognition scenarios using the S
 > Please obtain a subscription key first.
 > In contrast to other services supported by the Speech SDK, intent recognition requires a specific subscription key.
 > [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information about how to acquire a subscription key.
-> Replace your own Language Understanding subscription key, the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md), and the AppId of your intent model in the appropriate places in the samples.
+> Replace your own Language Understanding subscription key, the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), and the AppId of your intent model in the appropriate places in the samples.
