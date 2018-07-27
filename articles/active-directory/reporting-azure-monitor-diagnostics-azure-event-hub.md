@@ -55,7 +55,7 @@ To use this feature, you need:
 
 7. Select **OK** to exit the event hub configuration.
 
-8. Do either of the following:
+8. Do either or both of the following:
     * To send audit logs to the storage account, select the **AuditLogs** check box. 
     * To send sign-in logs to the storage account, select the **SignInLogs** check box.
 
