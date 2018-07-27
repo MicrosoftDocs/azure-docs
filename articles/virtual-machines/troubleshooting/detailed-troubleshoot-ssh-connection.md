@@ -95,7 +95,7 @@ To eliminate the cloud service endpoint and ACL as the source of the failure, ve
 
 ![Diagram that highlights cloud service endpoint and ACL](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-If you don't have another VM in the same virtual network, you can easily create one. For more information, see [Create a Linux VM on Azure using the CLI](quick-create-cli.md). Delete the extra VM when you are done with your testing.
+If you don't have another VM in the same virtual network, you can easily create one. For more information, see [Create a Linux VM on Azure using the CLI](../linux/quick-create-cli.md). Delete the extra VM when you are done with your testing.
 
 If you can create an SSH connection with a VM in the same virtual network, check the following areas:
 

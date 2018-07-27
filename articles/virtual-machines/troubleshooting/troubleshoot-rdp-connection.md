@@ -37,7 +37,7 @@ After each troubleshooting step, try reconnecting to the VM:
 7. Restart your VM.
 8. Redeploy your VM.
 
-Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](detailed-troubleshoot-rdp.md).
 
 > [!TIP]
 > If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
@@ -67,7 +67,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
    
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](boot-diagnostics.md).
 
-4. **Reset the NIC for the VM**. For more information, see [how to reset NIC for Azure Windows VM](reset-network-interface.md).
+4. **Reset the NIC for the VM**. For more information, see [how to reset NIC for Azure Windows VM](../windows/reset-network-interface.md).
 5. **Check the VM Resource Health**. This troubleshooting step verifies there are no known issues with the Azure platform that may impact connectivity to the VM.
    
     Select your VM in the Azure portal. Scroll down the settings pane to the **Support + Troubleshooting** section near bottom of the list. Click the **Resource health** button. A healthy VM reports as being **Available**:
@@ -148,7 +148,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Direction                : Inbound
     ```
    
-    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
+    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator account that you specify when you are unsure of, or have forgotten, the credentials.
    
     First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
@@ -202,7 +202,7 @@ After each troubleshooting step, try reconnecting to the VM.
    
    ![Verify Cloud Services endpoints in the Azure portal](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   If you do not have an endpoint that allows RDP traffic, [create a Cloud Services endpoint](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Allow TCP to private port 3389.
+   If you do not have an endpoint that allows RDP traffic, [create a Cloud Services endpoint](../windows/classic/setup-endpoints.md). Allow TCP to private port 3389.
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
    
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
