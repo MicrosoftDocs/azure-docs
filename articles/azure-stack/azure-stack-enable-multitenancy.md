@@ -109,7 +109,7 @@ Mary will direct any [foreign principals](../role-based-access-control/rbac-and-
 
 If you no longer want multiple tenants in Azure Stack, you can disable multi-tenancy by doing the following steps in order:
 
-1. As the administrator of the guest directory (Mary in this scenario), run *Unregister-AzSWithMyDirectoryTenant*. The cmdlet uninstalls all the Azure Stack applications from the new directory.
+1. As the administrator of the guest directory (Mary in this scenario), run *Unregister-AzsWithMyDirectoryTenant*. The cmdlet uninstalls all the Azure Stack applications from the new directory.
 
     ``` PowerShell
     ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -118,7 +118,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
     ## Replace the value below with the guest tenant directory. 
     $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
     
-    Unregister-AzSWithMyDirectoryTenant `
+    Unregister-AzsWithMyDirectoryTenant `
      -TenantResourceManagerEndpoint $tenantARMEndpoint `
      -DirectoryTenantName $guestDirectoryTenantName `
      -Verbose 
