@@ -12,6 +12,8 @@ ms.date: 07/16/2018
 ms.author: fmegen
 ---
 
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
 # Quickstart: Recognize speech in Java on Android using the Speech SDK
 
 In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.

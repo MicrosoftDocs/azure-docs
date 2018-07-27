@@ -12,6 +12,8 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
 # Quickstart: Recognize speech in a UWP app using the Speech SDK
 
 In this article, you learn how to create a Universal Windows Platform (UWP) application using the Cognitive Services Speech SDK to transcribe speech to text.
