@@ -264,11 +264,6 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
 
   > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
   >
   >
@@ -386,13 +381,8 @@ Members of this role are added to the local administrators group on Azure AD-joi
 | **Actions** | **Description** |
 | --- | --- |
 
-### Directory Reader
+### Directory Readers
 Can read basic directory information. For granting access to applications
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -446,11 +436,6 @@ Can read basic directory information. For granting access to applications
 ### Directory Synchronization Accounts
 Only used by Azure AD Connect service.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Create Policies in Azure Active Directory. |
@@ -479,11 +464,6 @@ Only used by Azure AD Connect service.
 
 ### Directory Writer
 Can read & write basic directory information. For granting access to applications
-
-  > [!NOTE]
-  > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -780,6 +760,25 @@ Can manage role assignments in Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Update standard properties on DirectoryRoles in Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Manage all aspects of the Privileged Role Management service. |
 
+### Reports Reader
+Can read sign-in and audit reports.
+
+  > [!NOTE]
+  > This role inherits additional permissions from the Directory Readers role.
+  >
+  >
+
+  > [!NOTE]
+  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Read Azure AD Reports. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
+| microsoft.office365.usagereports/AllEntities/Read | Read Office 365 usage reports. |
+
 ### Security Administrator
 Can read security information and reports
 
@@ -807,25 +806,6 @@ Can read security information and reports
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Read all aspects of Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Read all aspects of Office 365 Protection Center. |
 | microsoft.protectioncenter/AllEntities/Update | Manage Office 365 Protection Center. |
-
-### Reports Reader
-Can read sign-in and audit reports.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
-  > This role has additional permissions outside of Azure Active Directory. See role description above for more information.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Read Azure AD Reports. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
-| microsoft.office365.usagereports/AllEntities/Read | Read Office 365 usage reports. |
 
 ### Security Reader
 Can read security information and reports in Azure AD and Office 365.
