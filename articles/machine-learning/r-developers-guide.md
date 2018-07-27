@@ -26,6 +26,18 @@ their existing skills with the [R programming language](https://www.r-project.or
 Azure offers many services that R developers can leverage to extend their data science workloads into the cloud.  Let's
 examine the various options and the most compelling scenarios for each one.
 
+## Summary
+The following table summarizes the options 
+|Technology    |Description                                                                                            |
+|--------------|-------------------------------------------------------------------------------------------------------|
+|[Data Science Virtual Machine](#data-science-virtual-machine)  |xxx fjjee|
+|[R Server on Azure HDInsight](#r-server-on-azure-hdinsight)    |
+|[Azure Databricks](#azure-databricks)                          |
+|[Azure Machine Learning Studio](#azure-machine-learning-studio)|
+|[Azure Batch](#azure-batch)                                    |
+|[Azure Notebooks](#azure-notebooks)                            |
+|[Azure SQL Database](#azure-sql-database)                      |
+
 ## Data Science Virtual Machine
 The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
 (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has
@@ -128,6 +140,28 @@ functions as Azure ML web services, and to run R data through existing web servi
 This package makes it much easier to use Azure ML as a scalable deployment platform for your R code.  Instead of
 clicking and dragging in the UI, you can automate the entire deployment process using tools you already know.
 
+## Azure Batch
+For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/en-us/services/batch/).  This service
+provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or
+thousands of virtual machines.  Since it is a generalized computing platform, there a few options for running R jobs on
+Azure Batch.
+
+One option is to use Microsoft's <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> package.  This
+R package is a parallel backend for the `foreach` package.  It allows each iteration of the `foreach` loop to run in
+parallel on a node within the Azure Batch cluster.  For an introduction to the package, please read the
+["doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session"](https://azure.microsoft.com/en-us/blog/doazureparallel/)
+blog post.
+
+Another option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure
+portal.  For a detailed walk-through, consult
+["R Workloads on Azure Batch."](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/)
+
+A third option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
+which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an
+economical way to run Spark jobs in Azure.  By using
+[SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out
+in the cloud easily and economically.
+
 ## Azure Notebooks
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working
 with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser
@@ -155,28 +189,6 @@ Database.  It is currently in
 [limited preview](https://docs.microsoft.com/en-us/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap)
 but will continue to evolve.
 
-## Azure Batch
-For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/en-us/services/batch/).  This service
-provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or
-thousands of virtual machines.  Since it is a generalized computing platform, there a few options for running R jobs on
-Azure Batch.
-
-One option is to use Microsoft's <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> package.  This
-R package is a parallel backend for the `foreach` package.  It allows each iteration of the `foreach` loop to run in
-parallel on a node within the Azure Batch cluster.  For an introduction to the package, please read the
-["doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session"](https://azure.microsoft.com/en-us/blog/doazureparallel/)
-blog post.
-
-Another option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure
-portal.  For a detailed walk-through, consult
-["R Workloads on Azure Batch."](https://azure.microsoft.com/en-us/blog/r-workloads-on-azure-batch/)
-
-A third option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK),
-which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an
-economical way to run Spark jobs in Azure.  By using
-[SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out
-in the cloud easily and economically.
-
 ## Conclusion
 Microsoft has fully embraced the R programming language as a first-class tool for data scientists.  By providing many
 different options for R developers to run their code in Azure, the company is enabling data scientists to harness the
@@ -186,6 +198,7 @@ power of the cloud when tackling large-scale data projects.
 * [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server in the Cloud](https://docs.microsoft.com/en-us/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/en-us/machine-learning-server/resources-more)
+* [R on Azure](https://github.com/yueguoguo/r-on-azure) - an overview of packages, tools, and case studies for using R with Azure
 
 ---
 
