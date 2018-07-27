@@ -8,6 +8,7 @@
 ## [Create a Key Vault - PowerShell](quick-create-powershell.md)
 ## [Create a Key Vault - Portal](quick-create-portal.md)
 ## [Read from a Key Vault - .NET](quick-create-net.md)
+## [Read from a Key Vault - Node.js(quick-create-node.md)]
 # Tutorials
 ## [Read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 ## [Get started with Key Vault](key-vault-get-started.md)
@@ -43,7 +44,9 @@
 ## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
 ## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
-## [Node.js](https://keyvaultdocs.azurewebsites.net/KeyVault/Quickstarts/create-kv-node.html)
+## [Node.js]
+### [Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+### [Vault Client Library](https://www.npmjs.com/package/azure-keyvault)
 ## [REST](/rest/api/keyvault)
 ## Develop
 ### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
