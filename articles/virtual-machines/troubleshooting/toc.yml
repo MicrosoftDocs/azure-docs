@@ -22,3 +22,9 @@
     href: performance-diagnostics-vm-extension.md
 - name: Install Windows VM agent offline
   href: install-vm-agent-offline.md
+- name: Redeploy a VM
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
