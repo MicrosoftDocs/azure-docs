@@ -84,7 +84,7 @@ You can only delete orders that are completed or canceled. Perform the following
 
 ## Download shipping label
 
-You may need to download the shipping label if the the return shipping label shipped with your disks is misplaced or lost. 
+You may need to download the shipping label if the return shipping label shipped with your disks is misplaced or lost. 
 
 Perform the following steps to download a shipping label.
 1.	Go to **Overview > Download shipping label**. This option is available only after the disk is shipped. 
