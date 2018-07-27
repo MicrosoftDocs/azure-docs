@@ -51,7 +51,7 @@ In this section, you configure Azure Stack to allow sign-ins from Fabrikam Azure
 Onboard the Guest Directory Tenant (Fabrikam) to Azure Stack by configuring Azure Resource Manager to accept users and service principals from the guest directory tenant.
 
 ````PowerShell  
-## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
@@ -82,7 +82,7 @@ After you complete steps in the Azure Stack directory, Mary must provide consent
 Once the guest directory administrator has provided consent for Azure Stack to access Fabrikam's directory, Mary must register Azure Stack with Fabrikam's directory tenant.
 
 ````PowerShell
-## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
 ## Replace the value below with the guest tenant directory. 
@@ -112,7 +112,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
 1. As the administrator of the guest directory (Mary in this scenario), run *Unregister-AzsWithMyDirectoryTenant*. The cmdlet uninstalls all the Azure Stack applications from the new directory.
 
     ``` PowerShell
-    ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $tenantARMEndpoint = "https://management.local.azurestack.external"
         
     ## Replace the value below with the guest tenant directory. 
@@ -127,7 +127,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
 2. As the service administrator of Azure Stack (you in this scenario), run *Unregister-AzSGuestDirectoryTenant*. 
 
     ``` PowerShell  
-    ## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory
