@@ -15,7 +15,7 @@ ms.author: heidist
 
 [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an Azure Search index. The simple query analyzer is fast and handles common scenarios in Azure Search, including full text search, filtered and faceted search, and geo-search. In this article, step through examples demonstrating query operations available when using the simple syntax.
 
-The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures such as fuzzy and wildcard search, which can take additional time to process. For more information and examples deonstrating full syntax, see [Lucene syntax query examples](search-query-lucene-examples.md).
+The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Lucene syntax query examples](search-query-lucene-examples.md).
 
 ## Formulate requests in Postman
 
@@ -25,7 +25,7 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 ### Set the request header
 
-1. In the request header, set **Content-Type** set to `application/json`.
+1. In the request header, set **Content-Type** to `application/json`.
 
 2. Add an **api-key**, and set it to this string: `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
 
@@ -79,7 +79,7 @@ Response for this query should look similar to the following screenshot.
 
 You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
 
-## Example 2: Lookup by ID
+## Example 2: Look up by ID
 
 This example is a bit atypical, but when testing your indexing code, you might want to verify whether a specific document is loaded or refreshed in the index. The way to fully validate whether a document is indexed is to do a [lookup by ID](https://docs.microsoft.com/rest/api/searchservice/lookup-document). You can use the simple syntax for that.
 

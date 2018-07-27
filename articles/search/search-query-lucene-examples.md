@@ -28,7 +28,7 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 ### Set the request header
 
-1. In the request header, set **Content-Type** set to `application/json`.
+1. In the request header, set **Content-Type** to `application/json`.
 
 2. Add an **api-key**, and set it to this string: `252044BE3886FE4A8E3BAA4F595114BB`. This is a query key for the sandbox search service hosting the NYC Jobs index.
 

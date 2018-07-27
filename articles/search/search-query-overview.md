@@ -12,13 +12,13 @@ ms.date: 07/27/2018
 ---
 # Query fundamentals in Azure Search
 
-A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`*`) but more likely consists of terms, phrases, and operators:
+A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`search=*`) but more likely consists of terms, phrases, and operators similar to the following example:
 
 ```
 "search": "seattle townhouse +\"lake\""
 ```
 
-Other parameters are used to direct query processing or enhance the response. Setting the query parser (to use the simple or full syntax), fields, search mode, paging results, and adding counts are a few of the more notable parameters.
+Other parameters are used to direct query processing or enhance the response. Examples of how parameters are used include scoping search to specific fields, setting a search mode to modulate the precision-to-recall balance, and adding a count so that you can keep track of results. 
 
 ```
 {  
@@ -30,11 +30,11 @@ Other parameters are used to direct query processing or enhance the response. Se
  } 
 ```
 
-During index development, attributes on fields determine what is possible at query time. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
+Although query definition is fundamental, your index schema is equally important in how it specified allowable operations on a field-by-field basis. During index development, attributes on fields determine what is possible at query time. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
 
-Query execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target.  
+At query time, execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target.  
 
-Query results are streamed as JSON documents in the REST API, but if you use .NET APIs, serialization is built in. 
+Query results are streamed as JSON documents in the REST API, although if you use .NET APIs, serialization is built in. You can shape results by setting parameters on the query, selecting specific fields for the result
 
 To summarize, the substance of the query request specifies scope and operations: which fields to include in search, which fields to include in the result set, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
@@ -48,7 +48,18 @@ Azure Search offers many options to create extremely powerful queries. The two m
 
 + A `filter` query evaluates a boolean expression over all *filterable* fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
 
-You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
+You can use searches and filters together or separately. A standalone $filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
+
+```
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
+    {  
+      "search": "",
+      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
+      "count": "true"
+    }
+```
+
+Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
 The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
 
@@ -98,21 +109,20 @@ The following table lists the APIs and tool-based approaches for submitting sque
 
 ## Managing search results
 
-Parameters on the query can be used to structure the result set.
+Parameters on the query can be used to structure the result set in the following ways:
 
-Number of documents in the results (50 by default)
-Selected fields in the results
-Paging a long result set
-Sort order
-Hit highlighting
++ Limiting or batching the number of documents in the results (50 by default)
++ Selecting fields to include in the results
++ Setting a sort order
++ Addding hit highlights to draw attention to matching terms in the body of the search results
 
 ### Tips for unexpected results
 
-Occasionally, it is the substance not the structure of results that are unexpected. When query outcomes are not what you expect to see, you can try these query modifications to see if results improve:
+Occasionally, the substance and not the structure of results are unexpected. When query outcomes are not what you expect to see, you can try these query modifications to see if results improve:
 
-+ Change `searchMode=any` (default) to `searchMode=all` to require matches on all criteria instead of any of the criteria. This is especially true when boolean operators are included the queyr.
++ Change `searchMode=any` (default) to `searchMode=all` to require matches on all criteria instead of any of the criteria. This is especially true when boolean operators are included the query.
 
-+ Change the query technique if text or lexical analysis is necessary, but the query type precludes linguistic processing. In full text search, text or lexical analysis auto-corrects for spelling errors, singular-plural word forms, and even irregular verbs or nouns. For some queries such as fuzzy or wildcard search, text analysis is not part of the query parsing pipeline. If you require both specialized search and lexical analysis, you can sometimes get by with using regular expressions. This forum post explains the workaround ....
++ Change the query technique if text or lexical analysis is necessary, but the query type precludes linguistic processing. In full text search, text or lexical analysis auto-corrects for spelling errors, singular-plural word forms, and even irregular verbs or nouns. For some queries such as fuzzy or wildcard search, text analysis is not part of the query parsing pipeline. For some scenarios, regular expressions have been used as a workaround. 
 
 ### Paging results
 Azure Search makes it easy to implement paging of search results. By using the `top` and `skip` parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
