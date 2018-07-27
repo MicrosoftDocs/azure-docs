@@ -185,7 +185,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  StorageAccountSubscriptionMismatch  |  Storage account {0} doesn't belong to subscription {1}.  |
 |  StorageAccountTooBusy  |  Storage account '{0}' is too busy currently. Consider using another account.  |
 |  StorageAccountTypeNotSupported  |  Disk {0} uses {1} which is a Blob storage account. Please retry with General purpose storage account.  |
-|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  <ul><li>This error occurs if you use the premium storage account for Boot diagnostics. For more information, see [How to use boot diagnostics](../articles/virtual-machines/windows/boot-diagnostics.md). </li></ul> |
+|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  <ul><li>This error occurs if you use the premium storage account for Boot diagnostics. For more information, see [How to use boot diagnostics](boot-diagnostics.md). </li></ul> |
 |  SubscriptionNotAuthorizedForImage  |  The subscription is not authorized.  |
 |  TargetDiskBlobAlreadyExists  |  Blob {0} already exists. Please provide a different blob URI to create a new blank data disk '{1}'.  |
 |  TargetDiskBlobAlreadyExists  |  Capture operation cannot continue because target image blob {0} already exists and the flag to overwrite VHD blobs is not set. Either delete the blob or set the flag to overwrite VHD blobs and retry.  |
