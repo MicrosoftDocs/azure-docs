@@ -160,7 +160,7 @@ To delete a device, you have two options:
 
 **Remarks:**
 
-- You need to be a global administrator in Azure AD to delete a device.  
+- You need to be a global administrator or an Intune administrator in Azure AD to delete a device.
 
 - Deleting a device:
  
