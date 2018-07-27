@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/30/2018
+ms.date: 04/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -76,16 +76,16 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 ### Configuring the Storage for Azure virtual machines
 
-So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities. Because the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
 - Enable read/write volume on **/hana/log** of a 250MB/sec at minimum with 1MB I/O sizes
 - Enable read activity of at least 400MB/sec for **/hana/data** for 16MB and 64MB I/O sizes
 - Enable write activity of at least 250MB/sec for **/hana/data** with 16MB and 64MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as those DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks and use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
+Given that low storage latency is critical for DBMS systems, even as those DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
 
-- 64K or 128K for **/hana/data**
-- 32K for **/hana/log**
+- 64KB or 128KB for **/hana/data**
+- 32KB for **/hana/log**
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.
@@ -94,7 +94,7 @@ Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an I
 
 The caching recommendations below are assuming the I/O characteristics for SAP HANA that list like:
 
-- There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or reboot of the Azure VM when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly does not make sense since in most of the cases, all data file volumes need to be read completely.
+- There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly does not make sense since in most of the cases, all data file volumes need to be read completely.
 - Writing against the data files is experienced in bursts based by HANA savepoints and HANA crash recovery. Writing savepoints is asynchronous and are not holding up any user transactions. Writing data during crash recovery is performance critical in order to get the system responding fast again. However, crash recovery should be rather exceptional situations
 - There are hardly any reads from the HANA redo files. Exceptions are large I/Os when performing transaction log backups, crash recovery, or in the restart phase of a HANA instance.  
 - Main load against the SAP HANA redo log file is writes. Dependent on the nature of workload, you can have I/Os as small as 4 KB or in other cases I/O sizes of 1 MB or more. Write latency against the SAP HANA redo log is performance critical.
@@ -203,7 +203,7 @@ Details and restrictions for Azure Write Accelerator can be found in the same do
 
 
 ### Set up Azure virtual networks
-When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one Azure virtual network that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. In simple deployments, the Virtual Gateway can be deployed in a subnet of the Azure virtual network (VNet) that hosts the SAP HANA instances as well. To install SAP HANA, you create two additional subnets within the Azure virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio, other management software or your application software.
+When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one Azure virtual network that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. In simple deployments, the Virtual Gateway can be deployed in a subnet of the Azure virtual network (VNet) that hosts the SAP HANA instances as well. To install SAP HANA, you create two additional subnets within the Azure virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio, other management software, or your application software.
 
 When you install the VMs to run SAP HANA, the VMs need:
 
@@ -284,14 +284,14 @@ Check whether the storage throughput for the different suggested volumes will me
  
 In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), a formula is named that defines the size of the **/hana/shared** volume for scale-out as the memory size of a single worker node per 4 worker nodes.
 
-Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2TB memory, the SAP recommendations can be summarized like:
+Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
 
 - One master node and up to four worker node, the **/hana/shared** volume would need to be 2TB of size. 
-- One master node and five and eight worker nodes, the size of **/hana/shared** should be 4TB. 
-- One master node and 9 to 12 worker nodes, a size of 6TB for **/hana/shared** would be required. 
-- One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8TB in size.
+- One master node and five and eight worker nodes, the size of **/hana/shared** should be 4 TB. 
+- One master node and 9 to 12 worker nodes, a size of 6 TB for **/hana/shared** would be required. 
+- One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8 TB in size.
 
-The other important design that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
+The other important design that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 
 Particularly in Azure, there are no means and methods to enforce quality of service and quotas on specific vNICs. As a result, the separation of client/application facing and intra-node communication does not open any opportunities to prioritize one traffic stream over the other. Instead the separation remains a measure of security in shielding the intra-node communications of the scale-out configurations.  
 
@@ -333,7 +333,7 @@ Installing a scale-out SAP configuration, you need to perform rough steps of:
 - Deploying new or adapting new Azure VNet infrastructure
 - Deploying the new VMs using Azure managed Premium Storage volumes
 - Deploying a new or adapt an existing highly available NFS cluster
-- Adapt network routing to make sure that, e.g. intra-node communication between VMs are not routed through an [NVA](https://azure.microsoft.com/en-us/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
+- Adapt network routing to make sure that, e.g. intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/en-us/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
 - Install the SAP HANA master node.
 - Adapt configuration parameters of the SAP HANA master node
 - Continue with the installation of the SAP HANA worker nodes
@@ -344,7 +344,7 @@ As your Azure VM infrastructure is deployed, and all other preparations are done
 - Install the SAP HANA master node according to SAP's documentation
 - **After the installation, you need to change the global.ini file and add the parameter 'basepath_shared = no' to the global.ini**. This parameter will enable SAP HANA to run in scale-out without 'shared' **/hana/data** and **/hana/log** volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - After changing the global.ini parameter, restart the SAP HANA instance
-- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, e.g. the local hdblcm. For more detailed documentation see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, e.g. the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Following this setup routine, the scale-out configuration you installed is going to use non-shared disks for running **/hana/data** and **/hana/log**. Whereas the **/hana/shared** volume will be placed on the highly available NFS share.
   

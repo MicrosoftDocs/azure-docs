@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/30/2018
+ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -25,11 +25,11 @@ This article describes several availability scenarios within one Azure region. A
 
 Currently, Azure is offering [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). This article does not describe Availability Zones in detail. But, it includes a general discussion about using Availability Sets versus Availability Zones.
 
-What is the difference between an Availability Set and an Availability Zone in Azure? Azure regions where Availability Zones are offered have multiple datacenters. The datacenters are independent in the supply of power source, cooling, and network. The reason for offering different zones within a single Azure region is so you can deploy applications across two or three Availability Zones that are offered. Assuming that power source or network issues would affect only one Azure Availability Zone infrastructure, your application deployment within an Azure region is still fully functional if you use Azure Availability Zones. Some reduced capacity might occur. For example, VMs in one zone might be lost, but VMs in the other two zones would still be up and running. 
+Azure regions where Availability Zones are offered have multiple datacenters. The datacenters are independent in the supply of power source, cooling, and network. The reason for offering different zones within a single Azure region is to deploy applications across two or three Availability Zones that are offered. Deploying across zones, issues in power and networking affecting only one Azure Availability Zone infrastructure, your application deployment within an Azure region is still functional. Some reduced capacity might occur. For example, VMs in one zone might be lost, but VMs in the other two zones would still be up and running. 
  
 An Azure Availability Set is a logical grouping capability that helps ensure that the VM resources that you place within the Availability Set are failure-isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. In some Azure documentation, this configuration is referred to as placements in different [update and fault domains](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). These placements usually are within an Azure datacenter. Assuming that power source and network issues would affect the datacenter that you are deploying, all your capacity in one Azure region would be affected.
 
-The placement of datacenters that represent Azure Availability Zones is a compromise between delivering network latency between services deployed in different zones that's acceptable for most applications, and a specific distance between datacenters. Natural catastrophes ideally wouldn't affect the power, network supply, and infrastructure for all Availability Zones in this region. However, as monumental natural catastrophes have shown, Availability Zones might not always provide the availability that you want within one region. Think about Hurricane Maria that hit the island of Puerto Rico on September 20, 2017. The hurricane basically caused a nearly 100 percent blackout on the 90-mile-wide island.
+The placement of datacenters that represent Azure Availability Zones is a compromise between delivering acceptable network latency between services deployed in different zones, and a distance between datacenters. Natural catastrophes ideally wouldn't affect the power, network supply, and infrastructure for all Availability Zones in this region. However, as monumental natural catastrophes have shown, Availability Zones might not always provide the availability that you want within one region. Think about Hurricane Maria that hit the island of Puerto Rico on September 20, 2017. The hurricane basically caused a nearly 100 percent blackout on the 90-mile-wide island.
 
 ## Single-VM scenario
 
@@ -45,9 +45,9 @@ Azure VM auto restart, or service healing, is a functionality in Azure that work
 
 A health check functionality monitors the health of every VM that's hosted on an Azure server host. If a VM falls into a non-healthy state, a reboot of the VM can be initiated by the Azure host agent that checks the health of the VM. The fabric controller checks the health of the host by checking many different parameters that might indicate issues with the host hardware. It also checks on the accessibility of the host via the network. An indication of problems with the host can lead to the following events:
 
-- If the host signals a bad health state, a reboot of the host and a restart of the VMs that were running on the host.
-- If the host is not in a healthy state after the reboot, a reboot of the host and a restart of the VMs that were originally hosted on the host on a healthy host. In this case, the host is marked as not healthy. It won't be used for further deployments until it's cleared or replaced.
-- If the unhealthy host has problems during the reboot process, an immediate restart of the VMs on a healthy host is triggered. 
+- If the host signals a bad health state, a reboot of the host and a restart of the VMs that were running on the host is triggered.
+- If the host is not in a healthy state after  successful reboot, a redeployment of the VMs that were originally on the now unhealthy node onto an healthy host server is initiated. In this case, the original host is marked as not healthy. It won't be used for further deployments until it's cleared or replaced.
+- If the unhealthy host has problems during the reboot process, an immediate restart of the VMs on an healthy host is triggered. 
 
 With the host and VM monitoring provided by Azure, Azure VMs that experience host issues are automatically restarted on a healthy Azure host. 
 
@@ -64,7 +64,7 @@ High availability for SAP HANA scale-out configurations is relying on service he
 
 ## Availability scenarios for two different VMs
 
-If you use two Azure VMs within an Azure Availability Set, you can increase the uptime between these two VMs if they're placed in an Azure Availability Set within one Azure region. The base setup in Azure would look like this:
+If you use two Azure VMs within an Azure Availability Set, you can increase the uptime between these two VMs if they're placed in an Azure Availability Set within one Azure region. The base setup in Azure would look like:
 
 ![Diagram of two VMs with all layers](./media/sap-hana-availability-one-region/two_vm_all_shell.PNG)
 
@@ -74,7 +74,7 @@ To illustrate the different availability scenarios, a few of the layers in the d
 
 One of the most rudimentary setups is to use backups. In particular, you might have transaction log backups shipped from one VM to another Azure VM. You can choose the Azure Storage type. In this setup, you are responsible for scripting the copy of scheduled backups that are conducted on the first VM to the second VM. If you need to use the second VM instances, you must restore the full, incremental/differential, and transaction log backups to the point that you need. 
 
-The architecture looks like this:
+The architecture looks like:
 
 ![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
@@ -84,7 +84,7 @@ While backups are being copied, you might be able to use a smaller VM than the m
 
 ### SAP HANA system replication without automatic failover
 
-The scenarios described in this section use SAP HANA system replication. For the SAP documentation, see [System replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Scenarios without automatic failover are not very common for configurations within one Azure region. A configuration without automatic failover, though avoiding a Pacemaker setup, obligates you to monitor and failover manually. Since this takes and efforts as well, most customers are relying on Azure service healing instead. There are some edge cases where this configuration might help in terms of failure scenarios. Or, in some cases, a customer might want to realize more efficiency.
+The scenarios described in this section use SAP HANA system replication. For the SAP documentation, see [System replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Scenarios without automatic failover are not common for configurations within one Azure region. A configuration without automatic failover, though avoiding a Pacemaker setup, obligates you to monitor and failover manually. Since this takes and efforts as well, most customers are relying on Azure service healing instead. There are some edge cases where this configuration might help in terms of failure scenarios. Or, in some cases, a customer might want to realize more efficiency.
 
 #### SAP HANA system replication without auto failover and without data preload
 
@@ -109,7 +109,7 @@ In the standard and most common availability configuration within one Azure regi
 
 From an SAP HANA perspective, the replication mode that's used is synced and an automatic failover is configured. In the second VM, the SAP HANA instance acts as a hot standby node. The standby node receives a synchronous stream of change records from the primary SAP HANA instance. As transactions are committed by the application at the HANA primary node, the primary HANA node waits to confirm the commit to the application until the secondary SAP HANA node confirms that it received the commit record. SAP HANA offers two synchronous replication modes. For details and for a description of differences between these two synchronous replication modes, see the SAP article [Replication modes for SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
-The overall configuration looks like this:
+The overall configuration looks like:
 
 ![Diagram of two VMs with storage replication and failover](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
