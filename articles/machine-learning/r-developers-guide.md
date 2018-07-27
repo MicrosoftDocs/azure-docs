@@ -27,16 +27,16 @@ Azure offers many services that R developers can leverage to extend their data s
 examine the various options and the most compelling scenarios for each one.
 
 ## Summary
-The following table summarizes the options 
-|Technology    |Description                                                                                            |
-|--------------|-------------------------------------------------------------------------------------------------------|
-|[Data Science Virtual Machine](#data-science-virtual-machine)  |xxx fjjee|
-|[R Server on Azure HDInsight](#r-server-on-azure-hdinsight)    |
-|[Azure Databricks](#azure-databricks)                          |
-|[Azure Machine Learning Studio](#azure-machine-learning-studio)|
-|[Azure Batch](#azure-batch)                                    |
-|[Azure Notebooks](#azure-notebooks)                            |
-|[Azure SQL Database](#azure-sql-database)                      |
+The following table summarizes the options discussed in this article.
+|Service       |Description                                                                                                                        |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------|
+|[Data Science Virtual Machine](#data-science-virtual-machine)  |a customized VM to use as a data science workstation or as a custom compute target|
+|[R Server on Azure HDInsight](#r-server-on-azure-hdinsight)    |cluster-based system for running R analyses on large datasets across many nodes   |
+|[Azure Databricks](#azure-databricks)                          |collaborative Spark environment that supports R and other languages               |
+|[Azure Machine Learning Studio](#azure-machine-learning-studio)|run custom R scripts in Azure's machine learning experiments                      |
+|[Azure Batch](#azure-batch)                                    |offers a variety options for economically running R code across many nodes in a cluster|
+|[Azure Notebooks](#azure-notebooks)                            |a no-cost (but limited) cloud-based version of Jupyter notebooks                  |
+|[Azure SQL Database](#azure-sql-database)                      |run R scripts inside of the SQL Server database engine                            |
 
 ## Data Science Virtual Machine
 The [Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview)
