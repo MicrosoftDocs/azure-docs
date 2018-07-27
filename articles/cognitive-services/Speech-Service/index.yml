@@ -91,7 +91,7 @@ sections:
         - href: rest-apis
 
 - title: Speech SDK samples and reference
-  html:
+  items:
   - type: list
     style: cards
     className: cardsD
