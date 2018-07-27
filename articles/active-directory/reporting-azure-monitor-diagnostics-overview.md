@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # Azure AD activity logs in Azure Monitor (preview)
 
-You can now route Azure Active Directory (Azure AD) activity logs to your own storage account or Event Hub by using Azure Monitor. With the public preview of Azure Active Directory logs in Azure Monitor, you can:
+You can now route Azure Active Directory (Azure AD) activity logs to your own storage account or event hub by using Azure Monitor. With the public preview of Azure Active Directory logs in Azure Monitor, you can:
 
 * Archive your audit logs for an Azure storage account, which enables you to retain the data for a long time.
 * Stream your audit logs to an Azure event hub for analytics by using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
