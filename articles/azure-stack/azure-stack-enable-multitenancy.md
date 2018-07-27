@@ -148,7 +148,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
     > [!WARNING]
     > The disable multi-tenancy steps must be performed in order. Step #1 fails if step #2 is completed first.
 
-## Next Steps
+## Next steps
 
 - [Manage delegated providers](azure-stack-delegated-provider.md)
 - [Azure Stack key concepts](azure-stack-key-features.md)
