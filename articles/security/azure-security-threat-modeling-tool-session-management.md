@@ -559,8 +559,7 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 ### Example
 The Web API has to be informed to rely ONLY on bearer tokens and not on cookies. It can be done by the following configuration in `WebApiConfig.Register` method:
 
-```
-C-Sharp code
+```csharp
 config.SuppressDefaultHostAuthentication();
 config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
