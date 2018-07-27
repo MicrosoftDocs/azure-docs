@@ -233,23 +233,39 @@ Here, we configure Express to use the OpenID Connect authentication protocol. Pa
     //   sign-in page. Otherwise, the primary route function is called,
     //   which, in this example, redirects the user to the home page.
     app.get('/auth/openid/return',
-      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-      function(req, res) {
-        log.info('We received a return from AzureAD.');
-        res.redirect('/');
-      });
+     function(req, res, next) {
+       passport.authenticate('azuread-openidconnect', 
+         { 
+           response       : res,                      // required
+           failureRedirect: '/'  
+         }
+       )(req, res, next);
+     },
+     function(req, res) {
+       log.info('We received a return from AzureAD.');
+       res.redirect('/');
+     }
+    );
 
     // POST /auth/openid/return
     //   Use passport.authenticate() as route middleware to authenticate the
     //   request. If authentication fails, the user is redirected back to the
     //   sign-in page. Otherwise, the primary route function is called,
     //   which, in this example, redirects the user to the home page.
-    app.post('/auth/openid/return',
-      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-      function(req, res) {
-        log.info('We received a return from AzureAD.');
-        res.redirect('/');
-      });
+   app.post('/auth/openid/return',
+     function(req, res, next) {
+       passport.authenticate('azuread-openidconnect', 
+         { 
+           response       : res, // required
+           failureRedirect: '/'  
+         }
+       )(req, res, next);
+     },
+     function(req, res) {
+       log.info('We received a return from AzureAD.');
+       res.redirect('/');
+     }
+   );
     ```
 
 
