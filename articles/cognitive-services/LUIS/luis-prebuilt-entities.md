@@ -2,14 +2,13 @@
 title: Prebuilt entities in LUIS | Microsoft Docs
 description: This article contains lists of the prebuilt entities that are included in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann
-ms.reviewer: v-geberr
+ms.author: diberry
 ---
 
 # Prebuilt entities
@@ -33,7 +32,7 @@ LUIS includes a set of prebuilt entities for recognizing common types of informa
 When a prebuilt entity is included in your application, its predictions are included in your published application. 
 The behavior of prebuilt entities is pre-trained and **cannot** be modified. Follow these steps to see how a prebuilt entity works:
 
-1. Add a **number** entity to your app, then [Train](interactive-test.md) and [publish](luis-how-to-publish-app.md) the app.
+1. Add a **number** entity to your app, then [Train](luis-interactive-test.md) and [publish](luis-how-to-publish-app.md) the app.
 2. Click on the endpoint URL in the **Publish App** page to open the LUIS endpoint in a web browser. 
 3. Append an utterance to the URL that contains a numerical expression. For example, you can type in `buy two plane ticktets`, and see that LUIS identifies `two` as a `builtin.number` entity, and identifies `2` as its value in the `resolution` field. The `resolution` field helps you resolve numbers and dates to a canonical form that's easier for your client application to use. 
 
@@ -66,7 +65,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
 ## Use a prebuilt datetimeV2 entity
 The **datetimeV2** prebuilt entity recognizes dates, times, date ranges and time durations. Follow these steps to see how the `datetimeV2` prebuilt entity works:
 
-1. Add a **datetimeV2** entity to your app, then [Train](interactive-test.md) and [publish](luis-how-to-publish-app.md) the app.
+1. Add a **datetimeV2** entity to your app, then [Train](luis-interactive-test.md) and [publish](luis-how-to-publish-app.md) the app.
 2. Click on the endpoint URL in the **Publish App** page to open the LUIS endpoint in a web browser. 
 3. Append an utterance to the URL that contains a date range. For example, you can type in `book a flight tomorrow`, and see that LUIS identifies `tomorrow` as a `builtin.datetimeV2.date` entity, and identifies tomorrow's date as its value in the `resolution` field. 
 

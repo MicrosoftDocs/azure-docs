@@ -3,18 +3,19 @@ title: Usage scenarios and deployment considerations for Azure AD Join| Microsof
 description: Explains how administrators can set up Azure AD Join for their end users (employees, students, other users). It also discusses the different real-world scenarios for using Azure AD Join.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
 
+ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/23/2018
 ms.author: markvi
 
 ---

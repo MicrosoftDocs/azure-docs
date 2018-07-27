@@ -45,7 +45,7 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create custom DNS zone and record - Azure CLI
+  - name: Create private DNS zone and record - Azure CLI
     href: private-dns-getstarted-cli.md
   - name: Manage DNS zones
     items:
