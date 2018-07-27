@@ -59,11 +59,11 @@ To use this feature, you need:
     * To send audit logs to the storage account, select the **AuditLogs** check box. 
     * To send sign-in logs to the storage account, select the **SignInLogs** check box.
 
-10. Select **Save** to save the setting.
+9. Select **Save** to save the setting.
 
     ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/DiagnosticSettings.png)
 
-11. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
+10. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
     ![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png)
 
@@ -76,7 +76,7 @@ After data is displayed in the event hub, you can access and read the data in tw
     
     * **IBM QRadar**: The device-specific module (DSM) and Azure Event Hub Protocol are available for download at [IBM support](http://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
-    3. **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Collect logs for Azure audit from an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). 
+    * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Collect logs for Azure audit from an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). 
 
 * **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Get started receiving messages with the Event Processor Host in .NET Standard](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 
