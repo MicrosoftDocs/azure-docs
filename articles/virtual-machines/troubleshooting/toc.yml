@@ -13,7 +13,7 @@
   - name: Reset RDP
     href: reset-rdp.md
   - name: RDP troubleshooting
-    href: troubleshoot-rdp.md
+    href: troubleshoot-rdp-connection.md
   - name: Detailed RDP troubleshooting
     href: detailed-troubleshoot-rdp.md
   - name: Troubleshoot specific errors
