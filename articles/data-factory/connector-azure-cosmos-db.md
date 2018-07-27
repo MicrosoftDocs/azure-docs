@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
 
 ---
@@ -161,6 +161,8 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
+| writeBehavior |Describe how to write data into Cosmos DB. Allowed values are: `insert` and `upsert`.<br/>The behavior of **upsert** is to replace the document if an document of the same id already exist; otherwise insert it. Note ADF will automatically generate an id for the document if it is not specified either in the original doc or by column mapping), which means you need to make sure your document has an "id" so that upsert work as expected. |No, default is insert |
+| writeBatchSize | Data Factory use [Cosmos DB bulk executor](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data into Cosmos DB. "writeBatchSize" controls the size of documents we provide to the library each time. You can try increase writeBatchSize to improve performance. |No |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 
 **Example:**
@@ -187,7 +189,8 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }
