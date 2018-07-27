@@ -34,21 +34,21 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Connect to the HDInsight cluster by using SSH:
-     ```bash
-	ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
-    ```
-2. To verify if Kerberos authentication was successful, use the `klist` command. If not, use `kinit` to start Kerberos authentication.
+1. Connect to the HDInsight cluster by using SSH:  
+     ```bash  
+	 ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net  
+     ```  
+2. To verify successful Kerberos authentication, use the `klist` command. If not, use `kinit` to start Kerberos authentication.
 
-3. Sign in to the HDInsight gateway to register the OAuth token required to access Azure Data Lake Storage. 
+3. Sign in to the HDInsight gateway to register the OAuth token required to access Azure Data Lake Storage:   
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
 	 ```
 
-    A status response code of **200 OK** indicates successful registration. Check the username and password if an unauthorized response is received such as 401.
+    A status response code of **200 OK** indicates successful registration. Check the username and password if an unauthorized response is received, such as 401.
 
 ## Define the workflow
-Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
+Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow.
 
 1.	Set up a domain user’s workspace:
  ```bash
@@ -60,7 +60,7 @@ hdfs dfs -put examples /user/<DomainUser>/
  ```
 Replace `DomainUser` with the domain user name. 
 Replace `DomainUserPath` with the home directory path for the domain user. 
-Replace `ClusterVersion` with your cluster HDP version.
+Replace `ClusterVersion` with your cluster Hortonworks Data Platform (HDP) version.
 
 2.	Use the following statement to create and edit a new file:
  ```bash
@@ -169,13 +169,13 @@ nano workflow.xml
 5. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
 
     The workflow is divided into two parts:
-    *	Credential section. This section takes in the credentials that will be used for authenticating Oozie actions:
+    *	**Credential section.** This section takes in the credentials that are used for authenticating Oozie actions:
 
        This example uses authentication for Hive actions. To learn more, see [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
        The credential service allows Oozie actions to impersonate the user for accessing Hadoop services.
 
-    *	Action section. This section has three actions: map-reduce, Hive server 2, and Hive server 1:
+    *	**Action section.** This section has three actions: map-reduce, Hive server 2, and Hive server 1:
 
       - The map-reduce action runs an example from an Oozie package for map-reduce that outputs the aggregated word count.
 
@@ -216,9 +216,9 @@ nano workflow.xml
     ```
     
 
-   a. Replace `domainuser` with your username for the domain.
-   b. Replace `ClusterShortName` with the short name for the cluster. If the cluster name is https://sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: sechad.
-   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.
+   a. Replace `domainuser` with your username for the domain.  
+   b. Replace `ClusterShortName` with the short name for the cluster. If the cluster name is https://sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: sechad.  
+   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.  
     
    d. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
 
