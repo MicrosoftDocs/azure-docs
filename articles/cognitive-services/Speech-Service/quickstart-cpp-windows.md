@@ -14,6 +14,8 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on Windows Desktop using the Speech SDK
 
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
 The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
@@ -89,4 +91,4 @@ Look for this sample in the `quickstart/cpp-windows` folder.
 
 ## Next steps
 
-* Visit the [samples page](samples.md) for additional samples.
+* [Get our samples](speech-sdk.md#get-the-samples)
