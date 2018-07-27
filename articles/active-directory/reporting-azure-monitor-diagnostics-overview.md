@@ -86,7 +86,7 @@ The following table contains estimated costs per month for a basic event hub in 
 | Log category | Number of users | Events per second | Events per five-minute interval | Volume per interval | Messages per interval | Messages per month | Cost per month (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5,400 | 10.8 MB | 43 | 371,520 | $10.83 |
-| Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.8 |
+| Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
 | Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
 
 
