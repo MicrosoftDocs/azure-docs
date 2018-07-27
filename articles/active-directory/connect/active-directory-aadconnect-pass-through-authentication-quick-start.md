@@ -40,7 +40,7 @@ Ensure that the following prerequisites are in place.
 ### In your on-premises environment
 
 1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. Add the server to the same Active Directory forest as the users whose passwords you need to validate.
-2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.644.0 or later.
+2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.750.0 or later.
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
