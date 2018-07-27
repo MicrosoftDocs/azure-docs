@@ -138,7 +138,7 @@
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
