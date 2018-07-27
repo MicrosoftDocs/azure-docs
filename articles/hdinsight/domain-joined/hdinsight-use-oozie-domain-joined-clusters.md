@@ -15,7 +15,7 @@ ms.date: 06/26/2018
 ms.author: omidm
 
 ---
-#Run Apache Oozie in domain-joined Azure HDInsight Hadoop clusters
+# Run Apache Oozie in domain-joined Azure HDInsight Hadoop clusters
 Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 - Apache MapReduce
 - Apache Pig
@@ -24,13 +24,13 @@ Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is i
 
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
-##Prerequisite
+## Prerequisite
 - A domain-joined HDInsight Hadoop cluster. See [Configure domain-joined HDInsight clusters](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
     > For detailed instructions on using Oozie on nondomain-joined clusters, see [Use Hadoop Oozie workflows in Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
-##Connect to a domain-joined cluster
+## Connect to a domain-joined cluster
 
 For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -38,14 +38,14 @@ For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) u
      ```bash
 	ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     ```
-2. To verify if Kerberos authentication was successful, use the `klist` command. If not, use `kinit` to initiate Kerberos authentication.
+2. To verify if Kerberos authentication was successful, use the `klist` command. If not, use `kinit` to start Kerberos authentication.
 
-3. Sign in to the HDInsight gateway to register the oAuth token required to access Azure Data Lake Storage. 
+3. Sign in to the HDInsight gateway to register the OAuth token required to access Azure Data Lake Storage. 
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
 	 ```
 
-    A status response code of _200 OK_ indicates successful registration. Check for the username and password if an unauthorized response is received such as 401.
+    A status response code of **200 OK** indicates successful registration. Check the username and password if an unauthorized response is received such as 401.
 
 ## Define the workflow
 Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
@@ -175,13 +175,13 @@ nano workflow.xml
 
        The credential service allows Oozie actions to impersonate the user for accessing Hadoop services.
 
-    *	Action section. This section has three actions: map-reduce, hive server 2, and hive server 1:
+    *	Action section. This section has three actions: map-reduce, Hive server 2, and Hive server 1:
 
       - The map-reduce action runs an example from an Oozie package for map-reduce that outputs the aggregated word count.
 
-       - The hive server 2 and hive server 1 actions execute a simple query on a hivesample table provided with HDInsight.
+       - The Hive server 2 and Hive server 1 actions run a query on a sample Hive table provided with HDInsight.
 
-        The hive actions use the credentials defined in the credentials section for authentication by using the keyword `cred` in the action element.
+        The Hive actions use the credentials defined in the credentials section for authentication by using the keyword `cred` in the action element.
 
 6. Use the following command to copy the `workflow.xml` file to `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
@@ -218,16 +218,16 @@ nano workflow.xml
 
    a. Replace `domainuser` with your username for the domain.
    b. Replace `ClusterShortName` with the short name for the cluster. If the cluster name is https://sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: sechad.
-   c. Replace `jdbcurlvalue` with the JDBC URL from the hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.
+   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.
     
    d. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
 
    This properties file needs to be present locally when running Oozie jobs.
 
-## Create custom hive scripts for Oozie jobs
-You can create the two hive scripts for hive server 1 and hive server 2 as shown in the following sections.
+## Create custom Hive scripts for Oozie jobs
+You can create the two Hive scripts for Hive server 1 and Hive server 2 as shown in the following sections.
 ###	Hive server 1 file
-1.	Create and edit a file for hive server 1 actions:
+1.	Create and edit a file for Hive server 1 actions:
     ```bash
     nano countrowshive1.hql
     ```
@@ -245,7 +245,7 @@ You can create the two hive scripts for hive server 1 and hive server 2 as shown
     ```
 
 ### Hive server 2 file
-1.	Create and edit a field for hive server 2 actions:
+1.	Create and edit a field for Hive server 2 actions:
     ```bash
     nano countrowshive2.hql
     ```
@@ -262,13 +262,13 @@ You can create the two hive scripts for hive server 1 and hive server 2 as shown
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
 
-## Submission of Oozie jobs
-Submitting oozie jobs for domain joined clusters is similar to submitting oozie jobs in nondomain-joined clusters.
+## Submit Oozie jobs
+Submitting Oozie jobs for domain-joined clusters is like submitting Oozie jobs in nondomain-joined clusters.
 
 For more information, see [Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## Results from an Oozie job submission
-Oozie jobs are run on behalf of the user. So both Apache YARN and Apache Ranger audit logs show the jobs being run as the impersonated user. The command-line interface output of the Oozie job looks like the following code:
+Oozie jobs are run for the user. So both Apache YARN and Apache Ranger audit logs show the jobs being run as the impersonated user. The command-line interface output of an Oozie job looks like the following code:
 
 
 ```bash
@@ -302,14 +302,14 @@ Oozie jobs are run on behalf of the user. So both Apache YARN and Apache Ranger 
     -----------------------------------------------------------------------------------------------
 ```
 
-The Ranger audit logs for hive server 2 actions show Oozie executing the action on behalf of the user. The Ranger and YARN views are visible only to the cluster admin.
+The Ranger audit logs for Hive server 2 actions show Oozie running the action for the user. The Ranger and YARN views are visible only to the cluster admin.
 
 ## Configuration of user authorization in Oozie
-Oozie by itself has a user authorization configuration that can block users from stopping or terminating other users' jobs. To enable this configuration, set the `oozie.service.AuthorizationService.security.enabled` to `true`. 
+Oozie by itself has a user authorization configuration that can block users from stopping or canceling other users' jobs. To enable this configuration, set the `oozie.service.AuthorizationService.security.enabled` to `true`. 
 
 For more information, see [Oozie Installation and Configuration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
-For components like hive server 1 where the Ranger plug-in is not available or supported, only coarse-grained HDFS authorization is possible. Fine-grained authorization is available only through Ranger plug-ins.
+For components like Hive server 1 where the Ranger plug-in isn't available or supported, only coarse-grained HDFS authorization is possible. Fine-grained authorization is available only through Ranger plug-ins.
 
 ## Oozie web UI
 The Oozie web UI provides a web-based view into the status of Oozie jobs on the cluster. Take the following steps in domain-joined clusters:
