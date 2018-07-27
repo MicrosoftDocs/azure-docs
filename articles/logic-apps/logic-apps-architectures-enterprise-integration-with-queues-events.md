@@ -24,6 +24,7 @@ The following reference architecture shows a set of proven practices that you ca
 ![Architecture diagram - Enterprise integration with queues and events](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 *There are many possible applications for integration technology. They range from a simple point-to-point application to a full enterprise Azure Service Bus application. The architecture series describes the reusable component parts that might apply to building a generic integration application. Architects should consider which components they need to implement for their application and infrastructure.*
+<!-- Should previous line be in Italic or asterisks must be escaped? -->
 
 ## Architecture
 
