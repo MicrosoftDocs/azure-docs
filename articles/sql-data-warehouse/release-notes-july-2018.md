@@ -69,7 +69,7 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 1                 | @id  | 56                       | int
 ```
 ## SP_REFRESHSQLMODULE
-The [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) stored procedure updates the metadata for a database object if the underlying metadata has become outdated due to changes of the underyling objects. This can occur if the base tables for a view are altered and the view hasn't been recreated. This saves you the step of dropping and recreating dependent objects.
+The [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) stored procedure updates the metadata for a database object if the underlying metadata has become outdated due to changes of the underlying objects. This can occur if the base tables for a view are altered and the view hasn't been recreated. This saves you the step of dropping and recreating dependent objects.
 
 The example below shows a view that becomes stale due to the underlying table change. You'll notice that the data is correct for the first column change (1 to Mollie) but the column name is invalid and the second column is not present. 
 ```sql
