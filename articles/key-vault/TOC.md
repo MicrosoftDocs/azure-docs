@@ -8,7 +8,7 @@
 ## [Create a Key Vault - PowerShell](quick-create-powershell.md)
 ## [Create a Key Vault - Portal](quick-create-portal.md)
 ## [Read from a Key Vault - .NET](quick-create-net.md)
-## [Read from a Key Vault - Node.js(quick-create-node.md)]
+## [Read from a Key Vault - Node.js](quick-create-node.md)
 # Tutorials
 ## [Read a secret from Key Vault ](tutorial-web-application-keyvault.md)
 ## [Get started with Key Vault](key-vault-get-started.md)
