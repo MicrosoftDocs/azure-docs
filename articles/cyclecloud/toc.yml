@@ -131,9 +131,7 @@
   - name: Get Azure CycleCloud
     href: https://aka.ms/azurecyclecloud
   - name: Release Notes
-    items:
-    - name: GA Release
-      href: ga-release-notes.md
+    href: release-notes.md
   - name: CycleCloud Cluster Templates
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
