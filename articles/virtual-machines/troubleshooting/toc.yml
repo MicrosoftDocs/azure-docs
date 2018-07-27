@@ -1,5 +1,5 @@
 - name: Linux VMs Documentation
-  href: ../index.yml
+  href: ../index.md
 - name: Allocation failures
   items:
   - name: Allocation failures 

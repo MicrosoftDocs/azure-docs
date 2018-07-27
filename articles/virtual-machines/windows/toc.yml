@@ -394,10 +394,6 @@
       href: troubleshoot-app-connection.md
     - name: Activation problems
       href: troubleshoot-activation-problems.md
-    - name: Allocation failures
-      href: allocation-failure.md
-    - name: Allocation failures-classic VM
-      href: allocation-failure-classic.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
     - name: Common error messages
