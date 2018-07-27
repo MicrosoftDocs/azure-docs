@@ -1,9 +1,9 @@
 ---
-title: DPDK in an Azure virtual machine | Microsoft Docs
+title: DPDK in an Azure Linux VM | Microsoft Docs
 description: Learn how to setup the DPDK in a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: laxmanrb
 manager: gedegrac
 editor: ''
 
