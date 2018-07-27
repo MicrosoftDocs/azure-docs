@@ -16,7 +16,7 @@ ms.reviewer: twounder
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in July 2018.
 
 ## Lightning fast query performance
-[SQL Data Warehouse](https://aka.ms/sqldw) sets new performance benchmarks with the introduction of Instant Data Access that improves shuffle operations. This features reduces the overhead for data movement operations by leverage direct SQL Server to SQL Server native data operations. The integration with the SQL Server engine directly for data movement means that SQL Data Warehouse is now **67% faster than Amazon Redshift** using a workload derived from the well-recognized industry standard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
+[Azure SQL Data Warehouse](https://aka.ms/sqldw) sets new performance benchmarks with the introduction of Instant Data Access that improves shuffle operations. This features reduces the overhead for data movement operations by leverage direct SQL Server to SQL Server native data operations. The integration with the SQL Server engine directly for data movement means that SQL Data Warehouse is now **67% faster than Amazon Redshift** using a workload derived from the well-recognized industry standard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
 
 ![Azure SQL Data Warehouse is faster and cheaper than Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
 <sub>Source: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
