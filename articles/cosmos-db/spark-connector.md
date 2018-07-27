@@ -52,9 +52,9 @@ There are two approaches to connect Apache Spark and Azure Cosmos DB:
 
 ## Connect by using Python or pyDocumentDB SDK
 
-The following image shows the architecture of the pyDocumentDB SDK implementation:
+The following diagram shows the architecture of the pyDocumentDB SDK implementation:
 
-![Spark to Azure Cosmos DB data flow via pyDocumentDB DB](./media/spark-connector/spark-pydocumentdb.png)
+![Diagram of Spark to Azure Cosmos DB data flow via pyDocumentDB DB](./media/spark-connector/spark-pydocumentdb.png)
 
 
 ### Data flow
@@ -71,7 +71,7 @@ Communication between Spark and Azure Cosmos DB is limited to the Spark master n
 
 Run the following steps to connect Spark to Azure Cosmos DB by using pyDocumentDB SDK:
 
-1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Databricks runtime version 4.0 includes Apache Spark 2.3.0, Scala 2.11 within that workspace.  
+1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
 
 2. When the cluster is created and is running, go to **Workspace** > **Create** > **Library**.  
 3. From the New Library dialog box, choose **Upload Python Egg or PyPi** as the source. Provide **pydocumentdb** as the name, and select **Install Library**. PyDocumentdb SDK is already published to the pip packages, so you can find and install it. 
@@ -140,83 +140,83 @@ df = spark.createDataFrame(list(query))
 df.show()
 ```
 
-## Considerations when using pyDocumentDB SDK
+### Considerations when using pyDocumentDB SDK
 Connecting spark to Azure Cosmos DB by using pyDocumentDB SDK is recommended in the following scenarios:
 
 * You want to use Python.  
 
-* You are returning a relatively small result set from Azure Cosmos DB to spark. Note that the underlying dataset in Azure Cosmos DB can be quite large and you are applying filters or running predicate filters against your Azure Cosmos DB source.
+* You are returning a relatively small result set from Azure Cosmos DB to Spark. Note that the underlying dataset in Azure Cosmos DB can be quite large, and you are applying filters or running predicate filters against your Azure Cosmos DB source.
 
 ## Connect by using the Java SDK
 
-The following image shows the architecture of Azure Cosmos DB SQL Java SDK implementation and data moves between the spark worker nodes:
+The following diagram shows the architecture of Azure Cosmos DB SQL Java SDK implementation, and data moves between the Spark worker nodes:
 
-![Data flow in the Spark to Azure Cosmos DB connector](./media/spark-connector/spark-connector.png)
+![Diagram of data flow in the Spark to Azure Cosmos DB connector](./media/spark-connector/spark-connector.png)
 
 ### Data flow
 
 The data flow of the Java SDK implementation is as follows:
 
-* The spark master node connects to the Azure Cosmos DB gateway node to obtain the partition map. A user specifies only the spark and Azure Cosmos DB connections. Connections to the respective master and gateway nodes are transparent to the user.  
+* The Spark master node connects to the Azure Cosmos DB gateway node to obtain the partition map. You specify only the Spark and Azure Cosmos DB connections. Connections to the respective master and gateway nodes are transparent.  
 
-* This information is provided back to the spark master node. At this point, you should be able to parse the query to determine the partitions and their locations in Azure Cosmos DB that you need to access.  
+* This information is provided back to the Spark master node. At this point, you should be able to parse the query to determine the partitions and their locations in Azure Cosmos DB that you need to access.  
 
-* This information is transmitted to the spark worker nodes.  
+* This information is transmitted to the Spark worker nodes.  
 
-* The spark worker nodes connect to the Azure Cosmos DB partitions directly to extract the data and return the data to the spark partitions in the worker nodes.  
+* The Spark worker nodes connect to the Azure Cosmos DB partitions directly, to extract and return the data to the Spark partitions in the worker nodes.  
 
-Communication between spark and Azure Cosmos DB is significantly faster because of the data movement is between the spark worker nodes and the Azure Cosmos DB data nodes (partitions). In this document, you will send some sample twitter data to Azure Cosmos DB account and run spark queries by using that data. Use the following steps to write sample Twitter data to Azure Cosmos DB:
+Communication between Spark and Azure Cosmos DB is significantly faster, because the data movement is between the Spark worker nodes and the Azure Cosmos DB data nodes (partitions). In this example, you send some sample Twitter data to the Azure Cosmos DB account, and run Spark queries by using that data. Use the following steps to write sample Twitter data to Azure Cosmos DB:
 
 1. Create an [Azure Cosmos DB SQL API account](create-sql-api-dotnet.md#create-a-database-account) and [add a collection](create-sql-api-dotnet.md#add-a-collection) to the account.  
 
-2. Download the [TwitterCosmosDBFeed](https://github.com/tknandu/TwitterCosmosDBFeed) sample from GitHub, which is used to write sample Twitter data to Azure Cosmos DB.  
+2. Download the [TwitterCosmosDBFeed](https://github.com/tknandu/TwitterCosmosDBFeed) sample from GitHub. You use this feed to write sample Twitter data to Azure Cosmos DB.  
 
-3. Open a command prompt and install Tweepy and pyDocumentdb modules by running the following commands:
+3. Open a command prompt, and install Tweepy and pyDocumentdb modules by running the following commands:
 
    ```bash
    pip install tweepy==3.3.0
    pip install pyDocumentDB
    ```
 
-4. Extract the contents of Twitter feed sample and open the config.py file. Update the masterKey, host, databaseId, collectionId, and preferredLocations values.  
+4. Extract the contents of the Twitter feed sample and open the config.py file. Update the masterKey, host, databaseId, collectionId, and preferredLocations values.  
 
-5. Navigate to `http://apps.twitter.com/` and register the Twitter feed script as a new application. After choosing a name and application for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
+5. Go to `http://apps.twitter.com/`, and register the Twitter feed script as a new application. After choosing a name and application for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
 
-6. Save the config.py file. Open command prompt and run the python application by using the following command:
+6. Save the config.py file. Open command prompt, and run the Python application by using the following command:
 
    ```bash
    Python driver.py
    ```
 
-7. Navigate to the Azure Cosmos DB collection in the portal and verify that the twitter data is written to the collection.
+7. Go to the Azure Cosmos DB collection in the portal, and verify that the Twitter data is written to the collection.
 
-### Find and attach Java SDK to the spark cluster
+### Find and attach the Java SDK to the Spark cluster
 
-1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks) (Databricks runtime version 4.0 (includes Apache Spark 2.3.0, Scala 2.11) within that workspace.  
+1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
 
-2. Once the cluster is created and is running, navigate to **Workspace** > **Create** > **Library**.  
+2. When the cluster is created and is running, go to **Workspace** > **Create** > **Library**.  
 
-3. From the New Library dialog box, choose **Maven Coordinate** as the source, provide the coordinate value **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0**, and select **Create Library**. The Maven dependencies are resolved, and the package is added to your workspace. In the above maven coordinate format, 2.3.0 represents the spark version, 2.11 represents the scala version, and 1.2.0 represents the Azure Cosmos DB connector version. 
+3. From the **New Library** dialog box, choose **Maven Coordinate** as the source. Provide the coordinate value **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0**, and select **Create Library**. The Maven dependencies are resolved, and the package is added to your workspace. In the preceding Maven coordinate format, 2.3.0 represents the Spark version, 2.11 represents the Scala version, and 1.2.0 represents the Azure Cosmos DB connector version. 
 
 4. After the library is installed, attach it to the cluster you created earlier. 
 
-This article demonstrates the use of spark connector Java SDK in the following scenarios:
+This article demonstrates the use of the Spark connector Java SDK in the following scenarios:
 
-* Read twitter data from Azure Cosmos DB  
+* Read Twitter data from Azure Cosmos DB.  
 
-* Read twitter data that is streaming to Azure Cosmos DB  
+* Read Twitter data that is streaming to Azure Cosmos DB.  
 
-* Write twitter data to Azure Cosmos DB 
+* Write Twitter data to Azure Cosmos DB. 
 
-### Read twitter data from Azure Cosmos DB
+### Read Twitter data from Azure Cosmos DB
  
-In this section, you run spark queries to read a batch of Twitter data from Azure Cosmos DB. The HTML version of the notebook is hosted in the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository. You should download the repository files and navigate to `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html` you can import the notebook to your Azure Databricks account, update the account URI, master key, database, collection names and run it or you can create the notebook as follows:
+In this section, you run Spark queries to read a batch of Twitter data from Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files and go to `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
-1. Navigate to your Azure Databricks account and select the **Workspace** > **Create** > **Notebook**. 
+1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**. 
 
-2. In the **Create Notebook** dialog box, enter a user-friendly name, choose **Python** as the language, from the drop down select the cluster that you created earlier and select **Create**.  
+2. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Python** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-3. Update the endpoint, master key, database and collection values to connect to the account and read tweets by using spark.read.format() command.
+3. Update the endpoint, master key, database, and collection values to connect to the account. Read tweets by using the spark.read.format() command.
 
    ```python
    # Configuration Map
@@ -257,25 +257,25 @@ Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|query_maxdegreeofparallelism  | Sets the number of concurrent operations run at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of concurrent operations to the assigned value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. As the Connector maps each collection partition with an executor, this value won't have any effect on the reading operation.        |
+|query_maxdegreeofparallelism  | Sets the number of concurrent operations run at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of concurrent operations to the assigned value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. As the connector maps each collection partition with an executor, this value won't have any effect on the reading operation.        |
 |query_maxbuffereditemcount     |    Sets the maximum number of items that can be buffered at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of buffered items to the assigned value. If it is set to less than 0, the system automatically decides the number of items to buffer.     |
-|query_enablescan    |   Sets the option to enable scans on the queries which couldn't be served because indexing was opted out on the requested paths.       |
-|query_disableruperminuteusage  |  Disables Request Units(RUs)/minute capacity to serve the query if regular provisioned RUs/second is exhausted.       |
+|query_enablescan    |   Sets the option to enable scans on the queries that couldn't be served because indexing was opted out on the requested paths.       |
+|query_disableruperminuteusage  |  Disables request units (RUs)/minute capacity to serve the query, if regular provisioned RUs/second is exhausted.       |
 |query_emitverbosetraces   |   Sets the option to allow queries to emit out verbose traces for investigation.      |
-|query_pagesize  |   Sets the size of the query result page for each query request. To optimize for throughput, use a large page size to reduce the number of round trips to fetch queries results.      |
-|query_custom  |  Sets the Azure Cosmos DB query to override the default query when fetching data from Azure Cosmos DB. Note that when this value is provided, it will be used in place of a query with pushed down predicates as well.     |
+|query_pagesize  |   Sets the size of the query result page for each query request. To optimize throughput, use a large page size to reduce the number of round trips to fetch results.      |
+|query_custom  |  Sets the Azure Cosmos DB query to override the default query when fetching data from Azure Cosmos DB. Note that when you provide this value, it is used in place of a query with pushed down predicates as well.     |
 
-Depending on the scenario, different configuration values should be used to optimize the performance and throughput. Note that the configuration key is currently case-insensitive, and the configuration value is always a string.
+Depending on the scenario, you should use different configuration values to optimize the performance and throughput. Note that the configuration key is currently case-insensitive, and the configuration value is always a string.
 
-### Read twitter data that is streaming to Azure Cosmos DB
+### Read Twitter data that is streaming to Azure Cosmos DB
 
-In this section, you run spark queries to read a change feed of streaming twitter data. While you run the queries in this section, make sure that your Twitter feed app is running and pumping data to Azure Cosmos DB. The HTML version of the notebook is hosted in the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository. You should download the repository files and navigate to `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html` you can import the notebook to your Azure Databricks account, update the account URI, master key, database, collection names and run it or you can create the notebook as follows:
+In this section, you run Spark queries to read a change feed of streaming Twitter data. While you run the queries in this section, make sure that your Twitter feed app is running and pumping data to Azure Cosmos DB. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
-1. Navigate to your Azure Databricks account and select the **Workspace** > **Create** > **Notebook**.  
+1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 
-2. In the **Create Notebook** dialog box, enter a user-friendly name, choose **Scala** as the language, from the drop down select the cluster that you created earlier and select **Create**.  
+2. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Scala** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-3. Update the endpoint, master key, database and collection values to connect to the account.
+3. Update the endpoint, master key, database, and collection values to connect to the account.
 
    ```scala
    // This script does the following:
@@ -297,12 +297,12 @@ In this section, you run spark queries to read a change feed of streaming twitte
    "ChangeFeedCheckpointLocation" -> "/tmp",
    "changefeedqueryname" -> "Streaming Query from Cosmos DB Change Feed Internal Count")
    ```
-4. Start reading change feed as a stream by using the spark.readStream.format() command:
+4. Start reading the change feed as a stream by using the spark.readStream.format() command:
 
    ```scala
    var streamData = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(sourceConfigMap).load()
    ```
-5. Start streaming query to console:
+5. Start streaming the query to your console:
 
    ```scala
    //**RUN THE ABOVE FIRST AND KEEP BELOW IN SEPARATE CELL
