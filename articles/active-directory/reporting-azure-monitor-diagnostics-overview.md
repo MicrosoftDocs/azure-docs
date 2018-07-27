@@ -34,8 +34,8 @@ You can now route Azure Active Directory (Azure AD) activity logs to your own st
 
 You can route audit activity logs and sign-in activity logs to your Azure storage account, event hub, or custom solution by using this feature. 
 
-* **Audit logs**: The [audit logs activity report](active-directory-reporting-activity-audit-logs.md) provides you with access to the history of every task that's performed in your tenant.
-* **Sign-in logs**: With the [sign-in activity report](active-directory-reporting-activity-sign-ins.md), you can determine who performed the tasks that are reported by the audit logs report.
+* **Audit logs**: The [audit logs activity report](active-directory-reporting-activity-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* **Sign-in logs**: With the [sign-in activity report](active-directory-reporting-activity-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 
 > [!NOTE]
 > B2C-related audit and sign-in activity logs are not supported at this time.
@@ -51,7 +51,7 @@ To use this feature, you need:
 Depending on where you want to route the audit log data, you need either of the following:
 
 * An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An Azure event hubs namespace to integrate with third-party solutions.
+* An Azure event hub namespace to integrate with third-party solutions.
 
 > [!NOTE]
 > To access the Azure AD activity logs, you need to be a *Global Administrator* or *Security Administrator* in the Azure AD tenant.
@@ -81,7 +81,7 @@ Events are batched into approximately five-minute intervals and sent as a single
 
 For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Because audit logs are about 2 KB per event, this equates to 10.8 MB of data. Therefore, 43 messages are sent to the event hub in that five-minute interval. 
 
-The following table contains estimated costs per month for a basic event hub in West US, depending on the volume of event data. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hub pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
+The following table contains estimated costs per month for a basic event hub in West US, depending on the volume of event data. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Log category | Number of users | Events per second | Events per five-minute interval | Volume per interval | Messages per interval | Messages per month | Cost per month (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
@@ -90,13 +90,13 @@ The following table contains estimated costs per month for a basic event hub in 
 | Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
 
 
-## FAQ
+## Frequently asked questions
 
 This section answers frequently asked questions and discusses known issues with Azure AD logs in Azure Monitor.
 
 **Q: Where should I start?** 
 
-**A**: This article discusses what you need to deploy this feature. After you've satisfied the prerequisites, check out the tutorials that can help you configure and route your logs to event hubs.
+**A**: This article discusses what you need to deploy this feature. After you've satisfied the prerequisites, go to the tutorials that can help you configure and route your logs to an event hub.
 
 ---
 
@@ -108,7 +108,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How soon after an action do the corresponding logs show up in event hubs?**
 
-**A**: The logs should show up in event hubs within two to five minutes after the action is performed. For more information about event hubs, see [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md).
+**A**: The logs should show up in your event hub within two to five minutes after the action is performed. For more information about event hubs, see [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md).
 
 ---
 
@@ -124,7 +124,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
-**Q: How much will it cost to stream my data to event hubs?**
+**Q: How much will it cost to stream my data to an event hub?**
 
 **A**: The streaming costs depend on the number of messages you receive per minute. This article discusses how the costs are calculated and lists cost estimates, which are based on the number of messages. 
 
@@ -136,9 +136,9 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
-**Q: Can I access the data from Event Hub without using an external SIEM tool?** 
+**Q: Can I access the data from an event hub without using an external SIEM tool?** 
 
-**A**: Yes. To access the logs from your custom application, you can use the [Event Hub API](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**A**: Yes. To access the logs from your custom application, you can use the [Event Hubs API](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
 ---
 
@@ -146,5 +146,5 @@ This section answers frequently asked questions and discusses known issues with 
 ## Next steps
 
 * [Archive activity logs to storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
-* [Route activity logs to Event Hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [Route activity logs to an event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Read more about Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
