@@ -72,7 +72,7 @@ The property `azureFileShares` and `azureBlobFileSystems` both are an array of o
 - FILE_SHARE_NAME: the name of File share
 - BLOB_CONTAINER_NAME: the name of the Blob container
 
-To mount Azure Storage volumes with the Azure Batch AI SDKs, you must set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/en-us/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+To mount Azure Storage volumes with the Azure Batch AI SDKs, you must set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
 
 #### Mount volumes to cluster
 
