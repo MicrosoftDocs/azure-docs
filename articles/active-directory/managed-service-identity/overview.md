@@ -56,7 +56,7 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
 6. Call is made to Azure AD requesting an access token as specified in step #5, using the client ID and certificate configured in step #3. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
-Using the same diagram, here's an example of how a user-assigned works with Azure Virtual Machines.
+Using the same diagram, here's an example of how a user assigned managed identity works with Azure Virtual Machines.
 
 1. Azure Resource Manager receives a request to create a user assigned identity.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the user assigned identity. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
