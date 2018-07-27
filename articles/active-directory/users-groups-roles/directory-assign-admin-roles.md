@@ -43,7 +43,7 @@ The following administrator roles are available:
 
 * **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
-  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be Global Administrator.
+  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
   
 * **[Device Administrators](#device-administrators)**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
 
