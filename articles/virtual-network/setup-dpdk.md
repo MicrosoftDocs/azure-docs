@@ -1,6 +1,6 @@
 ---
 title: DPDK in an Azure virtual machine | Microsoft Docs
-description: Learn how to setup the DPDK in an Azure Linux virtual machine.
+description: Learn how to setup the DPDK in a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,13 +17,13 @@ ms.date: 07/27/2018
 ms.author: labattul
 
 ---
-# Setup the DPDK in an Azure Linux virtual machine
+# Setup the DPDK in a Linux virtual machine
 
-The Data Plane Development Kit (DPDK) on Azure offers a faster user space packet processing framework for performance intensive applications that bypass virtual machine’s kernel network stack.
+The Data Plane Development Kit (DPDK) on Azure offers a faster user space packet processing framework for performance intensive applications that bypass the virtual machine’s kernel network stack.
 
-Typical packet processing using the kernel network stack is interrupt driven where each time the NIC receives incoming packets, there is a kernel interrupt to process the packet and context switch from kernel space to user space. The DPDK eliminates context switching and the interrupt driven method in favor of a user space implementation using poll mode drivers for fast packet processing.
+Typical packet processing using the kernel network stack is interrupt driven. Each time the network interface receives incoming packets, there is a kernel interrupt to process the packet and context switch from kernel space to user space. The DPDK eliminates context switching and the interrupt driven method in favor of a user space implementation using poll mode drivers for fast packet processing.
 
-The DPDK consists of set of user space libraries providing access to lower-level resources such as hardware, logical cores, memory management, and poll more drivers (PMD) for network interface cards.
+The DPDK consists of set of user space libraries providing access to lower-level resources such as hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
 The DPDK can run in Azure virtual machines, supporting multiple operating system distributions. The DPDK provides a key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVA) such as a virtual router, firewall, VPN, load balancer, evolved packet core, and denial-of-service (DDoS) applications.
 
