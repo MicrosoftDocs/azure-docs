@@ -212,29 +212,29 @@ When you install the VMs to run SAP HANA, the VMs need:
 
 However, for deployments that are enduring, you need to create a virtual datacenter network architecture in Azure. This architecture recommends the separation of the Azure VNet Gateway that connects to on-premise into a separate Azure VNet. This separate VNet should host all the traffic that leaves either to on-premise or to the internet. This approach allows you to deploy software for auditing and logging traffic that enters the virtual datacenter in Azure in this separate hub VNet. So you have one VNet that hosts all the software and configurations that relates to in- and outgoing traffic to your Azure deployment.
 
-The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/en-us/azure/networking/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/en-us/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
+The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
 
 
 >[!NOTE]
->Traffic that flows between a hub VNet and spoke VNet using [Azure VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) is subject of additional [costs](https://azure.microsoft.com/en-us/pricing/details/virtual-network/). Based on those costs, you might need to consider making compromises between running a strict hub and spoke network design and running multiple [Azure ExpressRoute Gateways](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways) that you connect to 'spokes' in order to bypass VNet peering. However, Azure ExpressRoute Gateways introduce additional [costs](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) as well. You also may encounter additional costs for third-party software you use for network traffic logging, auditing, and monitoring. Dependent on the costs for data exchange through VNet peering on the one side and costs created by additional Azure ExpressRoute Gateways and additional software licenses, you may decide for micro-segmentation within one VNet by using subnets as isolation unit instead of VNets.
+>Traffic that flows between a hub VNet and spoke VNet using [Azure VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) is subject of additional [costs](https://azure.microsoft.com/pricing/details/virtual-network/). Based on those costs, you might need to consider making compromises between running a strict hub and spoke network design and running multiple [Azure ExpressRoute Gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) that you connect to 'spokes' in order to bypass VNet peering. However, Azure ExpressRoute Gateways introduce additional [costs](https://azure.microsoft.com/pricing/details/vpn-gateway/) as well. You also may encounter additional costs for third-party software you use for network traffic logging, auditing, and monitoring. Dependent on the costs for data exchange through VNet peering on the one side and costs created by additional Azure ExpressRoute Gateways and additional software licenses, you may decide for micro-segmentation within one VNet by using subnets as isolation unit instead of VNets.
 
 
 For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 
-[Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the jumpbox. The NSGs and eventually [Application Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups) are associated to the SAP HANA subnet and the Management subnet.
+[Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the jumpbox. The NSGs and eventually [Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups) are associated to the SAP HANA subnet and the Management subnet.
 
 The following image shows an overview of a rough deployment schema for SAP HANA following a hub and spoke VNet architecture:
 
 ![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
 
-To deploy SAP HANA in Azure without a site-to-site connection, you still want to shield the SAP HANA instance from the public internet and hide it behind a forward proxy. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs and [Azure NVAs](https://azure.microsoft.com/en-us/solutions/network-appliances/) to control, monitor the routing from the internet into your Azure VNet architecture in Azure. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection in a hub and spoke VNet architecture:
+To deploy SAP HANA in Azure without a site-to-site connection, you still want to shield the SAP HANA instance from the public internet and hide it behind a forward proxy. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs and [Azure NVAs](https://azure.microsoft.com/solutions/network-appliances/) to control, monitor the routing from the internet into your Azure VNet architecture in Azure. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection in a hub and spoke VNet architecture:
   
 ![Rough deployment schema for SAP HANA without a site-to-site connection](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
-Another description on how to use Azure NVAs to control and monitor access from Internet without the hub and spoke VNet architecture can be found in the article [Deploy highly available network virtual appliances](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha).
+Another description on how to use Azure NVAs to control and monitor access from Internet without the hub and spoke VNet architecture can be found in the article [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
 ## Configuring Azure infrastructure for SAP HANA scale-out
@@ -267,7 +267,7 @@ As a result the basic design for a single node in a scale-out configuration is g
 
 The basic configuration of a VM node for SAP HANA scale-out looks like:
 
-- For **/hana/shared**, you build out a highly available NFS cluster based on SUSE Linux 12 SP3. This cluster will host the **/hana/shared** NFS share(s) of your scale-out configuration and SAP NetWeaver or BW/4HANA Central Services. Documentation to build such a configuration is available in the article [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+- For **/hana/shared**, you build out a highly available NFS cluster based on SUSE Linux 12 SP3. This cluster will host the **/hana/shared** NFS share(s) of your scale-out configuration and SAP NetWeaver or BW/4HANA Central Services. Documentation to build such a configuration is available in the article [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
 - All other disk volumes are **NOT** shared among the different nodes and are **NOT** based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further down in this document.
 
 >[!NOTE]
@@ -313,7 +313,7 @@ From a storage point of view the storage architecture would look like:
 The **/hana/shared** volume is located on the highly available NFS share configuration. Whereas all the other drives are 'locally' mounted to the individual VMs. 
 
 ### Highly available NFS share
-The highly available NFS cluster so far is working with SUSE Linux only. The document [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) describes how to set it up. if you don't share the NFS cluster with any other HANA configurations outside the azure VNet that runs the SAP HANA instances, install it in the same VNet. Install it in its own subnet and make sure that not all arbitrary traffic can access the subnet. Instead you want to limit the traffic to that subnet to the IP addresses of the VM that execute the traffic to **/hana/shared** volume.
+The highly available NFS cluster so far is working with SUSE Linux only. The document [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) describes how to set it up. if you don't share the NFS cluster with any other HANA configurations outside the azure VNet that runs the SAP HANA instances, install it in the same VNet. Install it in its own subnet and make sure that not all arbitrary traffic can access the subnet. Instead you want to limit the traffic to that subnet to the IP addresses of the VM that execute the traffic to **/hana/shared** volume.
 
 Related to the vNIC of a HANA scale-out VM that should route the **/hana/shared** traffic, the recommendations are:
 
@@ -321,7 +321,7 @@ Related to the vNIC of a HANA scale-out VM that should route the **/hana/shared*
 - Eventually, for the traffic to **/hana/shared**, deploy a third subnet in the VNet you deploy the SAP HANA scale-out configuration and assign a third vNIC that is hosted in that subnet. Use the third vNIC and associated IP address for the traffic to the NFS share. You then can apply separate access and routing rules.
 
 >[!IMPORTANT]
->Network traffic between the VMs that have SAP HANA in a scale-out manner deployed and the highly available NFS may under no circumstances be routed through an [NVA](https://azure.microsoft.com/en-us/solutions/network-appliances/) or similar virtual appliances. Whereas Azure NSGs are no such devices. Check your routing rules in order to make sure that NVAs or similiar virtual appliances are detoured when access the highly available NFS share from the VMs running SAP HANA.
+>Network traffic between the VMs that have SAP HANA in a scale-out manner deployed and the highly available NFS may under no circumstances be routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/) or similar virtual appliances. Whereas Azure NSGs are no such devices. Check your routing rules in order to make sure that NVAs or similiar virtual appliances are detoured when access the highly available NFS share from the VMs running SAP HANA.
 > 
 
 If you want to share the highly available NFS cluster between SAP HANA configurations, move all those HANA configurations into the same VNet. 
@@ -333,7 +333,7 @@ Installing a scale-out SAP configuration, you need to perform rough steps of:
 - Deploying new or adapting new Azure VNet infrastructure
 - Deploying the new VMs using Azure managed Premium Storage volumes
 - Deploying a new or adapt an existing highly available NFS cluster
-- Adapt network routing to make sure that, e.g. intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/en-us/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
+- Adapt network routing to make sure that, e.g. intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
 - Install the SAP HANA master node.
 - Adapt configuration parameters of the SAP HANA master node
 - Continue with the installation of the SAP HANA worker nodes

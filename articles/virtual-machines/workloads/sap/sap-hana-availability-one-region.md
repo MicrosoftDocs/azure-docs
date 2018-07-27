@@ -91,8 +91,9 @@ The scenarios described in this section use SAP HANA system replication. For the
 In this scenario, you use SAP HANA system replication to move data in a synchronous manner to achieve an RPO of 0. On the other hand, you have a long enough RTO that you don't need either failover or data preloading into the HANA instance cache. In this case, it's possible to achieve further economy in your configuration by taking the following actions:
 
 - Run another SAP HANA instance in the second VM. The SAP HANA instance in the second VM takes most of the memory of the virtual machine. In case a failover to the second VM, you need to shut down the running SAP HANA instance that has the data fully loaded in the second VM, so that the replicated data can be loaded into the cache of the targeted HANA instance in the second VM.
-- Use a smaller VM size on the second VM. If a failover occurs, you have an additional step before the manual failover. In this step, you resize the VM to the size of the source VM. The scenario looks like
-- :
+- Use a smaller VM size on the second VM. If a failover occurs, you have an additional step before the manual failover. In this step, you resize the VM to the size of the source VM. 
+ 
+The scenario looks like:
 
 ![Diagram of two VMs with storage replication](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
 
