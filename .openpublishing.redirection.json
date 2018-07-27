@@ -17176,6 +17176,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-rdp-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/windows/about.md",
             "redirect_url": "/azure/virtual-machines/windows/overview",
             "redirect_document_id": false

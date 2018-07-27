@@ -77,7 +77,7 @@ To eliminate your organization edge device as the source of the failure, verify 
 
 ![Diagram that highlights organization edge device](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-If you don't have a computer that is directly connected to the Internet, create a new Azure VM in its own resource group or cloud service and use that new VM. For more information, see [Create a virtual machine running Linux in Azure](quick-create-cli.md). Delete the resource group or VM and cloud service when you're done with your testing.
+If you don't have a computer that is directly connected to the Internet, create a new Azure VM in its own resource group or cloud service and use that new VM. For more information, see [Create a virtual machine running Linux in Azure](../linux/quick-create-cli.md). Delete the resource group or VM and cloud service when you're done with your testing.
 
 If you can create an SSH connection with a computer that's directly connected to the Internet, check your organization edge device for:
 
@@ -117,7 +117,7 @@ The last source of possible problems is the Azure virtual machine itself.
 
 ![Diagram that highlights Linux-based Azure virtual machine](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-If you haven't done so already, follow the instructions [to reset a password Linux-based virtual machines](reset-password.md).
+If you haven't done so already, follow the instructions [to reset a password Linux-based virtual machines](../linux/reset-password.md).
 
 Try connecting from your computer again. If it still fails, the following are some of the possible issues:
 
@@ -127,4 +127,4 @@ Try connecting from your computer again. If it still fails, the following are so
 * Intrusion detection or network monitoring software that's running on the Azure virtual machine is preventing SSH connections.
 
 ## Additional resources
-For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](troubleshoot-app-connection.md)
+For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](../linux/troubleshoot-app-connection.md)
