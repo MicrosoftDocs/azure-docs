@@ -1,4 +1,4 @@
-- name: Linux VMs Documentation
+- name: Troubleshooting Azure VMs
   href: ../index.md
 - name: Allocation failures
   items:
