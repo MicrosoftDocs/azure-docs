@@ -14,7 +14,7 @@ ms.author: t-wewa
 ms.custom: mvc
 
 ---
-# Storing Batch AI Job Input/Output with Azure Storage
+# Store Batch AI job input/output with Azure Storage
 
 This guide describes how to use Azure Storage for storing input and output files when running a job. Batch AI integrates with Azure Storage by mounting Azure Storage systems to a Batch AI job or cluster filesystem, allowing seamless access to files stored in the cloud.
 
@@ -24,7 +24,7 @@ Azure Storage is Microsoft's cloud storage solution. Batch AI supports mounting 
 
 ## Workflow
 
-### 1. Store Dataset and Input Scripts in Azure Storage
+### 1. Store dataset and input scripts in Azure Storage
 
 We recommend that you store your input files (e.g. dataset) in a Blob container, which has higher throughput, and you store your training output in a File share, which supports streaming (allowing reading of output logs while the job is concurrently running). Batch AI supports mounting volumes from both General-purpose v1 and General-purpose v2 Azure Storage accounts.
 
@@ -44,9 +44,9 @@ Similarly, to create an Azure File share, choose one of the following methods:
 
 Alternatively, you can create an Azure Storage account with an Azure File share and Blob container (and automatically mount these volumes to a Batch AI cluster) using the `--use-auto-storage` flag with `az batchai cluster create`. For more information, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#auto-storage-account).
 
-### 2. Mount Azure Storage to Job Filesystem
+### 2. Mount Azure Storage to job filesystem
 
-#### Mount Volumes to Job
+#### Mount volumes to job
 
 Mounting an Azure Storage volume allows it to be accessed via the job's filesystem. Therefore, a job can read and write files seamlessly to cloud storage as if they were local files.
 
@@ -74,7 +74,7 @@ The property `azureFileShares` and `azureBlobFileSystems` both are an array of o
 
 To mount Azure Storage volumes with the Azure Batch AI SDKs, you must set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/en-us/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
 
-#### Mount Volumes to Cluster
+#### Mount volumes to cluster
 
 Batch AI also supports mounting Azure Storage volumes to a Batch AI cluster. When a volume is mounted to a cluster, all jobs running on that cluster may use volumes mounted to that cluster. While job-level mounting provides the most flexibility (allowing each job to have different mounted volumes), cluster-level mounting may be sufficient in simple scenarios.
 
@@ -82,9 +82,9 @@ To mount an Azure Storage volume to a job created with the Azure CLI, use the `m
 
 Similarly, you can use the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `ClusterCreateParameters` when mounting with Azure Batch AI SDKs. 
 
-### 3. Access Mounted Filesystem in Job Script
+### 3. Access mounted filesystem in job
 
-#### $AZ_BATCHAI_JOB_MOUNT_ROOT Environment Variable
+#### $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable
 
 Inside the job's execution environment, the directory containing the mounted storage systems can be accessed with the `$AZ_BATCHAI_JOB_MOUNT_ROOT` environment variable (if you have used job-level mounting). If you have used cluster-level mounting, this environment variable is `$AZ_BATCHAI_MOUNT_ROOT`. The following examples will assume you have used job-level mounting.
 
@@ -92,7 +92,7 @@ To provide the path of data in a mounted volume, you must use the environment va
 
 If your training script requires knowledge of a path, you should pass it as a command-line argument. For example, if you stored your data in a folder called `train_data` in an Azure Blob container mounted at path `data`, you can pass `--data-dir=$AZ_BATCHAI_JOB_MOUNT_ROOT/data/train_data` as a command-line argument to your script. Accordingly, you must write your script to accept command-line arguments.
 
-#### Abbreviate Input Paths
+#### Abbreviate input paths
 
 To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParamters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
 ```json
@@ -107,7 +107,7 @@ Each path specified will be placed in an environment variable called `$AZ_BATCHA
 
 For more information, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#input-directories).
 
-#### Abbreviate Output Paths
+#### Abbreviate output paths
 
 To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParamters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
 ```json
@@ -123,25 +123,25 @@ Each path specified will be placed in an environment variable called `$AZ_BATCHA
 
 For more information, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#output-directories).
 
-### 4. Retrieve Job Output from Azure Storage
+### 4. Retrieve job output from Azure Storage
 
-#### Using Azure Portal
+#### Using Azure portal
 
 The Azure portal is a convenient way for viewing the output of jobs with a GUI file explorer. However, if you wish to view the output from stdout/stderr, or from a path in  `outputDirectories`, the files are placed in an autogenerated path in your Azure Storage volume. See below for more information.
 
-#### Accessing Stdout and Stderr Output
+#### Accessing stdout and stderr Output
 
 Use the `stdOutErrPathPrefix` property of `job.json` to tell the job where to place the job's execution logs and stdout/stderr output. For example, if you have mounted a File share at relative mount path `outputs`, and you specify the `stdOutErrPathPrefix` to be `"$AZ_BATCHAI_JOB_MOUNT_ROOT/outputs"`, then the stdout/stderr job output will be available at `{subscription id}/{resource group}/workspaces/{workspace name}/experiments/{experiment name}/jobs/{job name}/{job uuid}/stdouterr` in that mounted volume. This autogenerated path is used to mitigate output collisions between jobs of the same name.
 
 For more information, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#standard-and-error-output).
 
-#### List the Output Files
+#### List the output files
 
 You can use the Azure CLI to list the available output files of a job with the `az batchai job file list` command. For example, to list the files in the standard output directory of a job, use `az batchai job file list -j <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NAME> -e <EXPERIMENT_NAME>`.
 
 For more information and examples, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#stream-files-from-output-directories).
 
-#### Stream Output Files (including Stdout/Stderr)
+#### Stream output files (including stdout/stderr)
 
 You can use the Azure CLI to stream files with the `az batchai job file stream` command. For example, to view:
 - stdout: `az batchai job file stream -j <JOB_NAME> -g <RESOURCE_GROUP_NAME> -w <WORKSPACE_NAME> -e <EXPERIMENT_NAME> -f stdout.txt`
@@ -149,7 +149,7 @@ You can use the Azure CLI to stream files with the `az batchai job file stream` 
 
 For more information and examples, see [here](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#stream-files-from-output-directories).
 
-## Next Steps
+## Next steps
 - To learn more about CLI commands to interface with Azure Storage, view the [Azure Batch AI CLI documentation](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).
 - To find more usage examples of Batch AI, including mounting storage and reading output files, see the [Jupyter Notebook recipes for Batch AI](https://github.com/Azure/BatchAI).
 - Explore other options for mounting storage, including [mounting an NFS server](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#mounting-nfs) and [mounting your own NFS, cifs, or GlusterFS cluster](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md#mounting-nfs)
