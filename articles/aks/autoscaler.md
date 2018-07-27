@@ -83,8 +83,7 @@ metadata:
 data:
   ClientID: <base64-encoded-client-id>
   ClientSecret: <base64-encoded-client-secret>$
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
   TenantID: <base64-encoded-tenant-id>
   VMType: QUtTCg==
   ClusterName: <base64-encoded-clustername>
@@ -105,7 +104,7 @@ NAME                       STATUS    ROLES     AGE       VERSION   LABELS
 aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=eastus,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
  ```
 
-Then, extract the value of the label **agent pool**. The default name for the node pool of a cluster is "nodepool1".
+Then, extract the value of the label **agentpool**. The default name for the node pool of a cluster is "nodepool1".
 
 Now using your secret and node pool, you can create a deployment chart.
 
