@@ -39,8 +39,6 @@
     href: iot-edge-runtime.md
   - name: IoT Edge modules
     href: iot-edge-modules.md
-  - name: IoT Edge security manager
-    href: iot-edge-security-manager.md
     items: 
     - name: Development
       href: module-development.md
@@ -48,6 +46,8 @@
       href: module-composition.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
+  - name: IoT Edge security manager
+    href: iot-edge-security-manager.md
   - name: Deployments
     href: module-deployment-monitoring.md
   - name: IoT Edge device as a gateway
