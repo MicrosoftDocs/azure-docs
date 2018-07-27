@@ -185,13 +185,15 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ## Deploy the Node App to Azure and retrieve the secret value
 
-Now for the last step the web app can be published to Azure and see that the app can fetch a secret value. 
-In Index.js file please replace the <YourKeyVaultName> with your vault name that you created in Step 3. And then run the following command to push to Azure
+Now that everything is set. Run the following command to deploy the app to Azure
 
 ```
 git push azure master
 ```
-    
+
+After this browse to https://<app_name>.azurewebsites.net and you see the secret value.
+Make sure you have replaced the name <YourKeyVaultName> with your vault name
+
 ## Next steps
 
 * [Azure Key Vault Home Page](https://azure.microsoft.com/en-us/services/key-vault/)
