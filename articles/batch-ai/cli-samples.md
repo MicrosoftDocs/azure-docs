@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 07/26/2018
+ms.date: 07/27/2018
 ms.author: danlep
 ms.custom: mvc
 
