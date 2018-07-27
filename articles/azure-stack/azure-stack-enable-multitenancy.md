@@ -63,10 +63,13 @@ $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
 $ResourceGroupName = "system.local"
 
+## Replace the value below with the region location of the resource group. 
+$location = "local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local" `
+ -Location $location `
  -ResourceGroupName $ResourceGroupName
 ````
 
@@ -131,15 +134,14 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
     $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
     
     ## Replace the value below with the guest tenant directory. 
-    $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
+    $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
     
     ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
     $ResourceGroupName = "system.local"
     
     Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
      -DirectoryTenantName $azureStackDirectoryTenant `
-     -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
-     -Location "local" `
+     -GuestDirectoryTenantName $guestDirectoryTenantToBeDecommissioned `
      -ResourceGroupName $ResourceGroupName
     ```
 
