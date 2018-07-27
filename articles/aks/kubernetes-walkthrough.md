@@ -200,11 +200,11 @@ Now browse to the external IP address to see the Azure Vote App.
 
 ## Monitor health and logs
 
-When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. This health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
+When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
-1. Open a web browser to the [Azure portal (https://portal.azure.com)][azure-portal].
+1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
 1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*. 
 1. Choose **Monitor container health** > select the **default** namespace > then select **Containers**.
 
