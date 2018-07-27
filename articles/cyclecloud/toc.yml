@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure CycleCloud
+  - name: What is Azure CycleCloud?
     href: overview.md
 - name: QuickStarts
   items:
@@ -129,11 +129,9 @@
 - name: Resources
   items:
   - name: Get Azure CycleCloud
-    href: https://aka.ms/azurecyclecloud
+    href: https://azure.microsoft.com/en-us/features/cyclecloud/
   - name: Release Notes
-    items:
-    - name: GA Release
-      href: ga-release-notes.md
+    href: release-notes.md
   - name: CycleCloud Cluster Templates
     href: https://github.com/CycleCloud
   - name: CycleCloud Community
