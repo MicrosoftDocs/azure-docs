@@ -32,10 +32,10 @@ To generate the permissions for your cluster autoscaler to run in your cluster, 
 
 ```sh
 #! /bin/bash
-ID=`az account show --query id`
+ID=`az account show --query id -o json`
 SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-TENANT=`az account show --query tenantId`
+TENANT=`az account show --query tenantId -o json`
 TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
 read -p "What's your cluster name? " cluster_name
@@ -44,13 +44,13 @@ read -p "Resource group name? " resource_group
 CLUSTER_NAME=`echo $cluster_name | base64`
 RESOURCE_GROUP=`echo $resource_group | base64`
 
-PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID"`
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
 CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
 CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
 
 SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
 
-CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group`
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
 NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
 
 echo "---
