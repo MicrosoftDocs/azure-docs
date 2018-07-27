@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/04/2018
+ms.date: 07/26/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 
@@ -25,7 +25,7 @@ In this tutorial, create an app that demonstrates how to find related pieces of 
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response including hierarchical children 
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 If you don't have the Human Resources app from the [list entities](luis-quickstart-intent-and-list-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github repository.
@@ -136,16 +136,13 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with a different utterance
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
 
 2. Go to the end of the URL in the address bar and enter `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
 
