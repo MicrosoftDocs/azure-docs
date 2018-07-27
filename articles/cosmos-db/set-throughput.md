@@ -150,7 +150,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### Set throughput at the for a set of containers or at the database level
+### Set throughput for a set of containers at the database level
 
 Here is a code snippet for provisioning 100,000 request units per second across a set of containers using the SQL API's .NET SDK:
 

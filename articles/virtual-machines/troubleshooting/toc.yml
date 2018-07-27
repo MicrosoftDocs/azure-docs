@@ -4,14 +4,26 @@
   items:
   - name: Allocation failures 
     href: allocation-failure.md
-  - name: Allocation failures-classic VM
+  - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
 - name: Boot diagnostics
   href: boot-diagnostics.md
 - name: RDP
-  href: detailed-troubleshoot-rdp.md
+  items:
+  - name: Reset RDP
+    href: reset-rdp.md
+  - name: RDP troubleshooting
+    href: troubleshoot-rdp-connection.md
+  - name: Detailed RDP troubleshooting
+    href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot specific errors
+    href: troubleshoot-specific-rdp-errors.md
 - name: SSH 
-  href: detailed-troubleshoot-ssh-connection.md
+  items: 
+  - name: SSH troubleshooting
+    href: troubleshoot-ssh-connection.md
+  - name: Detailed SSH troubleshooting
+    href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
   href: error-messages.md
 - name: Performance issues with Windows VMs
@@ -22,3 +34,6 @@
     href: performance-diagnostics-vm-extension.md
 - name: Install Windows VM agent offline
   href: install-vm-agent-offline.md
+
+
+
