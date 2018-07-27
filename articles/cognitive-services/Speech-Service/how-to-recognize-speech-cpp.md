@@ -1,5 +1,5 @@
 ---
-title: Recognize speech using the Speech SDK for C++
+title: Recognize speech by using the Speech SDK for C++
 titleSuffix: Microsoft Cognitive Services
 description: |
   Shows various ways to recognize speech (from file, from microphone, with a customized model, continuously or one-shot) using the Speech SDK for C++.
@@ -13,9 +13,9 @@ ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
+# Recognize speech by using the Speech SDK for C++
 
-# Recognize speech using the Speech SDK for C++
+[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
 
 [!include[Intro](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-intro.md)]
 

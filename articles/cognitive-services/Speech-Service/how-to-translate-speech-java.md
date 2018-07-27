@@ -1,7 +1,7 @@
 ---
-title: Translate speech using the Speech SDK for Java
+title: Translate speech by using the Speech SDK for Java
 titleSuffix: Microsoft Cognitive Services
-description: Shows how to translate speech using the Speech SDK for Java
+description: Shows how to translate speech by using the Speech SDK for Java.
 services: cognitive-services
 author: wolfma61
 
@@ -12,9 +12,9 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
-
 # Translate speech using the Speech SDK for Java
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
 
 [!include[Intro](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
 

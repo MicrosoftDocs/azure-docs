@@ -1,5 +1,5 @@
 ---
-title: Recognize intents from speech using the Speech SDK for C++
+title: Recognize intents from speech by using the Speech SDK for C++
 titleSuffix: "Microsoft Cognitive Services"
 description: |
   Shows various ways to recognize intents from speech (from file, from microphone) using the Speech SDK for C++.
@@ -13,9 +13,9 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
+# Recognize intents from speech by using the Speech SDK for C++
 
-# Recognize intents from speech the Speech SDK for C++
+[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 [!include[Intro](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-intro.md)]
 

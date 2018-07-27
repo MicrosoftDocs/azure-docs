@@ -1,5 +1,5 @@
 ---
-title: 'Translate speech using the Speech SDK for C#'
+title: 'Translate speech by using the Speech SDK for C#'
 titleSuffix: Microsoft Cognitive Services
 description: 'Shows how to translate speech using the Speech SDK for C#.'
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
+# Translate speech by using the Speech SDK for C#
 
-# Translate speech using the Speech SDK for C#
+[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
 
 [!include[Intro](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
 

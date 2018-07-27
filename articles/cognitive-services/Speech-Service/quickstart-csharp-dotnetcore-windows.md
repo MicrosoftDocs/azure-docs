@@ -12,9 +12,9 @@ ms.date: 07/16/2018
 ms.author: wolfma
 ---
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 # Quickstart: Recognize speech in C# under .NET Core on Windows using the Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a C# console application for .NET Core on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
