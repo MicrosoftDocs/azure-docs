@@ -106,14 +106,14 @@ A target group can include databases in multiple subscriptions, and across multi
 
 The following examples show how different target group definitions are dynamically enumerated at the moment of job execution to determine which databases the job will run:
 
-   ![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
+![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
 
 **Example 1** shows a target group that consists of a list of individual databases. When a job step is executed using this target group, the job step's action will be executed in each of those databases.<br>
 **Example 2** shows a target group that contains an Azure SQL Server as a target. When a job step is executed using this target group, the server is dynamically enumerated to determine the list of databases that are currently in the server. The job step's action will be executed in each of those databases.<br>
 **Example 3** shows a similar target group as *Example 2*, but an individual database is specifically excluded. The job step's action will *not* be executed in the excluded database.<br>
 **Example 4** shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
+<br><br>
 
-Advanced target group examples:
 
 ![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
 
