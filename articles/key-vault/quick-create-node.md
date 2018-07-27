@@ -191,8 +191,8 @@ Now that everything is set. Run the following command to deploy the app to Azure
 git push azure master
 ```
 
-After this browse to https://<app_name>.azurewebsites.net and you see the secret value.
-Make sure you have replaced the name <YourKeyVaultName> with your vault name
+After this when you browse https://<app_name>.azurewebsites.net you can see the secret value.
+Make sure that you replaced the name <YourKeyVaultName> with your vault name
 
 ## Next steps
 
