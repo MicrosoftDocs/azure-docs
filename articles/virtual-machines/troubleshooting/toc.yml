@@ -8,3 +8,7 @@
     href: allocation-failure-classic.md
 - name: Boot diagnostics
   href: boot-diagnostics.md
+- name: RDP
+  href: detailed-troubleshoot-rdp.md
+- name: SSH 
+  href: detailed-troubleshoot-ssh-connection.md
