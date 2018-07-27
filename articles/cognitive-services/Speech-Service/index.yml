@@ -106,6 +106,9 @@ sections:
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP and .NET)</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
+  - type: paragraph
+    text: Use the samples and API above with your subscription key (see <a href="get-started.md">Try the speech service for free</a>).
+
 - title: Customizing speech with your own data
   items:
   - type: paragraph
