@@ -57,9 +57,6 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of LUIS app with Entities button hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
-
-
 3. Select the ellipsis (***...***) button to the right of the number entity in the list. Select **Delete**. 
 
     [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
@@ -68,8 +65,6 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 ## Add utterances to MoveEmployee intent
 
 1. Select **Intents** from the left menu.
-
-    [ ![Screenshot of LUIS app with Intents hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
 2. Select **MoveEmployee** from the list of intents.
 
@@ -113,8 +108,6 @@ LUIS needs to understand what a location is by labeling the origin and destinati
 Add the prebuilt number entity back to the application.
 
 1. Select **Entities** from the left navigation menu.
-
-    [ ![Screenshot of Entities button highlighted in left navigation](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
 2. Select **Manage prebuilt entities** button.
 
