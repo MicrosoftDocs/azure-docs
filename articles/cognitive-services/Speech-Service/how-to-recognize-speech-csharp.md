@@ -40,6 +40,6 @@ Look for the code in this article in the `samples/csharp/sharedcontent/console` 
 
 ## Next steps
 
-- [How to translate speech](how-to-translate-speech-csharp.md)
 - [How to recognize intent from speech](how-to-recognize-intents-from-speech-csharp.md)
+- [How to translate speech](how-to-translate-speech-csharp.md)
 

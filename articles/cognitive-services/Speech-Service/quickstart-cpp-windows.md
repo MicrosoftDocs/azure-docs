@@ -91,4 +91,4 @@ Look for this sample in the `quickstart/cpp-windows` folder.
 
 ## Next steps
 
-* Visit the [samples page](samples.md) for additional samples.
+* [Get our samples](speech-sdk.md#get-the-samples)

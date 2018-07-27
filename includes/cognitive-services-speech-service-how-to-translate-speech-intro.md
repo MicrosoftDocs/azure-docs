@@ -8,7 +8,7 @@ ms.author: wolfma
 
 <!-- N.B. no header, language-agnostic -->
 
-The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use speech tranlation in your application.
+The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use speech translation in your application.
 The SDK provides the full functionality of the service.
 The basic process for performing speech translation includes the following steps:
 

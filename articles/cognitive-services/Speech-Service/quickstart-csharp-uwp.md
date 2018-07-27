@@ -113,6 +113,6 @@ Look for this sample in the `quickstart/csharp-uwp` folder.
 
 ## Next steps
 
-- [Translate speech](how-to-translate-speech.md)
+- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

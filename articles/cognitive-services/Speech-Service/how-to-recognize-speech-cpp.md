@@ -40,6 +40,6 @@ Look for the code in this article in the `samples/cpp/windows/console` folder.
 
 ## Next steps
 
+- [How to recognize intents from speech](how-to-recognize-intents-from-speech-cpp.md)
 - [How to translate speech](how-to-translate-speech-cpp.md)
-- [How to recognize intents from speech](how-to-recognize-intents-from-speech-cpp.md).
 

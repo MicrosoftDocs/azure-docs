@@ -39,6 +39,6 @@ ms.author: wolfma
 
 ## Next steps
 
+- [How to recognize intents from speech](how-to-recognize-intents-from-speech-java.md)
 - [How to translate speech](how-to-translate-speech-java.md)
-- [How to recognize intents from speech](how-to-recognize-intents-from-speech-java.md).
 

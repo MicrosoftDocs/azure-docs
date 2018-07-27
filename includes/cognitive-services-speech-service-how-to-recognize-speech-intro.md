@@ -10,7 +10,7 @@ ms.author: wolfma
 
 The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use **Speech to Text** in your application with full functionality.
 
-1. Create a speech factory, providing a Speech service subscription key or an authorization token and a [region](~/articles/cognitive-services/speech-service/regions.md)
+1. Create a speech factory, providing a Speech service subscription key or an authorization token, and a [region](~/articles/cognitive-services/speech-service/regions.md).
    You can also configure options, such as the recognition language or a custom endpoint for your own speech recognition models.
 
 1. Get a speech recognizer from the speech factory.
