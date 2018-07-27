@@ -79,7 +79,7 @@ When you run the program, you see this interface:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub.**Connection String** can be found under IoT Hub Service->Settings->Shared Access Policy->iothubowner.
+Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. The **Connection String** can be found under **IoT Hub Service** > **Settings** > **Shared Access Policy** > **iothubowner**.
 
 When the IoT Hub connection string is configured, click the **Management** tab:
 
