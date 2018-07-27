@@ -202,9 +202,9 @@ g.E(['USA', 'I5'])
 
 For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md).
 
-## Composite partition key
+## Partition key by concatenating multiple fields
 
-You can form a composite partition key by concatenating and padding multiple property values into a single artificial “partitionKey” property of the item.
+You can also form a partition key by concatenating and padding multiple property values into a single artificial “partitionKey” property of the item.
 
 For example, you have a document that looks like:
 
@@ -215,7 +215,7 @@ For example, you have a document that looks like:
 }
 ```
 
-One option is to set partitionKey on /deviceId or /date. If want to form a composite key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
+One option is to set partitionKey on /deviceId or /date. If want to form a partition key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
 
 ```json
 {
