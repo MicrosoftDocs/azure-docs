@@ -91,9 +91,9 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 Type `dir` under `AllResources` directory to view your Azure resources.
 
-    ```azurepowershell-interactive
-    PS Azure:\MySubscriptionName> dir AllResources
-    ```
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName> dir AllResources
+```
 
 ### Explore resource groups
 
