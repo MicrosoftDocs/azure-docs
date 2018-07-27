@@ -129,4 +129,4 @@ Do one of our 10-minute quickstarts, or check out our SDK samples.
 
 > [!div class="nextstepaction"]
 > [Quickstart: recognize speech in C#](quickstart-csharp-dotnet-windows.md)
-> [Speech SDK Samples](speech-sdk#get-the-samples.md)
+> [Speech SDK Samples](speech-sdk.md#get-the-samples)
