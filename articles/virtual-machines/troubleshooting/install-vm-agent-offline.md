@@ -36,7 +36,7 @@ Use the following steps to install the VM Agent in offline mode.
 
 1.  Delete the VM. Be sure to select the **Keep the disks** option when you delete the VM.
 
-2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [Attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md).
+2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [Attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md).
 
 3.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
 
@@ -127,4 +127,4 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 ## Next steps
 
 - [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
-- [Virtual machine extensions and features for Windows](extensions-features.md)
+- [Virtual machine extensions and features for Windows](../extensions/features-windows.md)
