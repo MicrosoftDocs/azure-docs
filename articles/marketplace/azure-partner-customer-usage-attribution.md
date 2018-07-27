@@ -71,7 +71,7 @@ Adding the GUID is a single modification of the main template file:
 
 ## Method 2: Azure Resource Manager APIs
 
-In some cases, partners prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
+In some cases, you might prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
 If you are using an Azure Resource Manager template, you should tag your solution using the instructions above.  If you are not using an Azure Resource Manager template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
 
@@ -174,9 +174,9 @@ foreach ($deployment in $deployments){
 
 ## Guidance on creating GUIDS
 
-A GUID (globally unique identifier) is a 32 hexadecimal digit unique reference number. To create a GUID a partner should use a GUID generator to create their GUIDs for tracking.  There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) you can use.
+A GUID (globally unique identifier) is a 32 hexadecimal digit unique reference number. To create a GUID you should use a GUID generator to create their GUIDs for tracking.  There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) you can use.
 
-Partners are encouraged to create a unique GUID for every Offer and distribution channel.  For example, a partner who has two solutions and both are deployed via a template and are available in both the Azure Marketplace and on GitHub.  The partner should create 4 GUIDS:
+You are encouraged to create a unique GUID for every Offer and distribution channel.  For example, if you have two solutions and both are deployed via a template and are available in both the Azure Marketplace and on GitHub.  You should create 4 GUIDS:
 
 *	Offer A in Azure Marketplace 
 *	Offer A on GitHub
