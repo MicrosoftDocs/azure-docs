@@ -1,14 +1,21 @@
 ---
- title: include file
- description: include file
- services: virtual-machines-windows, azure-resource-manager
- author: genlin
- ms.service: virtual-machines-windows
- ms.topic: include
- ms.date: 04/14/2018
- ms.author: genli
- ms.custom: include file
+title: Troubleshooting Azure VM allocation failures in classic deployment model| Microsoft Docs
+description: Troubleshoot allocation failures when you create, restart, or resize a classic VM in Azure
+services: azure-service-management
+documentationcenter: ''
+author: genlin
+manager: willchen
+editor: ''
+tags: top-support-issue,azure-resource-manager,azure-service-management
+
+ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
+ms.service: virtual-machines
+ms.topic: troubleshooting
+ms.date: 04/13/2018
+ms.author: genli
+
 ---
+# Troubleshooting steps specific to allocation failure scenarios in the classic deployment model
 
 The following are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 
@@ -112,3 +119,5 @@ Before regional virtual networks were introduced, you were required to associate
 If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+
+
