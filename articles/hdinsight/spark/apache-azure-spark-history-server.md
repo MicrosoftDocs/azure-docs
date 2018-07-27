@@ -1,6 +1,6 @@
 ---
-title: 'Use extended Spark History Server to debug and diagnose Spark applications | Microsoft Docs'
-description: Use extended Spark History Server to debug and diagnose Spark applications.
+title: 'Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight | Microsoft Docs'
+description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 services: hdinsight
 author: jejiang
 manager: DJ
@@ -16,7 +16,7 @@ ms.author: jejiang
 ---
 # Use extended Spark History Server to debug and diagnose Spark applications
 
-This article provides guidance on how to use extended Spark History Server to monitor completed and running Spark applications. The extension currently includes data tab and graph tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph.
+This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension currently includes data tab and graph tab. In data tab, users can check the input and output data of the Spark job. In graph tab, users can check the data flow and replay the job graph.
 
 ## Open the Spark History Server
 
