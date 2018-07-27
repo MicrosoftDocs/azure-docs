@@ -71,7 +71,7 @@ For sensor pins, use the following wiring:
 
 
 | Start (sensor)           | End (board)            | Cable color   |
-| -----------------------  | ---------------------- | ------------: |
+| -----------------------  | ---------------------- | ------------- |
 | VDD (Pin 27A)            | 3V (Pin 3A)            | Red cable     |
 | GND (Pin 29A)            | GND (Pin 6A)           | Black cable   |
 | SCK (Pin 30A)            | SCK (Pin 12A)          | Yellow cable  |
@@ -186,7 +186,7 @@ If you don’t have a real BME280 sensor, the sample application can simulate te
 
 1. Open the `config.h` file in the `app` folder.
 
-2. Locate the following line of code and change the value from `false` to `true`:
+2. Locate the following line of code and change the value from `false` to `true`.
 
    ```c
    define SIMULATED_DATA true

@@ -47,7 +47,6 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 4. After provisioning finishes, click **Launch**. Some simulated devices are created for the solution during the provisioning process. Click **DEVICES** to check them out.
 
-<!-- do these need more description robin? -->
    ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
    ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
@@ -84,7 +83,7 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by entering `task cloud-provision` in the provided text box.
 
-In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services:
+In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services.
 
 ![Provision Azure resources](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
 
@@ -98,7 +97,7 @@ In the VS Code terminal, an interactive command line guides you through provisio
 
    ![Input connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
 
-4. After `task config-device-connection` finished, click `F1` to load VS Code commands and select `Arduino: Upload`, then VS Code starts verifying and uploading the Arduino sketch:
+4. After `task config-device-connection` finishes, click `F1` to load VS Code commands and select `Arduino: Upload`. VS Code starts verifying and uploading the Arduino sketch.
   
    ![Verification and upload of the Arduino sketch](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 

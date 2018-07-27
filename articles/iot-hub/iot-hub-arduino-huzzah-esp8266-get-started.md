@@ -71,8 +71,8 @@ Use the breadboard and jumper wires to make the connection as follows. If you do
 
 For sensor pins, use the following wiring:
 
-| Start (Sensor)           | End (Board)           | Cable Color   |
-| -----------------------  | ---------------------- | ------------: |
+| Start (Sensor)           | End (Board)            | Cable Color   |
+| -----------------------  | ---------------------- | ------------  |
 | VDD (Pin 31F)            | 3V (Pin 58H)           | Red cable     |
 | DATA (Pin 32F)           | GPIO 2 (Pin 46A)       | Blue cable    |
 | GND (Pin 34F)            | GND (PIn 56I)          | Black cable   |
@@ -135,7 +135,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Install the package for Feather HUZZAH ESP8266 in the Visual Studio Code:
+   Next, install the package for Feather HUZZAH ESP8266 in Visual Studio Code.
 
 4. Open the folder where the sample application is stored.
 
