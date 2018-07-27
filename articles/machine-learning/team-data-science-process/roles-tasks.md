@@ -49,7 +49,8 @@ With the above assumption, there are four distinct roles for the team personnel:
 4. ***Project Individual Contributor***. Data Scientist, Business Analyst, Data Engineer, Architect, etc. A project individual contributor executes a data science project. 
 
 
-**[AZURE.NOTE]**: Depending on the structure in an enterprise, a single person may play more than one role OR there may be more than one person working on a role. This may frequently be the case in small enterprises or enterprises with a small number of personnel in their data science organization.
+> [!NOTE]
+> Information the user should notice even if skimmingDepending on the structure in an enterprise, a single person may play more than one role OR there may be more than one person working on a role. This may frequently be the case in small enterprises or enterprises with a small number of personnel in their data science organization.
 
 ## Tasks to be completed by four personnel
 
@@ -59,7 +60,8 @@ The following picture depicts the top-level tasks for personnel by role in adopt
 
 This schema and the following, more detailed outline of tasks that are assigned to each role in the TDSP should help you choose the appropriate tutorial based on your responsibilities in the organization.
 
->[AZURE.NOTE] The following instructions show steps of how to set up a TDSP environment and complete other data science tasks in Visual Studio Team Services (VSTS). We specify how to accomplish these tasks with VSTS because that is what we are using to implement TDSP at Microsoft. VSTS facilitates collaboration by integrating the management of work items that track tasks and a code hosting service used to share utilities, organize versions, and provide role-based security. You are able to choose other platforms, if you prefer, to implement the tasks outlined by the TDSP. But depending on your platform, some features leveraged from VSTS may not be available. 
+> [!NOTE]
+> Information the user should notice even if skimming The following instructions show steps of how to set up a TDSP environment and complete other data science tasks in Visual Studio Team Services (VSTS). We specify how to accomplish these tasks with VSTS because that is what we are using to implement TDSP at Microsoft. VSTS facilitates collaboration by integrating the management of work items that track tasks and a code hosting service used to share utilities, organize versions, and provide role-based security. You are able to choose other platforms, if you prefer, to implement the tasks outlined by the TDSP. But depending on your platform, some features leveraged from VSTS may not be available. 
 >
 >Instructions here also use the [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) on the Azure cloud as the analytics desktop with several popular data science tools pre-configured and integrated with various Microsoft software and Azure services. You can use the DSVM or any other development environment to implement TDSP. 
 
