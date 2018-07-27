@@ -72,7 +72,8 @@ On Windows:
    -FilterHashtable @{ProviderName= "iotedged";
      LogName = "application"; StartTime = [datetime]::Today} |
    select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false}
+   sort-object @{Expression="TimeCreated";Descending=$false} |
+   format-table -autosize -wrap
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
