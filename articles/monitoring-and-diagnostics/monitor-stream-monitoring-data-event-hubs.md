@@ -23,8 +23,9 @@ Within your Azure environment, there are several 'tiers' of monitoring data, and
   - By instrumenting your code with an SDK such as the [Application Insights SDK](../application-insights/app-insights-overview.md).
   - By running a monitoring agent that listens for new application logs on the machine running your application, such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/linux/diagnostic-extension.md).
 - **Guest OS monitoring data:** Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/linux/diagnostic-extension.md).
-- **Azure resource monitoring data:** Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using [resource diagnostic settings](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Azure platform monitoring data:** Data about the operation and management of an Azure subscription or tenant, as well as data about the health and operation of Azure itself. The [activity log](./monitoring-overview-activity-logs.md), including service health data, and Active Directory audits are examples of platform monitoring data. This data can be collected using diagnostic settings as well.
+- **Azure resource monitoring data:** Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using [resource diagnostic settings](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Azure subscription monitoring data:** Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. The [activity log](./monitoring-overview-activity-logs.md) contains most subscription monitoring data, such as service health incidents and Azure Resource Manager audits. You can collect this data using a Log Profile.
+- **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Azure Active Directory. The Azure Active Directory audits and sign-ins are examples of tenant monitoring data. This data can be collected using a tenant diagnostic setting.
 
 Data from any tier can be sent into an event hub, where it can be pulled into a partner tool. The next sections describe how you can configure data from each tier to be streamed to an event hub. The steps assume that you already have assets at that tier to be monitored.
 
@@ -41,11 +42,17 @@ Before you begin, you need to [create an Event Hubs namespace and event hub](../
 
 Please also see the [Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md).
 
-## How do I set up Azure platform monitoring data to be streamed to an event hub?
+## How do I set up Azure tenant monitoring data to be streamed to an event hub?
 
-Azure platform monitoring data comes from two main sources:
-1. The [Azure activity log](./monitoring-overview-activity-logs.md), which contains the create, update, and delete operations from Resource Manager, the changes in [Azure service health](../service-health/service-health-overview.md) that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./monitoring-activity-log-schema.md).
-2. [Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant. It is not yet possible to stream Azure Active Directory data into an event hub.
+Azure tenant monitoring data is currently only available for Azure Active Directory. You can use the data from [Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant.
+
+### Stream Azure Active Directory data into an event hub
+
+To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) to set up a tenant diagnostic setting.
+
+## How do I set up Azure subscription monitoring data to be streamed to an event hub?
+
+Azure subscription monitoring data is available in the [Azure activity log](./monitoring-overview-activity-logs.md). This contains the create, update, and delete operations from Resource Manager, the changes in [Azure service health](../service-health/service-health-overview.md) that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./monitoring-activity-log-schema.md).
 
 ### Stream Azure activity log data into an event hub
 

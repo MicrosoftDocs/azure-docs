@@ -1,6 +1,6 @@
 ﻿---
-title: How to configure MSI on an Azure VM by using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
+title: How to configure  Managed Service Identity on an Azure VM by using a template
+description: Step-by-step instructions for configuring a Managed Service Identity on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -69,7 +69,7 @@ In this section, you will enable and disable a system assigned identity using an
    },
    ```
 
-4. (Optional) Add the VM MSI extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
+4. (Optional) Add the VM Managed Service Identity extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
@@ -218,8 +218,30 @@ In this section, you assign a user assigned identity to an Azure VM using Azure 
 
       ![Screenshot of user assigned identity](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### Remove user assigned identity from an Azure VM
+
+If you have a VM that no longer needs a managed service identity:
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
+
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has user assigned identity, you can disable it by changing the the identity type to `None`.  If your VM has both system and user assigned identities and you would like to keep system assigned identity, remove `UserAssigned` from the identity type along with the `identityIds` array of the user assigned identities.
+    
+   To remove a a single user assigned identity from a VM, remove it from the `identityIds` array.
+   
+   The following example shows you how remove all user assigned identities from a VM with no system assigned identities:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## Related content
 
-- For a broader perspective about MSI, read the [Managed Service Identity overview](overview.md).
+- For a broader perspective about Managed Service Identity, read the [Managed Service Identity overview](overview.md).
 
