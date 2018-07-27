@@ -46,7 +46,7 @@ A client application can request a Managed Service Identity [app-only access tok
 |  |  |
 | -------------- | -------------------- |
 | [Get a token using HTTP](#get-a-token-using-http) | Protocol details for the MSI token endpoint |
-| [Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET](#get-a-token using-the-microsoft.azure.services.appauthentication-library-for-.NET) | Example of using the Microsoft.Azure.Services.AppAuthentication library from a .NET client
+| [Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Example of using the Microsoft.Azure.Services.AppAuthentication library from a .NET client
 | [Get a token using C#](#get-a-token-using-c) | Example of using the MSI REST endpoint from a C# client |
 | [Get a token using Go](#get-a-token-using-go) | Example of using the MSI REST endpoint from a Go client |
 | [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
