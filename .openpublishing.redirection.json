@@ -17921,6 +17921,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/windows/how-to-use-perfInsights.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/how-to-use-perfInsights.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/performance-diagnostics-vm-extension.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/install-vm-agent-offline.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/install-vm-agent-offline.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/windows/create-managed-disk-ps.md",
             "redirect_url": "/azure/virtual-machines/windows/attach-disk-ps",
             "redirect_document_id": false

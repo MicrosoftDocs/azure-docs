@@ -14,3 +14,11 @@
   href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
   href: error-messages.md
+- name: Performance issues with Windows VMs
+  items: 
+  - name: How to use PerfInsights
+    href: how-to-use-perfInsights.md
+  - name: Performance diagnostics extension
+    href: performance-diagnostics-vm-extension.md
+- name: Install Windows VM agent offline
+  href: install-vm-agent-offline.md
