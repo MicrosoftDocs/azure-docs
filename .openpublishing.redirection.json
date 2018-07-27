@@ -26494,7 +26494,7 @@
             "source_path": "articles/powerbi-embedded/create-capacity.md",
             "redirect_url": "/power-bi/developer/azure-pbie-create-capacity",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path": "articles/powerbi-embedded/get-started.md",
             "redirect_url": "https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/",
