@@ -902,34 +902,7 @@ and help you organize workflow execution
 ### Built-in actions
 
 | Action type | Description | 
-<<<<<<< HEAD
-| ----------- | ----------- | 
-| **HTTP** | Calls an HTTP web endpoint. | 
-| **ApiConnection**  | Works like the HTTP action, but uses [Microsoft-managed APIs](https://docs.microsoft.com/azure/connectors/apis-list). | 
-| **ApiConnectionWebhook** | Works like HTTPWebhook, but uses Microsoft-managed APIs. | 
-| **Response** | Defines the response for an incoming call. | 
-| **Compose** | Creates an arbitrary object from the action's inputs. | 
-| **Function** | Represents an Azure function. | 
-| **Join** | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
-| **Query** | Filters an array based on a condition. | 
-| **Select** | Projects each element of an array into a new value. For example, you can convert an array of numbers into an array of objects. | 
-| **Table** | Converts an array of items into a CSV or HTML table. | 
-| **Terminate** | Stops running a workflow. | 
-| **Wait** | Waits a fixed amount of time or until a specific time. | 
-| **Workflow** | Represents a nested workflow. | 
-||| 
-
-### Control flow actions
-
-| Action type | Description | 
-| ----------- | ----------- | 
-| **If** | Evaluate an expression and based on the result, runs the corresponding branch. | 
-| **ForEach** | This looping action iterates through an array and performs inner actions on each array item. | 
-| **Switch** | Perform different actions based on specific values of an object. | 
-| **Scope** | Use for logically grouping other actions. | 
-| **Until** | This looping action performs inner actions until a condition results to true. | 
-=======
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
@@ -952,7 +925,6 @@ and help you organize workflow execution
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | Calls an HTTP endpoint by using a [Microsoft-managed API](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Works like HTTP Webhook but uses a [Microsoft-managed API](../connectors/apis-list.md). | 
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 ||| 
 
 <a name="control-workflow-actions"></a>
@@ -2445,72 +2417,6 @@ wording in each case.
 }
 ```
 
-<<<<<<< HEAD
-The response action has special restrictions that don't apply to other actions, specifically:  
-  
-* You can't have response actions in parallel branches within a logic 
-app definition because the incoming request requires a deterministic response.
-  
-* If the workflow reaches a response action after the 
-incoming request already received a response, 
-the response action is considered failed or in conflict. 
-As a result, the logic app run is marked `Failed`.
-  
-* A workflow with response actions can't use the `splitOn` command 
-in the trigger definition because the call creates multiple runs. 
-As a result, check for this case when the workflow operation is PUT, 
-and return a "bad request" response.
-
-<a name="compose-action"></a>
-
-## Compose action
-
-This action creates a single output from more than one input, 
-which can include expressions that transform data between types. 
-The output and inputs can have any type that Azure Logic Apps 
-natively supports such as arrays, JSON objects, XML, and binary.
-You can then reference this output in other actions. 
-
-```json
-"Compose": {
-   "type": "Compose",
-   "inputs": "<inputs-to-compose>",
-   "runAfter": {}
-},
-```
-
-*Required* 
-
-| Property | Value | Type | Description | 
-|----------|-------|------|-------------| 
-| <*inputs-to-compose*> | | | | 
-||||| 
-
-
-*Example*
-
-This action creates a single output by merging the results from more than one action:
-
-```json
-"Compose": {
-   "type": "Compose",
-   "inputs": {
-      "firstName": "@actions('getUser').firstName",
-      "lastName": "@actions('getUser').lastName",
-      "email": "@actions('getUser').email"
-    },
-    "runAfter": {}
-},
-```
-
-Here is the output from this example:
-
-```json
-{ 
-   "firstName": "Sophie", 
-   "lastName": "Owen",
-   "email": "Sophie_Owen@contoso.com"
-=======
 <a name="until-action"></a>
 
 ### Until action
@@ -2542,7 +2448,6 @@ and the action must define at least one limit. Learn
       "timeout": "<loop-timeout>"
    },
    "runAfter": {}
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 }
 ```
 
@@ -2587,121 +2492,14 @@ the specified URL until one of these conditions is met:
 }
 ```
 
-<<<<<<< HEAD
-| Property | Required | Type | Description | 
-| -------- | -------- | ---- | ----------- |  
-| function id | Yes | String | The resource ID for the Azure function that you want to call. | 
-| method | No | String | The HTTP method used to call the function. If not specified, "POST" is the default method. | 
-| queries | No | JSON Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | JSON Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | Represents the payload that's sent to the endpoint. | 
-|||||
-
-When you save your logic app, the Logic Apps engine performs some checks on the referenced function:
-
-* You must have access to the function.
-* You can use only a standard HTTP trigger or generic JSON Webhook trigger.
-* The function shouldn't have any route defined.
-* Only "function" and "anonymous" authorization levels are allowed.
-=======
 <a name="subscribe-unsubscribe"></a>
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 ## Webhooks and subscriptions
 
-<<<<<<< HEAD
-<a name="join-action"></a>
-
-## Join action
-
-This action creates a string from all the items in an array 
-and separates those items with the specified character. 
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-perform-data-operations.md#join-action).
-
-```json
-"Join": {
-   "type": "Join",
-   "inputs": {
-      "from": <array-or-expression>,
-      "joinWith": "<delimiter>"
-   },
-   "runAfter": {}
-}
-```
-
-*Required*
-
-| Property | Value | Type | Description | 
-|----------|-------|------|-------------| 
-| **from** | <*array*> <br>-or- <br>"<*expression*>" | Array | The array or expression that provides the array items for creating the string | 
-| **joinWith** | <*delimiter*> | Single character | The character that separates each item in the string | 
-||||| 
-
-*Example*
-
-Suppose you have an array variable named "myIntegerArray" that contains integers, 
-such as `[1,2,3,4]`. This example gets the values from the variable by using 
-the `variables()` function in an expression and creates this string with those values, 
-which are separated by a comma: `"1,2,3,4"`
-
-```json
-"Join": {
-   "type": "Join",
-   "inputs": {
-      "from": "@variables('myIntegerArray')",
-      "joinWith": ","
-   },
-   "runAfter": {}
-}
-```
-
-<a name="query-action"></a>
-
-## Query action
-
-This action gets items from an array based on a specified filter or condition. 
-The output from this action is an array with the items 
-from the input array that satisfy the condition.
-For more information, see [Change or manage data, outputs, and formats](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action).
-
-```json
-"Filter_array": {
-   "type": "Query",
-   "inputs": {
-      "from": <array-or-expression>,
-      "where": "<filter-or-condition>"
-   },
-   "runAfter": {}
-}
-```
-
-| Property | Required | Value | Type | Description | 
-|----------|----------|-------|------|-------------| 
-| **from** | Yes | <*array*> <br>or <br>"<*expression*>" | Array | The array or expression that provides the array items to filter |
-| **where** | Yes | "<*filter-or-condition*>" | String | The condition that's applied to each element from the source array. If no values satisfy the `where` condition, the result is an empty array. |
-|||||| 
-
-For example, to select numbers greater than two:
-
-```json
-"filterNumbersAction": {
-   "type": "Query",
-   "inputs": {
-      "from": [ 1, 3, 0, 5, 4, 2 ],
-      "where": "@greater(item(), 2)"
-   }
-}
-```
-
-<a name="select-action"></a>
-
-## Select action
-=======
 Webhook-based triggers and actions don't regularly check endpoints, 
 but wait for specific events or data at those endpoints instead. 
 These triggers and actions *subscribe* to the endpoints by 
 providing a *callback URL* where the endpoint can send responses.
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 The `subscribe` call happens when the workflow changes in any way, 
 for example, when credentials are renewed, or when the input 
@@ -2720,13 +2518,7 @@ unique "callback URL" for the trigger or action. This URL represents
 a unique identifier for the endpoints that use the service's REST API. 
 The parameters for this function are the same as the webhook trigger or action.
 
-<<<<<<< HEAD
-<a name="terminate-action"></a>
-
-## Terminate action
-=======
 <a name="asynchronous-limits"></a>
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 ## Change asynchronous duration
 
@@ -2762,98 +2554,6 @@ properties in the trigger or action definition.
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time, or in parallel. <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 ||||| 
 
-<<<<<<< HEAD
-<a name="table-action"></a>
-
-## Table action
-
-This action creates a CSV or HTML table from items in an array.
-
-**Create CSV table**
-
-```json
-"Create_CSV_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "CSV",
-      "from": <array>,
-      "columns": [ 
-         {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         },
-         {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         } 
-      ]
-   },
-   "runAfter": {}
-}
-```
-
-**Create HTML table**
-
-```json
-"Create_HTML_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "HTML",
-      "from": <array>,
-      "columns": [ 
-         {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         },
-         {
-            "header": "<column-header>",
-            "value": "<column-value>"
-         } 
-      ]
-   },
-   "runAfter": {}
-}
-```
-
-*Required* 
-
-| Property | Value | Type | Description | 
-|----------|-------|------|-------------| 
-| **format** | "CSV" or "HTML" | String | The table format you want to create | 
-| **from** | <*array*> | Array | The array or expression output that provides items for the table. For example, this array includes the column's header names and values: <p>[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ] <p>**Note**: If this property value specifies an empty array, the action's output is an empty table. | 
-||||| 
-
-*Optional*
-
-| Property | Value | Type | Description | 
-|----------|-------|------|-------------| 
-| **columns** | [ <*column-header-and-value-pairs*> ] | Array | An array with the custom column header names and values for overriding the default table format | 
-| **header** | <*column-header*> | String | The name for the custom column header | 
-| **value** | <*column-value*> | String | The value in the custom column | 
-||||| 
-
-*Example*
-
-Suppose you create an array variable named "myItemArray" 
-by using the **Variables - Initialize variable** action 
-and pass in this array as the initial value: 
-
-`[ {"ID": 0, "Item": "Apples"}, {"ID": 1, "Item": "Oranges"} ]`
-
-This **Create CSV table** action definition gets the items from 
-"myItemArray" by using an expression that passes "myItemArray" to 
-the `variables()` function and creates a CSV table from those items: 
-
-```json
-"Create_CSV_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "CSV",
-      "from": "@variables('myItemArray')"
-   },
-   "runAfter": {
-      "Initialize_variable": [ "Succeeded" ]
-=======
 <a name="operation-options"></a>
 
 ## Operation options
@@ -2911,73 +2611,10 @@ Here is an example that limits concurrent runs to 10 instances:
       "concurrency": {
          "runs": 10
       }
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
    }
 }
 ```
 
-<<<<<<< HEAD
-Here is the CSV table that this action creates: 
-
-```
-ID,Item
-0,Apples
-1,Oranges
-```
-
-This **Create HTML table** action definition gets the items from 
-"myItemArray" by using an expression that passes "myItemArray" to 
-the `variables()` function and creates an HTML table from those items: 
-
-```json
-"Create_HTML_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "HTML",
-      "from": "@variables('myItemArray')"
-   },
-   "runAfter": {
-      "Initialize_variable": [ "Succeeded" ]
-   }
-}
-```
-
-Here is the HTML table that this action creates: 
-
-<table><thead><tr><th>ID</th><th>Item</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
-
-### Override default table format
-
-To override the automatically created column headers and values, 
-you can explicitly define those elements, for example:
-
-```json
-"Create_HTML_table": {
-   "type": "Table",
-   "inputs": {
-      "format": "HTML",
-      "from": "@variables('myItemArray')",
-      "columns": [ 
-         {
-            "header": "Produce ID",
-            "value": "@item().ID"
-         },
-         {
-            "header": "Description",
-            "value": "@concat('Organic ', item().Item)"
-         }
-      ]
-   },
-   "runAfter": {}
-}
-```
-
-Here is the HTML table that this action creates:
-
-<table><thead><tr><th>Produce ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
-
-<a name="wait-action"></a>
-=======
 #### Edit in Logic Apps Designer
 
 1. In the trigger's upper-right corner, 
@@ -2997,7 +2634,6 @@ To change the default limit, you can use either the code view editor or Logic Ap
 because changing the concurrency setting through the designer adds or updates the 
 `runtimeConfiguration.concurrency.repetitions` property in the underlying "for each" 
 action definition and vice versa. This property controls the maximum number of iterations that can run in parallel.
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 > [!NOTE] 
 > If you set the "for each" action to run sequentially 
@@ -3009,15 +2645,9 @@ action definition and vice versa. This property controls the maximum number of i
 
 #### Edit in code view 
 
-<<<<<<< HEAD
-<a name="workflow-action"></a>
-
-## Workflow action
-=======
 In the underlying "for each" definition, add or update the 
 `runtimeConfiguration.concurrency.repetitions` property to a 
 value between `1` and `50` inclusively. 
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 Here is an example that limits concurrent runs to 10 iterations:
 
@@ -3040,11 +2670,7 @@ Here is an example that limits concurrent runs to 10 iterations:
 1. In the **For each** action's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-<<<<<<< HEAD
-## Control flow actions overview
-=======
 2. Under **Concurrency Control**, set **Override Default** to **On**. 
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
 
@@ -3260,7 +2886,3 @@ This setting puts your logic app into "high throughput" mode.
 ## Next steps
 
 * Learn more about [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
-<<<<<<< HEAD
-* Learn more about [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows)
-=======
->>>>>>> 141057e054f512c4005630dfd6597dfc58381a31
