@@ -36,9 +36,12 @@ To use this feature, you need:
 ## Archive logs to an event hub
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
+
 2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
+
 3. Select **Export Settings**.  
     The **Diagnostic Settings** pane opens.
+
 4. Do either of the following:
     * To change existing settings, select **Edit setting**.
     * To add new settings, select **Add diagnostic setting**.  
@@ -47,17 +50,23 @@ To use this feature, you need:
       ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/ExportSettings.png)
 
 5. Select the **Stream to an event hub** check box, and then select **Event Hub/Configure**.
+
 6. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.  
     The subscription and Event Hubs namespace must both be associated with the Active Directory tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub is created in the namespace with the default name **insights-logs-audit**.
+
 7. Select **OK** to exit the event hub configuration.
+
 8. Select the **AuditLogs** check box to send audit logs to the storage account. 
+
 9. Select the **SignInLogs** check box to send sign-in logs to the storage account.
+
 10. Select **Save** to save the setting.
 
     ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/DiagnosticSettings.png)
 
-10. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
-    ![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png)
+11. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
+
+![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png)
 
 ## Access data from your event hub
 
