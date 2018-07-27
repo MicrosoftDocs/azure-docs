@@ -1,10 +1,9 @@
 ---
-title: Try the Speech service for free | Microsoft Docs
+title: Try the Speech service for free
 description: Discover how you can try the Speech service at no cost.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

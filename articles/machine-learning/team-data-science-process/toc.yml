@@ -15,8 +15,6 @@
     href: lifecycle-deployment.md
   - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
-  - name: With Azure ML
-    href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
@@ -28,8 +26,6 @@
     href: project-lead-tasks.md
   - name: Individual contributor
     href: project-ic-tasks.md
-- name: Project structure
-  href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
 - name: Project planning
   href: team-data-science-process-project-templates.md
 - name: Development
@@ -127,20 +123,6 @@
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up a Data Science VM
-      items:
-      - name: Create a Windows Data Science VM
-        href: ../data-science-virtual-machine/provision-vm.md
-        maintainContext: true
-      - name: Create an Ubuntu Data Science VM
-        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-        maintainContext: true
-      - name: Create a CentOS Data Science VM
-        href: ../data-science-virtual-machine/linux-dsvm-intro.md
-        maintainContext: true
-      - name: Create a Deep Learning VM
-        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario
