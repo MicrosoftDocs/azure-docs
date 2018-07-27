@@ -20,7 +20,7 @@
     href: troubleshoot-specific-rdp-errors.md
 - name: SSH 
   items: 
-  -name: SSH troubleshooting
-   href: troubleshoot-ssh-connection.md
-  -name: Detailed SSH troubleshooting
-   href: detailed-troubleshoot-ssh-connection.md
+  - name: SSH troubleshooting
+    href: troubleshoot-ssh-connection.md
+  - name: Detailed SSH troubleshooting
+    href: detailed-troubleshoot-ssh-connection.md
