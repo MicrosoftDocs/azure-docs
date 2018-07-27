@@ -1131,7 +1131,7 @@
             "redirect_document_id": false
         },
 	    {
-            "source_path": "articles/virtual-machines/windows/allocation-failure.md"
+            "source_path": "articles/virtual-machines/windows/allocation-failure.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure.md",
             "redirect_document_id": false
         },
@@ -1141,7 +1141,7 @@
             "redirect_document_id": false
         },
 	    {
-            "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md"
+            "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic.md",
             "redirect_document_id": false
         },		
@@ -14762,7 +14762,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/linux/allocation-failure",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
         {
@@ -15977,7 +15977,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/windows/allocation-failure",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
         {
