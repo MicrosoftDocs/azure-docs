@@ -29,7 +29,7 @@
   - name: Migrate to updated API
     href: migrate-to-new-api.md
   - name: Store input/output files
-    href: using-azure-storage.md
+    href: use-azure-storage.md
 - name: Reference
   items:
   - name: Azure CLI
