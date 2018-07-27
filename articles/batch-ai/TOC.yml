@@ -18,6 +18,9 @@
   - name: Distributed training using Horovod - Azure Batch AI
     href: tutorial-horovod-tensorflow.md
 - name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Concepts
   items:
   - name: Batch AI resources
