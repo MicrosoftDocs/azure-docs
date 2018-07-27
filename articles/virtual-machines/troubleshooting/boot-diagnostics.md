@@ -1,3 +1,20 @@
+---
+title: Boot diagnostics for VMs in Azure | Microsoft Doc
+description: Overview of the two debugging features for virtual machines in Azure
+services: virtual-machines
+author: Deland-Han
+manager: jeconnoc
+editor: ''
+tags: azure-resource-manager
+
+ms.service: virtual-machines
+ms.topic: troubleshooting
+ms.date: 06/15/2018
+ms.author: delhan
+---
+
+# How to use boot diagnostics to troubleshoot virtual machines in Azure
+
 Support for two debugging features is now available in Azure: Console Output and Screenshot support for Azure virtual machines Resource Manager deployment model. 
 
 When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a virtual machine gets into a non-bootable state. These features enable you to easily diagnose and recover your virtual machines from boot failures.

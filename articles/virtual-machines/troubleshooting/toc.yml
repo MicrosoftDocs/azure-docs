@@ -6,3 +6,5 @@
     href: allocation-failure.md
   - name: Allocation failures-classic VM
     href: allocation-failure-classic.md
+- name: Boot diagnostics
+  href: boot-diagnostics.md

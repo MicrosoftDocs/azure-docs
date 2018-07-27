@@ -1111,6 +1111,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/boot-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/boot-diagnostics.md"
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/capture-image",
             "redirect_document_id": true
