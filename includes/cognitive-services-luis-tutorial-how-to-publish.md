@@ -12,6 +12,8 @@ ms.date: 07/26/2018
 ms.author: diberry
 --- 
 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
+
 1. Select **Publish** in the top right navigation.
 
 2. Select the Production slot and the **Publish** button.
