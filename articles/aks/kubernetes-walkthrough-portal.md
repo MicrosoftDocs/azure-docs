@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 04/29/2018
+ms.date: 07/27/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -30,14 +30,15 @@ Choose **Create a resource** > select **Kubernetes Service**.
 
 Complete the following steps under each heading of the create AKS cluster form.
 
-- **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-- **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
-- **AUTHENTICATION**: create a new service principal or use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
-- **SCALE**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed.
+- **PROJECT DETAILS**: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
+- **CLUSTER DETAILS**: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
+- **SCALE**: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. Also, select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
 
-Select **Next: Networking** when complete.
+Select **Next: Authentication** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-1.png)
+
+- **AUTHENTICATION**: create a new service principal or use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
 
 Configure the following networking options:
 
