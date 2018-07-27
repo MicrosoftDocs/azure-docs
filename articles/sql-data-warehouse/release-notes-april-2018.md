@@ -52,7 +52,7 @@ For more information, see the [Queries](https://docs.microsoft.com/azure/sql-dat
 This `sys.pdw_database_mappings` view is unused in SQL Data Warehouse. Previously, a SELECT of this view would return no results. The view has been removed. 
 
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
+Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
 
 * [Customer success stories]
 * [Blogs]
@@ -70,3 +70,5 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
