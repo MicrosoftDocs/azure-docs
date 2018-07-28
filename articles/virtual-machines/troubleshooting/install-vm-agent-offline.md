@@ -127,4 +127,4 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 ## Next steps
 
 - [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
-- [Virtual machine extensions and features for Windows](../extenstions/features-windows.md)
+- [Virtual machine extensions and features for Windows](../extensions/features-windows.md)
