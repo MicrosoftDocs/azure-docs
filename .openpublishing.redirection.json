@@ -9400,6 +9400,11 @@
             "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet",
             "redirect_document_id": false
         },
+	    {
+            "source_path": "articles/virtual-machines/windows/restart-resize-error-troubleshooting.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-network-interface restart-resize-error-troubleshooting",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/machine-learning/machine-learning-algorithm-choice.md",
             "redirect_url": "/azure/machine-learning/studio/algorithm-choice",
@@ -16261,6 +16266,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/reset-password.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-password",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/reset-network-interface.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-network-interface",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/reset-local-password-without-agent.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-local-password-without-agent",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md",
             "redirect_url": "/azure/virtual-machines/windows/classic/setup-endpoints",
             "redirect_document_id": false
@@ -16917,7 +16937,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-reset-local-password-without-agent.md",
-            "redirect_url": "/azure/virtual-machines/windows/reset-local-password-without-agent",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-local-password-without-agent",
             "redirect_document_id": false
         },
         {
