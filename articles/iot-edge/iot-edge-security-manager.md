@@ -57,7 +57,7 @@ Existence of these two models for utilizing hardware root of trust gives rise to
 * The standard or rich execution environment (REE) that rely on the use of secure elements to protect sensitive information.
 * The trusted execution environment (TEE) that rely on the use of secure enclave technology to protect sensitive information and offer protection to software execution.
 
-For devices using secure enclaves as hardware root of trust, sensitive logic within IoT Edge security daemon is expected to be protected within the enclave.  Other portions like those that partake in secure marshalling of communications between REE and TEE can reside outside of the TEE.  In any case, it is expected of original design manufacturers (ODM) and original equipment manufacturers (OEM) to extend trust from their HSM to measure and defend the integrity of the Edge security daemon at boot and runtime.
+For devices using secure enclaves as hardware root of trust, sensitive logic within IoT Edge security daemon is expected to reside within the enclave.  Non-sensitive portions of the security daemon can reside outside of the TEE.  In any case, it is expected of original design manufacturers (ODM) and original equipment manufacturers (OEM) to extend trust from their HSM to measure and defend the integrity of the Edge security daemon at boot and runtime.
 
 #### Minimize bloat and churn
 
@@ -67,7 +67,7 @@ Another core principle for the Edge security daemon is to minimize churn.  For t
 
 ![Azure IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png)
 
-The IoT Edge security daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  More so, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technologies that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge security daemon are role-specific interfaces to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and it's operations.
+The IoT Edge security daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  More so, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technologies that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge security daemon is role-specific interfaces to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and its operations.
 
 #### Cloud interface
 
@@ -87,7 +87,7 @@ IoT Edge security daemon offers the container interface to interact with the con
 
 #### Workload API
 
-The workload API is a IoT Edge security daemon API which is accessible by all active modules, including IoT Edge agent. It provides proof of identity, in the form of an HSM rooted signed token or X509 certificate, and corresponding trust bundle to a module. The trust bundle contains CA certificates for all of the other servers that the modules should trust.
+The workload API is an IoT Edge security daemon API accessible to all modules, including IoT Edge agent. It provides proof of identity, in the form of an HSM rooted signed token or X509 certificate, and corresponding trust bundle to a module. The trust bundle contains CA certificates for all of the other servers that the modules should trust.
 
 IoT Edge security daemon uses an attestation process to guard this API. When a module calls this API, IoT Edge security daemon attempts to find a registration for the identity. If successful, it uses the properties of the registration to measure the module. If the result of the measurement process matches the registration, a new HSM rooted signed token or X509 certificate is generated, and the corresponding CA certificates (trust bundle) are returned to the module.  The module uses this certificate to connect to IoT Hub, other modules, or start a server. When the signed token or certificate nears expiration, it is the responsibility of the module to request a new certificate.  Additional considerations are incorporated into the design to make the identity renewal process as seamless as possible.
 
@@ -105,11 +105,11 @@ The IoT Edge runtime tracks and reports the version of the IoT Edge security dae
 
 ### Hardware security module platform abstraction layer (HSM PAL)
 
-The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It comprises a combination of Application Programmer Interface (API) and trans domain communications procedures e.g. communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use.  Its existence enables the use of virtually any secure silicon hardware across the IoT ecosystem.
+The HSM PAL abstracts all root of trust hardware to isolate the developer or user of IoT Edge from their complexities.  It comprises a combination of Application Programmer Interface (API) and trans domain communications procedures, for example communication between a standard execution environment and a secure enclave.  The actual implementation of the HSM PAL depends on the specific secure hardware in use.  Its existence enables the use of virtually any secure silicon hardware across the IoT ecosystem.
 
 ## Secure silicon root of trust hardware
 
-This is the secure silicon that provides the hardware root of trust for the silicon device.  This includes Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
+Secure silicon is necessary to anchor trush within the IoT Edge device.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
 
 ## IoT Edge security manager integration and maintenance
 
