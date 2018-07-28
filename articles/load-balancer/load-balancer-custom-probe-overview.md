@@ -26,9 +26,9 @@ When a health probe fails, Load Balancer stops sending new flows to the respecti
 
 ## Health probe types
 
-Health probes can observe any port on a backend instance, including the port on which the actual service is provided.  
+Health probes can observe any port on a backend instance, including the port on which the actual service is provided. The health probe supports TCP listeners or HTTP endpoints. 
 
-For UDP load balancing, you should generate a custom health signal for the probe using the available health probe types.
+For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP or HTTP health probe.
 
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  You should not NAT or proxy this health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures.
 
