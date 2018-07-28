@@ -52,7 +52,7 @@ Type `Ctrl+P` (macOS: `Cmd+P`) to run `task device-upload`. Once the upload is c
 ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> You may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to this [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> You may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## Test the project
 
