@@ -129,3 +129,8 @@ Basic Load Balancer exposes health probe status per backend pool via Log Analyti
 ## Limitations
 
 -  HTTP health probe does not support TLS (HTTPS).  Use a TCP probe to port 443 instead.
+
+## Next steps
+
+- [REST API for health probes](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
+
