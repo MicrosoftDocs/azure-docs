@@ -23,7 +23,7 @@
   - name: Manage capacity
     items:
     - name: Create capacity
-      href: create-capacity.md
+      href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-create-capacity?branch=pr-en-us-896
     - name: Scale capacity
       href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-scale-capacity?branch=pr-en-us-896
     - name: Pause and start capacity
