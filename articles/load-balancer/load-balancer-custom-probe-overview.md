@@ -26,7 +26,7 @@ When a health probe fails, Load Balancer stops sending new flows to the respecti
 
 ## Health probe types
 
-Health probes can observe any port on the backend, including the port on which the actual service is provided.  
+Health probes can observe any port on a backend instance, including the port on which the actual service is provided.  
 
 For UDP load balancing, you should generate a custom health signal for the probe using the available health probe types.
 
