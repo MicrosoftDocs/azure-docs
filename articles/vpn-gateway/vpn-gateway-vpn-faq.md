@@ -2,18 +2,11 @@
 title: Azure VPN Gateway FAQ | Microsoft Docs
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
 
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 07/27/2018
 ms.author: cherylmc
 
 ---
@@ -130,6 +123,10 @@ Yes, you can deploy your own VPN gateways or servers in Azure either from the Az
 They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
 A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+
+### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
+
+[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
 
 ### More information about gateway types, requirements, and throughput
 
