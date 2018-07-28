@@ -114,7 +114,7 @@ UDP datagrams will be delivered to healthy backend instances.
 
 UDP is connectionless and there is no flow state tracked for UDP. If any backend instance's health probe fails, existing UDP flows will may move from the unhealthy instance to another healthy instance in the backend pool.
 
-if all probes for all backend instance in a pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
+If all probes for all backend instance in a pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
 ## Monitoring
 
