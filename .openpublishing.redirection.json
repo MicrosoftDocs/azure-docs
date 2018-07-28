@@ -1126,6 +1126,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/linux/allocation-failure.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/allocation-failure.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/allocation-failure-classic.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
+            "redirect_document_id": false
+        },		
+        {
             "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
             "redirect_document_id": true
@@ -14752,7 +14772,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/linux/allocation-failure",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
         {
@@ -15977,7 +15997,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/windows/allocation-failure",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
         {
@@ -16907,7 +16927,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-reset-rdp.md",
-            "redirect_url": "/azure/virtual-machines/windows/reset-rdp",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-rdp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/reset-rdp.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/reset-rdp",
             "redirect_document_id": false
         },
         {
@@ -17092,7 +17117,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-troubleshoot-specific-rdp-errors.md",
-            "redirect_url": "/azure/virtual-machines/windows/troubleshoot-specific-rdp-errors",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-specific-rdp-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors",
             "redirect_document_id": false
         },
         {
@@ -17193,6 +17223,16 @@
 	    {
             "source_path": "articles/virtual-machines/linux/detailed-troubleshoot-ssh-connection.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-rdp-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection",
             "redirect_document_id": false
         },
         {

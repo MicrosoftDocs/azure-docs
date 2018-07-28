@@ -19,15 +19,7 @@ Support for two debugging features is now available in Azure: Console Output and
 
 When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a virtual machine gets into a non-bootable state. These features enable you to easily diagnose and recover your virtual machines from boot failures.
 
-For Linux virtual machines, you can easily view the output of your console log from the Portal:
-
-![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
- 
-However, for both Windows and Linux virtual machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
-
-![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
-
-Both of these features are supported for Azure virtual machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
+For Linux virtual machines, you can easily view the output of your console log from the Portal. For both Windows and Linux virtual machines, Azure also enables you to see a screenshot of the VM from the hypervisor. Both of these features are supported for Azure virtual machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
 
 ## Common boot errors
 

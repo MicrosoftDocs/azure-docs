@@ -46,7 +46,7 @@ Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
-* For custom images, make sure that your VHD is properly prepared prior to upload it. For more information, see [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md).
+* For custom images, make sure that your VHD is properly prepared prior to upload it. For more information, see [Prepare a Windows VHD or VHDX to upload to Azure](../windows/prepare-for-upload-vhd-image.md).
 
 
 Try reconnecting to the VM via Remote Desktop after these steps.
@@ -104,7 +104,7 @@ If you can connect via Remote Desktop to a virtual machine in the same cloud ser
 * The endpoint configuration for Remote Desktop traffic on the target VM: The private TCP port of the endpoint must match the TCP port on which the VM's Remote Desktop service is listening (default is 3389).
 * The ACL for the Remote Desktop traffic endpoint on the target VM: ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address. Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint. Check your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed. For more information, see [What is a Network Access Control List (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
-To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152–65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152–65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Source 4: Network Security Groups
 Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network.
@@ -114,7 +114,7 @@ Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Follow the instructions in [this article](reset-rdp.md). This article resets the Remote Desktop service on the virtual machine:
+Follow the instructions in [this article](../windows/reset-rdp.md). This article resets the Remote Desktop service on the virtual machine:
 
 * Enable the "Remote Desktop" Windows Firewall default rule (TCP port 3389).
 * Enable Remote Desktop connections by setting the HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections registry value to 0.
@@ -189,7 +189,7 @@ Exit-PSSession
 Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 3398 as its internal port. Restart the Azure VM and try the Remote Desktop connection again.
 
 ## Additional resources
-[How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md)
+[How to reset a password or the Remote Desktop service for Windows virtual machines](../windows/reset-rdp.md)
 
 [How to install and configure Azure PowerShell](/powershell/azure/overview)
 

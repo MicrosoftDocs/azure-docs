@@ -469,8 +469,6 @@
       href: reset-password.md
     - name: Understand system reboot
       href: understand-vm-reboot.md
-    - name: Boot diagnostics
-      href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
     - name: Access to applications

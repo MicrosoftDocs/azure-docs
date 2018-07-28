@@ -380,8 +380,6 @@
       href: understand-vm-reboot.md
     - name: Reset NIC
       href: reset-network-interface.md
-    - name: Boot diagnostics
-      href: boot-diagnostics.md
     - name: Serial console 
       href: serial-console.md
     - name: Creating a VM

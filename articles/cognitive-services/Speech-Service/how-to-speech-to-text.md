@@ -1,10 +1,9 @@
 ---
-title: Use Speech to Text | Microsoft Docs
+title: Use Speech to Text
 description: Learn how to use Speech to Text in the Speech service
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
