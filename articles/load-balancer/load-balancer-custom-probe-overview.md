@@ -22,13 +22,13 @@ ms.author: kumud
 
 Azure Load Balancer uses health probes to determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend instance. You can also generate a custom response to a health probe and use the health probe for flow control and signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance. This can be used to manage load or planned downtime.
 
-Health probes tell Load Balancer which backend instances should receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether the flows is TCP or UDP as well as which Load Balancer SKU you are using.  Please review [probe down behavior for details](#probedown).
+Health probes tell Load Balancer which backend instances should receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether a flow is TCP or UDP as well as which Load Balancer SKU you are using.  Please review [probe down behavior for details](#probedown).
 
 ## Health probe types
 
 Health probes can observe any port on the backend, including the port on which the actual service is provided.  
 
-For UDP load balancing, you should generate a custom health signal for the probe using the available health probe types. '
+For UDP load balancing, you should generate a custom health signal for the probe using the available health probe types.
 
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  You should not NAT or proxy this health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures.
 
@@ -39,23 +39,23 @@ TCP probes initiate a connection by performing a three-way open TCP handshake wi
 The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration cannot exceed 120 seconds.
 
 A TCP probe fails when:
-* The TCP listener on the instance doesn't respond at all after the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
+* The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
 ### HTTP probe
 
-HTTP probes establish a TCP connection and issues an HTTP GET to the specified path.  The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  You can monitor the actual HTTP endpoint serving your application or any other HTTP endpoint on the instance. Health probes check your endpoint every 15 seconds by default. The minimum probe interval is 5 seconds.
+HTTP probes establish a TCP connection and issue an HTTP GET with the specified path. 
+HTTP probes support relative paths for the HTTP GET. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  HTTP health probes attempt to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration cannot exceed 120 seconds. 
 
-The HTTP probes supports relative paths for the HTTP GET.
 
-HTTP probes can be useful if you want to implement your own logic to remove instances from load balancer rotation. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
+HTTP probes can also be useful if you want to implement your own logic to remove instances from load balancer rotation. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
-If you use Cloud Service and have web roles that use w3wp.exe, you also get automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.  The HTTP probe overrides the default guest agent probe. 
+If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.  The HTTP probe overrides the default guest agent probe. 
 
 An HTTP probe fails when:
-* The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This positive acknowledgment alerts you to take the application instance out of service right away.
-* The HTTP server doesn't respond at all after the 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
-* The server closes the connection via a TCP reset.
+* HTTP probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark the health probe down immediately. 
+* HTTP probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+* HTTP probe endpoint closes the connection via a TCP reset.
 
 ### Guest agent probe (Classic only)
 
@@ -73,9 +73,10 @@ When you use a web role, the website code typically runs in w3wp.exe, which isn'
 
 ## Probe health
 
-TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
+TCP and HTTP health probes are considered healthy and mark the role instance as healthy when:
 
-* The load balancer gets a positive probe the first time the VM boots.
+* The health probe is successful 
+first time the VM boots.
 * The number for SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
 
 > [!NOTE]
