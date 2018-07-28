@@ -100,7 +100,7 @@ A load balancing rule has a single health probe defined the respective backend p
 
 ### TCP Connections
 
-New TCP connections will succeed to backend instance which are healthy and have a guest OS and application able to accept a new flow.
+New TCP connections will succeed to backend instance which is healthy and has a guest OS and application able to accept a new flow.
 
 If a backend instance's health probe fails, established TCP connections to a specific backend instance continue.
 
