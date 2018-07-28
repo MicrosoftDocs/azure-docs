@@ -104,7 +104,7 @@ New TCP connections will succeed to backend instance which is healthy and has a 
 
 If a backend instance's health probe fails, established TCP connections to this backend instance continue.
 
-If all probes for all backend instances in a pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all exisiting TCP flows to the backend pool.
+If all probes for all instances in a backend pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all exisiting TCP flows to the backend pool.
  
 Because the flow is always between the client and the VM's guest OS, a pool with all probes down will cause a frontend to not respond to TCP connection open attempts as there is no healthy backend instance to receive the flow.
 
@@ -112,9 +112,9 @@ Because the flow is always between the client and the VM's guest OS, a pool with
 
 UDP datagrams will be delivered to healthy backend instances.
 
-UDP is connectionless and there is no flow state tracked for UDP. If any backend instance's health probe fails, existing UDP flows will may move from the unhealthy instance to another healthy instance in the backend pool.
+UDP is connectionless and there is no flow state tracked for UDP. If any backend instance's health probe fails, existing UDP flows may move to another healthy instance in the backend pool.
 
-If all probes for all backend instance in a pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
+If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
 ## Monitoring
 
