@@ -14,20 +14,20 @@ ms.service: iot-edge
 ---
 # Azure IoT Edge security manager
 
-The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. It is the focal point for security hardening and provides original device manufacturers (OEM) the opportunity to harden their devices based on their choice of hardware root of trust or Hardware Secure Modules (HSM).
+The Azure IoT Edge security manager is a well-bounded security core for protecting the IoT Edge device and all its components by abstracting the secure silicon hardware. It is the focal point for security hardening and provides original device manufacturers (OEM) the opportunity to harden their devices based on choice of hardware root of trust or Hardware Secure Modules (HSM).
 
 ![Azure IoT Edge security manager](media/edge-security-manager/iot-edge-security-manager.png)
 
-ESM aims to defend the interity of the IoT Edge device and all inherent software operations.  It does so by transitioning trust from an underlying hardware root of trust where available to securely boostrap the Edge runtime to a trusted operational state, and then continue to monitor the integrity of operations within the device.  The IoT Edge security manager in essence comprises software working in conjunction with secure silicon hardware where available and enabled to help deliver the highest security assurances possible.  
+ESM aims to defend the integrity of the IoT Edge device and all inherent software operations.  It does so by transitioning trust from an underlying hardware root of trust (if available) to bootstrap IoT Edge runtime to a trusted operational state, and then continue to monitor the integrity of operations within the device.  The IoT Edge security manager in essence comprises software working in conjunction with secure silicon hardware where available and enabled to help deliver the highest security assurances possible.  
 
-The responsibilities of the IoT Edge security manager includes (but not limited to):
+The responsibilities of the IoT Edge security manager include (but not limited to):
 
 * Secured and measured bootstrapping of the Azure IoT Edge device.
 * Device identity provisioning and transition of trust where applicable.
 * Host and protect device components of cloud services like Device Provisioning Service.
 * Securely provision IoT Edge modules with module unique identity.
 * Gatekeeper to device hardware root of trust through notary services.
-* Monitor the integrity of Egde operations at runtime.
+* Monitor the integrity of IoT Edge operations at runtime.
 
 IoT Edge security manager comprises three major components:
 
@@ -57,17 +57,17 @@ Existence of these two models for utilizing hardware root of trust gives rise to
 * The standard or rich execution environment (REE) that rely on the use of secure elements to protect sensitive information.
 * The trusted execution environment (TEE) that rely on the use of secure enclave technology to protect sensitive information and offer protection to software execution.
 
-For devices using secure enclaves as hardware root of trust, sensitive logic within the Edge security daemon is expected to be protected whithin the enclave while other portions like those that partake in secure marshalling of communicaitons between REE and TEE can reside outside of the TEE.  In anycase, it is expected of original design manufacturers (ODM) and original equipment manufacturers (OEM) to extend trust from their HSM to measure and defend the operational integrity of the Edge security daemon at boot and runtime.
+For devices using secure enclaves as hardware root of trust, sensitive logic within the Edge security daemon is expected to be protected within the enclave while other portions like those that partake in secure marshalling of communications between REE and TEE can reside outside of the TEE.  In any case, it is expected of original design manufacturers (ODM) and original equipment manufacturers (OEM) to extend trust from their HSM to measure and defend the operational integrity of the Edge security daemon at boot and runtime.
 
 #### Minimize bloat and churn
 
-Another core principle for the Edge security daemon is to minimize churn.  For the highest level of trust, IoT Edge security daemon can tightly couple with the device hardware root of trust where available, and operate as native code.  It is common for these types of realizations to update the daemon software through the hardware root of trust's secure update paths (as opposed to OS provided update mechanisms), which can be challenging depending on specific hardware and deployment scenario.  While security renewal is strong recommendation for IoT devices, it stands to reason that excessive update requirements or large update payloads can expand the threat surface in many ways.  Examples inlcude skipping of updates to maximize operatinal availability or root of trust hardware too constrained to process large update payloads.  As such, the design of IoT Edge security daemon is concise to keep the footprint and hence the trusted computing base small and to minimize update requirements.
+Another core principle for the Edge security daemon is to minimize churn.  For the highest level of trust, IoT Edge security daemon can tightly couple with the device hardware root of trust where available, and operate as native code.  It is common for these types of realizations to update the daemon software through the hardware root of trust's secure update paths (as opposed to OS provided update mechanisms), which can be challenging depending on specific hardware and deployment scenario.  While security renewal is strong recommendation for IoT devices, it stands to reason that excessive update requirements or large update payloads can expand the threat surface in many ways.  Examples inlcude skipping of updates to maximize operational availability or root of trust hardware too constrained to process large update payloads.  As such, the design of IoT Edge security daemon is concise to keep the footprint and hence the trusted computing base small and to minimize update requirements.
 
 ### Architecture of IoT Edge security daemon
 
 ![Azure IoT Edge security daemon](media/edge-security-manager/iot-edge-security-daemon.png)
 
-The IoT Edge security daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  Moreso, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technology that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge security daemon are role specific interfaces  to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and it's operations.
+The IoT Edge security daemon is architected to take advantage of any available hardware root of trust technology for security hardening.  Moreso, it is architected to allow for split-world operation between a Standard/Rich Execution Environment (REE) and a Trusted Execution Environment (TEE) to take advantage of hardware technologies that offer trusted execution environments (TEE).  Core to the architecture of the IoT Edge security daemon are role-specific interfaces to enable the interplay of major components of Edge to assure the integrity of the IoT Edge device and it's operations.
 
 #### Cloud interface
 
@@ -113,15 +113,15 @@ This is the secure silicon that provides the hardware root of trust for the sili
 
 ## IoT Edge security manager integration and maintenance
 
-One major goal of the IoT Edge security manager is to identity and isolate the components tasked with defending the security and integrity of the Azure IoT Edge platform for custom hardening.  As such it is expected of third parties like device makers to make use of custom security features available with their device hardware.  See next steps section below on links to example on how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) on Linux and Windows platforms.  These examples uses software or virtual TPMs but directly applies to using discrete TPM devices.  
+One major goal of the IoT Edge security manager is to identity and isolate the components tasked with defending the security and integrity of the Azure IoT Edge platform for custom hardening.  As such it is expected of third parties like device makers to make use of custom security features available with their device hardware.  See next steps section below on links to example on how to harden the Azure IoT security manager with the Trusted Platform Module (TPM) on Linux and Windows platforms.  These examples use software or virtual TPMs but directly applies to using discrete TPM devices.  
 
 ## Next steps
 
 Read the blog on [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
-Create and provision an Edge device with a [virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux).
+Create and provision an Edge device with a [virtual TPM on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md).
 
-Create and provision a [simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows).
+Create and provision a [simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md).
 
 <!-- Links -->
 [lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/
