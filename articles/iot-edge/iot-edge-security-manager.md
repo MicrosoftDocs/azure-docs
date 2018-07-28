@@ -79,7 +79,7 @@ IoT Edge security daemon offers a management API, which is called by the Edge Ag
 
 These properties are used by the workload API (described below) to attest that the caller is authorized to perform an action.
 
-This is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge security daemon bootstraps and starts the IoT Edge agent, it can create an implicit registration for the IoT Edge agent, after it has attested that the IoT Edge agent has not been tampered with. The same attestation process that the workload API uses is used to restrict access to the management API to only the IoT Edge agent.
+The Management API is a privileged API, callable only from the IoT Edge agent.  Since the IoT Edge security daemon bootstraps and starts the IoT Edge agent, it can create an implicit registration for the IoT Edge agent, after it has attested that the IoT Edge agent has not been tampered with. The same attestation process that the workload API uses is used to restrict access to the management API to only the IoT Edge agent.
 
 #### Container API
 
@@ -109,7 +109,7 @@ The HSM PAL abstracts all root of trust hardware to isolate the developer or use
 
 ## Secure silicon root of trust hardware
 
-Secure silicon is necessary to anchor trush within the IoT Edge device.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
+Secure silicon is necessary to anchor trust inside the IoT Edge device hardware.  Secure silicon come in variety to include Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX, and custom secure silicon technologies.  The use of secure silicon root of trust in devices is highly recommended given the threats associated with physically accessibility of IoT devices.
 
 ## IoT Edge security manager integration and maintenance
 
