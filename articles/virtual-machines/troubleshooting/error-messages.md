@@ -59,7 +59,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  ArtifactVersionNotFound  |  No version found in the artifact repository that satisfies the requested version '{0}' for VM extension with publisher '{1}' and type '{2}'.  |
 |  AttachDiskWhileBeingDetached  |  Cannot attach data disk '{0}' to VM '{1}' because the disk is currently being detached. Please wait until the disk is completely detached and then try again.  |
 |  BadRequest  |  Aligned' Availability Sets are not yet supported in this region.  |
-|  BadRequest  |  Addition of a VM with managed disks to non-managed Availability Set or addition of a VM with blob based disks to managed Availability Set is not supported. Please create an Availability Set with 'managed' property set in order to add a VM with managed disks to it.  |
+|  BadRequest  |  Addition of a VM with managed disks to non-managed Availability Set or addition of a VM with blob-based disks to managed Availability Set is not supported. Please create an Availability Set with 'managed' property set in order to add a VM with managed disks to it.  |
 |  BadRequest  |  Managed Disks are not supported in this region.  |
 |  BadRequest  |  Multiple VMExtensions per handler not supported for OS type '{0}'. VMExtension '{1}' with handler '{2}' already added or specified in input.  |
 |  BadRequest  |  Operation '{0}' is not supported on Resource '{1}' with managed disks.  |
@@ -106,7 +106,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  InvalidParameter  |  The specified fault domain count {0} must fall in the range {1} to {2}.  |
 |  InvalidParameter  |  The license type {0} is invalid. Valid license types are: Windows_Client or Windows_Server, case sensitive.  |
 |  InvalidParameter  |  Linux host name cannot exceed {0} characters in length or contain the following characters: {1}.  |
-|  InvalidParameter  |  Destination path for Ssh public keys is currently limited to its default value {0}  due to a known issue in Linux provisioning agent.  |
+|  InvalidParameter  |  Destination path for SSH public keys is currently limited to its default value {0}  due to a known issue in Linux provisioning agent.  |
 |  InvalidParameter  |  A disk at LUN {0} already exists.  |
 |  InvalidParameter  |  Subscription {0} of the request must match the subscription {1} contained in the managed disk id.  |
 |  InvalidParameter  |  Custom data in OSProfile must be in Base64 encoding and with a maximum length of {0} characters.  |
@@ -134,12 +134,12 @@ This section lists the common error messages you may encounter when managing VMs
 |  OperationNotAllowed  |  Availability Set {0} cannot be deleted. Before deleting an Availability Set please ensure that it does not contain any VM.  |
 |  OperationNotAllowed  |  Changing availability set SKU from 'Aligned' to 'Classic' is not allowed.  |
 |  OperationNotAllowed  |  Cannot modify extensions in the VM when the VM is not running.  |
-|  OperationNotAllowed  |  The Capture action is only supported on a Virtual Machine with blob based disks. Please use the 'Image' resource APIs to create an Image from a managed Virtual Machine.  |
+|  OperationNotAllowed  |  The Capture action is only supported on a Virtual Machine with blob-based disks. Please use the 'Image' resource APIs to create an Image from a managed Virtual Machine.  |
 |  OperationNotAllowed  |  The resource {0} cannot be created from Image {1} until Image has been successfully created.  |
 |  OperationNotAllowed  |  Updates to encryptionSettings is not allowed when VM is allocated, Please retry after VM is deallocated  |
-|  OperationNotAllowed  |  Addition of a managed disk to a VM with blob based disks is not supported.  |
+|  OperationNotAllowed  |  Addition of a managed disk to a VM with blob-based disks is not supported.  |
 |  OperationNotAllowed  |  The maximum number of data disks allowed to be attached to a VM of this size is {0}.  |
-|  OperationNotAllowed  |  Addition of a blob based disk to VM with managed disks is not supported.  |
+|  OperationNotAllowed  |  Addition of a blob-based disk to VM with managed disks is not supported.  |
 |  OperationNotAllowed  |  Operation '{0}' is not allowed on Image '{1}' since the Image is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete).  |
 |  OperationNotAllowed  |  Operation '{0}' is not allowed on VM '{1}' since the VM is generalized.  |
 |  OperationNotAllowed  |  Operation '{0}' is not allowed as Restore point collection '{1}' is marked for deletion.  |
@@ -159,7 +159,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  OperationNotAllowed  |  VM Scale Set extensions of handler '{0}' can be deleted only at the time of VM Scale Set deletion.  |
 |  OperationNotAllowed  |  VM '{0}' is already using managed disks.  |
 |  OperationNotAllowed  |  VM '{0}' belongs to 'Classic' availability set '{1}'. Please update the availability set to use 'Aligned' SKU and then retry the Conversion.  |
-|  OperationNotAllowed  |  VM created from Image cannot have blob based disks. All disks have to be managed disks.  |
+|  OperationNotAllowed  |  VM created from Image cannot have blob-based disks. All disks have to be managed disks.  |
 |  OperationNotAllowed  |  Capture operation cannot be completed because the VM is not generalized.  |
 |  OperationNotAllowed  |  Management operations on VM '{0}' are disallowed because VM disks are being converted to managed disks.  |
 |  OperationNotAllowed  |  An ongoing operation is changing power state of Virtual Machine {0} to {1}. Please perform operation {2} after some time.  |
