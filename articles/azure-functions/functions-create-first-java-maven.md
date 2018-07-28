@@ -12,15 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
 # Create your first function with Java and Maven (Preview)
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
 This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
