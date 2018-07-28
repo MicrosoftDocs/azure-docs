@@ -34,31 +34,27 @@ When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) w
 
 ### TCP probe
 
-TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a full  four-way close TCP handshake.
+TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a four-way close TCP handshake.
 
-The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.
+The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration cannot exceed 120 seconds.
 
 A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all after the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-For more information about how to configure an HTTP health probe or a TCP probe, see [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md).
-
 ### HTTP probe
 
-You can monitor the actual HTTP endpoint or create your own custom logic to determine the health of the instance. Health probes check  your endpoint every 15 seconds by default. The minimum probe interval is 5 seconds. The instance is considered to be in the load balancer rotation if it responds to a health probe with an HTTP 200 within the timeout period. The timeout period is 31 seconds by default.
+HTTP probes establish a TCP connection and issues an HTTP GET to the specified path.  The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  You can monitor the actual HTTP endpoint serving your application or any other HTTP endpoint on the instance. Health probes check your endpoint every 15 seconds by default. The minimum probe interval is 5 seconds.
 
-The HTTP custom probe supports relative paths.
+The HTTP probes supports relative paths for the HTTP GET.
 
-An HTTP probe can be useful if you want to implement your own logic to remove instances from load balancer rotation. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
+HTTP probes can be useful if you want to implement your own logic to remove instances from load balancer rotation. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
-If you use Cloud Service and have web roles that use w3wp.exe, you also get automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
-
-The HTTP probe overrides the default guest agent probe. 
+If you use Cloud Service and have web roles that use w3wp.exe, you also get automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.  The HTTP probe overrides the default guest agent probe. 
 
 An HTTP probe fails when:
 * The HTTP application returns an HTTP response code other than 200 (for example, 403, 404, or 500). This positive acknowledgment alerts you to take the application instance out of service right away.
-* The HTTP server doesn't respond at all after the timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+* The HTTP server doesn't respond at all after the 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * The server closes the connection via a TCP reset.
 
 ### Guest agent probe (Classic only)
@@ -131,5 +127,6 @@ Basic Load Balancer exposes health probe status per backend pool via Log Analyti
 
 ## Next steps
 
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md)
 - [REST API for health probes](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
 
