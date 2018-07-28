@@ -30,7 +30,9 @@ Health probes can observe any port on a backend instance, including the port on 
 
 For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP or HTTP health probe.
 
-When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  You should not NAT or proxy this health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures.
+When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  
+
+You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.
 
 ### TCP probe
 
