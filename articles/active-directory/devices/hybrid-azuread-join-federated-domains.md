@@ -24,7 +24,7 @@ ms.reviewer: jairoc
 As a IT admin, you typically want to so that I can do...
 You can accomplish this goal by ...
 
-With [device management](device-management-introduction.md) in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
+With [device management](../device-management-introduction.md) in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring a hybrid Azure AD join. 
 
 In this tutorial, you learn how to configure hybrid Azure AD join for devices that federated using ADFS.
@@ -40,9 +40,9 @@ In this tutorial, you learn how to configure hybrid Azure AD join for devices th
 
 This tutorial assumes that you are familiar with:
 
--  [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+-  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
 
--  [How to plan your hybrid Azure Active Directory join implementation](device-management-hybrid-azuread-joined-devices-plan.md)
+-  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 
 
@@ -61,7 +61,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 - Updates the claim rules in your Azure AD trust
 
-The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure device registration](device-management-hybrid-azuread-joined-devices-setup.md).
+The configuration steps in this article are based on this wizard. If you have an older version of Azure AD Connect installed, you need upgrade it to 1.1.819 or higher. If installing the latest version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md).
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
@@ -208,7 +208,7 @@ On a Windows down-level device, use **Autoworkplace** to check the client detail
 
 **To verify the client details on a Windows down-level device:**
  
-1.	Verify that the [MSI](device-management-hybrid-azuread-joined-devices-deployment.md#control-windows-down-level-devices) has been deployed on the device.
+1.	Verify that the [MSI](hybrid-azuread-join-control.md#control-windows-down-level-devices) has been deployed on the device.
 	
 2.	Sign on with a valid user account to complete the hybrid Azure AD join.
 
@@ -247,16 +247,16 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 If you are experiencing issues with completing hybrid Azure AD join for domain joined Windows devices, see:
 
-- [Troubleshooting Hybrid Azure AD join for Windows current devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshooting Hybrid Azure AD join for Windows current devices](../device-management-troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for managed domains](device-management-hybrid-azuread-joined-devices-setup-not-federated.md)
-> [Configure hybrid Azure Active Directory join manually](device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
+> [Configure hybrid Azure Active Directory join manually](../device-management-hybrid-azuread-joined-devices-setup.md)
 
 
 

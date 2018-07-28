@@ -25,14 +25,14 @@ As a IT admin, you typically want to so that I can do...
 You can accomplish this goal by ...
 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
 
 ## Prerequisites
 
-This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 
 ## Plan your implementation
@@ -97,7 +97,7 @@ The registration of Windows down-level devices is not supported for devices conf
 
 ## Control the hybrid Azure AD join 
  
-Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](device-management-hybrid-azuread-joined-devices-deployment.md).
+Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
   
 ## Select your scenario
@@ -125,12 +125,12 @@ If your environment has managed domains, hybrid Azure AD join supports:
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 
-- [Configure hybrid Azure Active Directory join for federated domains](device-management-hybrid-azuread-joined-devices-setup-adfs.md)
+- [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
 
-- [Configure hybrid Azure Active Directory join for managed domains](device-management-hybrid-azuread-joined-devices-setup-not-federated.md)
+- [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](device-management-hybrid-azuread-joined-devices-setup.md). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
 
@@ -140,9 +140,9 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for federated domains](device-management-hybrid-azuread-joined-devices-setup-adfs.md)
-> [Configure hybrid Azure Active Directory join for managed domains](device-management-hybrid-azuread-joined-devices-setup-not-federated.md)
-> [Configure hybrid Azure Active Directory join manually](device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
+> [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
+> [Configure hybrid Azure Active Directory join manually](../device-management-hybrid-azuread-joined-devices-setup.md)
 
 
 

@@ -37,11 +37,11 @@ This article provides you with guidance on how you can control hybrid Azure AD j
 
 This article assumes that you are familiar with:
 
--  [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+-  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
  
--  [How to plan your hybrid Azure Active Directory join implementation](device-management-hybrid-azuread-joined-devices-plan.md)
+-  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
--  Configure hybrid Azure Active Directory join for [managed domains](device-management-hybrid-azuread-joined-devices-setup-not-federated.md) or [federated domains](device-management-hybrid-azuread-joined-devices-setup-adfs.md)
+-  Configure hybrid Azure Active Directory join for [managed domains](hybrid-azuread-join-managed-domains.md) or [federated domains](hybrid-azuread-join-federated-domains.md)
 
 
 
@@ -128,7 +128,7 @@ To control the device registration, you should deploy the Windows Installer pack
 
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
 
 
 
