@@ -102,7 +102,7 @@ A load balancing rule has a single health probe defined the respective backend p
 
 New TCP connections will succeed to backend instance which is healthy and has a guest OS and application able to accept a new flow.
 
-If a backend instance's health probe fails, established TCP connections to a specific backend instance continue.
+If a backend instance's health probe fails, established TCP connections to this backend instance continue.
 
 If all probes for all backend instances in a pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all exisiting TCP flows to the backend pool.
  
