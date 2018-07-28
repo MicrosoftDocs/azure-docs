@@ -18,7 +18,7 @@ ms.date: 07/20/2018
 ms.author: kumud
 ---
 
-# Load Balancer probes
+# Load Balancer health probes
 
 Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows.   You can use health probes to detect the failure of an application on a backend instance.  Another common use is the health probe response from your application as a type of flow control to signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance to manage load or planned downtime.
 
