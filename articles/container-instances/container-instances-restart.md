@@ -7,24 +7,39 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: marsma
 ---
 
 # Restart containers in Azure Container Instances
 
-Stuff.
+It's sometimes necessary to restart a container instance, for example, to increase its resources (CPU, memory)
 
-The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally][azure-cli-install], or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
+Restarting container instances essentially redeploys the containers in the container group.
+
+## Restart a container
+
+To restart the containers in a container group, redeploy (create) the same container group with one or more modified properties. For example, to increase the mem
+
+## Impact of container restarts
+
+* ip address
+* use a DNS name
+* not all properties supported
+
+## Properties that require delete
+
+If you wish to change any of the following properties on your container group, you must first delete, then redeploy the group:
+
+* OS type
+* restart policy
+* network profile
+* CPU
+* memory resources
 
 ## Next steps
 
-### Persist task output
-
-For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
-
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
