@@ -67,13 +67,15 @@ To provide educators the permission to create labs for their classes, add them t
 ## Specify Marketplace images available to lab owners
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
 
-1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. The Marketplace images that are displaed in the list are only the ones that satisfy the following conditions:
+1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
+    
+    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    The Marketplace images that are displaed in the list are only the ones that satisfy the following conditions:
         
     - Creates a single VM.
     - Uses Azure Resource Manager to provision VMs
     - Doesn't require purchasing an extra licensing plan
-
-    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
     1. Select **... (ellipsis)** in the last column, and select **Disable image**. 
 
