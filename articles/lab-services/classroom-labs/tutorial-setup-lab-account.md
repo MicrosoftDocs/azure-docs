@@ -71,7 +71,7 @@ As a lab account owner, you can specify the Marketplace images that lab creators
     
     ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    The Marketplace images that are displaed in the list are only the ones that satisfy the following conditions:
+    The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
         
     - Creates a single VM.
     - Uses Azure Resource Manager to provision VMs
