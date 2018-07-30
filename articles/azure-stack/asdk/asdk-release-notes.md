@@ -75,6 +75,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
 
+- <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
+ 
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
