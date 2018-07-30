@@ -19,18 +19,19 @@ ms.author: ellacroi
 ---  
 # Azure partner customer usage attribution
 
-As a software partner for Azure your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when a partner solution is deployed by the customer and uses Azure resources provisioned by the customer, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth for alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
+As a software partner for Azure, your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when a customer deploys a partner solution and provisions their own Azure resources, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth. Adding a higher level of visibility helps partners with alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
 
 Microsoft is creating a new method to help partners better track Azure usage that is a result of a customer deploying your software on Azure. This new method is based on using Azure Resource Manager to orchestrate deployment of Azure services.
 
-As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable this, there are two approaches available:
+As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This association can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable tracking, there are two approaches available:
 
 - Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
 
 - Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Manager template or to generate the API calls to directly provision Azure services. 
 
 ## Method 1: Azure Resource Manager Templates 
-Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
+
+Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today, here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
 
 *	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
 *	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
@@ -82,10 +83,10 @@ For this approach, when designing your API calls you will include a GUID in the 
 >GUID format for insertion into the user agent: 
 pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // enter your GUID after the “pid-“
 
-The format of the string is important. If the prefix “pid-” is not included we will not be able to query the data. Different SDKs do this differently.  To implement this method you will need to review the support and approach for your preferred Azure SDK. 
+The format of the string is important. If the prefix “pid-” is not included, it isn't possible to query the data. Different SDKs do this differently.  To implement this method you will need to review the support and approach for your preferred Azure SDK. 
 
 **Example using the Python SDK:**
-For Python, you need to use the “config” attribute. You can only add to a UserAgent (we still want some kind of control). This would be:
+For Python, you need to use the “config” attribute. You can only add to a UserAgent. Here is an example:
 
 ```python
 
@@ -99,7 +100,7 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
 
 How to tag a deployment using the Azure PowerShell or the Azure CLI:
-If you deploy resources via AzurePowerShell you can append your GUID by using the following method:
+If you deploy resources via AzurePowerShell, you can append your GUID by using the following method:
 
 ```
 
@@ -119,7 +120,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## Registering GUIDs/Offers
 
-In order for the GUID to be included in our tracking it must be registered.  
+In order for the GUID to be included in our tracking, it must be registered.  
 
 All registrations for template GUIDs will be done via the Azure Marketplace Cloud Partner Portal  (CPP). 
 
@@ -129,7 +130,7 @@ Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) today and get
 *	Partners will be able to register multiple GUIDs 
 *	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
 
-Once you have added the GUID to your template or in the user agent and registered the GUID in the CPP all deployments will be tracked. 
+Once you have added the GUID to your template, or in the user agent, and registered the GUID in the CPP all deployments will be tracked. 
 
 ## Verification of GUID deployment 
 
@@ -189,15 +190,15 @@ You can also choose to track GUIDs at a more granular level i.e. SKU (where SKUs
 
 ## Guidance on privacy and data collection
 
-Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. Please note that where it indicates "PARTNER" you should fill in your own company name. In addition, partners should ensure this aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
+Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. Note that where it indicates "PARTNER" you should fill in your own company name. In addition, partners should ensure the language aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
 
 **For Azure Resource Manager template deployments**
 
-When deploying this template Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter. 
+When deploying this template, Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter. 
 
 **For SDK or API deployments**
 
-When deploying our software Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When deploying PARTNER software Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter.
 
 ## Support
 
@@ -226,7 +227,7 @@ The tracking resource is intended to connect the partner’s solution to the cus
 
 **Once a GUID has been added can it be changed?**
  
-Yes, a customer or implementation partner may customize the template and could change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the tracking GUID.  Note that changing the GUID will only affect new, not existing, deployments and resources.
+Yes, a customer or implementation partner may customize the template and could change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the tracking GUID.  Changing the GUID will only affect new, not existing, deployments and resources.
 
 **When will reporting be available?**
 
@@ -249,6 +250,6 @@ You are still welcome to add the GUID to the template.  If you use an existing G
 
 Customers are currently able to track their usage of individual resources or customer defined resource groups within the Azure management portal.   
 
-**Is this similar to the Digital Partner of Record (DPOR)?**
+**Is this tracking methodology similar to the Digital Partner of Record (DPOR)?**
 
 This new method of connecting the deployment and usage to a partner’s solution is intended to provide a mechanism to link a partner solution to Azure usage.  DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer’s Azure subscription.   
