@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud QuickStart - Submit and AutoScale | Microsoft Docs
-description: Azure CycleCloud QuickStart - Submitting Jobs and AutoScale
+description: In this quickstart, you will walk through logging into the Master node, submitting a job and observing the autoscaling behavior.
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud

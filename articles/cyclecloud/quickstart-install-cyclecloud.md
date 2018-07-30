@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud QuickStart - Install and Setup CycleCloud | Microsoft Docs
-description: Azure CycleCloud QuickStart - Install and Setup CycleCloud
+description: In this quickstart, you will install and setup Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud

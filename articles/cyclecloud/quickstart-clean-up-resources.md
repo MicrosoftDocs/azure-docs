@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud QuickStart | Microsoft Docs
-description: Azure CycleCloud QuickStart - Cleaning Up Resources
+description: In this quickstart, you will clean up your resources acquired in the previous quickstarts
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
