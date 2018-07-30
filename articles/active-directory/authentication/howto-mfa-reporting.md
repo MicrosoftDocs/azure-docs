@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -55,7 +55,7 @@ This data is available through the [Azure portal](https://portal.azure.com) and 
 
 The sign-in activity reports for MFA give you access to the following information:
 
-**MFA required:** Whether MFA is required for the sign-in or not. MFA can be required due to per-user MFA, conditional access or other reasons. Possible values are **Yes** or **No**.
+**MFA required:** Whether MFA is required for the sign-in or not. MFA can be required due to per-user MFA, conditional access, or other reasons. Possible values are **Yes** or **No**.
 
 **MFA Result:** More information on whether MFA was satisfied or denied:
 
