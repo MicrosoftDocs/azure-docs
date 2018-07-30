@@ -51,8 +51,8 @@
       href: container-instances-liveness-probe.md
   - name: Manage
     items:
-    - name: Restart containers
-      href: container-instances-restart.md
+    - name: Update containers
+      href: container-instances-update.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Monitor CPU and memory usage
