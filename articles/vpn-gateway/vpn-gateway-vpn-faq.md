@@ -172,10 +172,6 @@ This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-### <a name="tls2"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
-
-[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
-
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

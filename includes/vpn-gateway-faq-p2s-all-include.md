@@ -5,10 +5,14 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/04/2018
+ ms.date: 07/30/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
+### How many VPN client endpoints can I have in my Point-to-Site configuration?
+
+We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
+
 ### <a name="supportedclientos"></a>What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:
@@ -25,13 +29,7 @@ The following client operating systems are supported:
 * Linux (StrongSwan)
 * iOS
 
->[!NOTE]
->[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
->
-
-### How many VPN client endpoints can I have in my Point-to-Site configuration?
-
-We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
