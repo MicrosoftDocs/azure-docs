@@ -107,7 +107,7 @@ The following example shows the schema of a device created event:
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
+    "deviceId": "LogicAppTestDevice"
   },
   "dataVersion": "1",
   "metadataVersion": "1"

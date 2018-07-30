@@ -94,7 +94,7 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
+    "deviceId": "LogicAppTestDevice"
   },
   "dataVersion": "1",
   "metadataVersion": "1"
