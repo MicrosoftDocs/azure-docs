@@ -6,8 +6,7 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
 manager: mtillman
-editor: ''
-
+ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
