@@ -118,7 +118,7 @@ Modify your cluster configuration to set the following property to *false* befor
 
         "fabricClusterAutoupgradeEnabled": false,
 
-For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade PowerShell command](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
+For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
 ```powershell
 
@@ -202,7 +202,7 @@ Or use this script:
 
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
-To upgrade the cluster configuration upgrade, run Start-ServiceFabricClusterConfigurationUpgrade. The configuration upgrade is processed upgrade domain by upgrade domain.
+To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 
