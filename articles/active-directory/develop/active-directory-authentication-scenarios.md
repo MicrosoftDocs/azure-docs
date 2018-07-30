@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/26/2018
 ms.author: celested
-ms.reviewer: jmprieur
+ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
 ---
 
@@ -168,7 +168,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 1. The user signs in on the sign-in page.
 1. If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
 1. The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.
-1. The browser calls the application’s web API back end with the access token in the authorization header.
+1. The browser calls the application’s web API back end with the ID token in the authorization header. The Azure AD authentication service issues an ID token that can be used as a bearer token if the resource is the same as the client ID (in this case, this is true as the web API is the app's own backend). 
 
 #### Code samples
 
