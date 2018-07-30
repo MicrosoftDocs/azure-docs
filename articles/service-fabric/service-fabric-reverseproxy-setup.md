@@ -22,7 +22,7 @@ Reverse proxy is an optional Azure Service Fabric service that helps microservic
 
 ## Enable reverse proxy using Azure portal
 
-Azure portal provides an option to enable reverse proxy when you create a new Service Fabric cluster. 
+Azure portal provides an option to enable reverse proxy when you create a new Service Fabric cluster. You can't upgrade an existing cluster to use reverse proxy through the portal. 
 
 To configure reverse proxy when you create a cluster using Azure portal, do the following:
 
@@ -35,7 +35,7 @@ To configure reverse proxy when you create a cluster using Azure portal, do the 
 
 ## Enable reverse proxy via Azure Resource Manager templates
 
-You can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric for the cluster.
+For clusters on Azure, you can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric for the cluster.
 
 Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) for Azure Resource Manager template samples to configure secure reverse proxy with a certificate and handling certificate rollover.
 
