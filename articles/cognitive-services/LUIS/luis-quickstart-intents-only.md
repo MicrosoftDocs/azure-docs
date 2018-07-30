@@ -28,7 +28,7 @@ This app is the simplest type of LUIS app because it doesn't extract data from t
 > * Add example utterances to ApplyForJob intent 
 > * Train, publish, and query endpoint again 
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Purpose of the app
 This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. Later in the quickstart, a third intent, `ApplyForJob`, is added. 
@@ -84,13 +84,13 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     ![Train button](./media/luis-quickstart-intents-only/train-button.png)
 
-    Training is complete when you see the green status bar at the top of the website confirming success.
+2. Training is complete when you see the green status bar at the top of the website confirming success.
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. [!include[LUIS How to Publish steps](luis-include-tutorial-how-to-publish.md)]
+## Publish app to endpoint
 
-    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## Query endpoint for GetJobInformation intent
 1. [!include[LUIS How to get endpoint first step](luis-include-tutorial-how-to-get-endpoint.md)]
