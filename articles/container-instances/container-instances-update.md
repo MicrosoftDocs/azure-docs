@@ -51,7 +51,7 @@ Not all properties of a container group support updates. To change some properti
 
 All containers in a container group are restarted when you update the container group. You can't perform an update or in-place restart of a specific container in a multi-container group.
 
-The IP address of a container shouldn't change between deployments. As long as the container group is deployed to the same underlying host, the container group retains its IP address. Although rare, and while Azure Container Instances makes every effort to redeploy to the same host, there are some Azure-internal events that can cause redeployment to a different host. To mitigate this issue, always use a DNS name label for your container instances.
+The IP address of a container won't typically change between updates, but it's not guaranteed to remain the same. As long as the container group is deployed to the same underlying host, the container group retains its IP address. Although rare, and while Azure Container Instances makes every effort to redeploy to the same host, there are some Azure-internal events that can cause redeployment to a different host. To mitigate this issue, always use a DNS name label for your container instances.
 
 Terminated or deleted container groups can't be updated. Once a container group has stopped (is in the *Terminated* state) or has been deleted, the group is deployed as new.
 
