@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
@@ -144,7 +144,7 @@ To configure permissions:
 
     ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step starts a search for Azure virtual machines.
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step start a search for Azure virtual machines.
 
     ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -337,7 +337,7 @@ To configure protection for a SQL database:
 
 A backup policy defines a matrix of when backups are taken and how long they're retained. Use Azure Backup to schedule three types of backup for SQL databases:
 
-* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
+* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough logs to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
 * Differential backup: A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that's changed since the full backup. At most, you can trigger one differential backup per day. You can't configure a full backup and a differential backup on the same day.
 * Transaction log backup: A log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
 
@@ -402,15 +402,16 @@ To create a backup policy:
    ![Accept the new backup policy](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## Restore a SQL database
-
 Azure Backup provides functionality to restore individual databases to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential and the chain of log backups that are required to restore your data based on your restore times.
 
 You can also select a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
- > [!Note]
- > Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
->
 
-To restore a database:
+### Pre-requisite before trigerting a restore
+1. You can restore the database to an instance of a SQL Server in the same Azure region. The destination server needs to be registered to the same Recovery Services vault as the source.  
+2. To restore a TDE encrypted database to another SQL Server, please first restore the certificate to the destination server by following steps documented [here](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
+
+### Steps to restore a database:
 
 1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 
