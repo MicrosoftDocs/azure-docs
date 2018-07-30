@@ -1,11 +1,11 @@
-*Virtual Machines Lifecycle and States
+#Virtual Machines Lifecycle and States
 
 Understand different VM states which makes up a Virtual Machine (VM)
 lifecycle. VMs can be in one of the two distinct state machines called
 provisioning and power states. Understanding these states will help
 build a great customer experience for your applications.
 
-**Power State
+##Power State
 
 The Power states represent VM’s running state as seen by the hypervisor.
 
@@ -29,7 +29,7 @@ Machines Error
 Messages](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages)
 in cases where VM has not recovered.
 
-**Provisioning
+##Provisioning
 
 These states reflect statuses of User-initiated (control plane)
 operations on the VM. These states are independent of the running state
