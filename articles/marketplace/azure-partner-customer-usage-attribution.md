@@ -19,19 +19,19 @@ ms.author: ellacroi
 ---  
 # Azure partner customer usage attribution
 
-As a software partner for Azure, your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when a customer deploys a partner solution and provisions their own Azure resources, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth. Adding a higher level of visibility helps partners with alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
+As a software partner for Azure, your solutions either require Azure components or to be deployed directly on Azure infrastructure.  Today, when a customer deploys a partner solution and provisions their own Azure resources, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth. Adding a higher level of visibility helps partners align with the Microsoft sales teams and gain credit for Microsoft partner programs.   
 
 Microsoft is creating a new method to help partners better track Azure usage that is a result of a customer deploying your software on Azure. This new method is based on using Azure Resource Manager to orchestrate deployment of Azure services.
 
-As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This association can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable tracking, there are two approaches available:
+As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This association can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagement.  To enable tracking, there are two approaches available:
 
-- Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
+- Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
 
 - Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Manager template or to generate the API calls to directly provision Azure services. 
 
 ## Method 1: Azure Resource Manager Templates 
 
-Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today, here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
+Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have an Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today, here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
 
 *	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
 *	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
@@ -83,7 +83,7 @@ For this approach, when designing your API calls you will include a GUID in the 
 >GUID format for insertion into the user agent: 
 pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // enter your GUID after the “pid-“
 
-The format of the string is important. If the prefix “pid-” is not included, it isn't possible to query the data. Different SDKs do this differently.  To implement this method you will need to review the support and approach for your preferred Azure SDK. 
+The format of the string is important. If the prefix “pid-” is not included, it isn't possible to query the data. Different SDKs do this differently.  To implement this method, you will need to review the support and approach for your preferred Azure SDK. 
 
 **Example using the Python SDK:**
 For Python, you need to use the “config” attribute. You can only add to a UserAgent. Here is an example:
@@ -109,7 +109,7 @@ If you deploy resources via AzurePowerShell, you can append your GUID by using t
 
 ```
 
-To append your GUID when using the Azure CLI, set the AZURE_HTTP_USER_AGENT environment variable.  You can set this within the scope of a script or to set globally, for shell scope use:
+To append your GUID when using the Azure CLI, set the AZURE_HTTP_USER_AGENT environment variable.  You can set this variable within the scope of a script or to set globally, for shell scope use:
 
 ```
 
@@ -134,7 +134,7 @@ Once you have added the GUID to your template, or in the user agent, and registe
 
 ## Verification of GUID deployment 
 
-After you have modified your template and performed a test deployment, you can use the following PowerShell script to retrieve the resrouces that were deployed and tagged. 
+After you have modified your template and performed a test deployment, you can use the following PowerShell script to retrieve the resources you deployed and tagged. 
 
 You can use it to verify if the GUID has been added to your Azure Resource Manager template successfully. It does not apply to Azure Resource Manager API deployment.
 
@@ -175,9 +175,9 @@ foreach ($deployment in $deployments){
 
 ## Guidance on creating GUIDs
 
-A GUID (globally unique identifier) is a 32 hexadecimal digit unique reference number. To create a GUID you should use a GUID generator to create their GUIDs for tracking.  There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) you can use.
+A GUID (globally unique identifier) is a 32 hexadecimal digit unique reference number. To create a GUID, you should use a GUID generator to create their GUIDs for tracking.  There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) you can use.
 
-You are encouraged to create a unique GUID for every Offer and distribution channel.  For example, if you have two solutions and both are deployed via a template and are available in both the Azure Marketplace and on GitHub.  You should create 4 GUIDS:
+You are encouraged to create a unique GUID for every Offer and distribution channel.  For example, if you have two solutions and both are deployed via a template and are available in both the Azure Marketplace and on GitHub.  Create four GUIDS:
 
 *	Offer A in Azure Marketplace 
 *	Offer A on GitHub
@@ -190,7 +190,7 @@ You can also choose to track GUIDs at a more granular level i.e. SKU (where SKUs
 
 ## Guidance on privacy and data collection
 
-Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. Note that where it indicates "PARTNER" you should fill in your own company name. In addition, partners should ensure the language aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
+Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. Where it indicates "PARTNER" you should fill in your own company name. In addition, partners should ensure the language aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
 
 **For Azure Resource Manager template deployments**
 
@@ -198,11 +198,11 @@ When deploying this template, Microsoft will be able identify the installation o
 
 **For SDK or API deployments**
 
-When deploying PARTNER software Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter.
+When deploying PARTNER software, Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter.
 
 ## Support
 
-For assistance, please follow the below steps:
+For assistance, follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.** 
 >[!Note]
@@ -219,7 +219,7 @@ For assistance, please follow the below steps:
 
 **What is the benefit of adding the GUID to the template?**
 
-Microsoft will provide partners with a view of customer deployments of their templates and insights on their influenced usage.  Both Microsoft and the partner can also use this information to drive closer engagement between partners and the Microsoft sales teams and a more consistent view of an individual partner’s impact on Azure growth. 
+Microsoft will provide partners with a view of customer deployments of their templates and insights on their influenced usage.  Both Microsoft and the partner can also use this information to drive closer engagement between sales teams. Both Microsoft and the partner can also use it to get a more consistent view of an individual partner’s impact on Azure growth. 
 
 **Who can add a GUID to a template?**
 
@@ -240,11 +240,11 @@ Partners is required to have a profile in Cloud Partner Portal to register the r
 
 **Is there a difference if the template is deployed from Azure Marketplace versus other repositories like GitHub?**
 
-Yes, partner who publish offers in the Azure Marketplace may receive more detailed data on deployments from the Azure Marketplace.  Partners will benefit from exposing their offer to customers on the Azure Marketplace portal and in the Azure management portal. Offers in the Azure marketplace also generate leads for the partner.
+Yes, partners who publish offers in the Azure Marketplace may receive more detailed data on deployments from the Azure Marketplace.  Partners will benefit from exposing their offer to customers on the Azure Marketplace portal and in the Azure management portal. Offers in the Azure marketplace also generate leads for the partner.
 
 **What if I create a custom template for an individual customer engagement?**
 
-You are still welcome to add the GUID to the template.  If you use an existing GUID that was registered it will be included in reporting.  If you create a new GUID you will need to register the new GUID to get it included in tracking.
+You are still welcome to add the GUID to the template.  If you use an existing GUID that was registered, it will be included in reporting.  If you create a new GUID, you will need to register the new GUID to get it included in tracking.
 
 **Does the customer receive reporting as well?**
 
