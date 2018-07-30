@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -31,6 +31,44 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.1.880.0
+
+### Release status
+
+7/20/2018: Released for auto upgrade. Release for download will follow shortly.
+
+### New features and improvements
+
+- The Ping Federate integration in Azure AD Connect is now available for General Availability. [Learn more about how to federated Azure AD with Ping Federate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- New troubleshooting tooling helps troubleshoot changing primary email address and hiding account from global address list
+- Azure AD Connect was updated to include the latest SQL Server 2012 Native Client
+- When you switch user sign-in to Password Hash Synchronization or Pass-through Authentication in the "Change user sign-in" task, the Seamless Single Sign-On checkbox is enabled by default.
+- Added support for Windows Server Essentials 2019
+- The Azure AD Connect Health agent was updated to the latest version 3.1.7.0
+- During an upgrade, if the installer detects changes to the default sync rules, the admin is prompted with a warning before overwriting the modified rules. This will allow the user to take corrective actions and resume later. Old Behavior: If there was any modified out-of-box rule then manual upgrade was overwriting those rules without giving any warning to the user and sync scheduler was disabled without informing user. New Behavior: User will be prompted with warning before overwriting the modified out-of-box sync rules. User will have choice to stop the upgrade process and resume later after taking corrective action.
+- Provide a better handling of a FIPS compliance issue, providing an error message for MD5 hash generation in a FIPS compliant environment and a link to documentation that provides a work around for this issue.
+- UI update to improve federation tasks in the wizard, which are now under a separate sub group for federation. 
+- All federation additional tasks are now grouped under a single sub-menu for ease of use.
+- A new revamped ADSyncConfig Posh Module (AdSyncConfig.psm1) with new AD Permissions functions moved from the old ADSyncPrep.psm1 (which may be deprecated shortly)
+
+### Fixed issues 
+
+- Fixed a bug that would intermittently produce an error message for an auto-resolved SQL deadlock issue
+- Fixed several accessibility issues for the Sync Rules Editor and the Sync Service Manager  
+- Fixed a bug where Azure AD Connect can not get registry setting information
+- Fixed a bug that created issues when the user goes forward/back in the wizard
+- Fixed a bug to prevent an error happening due to incorrect multi thread handing in the wizard
+- When Group Sync Filtering page encounters an LDAP error when resolving security groups, Azure AD Connect now returns the exception with full fidelity.  The root cause for the referral exception is still unknown and will be addressed by a different bug.
+-  Fixed a bug where permissions for STK and NGC keys (msDS-KeyCredentialLink attribute on User/Device objects for WHfB) were not correctly set.     
+- Fixed a bug where 'Set-ADSyncRestrictedPermissions’ was not called correctly
+-  Adding support for permission granting on Group Writeback in AADConnect's installation wizard
+- When changing sign in method from Password Hash Sync to AD FS, Password Hash Sync was not disabled.
+- Added verification for IPv6 addresses in AD FS configuration
+- Updated the notification message to inform that an existing configuration exists.
+- Device writeback fails to detect container in untrusted forest. This has been updated to provide a better error message and a link to the appropriate documentation
+- Deselecting an OU and then synchronization/writeback corresponding to that OU gives a generic sync error. This has been changed to create a more understandable error message.
 
 ## 1.1.819.0
 
