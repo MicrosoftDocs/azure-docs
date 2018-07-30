@@ -26484,6 +26484,11 @@
         "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
         "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/china/china-get-started-service-availability.md",
+        "redirect_url": "https://www.azure.cn/home/features/products-by-region",
+        "redirect_document_id": true
         }
     ]
 }
