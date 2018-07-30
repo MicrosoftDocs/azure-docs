@@ -314,12 +314,12 @@ Java SDK supports the following values for configuration mapping:
 |Setting  |Description  |
 |---------|---------|
 |readchangefeed   |  Indicates that the collection content is fetched from CosmosDB Change Feed. The default value is false.       |
-|changefeedqueryname |   A custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeedis true, this is a required configuration which cannot take empty value.      |
+|changefeedqueryname |   A custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeed is true, this is a required configuration that cannot take empty value.      |
 |changefeedcheckpointlocation  |   A path to local file storage to persist continuation tokens in case of node failures.      |
 |changefeedstartfromthebeginning  |  Sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
-|rollingchangefeed  |   A Boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
-|changefeedusenexttoken  |   A Boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
-| InferStreamSchema | A Boolean value that indicated whether the schema of the streaming data should be sampled at the start of streaming. By default, this value is set to true. If this parameter is set to true and the streaming data’s schema changes after the data is sampled, newly added properties will be dropped in the streaming data frame. <br/><br/> If you want the streaming data frame to be schema agnostic, set this parameter to false. In this mode, the body of the documents read from Azure Cosmos DB change feed are wrapped into a ‘body’ property in the resultant streaming data frame aside from system property values.
+|rollingchangefeed  |   A Boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes are counted from the first read of the collection.      |
+|changefeedusenexttoken  |   A Boolean value to support processing failure scenarios. It indicates that the current change feed batch has been handled gracefully. The Resiliant Distributed Dataset should use the next continuation tokens to get the subsequent batch of changes.      |
+| InferStreamSchema | A Boolean value that indicates whether the schema of the streaming data should be sampled at the start of streaming. By default, this value is set to true. If this parameter is set to true and the streaming data’s schema changes after the data is sampled, newly added properties will be dropped in the streaming data frame. <br/><br/> If you want the streaming data frame to be schema agnostic, set this parameter to false. In this mode, the body of the documents read from the Azure Cosmos DB change feed are wrapped into a body property. This property is in the resultant streaming data frame, aside from system property values.
  |
 
 ### Connection settings
@@ -330,19 +330,19 @@ Java SDK supports the following connection settings:
 |---------|---------|
 |connectionmode   |  Sets the connection mode that the internal DocumentClient should use to communicate with Azure Cosmos DB. Allowed values are **DirectHttps** (default value) and **Gateway**. The DirectHttps connection mode routes the requests directly to the CosmosDB partitions and provides some latency advantage.       |
 |connectionmaxpoolsize   |  Sets the value of connection pool size that is used by internal DocumentClient. The default value is 100.       |
-|connectionidletimeout  |  Sets the timeout value for idle connections in seconds. The default value is 60.       |
-|query_maxretryattemptsonthrottledrequests    |  Sets the maximum number of retries. This value is used in case of a request failure due to rate limiting on the client. If it's not specified, the default value is 1000 retry attempts.       |
+|connectionidletimeout  |  Sets the timeout value, in seconds, for idle connections. The default value is 60.       |
+|query_maxretryattemptsonthrottledrequests    |  Sets the maximum number of retries. You use this value in case of a request failure due to rate limiting on the client. If it's not specified, the default value is 1000 retry attempts.       |
 |query_maxretrywaittimeinseconds   |  Sets the maximum retry time in seconds. By default, it is 1000 seconds.       |
 
-### Write twitter data to Azure Cosmos DB 
+### Write Twitter data to Azure Cosmos DB 
 
-In this section, you run spark queries to write a batch of twitter data to a new collection in the same database. The HTML version of the notebook is hosted in the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository. You should download the repository files and navigate to `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html` you can import the notebook to your Azure Databricks account, update the account URI, master key, database, collection names and run it or you can create the notebook as follows:
+In this section, you run Spark queries to write a batch of Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
-1. Navigate to your Azure Databricks account and select the **Workspace** > **Create** > **Notebook**.  
+1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 
-2. In the **Create Notebook** dialog box, enter a user-friendly name, choose **Scala** as the language, from the drop down select the cluster that you created earlier and select **Create**.  
+2. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Scala** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-3. Update the endpoint, master key, database and collection values to connect to the database collection to read and write twitter data.
+3. Update the endpoint, master key, database, and collection values to connect to the database collection to read and write Twitter data.
 
    ```scala
    %scala
@@ -400,7 +400,7 @@ In this section, you run spark queries to write a batch of twitter data to a new
    limit 10
    ```
 
-5. Create new data frame of tweets tags and save the data to the new collection. After running the following code, you can go back to portal and verify that the data is written to the collection. 
+5. Create a new data frame of tweets tags, and save the data to the new collection. After running the following code, you can go back to portal and verify that the data is written to the collection. 
 
    ```scala
    %scala
@@ -422,20 +422,20 @@ Java SDK supports the following values for configuration mapping:
 |Setting  |Description  |
 |---------|---------|
 | BulkImport | A Boolean value that indicates whether data should be imported by using the BulkExecutor library. By default, this value is set to true. |
-|WritingBatchSize  |   Indicates the batch size to use when writing data to Azure Cosmos DB collection. <br/><br/> If BulkImport parameter is set to true, then WritingBatchSize parameter indicates the batch size of documents supplied as input to the importAll API of the BulkExecutor library. By default, this value is set to 100K. <br/><br/> If BulkImport parameter is set to false, then WritingBatchSize parameter indicates the batch size to use when writing to Azure Cosmos DB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
-|Upsert   |  A Boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
-| WriteThroughputBudget |  An integer string that represents the number of RU\s that you want to allocate to the bulk ingestion spark job out of the total throughput allocated to the collection. |
+|WritingBatchSize  |   Indicates the batch size to use when you are writing data to Azure Cosmos DB collection. <br/><br/> If BulkImport parameter is set to true, then WritingBatchSize parameter indicates the batch size of documents supplied as input to the importAll API of the BulkExecutor library. By default, this value is set to 100K. <br/><br/> If BulkImport parameter is set to false, then WritingBatchSize parameter indicates the batch size to use when you are writing to the Azure Cosmos DB collection. The connector sends createDocument and upsertDocument requests asynchronously in batch. The larger the batch size, the more throughput you can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
+|Upsert   |  A Boolean value string indicating whether to use upsertDocument instead of CreateDocument when you are writing to the Azure Cosmos DB collection.   |
+| WriteThroughputBudget |  An integer string that represents the number of RU\s that you want to allocate to the bulk ingestion Spark job, out of the total throughput allocated to the collection. |
 
 
-### Write twitter data that is streaming to Azure Cosmos DB 
+### Write Twitter data that is streaming to Azure Cosmos DB 
 
-In this section, you run spark queries to write change feed of streaming twitter data to a new collection in the same database. The HTML version of the notebook is hosted in the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository. You should download the repository files and navigate to `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html` you can import the notebook to your Azure Databricks account, update the account URI, master key, database, collection names and run it or you can create the notebook as follows:
+In this section, you run Spark queries to write a change feed of streaming Twitter data to a new collection in the same database. The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. You can import the notebook to your Azure Databricks account, and update the account URI, master key, database, and collection names. You can run the notebook, or create it as follows:
 
-1. Navigate to your Azure Databricks account and select the **Workspace** > **Create** > **Notebook**.  
+1. Go to your Azure Databricks account, and select **Workspace** > **Create** > **Notebook**.  
 
-2. In the **Create Notebook** dialog box, enter a user-friendly name, choose **Scala** as the language, from the drop down select the cluster that you created earlier and select **Create**.  
+2. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Scala** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-3. Update the endpoint, master key, database and collection values to connect to the database collection to read and write twitter data.
+3. Update the endpoint, master key, database, and collection values to connect to the database collection to read and write Twitter data.
 
    ```scala
    import com.microsoft.azure.cosmosdb.spark._
@@ -458,7 +458,7 @@ In this section, you run spark queries to write change feed of streaming twitter
    "InferStreamSchema" -> "true"
    )
    ```
-4. Start reading change feed as a stream by using the spark.readStream.format() command:
+4. Start reading the change feed as a stream by using the spark.readStream.format() command:
  
    ```scala
    // Start reading change feed of trades as a stream
@@ -469,7 +469,7 @@ In this section, you run spark queries to write change feed of streaming twitter
      .load()
    ```
 
-5. Define the configuration of the destination collection and start the streaming job by using writeStream.format() method:
+5. Define the configuration of the destination collection, and start the streaming job by using writeStream.format() method:
 
    ```scala
    val sinkConfigMap = Map(
@@ -488,30 +488,30 @@ In this section, you run spark queries to write change feed of streaming twitter
     .outputMode("append")
     .options(sinkConfigMap)
     .start()
- ```
+    ```
 
 Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|Upsert   |  A Boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
+|Upsert   |  A Boolean value string indicating whether to use upsertDocument instead of CreateDocument when you are writing to the Azure Cosmos DB collection.   |
 |checkpointlocation  |   A path to local file storage to persist continuation tokens in case of node failures.   |
-|WritingBatchSize  |  Indicates the batch size to use when writing data to Azure Cosmos DB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
+|WritingBatchSize  |  Indicates the batch size to use when writing data to the Azure Cosmos DB collection. The connector sends createDocument and upsertDocument requests asynchronously in batch. The larger the batch size, the more throughput you can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
 
 
-## Considerations when using Java SDK
+### Considerations when using Java SDK
 
-Connecting spark to Azure Cosmos DB by using Java SDK is recommended in the following scenarios:
+Connecting Spark to Azure Cosmos DB by using Java SDK is recommended in the following scenarios:
 
-* You want to use Python and/or Scala.  
+* You want to use Python or Scala.  
 
-* You have a large amount of data to transfer between Apache Spark and Azure Cosmos DB, the Java SDK has higher performance when compared to the pyDocumentDB. To give you an idea about the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
+* You have a large amount of data to transfer between Apache Spark and Azure Cosmos DB. The Java SDK performs better than the pyDocumentDB. For more information about the query performance difference, see the [Query test runs wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
 
 ## Next steps
 
-If you haven't already, download the Spark to Azure Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub repository and explore the additional resources in the repo:
+If you haven't already, download the Spark to Azure Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub repository. Explore the following additional resources in the repo:
 
-* [Distributed Aggregations Examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
-* [Sample Scripts and Notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
+* [Aggregations examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
+* [Sample scripts and notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html), and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
