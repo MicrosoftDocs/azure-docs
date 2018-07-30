@@ -70,8 +70,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 2. Select **Create new intent**. 
 
-    [ ![Screenshot of Intents page with Create new intent button highlighted](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
-
 3. Enter `MoveEmployee` in the pop-up dialog box then select **Done**. 
 
     ![Screenshot of create new intent dialog with](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
@@ -98,11 +96,7 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
 
 1. Select **Entities** in the left panel.
 
-    [ ![Screenshot of Intent page with Entities button in left navigation highlighted](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
-
 2. Select **Create new entity**.
-
-    [ ![Screenshot of Entities page with Create new entity highlighted](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
 3. In the entity pop-up dialog, enter `Employee` for the entity name, and  **List** for entity type. Select **Done**.  
 
