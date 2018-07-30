@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
@@ -25,7 +25,7 @@ In this tutorial, improve app predictions by verifying or correcting utterances 
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 If you don't have the Human Resources app from the [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) tutorial, import the app from [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github repository. If you use this tutorial as a new, imported app, you also need to train, publish, then add the utterances to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. The utterances to add are:
@@ -49,13 +49,11 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
-
-1. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
+2. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 
     [ ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
 
-2. Toggle the **Entities view** to see the labeled entities. 
+3. Toggle the **Entities view** to see the labeled entities. 
     
     [ ![Screenshot of Review endpoint utterances with Entities view toggle highlighted](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
 
@@ -67,27 +65,27 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
     When you are in **Tokens View**, you can hover over any blue text to the utterance to see the predicted entity name. 
 
-3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
+4. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
     [ ![Screenshot of Review endpoint utterances aligning utterance to intent](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-4. In the same utterance, the entity for `Natural Language Processing` is keyPhrase. This should be a **Job** entity instead. Select `Natural Language Processing` then select the **Job** entity from the list.
+5. In the same utterance, the entity for `Natural Language Processing` is keyPhrase. This should be a **Job** entity instead. Select `Natural Language Processing` then select the **Job** entity from the list.
 
     [ ![Screenshot of Review endpoint utterances labeling entity in utterance](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-5. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
+6. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
 
     [ ![Screenshot of finalizing utterance alignment in intent](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     This action moves the utterance from the **Review endpoint utterances** to the **GetJobInformation** intent. The endpoint utterance is now an example utterance for that intent. 
 
-6. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
+7. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
 
-7. When all the utterances are correct, select the checkbox on each row, then select **Add selected** to align the utterances correctly. 
+8. When all the utterances are correct, select the checkbox on each row, then select **Add selected** to align the utterances correctly. 
 
     [ ![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-8. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. 
+9. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. 
 
     This is a very small app. The review process takes only a few minutes.
 
@@ -101,128 +99,123 @@ Keep the phrase list current with any newly discovered job names.
 3. Add `Natural Language Processing` as a value then select **Save**. 
 
 ## Train the LUIS app
+
 LUIS doesn't know about the changes until it is trained. 
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
-In order to get the updated model of the LUIS app in a chatbot or other application, you need to publish the app. 
 
-1. In the top right side of the LUIS website, select the **Publish** button. 
+If you imported this app, you need to select **Sentiment analysis**.
 
-2. If you imported this app, you need to select **Sentiment analysis**. 
-
-3. Select the Production slot and the **Publish** button.
-
-4. Publishing is complete when you see the green status bar at the top of the website confirming success.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with an utterance
+
 Try an utterance close to the corrected utterance. 
 
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `Are there any natural language processing jobs in my department right now?`. The last querystring parameter is `q`, the utterance **query**. 
 
-```JSON
-{
-  "query": "are there any natural language processing jobs in my department right now?",
-  "topScoringIntent": {
-    "intent": "GetJobInformation",
-    "score": 0.9247605
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "are there any natural language processing jobs in my department right now?",
+    "topScoringIntent": {
       "intent": "GetJobInformation",
       "score": 0.9247605
     },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.129989788
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006438211
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00408575451
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00194211153
-    },
-    {
-      "intent": "None",
-      "score": 0.00166400627
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00118593348
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0007885918
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0006373631
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0005980781
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 3.719905E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "right now",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 64,
-      "endIndex": 72,
-      "resolution": {
-        "values": [
-          {
-            "timex": "PRESENT_REF",
-            "type": "datetime",
-            "value": "2018-07-05 15:23:18"
-          }
-        ]
+    "intents": [
+      {
+        "intent": "GetJobInformation",
+        "score": 0.9247605
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.129989788
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006438211
+      },
+      {
+        "intent": "EmployeeFeedback",
+        "score": 0.00408575451
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00194211153
+      },
+      {
+        "intent": "None",
+        "score": 0.00166400627
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00118593348
+      },
+      {
+        "intent": "MoveEmployee",
+        "score": 0.0007885918
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.0006373631
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0005980781
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 3.719905E-05
       }
-    },
-    {
-      "entity": "natural language processing",
-      "type": "Job",
-      "startIndex": 14,
-      "endIndex": 40,
-      "score": 0.9869922
-    },
-    {
-      "entity": "natural language processing jobs",
-      "type": "builtin.keyPhrase",
-      "startIndex": 14,
-      "endIndex": 45
-    },
-    {
-      "entity": "department",
-      "type": "builtin.keyPhrase",
-      "startIndex": 53,
-      "endIndex": 62
+    ],
+    "entities": [
+      {
+        "entity": "right now",
+        "type": "builtin.datetimeV2.datetime",
+        "startIndex": 64,
+        "endIndex": 72,
+        "resolution": {
+          "values": [
+            {
+              "timex": "PRESENT_REF",
+              "type": "datetime",
+              "value": "2018-07-05 15:23:18"
+            }
+          ]
+        }
+      },
+      {
+        "entity": "natural language processing",
+        "type": "Job",
+        "startIndex": 14,
+        "endIndex": 40,
+        "score": 0.9869922
+      },
+      {
+        "entity": "natural language processing jobs",
+        "type": "builtin.keyPhrase",
+        "startIndex": 14,
+        "endIndex": 45
+      },
+      {
+        "entity": "department",
+        "type": "builtin.keyPhrase",
+        "startIndex": 53,
+        "endIndex": 62
+      }
+    ],
+    "sentimentAnalysis": {
+      "label": "positive",
+      "score": 0.8251864
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8251864
   }
-}
-}
-```
+  }
+  ```
 
-The correct intent was predicted with a high score and the **Job** entity is detected as `natural language processing`. 
+  The correct intent was predicted with a high score and the **Job** entity is detected as `natural language processing`. 
 
 ## Can reviewing be replaced by adding more utterances? 
 You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage. 
@@ -234,7 +227,8 @@ Some of the endpoint utterances will have a high percentage in the review list. 
 This app prediction accuracy has increased by reviewing utterances from the endpoint. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
