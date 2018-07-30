@@ -54,6 +54,9 @@
     href: iot-edge-as-gateway.md
   - name: Security
     href: security.md
+    items:
+    - name: IoT Edge security manager
+      href: iot-edge-security-manager.md
   - name: Platform support
     href: support.md
   - name: IoT Edge glossary
