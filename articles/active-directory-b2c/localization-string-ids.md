@@ -43,7 +43,7 @@ The following Ids are used for a content definition with an Id of `api.signupors
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-susi.png)
+![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
 
 The Id of the identity providers is configured in the `ClaimsExchange` element. To localize the title of the identity provider, the `ElementType` is set to **ClaimsProvider**, while the `StringId` is set to the **Id** of the `ClaimsExchange`.
 
@@ -70,7 +70,7 @@ The following example localizes the Facebook identity provider to Arabic:
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
-## Sign-up or sign-in errror messages
+## Sign-up or sign-in error messages
 
 | Id | Default value |
 | -- | ------------- |
@@ -90,7 +90,7 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 | -- | ------------- |
 | **ver_sent** | Verification code has been sent to: |
 | **ver_but_default** | Default |
-| **cancel_message** | The user has cancelled entering self-asserted information |
+| **cancel_message** | The user has canceled entering self-asserted information |
 | **preloader_alt** | Please wait |
 | **ver_but_send** | Send verification code |
 | **alert_yes** | Yes |
@@ -108,7 +108,7 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 | **ver_but_resend** | Send new code |
 | **button_continue** | Create |
 | **error_passwordEntryMismatch** | The password entry fields do not match. Please enter the same password in both fields and try again. |
-| **ver_incorrect_format** | Incorect format. |
+| **ver_incorrect_format** | Incorrect format. |
 | **ver_but_edit** | Change e-mail |
 | **ver_but_verify** | Verify code |
 | **alert_no** | No |
@@ -123,7 +123,7 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
-## Sign-up and self asserted pages errror messages
+## Sign-up and self asserted pages error messages
 
 | Id | Default value |
 | -- | ------------- |
@@ -135,7 +135,7 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 | **UserMessageIfInvalidInput** | {0} has invalid input. |
 | **ServiceThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
-## Phone factor authenctiation page user interface elements
+## Phone factor authentication page user interface elements
 
 The Following are the Ids for a content definition with an Id of `api.phonefactor`. 
 
@@ -143,7 +143,7 @@ The Following are the Ids for a content definition with an Id of `api.phonefacto
 | -- | ------------- |
 | **button_verify** | Call Me |
 | **country_code_label** | Country Code |
-| **cancel_message** | The user has cancelled multi-factor authentication |
+| **cancel_message** | The user has canceled multi-factor authentication |
 | **text_button_send_second_code** | send a new code |
 | **code_pattern** | \\d{6} |
 | **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. |

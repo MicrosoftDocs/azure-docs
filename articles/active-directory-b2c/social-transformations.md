@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Social Accounts
 
-This article provides examples for using the social account claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the social account claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## CreateAlternativeSecurityId
 
@@ -25,11 +25,11 @@ Creates a JSON representation of the user’s alternativeSecurityId property tha
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | string | The ClaimType that specifies the social account id (key). |
+| InputClaim | key | string | The ClaimType that specifies the social account ID (key). |
 | InputClaim | identityProvider | string | The ClaimType that specifies the social account identity provider name. |
 | OutputClaim | alternativeSecurityId | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-Use this claims transformation to generate a `alternativeSecurityId` ClaimType. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account id and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.  
+Use this claims transformation to generate a `alternativeSecurityId` ClaimType. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.  
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -45,11 +45,11 @@ Use this claims transformation to generate a `alternativeSecurityId` ClaimType. 
 
 ### Example
 
-* Input claims:
-    * **key**: 12334
-    * **identityProvider**: Facebook.com
-* Output claims:
-    * **alternativeSecurityId**: 		{
+- Input claims:
+    - **key**: 12334
+    - **identityProvider**: Facebook.com
+- Output claims:
+    - **alternativeSecurityId**: 		{
 			"issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 

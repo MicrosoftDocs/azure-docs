@@ -15,7 +15,7 @@ ms.component: B2C
 
 # General Claims Transformations
 
-This article provides examples for using general claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using general claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## DoesClaimExist
 
@@ -41,10 +41,10 @@ Sometimes you need to check if a ClaimType exists or contains any value. Use thi
 
 ### Example
 
-* Input claims:
-    * **inputClaim**: someone@contoso.com
-* Output claims: 
-    * **outputClaim**: true
+- Input claims:
+    - **inputClaim**: someone@contoso.com
+- Output claims: 
+    - **outputClaim**: true
 
 ## Hash
 
@@ -74,12 +74,12 @@ Hash the provided plain text using the salt and a secret.
 
 ### Example
 
-* Input claims:
-    * **plaintext**: MyPass@word1
-    * **salt**: 487624568
-    * **randomizerSecret**: B2C_1A_AccountTransformSecret
-* Output claims: 
-    * **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
+- Input claims:
+    - **plaintext**: MyPass@word1
+    - **salt**: 487624568
+    - **randomizerSecret**: B2C_1A_AccountTransformSecret
+- Output claims: 
+    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
 
 ## NullClaim
 
@@ -98,8 +98,9 @@ Use this claim transformation to remove unnecessary data from the claims propert
   </OutputClaims>
 </ClaimsTransformation>
 ```
-* Input claims:
-    * **outputClaim**: Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions....
-* Output claims:
-    **outputClaim**: NULL
+
+- Input claims:
+    - **outputClaim**: Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+- Output claims:
+    - **outputClaim**: NULL
 

@@ -100,7 +100,7 @@ The follwing example configures a **PhoneNumber** claim with the **Simple** mask
 
 The Identity Experience Framework renders the phone number while hiding the first six digits:
 
-![Using claim type with mask](./media/claimtype-mask.png)
+![Using claim type with mask](./media/claimsschema/claimtype-mask.png)
 
 The follwing example configures a **PhoneNumber** claim with the **Regex** mask:
 
@@ -115,7 +115,7 @@ The follwing example configures a **PhoneNumber** claim with the **Regex** mask:
 
 The Identity Experience Framework renders only the first letter of the email address and the email domain name:
 
-![Using claim type with mask](./media/claimschema/claimtype-mask-regex.png)
+![Using claim type with mask](./media/claimsschema/claimtype-mask-regex.png)
 
 
 ### Restriction
@@ -159,7 +159,7 @@ The following example configures a **city** dropdown list claim with a default v
 ```
 Dropdown city list with a default value set to New York:
 
-![Dropdown city list](./media/claimtype-dropdownsingleselect.png)
+![Dropdown city list](./media/claimsschema/claimtype-dropdownsingleselect.png)
 
 
 ### Pattern
@@ -190,7 +190,7 @@ The following example configures an **email** claim with regular expression inpu
 
 The Identity Experience Framework renders the email address claim with email format input validation:
 
-![Using claim type with pattern](./media/claimtype-pattern.png)
+![Using claim type with pattern](./media/claimsschema/claimtype-pattern.png)
 
 ## UserInputType
 

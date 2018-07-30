@@ -15,7 +15,7 @@ ms.component: B2C
 
 # String Claims Transformations
 
-This article provides examples for using the string claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the string claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AssertStringClaimsAreEqual 
 
@@ -42,11 +42,11 @@ You can use this claims transformation to make sure, two ClaimTypes have the sam
 ```
 ### Example
 
-* Input claims:
-    * **inputClaim1**: someone@contoso.com
-    * **inputClaim2**: someone@outlook.com
-    * **stringComparison**:  ordinalIgnoreCase
-* Result: Error thrown
+- Input claims:
+    - **inputClaim1**: someone@contoso.com
+    - **inputClaim2**: someone@outlook.com
+    - **stringComparison**:  ordinalIgnoreCase
+- Result: Error thrown
 
 ## ChangeCase 
 
@@ -58,7 +58,7 @@ Changes the case of the provided claim to lower or upper case depending on the o
 | InputParameter | toCase | string | One of the following values: `LOWER` or `UPPER`. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
-Use this claim transformation to change any string ClaimType to lower or uppdare case.  
+Use this claim transformation to change any string ClaimType to lower or upper case.  
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -76,10 +76,10 @@ Use this claim transformation to change any string ClaimType to lower or uppdare
 
 ### Example
 
-* Input claims:
-    * **email**: SomeOne@contoso.com
-* Output claims:
-    **email**: someone@contoso.com
+- Input claims:
+    - **email**: SomeOne@contoso.com
+- Output claims:
+    - **email**: someone@contoso.com
 
 ## CreateStringClaim 
 
@@ -87,7 +87,7 @@ Creates a string claim from the provided input parameter in the policy.
 
 | Item | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | The ClaimType that specifies the social account id (key). |
+| InputParameter | value | string | The ClaimType that specifies the social account ID (key). |
 | OutputClaim | createdClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 Use this claims transformation to set a string ClaimType value.
@@ -104,10 +104,10 @@ Use this claims transformation to set a string ClaimType value.
 
 ### Example
 
-* Input parameter:
-    * **value**: Contoso terms of service...
-* Output claims:
-    * **createdClaim**: The TOS ClaimType contains the "Contoso terms of service..." value.
+- Input parameter:
+    - **value**: Contoso terms of service...
+- Output claims:
+    - **createdClaim**: The TOS ClaimType contains the "Contoso terms of service..." value.
 
 ## CompareClaims
 
@@ -141,11 +141,11 @@ Use this claims transformation to check if a claim is equal to another claim. Fo
 
 ### Example
 
-* Input claims:
-    * **inputClaim1**: someone@contoso.com
-    * **inputClaim2**: someone@outlook.com
-    * **stringComparison**:  ordinalIgnoreCase
-* Result: Error thrown
+- Input claims:
+    - **inputClaim1**: someone@contoso.com
+    - **inputClaim2**: someone@outlook.com
+    - **stringComparison**:  ordinalIgnoreCase
+- Result: Error thrown
 
 ## CompareClaimToValue
 
@@ -178,13 +178,13 @@ You can use this claims transformation to check if a claim is equal to a value y
 ```
 
 ### Example
-* Input claims:
-    * **inputClaim1**: v1
-    * **compareTo**: V2
-    * **operator**: not equal 
-    * **ignoreCase**:  true
-* Output claims:
-    * **outputClaim**: true
+- Input claims:
+    - **inputClaim1**: v1
+    - **compareTo**: V2
+    - **operator**: not equal 
+    - **ignoreCase**:  true
+- Output claims:
+    - **outputClaim**: true
 
 ## CreateRandomString
 
@@ -213,10 +213,10 @@ Following example generates a global unique ID. This claims transformation is us
 ```
 ### Example
 
-* Input claims:
-    * **randomGeneratorType**: GUID
-* Output claims: 
-    * **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+- Input claims:
+    - **randomGeneratorType**: GUID
+- Output claims: 
+    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 Following example generates an integer random value between 0 and 1000. The value is formatted to OTP_{random value}.
 
@@ -236,18 +236,18 @@ Following example generates an integer random value between 0 and 1000. The valu
 
 ### Example
 
-* Input claims:
-    * **randomGeneratorType**: integer
-    * **maximumNumber**: 1000
-    * **stringFormat**: OTP_{0}
-    * **base64**: false
-* Output claims: 
-    * **outputClaim**: OTP_853
+- Input claims:
+    - **randomGeneratorType**: integer
+    - **maximumNumber**: 1000
+    - **stringFormat**: OTP_{0}
+    - **base64**: false
+- Output claims: 
+    - **outputClaim**: OTP_853
 
 
 ## FormatStringClaim
 
-Format a claim according to the provided format string. This transformation uses the C# String.Format method.
+Format a claim according to the provided format string. This transformation uses the C# **String.Format** method.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -273,14 +273,14 @@ Use this claims transformation to format any string with one parameter {0}. The 
 
 ### Example
 
-* Input claims:
-    * **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
-* Output claims:
-    * **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+- Input claims:
+    - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
+- Output claims:
+    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## FormatStringMultipleClaims
 
-Format a claim according to the provided format string. This transformation uses the C# String.Format method.
+Format a claim according to the provided format string. This transformation uses the C# **String.Format** method.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -308,11 +308,11 @@ Use this claims transformation to format any string with two parameters, {0} and
 
 ### Example
 
-* Input claims:
-    * **inputClaim1**: Joe
-    * **inputClaim2**: Fernando
-* Output claims:
-    * **outputClaim**: Joe Fernando
+- Input claims:
+    - **inputClaim1**: Joe
+    - **inputClaim2**: Fernando
+- Output claims:
+    - **outputClaim**: Joe Fernando
 
 ## GetMappedValueFromLocalizedCollection
 
@@ -352,10 +352,10 @@ The claims transformation looks up the item `Text` and returns its `Value`. If t
 
 ### Example
 
-* Input claims:
-    * **mapFromClaim**: B2C_V1_90001
-* Output claims:
-    * **restrictionValueClaim**: You cant sign in because you are a minor.
+- Input claims:
+    - **mapFromClaim**: B2C_V1_90001
+- Output claims:
+    - **restrictionValueClaim**: You cant sign in because you are a minor.
 
 ## LookupValue
 
@@ -389,14 +389,14 @@ The following example looks up the domain name in one of the inpuParameters coll
 
 ### Example
 
-* Input claims:
-    * **inputParameterId**: test.com
-    * **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    * **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    * **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    * **errorOnFailedLookup**: false
-* Output claims:
-    * **outputClaim**:	c7026f88-4299-4cdb-965d-3f166464b8a9
+- Input claims:
+    - **inputParameterId**: test.com
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: false
+- Output claims:
+    - **outputClaim**:	c7026f88-4299-4cdb-965d-3f166464b8a9
 
 ## ParseDomain
 
@@ -419,12 +419,13 @@ Use this claims transformation to parse the domain name after the @ symbol of th
   </OutputClaims>
 </ClaimsTransformation>
 ```
+
 ### Example
 
-* Input claims:
-    * **inputClaim1**: joe@outlook.com
-* Output claims:
-    **outputClaim**: outlook.com
+- Input claims:
+    - **inputClaim1**: joe@outlook.com
+- Output claims:
+    - **outputClaim**: outlook.com
 
 ## SetClaimsIfStringsAreEqual
 
@@ -463,16 +464,16 @@ You can use this claims transformation to check if a claim is equal to value you
 ```
 ### Example
 
-* Input claims:
-    * **inputClaim**: v1
-    * **matchTo**: v1
-    * **stringComparison**: ordinalIgnoreCase 
-    * **stringMatchMsg**:  v2
-    * **stringMatchMsgCode**:  The TOS is upgraded to v2
-* Output claims:
-    * **outputClaim1**: v2
-    * **outputClaim2**: The TOS is upgraded to v2
-    * **stringCompareResultClaim**: true
+- Input claims:
+    - **inputClaim**: v1
+    - **matchTo**: v1
+    - **stringComparison**: ordinalIgnoreCase 
+    - **stringMatchMsg**:  v2
+    - **stringMatchMsgCode**:  The TOS is upgraded to v2
+- Output claims:
+    - **outputClaim1**: v2
+    - **outputClaim2**: The TOS is upgraded to v2
+    - **stringCompareResultClaim**: true
 
 ## SetClaimsIfStringsMatch
 
@@ -508,21 +509,21 @@ You can use this claims transformation to check if a user `ageGroup` is equal to
 
 ### Example
 
-* Input claims:
-    * **claimToMatch**: Minor
-    * **matchTo**: Minor
-    * **stringComparison**: ordinalIgnoreCase 
-    * **outputClaimIfMatched**:  B2C_V1_90001
-* Output claims:
-    * **isMinor**: B2C_V1_90001
-    * **isMinorResponseCode**: true
+- Input claims:
+    - **claimToMatch**: Minor
+    - **matchTo**: Minor
+    - **stringComparison**: ordinalIgnoreCase 
+    - **outputClaimIfMatched**:  B2C_V1_90001
+- Output claims:
+    - **isMinor**: B2C_V1_90001
+    - **isMinorResponseCode**: true
 
-* Input claims:
-    * **claimToMatch**: Empty string
-    * **matchTo**: Minor
-    * **stringComparison**: ordinalIgnoreCase 
-    * **outputClaimIfMatched**:  B2C_V1_90001
-* Output claims:
-    * **isMinor**: NULL
-    * **isMinorResponseCode**: false
+- Input claims:
+    - **claimToMatch**: Empty string
+    - **matchTo**: Minor
+    - **stringComparison**: ordinalIgnoreCase 
+    - **outputClaimIfMatched**:  B2C_V1_90001
+- Output claims:
+    - **isMinor**: NULL
+    - **isMinorResponseCode**: false
 

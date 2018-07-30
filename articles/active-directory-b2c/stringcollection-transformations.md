@@ -15,7 +15,7 @@ ms.component: B2C
 
 # StringCollection Claims Transformations
 
-This article provides examples for using the string collection claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the string collection claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AddItemToStringCollection
 
@@ -71,11 +71,11 @@ Use this claims transformation to add a string value to a new or existing string
 
 ### Example
 
-* Input claims:
-    * **collection**: ["someone@outlook.com"]
-    * **item**: "admin@contoso.com"
-* Output claims: admin@contoso.com
-    * **collection**: ["someone@outlook.com", "admin@contoso.com"]
+- Input claims:
+    - **collection**: ["someone@outlook.com"]
+    - **item**: "admin@contoso.com"
+- Output claims: admin@contoso.com
+    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## GetSingleItemFromStringCollection
 
@@ -101,8 +101,8 @@ The following example reads the `otherMails` claim and return the first item int
 
 ### Example
 
-* Input claims:
-    * **collection**: ["someone@outlook.com", "someone@contoso.com"]
-* Output claims: 
-    * **extractedItem**: "someone@outlook.com"
+- Input claims:
+    - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+- Output claims: 
+    - **extractedItem**: "someone@outlook.com"
 

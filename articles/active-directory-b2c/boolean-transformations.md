@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Boolean claims transformations
 
-This article provides examples for using the boolean claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the boolean claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AndClaims
 
@@ -43,11 +43,11 @@ In an orchestration step, you need to check two ClaimTypes. Preset an email self
 
 ### Example
 
-* Input claims:
-    * **inputClaim1**: true
-    * **inputClaim2**: false
-* Output claims:
-    **outputClaim**: false
+- Input claims:
+    - **inputClaim1**: true
+    - **inputClaim2**: false
+- Output claims:
+    - **outputClaim**: false
 
 
 ## AssertBooleanClaimIsEqualToValue
@@ -60,7 +60,7 @@ Checks that string values of two claims are equal, and throws an exception if th
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
 
 
-The following claims transformation demonstrates how to check the value of a boolean ClaimType with `true` value. If the value of the `accountEnabled` ClaimType is false, an error message is thrown.
+The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `accountEnabled` ClaimType is false, an error message is thrown.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -75,10 +75,10 @@ The following claims transformation demonstrates how to check the value of a boo
 
 ### Example
 
-* Input claims:
-    * **inputClaim**: false
-    * **valueToCompareTo**: true
-* Result: Error thrown
+- Input claims:
+    - **inputClaim**: false
+    - **valueToCompareTo**: true
+- Result: Error thrown
 
 ## NotClaims
 
@@ -103,10 +103,10 @@ Use this claim transformation to perform logical negation on a claim.
 
 ### Example
 
-* Input claims:
-    * **inputClaim**: false
-* Output claims:
-    * *outputClaim**: true
+- Input claims:
+    - **inputClaim**: false
+- Output claims:
+    - *outputClaim**: true
 
 ## OrClaims 
 
@@ -118,7 +118,7 @@ Computes an `Or` of two boolean inputClaims and sets the outputClaim with result
 | InputClaim | inputClaim2 | boolean | The second ClaimType to evaluate. |
 | OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked (true or false). |
 
-Following claims transformation demonstrates how to `Or` two boolean ClaimTypes, `isEmailNotExist` and `isSocialAccount`. In the orchestration step, you can use precondition to preset the email self asserted only if a social account email is empty.
+The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset the email self asserted only if a social account email is empty.
 
 ```XML
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
@@ -135,9 +135,9 @@ Following claims transformation demonstrates how to `Or` two boolean ClaimTypes,
 
 ### Example
 
-* Input claims:
-    * **inputClaim1**: true
-    * **inputClaim2**: false
-* Output claims:
-    * **outputClaim**: true
+- Input claims:
+    - **inputClaim1**: true
+    - **inputClaim2**: false
+- Output claims:
+    - **outputClaim**: true
 

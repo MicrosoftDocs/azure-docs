@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Date Claims Transformations
 
-This article provides examples for using the date claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the date claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AssertDateTimeIsGreaterThan 
 
@@ -49,10 +49,10 @@ The `refreshTokenIssuedOnDateTime` is an internal parameter used to determine if
 
 ### Example
 
-* Input claims:
-    * **leftOperand**: 2018-01-20T00:00:00.100000Z
-    * **rightOperand**: 2018-01-01T00:00:00.100000Z
-* Result: Error thrown
+- Input claims:
+    - **leftOperand**: 2018-01-20T00:00:00.100000Z
+    - **rightOperand**: 2018-01-01T00:00:00.100000Z
+- Result: Error thrown
 
 
 ## ConvertDateToDateTimeClaim
@@ -131,12 +131,12 @@ To run the claim transformation, you first need to get the current dateTime and 
 
 ### Example
 
-* Input claims:
-    * **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    * **secondDateTime**: 2018-04-01T00:00:00.100000Z
-* Input parameters:
-    * **operator**: greater than
-    * **timeSpanInSeconds**: 7776000 (90 days)
-* Output claims: 
-    * **result**: true
+- Input claims:
+    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+- Input parameters:
+    - **operator**: greater than
+    - **timeSpanInSeconds**: 7776000 (90 days)
+- Output claims: 
+    - **result**: true
 

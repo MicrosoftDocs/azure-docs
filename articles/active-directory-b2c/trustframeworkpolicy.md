@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Specify the TrustFrameworkPolicy element of a policy in Azure Active Directory B2C
+# TrustFrameworkPolicy
 
 A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level `TrustFrameworkPolicy` element of a policy file. 
 
@@ -97,7 +97,7 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
 
 ## Policy execution
 
-A relying party application, such as a web, mobile, or desktop application, calls the **relying party (RP)** policy. The RP policy file executes a specific task, such as signing in, reseting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
+A relying party application, such as a web, mobile, or desktop application, calls the **relying party (RP)** policy. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
 
 Inside the RP policy file, you specify the `DefaultUserJourney` element, which points to the `UserJourney`. The user journey usually is defined in the Base or Extensions policy.
 
@@ -117,7 +117,7 @@ B2C_1_TrustFrameWorkBase or B2C_1_TrustFrameworkExtensionPolicy:
   ...
 ```
 
-A user journey defines the business logic of what a user goes through. Each user journey is a set of **orchestration steps** that perform a series of actions, in sequence in terms of authentication and information collection. 
+A user journey defines the business logic of what a user goes through. Each user journey is a set of **orchestration steps** that performs a series of actions, in sequence in terms of authentication and information collection. 
 
 The **SocialAndLocalAccounts** policy file in the starter pack contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address or resetting a password. 
 
@@ -125,7 +125,7 @@ The orchestration steps may call a **Technical Profile**. A technical profile pr
 
 - Render a user experience.
 - Define the endpoints and the protocols needed to communicate with an identity provider.
-- Allow users to sign-in with social or an enterprise account, such as Facebook, Microsoft account, Google, Salesforce or any other identity provider.
+- Allow users to sign in with social or an enterprise account, such as Facebook, Microsoft account, Google, Salesforce or any other identity provider.
 - Set up phone verification for MFA.
 - Read and write data to and from an Azure AD B2C identity store.
 - Call a custom Restful API service.
@@ -136,6 +136,3 @@ The orchestration steps may call a **Technical Profile**. A technical profile pr
 
 - `BasePolicy` as specified above
 - [BuildingBlocks](buildingblocks.md)
-- [ClaimsProviders](claimstransformations.md)
-- [RelyingParty](relyingparty.md)
-- [UserJourneys](userjourneys.md)

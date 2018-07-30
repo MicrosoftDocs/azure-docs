@@ -15,7 +15,7 @@ ms.component: B2C
 
 # Integer Claims Transformations
 
-This article provides examples for using the integer claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claims-transformations.md).
+This article provides examples for using the integer claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## ConvertNumberToStringClaim 
 
@@ -41,8 +41,8 @@ Convert a long integer type to a string. In this example, `numericUserId` with t
 
 ### Example
 
-* Input claims:
-    * **inputClaim**: 12334 (long)
-* Output claims: 
-    * **outputClaim**: "12334" (string)
+- Input claims:
+    - **inputClaim**: 12334 (long)
+- Output claims: 
+    - **outputClaim**: "12334" (string)
 

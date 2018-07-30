@@ -74,7 +74,7 @@ The `LocalizedResources` element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | Defines entire collections in various cultures. A collection can have different number of items and different strings for various cultures. Examples of collections include the enumerations that appear in claim types. For example, a country/region list is shown to the user in a drop-down list. |
-| LocalizedStrings | 0:n | Defines all of the strings, except those that appear in collections, in various cultures. |
+| LocalizedStrings | 0:n | Defines all of the strings, except those strings that appear in collections, in various cultures. |
 
 ### LocalizedCollections
 
@@ -141,8 +141,8 @@ The `LocalizedString` element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ElementType | True | References to a ClaimType element or a user interface element in the policy. Possible values: **ClaimType** - To localize one of the claim attributes, as specify in the StringId; **UxElement** - To localize one of the user interface elements, as specify in the StringId; **ErrorMessage** - To localize one of the system error messages, as specify in the StringId. |
-| ElementId | True | If `ElementType` is set to **ClaimType**, contains a reference to a claim type already defined in the ClaimsSchema section. |
-| StringId | True | If `ElementType` is set to **ClaimType**, specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. If `ElementType` is set to **UxElement**, specify the attribute of a particular user interface element id.If `ElementType` is set to **ErrorMessage**, specify the *id* of particular error message. |
+| ElementId | True | If `ElementType` is set to **ClaimType**, thid elements contains a reference to a claim type already defined in the ClaimsSchema section. |
+| StringId | True | If `ElementType` is set to **ClaimType**, this element specifies the attribute of a particular claim type. Possible values: **DisplayName** - to set the claim display name; **AdminHelpText** - to set the claim user help text name; **PatternHelpText** - to set the claim pattern help text. If `ElementType` is set to **UxElement**, this element specifies the attribute of a particular user interface element id. If `ElementType` is set to **ErrorMessage**, this element specifies the ID of a particular error message. |
 
 
 The following example shows a localized sign-up page. The first 3 `LocalizedString` values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.

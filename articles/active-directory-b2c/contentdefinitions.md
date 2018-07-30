@@ -70,7 +70,7 @@ The `ContentDefinition` element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | True | An identifier for a content definition. The value is one specified in the **Content defenition IDs** section later in this page. |
+| Id | True | An identifier for a content definition. The value is one specified in the **Content definition IDs** section later in this page. |
 
 The `ContentDefinition` element contains the following elements:
 
@@ -94,7 +94,7 @@ The `LocalizedResourcesReferences` element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Language | True | A string that contains a supported language for the policy per per RFC 5646 - Tags for Identifying Languages. |
+| Language | True | A string that contains a supported language for the policy per RFC 5646 - Tags for Identifying Languages. |
 | LocalizedResourcesReferenceId | True | The identifier of the `LocalizedResources` element. |
 
 The following example shows a sign-up or sign-in content definition:
@@ -139,7 +139,7 @@ The Id attribute of the `ContentDefinition` element specifies the type of page t
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identity provider selection for sign-up** - Lists identity providers that users can choose from during sign-up. The options are usually enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
 | **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Forgot password page** - Displays a form that users must complete to initiate a password reset. |
 | **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-in page** - Displays a form for signing in with a local account that's based on an email address or a user name. The form can contain a text input box and password entry box. |
-| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign up page** - Displays a form for signing up for a local account that's based on an email address or a user name. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
+| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-up page** - Displays a form for signing up for a local account that's based on an email address or a user name. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page** - Verifies phone numbers, by using text or voice, during sign-up or sign-in. |
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign-up page, except for the password entry fields. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
