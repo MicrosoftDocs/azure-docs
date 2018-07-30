@@ -41,9 +41,9 @@ To use this feature, you need:
 
 3. Select **Export Settings**.  
     
-4. In the **Diagnostic Settings** pane, do either of the following:
+4. In the **Diagnostics settings** pane, do either of the following:
     * To change existing settings, select **Edit setting**.
-    * To add new settings, select **Add diagnostic setting**.  
+    * To add new settings, select **Add diagnostics setting**.  
       You can have up to three settings.
 
       ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/ExportSettings.png)
