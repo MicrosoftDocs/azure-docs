@@ -218,10 +218,10 @@ nano workflow.xml
     
 
    a. Replace `domainuser` with your username for the domain.  
-   b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: **sechad**.  
+   b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
    c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.  
     
-   d. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
+   d. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
    This properties file needs to be present locally when running Oozie jobs.
 
