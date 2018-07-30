@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Deep learning training - Azure CLI | Microsoft Docs
-description: Quickly learn to train a TensorFlow deep learning neural network on a single GPU with Batch AI using the Azure CLI
+description: Quickstart - Quickly learn to train a TensorFlow deep learning neural network on a single GPU with Batch AI using the Azure CLI
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,13 +14,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: danlep
+#Customer intent: As a data scientist or AI researcher, I want to train a sample AI model to evaluate using a GPU cluster in Azure for training my AI or machine learning models.
 ---
 
 # Quickstart: Train a deep learning model with Batch AI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a sample deep learning model with a GPU virtual machine managed by Batch AI. In this example, you train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
+Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines. This quickstart shows how to train a sample deep learning model on a single GPU-enabled virtual machine in Batch AI. In this example, you use the Azure CLI to set up Batch AI to train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
 
 After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
 
@@ -30,13 +31,13 @@ After completing this quickstart, you'll understand key concepts of using Batch 
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
-If you already completed the quickstart to [create a Batch AI cluster with the Azure CLI](quickstart-create-cluster-cli.md), skip the first two steps to create a resource group and a Batch AI cluster.
+This quickstart assumes you are running commands in a Bash shell. If you already completed the quickstart to [create a Batch AI cluster with the Azure CLI](quickstart-create-cluster-cli.md), skip the first two steps to create a resource group and a Batch AI cluster.
 
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus2* location. Be sure to choose a location such as East US 2 in which the Batch AI service is available.
+The following example creates a resource group named *myResourceGroup* in the *eastus2* location. Be sure to choose the East US 2 location, or another location in which the Batch AI service is available. 
 
 ```azurecli-interactive 
 az group create \
@@ -96,27 +97,29 @@ Continue the following steps to upload the training script and create the traini
 
 ## Upload training script
 
-Use the storage account associated with the cluster to store your training script and training output. To make it easier to run the CLI commands that manage the storage account, first set an environment variable with the name of your storage account:
+Use the storage account associated with the cluster to store your training script and training output. To make it easier to run the CLI commands that manage the storage account, first set an environment variable with the name of your storage account. In a Bash shell:
 
 ```bash
-export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query "nodeSetup.mountVolumes.azureFileShares[0].accountName" | sed s/\"//g)
+export AZURE_STORAGE_ACCOUNT=$(az batchai cluster show --name mycluster --workspace myworkspace --resource-group myResourceGroup --query "nodeSetup.mountVolumes.azureFileShares[0].accountName" --output tsv)
 ```
 
 Use the [az storage directory create](/cli/azure/storage/directory#az-storage-direcotry-create) command to create directories in the `batchaishare` Azure file share that was automatically set up in the storage account. The `scripts` directory is for the training script, and `logs` for training output:
 
 ```azurecli-interactive
+# Create /scripts directory in file share
 az storage directory create \
     --name scripts \
     --share-name batchaishare \
     --account-name $AZURE_STORAGE_ACCOUNT
 
+# Create /logs directory in file share 
 az storage directory create \
     --name logs \
     --share-name batchaishare \
     --account-name $AZURE_STORAGE_ACCOUNT
 ```
 
-Create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample. The script trains a convolutional neural network on the MNIST image set of 60,000 handwritten digits from 0 through 9. Then it tests the model on a set of test examples.
+In your Bash shell, create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample. The script trains a convolutional neural network on the MNIST image set of 60,000 handwritten digits from 0 through 9. Then it tests the model on a set of test examples.
 
 ```bash
 wget https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py
@@ -144,7 +147,7 @@ az batchai experiment create \
 ```
 
 In your working directory, create a training job configuration file `job.json` with the following content. You pass this configuration file when you submit the training job. 
-This `job.json` file includes settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the job's output files that are saved to Azure storage.
+This `job.json` file includes settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies where the job's output files are saved in Azure storage.
 
 ```json
 {
@@ -176,7 +179,7 @@ az batchai job create \
     --config-file job.json
 ```
 
-The command returns quickly with the job properties. The job takes a couple of minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file from the standard output directory on the node. The training script generates this file after the job starts running.  
+The command returns with the job properties, and then takes a couple more minutes to complete. To monitor this job's progress, use the [az batchai job file stream](/cli/azure/batchai/job/file#az-batchai-job-file-stream) command to stream the `stdout-wk-0.txt` file from the standard output directory on the node. The training script generates this file after the job starts running.  
 
 ```azurecli-interactive
 az batchai job file stream \
@@ -262,9 +265,9 @@ If you want to continue with Batch AI tutorials and samples, use the Batch AI wo
 You're charged for the Batch AI cluster while the nodes are running. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command:
 
 ```azurecli-interactive
-az batchai cluster delete 
-    --name mycluster
-    --workspace myworkspace
+az batchai cluster delete \
+    --name mycluster \
+    --workspace myworkspace \
     --resource-group myResourceGroup
 ```
 
@@ -281,6 +284,7 @@ az group delete --name batchaiautostorage
 ```
 
 ## Next steps
-In this quickstart, you learned how to train an example TensorFlow deep learning model on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI to train models in different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
+In this quickstart, you learned how to use Batch AI to train an example TensorFlow deep learning model on a single GPU VM, using the Azure CLI. To learn about how to distribute model training on a GPU cluster, continue to the Batch AI tutorial.
 
-For more information about the TensorFlow model used in this quickstart, see the [TensorFlow documentation](https://www.tensorflow.org/tutorials/layers).
+> [!div class="nextstepaction"]
+> [Distributed training tutorial](./tutorial-horovod-tensorflow.md)
