@@ -121,7 +121,6 @@ A regular expression entity does not require training but the new intent and utt
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-
 ## Query the endpoint with a different utterance
 
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
