@@ -4,8 +4,8 @@ description: Operational details of Azure AD trust handling by Azure AD connect.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, Azure AD, trust, AAD, claim, claim, claim rules, issuance, transform, rules, backup, restore
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: samueld
+ms.reviewer: anandyadavmsft
+manager: mtillman
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -14,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
-ms.author: anandy
+ms.date: 07/28/2018
+ms.author: billmath
+author: billmath
 ms.custom: 
 ---
 # Manage AD FS trust with Azure AD using Azure AD Connect
