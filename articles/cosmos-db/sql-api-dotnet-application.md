@@ -235,7 +235,7 @@ The first thing to do here is add a class that contains all the logic to connect
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-        using System.Net
+        using System.Net;
         
     Now replace this code 
    
