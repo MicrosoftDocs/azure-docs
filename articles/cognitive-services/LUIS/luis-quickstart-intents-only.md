@@ -147,7 +147,7 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
 ## Query endpoint for ApplyForJob intent
 
-1. [!include[LUIS How to get endpoint first step](luis-include-tutorial-how-to-get-endpoint.md)]
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
 
