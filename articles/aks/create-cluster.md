@@ -65,5 +65,5 @@ The following options are available with the `az aks create` command. See the [A
 For instruction on deploying an AKS cluster with the Azure portal, see the Azure Kubernetes Service (AKS) [Azure portal quickstart][aks-portal-quickstart].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md

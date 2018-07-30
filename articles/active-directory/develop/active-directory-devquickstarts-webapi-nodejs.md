@@ -61,7 +61,7 @@ Enter the following command in the cloud shell:
 az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
 ```
 
-The [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) for the `create` command include:
+The [arguments](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) for the `create` command include:
 
 | Argument  | Description |
 |---------|---------|

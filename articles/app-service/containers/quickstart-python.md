@@ -92,7 +92,7 @@ Once the image push is complete, you're ready to use it in your Azure web app.
 
 ## Create a web app
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Replace *\<app name>* with a globally unique app name, and replace *\<dockerhub_id>* with your Docker Hub ID.
+Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Replace *\<app name>* with a globally unique app name, and replace *\<dockerhub_id>* with your Docker Hub ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -121,7 +121,7 @@ If you uploaded to a private repository earlier, you also need to configure the 
 
 As specified in the _Dockerfile_, your container listens on port 8000. For App Service to route your request to the right port you need to set the *WEBSITES_PORT* app setting.
 
-In the Cloud Shell, run the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
+In the Cloud Shell, run the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command.
 
 
 ```azurecli-interactive
