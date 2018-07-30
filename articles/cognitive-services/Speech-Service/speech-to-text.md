@@ -45,4 +45,5 @@ Some capabilities of the **Speech to Text** API are not available via REST. The 
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [Quickstart: recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize intents from speech in C#](how-to-recognize-intents-from-speech-csharp.md)

@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/27/2018
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Linux (x64)
@@ -59,10 +59,15 @@ Update apt-get.
 sudo apt-get update
 ```
 
-Install the Moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.*
+Install the Moby engine. 
 
 ```bash
 sudo apt-get install moby-engine
+```
+
+Install the Moby command-line interface (CLI). The CLI is useful for development but optional for production deployments.
+
+```bash
 sudo apt-get install moby-cli
 ```
 
@@ -143,7 +148,7 @@ sudo iotedge list
 
 ## Next steps
 
-If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
+If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md

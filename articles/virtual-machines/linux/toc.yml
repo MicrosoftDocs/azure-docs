@@ -479,8 +479,6 @@
       href: troubleshoot-device-names-problems.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
-    - name: Common error messages
-      href: error-messages.md
     - name: VM recovery access
       items:
       - name: Azure CLI
