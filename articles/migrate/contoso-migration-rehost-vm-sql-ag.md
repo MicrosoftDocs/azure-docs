@@ -34,7 +34,7 @@ Article 6: Rehost an app on Azure VMs and SQL Server Always On Availability Grou
 
 
 
-In this article, Contoso migrate the two-tier Windows. NET SmartHotel app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
+In this article, Contoso migrate the two-tier Windows .NET SmartHotel app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## Business drivers
 
@@ -452,7 +452,7 @@ Now Contoso specifies target replication settings.
 
 ### Create a replication policy
 
-No,  Contoso can create a replication policy.
+Now,  Contoso can create a replication policy.
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
