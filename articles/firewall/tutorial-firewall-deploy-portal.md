@@ -86,7 +86,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 12. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the Subnet named AzureFirewallSubnet is a /25.
+> The minimum size of the AzureFirewallSubnet subnet is /25.
 
 ### Create additional subnets
 
@@ -172,7 +172,7 @@ Use the information in the following table to configure the **Settings** for the
 6. Note the private IP address. You'll use it later when you create the default route.
 
 > [!NOTE]
-> The Public IP address that is used has to be of the SKU type Standard.
+> The Public IP address must be the Standard SKU type.
 
 [//]: # (Remember to note the private IP for the firewall.)
 
