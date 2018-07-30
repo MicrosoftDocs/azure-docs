@@ -77,13 +77,16 @@ If a user does not have the minimum required methods registered, they see an err
 
 #### Mobile app and SSPR (Preview)
 
-When using a mobile app, like the Microsoft Authenticator app, as a method for password reset users be aware of the following. For self-service password reset when only one method is required for reset verification code is the only option available to users. When two methods are required users will be able to reset using **EITHER** notification **OR** verification code in addition to any other enabled methods.
+When using a mobile app, like the Microsoft Authenticator app, as a method for password reset, you should be aware of the following:
+
+* When administrators require one method be used to reset a password, verification code is the only option available.
+* When administrators require two methods be used to reset a password, users are able to use **EITHER** notification **OR** verification code in addition to any other enabled methods.
 
 | Number of methods required to reset | One | Two |
 | :---: | :---: | :---: |
 | Mobile app features available | Code | Code or Notification |
 
-Users will not have the option to register their mobile app when registering for self-service password reset. Instead, users can register their mobile app at aka.ms/mfasetup or in the security info registration preview at aka.ms/setupsecurityinfo. 
+Users do not have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the new security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### Change authentication methods
 
