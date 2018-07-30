@@ -52,19 +52,11 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
 | Delete module | Yes | Yes |
 | Get module | Yes | Yes |
-<<<<<<< HEAD
-| [Get registry statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Yes | Yes |
-| [Get services statistics](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Yes | Yes |
-| [Create Or Update Device](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Yes | Yes |
-| Put module | Yes | Yes |
-| [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Yes | Yes |
-=======
 | [Get registry statistics](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Yes | Yes |
 | [Get services statistics](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Yes | Yes |
 | [Create Or Update Device](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
 | Put module | Yes | Yes |
 | [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Yes | Yes |
->>>>>>> 160059c5b2e1599a9004361301bdd16eb2c090a6
 | Query modules | Yes | Yes |
 | [Create file upload SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
@@ -112,6 +104,9 @@ For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT H
 
 ## Sharding
 While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case you can partition your devices across multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
+
+## Auto-scale
+If you are approaching or exceeding the message capacity in your IoT Hub, you can follow these [steps](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to monitor if the message count has exceeded a set threshold and automatically scale the IoT Hub to the next unit of capacity. 
 
 ## Next steps
 
