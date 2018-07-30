@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2016
+ms.date: 07/31/2018
 ms.author: mandia
 
 ---
@@ -114,10 +114,7 @@ BizTalk Server EDI processing has the concept of "Fallback Agreements".  BizTalk
 ### Routing to multiple destinations
 BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model. Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.
 
-## Conclusion
-Microsoft Azure BizTalk Services is updated at regular milestones to add more features and capabilities. With each update, we look forward to supporting increased functionality to facilitate creating end-to-end solutions using BizTalk Services and other Azure technologies.
-
 ## See Also
-[Developing Enterprise Applications with Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[LOB solutions in Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
