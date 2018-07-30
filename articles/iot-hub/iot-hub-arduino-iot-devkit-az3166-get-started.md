@@ -21,7 +21,7 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 Connect the [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) to an Azure IoT hub that you create, collect the temperature and humidity data from sensors, and send the data to the IoT hub.
 
-Don't have a DevKit yet? Try [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [get one](https://aka.ms/iot-devkit-purchase).
+Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
 
 ## What you learn
 
@@ -104,7 +104,7 @@ If you need a firmware upgrade, the screen will show the current and latest firm
 
 ### Test various sensors
 
-Press button B to test sensors. Continue pressing and releasing the button B to cycle through each sensor.
+Press button B to test the sensors. Continue pressing and releasing the button B to cycle through each sensor.
 
 ![Button B and sensor display](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/sensors.jpg)
 
@@ -222,7 +222,7 @@ Start by opening the project folder.
 
 ### Start VS Code
 
-Make sure your DevKit is not connected. Start VS Code first and connect the DevKit to your computer. VS Code automatically finds the DevKit and opens an introduction page.
+Make sure your DevKit is not connected. Start VS Code and then connect the DevKit to your computer. VS Code automatically finds the DevKit and opens an introduction page.
 
 ![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 

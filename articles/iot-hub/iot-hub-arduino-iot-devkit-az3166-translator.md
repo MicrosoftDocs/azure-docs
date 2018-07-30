@@ -37,16 +37,13 @@ First, open the project folder.
 
 - Make sure your DevKit is connected to your PC.
 
-- Start VS Code
+- Start VS Code.
 
 - Connect the DevKit to your computer.
 
 ### Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.  
-
-> [!NOTE]
-> If you can't see the Examples for MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
+Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. A new VS Code window opens, displaying the project folder. If you can't see the Examples for MXCHIP AZ3166 section, make sure your device is properly connected and restart VS Code.  
 
 ![IoT DevKit samples](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -66,12 +63,12 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to deploy the Azure Fun
 
 ![Cloud deploy task](media/iot-hub-arduino-iot-devkit-az3166-translator/cloud-deploy.png)
 
-After Azure Function deploys successfully, fill in the azure_config.h file with function app name. You can navigate to [Azure portal](https://portal.azure.com/) to find it:
+After the Azure Function deploys successfully, fill in the azure_config.h file with function app name. You can navigate to [Azure portal](https://portal.azure.com/) to find it:
 
 ![Find Azure Function app name](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-function.png)
 
 > [!NOTE]
-> If the Azure Function does not work properly, check the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) to resolve it.
+> If the Azure Function does not work properly, check the ["complication error for Azure Function" page in the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) to resolve it.
 
 ## Build and upload the device code
 
@@ -139,7 +136,7 @@ You have learned how to use the IoT DevKit as a translator by using Azure Functi
 > [!div class="checklist"]
 > * Use Visual Studio Code task to automate cloud provisions
 > * Configure Azure IoT device connection string
-> * Deploy Azure Function
+> * Deploy the Azure Function
 > * Test the voice message translation
 
 Advance to the other tutorials to learn:

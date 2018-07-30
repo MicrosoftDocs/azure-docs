@@ -11,7 +11,7 @@ ms.date: 03/07/2018
 ms.author: liydu
 ---
 
-# Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions!
+# Shake, Shake for a Tweet -- Retrieve a Twitter message with Azure Functions
 
 In this project, you learn how to use the motion sensor to trigger an event using Azure Functions. The app retrieves a random tweet with a #hashtag you configure in your Arduino sketch. The tweet displays on the DevKit screen.
 
@@ -25,8 +25,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 An active Azure subscription. If you don't have one, you can register via one of these methods:
 
 * Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/)
-
-* Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
+* Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are an MSDN or Visual Studio subscriber
 
 ## Open the project folder
 
@@ -34,26 +33,22 @@ Start by opening the project folder.
 
 ### Start VS Code
 
-- Make sure your DevKit is connected to your computer.
+* Make sure your DevKit is connected to your computer.
 
-- Start VS Code.
+* Start VS Code.
 
-- Connect the DevKit to your computer.
+* Connect the DevKit to your computer.
 
-> [!NOTE]
-> When launching VS Code, you may receive an error message that the Arduino IDE or related board package can't be found. If this error occurs, close VS Code and launch the Arduino IDE again. VS Code should now locate the Arduino IDE path correctly.
+   > [!NOTE]
+   > When launching VS Code, you may receive an error message that the Arduino IDE or related board package can't be found. If this error occurs, close VS Code and launch the Arduino IDE again. VS Code should now locate the Arduino IDE path correctly.
 
 ### Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **ShakeShake**. A new VS Code window with a project folder in it opens.  
-
-> [!NOTE]
-> If you can't see the MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
-
+Expand the left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **ShakeShake**. A new VS Code window opens, displaying the project folder. If you can't see the MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
+the
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-> [!NOTE]
-> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+You can also open the sample project from command palette. Click `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Provision Azure services
 
@@ -64,7 +59,7 @@ In the VS Code terminal, an interactive command line guides you through provisio
 ![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> If the page hangs in the loading status when trying to sign in to Azure, refer to this [FAQ step](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
+> If the page hangs in the loading status when trying to sign in to Azure, refer to the ["login page hangs" step in the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## Modify the #hashtag
 
@@ -74,7 +69,7 @@ Open `ShakeShake.ino` and look for this line of code:
 static const char* iot_event = "{\"topic\":\"iot\"}";
 ```
 
-Replace the string `iot` within the curly braces with your preferred hashtag. DevKit later retrieves a random tweet that includes the hashtag you specify in this step.
+Replace the string `iot` within the curly braces with your preferred hashtag. The DevKit later retrieves a random tweet that includes the hashtag you specify in this step.
 
 ## Deploy Azure Functions
 
@@ -101,17 +96,6 @@ Next, build and upload the device code.
 
 3. The screen displays the DevKit ID and 'Configuration'.
 
-4. This sets the connection string that is retrieved from the `task cloud-provision` step.
-
-5. VS Code then starts verifying and uploading the Arduino sketch to your DevKit:
-
-   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
-
-6. The DevKit reboots and starts running the code.
-
-> [!NOTE]
-> You may get an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index isn't refreshed correctly. To resolve this issue, check this step in the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
-
 ### macOS
 
 1. Put the DevKit into configuration mode:
@@ -120,14 +104,17 @@ Next, build and upload the device code.
 
 2. Use `Cmd+P` to run `task device-upload` to set the connection string that is retrieved from the `task cloud-provision` step.
 
-3. VS Code then starts verifying and uploading the Arduino sketch to your DevKit:
+### Verify, upload, and run
+
+Now the connection string is set, it verifies and uploads the app, then runs it. 
+
+1. VS Code starts verifying and uploading the Arduino sketch to your DevKit:
 
    ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
-4. The DevKit reboots and starts running the code.
+2. The DevKit reboots and starts running the code.
 
-> [!NOTE]
-> You may get an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index isn't refreshed correctly. To resolve this issue, check this step in the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+You may get an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index isn't refreshed correctly. To resolve this issue, check the ["unknown package" error in the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## Test the project
 

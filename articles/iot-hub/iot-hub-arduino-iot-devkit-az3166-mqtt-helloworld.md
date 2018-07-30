@@ -32,7 +32,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 ## Open the project folder
 
-1. Disconnect the DevKit from your computer, if it is already connected.
+1. If the DevKit is already connect to your computer, disconnect it.
 
 2. Start VS Code.
 
@@ -80,8 +80,8 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 
 ## See also
 
-* [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud]({{"/docs/getting-started/" | absolute_url }})
-* [Shake, Shake for a Tweet]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [Shake, Shake for a Tweet](iot-hub-arduino-iot-device-az3166-retrieve-twitter-message.md)
 
 ## Next steps
 
