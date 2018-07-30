@@ -1,9 +1,8 @@
 ---
-title: What is Custom Voice? - Azure Cognitive Services | Microsoft Docs
+title: What is Custom Voice? - Azure Cognitive Services
 description: This article overviews Microsoft Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice. 
 services: cognitive-services
 author: noellelacharite
-manager: nolach
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018

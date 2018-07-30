@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: jaredro
 ---
 # ExpressRoute partners and peering locations
@@ -116,7 +116,7 @@ The following table shows connectivity locations and the service providers for e
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
-| **New York** |Equinix, Level 3 Communications+, Verizon |
+| **New York** |Equinix, CenturyLink Cloud Connect, Verizon |
 | **Phoenix** | CenturyLink Cloud Connect |
 | **San Antonio** | Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications |

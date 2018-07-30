@@ -1,9 +1,8 @@
 ---
-title: Azure Cognitive Services Speech Scenarios | Azure Microsoft Docs
+title: Azure Cognitive Services Speech Scenarios
 description: Scenarios
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech to Text
