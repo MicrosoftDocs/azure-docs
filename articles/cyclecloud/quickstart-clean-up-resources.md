@@ -16,7 +16,7 @@ ms.author: a-kiwels
 
 When all submitted jobs are complete, you no longer need the cluster. To clean up resources and free them for other jobs, click **Terminate** in the CycleCloud GUI to shut down all of the infrastructure. All underlying Azure resources will be cleaned up as part of the cluster termination, which may take several minutes.
 
-(kimli screenshot)
+[//]: # (kimli screenshot)
 
 ## Delete the Resource Group
 
