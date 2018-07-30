@@ -66,7 +66,7 @@ Used together, the filter is applied first to the entire index, and then the sea
 The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
 
 
-## Choose a syntax: simple or full Lucene
+## Choose a syntax: simple or full
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
@@ -100,7 +100,7 @@ All other search parameters are optional.
 
 ## APIs and tools for testing
 
-The following table lists the APIs and tool-based approaches for submitting squeries.
+The following table lists the APIs and tool-based approaches for submitting queries.
 
 | Methodology | Description |
 |-------------|-------------|
@@ -109,14 +109,14 @@ The following table lists the APIs and tool-based approaches for submitting sque
 | [Fiddler, Postman, or other HTTP testing tool](search-fiddler.md) | Explains how to set up a request header and body for sending queries to Azure Search.  |
 | [Search explorer in Azure portal](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
 
-## Managing search results
+## Manage search results
 
 Parameters on the query can be used to structure the result set in the following ways:
 
 + Limiting or batching the number of documents in the results (50 by default)
 + Selecting fields to include in the results
 + Setting a sort order
-+ Addding hit highlights to draw attention to matching terms in the body of the search results
++ Adding hit highlights to draw attention to matching terms in the body of the search results
 
 ### Tips for unexpected results
 

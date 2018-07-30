@@ -79,7 +79,7 @@ Response for this query should look similar to the following screenshot.
 
 You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
 
-## Example 2: Look up by ID
+## Example 2: Look-up by ID
 
 This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a document to understand why it was included or excluded from results. To return an entire document, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
 
@@ -95,7 +95,7 @@ The next example is a lookup query returning a specific document based on `id` "
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## Example 3: Term and phrase query precision
+## Example 3: Search precision
 
 Term queries are single terms, perhaps many of them, that are evaluated independently. Phrase queries are enclosed in quotation marks and evaluated as a verbatim string. Precision of the match is controlled by operators and searchMode.
 
@@ -117,9 +117,9 @@ Example 3: **`&search="fire department"`** returns 82 results. Enclosing the str
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
 ```
 
-## Example 4: NOT (-) operators with searchMode
+## Example 4: Booleans with searchMode
 
-Simple syntax supports boolean operators in the form of characters (`+, -, |`). The searchMode parameter informs tradeoffs between precision and recall, with `searchMode=any` favoring recall (matching on any critieria qualifies a document for the result set), and `searchMode=all` favoring precision (all criteria must be matched). The default is `searchMode=any`, which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term.
+Simple syntax supports boolean operators in the form of characters (`+, -, |`). The searchMode parameter informs tradeoffs between precision and recall, with `searchMode=any` favoring recall (matching on any criteria qualifies a document for the result set), and `searchMode=all` favoring precision (all criteria must be matched). The default is `searchMode=any`, which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term.
 
 Using the default searchMode (any), 2800 documents are returned: those containing the multi-part term "fire department", plus all documents that do not have the term "Metrotech Center".
 
