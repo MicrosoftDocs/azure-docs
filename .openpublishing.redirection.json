@@ -1112,12 +1112,12 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/boot-diagnostics.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/windows/boot-diagnostics.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -1127,22 +1127,22 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/windows/allocation-failure.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/linux/allocation-failure-classic.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/windows/allocation-failure-classic.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/allocation-failure-classic",
             "redirect_document_id": false
         },		
         {
@@ -15587,7 +15587,17 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md",
-            "redirect_url": "/azure/virtual-machines/linux/redeploy-to-new-node",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/redeploy-to-new-node-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/redeploy-to-new-node.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/redeploy-to-new-node-linux",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/redeploy-to-new-node.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows",
             "redirect_document_id": false
         },
         {
@@ -17207,22 +17217,22 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/detailed-troubleshoot-rdp.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-rdp.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-rdp",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/linux/detailed-troubleshoot-ssh-connection.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/troubleshoot-rdp-connection.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/linux/troubleshoot-ssh-connection.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection",
             "redirect_document_id": false
         },
         {
@@ -17962,17 +17972,17 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/how-to-use-perfInsights.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/how-to-use-perfInsights.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/how-to-use-perfInsights",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/windows/performance-diagnostics-vm-extension.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension",
             "redirect_document_id": false
         },
 	    {
             "source_path": "articles/virtual-machines/windows/install-vm-agent-offline.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/install-vm-agent-offline.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/install-vm-agent-offline",
             "redirect_document_id": false
         },
         {
