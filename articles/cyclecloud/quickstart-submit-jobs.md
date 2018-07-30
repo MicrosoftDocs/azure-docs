@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Azure CycleCloud Quickstart 3: Submit and Auto Scale Jobs
 
-If you've completed Quickstarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This quickstart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behaviour.
+If you've completed Quickstarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This quickstart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behavior.
 
 ## Master Node
 
@@ -21,11 +21,11 @@ To run jobs on the standard Grid Engine cluster, you must log onto the cluster's
 1. Connect using the CycleCloud CLI, which is installed on the CycleCloud VM, or
 2. SSH using the private key `cyclecloud.pem`, which is specified during the cluster creation
 
-For this QuickStart, you will use the first method to connect to your cluster Master's node.
+For this quickstart, you will use the first method to connect to your cluster Master's node.
 
 ## Connect to the CycleCloud VM
 
-SSH into the CycleCloud VM with the `cycleadmin` user and the SSH key created in QuickStart 1:
+SSH into the CycleCloud VM with the `cycleadmin` user and the SSH key created in Quickstart 1:
 
 ``` CLI
 $ ssh -i ${SSH PRIVATE KEY} cycleadmin@${CycleCloudFQDN}

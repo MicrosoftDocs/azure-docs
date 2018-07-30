@@ -16,7 +16,7 @@ Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleClou
 
 ## Select a Cluster Type
 
-Click on "Clusters" in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
+Click on **Clusters** in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
 
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/cyclecloud) and can easily be imported into CycleCloud.
@@ -28,7 +28,7 @@ In this quickstart, you will create an HPC cluster configured with [Open Grid Sc
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in  then click **Next**.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in then click **Next**.
 
 ### Required Settings
 
