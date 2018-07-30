@@ -21,11 +21,13 @@ ms.reviewer: jairoc
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
 
-As a IT admin, you typically want to so that I can do...
-You can accomplish this goal by ...
+In a similar way to a user, a device is becoming another identity you want to protect and also use to protect your resources at any time and location. You can accomplish this goal by bringing your devices' identities to Azure AD using one of the following methods:
 
-With [device management](../device-management-introduction.md) in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 
-If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring a hybrid Azure AD join. 
+- Azure AD join
+- Hybrid Azure AD join
+- Azure AD registration
+
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](active-directory-conditional-access-azure-portal.md).
 
 In this tutorial, you learn how to configure hybrid Azure AD join for devices that federated using ADFS.
 
@@ -171,7 +173,7 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 - Your organization's Security Token Service (STS - federated domains)
 
-If you either are already using or planning on using Seamless SSO, add `https://autologon.microsoftazuread-sso.com`.
+- `https://autologon.microsoftazuread-sso.com` (for Seamless SSO).
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
 
@@ -179,54 +181,13 @@ Additionally, you need to enable **Allow updates to status bar via script** in t
 
 ## Verify the registration
 
-To verify the device registration state, compare the registration details on the device and your Azure tenant.  
-
-### Verify the registration on a Windows current device
-
-On a Windows current device, use the **dsregcmd** command to verify the client details. When using **dsregcmd**, the following values must be set to **Yes**:
-
-- AzureAdJoined: YES
-- DomainJoined: YES
-
-**To verify the client details on a Windows current device:**
- 
-1. Open the command prompt as an administrator.
-
-2. Type **dsregcmd /status**.
-
-3. Review the values of **AzureAdJoined** and **DomainJoined**. 
-
-4. Copy the value of **DeviceId**.
- 
-
-### Verify the registration on a Windows down-level device
-
-On a Windows down-level device, use **Autoworkplace** to check the client details.
-
-![Autoworkplace](./media/hybrid-azuread-join-federated-domains/21.png)
-
-
-**To verify the client details on a Windows down-level device:**
- 
-1.	Verify that the [MSI](hybrid-azuread-join-control.md#control-windows-down-level-devices) has been deployed on the device.
-	
-2.	Sign on with a valid user account to complete the hybrid Azure AD join.
-
-3.	Open the command prompt as an administrator
-
-4.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
-
-5.	Copy the **Device id**.
-
-
-### Verify the registration on an Azure tenant
- 
-You can use the **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in the **[Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** cmdlet to verify the registration on your Azure tenant.
+To verify the device registration state in your Azure tenant, you can use the **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in the **[Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 When using the **Get-MSolDevice** cmdlet to check the service details:
 
-- An object with the **device id** retrieved on the Windows device must exist.
-- The value for **Enabled** must be **True**. 
+- An object with the **device id** that matches the ID on the Windows client must exist.
+- The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
+- The value for **Enabled** must be **True** for devices that are used in conditional access. 
 
 
 **To check the service details:**
