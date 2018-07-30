@@ -156,7 +156,7 @@ Without network connectivity between Azure Germany and target region, [create a 
 
 ### Next steps
 
-Refresh your knowledge about Service Fabric by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/service-fabric/#step-by-step-tutorials).
+Refresh your knowledge about Service Fabric by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
 
 ### References
 
@@ -187,11 +187,11 @@ Redeploy your deployment scripts, templates, or code in the new region, includin
 
 ### Next steps
 
-Refresh your knowledge about Azure Batch by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/batch/#step-by-step-tutorials).
+Refresh your knowledge about Azure Batch by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
 
 ### References
 
-- [Azure Batch Overview](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview)
+- [Azure Batch Overview](../batch/batch-technical-overview.md)
 
 
 
@@ -204,7 +204,7 @@ Refresh your knowledge about Azure Batch by following these [Step-by-Step tutori
 
 ## Functions
 
-This service is also covered under [Internet of Things](./germany-migration-iot#functions).
+This service is also covered under [Internet of Things](./germany-migration-iot.md#functions).
 
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
@@ -213,7 +213,7 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 
 ### Next steps
 
-- Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/azure-functions/#step-by-step-tutorials).
+- Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
 - Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
@@ -242,7 +242,7 @@ The recommended approach is to export Resource Manager template, change the loca
 
 ### Next steps
 
-- Refresh your knowledge about Virtual Machine Scale Sets following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
+- Refresh your knowledge about Virtual Machine Scale Sets following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
 - Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References

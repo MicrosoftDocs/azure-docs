@@ -26,7 +26,7 @@ Event Hubs services don't provide data export or import capabilities. However, y
 
 ### Next Steps
 
-- Refresh your knowledge about Event Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/event-hubs/#step-by-step-tutorials).
+- Refresh your knowledge about Event Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
 - check the migration steps for [ServiceBus](./germany-migration-integration.md#service-bus)
 - Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -62,7 +62,7 @@ For more specialized, long running clusters (Kafka, Spark streaming, Storm, or H
 
 ### References
  
-[Azure HD Insight Documentation](https://docs.microsoft.com/en-us/azure/hdinsight/)
+[Azure HD Insight Documentation](https://docs.microsoft.com/azure/hdinsight/)
 
 
 

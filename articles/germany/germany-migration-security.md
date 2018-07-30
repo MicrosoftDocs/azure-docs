@@ -38,12 +38,12 @@ Get-AzureKeyVaultSecret -vaultname mysecrets  -name Deploydefaultpw
 
 ### Next steps
 
-Refresh your knowledge about Key Vault by following these [Step-by-step tutorials](../key-vault/#step-by-step-tutorials).
+Refresh your knowledge about Key Vault by following these [Step-by-step tutorials](https://docs.microsoft.com/azure/key-vault/#step-by-step-tutorials).
 
 ### References
 
 - [KeyVault overview](../key-vault/key-vault-overview.md)
-- [KeyVault PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-6.5.0)
+- [KeyVault PowerShell cmdlets](/powershell/module/azurerm.keyvault/?view=azurermps-6.5.0)
 
 
 

@@ -44,7 +44,7 @@ The migration of App Services from Azure Germany to global Azure isn't supported
 
 ## Notification Hubs
 
-This service is also covered under [Internet of Things](./germany-migration-iot.md#notification-hubs).
+This service is also covered under [Internet of Things](./germany-migration-iot.md#notification-hub).
 
 You can export and import all registration tokens along with tags from one Hub to another. Here's how:
 
@@ -54,7 +54,7 @@ You can export and import all registration tokens along with tags from one Hub t
 
 ### Next Steps
 
-Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/notification-hubs/#step-by-step-tutorials).
+Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
 
 ### References
 

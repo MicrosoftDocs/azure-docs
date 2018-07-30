@@ -22,7 +22,7 @@ This service is already covered under [Databases](./germany-migration-databases.
 
 ## Functions
 
-This service is also covered under [Compute](./germany-migration-compute#functions).
+This service is also covered under [Compute](./germany-migration-compute.md#functions).
 
 Migration of Functions between Azure Germany and global Azure isn't supported at this time. The recommended approach is to export Resource Manager template, change the location, and redeploy to target region.
 
@@ -31,7 +31,7 @@ Migration of Functions between Azure Germany and global Azure isn't supported at
 
 ### Next steps
 
-- Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/azure-functions/#step-by-step-tutorials).
+- Refresh your knowledge about Functions by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
 - Make yourself familiar how to [export an ARM template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### References
@@ -66,7 +66,7 @@ You can export and import all registration tokens along with tags from one Hub t
 
 ### Next Steps
 
-Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/notification-hubs/#step-by-step-tutorials).
+Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
 
 ### References
 
@@ -90,7 +90,7 @@ A seamless migration of IoT Hub instances from Azure Germany to global Azure is 
 All telemetry messages, C2D commands and Job (schedules and history) related information will not get migrated to global Azure. You will also have to reconfigure your devices and backend applications to start using the new IoT hub connection strings.
 
 - Export all device identities, device twins, module twins (including the keys) from the IoT hub instance in Azure Germany to a storage account in Azure Germany.
-- Use the [AzCopy tool](../storage/common/storage-use-azcopy.md) to copy all the exported blobs from Azure Germany to global Azure. See more details under [storage > blob](./germany-migrate-storage.md).
+- Use the [AzCopy tool](../storage/common/storage-use-azcopy.md) to copy all the exported blobs from Azure Germany to global Azure. See more details under [storage > blob](./germany-migration-storage.md).
 - Create a new IoT hub instance in global Azure.
 - Import all artifacts exported in the first step including the keys to this IoT hub instance in global Azure.
 - Reconfigure your devices and backend services to start using the new connection strings.

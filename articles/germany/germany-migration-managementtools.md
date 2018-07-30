@@ -16,7 +16,7 @@ Unfortunately, Azure Backup jobs and snapshots can't be migrated from Azure Germ
 
 ### Next Steps
 
-Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/backup/#step-by-step-tutorials).
+Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
 
 ### References
 
@@ -33,7 +33,7 @@ Azure Scheduler is being deprecated. Use Azure Logic apps instead to create sche
 
 ### Next Steps
 
-Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/logic-apps/#step-by-step-tutorials).
+Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
 
 See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler-to-logic-apps.md).
 
@@ -53,9 +53,9 @@ See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler
 
 This service is also covered under [Networking](./germany-migration-networking.md#traffic-manager)
 
-Traffic Manager profiles created in Azure Germany can't be migrated to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
+Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
 
-Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
+Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
 
 - Create a new Traffic Manager in Azure public.
 - Define the endpoints still in Azure Germany.
@@ -65,14 +65,13 @@ Traffic Manager can help you with a smooth migration. With Traffic Manager still
 
 ### Next steps
 
-Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](../traffic-manager/#step-by-step-tutorials).
+Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
 
 ### References
 
 - [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
 - [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
-- [Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/)
-
+- [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
 
 
 
@@ -96,7 +95,7 @@ Migration of Network Watcher between Azure Germany and global Azure isn't suppor
 
 ### Next steps
 
-Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](../network-watcher/#step-by-step-tutorials).
+Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
 
 ### References
 
@@ -122,9 +121,9 @@ It's not possible to migrate your current Site Recovery setup to global Azure. S
 ### Next steps
 
 Refresh your knowledge by following these Step-by-Step tutorials for setting up a disaster recovery for
-- [Azure to Azure](../site-recovery/#azure-to-azure)
-- [Vmware to Azure](../site-recovery/#vmware)
-- [Hyper-V to Azure](..//site-recovery/#hyper-v)
+- [Azure to Azure](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
+- [Vmware to Azure](https://docs.microsoft.com/azure/site-recovery/#vmware)
+- [Hyper-V to Azure](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
 
 ### References
 

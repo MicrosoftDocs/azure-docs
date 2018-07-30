@@ -16,7 +16,7 @@ In Media Services, you configure your own storage account and all media assets. 
 
 ### Next steps
 
-Refresh your knowledge about Media Services by following these [Step-by-Step tutorials](../media-services/#step-by-step-tutorials).
+Refresh your knowledge about Media Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).
 
 ### References
 
@@ -29,4 +29,4 @@ With Azure Media Player, you can select various endpoints. You can stream your c
 
 ### References
 
-- Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)
+- [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)
