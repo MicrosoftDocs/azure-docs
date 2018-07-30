@@ -1,23 +1,21 @@
 ---
-title: Workflow Definition Language schema - Azure Logic Apps | Microsoft Docs
+# required metadata
+title: Schema reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
 description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: 
-documentationcenter: 
-
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
+
+# optinal metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Logic Apps workflow definitions with the Workflow Definition Language schema
+# Schema reference for Workflow Definition Language in Azure Logic Apps
 
 When you create a logic app workflow with 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
@@ -25,7 +23,7 @@ your workflow's underlying definition describes the actual
 logic that runs for your logic app. This description 
 follows a structure that's defined and validated 
 by the Workflow Definition Language schema, which uses 
-[JavaScript Object Notation (JSON)](https://www.json.org/) format. 
+[JavaScript Object Notation (JSON)](https://www.json.org/). 
   
 ## Workflow definition structure
 
@@ -277,7 +275,7 @@ Or, continue learning about functions and their general purpose.
 Here are just a couple example tasks that you can perform with functions: 
 
 | Task | Function syntax | Result | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Return a string in lowercase format. | toLower('<*text*>') <p>For example: toLower('Hello') | "hello" | 
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
