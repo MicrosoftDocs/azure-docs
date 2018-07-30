@@ -10,7 +10,7 @@ ms.author: wolfma
 
 The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides a way to recognize **intents from speech**, powered by the Speech service and the [Language Understanding service (LUIS)](https://luis.ai).
 
-1. Create a speech factory, providing a LUIS subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). The LUIS subscription key is called **endpoint key** in the LUIS documentation. You can't use the LUIS authoring key. See also the **Note** below.
+1. Create a speech factory, providing a Language Understanding service subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). The Language Understanding service subscription key is called **endpoint key** in the service documentation. You can't use the Language Understanding service authoring key. See also the **Note** below.
 
 1. Get an intent recognizer from the speech factory. A recognizer can use your device's default microphone, an audio stream, or audio from a file.
 
@@ -23,4 +23,4 @@ The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) pro
 See the code snippets below for intent recognition scenarios using the Speech SDK. Replace your own Language Understanding subscription key (endpoint key), the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), and the AppId of your intent model in the appropriate places in the samples.
 
 > [!NOTE]
-> In contrast to other services supported by the Speech SDK, intent recognition requires a specific subscription key (LUIS endpoint key). [Here](https://www.luis.ai) you can find additional information about the intent recognition technology. How to acquire the LUIS **endpoint key** is described [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> In contrast to other services supported by the Speech SDK, intent recognition requires a specific subscription key (Language Understanding service endpoint key). [Here](https://www.luis.ai) you can find additional information about the intent recognition technology. How to acquire the **endpoint key** is described [here](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
