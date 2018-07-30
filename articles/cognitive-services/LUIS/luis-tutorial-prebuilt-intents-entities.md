@@ -163,7 +163,8 @@ There are two values for March 3 because the utterance didn't state if March 3 i
 By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select **My apps** from the top left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Next steps
 
