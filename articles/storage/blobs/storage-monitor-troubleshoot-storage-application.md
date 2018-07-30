@@ -3,7 +3,7 @@ title: Monitor and troubleshoot a cloud storage application in Azure | Microsoft
 description: Use diagnostic tools, metrics, and alerting to troubleshoot and monitor a cloud application.
 services: storage
 author: tamram
-manager: twooley
+
 
 ms.service: storage
 ms.workload: web

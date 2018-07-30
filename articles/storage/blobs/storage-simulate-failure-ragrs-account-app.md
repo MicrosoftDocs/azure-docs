@@ -3,7 +3,7 @@ title: Simulate a failure in accessing read access redundant storage in Azure | 
 description: Simulate an error in accessing read access geo-redundant storage
 services: storage 
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage 
 ms.tgt_pltfrm: na
