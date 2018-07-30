@@ -17,23 +17,23 @@ ms.date: 07/26/2018
 ms.author: ellacroi
 
 ---  
-## Azure Partner Customer Usage Attribution
+# Azure partner customer usage attribution
 
-As a software partner for Azure your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when an partner solution is deployed by the customer and uses Azure resources provisioned by the customer, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth for alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
+As a software partner for Azure your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when a partner solution is deployed by the customer and uses Azure resources provisioned by the customer, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth for alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
 
 Microsoft is creating a new method to help partners better track Azure usage that is a result of a customer deploying your software on Azure. This new method is based on using Azure Resource Manager to orchestrate deployment of Azure services.
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable this, there are two approaches available:
 
- 1. Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
+- Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
 
- 2. Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Manager template or to generate the API calls to directly provision Azure services. 
+- Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Manager template or to generate the API calls to directly provision Azure services. 
 
 ## Method 1: Azure Resource Manager Templates 
 Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
 
-*	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
-*	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
+*	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
+*	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## Instructions: add a GUID to your existing Azure Resource Manager template
 
@@ -49,7 +49,7 @@ Adding the GUID is a single modification of the main template file:
  5. Check template for any errors
  6. Republish the template in the appropriate repositories
 
-## Sample Template Code
+## Sample template code
 
 ```
 
@@ -71,7 +71,7 @@ Adding the GUID is a single modification of the main template file:
 
 ## Method 2: Azure Resource Manager APIs
 
-In some cases, you might prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
+In some cases, you might prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
 If you are using an Azure Resource Manager template, you should tag your solution using the instructions above.  If you are not using an Azure Resource Manager template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
 
@@ -125,13 +125,13 @@ All registrations for template GUIDs will be done via the Azure Marketplace Clou
 
 Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) today and get access to the Cloud Partner portal.
 
-*	Partners will be required to [have a profile in CPP](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) and encouraged to list the offer in Azure Marketplace or AppSource 
+*	Partners will be required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher) and encouraged to list the offer in Azure Marketplace or AppSource 
 *	Partners will be able to register multiple GUIDs 
 *	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
 
 Once you have added the GUID to your template or in the user agent and registered the GUID in the CPP all deployments will be tracked. 
 
-## Verification of GUID Deployment 
+## Verification of GUID deployment 
 
 After you have modified your template and performed a test deployment, you can use the following PowerShell script to retrieve the resrouces that were deployed and tagged. 
 
@@ -172,7 +172,7 @@ foreach ($deployment in $deployments){
 
 ```
 
-## Guidance on creating GUIDS
+## Guidance on creating GUIDs
 
 A GUID (globally unique identifier) is a 32 hexadecimal digit unique reference number. To create a GUID you should use a GUID generator to create their GUIDs for tracking.  There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) you can use.
 
@@ -189,15 +189,15 @@ You can also choose to track GUIDs at a more granular level i.e. SKU (where SKUs
 
 ## Guidance on privacy and data collection
 
-Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. In addition, partners should ensure this aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
+Partners should provide messaging to inform their customers that deployments that include the Azure Resource Manager GUID tracking will allow Microsoft to report the Azure usage associated with those deployments to the partner.  Some example language is below. Please note that where it indicates "PARTNER" you should fill in your own company name. In addition, partners should ensure this aligns with their own data privacy and collection policies including options for customers to be excluded from track: 
 
 **For Azure Resource Manager template deployments**
 
-When deploying this template Microsoft will be able identify the installation of our [insert partner software name] software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/en-us/trustcenter. 
+When deploying this template Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter. 
 
 **For SDK or API deployments**
 
-When deploying our software Microsoft will be able identify the installation of our [insert partner software name] software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/en-us/trustcenter.
+When deploying our software Microsoft will be able identify the installation of PARTNER software with the Azure resources deployed.  Microsoft will be able to correlate the Azure resources used to support the software.  Microsoft collects this information to provide the best experiences with their products and to operate their business. This data will be collected and governed by Microsoft’s privacy policies, which can be found at https://www.microsoft.com/trustcenter.
 
 ## Support
 
