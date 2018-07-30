@@ -3,8 +3,8 @@ title: How to delegate user registration and product subscription
 description: Learn how to delegate user registration and product subscription to a third party in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
-manager: erikre
+author: vladvino
+manager: cfowler
 editor: ''
 
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
@@ -170,8 +170,8 @@ For more information on delegation, see the following video:
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[calling the REST API for product subscription]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

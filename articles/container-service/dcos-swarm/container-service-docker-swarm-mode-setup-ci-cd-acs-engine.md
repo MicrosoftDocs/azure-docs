@@ -3,7 +3,7 @@ title: CI/CD with Azure Container Service Engine and Swarm Mode
 description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Visual Studio Team Services to deliver continuously a multi-container .NET Core application
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

@@ -3,8 +3,8 @@ title: Troubleshoot Azure Load Balancer | Microsoft Docs
 description: Troubleshoot known issues with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: RamanDhillon
-manager: timlt
+author: chadmath
+manager: cshepard
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: kumud
+ms.date: 07/06/2018
+ms.author: genli
 ---
 
 # Troubleshoot Azure Load Balancer
@@ -100,9 +100,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
-* List the network security groups configured on the backend VM. For more information, see:
-    -  [Manage network security groups using the Portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Manage network security groups using PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md).
 * From the list of network security groups, check if:
     - the incoming or outgoing traffic on the data port has interference. 
     - a **Deny All** network security group rule on the NIC of the VM or the subnet that has a higher priority that the default rule that allows Load Balancer probes and traffic (network security groups must allow Load Balancer IP of 168.63.129.16, that is probe port) 
@@ -127,7 +125,6 @@ Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 - Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
-- Use TCPing from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results.
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
   
 ## Next steps

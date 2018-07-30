@@ -5,7 +5,7 @@ description: This article provides a set of checklist for Azure database securit
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid: 

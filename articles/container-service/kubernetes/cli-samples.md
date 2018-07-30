@@ -3,7 +3,7 @@ title: Azure Container Service Script Samples
 description: Azure Container Service Script Samples
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: sample

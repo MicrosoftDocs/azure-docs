@@ -4,7 +4,7 @@ description: Learn how to deploy a NAT firewall using FreeBSD’s PF in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

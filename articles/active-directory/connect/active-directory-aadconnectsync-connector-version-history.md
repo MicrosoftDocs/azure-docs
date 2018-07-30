@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
-ms.author: davidste
+ms.component: hybrid
+ms.author: billmath
 
 ---
 # Connector Version Release History
@@ -29,11 +30,11 @@ This topic list all versions of the Connectors that have been released.
 Related links:
 
 * [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) reference documentation
-* [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) reference documentation
-* [Web Services Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
-* [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
-* [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
+* [Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) reference documentation
+* [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) reference documentation
+* [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
+* [PowerShell Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) reference documentation
+* [Lotus Domino Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) reference documentation
 
 
 ## 1.1.830.0
@@ -123,7 +124,7 @@ Related links:
 
 * Generic SQL:
   * **Scenario: redesigned Implemented:** "*" feature
-  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### Fixed issues:
@@ -203,7 +204,7 @@ LDAP MA. They showed only objects from RootDSE partition.
 Released: 2016 March
 
 **New Connector**  
-Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md).
+Initial release of the [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **New features:**
 

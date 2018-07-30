@@ -5,7 +5,7 @@
 > 
 > 
 
-1. Navigate to the [Firebase Console](https://console.firebase.google.com/) and sign-in with your Google account credentials.
+1. Navigate to the [Firebase Console](https://console.firebase.google.com/) and sign in with your Google account credentials.
 2. Click on **Create new Project** button to create a new project. Alternatively, you can also click on **Import Google Project** to import and existing project. 
 3. If you opted for creating a new project then provide a **Project name** and choose a **Country/Region**.
 4. On your project page, click the **Settings** cog wheel at the top left. In the menu, click on **Project settings**.  

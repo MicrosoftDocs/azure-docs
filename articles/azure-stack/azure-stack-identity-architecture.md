@@ -31,7 +31,7 @@ The identity provider that you choose can limit your options, including support 
 |------------------------------|----------|-------|
 |Connected to the internet     |Yes       |Optional|
 |Support for multi-tenancy     |Yes       |No      |
-|Marketplace syndication       |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) tool.|
+|Marketplace syndication       |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) tool.|
 |Support for Active Directory Authentication Library (ADAL) |Yes |Yes|
 |Support for tools such as Azure CLI, Visual Studio, and PowerShell  |Yes |Yes|
 |Create service principals through the Azure portal     |Yes |No|

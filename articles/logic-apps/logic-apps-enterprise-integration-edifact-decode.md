@@ -4,7 +4,7 @@ description: Validate EDI and generate acknowledgements with the EDIFACT message
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81

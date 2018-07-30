@@ -3,11 +3,11 @@ title: Ports beyond 1433 for SQL Database | Microsoft Docs
 description: Client connections from ADO.NET to Azure SQL Database can bypass the proxy and interact directly with the database using ports other than 1433.
 services: sql-database
 author: MightyPen
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
-ms.date: 08/17/2016
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---

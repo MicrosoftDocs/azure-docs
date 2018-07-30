@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -64,16 +64,7 @@ To turn on PHP logging:
 For more information, see [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 ## How do I log Python application errors in apps that are hosted in App Service?
-
-To capture Python application errors:
-
-1. In the Azure portal, in your web app, select **Settings**.
-2. On the **Settings** tab, select **Application settings**.
-3. Under **App settings**, enter the following key/value pair:
-    * Key : WSGI_LOG
-    * Value : D:\home\site\wwwroot\logs.txt (enter your choice of file name)
-
-You should now see errors in the logs.txt file in the wwwroot folder.
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## How do I change the version of the Node.js application that is hosted in App Service?
 

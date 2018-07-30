@@ -4,7 +4,7 @@ description: Schedule events by using Azure Metadata Service for your Linux virt
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 

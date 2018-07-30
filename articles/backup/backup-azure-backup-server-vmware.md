@@ -1,21 +1,13 @@
 ---
-title: Back up VMware servers with Azure Backup Server | Microsoft Docs
+title: Back up VMware servers with Azure Backup Server
 description: Use Azure Backup Server to back up a VMware vCenter/ESXi servers to Azure or disk. This article provides step=by-step instruction for backing up (or protecting) your VMware workloads.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-
-
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-
+ms.author: adigan
 ---
 # Back up a VMware server to Azure
 
@@ -153,8 +145,8 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
   After you click **OK**, the new role appears in the list on the Roles panel.
 
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
+|Privileges for vCenter 6.0 and 6.5| Privileges for vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

@@ -4,9 +4,8 @@ description: How to use the dynamic dictionary feature of the Microsoft Translat
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-text
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-jansko
@@ -22,10 +21,9 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Example: en-de:**
 
-Source input: Instant dictionary: word <mstrans:dictionary translation=”wordomatic”>word or phrase</mstrans:dictionary> is a dictionary entry.
+Source input: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
 
-Target output: Sofortige Wörterbuch: Wort "wordomatic" ist einen Wörterbucheintrag.
-
+Target output: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 This feature works the same way with and without HTML mode. 
 

@@ -6,8 +6,8 @@ manager: craigg
 author: anumjs
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-ms.date: 11/16/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: anjangsh
 
 ---

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
@@ -34,6 +34,7 @@ To learn more about routing in a virtual network, read [User-defined routes and 
 If you want to route your ASE outbound traffic somewhere other than directly to the internet, you have the following choices:
 
 * Enable your ASE to have direct internet access
+* Configure your ASE subnet to ignore BGP routes
 * Configure your ASE subnet to use Service Endpoints to Azure SQL and Azure Storage
 * Add your own IPs to the ASE Azure SQL firewall
 
@@ -46,6 +47,8 @@ To enable your ASE to go directly to the internet even if your Azure virtual net
 
 If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection.
 
+If the network is already routing traffic on premises, then you need to create the subnet to host your ASE and configure the UDR for it before attempting to deploy the ASE.  
+
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
 >
@@ -53,13 +56,30 @@ If you make these two changes, internet-destined traffic that originates from th
 
 ![Direct internet access][1]
 
-## Configure your ASE with Service Endpoints
+## Configure your ASE subnet to ignore BGP routes ## 
+
+You can configure your ASE subnet to ignore all BGP routes.  When this is configured the ASE will be able to access its dependencies without any problems.  You will need to create UDRs however to enable your apps to access on premises resources.
+
+To configure your ASE subnet to ignore BGP routes:
+
+* create a UDR and assign it to your ASE subnet if you did not have one already.
+* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set BGP route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
+
+After you do this, your apps will no longer be able to reach on premises. To solve that, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
+
+
+## Configure your ASE with Service Endpoints ##
+
+ > [!NOTE]
+   > Service endpoints with SQL does not work with ASE in the US Government regions.  The following information is only valid in the Azure public regions.  
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
 1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
-2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet
+2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
+
+To create your ASE in a virtual network that is already configured to route all traffic on premises, you need to create your ASE using a resource manager template.  It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to create your ASE using a resource manager template, which does allow you to specify a pre-existing subnet. For details on deploying an ASE with a template read [Creating an App Service Environment using a template][template].
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
@@ -67,7 +87,7 @@ When you enable Service Endpoints on a resource, there are routes created with h
 
 When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
-If you configure forced tunneling with a network filter appliance, then remember that the ASE has a number of dependencies in addition to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
+If you configure forced tunneling with a network filter appliance, then remember that the ASE has dependencies in addition to Azure SQL and Azure Storage. You must allow traffic to those dependencies or the ASE will not function properly.
 
 ![Forced tunnel with service endpoints][2]
 
@@ -119,7 +139,7 @@ These changes send traffic to Azure Storage directly from the ASE and allow acce
 
 If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long, then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.
 
-In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. Too much latency can happen if your ASE is too far from your on premises network.  Examples of too far would include going across an ocean or continent to reach your on premises network. Latency can also be introduced due to intranet congestion or outbound bandwidth constraints.
+In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. Too much latency can happen if your ASE is too far from your on premises network.  Examples of too far would include going across an ocean or continent to reach the on premises network. Latency can also be introduced due to intranet congestion or outbound bandwidth constraints.
 
 
 <!--IMAGES-->
@@ -133,3 +153,4 @@ In addition to simply breaking communication, you can adversely affect your ASE 
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

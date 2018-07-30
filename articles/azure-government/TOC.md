@@ -19,7 +19,7 @@
 ### [Compliance](documentation-government-plan-compliance.md)
 ### [Identity](documentation-government-plan-identity.md)
 ## Manage
-### [Operations Management Suite](documentation-government-manage-oms.md)
+### [Log Analytics](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ## Connect
@@ -47,9 +47,11 @@
 ### [Data + Analytics](documentation-government-services-dataandanalytics.md)
 ### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
 ### [Internet of Things](documentation-government-services-iot-hub.md)
+### [Integration Services](documentation-government-services-integration.md)
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+### [Developer Tools](documentation-government-services-devtools.md)
 ## [CSP for Azure Government](documentation-government-csp-application.md)
 ## Certifications
 ### [ITAR](documentation-government-overview-itar.md)

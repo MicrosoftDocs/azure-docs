@@ -3,7 +3,7 @@ title: Use Ansible to create a complete Linux VM in Azure | Microsoft Docs
 description: Learn how to use Ansible to create and manage a complete Linux virtual machine environment in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
-ms.author: iainfou
+ms.date: 05/30/2018
+ms.author: cynthn
 ---
 
 # Create a complete Linux virtual machine environment in Azure with Ansible
@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 To manage Azure resources with Ansible, you need the following:
 
 - Ansible and the Azure Python SDK modules installed on your host system.
-    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+    - Install Ansible on [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), and [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
@@ -34,6 +34,8 @@ To manage Azure resources with Ansible, you need the following:
 
 
 ## Create virtual network
+Let's look at each section of an Ansible playbook and create the individual Azure resources. For the complete playbook, see [this section of the article](#complete-ansible-playbook).
+
 The following section in an Ansible playbook creates a virtual network named *myVnet* in the *10.0.0.0/16* address space:
 
 ```yaml
@@ -112,14 +114,14 @@ The final step is to create a VM and use all the resources created. The followin
     vm_size: Standard_DS1_v2
     admin_username: azureuser
     ssh_password_enabled: false
-    ssh_public_keys: 
+    ssh_public_keys:
       - path: /home/azureuser/.ssh/authorized_keys
         key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
     network_interfaces: myNIC
     image:
       offer: CentOS
       publisher: OpenLogic
-      sku: '7.3'
+      sku: '7.5'
       version: latest
 ```
 
@@ -173,18 +175,18 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
       network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 
-Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

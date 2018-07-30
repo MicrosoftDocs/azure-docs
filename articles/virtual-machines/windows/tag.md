@@ -4,7 +4,7 @@ description: Learn about tagging a Windows virtual machine created in Azure usin
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

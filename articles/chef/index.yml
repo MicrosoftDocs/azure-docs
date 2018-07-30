@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Chef Software on Azure Documentation
+metadata:
+  title: Chef Software on Azure Documentation - Tutorials, samples, reference, and resources
+  meta.description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+  services: chef
+  author: tomarcher
+  manager: jeconnoc
+  ms.service: chef
+  ms.tgt_pltfrm: na
+  ms.devlang: devops
+  ms.topic: landing page
+  ms.date: 05/15/2018
+  ms.author: tarcher
+abstract:
+  description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+  aside: 
+    image: 
+      alt: Chef logo
+      height: 133
+      width: 48
+      src: media/chef.png
+    title: 
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Install and configure Chef, and use it to create a Linux virtual machine in Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/media/index/azure_dev-9.svg
+      text: Install and configure Chef
+      href: ./chef-extension-portal.md
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Chef Software tools to create and manage Azure compute and networking infrastructure.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-machines/windows/chef-automation">Automate Azure Virtual Machine deployment with Chef</a>.
+- title: Resources and Tools
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Chef Automate
+      html: <p><a href="https://docs.chef.io/chef_automate.html">Chef Automate overview</a></p>
+            <p><a href="https://docs.chef.io/install_chef_automate.html">Chef Automate install guide</a></p>
+            <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Chef Automate on Azure Marketplace</a></p>
+    - title: Chef Software tools
+      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef Visual Studio Team Services extension</a></p>
+            <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat Visual Studio Team Services extension</a></p>
+    - title: Chef Software news
+      html: <p><a href="https://blog.chef.io/">Chef Software blog</a></p>

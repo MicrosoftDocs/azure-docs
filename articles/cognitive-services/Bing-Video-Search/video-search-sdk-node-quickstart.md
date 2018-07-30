@@ -6,15 +6,17 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Video Search SDK Node quickstart (preview)
+# Video Search SDK Node quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
+
+The [source code for Node Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) is available on Git Hub.
 
 ## Application dependencies
 
@@ -40,10 +42,13 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 });
 
 ```
+
+<!-- Remove until the response can be replace with a sanitized version.
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'VideoObjectElementType'
 
 ![Video results](media/video-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

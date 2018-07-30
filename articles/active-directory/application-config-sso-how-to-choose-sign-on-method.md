@@ -3,17 +3,18 @@ title: How to determine what single-sign on method to use | Microsoft Docs
 description: Understand the single sign-on modes supported by Azure AD and how to pick which one to choose for the application you are interested in.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -78,5 +79,5 @@ To set an application’s **single sign-on** mode, follow these instructions:
 7.  Once the application loads, click **Single sign-on** from the application’s left-hand navigation menu.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

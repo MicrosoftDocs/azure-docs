@@ -1,16 +1,15 @@
----
+﻿---
 title: How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs
 description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
-services: time-series-insights
 ms.service: time-series-insights
-author: sandshadow
+services: time-series-insights
+author: ashannon7
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ---
 # Create Time Series Insights resources using Azure Resource Manager templates
@@ -148,7 +147,7 @@ For more information, see the [Parameters](../azure-resource-manager/resource-gr
 From a PowerShell prompt, run the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:

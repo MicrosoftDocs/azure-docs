@@ -6,7 +6,7 @@ author: MarkMcGeeAtAquent
 ms.service: cosmos-db
 ms.topic: "include"
 ms.date: 03/26/2018
-ms.author: mimig
+ms.author: v-mamcge
 ms.custom: "include file"
 ---
 ## Create an Azure storage account

@@ -1,11 +1,23 @@
+---
+ title: include file
+ description: include file
+ services: billing
+ author: rothja
+ ms.service: billing
+ ms.topic: include
+ ms.date: 07/02/2018
+ ms.author: jroth
+ ms.custom: include file
+---
+
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |10,000 <sup>1</sup> per Region |10,000 per Region |
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
-| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
-| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
+| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per region per subscription |200 |200<sup>2</sup> |
+| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
 | [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
 | Resource Manager API Reads |15,000 per hour |15,000 per hour |
 | Resource Manager API Writes |1,200 per hour |1,200 per hour |

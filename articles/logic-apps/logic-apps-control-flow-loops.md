@@ -1,30 +1,27 @@
 ---
-title: Loops - Process arrays or repeat actions - Azure Logic Apps | Microsoft Docs
-description: Process arrays with "for each" loops, or repeat actions until specific conditions are met in logic apps
+# required metadata
+title: Add loops that repeat actions or process arrays - Azure Logic Apps | Microsoft Docs
+description: How to create loops that repeat workflow actions or process arrays in Azure Logic Apps
 services: logic-apps
-keywords: for each loops
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
+ms.topic: article
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ---
 
-# Loops: Process arrays or repeat actions until a condition is met
+# Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To iterate over arrays in your logic app, 
+To iterate through arrays in your logic app, 
 you can use a ["Foreach" loop](#foreach-loop) or a 
 [sequential "Foreach" loop](#sequential-foreach-loop). 
-Cycles in a standard "Foreach" loop run in parallel, 
-while cycles in a sequential "Foreach" loop run one at a time. 
+The iterations for a standard "Foreach" loop run in parallel, 
+while the iterations for a sequential "Foreach" loop run one at a time. 
 For the maximum number of array items that "Foreach" loops 
 can process in a single logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
@@ -195,10 +192,6 @@ common use cases where you can use an "Until" loop:
 * Create a record in a database, 
 wait until a specific field in that record gets approved, 
 and continue processing. 
-
-> [!NOTE]
-> "Until" loops can't include "Foreach" 
-> loops or other "Until" loops.
 
 For example, at 8:00 AM each day, this logic app increments a variable 
 until the variable's value equals 10. Then, the logic app sends an email 

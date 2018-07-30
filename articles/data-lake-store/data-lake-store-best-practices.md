@@ -1,33 +1,35 @@
 ---
-title: Best practices for using Azure Data Lake Store | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Store 
+title: Best practices for using Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store) 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/02/2018
+ms.date: 06/27/2018
 ms.author: sachins
 
 ---
-# Best practices for using Azure Data Lake Store
+# Best practices for using Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
 
 Azure Data Lake Store offers POSIX access controls and detailed auditing for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and folders. The access controls can also be used to create defaults that can be applied to new files or folders. When permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object. If there large number of files,  propagating the permissions can take a long time. The time taken can range between 30-50 objects processed per second. Hence, plan the folder structure and user groups appropriately. Otherwise, it can cause unanticipated delays and issues when you work with your data. 
 
-Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, you can use the Azure Data Lake Command-Line Tool. The tool creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](http://aka.ms/adlstool-download) for this tool can be found on GitHub.
+Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Store ACLs are available at [Access control in Azure Data Lake Store](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, you can use the Azure Data Lake Command-Line Tool. The tool creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](http://aka.ms/adlstool-download) for this tool can be found on GitHub. These same performance improvements can be enabled by your own tools written with the Data Lake Store [.NET](data-lake-store-data-operations-net-sdk.md) and [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### Use security groups versus individual users 
 
-When working with big data in Data Lake Store, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Director security groups instead of assigning individual users to folders and files. Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Store. 
+When working with big data in Data Lake Store, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files. 
+
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Store. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask-and-effective-permissions), and other).
 
 ### Security for groups 
 
@@ -62,9 +64,9 @@ POSIX permissions and auditing in Data Lake Store comes with an overhead that be
 * Faster copying/replication
 * Fewer files to process when updating Data Lake Store POSIX permissions 
 
-Depending on what services and workloads are using the data, a good range to consider for file sizes is 256 MB to 1 GB, ideally not going below 100 MB or above 2 GB. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Depending on what services and workloads are using the data, a good size to consider for files is 256 MB or greater. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### Large file sizes and potential performance impact 
+### Large file sizes and potential performance impact
 
 Although Data Lake Store supports large files up to petabytes in size, for optimal performance and depending on the process reading the data, it might not be ideal to go above 2 GB on average. For example, when using **Distcp** to copy data between locations or different storage accounts, files are the finest level of granularity used to determine map tasks. So, if you are copying 10 files that are 1 TB each, at most 10 mappers are allocated. Also, if you have lots of files with mappers assigned, initially the mappers work in parallel to move large files. However, as the job starts to wind down only a few mappers remain allocated and you can be stuck with a single mapper assigned to a large file. Microsoft has submitted improvements to Distcp to address this issue in future Hadoop versions.  
 
@@ -110,7 +112,7 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 ### Use Azure Data Factory to schedule copy jobs 
 
-Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/v1/data-factory-copy-activity-performance.md) for more information on copying with Data Factory. 
+Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/copy-activity-performance.md) for more information on copying with Data Factory. 
 
 ### AdlCopy
 
@@ -126,7 +128,7 @@ Data Lake Store provides detailed diagnostic logs and auditing. Data Lake Store 
 
 ### Export Data Lake Store diagnostics 
 
-One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Operations Management Suite (OMS)** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Log Analytics** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 For more real-time alerting and more control on where to land the logs, consider exporting logs to Azure EventHub where content can be analyzed individually or over a time window in order to submit real-time notifications to a queue. A separate application such as a [Logic App](../connectors/connectors-create-api-azure-event-hubs.md) can then consume and communicate the alerts to the appropriate channel, as well as submit metrics to monitoring tools like NewRelic, Datadog, or AppDynamics. Alternatively, if you are using a third-party tool such as ElasticSearch, you can export the logs to Blob Storage and use the [Azure Logstash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) to consume the data into your Elasticsearch, Kibana, and Logstash (ELK) stack.
 
@@ -136,7 +138,7 @@ If Data Lake Store log shipping is not turned on, Azure HDInsight also provides 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
+Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Log Analytics or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
 
 ### Run synthetic transactions 
 

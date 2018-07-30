@@ -8,20 +8,20 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/06/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 # Use Node.js to query an Azure SQL database
 
-This quickstart tutorial demonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
+This quickstart demonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quickstart tutorial, make sure you have the following:
+To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
+- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart.
 
 - You have installed Node.js and related software for your operating system:
     - **MacOS**: Install Homebrew and Node.js, and then install the ODBC driver and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).

@@ -1,0 +1,72 @@
+- name: Service Fabric Mesh Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Service Fabric Mesh
+    href: service-fabric-mesh-overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy Hello World
+    href: service-fabric-mesh-quickstart-deploy-container.md
+  - name: Create and deploy a web app to Azure Service Fabric Mesh
+    href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: Tutorials
+  items:
+  - name: Create, debug and deploy a multi-service Service Fabric Mesh web app
+    items:
+    - name: 1- Build a Service Fabric Mesh web app
+      href: service-fabric-mesh-tutorial-create-dotnetcore.md
+    - name: 2- Debug a Service Fabric Mesh web app
+      href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+    - name: 3- Deploy a Service Fabric Mesh web app
+      href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: Concepts
+  items:
+  - name: Terminology
+    href: service-fabric-mesh-terminology.md
+  - name: Service Fabric resources
+    href: service-fabric-mesh-service-fabric-resources.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-mesh-monitoring-diagnostics.md
+  - name: Storing state
+    href: service-fabric-mesh-storing-state.md
+
+- name: How-to guides
+  items:
+  - name: Set up your development environment
+    href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+  - name: Set up Service Fabric Mesh CLI
+    href: service-fabric-mesh-howto-setup-cli.md
+  - name: Deploy a .NET Core microservices app
+    href: service-fabric-mesh-howto-deploy-app-template.md
+  - name: Deploy an app from a private registry
+    href: service-fabric-mesh-howto-deploy-app-private-registry.md
+  - name: Store state with Azure Files volume
+    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+  - name: Independently scale microservices in an app
+    href: service-fabric-mesh-howto-app-scale-out.md
+
+- name: Reference
+  items:
+  - name: Service Fabric Mesh Resource Provider REST APIs
+    href: /rest/api/servicefabric/sfmeshrp-index
+  - name: Service Fabric Client Resource REST APIs
+    href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
+- name: Resources
+  items:
+  - name: Common questions
+    href: service-fabric-mesh-faq.md
+  - name: Sample applications
+    href: https://github.com/Azure-Samples/service-fabric-mesh
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=service-fabric-mesh
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+ 

@@ -1,22 +1,15 @@
 ---
 title: Create an IoT Hub using Azure CLI (az.py) | Microsoft Docs
 description: How to create an Azure IoT hub using the cross-platform Azure CLI 2.0 (az.py).
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 06/16/2017
 ms.author: dobett
-
 ---
+
 # Create an IoT hub using the Azure CLI 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -85,7 +78,6 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 
 > [!NOTE]
 > The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more information, see [Azure IoT Hub pricing][lnk-iot-pricing].
->
 >
 
 ## Remove an IoT Hub

@@ -3,17 +3,18 @@ title: How to configure password single sign-on for an Azure AD Gallery applicat
 description: How to configure an application for secure password-based single sign-on when it is already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -177,4 +178,4 @@ To assign one or more groups to an application directly, follow these steps:
 After a short period, the users you have selected be able to launch these applications in the Access Panel.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

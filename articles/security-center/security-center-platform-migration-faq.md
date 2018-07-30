@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
 
 ---
@@ -31,7 +31,7 @@ Security Center uses the Microsoft Monitoring Agent to collect security data fro
 Data collected by the agent is stored in either an existing Log Analytics workspace connected to the VM or a new workspace created by Security Center. When Security Center creates a new workspace, the geolocation of the VM is taken into account.
 
 > [!NOTE]
-> The Microsoft Monitoring Agent is the same agent used by the Operations Management Suite (OMS), Log Analytics service and System Center Operations Manager (SCOM).
+> The Microsoft Monitoring Agent is the same agent used by the Log Analytics service and System Center Operations Manager (SCOM).
 >
 >
 
@@ -61,8 +61,8 @@ The location of the workspace is based on the location of the VM. To learn more,
 >
 >
 
-### Am I billed for Log Analytics or OMS on the workspaces created by Security Center?
-No. Workspaces created by Security Center, while configured for OMS per node billing, do not incur OMS charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
+### Am I billed for Log Analytics on the workspaces created by Security Center?
+No. Workspaces created by Security Center, while configured for Log Analytics per node billing, do not incur Log Analytics charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
 - **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
@@ -70,7 +70,7 @@ No. Workspaces created by Security Center, while configured for OMS per node bil
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/). The pricing page addresses changes to security data storage and prorated billing starting in June 2017.
 
 > [!NOTE]
-> The OMS pricing tier of workspaces created by Security Center does not affect Security Center billing.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
 >
 >
 
@@ -119,8 +119,6 @@ To select an existing Log Analytics workspace:
    >
 
    - Select **Cancel** to cancel the operation.
-
-      ![Reconfigure monitored VMs][6]
 
 ### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?
 Security Center does not override existing connections to user workspaces. Security Center stores security data from the VM in the workspace already connected. Security Center updates the extension version to include the Azure resource ID of the VM to support Security Center usage.
@@ -201,12 +199,12 @@ To manually remove the agent:
 >
 >
 
-## Existing OMS customers
+## Existing Log Analytics customers
 
 ### Does Security Center override any existing connections between VMs and workspaces?
 If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center does not override the existing workspace connection. Instead, Security Center uses the existing workspace.
 
-A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), which is an OMS feature, allows you to apply a scope to your solutions.
+A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs. When you add a solution, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace. [Solution Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to your solutions.
 
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center does not install the Microsoft Monitoring Agent and security monitoring is limited.
 
@@ -217,18 +215,13 @@ This should not happen. If it does happen, then [Create an Azure support request
 - The Azure resource ID of the workspace configured on the extension before the connection was broken
 - The agent and version that was previously installed
 
-### Does Security Center install solutions on my existing OMS workspaces? What are the billing implications?
+### Does Security Center install solutions on my existing Log Analytics workspaces? What are the billing implications?
 When Security Center identifies that a VM is already connected to a workspace you created, Security Center enables solutions on this workspace according to your pricing tier. The solutions are applied only to the relevant Azure VMs, via [solution targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), so the billing remains the same.
 
 - **Free tier** – Security Center installs the 'SecurityCenterFree' solution on the workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center installs the 'Security' solution on the workspace.
 
    ![Solutions on default workspace][4]
-
-> [!NOTE]
-> The ‘Security’ solution in Log Analytics is the Security & Audit solution in OMS.
->
->
 
 ### I already have workspaces in my environment, can I use them to collect security data?
 If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center uses the existing connected workspace. A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs via [solution targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
@@ -250,4 +243,3 @@ To learn more about the Security Center platform migration, see
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

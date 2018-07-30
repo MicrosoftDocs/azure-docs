@@ -4,7 +4,7 @@ description: Learn to set up endpoints for a Linux VM in the Azure portal to all
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -33,4 +33,4 @@ When you create a Linux virtual machine in the Azure portal, an endpoint for Sec
 
 ## Next steps
 * You can also create a VM endpoint by using the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Run the **azure vm endpoint create** command.
-* If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.
+* If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../../../virtual-network/tutorial-filter-network-traffic-cli.md) to control traffic to the VM.

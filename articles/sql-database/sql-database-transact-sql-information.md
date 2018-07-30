@@ -6,8 +6,8 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-ms.date: 10/23/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---

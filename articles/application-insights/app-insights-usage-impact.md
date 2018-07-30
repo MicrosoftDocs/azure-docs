@@ -9,9 +9,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
-ms.author: mbullwin ; daviste
+ms.reviewer: daviste
+ms.author: mbullwin
 ---
 
 # Impact analysis with Application Insights

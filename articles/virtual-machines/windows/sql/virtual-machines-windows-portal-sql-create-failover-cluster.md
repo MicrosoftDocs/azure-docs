@@ -15,9 +15,8 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-
 ---
 
 # Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
@@ -69,12 +68,15 @@ There are a few things you need to know and a couple of things that you need in 
 You should have an operational understanding of the following technologies:
 
 - [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
+- [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx).
 
 Also, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
 
 ### What to have
 
@@ -276,7 +278,7 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 ### Add storage
 
@@ -373,27 +375,13 @@ To create the load balancer:
 
 1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click the load balancer.
 
-1. On the load balancer blade, click **Backend pools**.
+1. Click **Backend pools** and click **+ Add** to add a backend pool.
 
-1. Click **+ Add** to add a backend pool.
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type a name for the backend pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. 
 
-1. Click **Add a virtual machine**.
-
-1. On the **Choose virtual machines** blade, click **Choose an availability set**.
-
-1. Choose the availability set that you placed the SQL Server virtual machines in.
-
-1. On the **Choose virtual machines** blade, click **Choose the virtual machines**.
-
-   Your Azure portal should look like the following picture:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Click **Select** on the **Choose virtual machines** blade.
-
-1. Click **OK** twice.
+1. Click **OK** to create the backend pool.
 
 ### Configure a load balancer health probe
 

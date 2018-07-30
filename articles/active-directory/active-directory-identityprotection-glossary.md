@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +30,7 @@ A sign-in from a geographic location that is not typical for the specific user, 
 A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
 
 ### Conditional access
-A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health or user authentication method.
+A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### Credentials
 Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
@@ -68,7 +69,7 @@ An authentication method that requires two or more authentication methods, which
 The detection of anomalies and evaluation of the risk of an event such as sign-in attempt after the fact, for an event that has already happened.
 
 ### Policy condition
-A part of a security policy which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
+A part of a security policy, which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
 
 ### Policy rule
 The part of a security policy which describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
@@ -77,7 +78,7 @@ The part of a security policy which describes the circumstances that would trigg
 An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk events.
 
 ### Privileged (user)
-A user that at the time of a risk event, had permanent or temporary admin permissions to one or more resource in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+A user that at the time of a risk event, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
 
 ### Real-time
 See Real-time detection.
@@ -124,17 +125,17 @@ To authenticate to an identity in Azure Active Directory.
 ### Sign-in (n)
 The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
 
-### Sign-in from anonymous IP address
+### Sign in from anonymous IP address
 A risk event triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
 
-### Sign-in from infected device
-A risk event triggered when a sign-in originates from an IP address which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
+### Sign in from infected device
+A risk event triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
 
-### Sign-in from IP address with suspicious activity
+### Sign in from IP address with suspicious activity
 A risk event triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
 
-### Sign-in from unfamiliar location
-A risk event triggered when a user successfully signs in from a new location (IP, Latitude/Longitude and ASN).
+### Sign in from unfamiliar location
+A risk event triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
 
 ### Sign-in risk
 See Risk level (sign-in)
@@ -152,10 +153,10 @@ See Risk level (user compromise).
 A conditional access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### Users flagged for risk
-Users that have risk events which are either active or remediated
+Users that have risk events, which are either active or remediated
 
 ### Vulnerability
-A configuration or condition in Azure Active Directory which makes the directory susceptible to exploits or threats.
+A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.
 
 ## See also
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

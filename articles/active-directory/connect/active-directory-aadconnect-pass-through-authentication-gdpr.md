@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect - Pass-through Authentication - GDPR compliance | Microsoft Docs
+title: User Privacy and Azure Active Directory Pass-through Authentication | Microsoft Docs
 description: This article deals with Azure Active Directory (Azure AD) Pass-through Authentication and GDPR compliance.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, GDPR, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,26 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 07/23/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---
 
-# Azure Active Directory Pass-through Authentication: GDPR compliance
+# User Privacy and Azure Active Directory Pass-through Authentication
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## Overview
 
-In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
-
-Azure AD Pass-through Authentication creates the following log types, which can contain EUII:
+Azure AD Pass-through Authentication creates the following log type, which can contain Personal Data:
 
 - Azure AD Connect trace log files.
 - Authentication Agent trace log files.
 - Windows Event log files.
 
-GDPR compliance for Pass-through Authentication can be reached in two ways:
+Improve user privacy for Pass-through Authentication in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
@@ -70,7 +70,7 @@ To view logs related to the Pass-through Authentication Agent, open the **Event 
 You should regularly check the contents of **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** and delete the contents of this folder every 48 hours. 
 
 >[!IMPORTANT]
->If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 You can either review and delete these files using Windows Explorer or you can use the following script to perform the necessary actions:
 
@@ -100,4 +100,5 @@ To schedule this script to run every 48 hours follow these steps:
 If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

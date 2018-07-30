@@ -2,13 +2,13 @@
 title: DC/OS agent pools for Azure Container Service
 description: How the public and private agent pools work with an Azure Container Service DC/OS cluster
 services: container-service
-author: dlepow
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
 ---
 

@@ -2,19 +2,19 @@
 title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
-ms.topic: get-started-article
+ms.devlang: linux
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
+ms.author: suhuruli
 
 ---
 # Set up your development environment on Mac OS X
@@ -59,7 +59,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `.Dockerfile` to build your Service Fabric Image:
+2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -83,7 +83,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
 
-3. To build your reusable image from the `.Dockerfile` open a terminal and `cd` to the directly holding your `.Dockerfile` then run:
+3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -120,6 +120,13 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     docker rm -f sftestcluster
     ```
 
+### Known Limitations 
+ 
+ The following are known limitations of the local cluster running in a container for Mac's: 
+ 
+ * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+
+ * Container applications cannot be deployed to this local cluster currently
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
@@ -184,9 +191,9 @@ After you create and build your Service Fabric application, you can deploy your 
 
 Install the [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, which is currently in preview.
 
-## Install the Service Fabric plug-in for Eclipse Neon on your Mac
+## Install the Service Fabric plug-in for Eclipse on your Mac
 
-Azure Service Fabric provides a plug-in for the Eclipse Neon for the Java IDE. The plug-in simplifies the process of creating, building, and deploying Java services. To install or update the Service Fabric plug-in for Eclipse to the latest version, follow [these steps](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). The other steps in the [Service Fabric for Eclipse documentation](service-fabric-get-started-eclipse.md) are also applicable: build an application, add a service to an application, uninstall an application, and so on.
+Azure Service Fabric provides a plug-in for Eclipse Neon (or later) for the Java IDE. The plug-in simplifies the process of creating, building, and deploying Java services. To install or update the Service Fabric plug-in for Eclipse to the latest version, follow [these steps](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). The other steps in the [Service Fabric for Eclipse documentation](service-fabric-get-started-eclipse.md) are also applicable: build an application, add a service to an application, uninstall an application, and so on.
 
 The last step is to instantiate the container with a path that is shared with your host. The plug-in requires this type of instantiation to work with the Docker container on your Mac. For example:
 

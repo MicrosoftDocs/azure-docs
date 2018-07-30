@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 
@@ -20,7 +20,7 @@ robots: noindex
 
 # Map source dataset columns to destination dataset columns
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). 
+> This article applies to version 1 of Data Factory. 
 
 Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
 

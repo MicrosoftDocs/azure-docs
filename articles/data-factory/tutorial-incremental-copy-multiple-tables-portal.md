@@ -3,7 +3,7 @@ title: 'Incrementally copy multiple tables by using Azure Data Factory | Microso
 description: 'In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
+ms.author: yexu
 ---
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL database
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    
@@ -32,9 +32,6 @@ You perform the following steps in this tutorial:
 > * Add or update data in source tables.
 > * Rerun and monitor the pipeline.
 > * Review the final results.
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
 Here are the important steps to create this solution: 
@@ -366,16 +363,25 @@ In this step, you create datasets to represent the data source, the data destina
 3. You see a new tab opened in the Web browser for configuring the dataset. You also see a dataset in the treeview. In the **General** tab of the Properties window at the bottom, enter **SinkDataset** for **Name**.
 
    ![Sink Dataset - general](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. 
-
-   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Switch to the **Parameters** tab in the Properties window, and do the following steps: 
+4. Switch to the **Parameters** tab in the Properties window, and do the following steps: 
 
     1. Click **New** in the **Create/update parameters** section. 
     2. Enter **SinkTableName** for the **name**, and **String** for the **type**. This dataset takes **SinkTableName** as a parameter. The SinkTableName parameter is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
-    3. Enter `@{dataset().SinkTableName}` for **tableName** property in the **Parameterizable properties** section. You use the value passed to the **SinkTableName** parameter to initialize the **tableName** property of the dataset. 
-
+   
        ![Sink Dataset - properties](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Switch to the **Connection** tab in the Properties window, and select **AzureSqlLinkedService** for **Linked service**. For **Table** property, click **Add dynamic content**. 
+
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+	
+6. Select **SinkTableName** in the **Parameters** section
+   
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+   
+   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### Create a dataset for a watermark
 In this step, you create a dataset for storing a high watermark value. 
@@ -641,7 +647,7 @@ VALUES
     ]
     ```
 
-## Monitor the pipeline
+## Monitor the pipeline again
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
 

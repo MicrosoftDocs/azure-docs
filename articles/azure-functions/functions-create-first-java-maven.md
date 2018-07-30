@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
@@ -40,23 +40,9 @@ To develop functions app with Java, you must have the following installed:
 
 ## Install the Azure Functions Core Tools
 
-The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. 
+The Azure Functions Core Tools provide a local development environment for writing, running, and debugging Azure Functions from the terminal or command prompt. 
 
-To install, visit the [Installing](https://github.com/azure/azure-functions-core-tools#installing) section and find the specific instructions to your operating system of choice (Windows, Linux, Mac).
-
-You can also install it manually with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/), after installing the following requirements:
-
--  [.NET Core](https://www.microsoft.com/net/core), latest version.
--  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
-
-To proceed with an npm-based installation, run:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before continuing.
 
 ## Generate a new Functions project
 
@@ -77,7 +63,9 @@ mvn archetype:generate ^
 	-DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven prompts you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
+Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
+
+The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -88,7 +76,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
 
 ```java
 public class Function {
@@ -122,7 +110,7 @@ public class Function {
 Change directory to the newly created project folder and build and run the function with Maven:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -130,7 +118,7 @@ mvn azure-functions:run
 > [!NOTE]
 > If you're experiencing this exception: `javax.xml.bind.JAXBException` with Java 9, see the workaround on [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
-You see this output when the function is running:
+You see this output when the function is running locally on your system and ready to respond to HTTP requests:
 
 ```Output
 Listening on http://localhost:7071
@@ -141,7 +129,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Trigger the function from the command line using curl in a new terminal:
+Trigger the function from the command line using curl in a new terminal window:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -155,10 +143,15 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) and then deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+
+```azurecli
+az login
+```
+
+Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
 ```
-az login
 mvn azure-functions:deploy
 ```
 
@@ -172,10 +165,10 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 [INFO] ------------------------------------------------------------------------
 ```
 
-Test the function app running on Azure using curl:
+Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -184,7 +177,7 @@ Hello AzureFunctions!
 
 ## Next steps
 
-You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
+You've created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.

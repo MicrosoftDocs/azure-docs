@@ -2,15 +2,15 @@
 title: Create an application gateway with a certificate - Azure CLI | Microsoft Docs
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/23/2018
-ms.author: davidmu
+ms.date: 7/14/2018
+ms.author: victorh
 
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
@@ -200,7 +200,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

@@ -2,18 +2,15 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
 services: cosmos-db
-documentationcenter: nodejs
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
-ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 1/4/2018
+ms.topic: reference
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -30,14 +27,14 @@ ms.custom: H1Hack27Feb2017
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
 <tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
@@ -58,6 +55,16 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.14.4"/>1.14.4</a>
+* npm documentation fixed.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Added support for default retries on connection issues.
+* Added support to read collection change feed.
+* Fixed session consistency bug that intermittently caused "read session not available".
+* Added support for query metrics.
+* Modified http Agent's maximum number of connections.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
@@ -190,6 +197,8 @@ Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |May 03, 2018 |--- |
+| [1.14.3](#1.14.3) |May 03, 2018 |--- |
 | [1.14.2](#1.14.2) |December 21, 2017 |--- |
 | [1.14.1](#1.14.1) |November 10, 2017 |--- |
 | [1.14.0](#1.14.0) |November 9, 2017 |--- |

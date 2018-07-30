@@ -1,12 +1,13 @@
-﻿---
+---
 title: Onboarding machines for management by Azure Automation DSC
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
 ---
 # Onboarding machines for management by Azure Automation DSC
@@ -17,16 +18,15 @@ Like [PowerShell Desired State Configuration](https://technet.microsoft.com/libr
 
 Azure Automation DSC can be used to manage a variety of machines:
 
-* Azure virtual machines (classic)
-* Azure virtual machines
-* Amazon Web Services (AWS) virtual machines
+* Azure virtual machines ( deployed both in classic and Azure Resource Manager deployment model )
+* Amazon Web Services (AWS) EC2 instances 
 * Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 * Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
 > [!NOTE]
-> Managing Azure VMs with DSC is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. Refer to the [**Automation pricing page**](https://azure.microsoft.com/en-us/pricing/details/automation/) for more details.
+> Managing Azure VMs with DSC is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. Refer to the [**Automation pricing page**](https://azure.microsoft.com/pricing/details/automation/) for more details.
 
 
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.
@@ -48,7 +48,7 @@ To find the registration URL and key for the Automation account to onboard the m
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -57,6 +57,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -106,6 +107,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> Dsc Node Configuration names are case sensitive in the portal. If the case is mismatched the node will not show up under DSC Nodes.
 
 ## Azure virtual machines
 
@@ -190,7 +194,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
 ## Generating DSC metaconfigurations
 
-To generically onboard any machine to Azure Automation DSC, a [DSC metaconfiguration](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
+To generically onboard any machine to Azure Automation DSC, a [DSC metaconfiguration](https://msdn.microsoft.com/powershell/dsc/metaconfig) can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
 
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
@@ -199,6 +203,9 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
 
 1. Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 2. Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
+
+> [!NOTE]
+> Dsc Node Configuration names are case sensitive in the portal. If the case is mismatched the node will not show up under DSC Nodes.
 
     ```powershell
     # The DSC configuration that will generate metaconfigurations
@@ -291,6 +298,7 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';
@@ -324,7 +332,7 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
 If the PowerShell DSC Local Configuration Manager defaults match your use case, and you want to onboard machines such that they both pull from and report to Azure Automation DSC, the Azure Automation cmdlets provide a simplified method of generating the DSC metaconfigurations needed:
 
 1. Open the PowerShell console or PowerShell ISE as an administrator in a machine in your local environment.
-2. Connect to Azure Resource Manager using **Add-AzureRmAccount**
+2. Connect to Azure Resource Manager using **Connect-AzureRmAccount**
 3. Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
     ```powershell

@@ -2,15 +2,15 @@
 title: Create an application gateway with URL path-based routing rules - Azure CLI | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
+ms.date: 7/14/2018
+ms.author: victorh
 
 ---
 # Create an application gateway with URL path-based routing rules using the Azure CLI
@@ -210,7 +210,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

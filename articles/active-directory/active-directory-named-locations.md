@@ -6,13 +6,14 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 
+ms.component: protection
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -76,7 +77,7 @@ You can access the named location configuration page in the **Security** section
 
 6. On the **New** page, do the following:
 
-	![The New blade](./media/active-directory-named-locations/56.png)
+	![The New blade](./media/active-directory-named-locations/61.png)
 
     a. In the **Name** box, type a name for your named location.
 

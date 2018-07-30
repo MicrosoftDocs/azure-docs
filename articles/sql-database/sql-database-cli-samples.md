@@ -3,14 +3,14 @@ title: Azure CLI script examples for SQL Database | Microsoft Docs
 description: Azure CLI script examples to create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/23/2017
-ms.author: janeng
+ms.date: 04/01/2018
+ms.author: carlrab
 ---
 
 # Azure CLI samples for Azure SQL Database
