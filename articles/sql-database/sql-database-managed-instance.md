@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: bonova
 ---
 
@@ -134,15 +134,16 @@ Business Critical service tier is built for applications with high IO requiremen
 
 The following list outlines the key characteristics of the Business Critical service tier: 
 -	Designed for business applications with highest performance and HA requirements 
--	Comes with super-fast SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)-	Supports up to 100 databases per instance 
+-	Comes with super-fast SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)
+-	Supports up to 100 databases per instance 
 
 |Feature | Description|
 |---|---|
-| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| Number of vCores* | 8, 16, 24, 32 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | SQL Server version / build | SQL Server (latest available) |
 | Additional features | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 additional read-only replica ([Read Scale-Out](sql-database-read-scale-out.md))
 | Min storage size | 32 GB |
-| Max storage size | Gen 4: 1 TB (all vCore sizes<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 40, 60, 80 vCores</ul>|
+| Max storage size | Gen 4: 1 TB (all vCore sizes<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 40, 64, 80 vCores</ul>|
 | Max storage per database | Determined by the max storage size per instance |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
