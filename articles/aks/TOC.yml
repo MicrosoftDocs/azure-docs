@@ -89,6 +89,10 @@
     - name: Azure container health solution
       href: ../monitoring/monitoring-container-health.md
       maintainContext: true
+    - name: View the master component logs
+      href: view-master-logs.md
+    - name: View the kubelet logs
+      href: kubelet-logs.md
   - name: Develop and run applications
     items:
     - name: Run applications with Helm
@@ -121,8 +125,6 @@
     items:
     - name: SSH node access
       href: aks-ssh.md
-    - name: Get kubelet logs
-      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI
