@@ -1,6 +1,6 @@
 ﻿---
-title: Understand Azure reserved instances discount | Microsoft Docs
-description: Learn how Azure Reserved VM Instance and SQL database discount is applied to running virtual machines and SQL databases. 
+title: Understand Azure Reserved VM Instances discount | Microsoft Docs
+description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
 ---
-# Understand how the reserved instance discount is applied
+# Understand how the reserved instance discount is applied to virtual machines
 
-After you buy an Azure reserved instance, the reserved instance discount is automatically applied to virtual machines or SQL databases that match the attributes and quantity of the reserved instance. A reserved instance covers the infrastructure costs of your virtual machines or SQL databases. 
+After you buy an Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your virtual machines.
 
 The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
 
