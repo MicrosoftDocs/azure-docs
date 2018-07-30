@@ -59,8 +59,6 @@ To create an ILB ASE:
 
 4. Select or create a VNet.
 
-	* If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
-
 5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
 6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
@@ -110,7 +108,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 5. Select your OS. 
 
-	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions [here][linuxapp]. Do not create Linux apps on production ASEs as this capability is in Preview.
+	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions [here][linuxapp]. 
 
 6. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 

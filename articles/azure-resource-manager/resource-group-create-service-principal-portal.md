@@ -152,7 +152,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Select the role you wish to assign to the application. The following image shows the **Reader** role.
+1. Select the role you wish to assign to the application. In order to allow the application execute actions like **reboot**, **start** and **stop** instances, you must have to select the role **Contributor**. The following image shows the **Reader** role.
 
    ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 

@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI 2.0 to register a new IoT Edge 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -58,7 +58,7 @@ When you're ready to set up your device, you need the connection string that lin
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-The device id parameter is case-sensitive. 
+The device id parameter is case-sensitive. Don't copy the quotation marks around the connection string. 
 
 ## Next steps
 

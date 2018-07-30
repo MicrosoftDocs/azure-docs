@@ -281,7 +281,7 @@ This section guides you through setting up the SQL database to store the tempera
    * Linux container: 
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Password'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Create your database: 

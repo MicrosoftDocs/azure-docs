@@ -1,9 +1,8 @@
 ---
-title: Get started with the Speech Devices SDK | Microsoft Docs
+title: Get started with the Speech Devices SDK
 description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
