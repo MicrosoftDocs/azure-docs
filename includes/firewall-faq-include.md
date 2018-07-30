@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 7/19/2018
+ ms.date: 7/30/2018
  ms.author: victorh
  ms.custom: include file
 ---
@@ -79,4 +79,5 @@ For secure access to PaaS services, we recommend Service Endpoints. Azure Firewa
 
 * Azure firewall has a soft limit of 1000 TB/firewall/month. 
 * Azure firewall that is running in a central VNET is subject to VNET peering limitations: max of 50 spoke VNETs.  
-* Azure Firewall cannot work with global peering, so customers should have at least one deployment of the Firewall per region.
+* Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
+* Azure firewall supports 10k application rules and 10k network rules.
