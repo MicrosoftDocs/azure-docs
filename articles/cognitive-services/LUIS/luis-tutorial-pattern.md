@@ -10,7 +10,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/30/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
@@ -24,7 +24,7 @@ In this tutorial, use patterns to increase intent and entity prediction.
 * How to create a pattern
 * How to verify pattern prediction improvements
 
-For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 
@@ -70,8 +70,6 @@ OrgChart-Manager(employee){
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [![Screenshot of Human Resources app on intents list page](media/luis-tutorial-pattern/hr-first-image.png "Screenshot of Human Resources app on intents list page")](media/luis-tutorial-pattern/hr-first-image.png#lightbox)
-
 2. On the **Intents** page, select **Create new intent**. 
 
 3. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
@@ -114,29 +112,15 @@ The quantity of example utterances in these intents is not enough to train LUIS 
 
 ## Train the LUIS app
 
-The new intent and utterances require training. 
-
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Image of training button](./media/luis-tutorial-pattern/hr-train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
 
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
-
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. In the pop-up box, select the Production slot and the **Publish** button.
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success. Select the link in the green bar to go to the publised endpoint page.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with a different utterance
 
-1. Select the endpoint URL for the key and region you want to query. A new browser window opens with that endopint URL.
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -438,7 +422,7 @@ All of these utterances found the entities inside, therefore they match the same
 
 ## Clean up resources
 
-When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
