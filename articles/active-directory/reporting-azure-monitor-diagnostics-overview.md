@@ -108,7 +108,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How soon after an action do the corresponding logs show up in event hubs?**
 
-**A**: The logs should show up in your event hub within two to five minutes after the action is performed. For more information about event hubs, see [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md).
+**A**: The logs should show up in your event hub within two to five minutes after the action is performed. For more information about Event Hubs, see [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md).
 
 ---
 
@@ -120,7 +120,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 **Q: How much will it cost to store my data?**
 
-**A**: The storage costs depend on both the size of your logs and the retention period you choose. This article lists the estimated costs for tenants, which depend on the volume of logs generated.
+**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, go to the [Storage size for activity logs](https://review.docs.microsoft.com/en-us/azure/active-directory/reporting-azure-monitor-diagnostics-overview?branch=pr-en-us-47660#storage-size-for-activity-logs) section.
 
 ---
 
