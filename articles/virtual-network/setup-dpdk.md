@@ -46,25 +46,31 @@ The following distributions from the Azure Gallery are supported:
 | RHEL 7.5     | 4.10.04        |
 | CentOS 7.5   | 4.10.04        |
 
+**Custom kernel support**
+
+Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed.
+
 ## Region support
 
 All Azure regions support the DPDK.
 
 ## Prerequisites
 
-Two existing Linux virtual machines that meet the following requirements:
-
-   * At least two network interfaces
-   * Eight or more cores with 6,000-Mbps bandwidth or higher, is recommended.
-
-Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
+Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
 ## Install DPDK dependencies
 
-### UBUNTU 18.04 and 16.04
+### Ubuntu 18.04
 
 ```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-mlx-tech-preview -y
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
+sudo apt-get update
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+```
+
+### Ubuntu 16.04
+
+```bash
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```
@@ -131,7 +137,7 @@ Run the following commands once, after rebooting:
    * Find out which PCI address to use for *VF* with `ethtool -i <vf interface name>`.
    * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If the DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to kill the DPDK application, or to stop or start the virtual machine.
 
-4.  Load ibuverbs with `modprobe -a ib_uverbs`.
+4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`.
 
 ## Run testpmd
 
