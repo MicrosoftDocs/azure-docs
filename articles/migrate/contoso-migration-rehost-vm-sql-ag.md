@@ -452,7 +452,7 @@ Now Contoso specifies target replication settings.
 
 ### Create a replication policy
 
-No,  Contoso can create a replication policy.
+Now,  Contoso can create a replication policy.
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
