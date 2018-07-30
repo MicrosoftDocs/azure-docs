@@ -114,15 +114,36 @@ Where:
 
 Cryptographic keys in Azure Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault implementation, for example the import of keys to Azure Key Vault using the HSM vendor (Thales) specific packaging to enable secure transportation of keys such that they may only be used in the Azure Key Vault HSMs.  
 
-The initial Azure Key Vault release supports RSA keys only; future releases may support other key types such as symmetric and elliptic curve.  
-
--   **RSA**: A 2048-bit RSA key. This is a "soft" key, which is processed in software by Key Vault but is stored encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA key or request that Azure Key Vault generate one.  
--   **RSA-HSM**: An RSA key that is processed in an HSM. RSA-HSM keys are protected in one of the Azure Key Vault HSM Security Worlds (there is a Security World per geography to maintain isolation). Clients may import an RSA key, either in soft form or by exporting from a compatible HSM device, or request that Azure Key Vault generate one. This key type adds the T attribute to the JWK obtain to carry the HSM key material.  
+- **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC key, or request that Azure Key Vault generate one.
+- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Azure Key Vault HSM Security Worlds (there is a Security World per geography to maintain isolation). Clients may import an RSA or EC key, either in soft form or by exporting from a compatible HSM device, or request that Azure Key Vault generate one. This key type adds the T attribute to the JWK obtain to carry the HSM key material.
 
      For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault supports RSA and Elliptic Curve keys only; future releases may support other key types such as symmetric.
+
+-   **EC**: "Soft" Elliptic Curve key.
+-   **EC-HSM**: "Hard" Elliptic Curve key.
+-   **RSA**: "Soft" RSA key.
+-   **RSA-HSM**: "Hard" RSA key.
+
+Azure Key Vault supports RSA keys of sizes 2048, 3072 and 4096, and Elliptic Curve keys of type P-256, P-384, P-521 and P-256K.
+
+### <a name="BKMK_Cryptographic"></a> Cryptographic protection
+
+The cryptographic modules that Azure Key Vault uses, whether HSM or software, are FIPS validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they are guaranteed to be processed inside HSMs validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected then they are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> EC algorithms
+ The following algorithm identifiers are supported with EC and EC-HSM keys in Azure Key Vault. 
+
+#### SIGN/VERIFY
+
+-   **ES256** - ECDSA for SHA-256 digests and keys created with curve P-256. This algorithm is described at [RFC7518].
+-   **ES256K** - ECDSA for SHA-256 digests and keys created with curve P-256K. This algorithm is pending standardization.
+-   **ES384** - ECDSA for SHA-384 digests and keys created with curve P-384. This algorithm is described at [RFC7518].
+-   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA algorithms  
- The following algorithm identifiers are supported with RSA keys in Azure Key Vault.  
+ The following algorithm identifiers are supported with RSA and RSA-HSM keys in Azure Key Vault.  
 
 #### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
@@ -135,25 +156,6 @@ The initial Azure Key Vault release supports RSA keys only; future releases may 
 -   **RS384** - RSASSA-PKCS-v1_5 using SHA-384. The application supplied digest value must be computed using SHA-384 and must be 48 bytes in length.  
 -   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
 -   **RSNULL** - See [RFC2437], a specialized use-case to enable certain TLS scenarios.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> RSA-HSM algorithms  
-The following algorithm identifiers are supported with RSA-HSM keys in Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Cryptographic protection
-
-The cryptographic modules that Azure Key Vault uses, whether HSM or software, are FIPS validated. You don’t need to do anything special to run in FIPS mode. If you **create** or **import** keys as HSM-protected, they are guaranteed to be processed inside HSMs validated to FIPS 140-2 Level 2 or higher. If you **create** or **import** keys as software-protected then they are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### WRAP/UNWRAP, ENCRYPT/DECRYPT
-
--   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption.  
--   **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.  
-
- #### SIGN/VERIFY  
-
--   **RS256** - RSASSA-PKCS-v1_5 using SHA-256. The application supplied digest value must be computed using SHA-256 and must be 32 bytes in length.  
--   **RS384** - RSASSA-PKCS-v1_5 using SHA-384. The application supplied digest value must be computed using SHA-384 and must be 48 bytes in length.  
--   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
--   RSNULL: See [RFC2437], a specialized use-case to enable certain TLS scenarios.  
 
 ###  <a name="BKMK_KeyOperations"></a> Key operations
 
