@@ -29,11 +29,11 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sa
 The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure AD tenant
-*   A [Samanage tenant](https://www.samanage.com/pricing/) with a Professional subscription
+*   A [Samanage tenant](https://www.samanage.com/pricing/) with the Professional package
 *   A user account in Samanage with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/), which is available to Samanage developers for accounts with Professional subscriptions.
+> The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/), which is available to Samanage developers for accounts with the Professional package.
 
 ## Adding Samanage from the gallery
 Before configuring Samanage for automatic user provisioning with Azure AD, you need to add Samanage from the Azure AD application gallery to your list of managed SaaS applications.
