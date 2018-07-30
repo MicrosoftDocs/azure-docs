@@ -38,7 +38,7 @@ The tables in the next sections provide suggestions for creating engaging Market
 |:--- |:--- |  
 | Industries: AppSource apps and consulting services only | Select industries if your offer addresses industry-specific requirements:<br>Call out industry-specific capabilities in your offer description.<br><br>**Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
 | Categories | Select categories that align best with your offer:<br>Choose the categories carefully, because customers use them to search for relevant apps. Be sure to call out how your offer supports category-specific needs in the offer description.<br><br> **Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
-| Products that your app works with (3&nbsp;max): AppSource apps only | List additional products and technologies that your solution uses or extends:<br>For example, Azure IOT Hub or Azure Machine Learning. |
+| Products that your app works with (3&nbsp;max): AppSource apps only | List additional products and technologies that your solution uses or extends:<br>For example, Azure IoT Hub or Azure Machine Learning. |
 | Search keywords (3&nbsp;max) | Use search keywords that help business users find your offer when they search in the Azure Marketplace and on AppSource or by using search engines:<br>Identify the top three search keywords for your offer; incorporate the search keywords in your offer summary and description; and list the search keywords here. |
 
 ### Storefront marketing details
@@ -133,7 +133,7 @@ To maximize the likelihood that your offer is featured, invest in the success of
 * Drive high-quality traffic to your offer in Marketplace by creating high-quality demand-generation campaigns.
 * Grow the consumption of your AppSource or Azure Marketplace offers by driving demand, providing high-quality customer service, and providing timely updates on your offer.
 
-For more information about how featured offers fit in the context of your GTM benefits, see [GTM Benefits in the Marketplace](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits)
+For more information about how featured offers fit in the context of your GTM benefits, see [GTM Benefits in the Marketplace](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits).
 
 #### Merchandising badge
 When your offer is listed on AppSource or in the Azure Marketplace, you have earned the benefit of displaying the _Available on AppSource_ or _Available on Azure Marketplace_ badge on your website.
