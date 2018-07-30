@@ -11,7 +11,7 @@ ms.author: wolfma
 The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides the simplest way to use **speech translation** in your application.
 The SDK provides the full functionality of the service. The basic process for performing speech translation includes the following steps:
 
-1. Create a speech factory, providing a Speech service subscription key and a [region](~/articles/cognitive-services/speech-service/regions.md).
+1. Create a speech factory, providing a Speech service subscription key or an authorization token, and a [region](~/articles/cognitive-services/speech-service/regions.md).
    
 1. Create a translation recognizer from the speech factory. You can configure the source and target translation languages, as well as specifying whether you want text or speech output. There are various flavors of translation recognizers based on the audio source you are using.
 

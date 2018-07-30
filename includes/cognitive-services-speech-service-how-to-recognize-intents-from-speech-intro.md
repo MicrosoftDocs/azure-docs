@@ -18,7 +18,7 @@ The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) pro
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results (including intents). Otherwise, your application will receive a final transcription result.
 
-1. Start intent recognition. For single-shot recognition, like command or query recognition, use `RecognizeAsync()`, which returns the first utterance being recognized. For long-running recognition, like transcription, use `StartContinuousRecognitionAsync()` and tie up the events for asynchronous recognition results.
+1. Start intent recognition. For single-shot recognition, like command or query recognition, use `RecognizeAsync()`, which returns the first utterance being recognized. For long-running recognition use `StartContinuousRecognitionAsync()` and tie up the events for asynchronous recognition results.
 
 See the code snippets below for intent recognition scenarios using the Speech SDK. Replace your own Language Understanding subscription key (endpoint key), the [region of your subscription](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), and the AppId of your intent model in the appropriate places in the samples.
 
