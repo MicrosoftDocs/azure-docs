@@ -19,10 +19,12 @@ ms.author: tdykstra
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. The way you do that depends on the runtime version and the programming language:
 
-* Functions 1.x - scripting languages
-* Functions 1.x - C# class libraries
-* Functions 2.x - all languages
-* Functions 2.x - C# class libraries (optional)
+* Functions 1.x
+  * Scripting languages
+  * C# class libraries
+* Functions 2.x
+  * One way for all languages
+  * Optional way for C# class libraries
 
 ## Functions 1.x - scripting languages
 
@@ -56,11 +58,12 @@ In the second example, the function is disabled when there is an app setting tha
 You can edit the file in the Azure portal or use one of the switches in the Azure portal:
 
 * The **Function State** switch on the function's **Manage** tab.
+
+  ![Function state switch](media/disable-function/function-state-switch.png)
+
 * The **Status** switch on the page that lists functions in a function app.
 
-![Function state switch](media/disable-function/function-state-switch.png)
-
-![Function status switches](media/disable-function/function-status-switches.png)
+  ![Function status switches](media/disable-function/function-status-switches.png)
 
 These portal switches work by changing the *function.json* file.
 
@@ -114,15 +117,16 @@ This method lets you enable and disable the function by changing the app setting
 In Functions 2.x you disable a function by using an app setting. For example, to disable a function named `QueueTrigger`, you create an app setting named `AzureWebJobs.QueueTrigger.Disabled`, and set it to `true`. To enable the function, delete the app setting. You can also use one of the switches in the Azure portal:
 
 * The **Function State** switch on the function's **Manage** tab.
+
+  ![Function state switch](media/disable-function/function-state-switch.png)
+
 * The **Status** switch on the page that lists functions in a function app.
 
-![Function state switch](media/disable-function/function-state-switch.png)
-
-![Function status switches](media/disable-function/function-status-switches.png)
+  ![Function status switches](media/disable-function/function-status-switches.png)
 
 The portal switches work by creating and deleting the `AzureWebJobs.<functionname>.Disabled` app setting.
 
-## Functions 2.x - C# class libraries (optional method)
+## Functions 2.x - C# class libraries
 
 In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can use a `Disable` attribute to prevent a function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
 
