@@ -370,9 +370,9 @@
   - name: Java
     items:
     - name: Blobs, Queues, Tables, and Files (v7)
-      href: https://docs.microsoft.com/java/api/storage/client?view=azure-java-stable
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
     - name: Blob SDK (v10)
-      href: https://docs.microsoft.com/java/api/storage/client?view=azure-java-preview
+      href: https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby

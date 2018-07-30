@@ -36,7 +36,7 @@ The following are required to complete the tutorial.
 
 ## Download code
 
-Clone a GitHub repository that contains the full .NET sample discussed in this topic to your machine using the following command:
+Clone a GitHub repository that contains the full .NET sample discussed in this article to your machine using the following command:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -49,13 +49,13 @@ The "Encrypt with AES-128" sample is located in the [EncryptWithAES](https://git
 
 ## Start using Media Services APIs with .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in the local configuration file. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
 ## Create an output asset  
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. After the encoding is done, the output asset is published using the AES (ClearKey) encryption.  
+The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -83,27 +83,22 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## Create a ContentKey policy
+## Create a ContentKeyPolicy
 
-A content key provides secure access to your Assets. You need to create a content key policy that configures how the content key is delivered to end clients. The content key is associated with StreamingLocator. Media Services also provides the key delivery service that delivers encryption keys to authorized users. 
+A content key provides secure access to your Assets. You need to create a **ContentKeyPolicy** that configures how the content key is delivered to end clients. The content key is associated with **StreamingLocator**. Media Services also provides the key delivery service that delivers encryption keys to authorized users. 
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content (in this case, by using AES encryption.) To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## Get a token
-        
-In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats and that is what we configure in the sample.
-
-The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the Key Delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
-
 ## Create a StreamingLocator
 
-After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You accomplish this in two steps: 
 
-The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+1. Create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Build the streaming URLs that clients can use. 
+
+The process of creating the **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
 When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, the AES Envelope encryption is applied (also known as ClearKey encryption because the key is delivered to the playback client via HTTPS and not a DRM license).
 
@@ -111,6 +106,14 @@ When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/str
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
+
+## Get a test token
+        
+In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats and that is what we configure in the sample.
+
+The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the Key Delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## Build a DASH streaming URL
 
@@ -126,4 +129,4 @@ Generally, you should clean up everything except objects that you are planning t
 
 ## Next steps
 
-[Overview](content-protection-overview.md)
+Check out how to [protect with DRM](protect-with-drm.md)

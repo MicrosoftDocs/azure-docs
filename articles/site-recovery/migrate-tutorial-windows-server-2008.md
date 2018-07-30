@@ -12,12 +12,12 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
 
 ---
 
-# Migrate servers running Windows Server 2008, 2008 R2 to Azure
+# Migrate servers running Windows Server 2008 to Azure
 
 This tutorial shows you how to migrate on-premises servers running Windows Server 2008 or 2008 R2 to Azure using Azure Site Recovery. In this tutorial, you learn how to:
 
@@ -108,15 +108,47 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 ## Prepare your on-premises environment for migration
 
 - Download the Configuration Server installer (Unified Setup) from [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Set up](physical-azure-disaster-recovery.md#set-up-the-source-environment) the source environment using the installer file downloaded in the previous step.
+- Follow the steps outlined below to set up the source environment using the installer file downloaded in the previous step.
 
 > [!IMPORTANT]
-> Ensure that you use the setup file downloaded in the first step above to install and register the Configuration Server. Do not download the setup file from the Azure portal. The setup file available at [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) is the only version that supports Windows Server 2008 migration.
+> - Ensure that you use the setup file downloaded in the first step above to install and register the Configuration Server. Do not download the setup file from the Azure portal. The setup file available at [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) is the only version that supports Windows Server 2008 migration.
 >
-> You cannot use an existing Configuration Server to migrate machines running Windows Server 2008. You'll need to setup a new Configuration Server using the link provided above.
+> - You cannot use an existing Configuration Server to migrate machines running Windows Server 2008. You'll need to setup a new Configuration Server using the link provided above.
+>
+> - Follow the steps provided below to install the Configuration Server. Do not attempt to use the GUI based install procedure by running the unified setup directly. Doing so will result in the install attempt failing with an incorrect error stating that there is no internet connectivity.
+
+ 
+1) Download the vault credentials file from the portal: On the Azure portal, select the Recovery Services vault created in the previous step. From the menu on the vault page select **Site Recovery Infrastructure** > **Configuration Servers**. Then click **+Server**. Select *Configuration Server for Physical* from the drop down form on the page that opens. Click the download button on step 4 to download the vault credentials file.
 
  ![Download vault registration key](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Copy the vault credentials file downloaded in the previous step and the unified setup file downloaded previously to the desktop of the Configuration Server machine (the Windows Server 2012 R2 or Windows Server 2016 machine on which you are going to install the configuration server software.)
+
+3) Ensure that the Configuration Server has internet connectivity, and that the system clock and time zone settings on the machine are configured correctly. Download the [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installer and place it at *C:\Temp\ASRSetup* (create the directory if it doesnt exist.) 
+
+4) Create a MySQL credentials file with the following lines and place it on the desktop at **C:\Users\Administrator\MySQLCreds.txt** . Replace "Password~1" below with a suitable and strong password:
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Extract the contents of the downloaded unified setup file to the desktop by running the following command:
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) Install the configuration server software using the extracted contents by executing the following commands:
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## Set up the target environment
 

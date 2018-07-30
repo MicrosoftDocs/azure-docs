@@ -3,7 +3,7 @@ title: Azure Cosmos DB bindings for Functions 2.x (Preview)
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 2.x (Preview)
@@ -921,7 +921,7 @@ Here's the binding data in the *function.json* file:
     "collectionName": "MyCollection",
     "id" : "{queueTrigger_payload_property}",
     "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSettingStringSetting": "MyAccount_COSMOSDB",     
+    "connectionStringSetting": "MyAccount_COSMOSDB",     
     "direction": "in"
 },
 {

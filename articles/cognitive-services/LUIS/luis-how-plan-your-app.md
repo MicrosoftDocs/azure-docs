@@ -2,13 +2,13 @@
 title: Plan your LUIS applications | Microsoft Docs
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Plan your LUIS app

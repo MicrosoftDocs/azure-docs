@@ -145,8 +145,8 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
   After you click **OK**, the new role appears in the list on the Roles panel.
 
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
+|Privileges for vCenter 6.0 and 6.5| Privileges for vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

@@ -1,9 +1,8 @@
 ---
-title: How to create an acoustic model with the Speech Service - Microsoft Cognitive Services | Microsoft Docs
+title: How to create an acoustic model with the Speech Service - Microsoft Cognitive Services
 description: Learn how to create an acoustic model with the Speech Service in Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
@@ -139,5 +138,5 @@ You will now see a new entry in the acoustic models table corresponding to this 
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [How to recognize speech in C#](quickstart-csharp-windows.md)
+- [How to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
 - [Git Sample Data](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

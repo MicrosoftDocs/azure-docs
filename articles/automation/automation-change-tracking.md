@@ -17,6 +17,25 @@ This article helps you use the Change Tracking solution to easily identify chang
 
 Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
+## Supported Windows operating systems
+
+The following versions of the Windows operating system are officially supported for the Windows agent:
+
+* Windows Server 2008 Service Pack 1 (SP1) or later
+* Windows 7 SP1 and later.
+
+## Supported Linux operating systems
+
+The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
+
+* Amazon Linux 2012.09 to 2015.09 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)  
+* Oracle Linux 5, 6, and 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
+* Debian GNU/Linux 6, 7, and 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+
 ## Enable Change Tracking and Inventory
 
 To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
@@ -74,7 +93,7 @@ Use the following steps to configure files tracking on Windows computers:
 
 ## Configure File Content tracking
 
-You can view the the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
 
 ![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 

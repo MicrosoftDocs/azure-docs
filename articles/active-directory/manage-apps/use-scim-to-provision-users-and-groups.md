@@ -278,7 +278,7 @@ To host the service within Internet Information Services, a developer would buil
     }
 
     public void Configuration(
-      Owin.IAppBuilder builder) // Defined in in Owin.dll.  
+      Owin.IAppBuilder builder) // Defined in Owin.dll.  
     {
         this.starter.ConfigureApplication(builder);
     }

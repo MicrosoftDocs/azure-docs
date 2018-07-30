@@ -135,12 +135,12 @@
     - name: Database backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
-      itmes:
+      items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure long-term backup retention - SQL storage
+      - name: Configure using Axure blob storage
         href: sql-database-long-term-backup-retention-configure.md
-      - name: Configure long-term backup retention - Azure vault (deprecated)
+      - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Failover groups and geo-replication
       items: 
@@ -402,6 +402,8 @@
       href: sql-database-cloud-migrate.md
     - name: Migrate to Managed Instance
       href: sql-database-managed-instance-migrate.md
+    - name: Migrate TDE cert to Managed Instance
+      href: sql-database-managed-instance-migrate-tde-certificate.md
     - name: Manage SQL Database after migration
       href: sql-database-manage-after-migration.md
   - name: Load and move data
