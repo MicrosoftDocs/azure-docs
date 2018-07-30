@@ -1,6 +1,6 @@
 ---
-title: Stream data as input into Azure Stream Analytics
-description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
+title: Output Error Policy
+description: Learn about the output error handling policies available in Azure Stream Analytics.
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -13,13 +13,19 @@ ms.date: 07/27/2018
 # Output Error Policy
 This article describes the output data error handling policies that can be configured in Azure Stream Analytics.
 
-Output data error handling policies apply only to data conversion errors that occur when the output event produced by a Stream Analytics job does not conform to the schema of the target sink. You can configure this policy by choosing either **Retry** or **Drop**.
+Output data error handling policies apply only to data conversion errors that occur when the output event produced by a Stream Analytics job does not conform to the schema of the target sink. You can configure this policy by choosing either **Retry** or **Drop**. In the Azure portal, while in a Stream Analytics job, under **Configure**, select **Error Policy** to make your selection.
+![Error Policy - location](./media/stream-analytics-error-policy/stream-analytics-error-policy-locate.PNG)
+
 
 ## Retry
-Azure Stream Analytics will retry writing the event indefinitely until it succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. The time intervals between retries increase exponentially. This is the default output error handling policy.
+When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. The time intervals between retries increase exponentially. This option is the default output error handling policy.
 
 ## Drop
-Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for re-processing later.
+Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later.
 
 
-All transient errors (e.g., network errors) are retried regardless of the output error handling policy configuration.
+All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration.
+
+
+## Next Steps
+* [Troubleshooting guide for Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
