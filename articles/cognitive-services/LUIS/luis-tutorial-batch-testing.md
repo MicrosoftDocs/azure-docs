@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 * Fix errors 
 * Retest the batch
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
 
