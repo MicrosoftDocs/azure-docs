@@ -12,13 +12,15 @@ ms.date: 07/27/2018
 ---
 # Query fundamentals in Azure Search
 
-A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key, api-version, and a query string. Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`search=*`) but more likely consists of terms, phrases, and operators similar to the following example:
+A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key used to authenticate the request, api-version, and a query string. 
+
+Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`search=*`) but more likely consists of terms, phrases, and operators similar to the following example:
 
 ```
 "search": "seattle townhouse +\"lake\""
 ```
 
-Other parameters are used to direct query processing or enhance the response. Examples of how parameters are used include scoping search to specific fields, setting a search mode to modulate the precision-to-recall balance, and adding a count so that you can keep track of results. 
+Other parameters are used to direct query processing or enhance the response. Examples of how parameters are used include scoping search to specific fields, setting a search mode to modulate the precision-to-recall bias, and adding a count so that you can keep track of results. 
 
 ```
 {  
@@ -30,7 +32,7 @@ Other parameters are used to direct query processing or enhance the response. Ex
  } 
 ```
 
-Although query definition is fundamental, your index schema is equally important in how it specified allowable operations on a field-by-field basis. During index development, attributes on fields determine what is possible at query time. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
+Although query definition is fundamental, your index schema is equally important in how it specifies allowable operations on a field-by-field basis. During index development, attributes on fields determine allowed operations. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
 
 At query time, execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target.  
 
@@ -40,15 +42,15 @@ To summarize, the substance of the query request specifies scope and operations:
 
 <a name="types-of-queries"></a>
 
-## Search and $filter queries
+## Types of queries: search and filter
 
 Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. 
 
-+ A `search` query searches for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The examples in the introduction use the `search` parameter.
++ `search` queries scan for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The examples in the introduction use the `search` parameter.
 
-+ A `filter` query evaluates a boolean expression over all *filterable* fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
++ `filter` queries evaluate a boolean expression over all *filterable* fields in an index. Unlike `search`, a `filter` query matches the exact contents of a field, including case-sensitivity on string fields.
 
-You can use searches and filters together or separately. A standalone $filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
+You can use search and filter together or separately. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
 
 ```
 POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
@@ -64,9 +66,9 @@ Used together, the filter is applied first to the entire index, and then the sea
 The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
 
 
-## Simple and full query syntax
+## Choose a syntax: simple or full Lucene
 
-Azure Search sits on top of Apache Lucene and provides two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
+Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
 The [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add **queryType=full** to the request, exposes the widely-adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Using this query syntax allows specialized queries:
 

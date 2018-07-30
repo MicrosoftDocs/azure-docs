@@ -68,7 +68,7 @@ For interactive queries, you don't have to specify anything: simple is the defau
 The first query is not syntax-specific (the query works for both simple and full syntax) but we lead with this example to introduce a baseline query concept that produces a reasonably readable JSON response. For brevity, the query targets only the *business_title* field and specifies only business titles are returned. 
 
 ```http
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
 
 The **searchFields** parameter restricts the search to just the business title field. The **select** parameter determines which fields are included in the result set.
@@ -81,7 +81,7 @@ You might have noticed that the search score is also returned for every document
 
 ## Example 2: Look up by ID
 
-This example is a bit atypical, but when testing your indexing code, you might want to verify whether a specific document is loaded or refreshed in the index. The way to fully validate whether a document is indexed is to do a [lookup by ID](https://docs.microsoft.com/rest/api/searchservice/lookup-document). You can use the simple syntax for that.
+This example is a bit atypical, but when evaluating search behaviors, you might want to inspect the entire contents of a document to understand why it was included or excluded from results. To return an entire document, use a [Lookup operation](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to pass in the document ID.
 
 All documents have a unique identifier. To try out the syntax for a lookup query, first return a list of document IDs so that you can find one to use. For NYC Jobs, the identifiers are stored in the `id` field.
 
@@ -95,13 +95,68 @@ The next example is a lookup query returning a specific document based on `id` "
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## Example 3: Term and phrase queries
+## Example 3: Term and phrase query precision
 
-## Example 4: Boolean operators
+Term queries are single terms, perhaps many of them, that are evaluated independently. Phrase queries are enclosed in quotation marks and evaluated as a verbatim string. Precision of the match is controlled by operators and searchMode.
 
-## Example 5: Filtered query
+Example 1: **`&search=fire`**  returns 150 results, where all matches contain the word fire somewhere in the document.
 
-## Example 6: Sorted results
+```
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire
+```
+
+Example 2: **`&search=fire department`** returns 2002 results. Matches are returned for documents containing either fire or department.
+
+```
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=fire department
+```
+
+Example 3: **`&search="fire department"`** returns 82 results. Enclosing the string in quotation marks is a verbatim search on both terms, and matches are found on tokenized terms in the index consisting of the combined terms. This explains why a search like **`search=+fire +department`** is not equivalent. Both terms are required, but are scanned for independently. 
+
+```
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
+```
+
+## Example 4: NOT (-) operators with searchMode
+
+Simple syntax supports boolean operators in the form of characters (`+, -, |`). The searchMode parameter informs tradeoffs between precision and recall, with `searchMode=any` favoring recall (matching on any critieria qualifies a document for the result set), and `searchMode=all` favoring precision (all criteria must be matched). The default is `searchMode=any`, which can be confusing if you are stacking a query with multiple operators and getting broader instead of narrower results. This is particularly true with NOT, where results include all documents "not containing" a specific term.
+
+Using the default searchMode (any), 2800 documents are returned: those containing the multi-part term "fire department", plus all documents that do not have the term "Metrotech Center".
+
+```
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
+```
+Changing searchMode to `all` enforces a cumulative effect on criteria and returns a smaller result set - 21 documents - consisting of documents containing the entire phrase "fire department", minus those jobs at the Metrotech Center address.
+
+```
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
+```
+
+
+## Example 5: Structuring results
+
+Several parameters control which fields are in the search results, the number of documents returned in each batch, and sort order. This example resurfaces a few of the previous examples, limiting results to specific fields using the **$select** statement and verbatim search criteria, returning 82 matches 
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"
+```
+Appended onto the previous example, you can sort by title. This sort works because civil_service_title is *sortable* in the index.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title
+```
+
+Paging results is implemented using the **$top** parameter, in this case returning the top 5 documents:
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=0
+```
+
+To get the next 5, skip the first batch:
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
+```
 
 ## Next steps
 Try specifying queries in your code. The following links explain how to set up search queries for both .NET and the REST API using the default simple syntax.
