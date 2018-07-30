@@ -73,7 +73,7 @@ You can reregister the configuration server in the same vault if you need to. If
    ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      
+   ```
       >[!NOTE] In order to **pull latest certificates** from configuration server to scale-out process server execute the following command
       > “<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt
 
