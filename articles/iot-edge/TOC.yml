@@ -31,6 +31,8 @@
         href: tutorial-python-module.md
       - name: Node.js
         href: tutorial-node-module.md
+      - name: C
+        name: tutorial-c-module.md
   - name: Store data locally with SQL
     href: tutorial-store-data-sql-server.md
 - name: Concepts
@@ -90,6 +92,8 @@
       href: how-to-develop-csharp-module.md
     - name: Node.js
       href: how-to-develop-node-module.md
+    - name: C
+      href: how-to-develop-c-module.md
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
     - name: Develop multiple modules
