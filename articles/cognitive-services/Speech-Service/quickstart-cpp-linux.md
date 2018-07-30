@@ -14,6 +14,8 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on Linux using the Speech SDK
 
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
 In this article, you learn how to create a C++ console application on Linux (Ubuntu 16.04) using the Cognitive Services Speech SDK to transcribe speech to text.
 
 ## Prerequisites
@@ -129,4 +131,4 @@ Look for this sample in the `quickstart/cpp-linux` folder.
 
 ## Next steps
 
-* Visit the [samples page](samples.md) for additional samples.
+* [Get our samples](speech-sdk.md#get-the-samples)
