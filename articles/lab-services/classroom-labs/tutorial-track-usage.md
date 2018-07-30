@@ -40,7 +40,7 @@ In this tutorial, you do the following actions:
 ## View the usage of VMs in the lab 
 
 1. Select **Virtual machines** on menu to the left. 
-2. Confirm that you see the status of VMs and the number of hours the VMs have been running.  
+2. Confirm that you see the status of VMs and the number of hours the VMs have been running. The time you spend on a student VM is not counted against the usage time shown in the last column. 
 
     ![VM usage](../media/tutorial-track-usage/vm-usage.png)
 
@@ -52,7 +52,8 @@ As you hover the mouse over a row in the list of virtual machine, you see contro
 - Stop a VM
 - Delete a VM
 
-The time you spend on a student/user VM is not counted against the usage time shown in the last column. 
+![VM controls](../media/tutorial-track-usage/vm-controls.png) 
+
 
 
 ## Next steps
