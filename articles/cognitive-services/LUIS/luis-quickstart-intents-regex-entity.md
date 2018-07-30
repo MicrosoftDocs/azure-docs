@@ -119,8 +119,6 @@ A regular expression entity does not require training but the new intent and utt
 
 ## Publish the app to get the endpoint URL
 
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
-
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 
