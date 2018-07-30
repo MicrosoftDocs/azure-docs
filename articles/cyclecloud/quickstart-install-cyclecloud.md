@@ -14,7 +14,7 @@ ms.author: a-kiwels
 
 There are four parts to the Azure CycleCloud QuickStart:
 
-1. Setup and install CycleCloud on a VM
+1. Setup and install CycleCloud on a Virtual Machine
 2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
@@ -35,14 +35,14 @@ For the purposes of this QuickStart, much of the setup has been done via the ARM
 
 For this QuickStart, you will need:
 
-1. An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
-2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
+1. An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
+2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with your Azure subscription
 3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
 4. An SSH keypair
 
 ### Subscription ID
 
-Run this command to list all available Azure subscription IDs:
+Run this command to list all your available Azure subscription IDs:
 
 ``` CMD
 $ az account list -o table
@@ -56,7 +56,7 @@ If you do not have a service principal available, you can create one now. Note t
 $ az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
-The output will display a series of information. You will need to save the App ID, password, and tenant ID:
+The output will display a series of information. You will need to save the app ID, password, and tenant ID:
 
 ``` output
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -70,13 +70,13 @@ The `password` shown here is the `applicationSecret` used below.
 
 ### SSH KeyPair
 
-In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a ssh keypair. You will need to do the following:
+In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a SSH keypair. You will need to do the following:
 
   1. **Save Public Key**
   2. **Save Private Key**
   3. **Conversions - Export Open SSH Key**
 
-In Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
+In Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new SSH keypair.
 
 ## Clone the Repo
 
@@ -126,7 +126,7 @@ Locate and edit the `params-cyclecloud.json` file. Specify the following paramet
 
 ### rsaPublicKey
 
-To copy the ssh key, open the **exported** public key, and copy the contents of the key into the `params-cyclecloud.json`.
+To copy the SSH key, open the **exported** public key, and copy the contents of the key into the `params-cyclecloud.json`.
 
 An example `params-cyclecloud.json` might look like this:
 
@@ -168,7 +168,7 @@ $ az group deployment create --name "cyclecloud_deployment" --resource-group "{R
 
 ## Log into the CycleCloud Application Server
 
-To connect to the CycleCloud webserver, retrieve the FQDN (Fully Qualified Domain Name) of the CycleServer VM from the Azure Portal, then browse to https://cycleserver[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from the Azure Portal, then browse to https://cycleserver[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
