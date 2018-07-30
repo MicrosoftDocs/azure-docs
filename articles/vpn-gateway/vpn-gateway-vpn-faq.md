@@ -124,10 +124,6 @@ They are required for Azure infrastructure communication. They are protected (lo
 
 A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
-### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
-
-[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
-
 ### More information about gateway types, requirements, and throughput
 
 For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
@@ -166,11 +162,19 @@ This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
+### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
+
+[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
+
 ## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
+
+### <a name="tls2"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
+
+[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 
