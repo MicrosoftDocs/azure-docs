@@ -5,7 +5,7 @@
  author: curtand
  ms.service: active-directory
  ms.topic: include
- ms.date: 07/11/2018
+ ms.date: 07/30/2018
  ms.author: curtand
  ms.custom: include file
 ---
