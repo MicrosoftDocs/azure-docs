@@ -115,7 +115,7 @@ After you build the test project, you can run all test cases though **Test Explo
 
 Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Services can run these test cases. 
 
-### Run U-SQL test cases in Visual Studio Team Services
+### Run U-SQL test cases in Visual Studio Team Service
 
 For a U-SQL test, make sure you load `CPPSDK` on your build machine, and then pass the `CPPSDK` path to USqlScriptTestRunner(cppSdkFolderFullPath: @"").
 
