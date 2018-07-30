@@ -144,6 +144,8 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 * Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
+* Azure Disk Encryption for Linux requires 8GB of RAM on the VM to enable OS disk encryption on supported images.  Once the OS disk encryption process is complete, this requirement is loosened and the VM can be configured to run with less memory.
+
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
 
 > [!NOTE]
