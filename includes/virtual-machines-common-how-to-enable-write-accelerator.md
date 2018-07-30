@@ -278,7 +278,7 @@ Next, update the JSON file and to enable Write Accelerator on the disk called 'l
           "name": "log1",
           "createOption": "Attach",
           "caching": "None",
-	  "writeAcceleratorEnabled": true,
+          "writeAcceleratorEnabled": true,
           "managedDisk": {
             "storageAccountType": "Premium_LRS",
             "id": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/mylittlesap/providers/Microsoft.Compute/disks/data2"
