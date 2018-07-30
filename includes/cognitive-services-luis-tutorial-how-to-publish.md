@@ -19,3 +19,5 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 2. Select the Production slot and the **Publish** button.
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
