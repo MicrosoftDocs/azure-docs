@@ -386,8 +386,6 @@
       href: troubleshoot-app-connection.md
     - name: Activation problems
       href: troubleshoot-activation-problems.md
-    - name: Redeploy a VM
-      href: redeploy-to-new-node.md
     - name: VM recovery access
       items:
       - name: Azure PowerShell
