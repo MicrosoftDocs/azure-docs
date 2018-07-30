@@ -93,7 +93,7 @@ Static public IP addresses are commonly used in the following scenarios:
 * You use SSL certificates linked to an IP address.
 
 > [!NOTE]
-> Azure allocates public IP addresses from a range unique to each Azure region. For details, see [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure allocates public IP addresses from a range unique to each region in each Azure cloud. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 >
 
 ### DNS hostname resolution

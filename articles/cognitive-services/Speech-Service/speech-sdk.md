@@ -20,11 +20,13 @@ The Cognitive Services Speech Software Development Kit (SDK) provides your appli
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## Get the Windows SDK
+## Get the SDK
+
+### Get the Windows SDK
 
 The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client libraries as well as managed (.NET) libraries for use with C#. The SDK can be installed in Visual Studio using NuGet; simply search for `Microsoft.CognitiveServices.Speech`.
 
-## Get the Linux SDK
+### Get the Linux SDK
 
 Make sure you have the required compiler and libraries by running the following shell commands:
 
@@ -48,7 +50,7 @@ Then, [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the fil
 
 To create an application, copy or move the required binaries (and libraries) into your development environment, and include them as required into your build process.
 
-## Get the Java SDK
+### Get the Java SDK
 
 The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
 It is hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
@@ -67,6 +69,8 @@ The consume the package from your Android Studio project make the following chan
   ```
 
 The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## Next steps
 
