@@ -40,7 +40,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
 4. Fill in the required fields. Existing or new single databases or elastic pools that match the attributes you select qualify to get the reserved vCore discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
 
-   ![Screenshot before submitting the vCore reservation purchase](./media/sql-database-reserved-sqldb-instances/sql-reserved-instance-purchase.png)
+   ![Screenshot before submitting the vCore reservation purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
     | Field      | Description|
     |:------------|:--------------|
