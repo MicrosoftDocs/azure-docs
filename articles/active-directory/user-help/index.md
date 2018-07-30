@@ -18,6 +18,12 @@ ms.author: lizross
 
 We've created this content to help you set up and use security info, two-step verification, to learn how to reset your own passwords, to set up and join your Azure Active Directory devices, and to set up and use the Microsoft Authenticator app and the My Apps portal.
 
+|  |
+|--|
+|This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).|
+|  |
+
+
 <ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
