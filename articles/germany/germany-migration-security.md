@@ -71,14 +71,15 @@ Don't forget to update your on-premise configuration and delete any existing rul
 
 ### Next steps
 
-Refresh your knowledge about VPN Gateways by following these [Step-by-step tutorials](../vpn-gateway/#step-by-step-tutorials).
+Refresh your knowledge about VPN Gateways by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
 
 ### References
 
 - [Create Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) with VPN gateway
-- [Get-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0)  PowerShell cmdlets
+- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets
 - Blog: [Create Site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and global Azure
  
+
 
 
 
@@ -103,9 +104,10 @@ Collect information about your current gateway configuration by using the portal
 
 ### Next steps
 
-Refresh your knowledge about Application Gateway by following these [Step-by-step tutorials](../application-gateway/#step-by-step-tutorials).
+Refresh your knowledge about Application Gateway by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
 
 ### References
 
 - [Create Application Gateway](../application-gateway/quick-create-portal.md)
-- [Get-AzureRmApplicationGateway](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0)  PowerShell cmdlets
+- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets
+

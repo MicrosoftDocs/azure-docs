@@ -16,7 +16,7 @@ Migration of VNets between Azure Germany and global Azure isn't supported at thi
 
 ### Next steps
 
-Refresh your knowledge about VPN Gateways by following these [Step-by-step tutorials](../virtual-network/#step-by-step-tutorials).
+Refresh your knowledge about Virtual Networks by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials).
 
 ### References
 
@@ -30,14 +30,20 @@ Refresh your knowledge about VPN Gateways by following these [Step-by-step tutor
 
 
 
-
 ## Network Security Groups (NSG)
 
 Migration of Network Security Groups between Azure Germany and global Azure isn't supported at this time. The recommended approach is to create new Network Security groups in the target region and apply the NSG rules to the new application environment.
 
+You can get the current configuration of any Network Security Group from the portal, or with the following PowerShell commands:
+
+```powershell
+$nsg=Get-AzureRmNetworkSecurityGroup -ResourceName <nsg-name> -ResourceGroupName <resroucegroupname>
+Get-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
+```
+
 ### Next steps
 
-Refresh your [knowledge about Network Security Groups](../virtual-network/security-overview.md#network-security-groups).
+Refresh your [knowledge about Network Security Groups](/virtual-network/security-overview.md#network-security-groups).
 
 ### References
 
@@ -56,7 +62,7 @@ Migration of ExpressRoute between Azure Germany and global Azure isn't supported
 
 ### Next steps
 
-Refresh your knowledge about ExpressRoute by following these [Step-by-step tutorials](../expressroute/#schritt-für-schritt-tutorials).
+Refresh your knowledge about ExpressRoute by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/expressroute/#step-by-step-tutorials).
 
 ### References
 
@@ -80,12 +86,12 @@ Don't forget to update your on-premise configuration and delete any existing rul
 
 ### Next steps
 
-Refresh your knowledge about VPN Gateways by following these [Step-by-step tutorials](../vpn-gateway/#step-by-step-tutorials).
+Refresh your knowledge about VPN Gateways by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
 
 ### References
 
 - [Create Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) with VPN gateway
-- [Get-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets
+- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets
 - Blog: [Create Site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and global Azure
  
 
@@ -104,12 +110,12 @@ Collect information about your current gateway configuration by using the portal
 
 ### Next steps
 
-Refresh your knowledge about Application Gateway by following these [Step-by-step tutorials](../application-gateway/#step-by-step-tutorials).
+Refresh your knowledge about Application Gateway by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
 
 ### References
 
 - [Create Application Gateway](../application-gateway/quick-create-portal.md)
-- [Get-AzureRmApplicationGateway](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets
+- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets
 
 
 
@@ -162,10 +168,14 @@ Once the validation is done, contact your domain registrar and redelegate the NS
 az network dns record-set ns list -g <resource group> -z --output json
 ```
 
+### Next Steps
+
+Refresh your knowledge about Application Gateway by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/dns/#step-by-step-tutorials).
+
 ### References
 
-- [Azure DNS Overview](../dns/)
-- [Azure DNS Step-by-Step tutorials](../dns/#step-by-step-tutorials)
+- [Azure DNS Overview](../dns/dns-overview.md)
+- [Azure DNS import and export](../dns/dns-import-export.md)
 
 
 
@@ -187,7 +197,7 @@ Migration of Network Watcher between Azure Germany and global Azure isn't suppor
 
 ### Next steps
 
-Refresh your knowledge about Network Watcher by following these [Step-by-step tutorials](../network-watcher/#step-by-step-tutorials).
+Refresh your knowledge about Network Watcher by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
 
 ### References
 
@@ -211,7 +221,7 @@ This service is also covered under [Management Tools](./germany-migration-manage
 
 Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
 
-Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
+Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
 
 - Create a new Traffic Manager in Azure public.
 - Define the endpoints still in Azure Germany.
@@ -221,13 +231,13 @@ Traffic Manager can help you with a smooth migration. With Traffic Manager still
 
 ### Next steps
 
-Refresh your knowledge about Traffic Manager by following these [Step-by-step tutorials](../traffic-manager/#step-by-step-tutorials).
+Refresh your knowledge about Traffic Manager by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
 
 ### References
 
 - [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
 - [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
-- [Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/)
+- [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/)
 
 
 
@@ -253,7 +263,7 @@ Migration of Load Balancers between Azure Germany and global Azure isn't support
 
 ### Next steps
 
-Refresh your knowledge about Load Balancer by following these [Step-by-step tutorials](../load-balancer/#step-by-step-tutorials).
+Refresh your knowledge about Load Balancer by following these [Step-by-step tutorials](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials).
 
 ### References
 

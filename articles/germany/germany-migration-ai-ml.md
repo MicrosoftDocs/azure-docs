@@ -33,4 +33,3 @@ It's not possible to migrate the content of an Azure Machine Learning workspace 
 ### References
 
 - [Overview of Azure ML Studio](../machine-learning/studio/what-is-ml-studio.md)
-- 

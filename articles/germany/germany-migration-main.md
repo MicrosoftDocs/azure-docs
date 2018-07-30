@@ -10,13 +10,9 @@ ms.custom: bfmigrate
 
 # Introduction
 
-some fancy introduction here to replace this sentence
+These articles will provide you some help to migrate your workloads from Azure Germany to global Azure. Although Azure already provides tools to migrate resources at the [Azure Migration Center](https://azure.microsoft.com/migration/), some of these tools are designed only for migrations inside the same tenant or the same region.
 
-## Why these extra migration articles?
-
-These articles will provide you some help to migrate your workloads from Azure Germany to global Azure. Although Azure already provides tools to migrate resources at the [Azure Migration Center](https://azure.microsoft.com/migration/), some of these tools are designed only for migrations inside the same tenant or the same region. 
-
-The two regions in Germany are strictly separated from global Azure, same as Azure Active Directory. As a result, Azure tenants are always different between global Azure and Azure Germany. 
+The two regions in Germany are strictly separated from global Azure, same as Azure Active Directory. As a result, Azure tenants are always different between global Azure and Azure Germany.
 
 Some of the standard migration tools are based on moving resources only inside the *same* tenant. When migrating between *different* tenants, it's good to know which tools are available.
 
@@ -41,7 +37,7 @@ These terms are used in the following migration articles:
 > [!NOTE]
 > Please verify that the service you are migrating is offered in the target region. All Azure services available in Azure Germany are available in **West Europe**. All Azure services available in Azure Germany are also available in **North Europe**, except for G/GS VM series and Machine Learning Studio.
 
-Don't forget to update your start page (or favorite links) in your browser. While Azure Germany portal is available under [https://portal.microsoftazure.de/](https://portal.microsoftazure.de/), the global Azure portal can be reached under [https://portal.azure.com/](https://portal.azure.com/).
+Also add the global Azure portal to your favorite links in your browser. While Azure Germany portal is available under [https://portal.microsoftazure.de/](https://portal.microsoftazure.de/), the global Azure portal can be reached under [https://portal.azure.com/](https://portal.azure.com/).
 
 ### Links
 

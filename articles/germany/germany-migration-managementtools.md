@@ -14,9 +14,18 @@ ms.custom: bfmigrate
 
 Unfortunately, Azure Backup jobs and snapshots can't be migrated from Azure Germany to global Azure.
 
-### Next steps
+### Next Steps
 
-Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](../backup/#step-by-step-tutorials).
+Refresh your knowledge about Azure Backup by following [these Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/backup/#step-by-step-tutorials).
+
+### References
+
+-[Azure Backup overview](../backup/backup-introduction-to-azure-backup.md)
+
+
+
+
+
 
 ## Scheduler
 
@@ -24,10 +33,13 @@ Azure Scheduler is being deprecated. Use Azure Logic apps instead to create sche
 
 ### Next Steps
 
-Make yourself familiar with the features [Azure Logic Apps](../logic-apps/) provide by following the [Step-by-Step tutorials](../logic-apps/#step-by-step-tutorials).
+Make yourself familiar with the features that [Azure Logic Apps provides by following the [Step-by-Step tutorials](https://docs.microsoft.com/en-us/azure/logic-apps/#step-by-step-tutorials).
 
 See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler-to-logic-apps.md).
 
+### Reference
+
+- [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md)
 
 
 
@@ -41,7 +53,7 @@ See how you can [transition from Scheduler to Logic Apps](../scheduler/scheduler
 
 This service is also covered under [Networking](./germany-migration-networking.md#traffic-manager)
 
-Traffic Manager profiles created in Azure Germany can't be migrated over to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
+Traffic Manager profiles created in Azure Germany can't be migrated to global Azure. Since you also migrate all the Traffic Manager endpoints to the target environment, you need to update the Traffic Manager profile anyway.
 
 Traffic Manager can help you with a smooth migration. With Traffic Manager still running in the old environment, you can already define additional endpoints in the target environment. Once Target Manager runs in the new environment, you can still define endpoints in the old environment that you didn't migrate so far. This is known as [the Blue-Green scenario](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/). In short:
 
@@ -105,7 +117,7 @@ Refresh your knowledge about Network Watcher by following these [Step-by-Step tu
 
 ## Site Recovery
 
-It's not possible to migrate your current Site Recovery setup to global Azure. You must set up your solution again.
+It's not possible to migrate your current Site Recovery setup to global Azure. Set up your solution again in global Azure.
 
 ### Next steps
 

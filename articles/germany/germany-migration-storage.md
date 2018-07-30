@@ -12,13 +12,13 @@ ms.custom: bfmigrate
 
 ## Blob
 
-AzCopy is a free tool to help you copy blobs, files, and tables. AzCopy works from Azure to Azure, from on-premise to Azure and from Azure to on-premise. Use AzCopy for your migration to copy blobs directly between Azure Germany to global Azure. 
+AzCopy is a free tool to help you copy blobs, files, and tables. AzCopy works from Azure to Azure, from on-premise to Azure and from Azure to on-premise. Use AzCopy for your migration to copy blobs directly between Azure Germany to global Azure.
 
 If you have non-managed disks for your source VM, use AzCopy to copy the .vhd files to the target environment. Otherwise, you need some steps in advance, see [recommendations for Managed Disks](#managed-disks).
 
 Here's a short example how it works, for a complete reference look at the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
 
-AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
+AzCopy uses the terms *Source* and *Dest*, expressed as URIs. URIs for Azure Germany always have this format:
 
     https://<storageaccountname>.blob.core.cloudapi.de/<containername>/<blobname>
 
@@ -55,6 +55,20 @@ To get a consistent copy of the VHD, shutdown the VM before copying and plan som
 
 - [AzCopy Documentation](../storage/common/storage-use-azcopy.md)
 - [Create VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Disks
 
@@ -108,5 +122,5 @@ For PowerShell read [this article.](../backup/backup-azure-vms-automation.md#cre
 
 ### Links
 
-- Export by getting a SAS URI to a disk and then downloading/copying [via API](https://docs.microsoft.com/en-us/rest/api/compute/disks/grantaccess)
-- Import (or create) from unmanaged disk [via API]( https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate.md#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription)
+- Export by getting a SAS URI to a disk and then downloading/copying [via API](/rest/api/compute/disks/grantaccess.md)
+- Import (or create) from unmanaged disk [via API](/rest/api/compute/disks/createorupdate.md#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription)
