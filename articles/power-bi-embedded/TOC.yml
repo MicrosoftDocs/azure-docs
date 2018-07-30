@@ -11,31 +11,37 @@
 - name: Concepts
   items:
   - name: "Row-level security (RLS)"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/embedded-row-level-security
+    href: https://docs.microsoft.com/power-bi/developer/embedded-row-level-security
   - name: "FAQ"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/embedded-faq
+    href: https://docs.microsoft.com/power-bi/developer/embedded-faq
+  - name: "Power BI permissions"
+    href: https://docs.microsoft.com/en-us/power-bi/developer/power-bi-permissions
 - name: How to
-  items:
-  - name: Register an Azure AD app
-    href: https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/
-  - name: Embed your Power BI content
-    href: https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/
-  - name: Manage capacity
+  items: 
+  - name: "Register an application"
+    href: https://docs.microsoft.com/en-us/power-bi/developer/register-app
+  - name: "Authenticate to Power BI service"
+    href: https://docs.microsoft.com/en-us/power-bi/developer/get-azuread-access-token
+  - name: "Embedding Q&A"
+    href: https://docs.microsoft.com/en-us/power-bi/developer/qanda
+  - name: "Troubleshooting your embedded application"
+    href: https://docs.microsoft.com/en-us/power-bi/developer/embedded-troubleshoot
+  - name: Manage capacities in Azure
     items:
-    - name: Create capacity
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-create-capacity?branch=pr-en-us-896
-    - name: Scale capacity
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-scale-capacity?branch=pr-en-us-896
-    - name: Pause and start capacity
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-pause-start?branch=pr-en-us-896
-  - name: Migrate
+    - name: Create a capacity in Azure
+      href: developer/azure-pbie-create-capacity.md
+    - name: Scale a capacity in Azure
+      href: developer/azure-pbie-scale-capacity.md
+    - name: Pause and start a capacity in Azure
+      href: developer/azure-pbie-pause-start.md
+  - name: Migrate from Workspace Collections
     items:
-    - name: How to migrate from Power BI Workspace Collections
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded?branch=pr-en-us-896
+    - name: "How to migrate from Power BI Workspace Collections"
+      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded
     - name: Migration tool
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/migrate-tool?branch=pr-en-us-896
-    - name: Migration code snippets
-      href: https://review.docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets?branch=pr-en-us-896
+      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool
+    - name: "Migration code snippets"
+      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippetsd
 - name: Reference
   items:
   - name: APIs
@@ -48,8 +54,10 @@
   items:
   - name: Pricing calculator
     href: https://azure.microsoft.com/en-us/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
-  - name: Power BI community
-    href: http://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: "Dev Center"
+    href: https://powerbi.microsoft.com/en-us/developers/
+  - name: "Onboarding Experience Tool for embedding"
+    href: https://aka.ms/embedsetup
   - name: Code samples
     href: https://github.com/Microsoft/PowerBI-Developer-Samples
   - name: .NET SDK download
@@ -58,7 +66,15 @@
     href: https://github.com/Microsoft/PowerBI-CSha
   - name: JavaScript SDK download
     href: https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/
-  - name: JavaScript embed sample
-    href: https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html
   - name: JavaScript for Power BI
     href: https://github.com/Microsoft/PowerBI-JavaScript
+  - name: "JavaScript Playground Sample"
+    href: https://go.microsoft.com/fwlink/?linkid=848279
+  - name: "Power BI JavaScript wiki"
+    href: https://github.com/Microsoft/powerbi-javascript/wiki
+  - name: "JavaScript Git Repo"
+    href: https://go.microsoft.com/fwlink/?linkid=848276
+  - name: "Power BI C# Git Repo"
+    href: https://go.microsoft.com/fwlink/?linkid=848273
+  - name: Power BI community
+    href: http://community.powerbi.com/t5/Developer/bd-p/Developer
