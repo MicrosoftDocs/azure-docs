@@ -342,4 +342,4 @@ The **Paragraph** user input type is used to provide a field that shows text onl
 </ClaimType>
 ```
 
-To display one of the `Enumeration` values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](claims-transformation-string.md) 
+To display one of the `Enumeration` values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md) 
