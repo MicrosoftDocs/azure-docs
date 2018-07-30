@@ -155,7 +155,7 @@ The example shows how to:
   
 4. Build the streaming URL.
 
-  The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL is streams the **DASH** content.
+  The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
 ### Question
 
