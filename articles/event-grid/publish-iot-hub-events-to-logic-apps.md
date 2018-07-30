@@ -103,7 +103,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
+    "deviceId": "LogicAppTestDevice"
   },
   "dataVersion": "1",
   "metadataVersion": "1"
