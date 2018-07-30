@@ -1,6 +1,6 @@
 ---
 title: What happened to Azure Machine Learning Workbench? | Microsoft Docs
-description: Azure Machine Learning has gone GA. What happened to the Workbench application? 
+description: Learn about what happened the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ---
 # What happened to Azure Machine Learning Workbench?
  
@@ -79,12 +79,9 @@ Yes, they will continue to work for a while (see the [timeline](#timeline) above
 In the latest release, the new Python SDK allows you to interact with the Azure Machine Learning services in any Python environment. Learn how to [install the SDK](reference-azure-machine-learning-sdk.md).  You can also use the [updated Azure CLI machine learning extension](reference-azure-machine-learning-cli.md),with the rich set of `az ml` commands to interact the service in any command-line environment, including Azure portal cloud shell.
 
 ## Can I still prepare data?
-**(Short answer followed by links to Quickstarts and tutorials that help someone get started with latest functionality)**
+Data preparation files are not portable to the new release since we don't have Workbench anymore. However, you can still prepare your data for modeling.
 
-**@@@@@@ Pendleton availability? WHat's the story???**
-
-**Data Prep UX in the Workbench desktop client is not going to be available in new Workspace Web UI in Azure portal. Some of the Data Prep capabilities will surface through the Python SDK in the near future; and the plan for the Data Prep UX is still being finalized.**
- 
+With smaller data sets, you can use the data preparation SDK to quickly prepare your data prior to modeling. You can use this same SDK for larger data sets or use Azure Data Bricks to prepare big data sets.
 
 ## What about Visual Studio Code Tools for AI?
 
