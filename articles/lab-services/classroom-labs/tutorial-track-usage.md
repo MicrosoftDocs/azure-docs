@@ -33,7 +33,7 @@ In this tutorial, you do the following actions:
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. On the **My labs** page, select the lab for which you want to track the usage. 
-4. Select **Users** tab. You see users(students) who have registered with your lab. Select **Registration link**, copy the link, and send it any new new student/user who hasn't registered with your lab yet. 
+4. Select **Users** tab. You see students who have registered with your lab. Select **Registration link**, copy the link, and send it any new student who hasn't registered with your lab yet. 
 
     ![Registered users](../media/tutorial-track-usage/registered-users.png)
 
@@ -56,6 +56,6 @@ The time you spend on a student/user VM is not counted against the usage time sh
 
 
 ## Next steps
-In this tutorial, you learned how to find users registered with the lab, track usage of VMs in the lab, and manage VMs in the lab.
+In this tutorial, you learned how to find users who have registered with the lab, track usage of VMs in the lab, and manage VMs in the lab.
 
 To learn more about classroom labs, see topics under [How-to guides](how-to-manage-lab-accounts.md).
