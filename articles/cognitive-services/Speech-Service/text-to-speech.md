@@ -1,10 +1,9 @@
 ---
-title: About Text to Speech | Microsoft Docs
+title: About Text to Speech
 description: An overview of the capabilities of Text to Speech.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -37,4 +36,4 @@ If you want a unique voice for your application, you can create [custom voice fo
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to synthesize speech via the REST API](how-to-text-to-speech.md)

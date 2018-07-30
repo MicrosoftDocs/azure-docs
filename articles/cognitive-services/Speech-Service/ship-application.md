@@ -1,10 +1,9 @@
 ---
-title: Azure Cognitive Services, Cognitive Services Speech SDK API Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Cognitive Services, Cognitive Services Speech SDK API Documentation - Tutorials, API Reference
 description: Learn how to create and develop apps with the Cognitive Services Speech SDK
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
