@@ -3,11 +3,11 @@
 - name: Overview
   items:
   - name: What is Power BI Embedded
-    href: https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-what-is-power-bi-embedded?branch=pr-en-us-896
+    href: https://review.docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded?branch=pr-en-us-896
 - name: Tutorials
   items:
   - name: Embed content for customers sample
-    href: https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/
+    href: https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers
 - name: Concepts
   items:
   - name: "Row-level security (RLS)"
@@ -15,25 +15,25 @@
   - name: "FAQ"
     href: https://docs.microsoft.com/power-bi/developer/embedded-faq
   - name: "Power BI permissions"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/power-bi-permissions
+    href: https://docs.microsoft.com/power-bi/developer/power-bi-permissions
 - name: How to
   items: 
   - name: "Register an application"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/register-app
+    href: https://docs.microsoft.com/power-bi/developer/register-app
   - name: "Authenticate to Power BI service"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/get-azuread-access-token
+    href: https://docs.microsoft.com/power-bi/developer/get-azuread-access-token
   - name: "Embedding Q&A"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/qanda
+    href: https://docs.microsoft.com/power-bi/developer/qanda
   - name: "Troubleshooting your embedded application"
-    href: https://docs.microsoft.com/en-us/power-bi/developer/embedded-troubleshoot
+    href: https://docs.microsoft.com/power-bi/developer/embedded-troubleshoot
   - name: Manage capacities in Azure
     items:
-    - name: Create a capacity in Azure
-      href: developer/azure-pbie-create-capacity.md
-    - name: Scale a capacity in Azure
-      href: developer/azure-pbie-scale-capacity.md
-    - name: Pause and start a capacity in Azure
-      href: developer/azure-pbie-pause-start.md
+    - name: "Create a capacity in Azure"
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start/azure-pbie-scale-capacity/azure-pbie-create-capacity
+    - name: "Scale a capacity in Azure"
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start/azure-pbie-scale-capacity
+    - name: "Pause and start a capacity in Azure"
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start
   - name: Migrate from Workspace Collections
     items:
     - name: "How to migrate from Power BI Workspace Collections"

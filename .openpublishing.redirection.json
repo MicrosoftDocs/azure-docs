@@ -26497,22 +26497,22 @@
         },
         {
             "source_path": "articles/powerbi-embedded/get-started.md",
-            "redirect_url": "https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/powerbi-embedded/pause-start.md",
-            "redirect_url": "https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-pause-start?branch=pr-en-us-896",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/powerbi-embedded/scale-capacity.md",
-            "redirect_url": "https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-scale-capacity?branch=pr-en-us-896",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/what-is-power-bi-embedded.md",
-            "redirect_url": "https://review.docs.microsoft.com/en-us/power-bi/developer/azure-pbie-what-is-power-bi-embedded?branch=pr-en-us-896",
+            "redirect_url": "https://review.docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
             "redirect_document_id": true
         },
         {    
