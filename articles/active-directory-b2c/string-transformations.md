@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# String Claims Transformations
+# String claims transformations
 
 This article provides examples for using the string claims transformations of the Identity Framework Experience schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
