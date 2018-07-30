@@ -35,9 +35,10 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Connect to the HDInsight cluster by using SSH:  
-     ```bash  
-	 ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net  
-     ```  
+ ```bash
+ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+ ```
+
 2. To verify successful Kerberos authentication, use the `klist` command. If not, use `kinit` to start Kerberos authentication.
 
 3. Sign in to the HDInsight gateway to register the OAuth token required to access Azure Data Lake Storage:   
@@ -217,7 +218,7 @@ nano workflow.xml
     
 
    a. Replace `domainuser` with your username for the domain.  
-   b. Replace `ClusterShortName` with the short name for the cluster. If the cluster name is https://sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: sechad.  
+   b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six letters for the cluster: **sechad**.  
    c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.  
     
    d. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
@@ -304,15 +305,15 @@ Oozie jobs are run for the user. So both Apache YARN and Apache Ranger audit log
 
 The Ranger audit logs for Hive server 2 actions show Oozie running the action for the user. The Ranger and YARN views are visible only to the cluster admin.
 
-## Configuration of user authorization in Oozie
-Oozie by itself has a user authorization configuration that can block users from stopping or canceling other users' jobs. To enable this configuration, set the `oozie.service.AuthorizationService.security.enabled` to `true`. 
+## Configure user authorization in Oozie
+Oozie by itself has a user authorization configuration that can block users from stopping or deleting other users' jobs. To enable this configuration, set the `oozie.service.AuthorizationService.security.enabled` to `true`. 
 
 For more information, see [Oozie Installation and Configuration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
 For components like Hive server 1 where the Ranger plug-in isn't available or supported, only coarse-grained HDFS authorization is possible. Fine-grained authorization is available only through Ranger plug-ins.
 
-## Oozie web UI
-The Oozie web UI provides a web-based view into the status of Oozie jobs on the cluster. Take the following steps in domain-joined clusters:
+## Get the Oozie web UI
+The Oozie web UI provides a web-based view into the status of Oozie jobs on the cluster. To get the web UI, take the following steps in domain-joined clusters:
 
 1. Add an [edge node](../hdinsight-apps-use-edge-node.md) and enable [SSH Kerberos authentication](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
