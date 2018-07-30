@@ -81,7 +81,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 2. Go to the end of the URL in the address and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
 
-The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
+    The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
 
     ```
     {
@@ -158,9 +158,9 @@ The result predicted the Utilities.Cancel intent and extracted the date of March
     }
     ```
 
-There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the LUIS-calling application to make an assumption or ask for clarification, if that is needed. 
+    There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the LUIS-calling application to make an assumption or ask for clarification, if that is needed. 
 
-By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
+    By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
 
 ## Clean up resources
 
