@@ -1,14 +1,23 @@
 ---
- title: include file
- description: include file
- services: virtual-machines-windows
- author: genlin
- ms.service: virtual-machines-windows
- ms.topic: include
- ms.date: 04/25/2018
- ms.author: genli
- ms.custom: include file
+title: Common VM error codes in Azure | Microsoft Docs
+description: Understand some of the common error codes encountered when you provision and manage virtual machines in Azure
+services: virtual-machines
+documentationcenter: ''
+author: xujing-ms
+manager: jeconnoc
+editor: ''
+tags: azure-resource-manager
+
+ms.service: virtual-machines
+ms.topic: troubleshooting
+ms.workload: infrastructure
+ms.date: 5/22/2017
+ms.author: xujing
+
 ---
+# Understand common error messages when you manage virtual machines in Azure
+
+This article describes some of the most common error codes and messages you may encounter when you create or manage virtual machines (VMs) in Azure.
 
 >[!NOTE]
 > You can leave comments on this page for feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
@@ -176,7 +185,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  StorageAccountSubscriptionMismatch  |  Storage account {0} doesn't belong to subscription {1}.  |
 |  StorageAccountTooBusy  |  Storage account '{0}' is too busy currently. Consider using another account.  |
 |  StorageAccountTypeNotSupported  |  Disk {0} uses {1} which is a Blob storage account. Please retry with General purpose storage account.  |
-|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  <ul><li>This error occurs if you use the premium storage account for Boot diagnostics. For more information, see [How to use boot diagnostics](../articles/virtual-machines/windows/boot-diagnostics.md). </li></ul> |
+|  StorageAccountTypeNotSupported  |  Storage account {0} is of {1} type. Boot Diagnostics supports {2} storage account types.  <ul><li>This error occurs if you use the premium storage account for Boot diagnostics. For more information, see [How to use boot diagnostics](boot-diagnostics.md). </li></ul> |
 |  SubscriptionNotAuthorizedForImage  |  The subscription is not authorized.  |
 |  TargetDiskBlobAlreadyExists  |  Blob {0} already exists. Please provide a different blob URI to create a new blank data disk '{1}'.  |
 |  TargetDiskBlobAlreadyExists  |  Capture operation cannot continue because target image blob {0} already exists and the flag to overwrite VHD blobs is not set. Either delete the blob or set the flag to overwrite VHD blobs and retry.  |

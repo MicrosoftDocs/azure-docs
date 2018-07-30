@@ -14722,7 +14722,17 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
-            "redirect_url": "/azure/virtual-machines/windows/error-messages",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/error-messages.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/error-messages.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/error-messages",
             "redirect_document_id": false
         },
         {
@@ -17948,6 +17958,21 @@
         {
             "source_path": "articles/virtual-machines/windows/cli-manage.md",
             "redirect_url": "/azure/virtual-machines/linux/cli-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/how-to-use-perfInsights.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/how-to-use-perfInsights.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/performance-diagnostics-vm-extension.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension.md",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/install-vm-agent-offline.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/install-vm-agent-offline.md",
             "redirect_document_id": false
         },
         {
