@@ -71,7 +71,7 @@ The IoT Edge security daemon is architected to take advantage of any available h
 
 #### Cloud interface
 
-The cloud interface allows IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.  For example, IoT Edge security daemon currently uses this interface to access the Azure IoT Hub [Device Provisioning Service (DPS)](https://docs.microsoft.com/en-us/azure/iot-dps/) for device identity lifecycle management.  
+The cloud interface allows IoT Edge security daemon to access cloud services such as cloud compliments to device security like security renewal.  For example, IoT Edge security daemon currently uses this interface to access the Azure IoT Hub [Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) for device identity lifecycle management.  
 
 #### Management API
 
