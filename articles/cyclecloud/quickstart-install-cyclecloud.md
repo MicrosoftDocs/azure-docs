@@ -44,16 +44,16 @@ For this QuickStart, you will need:
 
 Run this command to list all your available Azure subscription IDs:
 
-``` CMD
-$ az account list -o table
+```azurecli-interactive
+az account list -o table
 ```
 
 ### Service Principal
 
 If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, "CycleCloudApp" can be replaced with whatever you like:
 
-``` CMD
-$ az ad sp create-for-rbac --name CycleCloudApp --years 1
+```azurecli-interactive
+az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
 The output will display a series of information. You will need to save the app ID, password, and tenant ID:
@@ -82,8 +82,8 @@ In Linux, follow [these instructions on GitHub](https://help.github.com/articles
 
 Start by cloning the CycleCloud repo:
 
-``` CMD
-$ git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
+```azurecli-interactive
+git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
 ```
 
 There are two ARM templates in the .git file:
@@ -98,19 +98,19 @@ There are two ARM templates in the .git file:
 
 Create a resource group in the region of your choice. Note that resource group names are unique within a subscription:
 
-``` CMD
+```azurecli-interactive
 az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 ```
 
 For example, you could use "CycleCloudApp" as the resource group name and southern US as the region:
 
-``` CMD
+```azurecli-interactive
 az group create --name "CycleCloudApp" --location "South Central US"
 ```
 
 Next, create the Virtual Network and subnets. The default vnet name is **cyclevnet**:
 
-``` CMD
+```azurecli-interactive
 az group deployment create --name "vnet_deployment" --resource-group "{RESOURCE_GROUP}" --template-file deploy-vnet.json --parameters params-vnet.json
 ```
 
@@ -159,8 +159,8 @@ Specify a password for the CycleCloud application server `admin` user. The passw
 
 Deploy the CycleCloud VM using the edited `params-cyclecloud.json`:
 
-``` CMD
-$ az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
+```azurecli-interactive
+az group deployment create --name "cyclecloud_deployment" --resource-group "{RESOURCE-GROUP}" --template-file deploy-cyclecloud.json --parameters params-cyclecloud.json
 ```
 
 ## Log into the CycleCloud Application Server

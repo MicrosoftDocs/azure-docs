@@ -27,7 +27,7 @@ For this quickstart, you will use the first method to connect to your cluster Ma
 
 SSH into the CycleCloud VM with the `cycleadmin` user and the SSH key created in Quickstart 1:
 
-``` CLI
+```azurecli-interactive
 $ ssh -i ${SSH PRIVATE KEY} cycleadmin@${CycleCloudFQDN}
 ```
 
