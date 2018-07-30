@@ -119,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
+10. Review the user attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
+12. Set **Enabled** to **Yes** to synchronize groups. Review the group attributes that are synchronized from Azure AD to Samanage in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Samanage for update operations. Select the **Save** button to commit any changes.
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
