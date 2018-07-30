@@ -30,9 +30,9 @@ Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and
 >Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.  
 
 
-## <a name="bkmk_NewLinux"> </a>Deploy a new Linux IaaS VM with disk encryption enabled 
+## <a name="bkmk_NewLinux"></a> Deploy a new Linux IaaS VM with disk encryption enabled 
 
-1. Use the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) to create a new encrypted Linux IaaS VM. The template will create a new RedHat Linux 7.2 VM with a 200-GB RAID-0 array and full disk encryption using managed disks. On the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article, you will notice that some Linux distributions only support encryption for data disks. However, this template provides an opportunity to become familiar with deploying templates and verifying encryption status with multiple methods.
+1. Use the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) to create a new encrypted Linux IaaS VM. The template will create a new RedHat Linux 7.2 VM with a 200-GB RAID-0 array and full disk encryption using managed disks. On the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article, you will notice that some Linux distributions only support encryption for data disks. However, this template provides an opportunity to become familiar with deploying templates and verifying encryption status with multiple methods. 
  
 1. Click **Deploy to Azure** on the Azure Resource Manager template.
 
