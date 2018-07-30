@@ -55,6 +55,8 @@
     href: container-registry-get-started-docker-cli.md
   - name: View repositories
     href: container-registry-repositories.md
+  - name: Delete container images
+    href: container-registry-delete.md
   - name: Upgrade a Classic registry
     href: container-registry-upgrade.md
   - name: Use ACR webhooks
