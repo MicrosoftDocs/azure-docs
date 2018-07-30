@@ -111,177 +111,177 @@ LUIS doesn't know about the new composite entity until the app is trained.
 
     Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
-```JSON
-{
-  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9959525
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "MoveEmployee",
-      "score": 0.9959525
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.009858314
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00728598563
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.0058053555
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.005371796
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00266987388
-    },
-    {
-      "intent": "None",
-      "score": 0.00123299169
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00116407464
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00102653319
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0006628214
-    }
-  ],
-  "entities": [
-    {
-      "entity": "march 3 2 p.m",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 41,
-      "endIndex": 54,
-      "resolution": {
-        "values": [
-          {
-            "timex": "XXXX-03-03T14",
-            "type": "datetime",
-            "value": "2018-03-03 14:00:00"
-          },
-          {
-            "timex": "XXXX-03-03T14",
-            "type": "datetime",
-            "value": "2019-03-03 14:00:00"
-          }
-        ]
-      }
-    },
-    {
-      "entity": "jill jones",
-      "type": "Employee",
-      "startIndex": 5,
-      "endIndex": 14,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
-      }
-    },
-    {
-      "entity": "z - 2345",
-      "type": "Locations::Destination",
-      "startIndex": 31,
-      "endIndex": 36,
-      "score": 0.9690751
-    },
-    {
-      "entity": "a - 1234",
-      "type": "Locations::Origin",
-      "startIndex": 21,
-      "endIndex": 26,
-      "score": 0.9713137
-    },
-    {
-      "entity": "-1234",
-      "type": "builtin.number",
-      "startIndex": 22,
-      "endIndex": 26,
-      "resolution": {
-        "value": "-1234"
-      }
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 32,
-      "endIndex": 36,
-      "resolution": {
-        "value": "-2345"
-      }
-    },
-    {
-      "entity": "3",
-      "type": "builtin.number",
-      "startIndex": 47,
-      "endIndex": 47,
-      "resolution": {
-        "value": "3"
-      }
-    },
-    {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 50,
-      "endIndex": 50,
-      "resolution": {
-        "value": "2"
-      }
-    },
-    {
-      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-      "type": "requestemployeemove",
-      "startIndex": 5,
-      "endIndex": 54,
-      "score": 0.4027723
-    }
-  ],
-  "compositeEntities": [
-    {
-      "parentType": "requestemployeemove",
-      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-      "children": [
+      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "topScoringIntent": {
+        "intent": "MoveEmployee",
+        "score": 0.9959525
+      },
+      "intents": [
         {
-          "type": "builtin.datetimeV2.datetime",
-          "value": "march 3 2 p.m"
+          "intent": "MoveEmployee",
+          "score": 0.9959525
         },
         {
-          "type": "Locations::Destination",
-          "value": "z - 2345"
+          "intent": "GetJobInformation",
+          "score": 0.009858314
         },
         {
-          "type": "Employee",
-          "value": "jill jones"
+          "intent": "ApplyForJob",
+          "score": 0.00728598563
         },
         {
-          "type": "Locations::Origin",
-          "value": "a - 1234"
+          "intent": "FindForm",
+          "score": 0.0058053555
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.005371796
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00266987388
+        },
+        {
+          "intent": "None",
+          "score": 0.00123299169
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00116407464
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00102653319
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.0006628214
         }
-      ]
+      ],
+      "entities": [
+        {
+          "entity": "march 3 2 p.m",
+          "type": "builtin.datetimeV2.datetime",
+          "startIndex": 41,
+          "endIndex": 54,
+          "resolution": {
+            "values": [
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2018-03-03 14:00:00"
+              },
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2019-03-03 14:00:00"
+              }
+            ]
+          }
+        },
+        {
+          "entity": "jill jones",
+          "type": "Employee",
+          "startIndex": 5,
+          "endIndex": 14,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "z - 2345",
+          "type": "Locations::Destination",
+          "startIndex": 31,
+          "endIndex": 36,
+          "score": 0.9690751
+        },
+        {
+          "entity": "a - 1234",
+          "type": "Locations::Origin",
+          "startIndex": 21,
+          "endIndex": 26,
+          "score": 0.9713137
+        },
+        {
+          "entity": "-1234",
+          "type": "builtin.number",
+          "startIndex": 22,
+          "endIndex": 26,
+          "resolution": {
+            "value": "-1234"
+          }
+        },
+        {
+          "entity": "-2345",
+          "type": "builtin.number",
+          "startIndex": 32,
+          "endIndex": 36,
+          "resolution": {
+            "value": "-2345"
+          }
+        },
+        {
+          "entity": "3",
+          "type": "builtin.number",
+          "startIndex": 47,
+          "endIndex": 47,
+          "resolution": {
+            "value": "3"
+          }
+        },
+        {
+          "entity": "2",
+          "type": "builtin.number",
+          "startIndex": 50,
+          "endIndex": 50,
+          "resolution": {
+            "value": "2"
+          }
+        },
+        {
+          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "type": "requestemployeemove",
+          "startIndex": 5,
+          "endIndex": 54,
+          "score": 0.4027723
+        }
+      ],
+      "compositeEntities": [
+        {
+          "parentType": "requestemployeemove",
+          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "children": [
+            {
+              "type": "builtin.datetimeV2.datetime",
+              "value": "march 3 2 p.m"
+            },
+            {
+              "type": "Locations::Destination",
+              "value": "z - 2345"
+            },
+            {
+              "type": "Employee",
+              "value": "jill jones"
+            },
+            {
+              "type": "Locations::Origin",
+              "value": "a - 1234"
+            }
+          ]
+        }
+      ],
+      "sentimentAnalysis": {
+        "label": "neutral",
+        "score": 0.5
+      }
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
-  }
-}
-```
+    ```
 
-This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
+  This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
 ## What has this LUIS app accomplished?
 This app identified a natural language query intention and returned the extracted data as a named group. 
