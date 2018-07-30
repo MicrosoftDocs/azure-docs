@@ -54,7 +54,7 @@ Depending on where you want to route the audit log data, you need either of the 
 * An Azure Event Hubs namespace to integrate with third-party solutions.
 
 > [!NOTE]
-> To access the Azure AD activity logs, you need to be a *Global Administrator* or *Security Administrator* in the Azure AD tenant.
+> To access the Azure AD activity logs, you need to be a *global administrator* or *security administrator* in the Azure AD tenant.
 >
 
 ## Cost considerations
