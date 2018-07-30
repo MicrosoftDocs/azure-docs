@@ -20,11 +20,19 @@ ms.author: genli
 
 #  Network virtual appliance issues in Azure
 
-You might receive errors when you use or connect to a network virtual appliance (NVA) in Microsoft Azure. This article provides basic steps to help you troubleshooting the NVA issues.
-
-Microsoft support is limited to the Microsoft Azure platform and services. Technical support for third-party NVAs is provided by the vendor. If you have a problem with a NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
+You may experience VM or VPN connectivity issues and errors with a Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you troubleshooting the NVA issues. Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem involving a NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## Checklist for troubleshooting with NVA Vendor
+
+- Software updates for NVA VM software
+- Service Account setup and functioning
+- User-defined routes (UDRs) on Azure Vnet Subnets directing traffic to NVA
+- UDRs on Azure Vnet Subnets directing traffic from NVA
+- Routing tables and rules within the NVA (for exmaple, from NIC1 to NIC2)
+- Tracing on NVA NICs to validate receiving/sending network traffic
+
 
 ## Basic troubleshoot steps
 
@@ -32,9 +40,9 @@ Microsoft support is limited to the Microsoft Azure platform and services. Techn
 - Check NVA Performance
 - Advanced Network Troubleshooting
 
-## Check the basic configuration for NAVs
+## Check the minimum configuration requirements for NVAs on Azure
 
-Each NVA has basic configuration requirements to function properly on Azure. The following section provide steps about how to validate these basic configuration. For more information, you should contact the vendor of the NVA.
+Each NVA has basic configuration requirements to function properly on Azure. The following section provide steps on how to validate these basic configuration. For more information, contact the vendor of the NVA.
 
 **Check whether IP forwarding is enabled on NVA**
 
@@ -65,7 +73,7 @@ Use PowerShell
 **Check whether the traffic can be routed to the NVA**
 
 1. On [Azure portal](https://portal.azure.com), open **Network Watcher**, select **Next Hop**.
-2. Specify a VM that you want the next hop to the NVA and a destination IP address to view the next hop. 
+2. Specify a VM that you want the next hop to be the NVA and a destination IP address to view the next hop. 
 3. If the NVA is not listed as the **next hop**. You should check and update the Azure route tables.
 
 **Check whether the traffic can reach the NVA**
@@ -76,7 +84,7 @@ Use PowerShell
 
 **Check whether NVA and VMs are listening for expected traffic**
 
-1.	Connect to the NVA by using RDO or SSH, and run following command:
+1.	Connect to the NVA by using RDP or SSH, and run following command:
 
     For Windows:
 
@@ -85,22 +93,23 @@ Use PowerShell
     For Linux:
 
         netstat -an | grep -i listen
-2.  If you don't see the TCP port used for the connection listed in the results you will need to configure the application on the NVA and VM to listen and respond to traffic reaching those ports.
+2.  If you don't see the TCP port used by the NVA software listed in the results you will need to configure the application on the NVA and VM to listen and respond to traffic reaching those ports. Contact the NVA vendor if assistance is needed.
 
 ## Check NVA Performance
 
 ### Validate VM CPU
 
-If CPU usage gets close to 100%, you may experience performance issues. Your VM reports average CPU for a time span. During a CPU spike, investigate what process on the guest is causing the high CPU and mitigate if possible. You may also need to resize the VM to a larger SKU size or, for VMSS, increase the instance count or set to auto scale on CPU utilization.
+If CPU usage gets close to 100%, you may experience issue with network packet drops. Your VM reports average CPU for a time span in the Azure portal. During a CPU spike, investigate what process on the guest VM is causing the high CPU and mitigate if possible. You may also need to resize the VM to a larger SKU size or, for VMSS, increase the instance count or set to auto scale on CPU utilization. For either of these issues please contact the NVA vendor for assistance as needed.
+
 
 ### Validate VM Network statistics 
 
-If you see the VM’s network utilization spike or have periods of high utilization, you may also need to resize the VM to a larger SKU size to obtain higher throughput capabilities. You can also redeploy the VM with Accelerated Networking enabled. 
+If you see the VM’s network utilization spike or have periods of high utilization, you may also need to resize the VM to a larger SKU size to obtain higher throughput capabilities. You can also redeploy the VM with Accelerated Networking enabled.  To validate if the NVA supports Accelerated Networking feature please contact the NVA vendor if assistance as needed.
 
 ## Advanced Network Administrator Troubleshooting
 
-### Capure network trace
-Capure a simultaneous network trace on the Source VM, the NVA and the destination VM while you run **PsPing** or **nmap** then stop the trace.
+### Capture network trace
+Capture a simultaneous network trace on the source VM, the NVA and the destination VM while you run **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** or **nmap** then stop the trace.
 
 1. To Capure a simultaneous network trace, run the following command:
 
@@ -114,11 +123,11 @@ Capure a simultaneous network trace on the Source VM, the NVA and the destinatio
 
 2. Use **psping** or **nmap** from the source VM to the destination VM (for example: psping 10.0.0.4:80 or nmap -p 80 10.0.0.4).
 
-3. Open the network trace from the destination VM with Network Monitor or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **nmap** from, such as "IPv4.address==10.0.0.4" (Windows netmon) or "tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4" (Linux).
+3. Open the network trace from the destination VM with [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **nmap** from, such as "IPv4.address==10.0.0.4" (Windows netmon) or "tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4" (Linux).
 
 ### Analyze Traces
 
 If you do not see the packets incoming to the backend VM trace, there is likely a NSG or UDR interfering or the NVA routing tables are incorrect.
 
-If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue.
+If you do see the packets coming in but no response, then you may need to address a VM application or a firewall issue. For either of these issues, contact the NVA vendor for assistance as needed.
 
