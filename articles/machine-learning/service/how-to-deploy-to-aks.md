@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ---
 
 # How to deploy web services from Azure Machine Learning Services to Azure Kubernetes Service

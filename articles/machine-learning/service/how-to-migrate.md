@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: haining
 author: haining
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ---
 
 # How to migrate to the latest version of Azure Machine Learning Services 
@@ -110,7 +110,7 @@ az ml history download
 ```
 
 ## Data preparation files
-**TBD .. @@@**
+Data preparation files are not portable to the new release since we don't have Workbench anymore. However, you can still prepare any size data set for modeling using the new data preparation SDK or use Azure Data Bricks for big data sets.
 
 ## Next steps
 
