@@ -19,7 +19,7 @@ ms.author: genli
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
-Before you upload a Windows  virtual machines (VM) from on-premises to Microsoft Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports only generation 1 VMs that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 VM from the VHDX file system to VHD and from a dynamically expanding disk to fixed-sized. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Before you upload a Windows  virtual machines (VM) from on-premises to Microsoft Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure supports **only generation 1 VMs** that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 VM from the VHDX file system to VHD and from a dynamically expanding disk to fixed-sized. But you can't change a VM's generation. For more information, see [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 For more information about the support policy for Azure VM, see [Microsoft server software support for Microsoft Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -234,38 +234,27 @@ Make sure that the following settings are configured correctly for remote deskto
     > [!Note]
     > Make sure you run these commands on an elevated CMD window and **NOT** on PowerShell:
    
-   ```CMD
-   bcdedit /set {bootmgr} integrityservices enable
-   
-   bcdedit /set {default} device partition=C:
-   
-   bcdedit /set {default} integrityservices enable
-   
-   bcdedit /set {default} recoveryenabled Off
-   
-   bcdedit /set {default} osdevice partition=C:
-   
-   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```powershell
+    cmd
+    bcdedit /set {bootmgr} integrityservices enable
+    bcdedit /set {default} device partition=C:
+    bcdedit /set {default} integrityservices enable
+    bcdedit /set {default} recoveryenabled Off
+    bcdedit /set {default} osdevice partition=C:
+    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
-   #Enable Serial Console Feature
-
+    #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-
     bcdedit /set {bootmgr} timeout 10
-
     bcdedit /set {bootmgr} bootems yes
-
-    bcdedit /ems {<<BOOT LOADER IDENTIFIER>>} ON
-
+    bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
     #Setup the Guest OS to collect a kernel dump on an OS crash event
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    exit
    ```
 3. Verify that the Windows Management Instrumentations repository is consistent. To perform this, run the following command:
 
@@ -385,12 +374,14 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
 * The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
   
-    ```cmd
+    ```powershell
+    cmd
     md c:\CrashDumps
     REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
     REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
     REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
     sc config WerSvc start= demand
+    exit
     ```
     If you receive any errors during any of the procedural steps in this article, this means that the registry keys already exists. In this situation, use the following commands instead:
 
