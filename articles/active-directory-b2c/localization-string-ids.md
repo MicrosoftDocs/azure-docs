@@ -1,5 +1,5 @@
 ---
-title: Localization string Ids | Microsoft Docs
+title: Localization string IDs | Microsoft Docs
 description: Specify the the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -13,13 +13,13 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Localization string Ids
+# Localization string IDs
 
 ## Sign-up or sign-in page elements
 
-The following Ids are used for a content definition with an Id of `api.signuporsignin`.
+The following Ids are used for a content definition with an ID of `api.signuporsignin`.
 
-| Id | Default value |
+| ID | Default value |
 | -- | ------------- |
 | **local_intro_email** | Sign in with your existing account |
 | **logonIdentifier_email** | Email Address |
@@ -45,7 +45,7 @@ The following example shows the use of some of the user interface elements in th
 
 ![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
 
-The Id of the identity providers is configured in the `ClaimsExchange` element. To localize the title of the identity provider, the `ElementType` is set to **ClaimsProvider**, while the `StringId` is set to the **Id** of the `ClaimsExchange`.
+The ID of the identity providers is configured in the `ClaimsExchange` element. To localize the title of the identity provider, the `ElementType` is set to **ClaimsProvider**, while the `StringId` is set to the ID of the `ClaimsExchange`.
 
 ```XML
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -72,7 +72,7 @@ The following example localizes the Facebook identity provider to Arabic:
 
 ## Sign-up or sign-in error messages
 
-| Id | Default value |
+| ID | Default value |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
@@ -84,9 +84,9 @@ The following example localizes the Facebook identity provider to Arabic:
 
 ## Sign-up and self asserted pages user interface elements
 
-The following are the Ids for a content definition with an Id of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`.
+The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`.
 
-| Id | Default value |
+| ID | Default value |
 | -- | ------------- |
 | **ver_sent** | Verification code has been sent to: |
 | **ver_but_default** | Default |
@@ -125,7 +125,7 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 
 ## Sign-up and self asserted pages error messages
 
-| Id | Default value |
+| ID | Default value |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | A user with the specified ID already exists. Please choose a different one. |
 | **UserMessageIfClaimNotVerified** | Claim not verified: {0} |
@@ -137,9 +137,9 @@ The following are the Ids for a content definition with an Id of `api.localaccou
 
 ## Phone factor authentication page user interface elements
 
-The Following are the Ids for a content definition with an Id of `api.phonefactor`. 
+The Following are the IDs for a content definition with an ID of `api.phonefactor`. 
 
-| Id | Default value |
+| ID | Default value |
 | -- | ------------- |
 | **button_verify** | Call Me |
 | **country_code_label** | Country Code |

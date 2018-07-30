@@ -19,7 +19,7 @@ You can customize the look and feel of any self-asserted technical profile. Azur
 
 To customize the user interface, you specify a URL in the `ContentDefinition` element with customized HTML content. In the self-asserted technical profile or `OrchestrationStep` you point to that content definition **Id**. The content definition may contain a `LocalizedResourcesReferences` element that specifies a list of localized resource to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user.
 
-The following example shows the content definition Id and the definition of localized resources:
+The following example shows the content definition ID and the definition of localized resources:
 
 ```XML
 <ContentDefinition Id="api.localaccountsignup">
@@ -35,7 +35,7 @@ The following example shows the content definition Id and the definition of loca
     ...
 ```
 
-The metadata of the `TechnicalProfile` element contains the content definition Id:
+The metadata of the `TechnicalProfile` element contains the content definition ID:
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -49,7 +49,7 @@ The metadata of the `TechnicalProfile` element contains the content definition I
   ...
 ```
 
-The `Localization` element also uses the content definition Id:
+The `Localization` element also uses the content definition ID:
 
 ```XML
 <Localization Enabled="true">
@@ -128,11 +128,11 @@ The following example shows a sign-up or sign-in content definition with a refer
 </ContentDefinition>
 ```
 
-## Content definition Ids
+## Content definition IDs
 
-The Id attribute of the `ContentDefinition` element specifies the type of page that relates to the content definition. The element defines the context that a custom HTML5/CSS template is going to apply. The following table describes the set of content definition IDs that is recognized by the Identity Experience Framework, and the page types that relate to them. You can create your own content definitions with an arbitrary Id.
+The ID attribute of the `ContentDefinition` element specifies the type of page that relates to the content definition. The element defines the context that a custom HTML5/CSS template is going to apply. The following table describes the set of content definition IDs that is recognized by the Identity Experience Framework, and the page types that relate to them. You can create your own content definitions with an arbitrary ID.
 
-| Id | Default template | Description | 
+| ID | Default template | Description | 
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page** - Displays an error page when an exception or an error is encountered. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identity provider selection page** - Lists identity providers that users can choose from during sign-in. The options are usually enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
@@ -141,7 +141,7 @@ The Id attribute of the `ContentDefinition` element specifies the type of page t
 | **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-in page** - Displays a form for signing in with a local account that's based on an email address or a user name. The form can contain a text input box and password entry box. |
 | **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Local account sign-up page** - Displays a form for signing up for a local account that's based on an email address or a user name. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page** - Verifies phone numbers, by using text or voice, during sign-up or sign-in. |
-| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign-up page, except for the password entry fields. |
-| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
+| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Social account sign-up page** - Displays a form that users must complete when they sign up by using an existing account from a social identity provider. This page is similar to the preceding social account sign up page, except for the password entry fields. |
+| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page** - Displays a form that users can access to update their profile. This page is similar to the social account sign up page, except for the password entry fields. |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page** - Handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. |
  
