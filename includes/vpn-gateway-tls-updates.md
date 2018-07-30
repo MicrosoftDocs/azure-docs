@@ -10,7 +10,8 @@
  ms.custom: include file
 ---
 >[!NOTE]
->Starting July 1, 2018, support is being removed for TLS 1.0 and 1.1 from Azure VPN Gateway. VPN >Gateway will support only TLS 1.2. To maintain support, see the [updates to enable support for TLS1.2](#tls1).
+>Starting July 1, 2018, support is being removed for TLS 1.0 and 1.1 from Azure VPN Gateway. VPN 
+>Gateway will support only TLS 1.2. To maintain support, see the [updates to enable support for TLS1.2](#tls1).
 
 Additionally, the following legacy algorithms will also be deprecated for TLS on July 1, 2018:
 
