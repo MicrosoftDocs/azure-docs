@@ -37,7 +37,7 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 
 We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
-Sharing one blob container for multiple clusters is not supported.
+Sharing one blob container as the default file system for multiple clusters is not supported.
 
 ## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
