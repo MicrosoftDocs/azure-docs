@@ -27,16 +27,13 @@ In this article, we share many marketing best practices for growing your busines
 
 The tables in the next sections provide suggestions for creating engaging Marketplace offers. To write and configure your marketing materials, go to the [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
 
-
-### Offer identity
-
-### Storefront details > Offer details
+### Storefront offer details
 | Storefront setting | Best practice |
 |:--- |:--- |  
 | Offer Name | Provide a strong title:<br>Your app name should communicate the core value that your customers receive. Including search keywords in your app title can help your app to be ranked higher in search engine results.<br><br>Follow a set title format for consulting service listings:<br>[Offer Name]: [Duration] [Offer Type] (for example, *Contoso: 2-Week Implementation*)<br><br>Adhere to brand guidelines:<br>Follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when you refer to Microsoft trademarks and the names of Microsoft software, products, and services. |
 | Offer Description | Provide a clear offer description:<br>Clearly describe your offer's value proposition in the first few sentences of your description. Keep in mind that the first few sentences might be displayed in search engine results. Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver. Use industry-specific vocabulary or benefit-based wording as much as possible.<br><br>Core components of your value proposition should include the following information:<ul><li>Description of the product</li><li>Type of user that benefits from the product</li><li>Customer need or pain that the product addresses</li></ul> |
 
-### Storefront details > Listing details
+### Storefront listing details
 | Storefront setting | Best practice |
 |:--- |:--- |  
 | Industries: AppSource apps and consulting services only | Select industries if your offer addresses industry-specific requirements:<br>Call out industry-specific capabilities in your offer description.<br><br>**Note**: The maximum number of options varies by offer type and is indicated in the Cloud Partner portal. |
@@ -44,7 +41,7 @@ The tables in the next sections provide suggestions for creating engaging Market
 | Products that your app works with (3&nbsp;max): AppSource apps only | List additional products and technologies that your solution uses or extends:<br>For example, Azure IOT Hub or Azure Machine Learning. |
 | Search keywords (3&nbsp;max) | Use search keywords that help business users find your offer when they search in the Azure Marketplace and on AppSource or by using search engines:<br>Identify the top three search keywords for your offer; incorporate the search keywords in your offer summary and description; and list the search keywords here. |
 
-### Storefront details > Marketing artifacts
+### Storefront marketing details
 | Storefront setting | Best practice |
 |:--- |:--- |  
 | Offer logo (PNG format, 48&nbsp;&times;&nbsp;48): search page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the search page of your offer. |
