@@ -9,7 +9,7 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 07/30/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -24,7 +24,7 @@ This quickstart shows how to store a secret in Key Vault and how to retrieve it 
 > * Store a secret in Key Vault.
 > * Retrieve a secret from Key Vault.
 > * Create an Azure Web Application.
-> * [Enable managed service identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview).
+> * [Enable managed service identities](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
 > * Grant the required permissions for the web application to read data from Key vault.
 
 Before you proceed make sure that you are familiar with the [basic concepts](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Before you proceed make sure that you are familiar with the [basic concepts](key
 
 * [Node JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 or later
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 or later
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Login to Azure
@@ -113,7 +113,7 @@ This project used 2 node modules:
 
 Below are the few steps we need to do
 
-- The 1st step is to create a [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) Plan. You can store multiple web apps in this plan.
+- The 1st step is to create a [Azure App Service](https://azure.microsoft.com/services/app-service/) Plan. You can store multiple web apps in this plan.
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
@@ -196,7 +196,7 @@ Make sure that you replaced the name <YourKeyVaultName> with your vault name
 
 ## Next steps
 
-* [Azure Key Vault Home Page](https://azure.microsoft.com/en-us/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
-* [Azure SDK For Node](https://docs.microsoft.com/en-us/javascript/api/overview/azure/key-vault)
-* [Azure REST API Reference](https://docs.microsoft.com/en-us/rest/api/keyvault/)
+* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
