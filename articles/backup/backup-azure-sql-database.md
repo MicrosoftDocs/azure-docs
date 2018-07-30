@@ -144,7 +144,7 @@ To configure permissions:
 
     ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step starts a search for Azure virtual machines.
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step start a search for Azure virtual machines.
 
     ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -337,7 +337,7 @@ To configure protection for a SQL database:
 
 A backup policy defines a matrix of when backups are taken and how long they're retained. Use Azure Backup to schedule three types of backup for SQL databases:
 
-* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
+* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough logs to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
 * Differential backup: A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that's changed since the full backup. At most, you can trigger one differential backup per day. You can't configure a full backup and a differential backup on the same day.
 * Transaction log backup: A log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
 
