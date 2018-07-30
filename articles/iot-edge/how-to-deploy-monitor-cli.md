@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -139,7 +139,7 @@ Use the following command to create a deployment:
 * **--labels** - Add labels to help track your deployments. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
 * **--content** - Filepath to the deployment manifest JSON. 
 * **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
-* **--target-condition** - Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. 
+* **--target-condition** - Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
 * **--priority** - A positive integer. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
 
 ## Monitor a deployment

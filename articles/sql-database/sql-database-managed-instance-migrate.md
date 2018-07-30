@@ -9,7 +9,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
 
 ---
@@ -19,7 +19,7 @@ In this article, you learn about the methods for migrating a SQL Server 2005 or 
 
 SQL Database Managed Instance is an expansion of the existing SQL Database service, providing a third deployment option alongside single databases and elastic pools.  It is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. SQL Database Managed Instance provides high compatibility with the on-premises SQL Server programming model and out-of-box support for the large majority of SQL Server features and accompanying tools and services.
 
-At the high level, application migration process looks like on the following diagram:
+At a high level, the application migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 

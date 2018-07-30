@@ -2,14 +2,14 @@
 title: Tutorial to review endpoint utterances in Language Understanding (LUIS) - Azure | Microsoft Docs 
 description: In this tutorial, learn how to review endpoint utterances in the Human Resources (HR) domain in LUIS. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
 --- 
@@ -222,7 +222,7 @@ Try an utterance close to the corrected utterance.
 }
 ```
 
-The correct intent was predicted with a high score and the the **Job** entity is detected as `natural language processing`. 
+The correct intent was predicted with a high score and the **Job** entity is detected as `natural language processing`. 
 
 ## Can reviewing be replaced by adding more utterances? 
 You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage. 

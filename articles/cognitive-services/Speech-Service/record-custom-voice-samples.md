@@ -1,10 +1,9 @@
 ---
-title: How to record voice samples for creating a custom voice | Microsoft Docs
+title: How to record voice samples for creating a custom voice
 titleSuffix: "Microsoft Cognitive Services"
 description: Make a production-quality costum voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article

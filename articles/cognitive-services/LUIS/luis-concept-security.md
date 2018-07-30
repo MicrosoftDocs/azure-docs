@@ -2,13 +2,13 @@
 title: Understand access to LUIS applications - Azure | Microsoft Docs
 description: Learn how to access LUIS authoring. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Authoring and endpoint user access

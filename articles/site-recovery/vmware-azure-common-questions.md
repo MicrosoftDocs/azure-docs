@@ -67,7 +67,7 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
 
 
 

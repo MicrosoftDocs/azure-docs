@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/26/2018
 ms.author: rithorn
 ---
 
@@ -41,14 +41,6 @@ By creating a hierarchy that is grouped by departments, you can assign [Azure Ro
 - Each management group can have multiple children.
 - All subscriptions and management groups are contained within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
 
-### Preview subscription visibility limitation
-
-There's currently a limitation within the preview where you aren't able to view subscriptions that you have inherited access to. The access is inherited to the subscription, but the Azure Resource Manager isn't able to honor the inheritance access yet.  
-
-Using the REST API to get information on the subscription returns details as you do have access, but within the Azure portal and Azure Powershell the subscriptions don't show.
-
-This item is being worked on and will be resolved before management groups are announced as "General Availability."  
-
 ### Cloud Solution Provider (CSP) limitation during Preview
 
 There's a current limitation for Cloud Solution Provider (CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
@@ -72,7 +64,7 @@ Each directory is given a single top-level management group called the "Root" ma
   - No one is given default access to the root management group. Directory Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the directory administrators can assign any RBAC role to other users to manage.  
 
 >[!NOTE]
->If your directory started using the management groups service before 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactively updating each directory that started using management groups in the Public Preview prior to that date within July 2018. All subscriptions in the directories will be made children under the root management group prior.  
+>If your directory started using the management groups service before 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactively updating each directory that started using management groups in the Public Preview prior to that date within July/August 2018. All subscriptions in the directories will be made children under the root management group prior.  
 >
 >If you have questions on this retroactive process, contact: managementgroups@microsoft.com  
   
@@ -93,9 +85,13 @@ The following chart shows the list of roles and the supported actions on managem
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Owner                       | X      | X      | X    | X      | X             |               | X     |
 |Contributor                 | X      | X      | X    | X      |               |               | X     |
+|MG Contributor*             | X      | X      | X    | X      |               |               | X     |
 |Reader                      |        |        |      |        |               |               | X     |
+|MG Reader*                  |        |        |      |        |               |               | X     |
 |Resource Policy Contributor |        |        |      |        |               | X             |       |
 |User Access Administrator   |        |        |      |        | X             |               |       |
+
+*: MG Contributor and MG Reader only allow users to perform those actions on the management group scope.  
 
 ### Custom RBAC Role Definition and Assignment
 

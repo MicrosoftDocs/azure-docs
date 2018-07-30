@@ -157,7 +157,7 @@ In the response, you get back a `subscriptionOperation` object for monitoring. W
 
 To use this preview module, install it by running `Install-Module AzureRM.Subscription -AllowPrerelease` first. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/gallery/installing-psget).
 
-Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) along with `enrollmentAccount` object ID as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
+Use the [New-AzureRmSubscription](/powershell/module/azurerm.subscription) along with `enrollmentAccount` object ID as the `EnrollmentAccountObjectId` parameter to create a new subscription. 
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>

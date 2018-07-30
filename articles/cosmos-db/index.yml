@@ -14,6 +14,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: mimig
+  experimental: true
+  experiment_id: "414cc76e-9d52-4a"
 abstract:
   description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, wide-column, and graph databases by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefiting from comprehensive SLAs. 
   aside:
