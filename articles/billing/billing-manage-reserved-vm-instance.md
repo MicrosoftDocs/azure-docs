@@ -17,11 +17,11 @@ ms.author: vikdesai
 ---
 # Manage reserved instances in Azure
 
-After you buy an Azure reserved instance, you may want to apply the reserved instance to a different subscription than the one you specified during purchase. Alternatively, if your matching virtual machines or SQL databases are running in multiple subscriptions, you may want to change the reserved instance scope to shared. To maximize the reserved instance discount, make sure that the number of instances you bought matches the attributes and number of virtual machines or SQL databases that you have running. To learn more, see [Azure reserved instances (RIs)](https://go.microsoft.com/fwlink/?linkid=862121).
+After you buy an Azure reserved instance, you may want to apply the reserved instance to a different subscription than the one you specified during purchase. Alternatively, if your matching virtual machines, SQL databases, or other resources are running in multiple subscriptions, you may want to change the reserved instance scope to shared. To maximize the reserved instance discount, make sure that the number of instances you bought matches the attributes and number of resources that you have running. To learn more, see [Azure reserved instances (RIs)](https://go.microsoft.com/fwlink/?linkid=862121).
 
 ## Change the scope for a reserved instance
 
- Your reserved instance discount applies to virtual machines or SQL databases that match your reserved instance and run within the reserved instance scope. The scope of a reserved instance can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reserved instance is matched to running virtual machines or SQL databases in the selected subscription. If you set the scope to shared, Azure matches the reserved instance to virtual machines or SQL databases that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reserved instance.
+ Your reserved instance discount applies to virtual machines, SQL databases, or other resources that match your reserved instance and run within the reserved instance scope. The scope of a reserved instance can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reserved instance is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reserved instance to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reserved instance.
 
 To update the scope of a reserved instance:
 
@@ -84,6 +84,7 @@ To learn more about Azure reserved instances, see the following articles:
 
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database reserved vCore](../sql-database/sql-database-reserved-sqldb-instances.md). 
 - [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
