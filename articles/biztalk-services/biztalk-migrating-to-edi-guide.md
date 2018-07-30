@@ -1,5 +1,5 @@
 ---
-title: Migrating BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Docs
+title: Migrate BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Docs
 description: Migrate EDI to MABS; Microsoft Azure BizTalk Services
 services: biztalk-services
 documentationcenter: na
@@ -114,10 +114,8 @@ BizTalk Server EDI processing has the concept of "Fallback Agreements".  BizTalk
 ### Routing to multiple destinations
 BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model. Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.
 
-## Conclusion
-Microsoft Azure BizTalk Services is updated at regular milestones to add more features and capabilities. With each update, we look forward to supporting increased functionality to facilitate creating end-to-end solutions using BizTalk Services and other Azure technologies.
-
 ## See Also
-[Developing Enterprise Applications with Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[End-to-end development and management tools in Azure](https://azure.microsoft.com/overview/productivity/)  
+[LOB applications using Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
