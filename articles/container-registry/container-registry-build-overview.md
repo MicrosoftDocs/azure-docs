@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 07/28/2018
 ms.author: marsma
 ---
 
@@ -15,7 +15,7 @@ ms.author: marsma
 
 Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is patched.
 
-**ACR Build**, a suite of features within Azure Container Registry, provides not only native container image build capability for Linux, Windows and ARM, but also automates [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers.
+**ACR Build** is a suite of features within Azure Container Registry. It provides cloud-based container image building for Linux, Windows, and ARM, and can automate [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -45,7 +45,7 @@ Learn how to trigger builds on source code commit in the second ACR Build tutori
 
 The power of ACR Build to truly enhance your container build pipeline comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Build can automatically build any application images based on it.
 
-Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example [Alpine Linux][base-alpine], [Wndows][base-windows], [.Net][base-dotnet] or [Node.js][base-node]. Several of your application images might share a common base image.
+Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], or [Node.js][base-node]. Several of your application images might share a common base image.
 
 When an OS or app framework image is updated by the upstream maintainer, for example with a critical OS security patch, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 
@@ -54,7 +54,7 @@ Because ACR Build dynamically discovers base image dependencies when it builds a
 Learn about OS and framework patching in the third ACR Build tutorial, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> For the initial preview, base image updates trigger builds only when both the base and application images reside in the same Azure container registry or publically accessible Docker Hub repositories.
+> For the initial preview, base image updates trigger builds only when both the base and application images reside in the same Azure container registry or publicly accessible Docker Hub repositories.
 
 ## Next steps
 
