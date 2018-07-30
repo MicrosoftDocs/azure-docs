@@ -183,11 +183,9 @@ For more information about this update, see [Azure AD Connect: Version release h
 
 We're updating the acceptance string in the TOU end-user UI.
 
-**Current text.** In order to access [tenantName] resources, you must accept the terms of use.
-**New text.** In order to access [tenantName] resource, you must read the terms of use.
+**Current text.** In order to access [tenantName] resources, you must accept the terms of use.<br>**New text.** In order to access [tenantName] resource, you must read the terms of use.
 
-**Current text:** Choosing to accept means that you agree to all of the above terms of use.
-**New text:** Please click Accept to confirm that you have read and understood the terms of use.
+**Current text:** Choosing to accept means that you agree to all of the above terms of use.<br>**New text:** Please click Accept to confirm that you have read and understood the terms of use.
 
 ---
  

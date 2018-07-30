@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Microsoft Docs
-description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
+title: Microsoft Authenticator phone sign-in - Azure Active Directory | Microsoft Docs
+description: Provides detailed info and step-by-step instructions about how to use your phone to sign in to your work and school and personal Microsoft accounts, instead of typing your password.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -36,7 +36,7 @@ If your organization uses Azure Active Directory for identity management and aut
 
 - **If you use the Microsoft Authenticator app for your personal account, but not for your work or school account.** Follow your organization’s two-step verification instructions, and then turn on phone sign-in. For more information, see [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)
 
-### To use phone sign-in to sign into your work or school account
+### To use phone sign-in to sign in to your work or school account
 
 1.	Sign in to your work or school account, as normal.
 
@@ -64,7 +64,7 @@ New accounts are automatically turned on, so you can immediately start using pho
 >[!NOTE]
 >To help protect your account, the app requires a PIN or biometric lock on your device. If you keep your phone unlocked, the app requires you to set up a security lock before turning on phone sign-in.
 
-### To use phone sign-in to sign into your personal account
+### To use phone sign-in to sign in to your personal account
 
 1.	Go to your personal Microsoft account sign-in page, and then instead of typing your password, select the **Use an app instead** link.
 
