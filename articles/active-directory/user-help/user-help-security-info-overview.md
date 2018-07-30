@@ -24,7 +24,7 @@ ms.author: lizross
 
 Set up your two-step verification and password reset info in **Security info**. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default method at any time.
 
-You and add any of the following methods, including:
+You can add any of the following methods, including:
 
 |Article |Description |
 |------|------------|
