@@ -231,14 +231,29 @@ After the actions list opens, select this action:
       Inside your function, you can reference the properties 
       in the context object by using this syntax:
 
-      ```text
-      context.<token-name>.<property-name>
       ```
-      For this example, here is the syntax you'd use:
+      context.body.<property-name>
+      ```
 
-      ```text
+      So, for example:
+
+      ```
       context.body.content
       ```
+
+      Inside JavaScript functions, the `data` parameter 
+      is a just shortcut for `context.body`, so you could 
+      use this syntax:
+
+      ```
+      data.content
+      ```
+
+      The `body` property here doesn't refer to and differs 
+      from the **Body** token that this example coincidentally 
+      passes to this function in a later step. This `body` 
+      property refers to the body for the context object, 
+      which can have any name, that you pass into the function.
 
    3. When you're done, choose **Create**.
 
