@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
@@ -28,7 +28,7 @@ This app is the simplest type of LUIS app because it doesn't extract data from t
 > * Add example utterances to ApplyForJob intent 
 > * Train, publish, and query endpoint again 
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Purpose of the app
 This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. Later in the quickstart, a third intent, `ApplyForJob`, is added. 
@@ -45,8 +45,6 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot of Intents list page")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## Create GetJobInformation intention
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in your company.
@@ -86,16 +84,16 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     ![Train button](./media/luis-quickstart-intents-only/train-button.png)
 
-    Training is complete when you see the green status bar at the top of the website confirming success.
+2. Training is complete when you see the green status bar at the top of the website confirming success.
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+## Publish app to endpoint
 
-    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## Query endpoint for GetJobInformation intent
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
@@ -148,7 +146,10 @@ Return to the browser tab for the LUIS website and create a new intention to app
     [Train and publish](#train-and-publish-the-app) again. 
 
 ## Query endpoint for ApplyForJob intent
-On the **Publish** page, select the **endpoint** link at the bottom of the page. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
 
     ```
     {

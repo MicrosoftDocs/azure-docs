@@ -3,7 +3,7 @@ title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
 services: functions
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # IP addresses in Azure Functions
@@ -108,7 +108,7 @@ To deliberately force an outbound IP address change:
 
 ## IP address restrictions
 
-You can configure a list of IP addresses that you want to allow or deny access to a function app. For more information, see [IpSecurityRestriction availability for Azure Functions](https://github.com/Azure/app-service-announcements/issues/114).
+You can configure a list of IP addresses that you want to allow or deny access to a function app. For more information, see [Azure App Service Static IP Restrictions](../app-service/app-service-ip-restrictions.md).
 
 ## Dedicated IP addresses
 
