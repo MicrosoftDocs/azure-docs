@@ -137,6 +137,7 @@ Save *App.java*.
 Execute the following Maven command to build and run the app:
 
 ```
+mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
