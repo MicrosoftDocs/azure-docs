@@ -111,7 +111,7 @@ After you call UDO functions, you can verify the results through the schema and 
 
 After you build the test project, you can run all test cases though **Test Explorer > Playlist**, or right-click the .cs file and choose **Run Tests**.
 
-## Run test cases in Visual Studio Team Services
+## Run test cases in Visual Studio Team Service
 
 Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Services can run these test cases. 
 
