@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart - Install and Setup CycleCloud | Microsoft Docs
+title: Azure CycleCloud Quickstart - Install and Setup CycleCloud | Microsoft Docs
 description: In this quickstart, you will install and setup Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
@@ -10,26 +10,26 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud QuickStarts
+# Azure CycleCloud Quickstarts
 
-There are four parts to the Azure CycleCloud QuickStart:
+There are four parts to the Azure CycleCloud Quickstart:
 
 1. Setup and install CycleCloud on a Virtual Machine
 2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
 
-Working through all the QuickStarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
+Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
 
 ## QuickStart 1: Install and Setup Azure CycleCloud
 
-Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this QuickStart, you will install CycleCloud on Azure resources, using an Azure Resource Manager template that is stored on GitHub. The ARM template:
+Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this quickstart, you will install CycleCloud on Azure resources, using an Azure Resource Manager template that is stored on GitHub. The ARM template:
 
 1. Creates the VM for CycleCloud, and installs CycleCloud on that VM
 2. Creates and configures the network for the CycleCloud environment
 3. Creates a bastion host for enabling more secure access to the CycleCloud instance
 
-For the purposes of this QuickStart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
+For the purposes of this quickstart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
 ## Gather the Prerequisites
 
@@ -137,10 +137,7 @@ An example `params-cyclecloud.json` might look like this:
       "parameters": {
       "vnetName": { "value": "cyclevnet" },
       ...
-      "rsaPublicKey": { "value": "ssh-rsa MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgFw2R8/EGVpXRRkr9bHVg3mf/ybv
-      aFd/FbJ1PckwfcvSnVY7IFXfez6nirztAWoEQzSZNy96MP5DVEiAfJSG3ajeaonW
-      WW06Sn1CKTW0Vo0MMEshdpMRDqsELx0vTF4uev5sQrsDTbWgFoM9mgJ4GdweW0sJ
-      80uAUQlCcalQNW+FAgMBAAE="}
+      "rsaPublicKey": { "value": "ssh-rsa XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="}
       }
 ```
 
@@ -172,4 +169,4 @@ To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
-That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [QuickStart 2](quickstart-create-and-run-cluster.md) now!
+That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [Quickstart 2](quickstart-create-and-run-cluster.md) now!

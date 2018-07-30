@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart - Create and Run a Cluster | Microsoft Docs
+title: Azure CycleCloud Quickstart - Create and Run a Cluster | Microsoft Docs
 description: In this quickstart, you will create an HPC cluster.
 services: azure cyclecloud
 author: KimliW
@@ -10,7 +10,7 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
+# Azure CycleCloud Quickstart 2: Create and Run a Simple HPC Cluster
 
 Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleCloud. The steps from this point forward will be done within the GUI to familiarize you with the graphical interface of the tool.
 
