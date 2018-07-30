@@ -88,7 +88,7 @@ To view the value contained in the secret as plain text:
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-This command shows the secret information including the URI. After completing these steps, you should have a URI to a secret in an Azure Key Vault. Make note of this information. You need it in a later step.
+This command shows the secret information including the URI. After completing these steps, you should have a URI to a secret in an Azure Key Vault. Write this down. You need it in a later step.
 
 ## Clone the Repo
 
@@ -169,7 +169,7 @@ This command is the equivalent of going to the portal and switching **Managed se
 
 ### Assign permissions to your application to read secrets from Key Vault
 
-Make a note of the output for the command above in step 8. It should be of the format:
+Write down or copy the output for the command above in step 8. It should be of the format:
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
