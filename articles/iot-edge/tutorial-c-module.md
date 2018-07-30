@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -64,13 +64,25 @@ The following steps show you how to create an IoT Edge module project based on .
    4. Name your module **CModule**. 
    5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like **\<registry name\>.azurecr.io/cmodule**.
  
-4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a **.env** file. The default module code is implemented as a pipe module. Open **modules** > **CModule** > **main.c** to update it to a filter module.
+4. The VS Code window loads your IoT Edge solution workspace. There is a **modules** folder, a **.vscode** folder, a deployment manifest template file and a **.env** file. The default module code is implemented as a pipe module. 
 
-5. At the buttom of include section, add below code to include `parson.h` for JSON support:
+5. To filter messages in JSON format, a JSON library for C need to be imported. You can choose any JSON library or write your own to parse JSON in your C module. Below steps are using [Parson](https://github.com/kgabis/parson) as a example.
+   1. Download **parson.c** and **parson.h** from [Parson Github repository](https://github.com/kgabis/parson). And copy paste these two files into the **CModule** folder.
+   2. Open **modules** > **CModule** > **CMakeLists.txt**. Add below lines to import parson library as my_parson.
 
-    ```c
-    #include "parson.h"
-    ```
+      ```
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
+      ```
+
+   3. In `target_link_libraries` in **CMakeLists.txt**, add `my_parson` into it.
+   4. Open **modules** > **CModule** > **main.c**. At the buttom of include section, add below code to include `parson.h` for JSON support:
+
+      ```c
+      #include "parson.h"
+      ```
 
 6. Add a global variable `temperatureThreshold` variable after the include section. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
@@ -78,43 +90,44 @@ The following steps show you how to create an IoT Edge module project based on .
     static double temperatureThreshold = 25;
     ```
 
-7. Replace the entire `CreateFilteredMessageInstance` function with below code. This function allocates a context for the callback. 
+7. Replace the entire `CreateMessageInstance` function with below code. This function allocates a context for the callback. 
 
     ```c
-    static FILTERED_MESSAGE_INSTANCE* CreateFilteredMessageInstance(IOTHUB_MESSAGE_HANDLE message)
+    static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
     {
-        FILTERED_MESSAGE_INSTANCE* filteredMessageInstance = (FILTERED_MESSAGE_INSTANCE*)malloc(sizeof(FILTERED_MESSAGE_INSTANCE));
-        if (NULL == filteredMessageInstance)
+        MESSAGE_INSTANCE* messageInstance = (MESSAGE_INSTANCE*)malloc(sizeof(MESSAGE_INSTANCE));
+        if (NULL == messageInstance)
         {
-            printf("Failed allocating 'FILTERED_MESSAGE_INSTANCE' for pipelined message\r\n");
+            printf("Failed allocating 'MESSAGE_INSTANCE' for pipelined message\r\n");
         }
         else
         {
-            memset(filteredMessageInstance, 0, sizeof(*filteredMessageInstance));
-            if ((filteredMessageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
+            memset(messageInstance, 0, sizeof(*messageInstance));
+
+            if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
             {
-                free(filteredMessageInstance);
-                filteredMessageInstance = NULL;
+                free(messageInstance);
+                messageInstance = NULL;
             }
             else
             {
-                filteredMessageInstance->messageTrackingId = messagesReceivedByInput1Queue;
-                MAP_HANDLE propMap = IoTHubMessage_Properties(filteredMessageInstance->messageHandle);
+                messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+                MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
                 if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
                 {
                     printf("ERROR: Map_AddOrUpdate Failed!\r\n");
                 }
             }
         }
-        return filteredMessageInstance;
+
+        return messageInstance;
     }
     ```
 
-8. Replace the entire `InputQueue1FilterCallback` function with below code. This function implements the actual messaging filter. 
+8. Replace the entire `InputQueue1Callback` function with below code. This function implements the actual messaging filter. 
 
     ```c
-    // InputQueue1FilterCallback implements a filtering mechanism.
-    static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1FilterCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
+    static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
         IOTHUB_CLIENT_RESULT clientResult;
@@ -139,8 +152,8 @@ The following steps show you how to create an IoT Edge module project based on .
             printf("Machine temperature %f exceeds threshold %f\r\n", temperature, temperatureThreshold);
             // This message should be sent to next stop in the pipeline, namely "output1".  What happens at "outpu1" is determined
             // by the configuration of the Edge routing table setup.
-            FILTERED_MESSAGE_INSTANCE *filteredMessageInstance = CreateFilteredMessageInstance(message);
-            if (NULL == filteredMessageInstance)
+            MESSAGE_INSTANCE *messageInstance = CreateMessageInstance(message);
+            if (NULL == messageInstance)
             {
                 result = IOTHUBMESSAGE_ABANDONED;
             }
@@ -148,11 +161,11 @@ The following steps show you how to create an IoT Edge module project based on .
             {
                 printf("Sending message (%zu) to the next stage in pipeline\n", messagesReceivedByInput1Queue);
 
-                clientResult = IoTHubModuleClient_LL_SendEventToOutputAsync(iotHubModuleClientHandle, filteredMessageInstance->messageHandle, "output1", SendConfirmationCallbackFromFilter, (void *)filteredMessageInstance);
+                clientResult = IoTHubModuleClient_LL_SendEventToOutputAsync(iotHubModuleClientHandle, messageInstance->messageHandle, "output1", SendConfirmationCallback, (void *)messageInstance);
                 if (clientResult != IOTHUB_CLIENT_OK)
                 {
-                    IoTHubMessage_Destroy(filteredMessageInstance->messageHandle);
-                    free(filteredMessageInstance);
+                    IoTHubMessage_Destroy(messageInstance->messageHandle);
+                    free(messageInstance);
                     printf("IoTHubModuleClient_LL_SendEventToOutputAsync failed on sending msg#=%zu, err=%d\n", messagesReceivedByInput1Queue, clientResult);
                     result = IOTHUBMESSAGE_ABANDONED;
                 }
@@ -197,7 +210,8 @@ The following steps show you how to create an IoT Edge module project based on .
     static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
     {
         int ret;
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1FilterCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+
+        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
         {
             printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
             ret = __FAILURE__;
@@ -211,6 +225,7 @@ The following steps show you how to create an IoT Edge module project based on .
         {
             ret = 0;
         }
+
         return ret;
     }
     ```
