@@ -25,9 +25,9 @@ Working through all the QuickStarts should take 60 to 90 minutes. You will get t
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this QuickStart, you will install CycleCloud on Azure resources, using an Azure Resource Manager template that is stored on GitHub. The ARM template:
 
-1.	Creates the VM for CycleCloud, and installs CycleCloud on that VM
-2.	Creates and configures the network for the CycleCloud environment
-3.	Creates a bastion host for enabling more secure access to the CycleCloud instance
+1. Creates the VM for CycleCloud, and installs CycleCloud on that VM
+2. Creates and configures the network for the CycleCloud environment
+3. Creates a bastion host for enabling more secure access to the CycleCloud instance
 
 For the purposes of this QuickStart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
@@ -35,10 +35,10 @@ For the purposes of this QuickStart, much of the setup has been done via the ARM
 
 For this QuickStart, you will need:
 
-1.	An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
-2.	The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
-3.	A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
-4.	An SSH keypair
+1. An [Azure account](https://azure.microsoft.com/en-us/free/) with an active subscription
+2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
+3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
+4. An SSH keypair
 
 ### Subscription ID
 
@@ -87,11 +87,12 @@ $ git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
 ```
 
 There are two ARM templates in the .git file:
+
       * `deploy-vnet.json` creates a VNET with 3 separate subnets:
-        *	`cycle`: The subnet in which the CycleCloud server is started
-        *	`compute`: A /22 subnet for the HPC clusters
-        *	`user`: The subnet for creating login nodes
-      *	`deploy-cyclecloud.json` provisions and sets up the CycleCloud application server
+        * `cycle`: The subnet in which the CycleCloud server is started
+        * `compute`: A /22 subnet for the HPC clusters
+        * `user`: The subnet for creating login nodes
+      * `deploy-cyclecloud.json` provisions and sets up the CycleCloud application server
 
 ## Create a Resource Group and VNET
 

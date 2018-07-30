@@ -18,8 +18,8 @@ If you've completed QuickStarts 1 and 2, you've installed, set up, and configure
 
 To run jobs on the standard Grid Engine cluster, you must log onto the cluster's "Master" node, where the Grid Engine job queue resides. There are two ways to connect to that VM:
 
-1.	Connect using the CycleCloud CLI, which is installed on the CycleCloud VM, or
-2.	SSH using the private key `cyclecloud.pem`, which is specified during the cluster creation
+1. Connect using the CycleCloud CLI, which is installed on the CycleCloud VM, or
+2. SSH using the private key `cyclecloud.pem`, which is specified during the cluster creation
 
 For this QuickStart, you will use the first method to connect to your cluster Master's node.
 
