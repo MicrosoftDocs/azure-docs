@@ -28,7 +28,7 @@ Azure CycleCloud makes it easy to create High Performance Computing (HPC) cluste
 * **Auto scale resources**: automatically adjust cluster size and components based upon job load, availability, and time requirements
 * **Create reports**: create reports on a number of metrics including cost, usage, and performance.
 * **Monitor and analyze**: collect and analyze performance data using visualization tools
-* **Create alerts**: create custom alerts that can warn of overruns, job outliers, workload problems
+* **Create alerts**: create custom alerts that can warn of overruns, job outliers, and workload problems
 * **Audit usage**: use audit and event logs to track usage across the organization
 * **Customize images**: use Azure Marketplace or custom images with pre-installed applications
 * **Template clusters**: use CycleCloud templates to share parameterized clusters with the community
@@ -37,7 +37,7 @@ Azure CycleCloud makes it easy to create High Performance Computing (HPC) cluste
 
 ## How Do I Use Azure CycleCloud?
 
-Azure CycleCloud is an installable web application that you can run on premise or in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates including schedulers (Grid Engine, Slurm, PBSPro, HTCondor), filesystems (Redis, Avere), containers (Docker, Singularity) and many scientific applications. Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for specific needs.
+Azure CycleCloud is an installable web application that you can run on premise or in your Azure subscription. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates including schedulers (Grid Engine, Slurm, PBSPro, HTCondor), filesystems (Redis, Avere), containers (Docker, Singularity) and many scientific applications. Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
 
 Once a cluster is created, you can manually add compute nodes and node arrays to handle the computational jobs that are submitted to the cluster. Alternatively, you can configure the cluster to dynamically adjust the compute resources to meet the job load. This allows you to limit cluster cost for reduced workloads and scale up the cluster to meet spikes in demand.
 
