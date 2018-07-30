@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -46,6 +46,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
  
 #### Portal
+- <!-- TBD - IS ASDK --> You cannot apply driver updates by using an OEM Extension package with this version of Azure Stack.  There is no workaround for this problem.
+ 
 - <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types were introduced with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
 - <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
