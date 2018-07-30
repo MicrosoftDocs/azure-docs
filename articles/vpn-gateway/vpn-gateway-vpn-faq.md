@@ -162,10 +162,6 @@ This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
-
-[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
-
 ## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
 
 This section applies to the Resource Manager deployment model.

@@ -26,4 +26,4 @@ The following legacy algorithms will also be deprecated for TLS on July 1, 2018:
 
 ### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
 
-[!INCLUDE [tls 1.2](../../includes/vpn-gateway-tls-include.md)]
+[!INCLUDE [tls 1.2](vpn-gateway-tls-include.md)]
