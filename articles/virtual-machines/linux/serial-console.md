@@ -57,7 +57,7 @@ The serial console functionality can be deactivated for specific VMs by disablin
 Access to Serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel security
-All data is sent back and forth is encrypted on the wire.
+All data that is sent back and forth is encrypted on the wire.
 
 ### Audit logs
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
@@ -84,34 +84,23 @@ SSH/RDP configuration issues | Access serial console and change settings | Linux
 Network lock down system| Access serial console via portal to manage system | Linux/Windows 
 Interacting with bootloader | Access GRUB/BCD via the serial console | Linux/Windows 
 
-## Accessing serial console for Linux
+## Accessing Serial console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Just by clicking in the portal on the Serial console section will provide access to the console. 
 
-### Access for RedHat 
-RedHat Images available on Azure have console access enabled by default. Single user mode in Red Hat requires root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
+### Access for Red Hat 
+Red Hat Images available on Azure have console access enabled by default. 
 
-1. Log in to the Red Hat system via SSH
-2. Enable password for root user 
- * `passwd root` (set a strong root password)
-3. Ensure root user can only log in via ttyS0
- * `edit /etc/ssh/sshd_config` and ensure PermitRootLog in is set to no
- * `edit /etc/securetty file` to only allow log in via ttyS0 
-
-Now if the system boots into single user mode you can log in via root password.
-
-Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
+### Access for CentOS
+CentOS images available on Azure have console access enabled by default. 
 
 ### Access for Ubuntu 
-Ubuntu images available on Azure have console access enabled by default. If the system boots into Single User Mode you can access without additional credentials. 
+Ubuntu images available on Azure have console access enabled by default.
 
 ### Access for CoreOS
 CoreOS images available on Azure have console access enabled by default. If necessary system can be booted into Single User Mode via changing GRUB parameters and adding `coreos.autologin=ttyS0` would enable core user to log in and available in serial console. 
 
 ### Access for SUSE
 SLES images available on Azure have console access enabled by default. If you are using older versions of SLES on Azure, follow the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. Newer Images of SLES 12 SP3+ also allows access via the serial console in case the system boots into emergency mode.
-
-### Access for CentOS
-CentOS images available on Azure have console access enabled by default. For Single User Mode, follow instructions similar to Red Hat Images above. 
 
 ### Access for Oracle Linux
 Oracle Linux images available on Azure have console access enabled by default. For Single User Mode, follow instructions similar to Red Hat Images above.
@@ -121,8 +110,82 @@ To enable serial console for your custom Linux VM image, enable console access i
 
 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
+## GRUB access and Single User Mode access
+Single user mode is a minimal environment minimal functionality. It can be useful for investigating boot issues or network issues. Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
+
+You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. 
+
+### Access for Red Hat Enterprise Linux (RHEL)
+
+#### GRUB access
+RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up.
+
+#### Setting up root access for single user mode
+Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
+
+1. Log in to the Red Hat system via SSH
+1. Switch to root
+1. Enable password for root user 
+    * `passwd root` (set a strong root password)
+1. Ensure root user can only log in via ttyS0
+    * `edit /etc/ssh/sshd_config` and ensure PermitRootLogIn is set to no
+    * `edit /etc/securetty file` to only allow log in via ttyS0 
+
+Now if the system boots into single user mode you can log in via root password.
+
+Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
+
+#### Manually entering single user mode
+If you have set up GRUB and root access with the instructions above, then you can enter single user mode with the following instructions:
+
+1. Run `sudo reboot` to restart the VM
+1. Press 'Esc' while restarting the VM to enter GRUB
+1. In GRUB, press 'e' to edit the selected OS you want to boot into (usuall the first line)
+1. Find the kernel line - in Azure, this will start with `linux16`
+1. Press Ctrl + E to go to the end of the line
+1. Add the following to the end of the line: `systemd.unit=rescue.target`
+    * This will boot you into single user mode. If you want to use emergency mode, add `systemd.unit=emergency.target` to the end of the line instead of `systemd.unit=rescue.target`
+1. Press Ctrl + X to exit and reboot with the applied settings
+1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above
+
+#### Single user mode without root account enabled
+If you did not go through the steps above to enable the root user, you can still enter single user mode, but the steps are slightly different. Use the following instructions:
+
+1. Run `sudo reboot` to restart the VM
+1. Press 'Esc' while restarting the VM to enter GRUB
+1. In GRUB, press 'e' to edit the selected OS you want to boot into (usuall the first line)
+1. Find the kernel line - in Azure, this will start with `linux16`
+1. On this line, replace the `ro` with `rw init=sysroot/bin/sh`
+1. Press Ctrl + X to exit and reboot with the applied settings
+1. Once you boot into single user mode, type in `chroot /sysroot/` to set the root directory
+1. You are now root. Type `reboot -f` to reboot once you are done
+
+
+### Access for CentOS
+Much like Red Hat Enterprise Linux, single user mode in CentOS requires GRUB and the root user to be enabled. 
+
+#### GRUB access
+CentOS comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up.
+
+#### Single user mode
+Follow the instructions for RHEL above to enable single user mode in CentOS.
+
+### Access for Ubuntu 
+Ubuntu images do not require a root password. If the system boots into single user mode, you can use it without additional credentials. 
+
+#### GRUB access
+To access GRUB, press and hole 'Esc' while the VM is booting up.
+
+#### Single user mode
+To manually enter single user mode, use the following instructions:
+
+1. From GRUB, press 'e' to edit your boot entry (the Ubuntu entry)
+1. Look for the line that starts with `linux`, then look for `ro`
+1. Add `single` after `ro`, ensuring there is a space before and after `single`
+1. Press Ctrl + X to reboot with these settings and enter single user mode
+
 ## Errors
-Most errors are transient in nature and retrying connection address these. Below table shows a list of errors and mitigation 
+Most errors are transient in nature and retrying the serial console connection often addresses these. Below table shows a list of errors and mitigation 
 
 Error                            |   Mitigation 
 :---------------------------------|:--------------------------------------------|
