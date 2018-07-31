@@ -51,7 +51,6 @@ Configuration attributes in the "cycle_server" namespace are available for any n
 | cycle_server.use_https              | Enable or disable https support. Default: true                                                                                           |
 | cycle_server.broker_port            | The port for the AMQP broker packaged with CycleServer. Default: 5672                                                                    |
 | cycle_server.home                   | The location on the filesystem to install CycleServer. Default: /mnt/cycle_server                                                        |
-| cycle_server.license                | A license string containing a CycleServer license to use. Default: A basic CycleServer license is included if this attribute is not set. |
 | cycle_server.webserver_heap_size    | The size of the CycleServer webserver heap, expressed in megabytes (including “M”). Default: half of the instance’s total memory.        |
 
 ## GridEngine

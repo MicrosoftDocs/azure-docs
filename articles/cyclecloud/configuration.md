@@ -12,8 +12,7 @@ ms.author: a-kiwels
 
 # Configuring Azure Credentials
 
-## Cloud Provider
-Once CycleCloud has been installed and configured, you will need to connect it with your Azure account.
+Once Azure CycleCloud has been installed, you will need to add valid Azure credentials to use the software.
 
 To begin, click on **Clusters** in the top menu bar. A notice will appear that you currently do not have a cloud provider set up.
 
@@ -21,67 +20,34 @@ To begin, click on **Clusters** in the top menu bar. A notice will appear that y
 
 Click the link to add your credentials.
 
-## Configuration
+## Account Information
 
 You will need to configure your Azure account for CycleCloud by generating access credentials, configuring network settings, and enabling certain services. CycleCloud uses the credentials you provide to provision infrastructure.
 
-![Create Cloud Provider Account window](~/images/create_azure.png)
+![Create Cloud Provider Account window](~/images/validate-credentials.png)
 
-Enter a descriptive name for your cloud provider setup, such as "My Azure Account". From the drop-down, select Microsoft Azure as the provider. Enter the Subscription ID, Tenant ID, Application ID, and Application Secret (all of which are provided when you create the Service Account in Azure).
-Add the Storage Account and a Storage Container name to use for storing configuration and application data for your cluster. If it does not already exist, the container will be created.
+Enter a descriptive name for your cloud provider setup, such as "My Azure Account". You can choose to have this account be the default used for new clusters by checking the "Set Default" box. From the dropdown, select your Cloud Environment or leave "Azure Public Cloud" as the default. Enter the Tenant ID, Application ID, Application Secret, and Subscription ID (all of which are provided when you create the Service Account in Azure).
 
-If this Microsoft Azure account will be your main cloud provider for CycleCloud, check the "Set Default" option. Once you have completed setting the parameters for your Azure account, click **Save** to continue.
+Once you have added the credentials for your Azure account, click **Validate Credentials** to verify the information. If successful, a "Test Succeeded" message will appear.
+
+## Azure Resources
+
+Once your account credentials have been validated, you will be able to enter or select the resources to be used with Azure CycleCloud. Using the dropdown menus, choose a **Default Location** for your resources.
+
+Next, select your **Resource Group** and **Storage Account**. If the Storage Account doesn't exist, you can create it here. Finally, enter a **Storage Container**. This will be created if it does not exist within your account.
+
+This information is required to start using CycleCloud, but can be changed at any time via [cluster template](cluster-templates.md).
 
 ## Requirements
 
 You will need the following:
 
 - A Microsoft Azure account with an active subscription
-- An Application Registration with Contributor access for the Subscription used with CycleCloud
-- A Network Security Group set up to allow CycleCloud to communicate with Azure
-- A [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for CycleCloud
+- An [Application Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api) with [Contributor access](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) for the Subscription used with CycleCloud
+- A [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group) set up to allow CycleCloud to communicate with Azure
+- A [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) for CycleCloud
 
-Azure uses a subscription ID and authentication certificate for account validation. You can download these in a .publishsettings format using `Get-AzurePublishSettingsFile`. This format easily integrates with CycleCloud.
-
-### Creating the Azure Application Registration
-
-1. Log into your [Azure Dashboard](https://portal.azure.com)
-2. From the left menu, open **Azure Active Directory**
-3. Click on **App Registrations**, then **+ New Application Registration**
-4. Give your application a unique name (i.e. "MyAzureApplication")
-5. Choose "Web App/API" as the Type
-6. The Sign-on URL is a required field, but not used by CycleCloud. Enter `http://localhost` so the form will accept your request.
-7. Click **Create**
-8. Once your application has been created, click on it to load the app information. From here, click on **Settings**, then **Keys**.
-
-    * Enter a descriptive name for your key, such as "MyCycleCloudKey"
-    * Select a duration for your key to be valid: 1-year, 2-years, or Never Expires
-    * Your key will not be displayed until it has been saved. Click the button at the top of the pane:
-
-![Azure Key Generation screen](~/images/azure_key_gen.png)
-
-> [!WARNING]
->You can only view this key once! If you leave this page, you will no longer be able to access the key, which is needed to configure CycleCloud as the "Application Secret". Copy it now and save it somewhere secure.
-
-After you've saved your key, go back to the app information panel. From here, copy the **Application ID**. This will be used in CycleCloud, along with the key saved in the previous step.
-
-### Assigning the Contributor Role
-
-To give CycleCloud the required access to your Azure Application Registration, you will need to set the service account (application) you just created up as a Contributor. To change the Application Registration Role:
-
-1. From the left menu, click on "Subscriptions" (or All Services - Subscriptions)
-2. Click on the appropriate subscription
-3. Select **Access Control (IAM)**
-
-![Access Control screen](~/images/azure_iam.png)
-
-4. Click **+ Add**. On the new panel that appears, click on **Contributor** to set the role.
-5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
-
-> [!NOTE]
->You must be the owner or have owner rights of the subscription to assign the Contributor role.
-
-### Creating a Network Security Group
+### Network Security Group Settings
 
 From your Azure Dashboard, click on **Network Security Groups**. If you don't see the option, click on **All Services** and search for or scroll down to **Network Security Groups**.
 
@@ -134,7 +100,7 @@ Your Virtual Network requires a subnet, and your Network Security Group assigned
 
 ### Information Location
 
-The information you need from Microsoft Azure to get it working within CycleCloud can be a little difficult to locate. Here's a list of what you'll need, and where to find it:
+Here's a list of what you'll need and where to find it:
 
 - Application ID: Click on Dashboard - Azure Active Directory - App Registrations - the Application ID
 - Application Secret: This is the secret key that you saved when creating your Application Registration
