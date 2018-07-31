@@ -103,7 +103,7 @@ IoT Hub identity registry operations are not supposed to be run-time operations,
 For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 
 ## Auto-scale
-If you are approaching or exceeding the message capacity in your IoT Hub, you can follow these [steps](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to monitor if the message count has exceeded a set threshold and automatically scale the IoT Hub to the next unit of capacity. 
+If you are approaching the allowed message limit on your IoT Hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
 
 ## Sharding
 While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case you can partition your devices across multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
