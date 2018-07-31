@@ -39,7 +39,7 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
