@@ -77,8 +77,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+# Install Module Version 1.4.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.4.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -97,7 +97,7 @@ If the installation is successful, the AzureRM and AzureStack modules are displa
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]  
-> The release of the Azure Stack 1.3.0 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+> The release of 1.4.0 AzureStack module does not have any breaking changes with the earlier version 1.3.0. Please refer to the [release notes](https://aka.ms/azspsh140release) for the changes in release 1.4.0. However the version 1.3.0 os AzureStack module has a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 
@@ -116,7 +116,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0 
    ```
 
   > [!Important]  
