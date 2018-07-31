@@ -36,3 +36,6 @@ You can add any of the following methods, including:
 |[Manage app passwords](security-info-app-passwords.md)|Describes how to set up app passwords using security info.|
 |[Manage your security info](security-info-manage-settings.md)|Describes how to update your security info and work with your app passwords.|
 |[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified method.|
+
+>[!Note]
+>For more detailed information about each of the available authentication methods, see [What are authentication methods?](../authentication/concept-authentication-methods).
