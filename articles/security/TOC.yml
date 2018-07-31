@@ -206,6 +206,16 @@
     items:
     - name: Health Data and AI
       href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    items:
+      - name: Data analytics
+        href: ./blueprints/nist171-analytics-overview.md
+      - name: Data warehouse
+        href: ./blueprints/nist171-datawarehouse-overview.md
+      - name: IaaS web application
+        href: ./blueprints/nist171-iaaswa-overview.md
+      - name: PaaS web application
+        href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
     items:
     - name: Data analytics

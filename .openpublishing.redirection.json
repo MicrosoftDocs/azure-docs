@@ -14371,13 +14371,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
             "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
-            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin",
             "redirect_document_id": false
         },
         {
@@ -26538,6 +26543,11 @@
         {
             "source_path": "articles/security/azure-security-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
+            "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
             "redirect_document_id": true
         }
     ]
