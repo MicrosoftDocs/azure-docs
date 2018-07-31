@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
 ---
@@ -28,7 +28,7 @@ If you don't have an Event Hubs namespace, you first need to create one. If you 
 
 The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the **Configure** tab for your Event Hubs namespace. 
 
-To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
 ### Via the Azure portal
 1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
@@ -47,8 +47,9 @@ To update the Activity Log log profile to include streaming, the user who's maki
    > If you select anything other than **All regions**, you'll miss key events that you expect to receive. The Activity Log is a global (non-regional) log, so most events do not have a region associated with them. 
    >
 
-4. Select **Save** to save these settings. The settings are immediately applied to your subscription.
-5. If you have several subscriptions, repeat this action and send all the data to the same event hub.
+4. Click the **Azure Event Hubs** option, and select an event hubs namespace to which logs should be sent, then click **OK**.
+5. Select **Save** to save these settings. The settings are immediately applied to your subscription.
+6. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell cmdlets
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
