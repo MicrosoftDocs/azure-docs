@@ -15,7 +15,7 @@ ms.author: larryfr
 
 ---
 
-# Connect HDInsight to your on-premise network
+# Connect HDInsight to your on-premises network
 
 Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 

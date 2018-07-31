@@ -3,7 +3,7 @@ title: Azure Event Hubs bindings for Azure Functions
 description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Azure Event Hubs bindings for Azure Functions
@@ -297,8 +297,11 @@ Here's the JavaScript code:
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
     
-    eventHubMessages.forEach(message => {
+    eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
+        context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
+        context.log(`SequenceNumber = ${context.bindingData.sequenceNumberArray[index]}`);
+        context.log(`Offset = ${context.bindingData.offsetArray[index]}`);
     });
 
     context.done();
@@ -340,7 +343,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - event metadata
 
-The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -363,6 +366,8 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 ## Output
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
+
+Ensure the required package references are in place: [Functions 1.x](#packages---functions-1.x) or [Functions 2.x](#packages---functions-2.x) 
 
 ## Output - example
 

@@ -185,6 +185,6 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [U-SQL Avro example]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
 
-[lnk-iot-sa-land]: ../iot-accelerators/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.yml
 [IoT Hub developer guide]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

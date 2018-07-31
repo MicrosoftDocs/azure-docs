@@ -139,7 +139,6 @@ Add the following `using` statements at the top of the **Program.cs** file:
     ```
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
-    ```
 
 ## Run the apps
 

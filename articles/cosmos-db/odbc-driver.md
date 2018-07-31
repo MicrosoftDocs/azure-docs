@@ -20,6 +20,9 @@ The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using 
 
 The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in Azure Cosmos DB. Using the driver, you can represent data in Azure Cosmos DB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
 
+> [!NOTE]
+> Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB SQL API accounts only.
+
 ## Why do I need to normalize my data?
 Azure Cosmos DB is a schemaless database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
 
@@ -60,7 +63,7 @@ Now lets get started with the ODBC driver.
 4. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 5. Click **Advanced Options** and set the following values:
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
-    - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
+    - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
         - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.

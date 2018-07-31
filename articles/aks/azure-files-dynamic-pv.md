@@ -2,13 +2,13 @@
 title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -44,7 +44,7 @@ A storage class is used to define how an Azure file share is created. A specific
 
 For more information on Kubernetes storage classes for Azure files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Create a file named `azure-file-sc.yaml` and copy in the following manifest. Update the `storageAccount` with the name of your target storage account.
+Create a file named `azure-file-sc.yaml` and copy in the following manifest. Update the `storageAccount` with the name of your target storage account. See the [Mount options] section for more information on `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -52,8 +52,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Create the storage class with the [kubectl apply][kubectl-apply] command.
@@ -204,3 +209,4 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

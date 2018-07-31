@@ -78,7 +78,7 @@ Example:
         
     * By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units per second (RU/sec). Before you start the migration by using mongoimport, mongorestore, or mongomirror, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If your collection is greater than 10 GB, make sure to create a [sharded/partitioned collection](partition-data.md) with an appropriate shard key.
 
-    * From the [Azure portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection just for the migration. With the higher throughput, you can avoid throttling and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
+    * From the [Azure portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection just for the migration. With the higher throughput, you can avoid rate limiting and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
 
     * In addition to provisioning RUs/sec at the collection level, you may also provision RU/sec for a set of collections at the parent database level. This requires pre-creating the database and collections, as well as defining a shard key for each collection.
 

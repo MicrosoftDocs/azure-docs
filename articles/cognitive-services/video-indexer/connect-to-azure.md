@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ When using a Video Indexer free trial account, you're limited by the quota and n
 
 * An Azure Active Directory (AD) domain. 
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription.
+    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
 * A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
 
@@ -34,7 +34,7 @@ When using a Video Indexer free trial account, you're limited by the quota and n
         
         ![all AAD users](./media/create-account/all-aad-users.png)
 
-    *  Be a member in your Azure subscription with either an Owner role, or both Contributor and User Access Administrator roles.
+    *  Be a member in your Azure subscription with either an Owner role, or both Contributor and User Access Administrator roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
 
         ![access control](./media/create-account/access-control-iam.png)
 

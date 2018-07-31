@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
-
+ms.component: na
 ---
+
 # Assess Service Fabric applications and micro-services with the Azure portal
 
 > [!div class="op_single_selector"]

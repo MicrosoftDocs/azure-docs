@@ -31,9 +31,6 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 > [!NOTE]
 > For more information, see [Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory](connector-azure-sql-data-warehouse.md).
->
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you're using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in Azure Data Factory version 1](v1/data-factory-data-movement-activities.md).
-
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -53,7 +50,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadSQLDWDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
     * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Select **V2 (Preview)**.
+    * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. These data stores include Azure Data Lake Store, Azure Storage, Azure SQL Database, and so on.
 
 3. Select **Create**.

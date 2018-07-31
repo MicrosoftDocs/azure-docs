@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Reserved Instances - Azure Billing | Microsoft Docs
+title: Manage Azure Reserved VM Instances | Microsoft Docs
 description: Learn how you can change subscription scope and manage access for Azure Reserved VM Instances. 
 services: billing
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: vikdesai
 ---
-# Manage reserved instances
+# Manage reserved instances in Azure
 
-After you buy an Azure Reserved VM Instance, you may want to apply the reserved instance to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reserved instance scope to shared. To maximize the reserved instance discount, make sure that the number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Azure Reserved Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
+After you buy an Azure Reserved VM Instance, you may want to apply the reserved instance to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reserved instance scope to shared. To maximize the reserved instance discount, make sure that the number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Azure reserved instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
 
 ## Change the scope for a reserved instance
- Your reserved instance discount applies to virtual machines that match your reserved instance and run within the reserved instance scope. The scope of a reserved instance can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reserved instance is matched to running virtual machines in the selected subscription. If you set the scope to shared, Azure matches the reserved instance to virtual machines that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reserved instance. To learn more, see [Pre-pay for VMs with Reserved Instances](https://go.microsoft.com/fwlink/?linkid=861721).
+ Your reserved instance discount applies to virtual machines that match your reserved instance and run within the reserved instance scope. The scope of a reserved instance can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reserved instance is matched to running virtual machines in the selected subscription. If you set the scope to shared, Azure matches the reserved instance to virtual machines that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reserved instance. To learn more, see [Pre-pay for VMs with reserved instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 To update the scope of a reserved instance: 
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -73,10 +73,10 @@ To delegate access management for a reserved instance:
 7. Select the user, and then select **Save**.
 
 ## Next steps
-To learn more about Azure Reserved Instances, see the following articles:
+To learn more about Azure reserved instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with reserved instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [What are Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)

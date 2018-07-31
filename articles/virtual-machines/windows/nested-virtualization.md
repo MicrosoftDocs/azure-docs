@@ -19,7 +19,7 @@ ms.workload: infrastructure
 
 Nested virtualization is supported in the Dv3 and Ev3 series of Azure virtual machines. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments. 
 
-This article steps through enabling nested virtualization on an Azure VM and configuring Internet connectivity to that guest virtual machine.
+All Dv3 and Ev3 series virtual machines support nested virtualization with no added configuration.  This article steps through enabling Hyper-V on an Azure VM and configuring Internet connectivity to that guest virtual machine.
 
 ## Create a Dv3 or Ev3 series Azure VM
 

@@ -262,7 +262,7 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 In this section, test your Azure AD single sign-on configuration by using the access panel.
 
 When you select the Central Desktop tile in the access panel, you automatically get signed in to your Central Desktop application.
-For more information about the access panel, see [Introduction to the access panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the access panel, see [Introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

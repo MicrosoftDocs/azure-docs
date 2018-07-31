@@ -21,7 +21,7 @@ ms.author: ellacroi
 # Azure Marketplace Consulting Services
 Consulting Services in Azure Marketplace provides Microsoft partners the goal of connecting customers with services to support and extend their use of Azure. The Azure Marketplace supports the listing of consulting-service offerings from System Integrator (SI) partners of Microsoft. 
 
-These consulting-service offerings are customer-specific engagements. They're fixed in scope and duration, can be fixed-price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
+These consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type and with fixed scope and duration, either fixed-price or free, and have a defined deliverables to the customer. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
 
 ## Consulting Services in Azure Marketplace vs AppSource Storefront
 The marketplace storefronts are aligned with audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
@@ -34,7 +34,8 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 |In Product Experience  	|Azure Management Portal|Dynamics 365, Office 365, Office Client Apps| 
 |Other  	|On-Premises Publishing Via Azure Stack|Consulting Services for Dynamics and Power BI|
 
-Consulting Services in Azure Marketplace should leverage offerings geared towards a technical audience with focuses on Azure technical solutions and services.
+>[!Note]
+>Consulting Services in Azure Marketplace should leverage offerings geared towards a technical audience with focuses on *Azure technical solutions and services.*
 
 
 Service offers that are based on Microsoft Dynamics 365, Office 365, and Power BI are eligible to be listed on AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
@@ -68,8 +69,17 @@ SI partners can submit consulting-service offerings for the following 18 countri
 
 The launch of Azure Marketplace consulting services will go live first for Australia, Canada, the United Kingdom, and the United States. The catalogs for other countries will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
+## How To Register For Consulting Services in Azure Marketplace
+Start by registering your consulting services with [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
+
+**What To Expect After Registration**
+The Onboarding Team will reach out in 1-3 business days with a welcome email which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
+
+>[!Note]
+>Partners only need to register once to become a publisher. Once you receive your welcome email and Cloud Partner Portal login, publishers do not need to re-register in order to publish different listing types. 
+
 ## Prepare Your Publishing Artifacts
-Even before you nominate your service, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
+Prior to registration, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 |Set up for new publishers  |
 |---------|
@@ -140,3 +150,14 @@ When reviewing Offer Descriptions and Offer Summaries, the team will apply the f
 |Workshop    |   Include a detailed agenda daily, weekly, or monthly, depending on the chosen duration of your offering. Articulate what the learning goals or other deliverables are of your workshop     |   Optimize your offer summary with your top Search Engine optimization keywords      |
 
 Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 
+
+**Sample Markdown Notes**
+*	Add * at beginning and end of copy block - with no space to create italics (Ex: *content*)
+* Include line break after ":" colon
+*	Space after "*" for bullets (Ex: *(space)Content)
+*	 ### space for heading (Ex: ###(space)Agenda/Deliverables)
+*	Line break after heading
+*	** = bold (No space) (Ex: **No Space**)
+•	Italicize Offer Summary
+•	Agenda and Deliverables is a Heading
+

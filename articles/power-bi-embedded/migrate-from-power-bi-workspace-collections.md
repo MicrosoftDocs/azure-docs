@@ -113,17 +113,17 @@ Cached datasets refer to PBIX files that had imported data as opposed to a live 
 
 **Flow**
 
-1. Call GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources and save connection string received.
+1. Call GET `https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources` and save connection string received.
 2. Call Download PBIX API from your Power BI Workspace Collection workspace.
 3. Save PBIX.
 4. Call Import PBIX for your Power BI Embedded workspace.
-5. Update connection string by calling - POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
-6. Get GW ID and datasource ID by calling - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
-7. Update user's credentials by calling - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
+5. Update connection string by calling - POST  `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections`
+6. Get GW ID and datasource ID by calling - GET `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources`
+7. Update user's credentials by calling - PATCH `https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}`
 
 #### Old dataset and reports
 
-Reports uploaded before October 2016 don't support the Download PBIX feature.
+Reports uploaded before October 2016 don't support the Download PBIX feature. 
 
 **Flow**
 

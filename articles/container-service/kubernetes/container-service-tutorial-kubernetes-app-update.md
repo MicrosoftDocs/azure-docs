@@ -96,7 +96,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## Deploy update application
 
-To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify this configuration with the [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
 ```bash
 kubectl get pod
@@ -119,13 +119,13 @@ If you do not have multiple pods running the azure-vote-front image, scale the `
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-To update the application, use the [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) command. Update `<acrLoginServer>` with the login server or host name of your container registry.
+To update the application, use the [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set) command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
 ```azurecli-interactive
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
+To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
 
 ```azurecli-interactive
 kubectl get pod

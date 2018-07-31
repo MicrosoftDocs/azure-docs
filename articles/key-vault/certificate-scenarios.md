@@ -118,5 +118,5 @@ Note - This process, through step 3.1, is a onetime operation.
   (5) - Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
 ## See Also
-- [Certificate operations](/rest/api/keyvault/certificate-operations.md)
+- [Certificate operations](/rest/api/keyvault/certificate-operations)
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)

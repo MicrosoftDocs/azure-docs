@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to your Bamboo  on premise server as an administrator.
+7. In a different web browser window, log in to your Bamboo  on-premises server as an administrator.
 
 8. Hover on cog and click the **Add-ons**.
 
@@ -254,7 +254,7 @@ To enable Azure AD users to log in to Bamboo, they must be provisioned into Bamb
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Bamboo on premise server as an administrator.
+1. Log in to your Bamboo on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
@@ -311,7 +311,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Kantega SSO for Bamboo tile in the Access Panel, you should get automatically signed-on to your Kantega SSO for Bamboo application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

@@ -166,7 +166,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 - [Workflows](../expressroute/expressroute-workflows.md)
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance?
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 
@@ -250,7 +250,7 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 ### How do I synchronize data between SQL Database and SQL Server?
 You have several ways to achieve this: 
 - **[Data Sync](sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premise to Azure SQL DB with the on-premise being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premise to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 Learn about [SQL Database](sql-database-technical-overview.md).

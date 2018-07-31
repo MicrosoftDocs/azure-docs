@@ -52,7 +52,7 @@ Here are the limits for a single logic app run:
 | Name | Limit | Notes | 
 |------|-------|-------| 
 | Run duration | 90 days | To change this limit, see [change run duration](#change-duration). | 
-| Storage retention | 90 days from the run's start time | To change this limit, see [change storage retention](#change-retention). | 
+| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). | 
 | Minimum recurrence interval | 1 second | | 
 | Maximum recurrence interval | 500 days | | 
 |||| 
@@ -62,8 +62,8 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-You can change this limit to a value between 7 days and 90 days. 
-To go above the maximum limit, 
+To change the default limit to between 7 days and 90 days, 
+follow these steps. If you need to go above the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
@@ -77,16 +77,18 @@ choose **Custom**.
 
 <a name="looping-debatching-limits"></a>
 
-## Looping and debatching limits
+## Concurrency, looping, and debatching limits
 
 Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Until iterations | 5,000 | | 
-| ForEach items | 100,000 | You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed. | 
-| ForEach Parallelism | 50 | The default is 20. <p>To change this default level in a ForEach loop, set the `runtimeConfiguration` property in the `foreach` action. <p>To sequentially run a ForEach loop, set the `operationOptions` property to "Sequential" in the `foreach` action. | 
+| Trigger concurrency | 50 | The default limit is 20. This limit describes the maximum number of logic app instances that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change trigger concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximum waiting runs | 100 | The default limit is 10. This limit describes the maximum number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. <p><p>To change the default limit to a value between 0 and 100 inclusively, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach items | 100,000 | This limit describes the maximum number of array items that a "for each" loop can process. <p><p>To filter larger arrays, you can use the [query action](../connectors/connectors-native-query.md). | 
+| Foreach iterations | 50 | The default limit is 20. This limit describes the maximum number of "for each" loop iterations that can run at the same time, or in parallel. <p><p>To change the default limit to a value between 1 and 50 inclusively, see [Change "for each" concurrency](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run "for each" loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn items | 100,000 | | 
+| Until iterations | 5,000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -96,12 +98,13 @@ Here are the limits for a single logic app run:
 Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
-| ----- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across more than one app as needed. | 
-| Actions concurrent outgoing calls | ~2,500 | Reduce the number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | Reduce the number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across more than one app as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes| 45,000 | Can distribute workload across more than one app as needed. | 
+| ---- | ----- | ----- | 
+| Action: Executions per 5 minutes | 300,000 | The default limit is 100,000. To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. | 
+| Action: Concurrent outgoing calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Concurrent incoming calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | You can distribute workload across more than one app as necessary. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute workload across more than one app as necessary. | 
+| Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. | 
 |||| 
 
 To go above these limits in normal processing, 
@@ -252,8 +255,8 @@ based on where your logic apps exist:
 
 | Logic Apps region | Outbound IP |
 |-------------------|-------------|
-| Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| Australia Southeast | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | Canada Central | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
 | Canada East | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
@@ -294,7 +297,7 @@ based on where your logic apps exist:
 | Japan West | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
 | North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
 | North Europe | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
-| South Central US | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| South Central US | 13.65.98.39, 13.84.41.46, 13.84.43.45 |
 | South India | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
 | West Central US | 52.161.26.172, 52.161.8.128, 52.161.19.82 |
@@ -324,8 +327,8 @@ based on the regions where your logic apps exist.
 | Australia East | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
 | Australia Southeast | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
 | Brazil South | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
-| Canada Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
-| Canada East | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Canada Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
+| Canada East | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
 | Central India | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
 | Central US | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
 | East Asia | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
@@ -338,13 +341,13 @@ based on the regions where your logic apps exist.
 | South Central US | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
 | South India | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
 | Southeast Asia | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
-| West Central US | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| West Central US | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | West Europe | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
 | West India | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
 | West US | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
-| West US 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
-| UK South | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
-| UK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
+| West US 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
+| UK South | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| UK West | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## Next steps  

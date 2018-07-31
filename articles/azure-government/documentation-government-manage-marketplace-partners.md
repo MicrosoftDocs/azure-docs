@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/08/2018
+ms.date: 07/13/2018
 ms.author: gsacavdm
 
 ---
@@ -35,6 +35,7 @@ Once a solution has been published, customers can deploy it into their own subsc
 Currently, the Azure Government Marketplace only supports the following offers:
 
 * Virtual Machines > Bring your Own License
+* Virtual Machines > Pay-as-you-Go
 * Azure Application > Solution Template
 
 If there are other offer types you'd like to see supported in Azure Government, let us know via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).

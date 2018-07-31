@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/28/2018
 ms.author: jingwang
 
 ---
 #  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version 2: Preview](connector-azure-sql-data-warehouse.md)
+> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Current version](connector-azure-sql-data-warehouse.md)
 
 This article explains how to use Copy Activity in Azure Data Factory to copy data to or from Azure SQL Data Warehouse. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, currently in preview. If you use version 1 of the Data Factory service, which is generally available (GA), see [Azure SQL Data Warehouse connector in V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## Supported capabilities
 
@@ -400,9 +397,9 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
-   2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
+   2. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
    3. `encodingName` is set to **utf-8**, which is the default value.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` aren't specified.
+   4. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    5. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 	```json
@@ -413,7 +410,8 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 	       "columnDelimiter": "<any delimiter>",
 	       "rowDelimiter": "\n",
 	       "nullValue": "",
-	       "encodingName": "utf-8"
+	       "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
 	   },
 	   "compression": {
 	       "type": "GZip",
@@ -421,9 +419,6 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 	   }
 	},
 	```
-
-3. There's no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for Copy Activity in the pipeline.
-4. There's no `sliceIdentifierColumnName` setting under **SqlDWSink** for Copy Activity in the pipeline. PolyBase guarantees that all data is updated, or nothing is updated in a single run. To achieve **repeatability**, use `sqlWriterCleanupScript`.
 
 ```json
 "activities":[

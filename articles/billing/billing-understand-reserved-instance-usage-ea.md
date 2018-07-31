@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Reserved Instance usage for Enterprise - Azure Billing | Microsoft Docs
+title: Understand Azure reserved instance usage for Enterprise | Microsoft Docs
 description: Learn how to read your usage to understand how the Azure Reserved VM Instance for your Enterprise enrollment is applied.
 services: 'billing'
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.date: 05/09/2018
 ms.author: manshuk
 
 ---
-# Understand Azure Reserved Instance usage for your Enterprise enrollment
+# Understand Azure reserved instance usage for your Enterprise enrollment
 Understand utilization of a reserved instance by using the **ReservationId** from [Reservations page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [EA portal](https://ea.azure.com). You can also see the reserved instance usage in the usage summary section of [EA portal](https://ea.azure.com).
 
 >[!NOTE]
->If you bought the reserved instance in a Pay-As-You-Go billing context, see [Understand Reserved Instance usage for your Pay-As-You-Go subscription.](billing-understand-reserved-instance-usage.md)
+>If you bought the reserved instance in a Pay-As-You-Go billing context, see [Understand reserved instance usage for your Pay-As-You-Go subscription.](billing-understand-reserved-instance-usage.md)
 
 For the following section, assume that you are running a Standard_D1_v2 Windows VM in the east US region and your reserved instance information looks like the following table:
 
@@ -40,7 +40,7 @@ The hardware portion of the VM is covered because the deployed VM matches the re
 ### Reserved instance usage in csv
 You can download the EA usage csv from EA portal. In the downloaded csv file, filter on additional info and type in your **ReservationID**. The following screenshot shows the fields related to the reserved instance:
 
-![Enterprise Agreement (EA) csv for Azure Reserved Instance](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+![Enterprise Agreement (EA) csv for Azure reserved instance](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
 1. **ReservationId** in Additional Info field represents the reserved instance that was used to apply benefit to the VM.
 2. ConsumptionMeter is the MeterId for the VM.
@@ -58,10 +58,10 @@ Reserved instance usage also shows up in usage summary section of EA portal:
 ## Next steps
 To learn more about Azure reserved instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reserved instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [What are Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
+- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md)
 

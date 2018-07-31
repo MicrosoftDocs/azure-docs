@@ -110,7 +110,7 @@ public class Function {
 Change directory to the newly created project folder and build and run the function with Maven:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -168,7 +168,7 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output

@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Network Watcher
+title: Network Watcher Documentation
 metadata:
   document_id: 
-  title: Network Watcher 
+  title: Network Watcher Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   meta.description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   services: network-watcher
   author: jdial
   manager: jeconnoc
-  ms.service: virtual-network
+  ms.service: network-watcher
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

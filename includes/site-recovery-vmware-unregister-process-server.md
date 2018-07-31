@@ -12,11 +12,11 @@ The steps to unregister a process server differs depending on its connection sta
 > [!WARNING]
 > Use the below steps should be used if there is no way to revive the virtual machine on which the Process Server was installed.
 
-1. Log on to your configuration server as an Administrator.
+1. Sign in to your configuration server as an Administrator.
 2. Open an Administrative command prompt and browse to the directory `%ProgramData%\ASR\home\svsystems\bin`.
 3. Now run the command.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. This will purge the details of the process server from the system.
+4. This message is issued when the process server is successfully removed: **Successfully unregistered server-name> (server-IP-address)**.

@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/06/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -26,6 +26,8 @@ The following example creates a resource group named *gridResourceGroup* in the 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
 ```
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## Create a Custom Topic
 

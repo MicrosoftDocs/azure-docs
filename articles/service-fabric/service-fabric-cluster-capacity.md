@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
 
 ---
@@ -23,6 +23,10 @@ For any production deployment, capacity planning is an important step. Here are 
 * The number of node types your cluster needs to start out with
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
+
+> [!NOTE]
+> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
+> 
 
 Let us briefly review each of these items.
 
@@ -154,8 +158,10 @@ Since the capacity needs of a cluster is determined by workload you plan to run 
 
 For production workloads: 
 
+- It's recommended to dedicate your clusters primary NodeType to system services, and use placement constraints to deploy your application to secondary NodeTypes.
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
+- The 14 GB local SSD is a minimum requirement. Our recommendation is a minimum of 50 GB. For your workloads, especially when running Windows containers, larger disks are required. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
 

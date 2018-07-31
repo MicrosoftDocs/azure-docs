@@ -31,29 +31,7 @@ You can access the PowerShell cmdlets to enable backup, start backup, and get ba
 
 ## Prepare PowerShell environment
 
-For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md).
-
-## Generate a new encryption key
-
-Install and configured PowerShell for Azure Stack and the Azure Stack tools.
- - See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
- - See [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
-
-Open Windows PowerShell with an elevated prompt, and run the following commands:
-   
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-   ```
-   
-In the same PowerShell session, run the following commands:
-
-   ```powershell
-   $encryptionkey = New-EncryptionKeyBase64
-   ```
-
-> [!Warning]  
-> You must use the AzureStack-Tools to generate the key.
+For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Configure the operator environment and sign in to Azure Stack](azure-stack-powershell-configure-admin.md).
 
 ## Provide the backup share, credentials, and encryption key to enable backup
 
@@ -62,17 +40,31 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 | Variable        | Description   |
 |---              |---                                        |
 | $username       | Type the **Username** using the domain and username for the shared drive location with sufficient access to read and write files. For example, `Contoso\backupshareuser`. |
+| $key            | Type the **encryption key** used to encrypt each backup. |
 | $password       | Type the **Password** for the user. |
 | $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
 
    ```powershell
-    $username = "domain\backupoadmin"
-    $password = "password"
-    $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
-    $location = Get-AzsLocation
-    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+    $username = "domain\backupadmin"
+   
+    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
+    $password = ConvertTo-SecureString -String $Encrypted
     
-    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
+    $BackupEncryptionKeyBase64 = ""
+    $tempEncryptionKeyString = ""
+    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
+    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
+    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
+    $BackupEncryptionKeyBase64
+    
+    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
+    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
+    $key = ConvertTo-SecureString -String $Encryptedkey
+    
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  Confirm backup settings
@@ -80,19 +72,15 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 In the same PowerShell session, run the following commands:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
    ```
 
-The result should look like the following JSON output:
+The result should look like the following output:
 
-   ```json
-      {
-    "ExternalStoreDefault":  {
-        "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
-        "UserName":  "domain\backupoadmin",
-        "Password":  null
-       }
-   } 
+   ```powershell
+    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+    AvailableCapacity           : 60 GB
    ```
 
 ## Next steps

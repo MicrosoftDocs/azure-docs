@@ -79,8 +79,6 @@ To create a new project, use the following steps:
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
 
-    ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
-
     >[!NOTE] 
     > The REST API can be used to load training images from URLs.
 

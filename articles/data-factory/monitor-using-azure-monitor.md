@@ -21,9 +21,6 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 
 Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure. For details, see [monitoring overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure Diagnostic logs are logs emitted by a resource that provide rich, frequent data about the operation of that resource. Data Factory outputs diagnostic logs in Azure Monitor.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
-
 ## Persist Data Factory Data
 Data Factory only stores pipeline run data for 45 days. If you want to persist pipeline run data for more than 45 days, using Azure Monitor, you can not only route diagnostic logs for analysis, you can persist them into a storage account so you have factory information for the duration of your chossing.
 

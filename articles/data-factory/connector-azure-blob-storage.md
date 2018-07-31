@@ -14,14 +14,10 @@ ms.author: jingwang
 ---
 # Copy data to or from Azure Blob storage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Generally available](v1/data-factory-azure-blob-connector.md)
-> * [Version 2 - Preview](connector-azure-blob-storage.md)
+> * [Version 1](v1/data-factory-azure-blob-connector.md)
+> * [Current version](connector-azure-blob-storage.md)
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Blob storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Blob storage connector in version 1](v1/data-factory-azure-blob-connector.md).
-
 
 ## Supported capabilities
 

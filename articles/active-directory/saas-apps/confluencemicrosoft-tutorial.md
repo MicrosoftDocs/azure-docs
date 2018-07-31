@@ -39,7 +39,7 @@ Use your Microsoft Azure Active Directory account with Atlassian Confluence serv
 To configure Azure AD integration with Confluence SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription
-- Confluence server application installed on a Windows 64-bit server (on premise or on the cloud IaaS infrastructure)
+- Confluence server application installed on a Windows 64-bit server (on-premises or on the cloud IaaS infrastructure)
 - Confluence server is HTTPS enabled
 - Note the supported versions for Confluence Plugin are mentioned in below section.
 - Confluence server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -219,11 +219,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Confluence SAML SSO by Microsoft test user
 
-To enable Azure AD users to log in to Confluence on premise server, they must be provisioned into Confluence SAML SSO by Microsoft. For Confluence SAML SSO by Microsoft, provisioning is a manual task.
+To enable Azure AD users to log in to Confluence on-premises server, they must be provisioned into Confluence SAML SSO by Microsoft. For Confluence SAML SSO by Microsoft, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Confluence on premise server as an administrator.
+1. Log in to your Confluence on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
@@ -280,7 +280,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Confluence SAML SSO by Microsoft tile in the Access Panel, you should get automatically signed-on to your Confluence SAML SSO by Microsoft application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

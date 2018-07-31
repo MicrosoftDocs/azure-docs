@@ -3,7 +3,7 @@ title: VMware Monitoring solution in Log Analytics | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
@@ -49,7 +50,7 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. Check the vSphere Console to verify that that syslog is properly set up. Confirm on the ESXI host that port **1514** is configured.
+4. Check the vSphere Console to verify that syslog is properly set up. Confirm on the ESXI host that port **1514** is configured.
 5. Download and install the OMS Agent for Linux on the Linux server. For more information, see the [Documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
 6. After the OMS Agent for Linux is installed, go to the  /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d directory and the change the owner/group and permissions of the file. For example:
 

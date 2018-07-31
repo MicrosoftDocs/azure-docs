@@ -38,7 +38,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.CDN/profile
 |Executed Checks|
 |---|
-|<ul> <li>Has any of the endpoints been stopped, removed, or misconfigured?</li><li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
+|<ul> <li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
 
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
@@ -58,13 +58,13 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.datalakeanalytics/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users submit jobs to Data Lake Analytics in the region?</li><li>Do basic jobs run and complete successfully in the region?</li><li>Can users list catalog items in the region?</li>|
+|<ul><li>Have users experienced problems submitting or listing their Data Lake Analytics jobs?</li><li>Are Data Lake Analytics jobs unable to complete to system errors?</li></ul>|
 
 
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
+|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li><li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
 
 ## Microsoft.devices/iothubs
 
@@ -77,10 +77,15 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
+## Microsoft.KeyVault/vaults
+|Executed Checks|
+|---|
+|<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
+
 ## Microsoft.network/connections
 |Executed Checks|
 |---|
-|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premise device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
+|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|

@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install Ruby 2.3](https://www.ruby-lang.org/documentation/installation/)
+* [Install Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
 * [Install Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Install and run PostgreSQL](https://www.postgresql.org/download/)
 

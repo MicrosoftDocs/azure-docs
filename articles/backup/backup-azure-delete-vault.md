@@ -1,12 +1,12 @@
 ---
 title: Delete a Recovery Services vault in Azure '
 description: This article explains how to delete a Recovery Services vault. The article includes troubleshooting steps when you try to delete a vault, but can't.
-services: service-name
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
 ---
 # Delete a Recovery Services vault
@@ -71,7 +71,7 @@ To delete a Recovery Services vault:
 
 4. Run the following command to download the Azure Resource Manager Client package from chocolately.org.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Use the following command to install the Azure Resource Manager API Client.
 

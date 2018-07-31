@@ -3,17 +3,19 @@ title: Prebuilt domain reference - Azure| Microsoft Docs
 titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Prebuilt domain reference
-This reference provides information about the prebuilt domains, which are prebuilt collections of intents and entities that LUIS offers.
+This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
+
+[Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
@@ -147,7 +149,7 @@ The Entertainment domain provides intents and entities related to searching for 
 | ContentRating | Media content rating like G, or R for movies.|Kids video.<br/>PG rated.|
 | Genre | The genre of a movie, game, app or song.|Comedies<br/>Dramas<br/>Funny|
 | Keyword| A generic search keyword specifying an attribute the doesn't exist in the more specific media slots.|Soundtracks<br/>Moon River<br/>Amelia Earhart|
-| Language | Media content rating like G, or R for movies.|French<br/>English<br/>Korean|
+| Language | Language used in media, such as spoken language of movie or song.|French<br/>English<br/>Korean|
 | MediaFormat | The additional special technical type in which the media is formatted.|HD Movies<br/>3D movies<br/>Downloadable|
 | MediaSource | The store or marketplace for acquiring the media.|Netflix<br/>Prime|
 | MediaSubTypes| Media types smaller than movies and games.|Demos<br/>Dlc<br/>Trailers|
@@ -383,7 +385,7 @@ At what time does Safeway close?
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
+| AddFavoritePlace | Add a location to the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
 |CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
 |CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
 |CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|

@@ -48,7 +48,7 @@ There are several ways for your application to integrate with Azure AD. Take adv
 ### Promote Your Application in the Azure and Office 365 Marketplaces
 **Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers. Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](../active-directory-saas-access-panel-introduction.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement. Learn more about the [Azure AD access panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### Secure Device-to-Service and Service-to-Service Communication
 **Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs. Using Azure AD you can avoid writing complex authentication code. Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.

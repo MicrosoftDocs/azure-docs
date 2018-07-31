@@ -20,24 +20,20 @@ ms.custom:
 ---
 # Migrate an Azure CDN profile from Standard Verizon to Premium Verizon
 
-Azure Content Delivery Network (CDN) offers four different products, each of which offers different features: 
-- **Azure CDN Standard from Microsoft**
-- **Azure CDN Standard from Akamai**
-- **Azure CDN Standard from Verizon**
-- **Azure CDN Premium from Verizon**.
+When you create an Azure Content Delivery Network (CDN) profile to manage your endpoints, Azure CDN offers four different products for you to choose from. For information about the different products and their available features, see [Compare Azure CDN product features](cdn-features.md).
 
-If you're using an **Azure CDN Standard from Verizon** profile to manage your CDN endpoints, you have the option to upgrade it to an **Azure CDN Premium from Verizon** profile and preserve all of your data.
-
-To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+If you've create an **Azure CDN Standard from Verizon** profile and are using it to manage your CDN endpoints, you have the option to upgrade it to an **Azure CDN Premium from Verizon** profile. When you upgrade, your CDN endpoints and all of your data will be preserved. 
 
 > [!IMPORTANT]
 > Once you've upgraded to an **Azure CDN Premium from Verizon** profile, you cannot later convert it back to an **Azure CDN Standard from Verizon** profile.
 > 
 
+To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+
 ## Profile comparison
 **Azure CDN Premium from Verizon** profiles have the following key differences from **Azure CDN Standard from Verizon** profiles:
-- For certain Azure CDN features such as [compression](cdn-improve-performance.md), caching rules, and [geo filtering](cdn-restrict-access-by-country.md), you cannot use the Azure CDN interface, you must use the Verizon portal via the **Manage** button.
-- API: Unlike Standard Verizon, you cannot use the API to control those features that are accessed from the Premium Verizon portal. However, you can use the API to control other common features, such as creating/deleting an endpoint, purging/loading cached assets, and enabling/disabling a custom domain.
+- For certain Azure CDN features such as [compression](cdn-improve-performance.md), [caching rules](cdn-caching-rules.md), and [geo filtering](cdn-restrict-access-by-country.md), you cannot use the Azure CDN interface, you must use the Verizon portal via the **Manage** button.
+- API: Unlike with Standard Verizon, you cannot use the API to control those features that are accessed from the Premium Verizon portal. However, you can use the API to control other common features, such as creating/deleting an endpoint, purging/loading cached assets, and enabling/disabling a custom domain.
 - Pricing: Premium Verizon has a different pricing structure for data transfers  than Standard Verizon. For more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 **Azure CDN Premium from Verizon** profiles have the following additional features:
@@ -50,7 +46,5 @@ To upgrade an **Azure CDN Standard from Verizon** profile, contact [Microsoft Su
 
 
 ## Next steps
-For a detailed comparison of Azure CDN product features, see [Azure CDN product features](Compare Azure CDN product features).
-
 To learn more about the rules engine, see [Azure CDN rules engine reference](cdn-rules-engine-reference.md).
 

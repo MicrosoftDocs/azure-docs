@@ -51,6 +51,8 @@
       href: tutorial-prepare-azure.md
     - name: Migrate on-premises machines to Azure
       href: migrate-tutorial-on-premises-azure.md
+    - name: Migrate Windows Server 2008, 2008 R2 servers to Azure
+      href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
     - name: Migrate Azure VMs to another region
