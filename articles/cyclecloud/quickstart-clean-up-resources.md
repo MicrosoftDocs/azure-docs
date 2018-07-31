@@ -44,7 +44,7 @@ If you've gone through all four QuickStarts, you've covered the installation, se
 
 ## Further Reading
 
-* Learn more about [clusters and nodes](cluster.md)
+* Learn more about [clusters and nodes](clusters.md)
 * Explore [cluster templates](cluster-templates.md)
 * [Install CycleCloud manually](installation.md)
 * Build a [project](projects.md)
