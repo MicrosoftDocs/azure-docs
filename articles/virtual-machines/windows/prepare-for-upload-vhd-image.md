@@ -253,7 +253,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
     exit
    ```
-3. The Dump log can be helpful for troubleshooting Windows crash issues. Enable the Dump log collection:
+3. The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
 
     ```powershell
     cmd
