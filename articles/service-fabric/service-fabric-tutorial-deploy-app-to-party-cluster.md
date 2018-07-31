@@ -68,7 +68,7 @@ For this tutorial, there are two options to deploy the voting application to a S
 
 To publish the voting application to your own Azure subscription, find the endpoint of the front-end web service. If you use a party cluster, connect to port 8080 by using the automatically open voting sample. You don't need to configure it in the party cluster's load balancer.
 
-The front-end web service is listening on a specific port. When the application deploys to a cluster in Azure, both the cluster and the application run behind Azure Load Balancer. The application port must be opened by using a rule in Azure Load Balancer for the cluster. The open port sends inbound traffic through to the web service. The port is found in the **VotingWeb/PackageRoot/ServiceManifest.xml** file in the **Endpoint** element. An example is port 8080.
+The front-end web service is listening on a specific port. When the application deploys to a cluster in Azure, both the cluster and the application run behind an Azure Load Balancer instance. The application port must be opened by using a rule in the Azure Load Balancer for the cluster. The open port sends inbound traffic through to the web service. The port is found in the **VotingWeb/PackageRoot/ServiceManifest.xml** file in the **Endpoint** element. An example is port 8080.
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
@@ -124,7 +124,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 3. Select **Publish**.
 
-4. To get to your voting application in the cluster, open a browser and enter the cluster address followed by **:8080**. Or another port if one is configured. An example is `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
+4. To get to your voting application in the cluster, open a browser and enter the cluster address followed by **:8080**. Or enter another port if one is configured. An example is `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You see the application running in the cluster in Azure. In the voting web page, try adding and deleting voting options and voting for one or more of these options.
 
     ![Service Fabric voting sample](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
