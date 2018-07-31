@@ -84,7 +84,7 @@ Step 1. Create a file named PrivateConfig.json with the following content:
         "storageAccountKey" : "the key of the account"
     }
 
-Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### Scenario 2. Customize the performance monitor metrics
 

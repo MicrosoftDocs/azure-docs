@@ -4,7 +4,7 @@ title: Azure Active Directory Managed Service Identity Documentation
 metadata:
   document_id: 
   title: Azure Active Directory Managed Service Identity Documentation
-  description: Learn how to use Managed Service Identity (MSI) to securely authenticate to Azure cloud services without having to keep credentials in your source code.
+  description: Learn how to use Managed Service Identity to securely authenticate to Azure cloud services without having to keep credentials in your source code.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -16,12 +16,12 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.  Learn how to create and manage Managed Service Identities with our quickstarts and tutorials.
+  description: Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.  Learn how to create and manage Managed Service Identities with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to use Managed Service Identity (MSI) to access the Azure Resource Manager API'
+    text: 'Learn how to use Managed Service Identity to access the Azure Resource Manager API'
   - type: list
     style: unordered
     items:
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use Managed Service Identity (MSI) to securely access Azure resources
+    text: Learn how to use Managed Service Identity to securely access Azure resources
   - type: paragraph  
     text: Windows VM/VMSS
   - type: list

@@ -4,7 +4,6 @@ description: An overview of Azure page blobs and their benefits, including use c
 services: storage
 author: anasouma
 
-
 ms.service: storage
 ms.topic: article
 ms.date: 04/30/2018

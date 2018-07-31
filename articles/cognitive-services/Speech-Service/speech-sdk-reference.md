@@ -1,10 +1,9 @@
 ---
-title: Speech SDK reference | Microsoft Docs
+title: Speech SDK reference
 description: References for the Speech SDK.
 services: cognitive-services
 titleSuffix: "Microsoft Cognitive Services"
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

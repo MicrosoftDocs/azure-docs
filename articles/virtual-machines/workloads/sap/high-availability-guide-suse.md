@@ -226,7 +226,27 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Install SUSE Connector
    
    <pre><code>
-   sudo zypper install sap_suse_cluster_connector
+   sudo zypper install sap-suse-cluster-connector
+   </code></pre>
+
+   Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
+
+   <pre><code>
+   sudo zypper info sap-suse-cluster-connector
+   
+   Information for package sap-suse-cluster-connector:
+   ---------------------------------------------------
+   Repository     : SLE-12-SP3-SAP-Updates
+   Name           : sap-suse-cluster-connector
+   <b>Version        : 3.0.0-2.2</b>
+   Arch           : noarch
+   Vendor         : SUSE LLC <https://www.suse.com/>
+   Support Level  : Level 3
+   Installed Size : 41.6 KiB
+   <b>Installed      : Yes</b>
+   Status         : up-to-date
+   Source package : sap-suse-cluster-connector-3.0.0-2.2.src
+   Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
 1. **[A]** Update SAP resource agents  

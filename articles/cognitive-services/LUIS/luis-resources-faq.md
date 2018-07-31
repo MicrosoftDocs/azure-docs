@@ -7,7 +7,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -141,6 +141,12 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
+### Does Microsoft access my LUIS app data for its own purposes, for example, to enhance LUIS or Microsoft in general? 
+
+No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators. 
+
+Learn more about [user privacy](luis-reference-gdpr.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+
 ## Language and translation support 
 
 ### I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
@@ -169,20 +175,6 @@ If you select a LUIS template, and select the **Select** button in the template 
 ### Is LUIS available on-premises or in private cloud?
 No. 
 
-## Changes to the Docs
-
-### Where did the tutorials go? 
-The articles that were previously in the Tutorial section are now in the How-to section of the documents. 
-
-|Tutorial|
-|--|
-|Integrate LUIS with a bot with [C#](luis-csharp-tutorial-build-bot-framework-sample.md) and [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights.md) and [Node.js](luis-tutorial-function-appinsights.md)|
-|Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
-|Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
-|Improve prediction accuracy with a [phrase list](luis-quickstart-primary-and-secondary-data.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
-|[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
 
