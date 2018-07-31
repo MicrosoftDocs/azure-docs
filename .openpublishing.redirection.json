@@ -10897,7 +10897,17 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-servers-databases.md",
+            "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
+            "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
             "redirect_document_id": false
         },
         {
@@ -10942,7 +10952,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-deployment-options",
             "redirect_document_id": false
         },
         {
@@ -11022,7 +11032,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-logical-servers",
             "redirect_document_id": false
         },
         {

@@ -7,11 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 08/01/2018
 ms.author: carlrab
 
 ---
-# Learn how and when to shrink a database in Azure SQL Database to recover allocated but unused space
+# Manage file space in Azure SQL Database
+
+This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be managed by the customer.
+
+## Overview
 
 In Azure SQL Database, storage size metrics displayed in the Azure portal and the following APIs measure the number of used data pages for databases and elastic pools:
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
@@ -21,7 +25,7 @@ In Azure SQL Database, storage size metrics displayed in the Azure portal and th
 
 There are workload patterns in which the allocation of space in the underlying data files for databases becomes larger than the number of used data pages in the data files. This scenario can occur when space used increases and then data is subsequently deleted. When the data is deleted, the file space allocated is not automatically reclaimed when the data is deleted. In such scenarios, the allocated space for a database or pool may exceed supported max limits set (or supported) for the database and, as a result, prevent data growth or prevent performance tier changes, even though the database space actually used is less than the max space limit. To mitigate, you may need to shrink the database to reduce allocated but unused space in the database.
 
-The SQL Database service does not automatically shrink database files to reclaim unused allocated space due to the potential impact on database performance. However, you can shrink the file in a database at a time of your choosing by following the steps described in this article. 
+The SQL Database service does not automatically shrink database files to reclaim unused allocated space due to the potential impact on database performance. However, you can shrink the file in a database at a time of your choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
 > Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
@@ -33,21 +37,21 @@ To manage file space, you need to understand the following terms related to data
 |Storage space term|Definition|Comments|
 |---|---|---|
 |**Data space used**|The amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
-|**Space allocated**|The amount of formatted file space made available for storing database data|The space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted (reallocated).|
-|**Space allocated but unused**|The amount of unused data file space allocated.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
-|**Max size**|The maximum amount of data space that can be used.|The data space allocated cannot grow beyond the data max size.|
+|**Space allocated**|The amount of formatted file space made available for storing database data|The space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
+|**Space allocated but unused**|The amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
+|**Max size**|The maximum amount of data space that can be used by the database.|The data space allocated cannot grow beyond the data max size.|
 ||||
 
 The following diagram illustrates the relationship between the types of storage space.
 
 ![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
 
-## Querying an individual database for storage space information
+## Query a database for storage space information
 
 To determine if you have allocated but unused data space for an individual database that you may wish to reclaim, use the following queries:
 
 ### Database data space used
-Use the following T-SQL query to return the amount of database data space used in MB.
+Modify the following query to return the amount of database data space used in MB.
 
 ```sql
 -- Connect to master
@@ -59,7 +63,7 @@ ORDER BY end_time DESC
 ```
 
 ### Database data allocated and allocated space unused
-Use the following T-SQL query to return the amount of database data allocated and allocated space unused.
+Modify the following query to return the amount of database data allocated and allocated space unused.
 
 ```sql
 -- Connect to database
@@ -72,7 +76,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### Database max size
-Use the following T-SQL query to return the database max size in bytes.
+Modify the following query to return the database max size in bytes.
 
 ```sql
 -- Connect to database
@@ -84,7 +88,8 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 To determine if you have allocated but unused data space in an elastic pool and for each pooled database that you may wish to reclaim, use the following queries:
 
-Use the following T-SQL query to return the amount of elastic pool data space used in MB.
+### Elastic pool data space used
+Modify the following query to return the amount of elastic pool data space used in MB.
 
 ```sql
 -- Connect to master
@@ -95,7 +100,9 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-Use the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused.  
+### Elastic pool data allocated and allocated space unused
+
+Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused.  
 
 The query results for determining the space allocated for each database in the pool can be added together to the determine the elastic pool space allocated. The elastic pool space allocated should not exceed the elastic pool max size.  
 
@@ -148,6 +155,8 @@ The following screenshot is an example of the output of the script:
 
 ![elastic pool allocated space and unused allocated space example](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
+### Elastic pool max size
+
 Use the following T-SQL query to return the elastic database max size in MB.
 
 ```sql
@@ -159,7 +168,7 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-## Reclaim allocated space in individual databases
+## Reclaim unused allocated space
 
 Once you have determined that you have unused allocated space that you wish to reclaim, use the following command to shrink the database space allocated. 
 
