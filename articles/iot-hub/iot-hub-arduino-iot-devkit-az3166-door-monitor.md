@@ -107,7 +107,7 @@ Fill in the fields on the sign-up form.
 
    * **Iot Hub Sku**: F1 (limited to one per subscription) is free. You can see more pricing information on the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   * **From Email**: This should be the same email address you used when setting up the SendGrid service.
+   * **From Email**: This field should be the same email address you used when setting up the SendGrid service.
 
 Check the **Pin to dashboard** option to make this application easier to find in the future, then click **Purchase** when you're ready to continue to the next step.
  
