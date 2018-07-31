@@ -467,8 +467,6 @@
         href: detailed-troubleshoot-ssh-connection.md
     - name: Understand system reboot
       href: understand-vm-reboot.md
-    - name: Serial console 
-      href: serial-console.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
     - name: Deployment issues

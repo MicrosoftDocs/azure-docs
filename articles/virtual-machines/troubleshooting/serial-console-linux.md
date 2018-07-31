@@ -10,8 +10,7 @@ editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
