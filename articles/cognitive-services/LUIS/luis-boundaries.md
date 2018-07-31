@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
 ---
 # LUIS boundaries
@@ -35,6 +35,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | **[Simple](./luis-concept-entity-types.md)| 100 entities|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application|
+| [Versions](luis-concept-version.md)| no limit |
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 
 *Default character max is 50 characters. 
