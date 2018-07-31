@@ -133,6 +133,8 @@
         href: devtest-lab-manage-formulas.md
     - name: Manage artifacts
       items: 
+      - name: Specify mandatory artifacts 
+        href: devtest-lab-mandatory-artifacts.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
       - name: Diagnose artifact failures

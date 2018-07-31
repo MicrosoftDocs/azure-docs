@@ -28,7 +28,19 @@ This document assumes that you have an RBAC-enabled AKS cluster. If you need an 
 
 ## Gather information
 
-The following table lists all of the information you must provide in the autoscaler definition.
+The following list shows all of the information you must provide in the autoscaler definition.
+
+- *Subscription ID*: ID corresponding to the subscription used for this cluster
+- *Resource Group Name* : Name of resource group the cluster belongs to 
+- *Cluster Name*: Name of the cluster
+- *Client ID*: App ID granted by permission generating step
+- *Client Secret*: App secret granted by permission generating step
+- *Tenant ID*: ID of the tenant (account owner)
+- *Node Resource Group*: Name of resource group containing the agent nodes in the cluster
+- *Node Pool Name*: Name of the node pool you would like the scale
+- *Minimum Number of Nodes*: Minimum number of nodes to exist in the cluster
+- *Maximum Number of Nodes*: Maximum number of nodes to exist in the cluster
+- *VM Type*: Service used to generate the Kubernetes cluster
 
 Get your subscription ID with: 
 
@@ -87,19 +99,8 @@ $ echo AKS | base64
 QUtTCg==
 ```
 
-## Create Secret
-Using this data, create a secret for the deployment using the values found in the previous steps, such as:
-
-- ClientID: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (Use lower case)
-- SubscriptionID: `<base64-encode-subscription-id>`
-- TenantID: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- ClusterName: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (Use the label's value verbatim. Case sensitive)
-
-in the following format:
+## Create secret
+Using this data, create a secret for the deployment using the values found in the previous steps in the following format:
 
 ```yaml
 ---
@@ -120,7 +121,7 @@ data:
 ---
 ```
 
-## Create a Deployment Chart
+## Create a deployment chart
 
 Create a file named `aks-cluster-autoscaler.yaml`, and copy into it the following YAML code.
 
