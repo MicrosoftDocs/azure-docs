@@ -31,7 +31,8 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>VM is starting up.</p>
-<code>"statuses": [
+<code>
+"statuses": [
    {
       "code": "ProvisioningState/creating",
        "level": "Info",
@@ -42,7 +43,8 @@ Figure 1: VM power state diagram
        "level": "Info",
         "displayStatus": "VM starting"
     }
-    ]</code>
+    ]
+</code>
 </td>
 <td width="83">
 <p><strong>Not Billed</strong></p>
@@ -77,7 +79,7 @@ Figure 1: VM power state diagram
 <p><strong>Stopping</strong></p>
 </td>
 <td width="484">
-<p>Status of the VM when a VM is either stopped from client or guest OS. Stopping status is a transitional state which eventually transitions to its final state of Stopped.</p>
+<p>Status of the VM when a VM is either stopped from client or guest OS. Stopping status is a transitional state, which eventually transitions to its final state of Stopped.</p>
 <code>"statuses": [
  {
  "code": "ProvisioningState/updating",
@@ -148,7 +150,7 @@ Figure 1: VM power state diagram
 <p><strong>Deallocated</strong></p>
 </td>
 <td width="484">
-<p>VM is stopped and removed/deallocated from the host. VM in the deallocated state are not billed, but other resources like network and storage are billed.</p>
+<p>VM is stopped and removed/deallocated from the host. VM in the deallocated state is not billed, but other resources like network and storage are billed.</p>
 <code>"statuses": [
  {
  "code": "ProvisioningState/succeeded",
@@ -170,9 +172,9 @@ Figure 1: VM power state diagram
 </tbody>
 </table>
 
-A VM can error out due to a variety of reasons, e.g., infrastructure,
+A VM can error out due to a variety of reasons, for example, infrastructure,
 platform, etc. Some of these failures are self-recovered and occur due
-to loss of communication. Please refer to the following [Virtual
+to loss of communication. Refer to the following [Virtual
 Machines Error
 Messages](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages)
 in cases where VM has not recovered.
@@ -180,8 +182,7 @@ in cases where VM has not recovered.
 ##Provisioning
 
 These states reflect statuses of User-initiated (control plane)
-operations on the VM. These states are independent of the running state
-of a VM, which are exposed as Power states and discussed later in this
+operations on the VM. These states are independent of the running state of a VM, which is exposed as Power states and discussed later in this
 document.
 
 **User Initiated actions **
@@ -272,7 +273,7 @@ accepted the request for user action.
 <p><strong>OS provisioning states</strong></p>
 </td>
 <td width="366">
-<p>If a VM is created with an OS image and not with a specialized image then following sub-states can be observed</p>
+<p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed</p>
 <p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <br /> 
 <code> "statuses": [
  {
@@ -281,7 +282,7 @@ accepted the request for user action.
  "displayStatus": "OS Provisioning In progress"
  }
 ]</code>
-<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension, installation of extension take time and thus provides a window where this state can be observed before it transitions over to succeed.<br />
+<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension. Installation of extension take time and thus provides a window to observe these states. <br />
 <code> "statuses": [
  {
  "code": "ProvisioningState/ OSProvisioningComplete",
@@ -289,12 +290,11 @@ accepted the request for user action.
  "displayStatus": "OS Provisioning Complete"
  }
 ]</code>
-<p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time customers will be billed for the deployed VM on the infrastructure. In cases where OS take longer than expected to complete the installation, the platform will automatically transition to success from failure. In other cases re-starting a VM can resolve the issue. If the issue is persistent, then refer to error codes documentation for resolution.</p>
+<p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time, customers will be billed for the deployed VM on the infrastructure. In cases where OS takes longer than expected to complete the installation, the platform will automatically transition to success from failure. In other cases, restarting a VM can resolve the issue. If the issue is persistent, then refer to error codes documentation for resolution.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Extract or delete HTML tags based on their name or whether or not they contain some attributes or content with the <a href="https://htmlg.com/html-editor/" target="_blank" rel="nofollow noopener">HTML editor pro</a> online program.</p>
 
 **Success**– This state represents that user-initiated actions have
 completed.
@@ -337,11 +337,10 @@ resolution.
 
 **Edge cases**: In cases where a VM was running and in a good state, a
 failed management operation will typically leave the VM running with the
-original VM model (configuration). If such a case happens then, the
+original VM model (configuration). If such a case happens, then, the
 effective running VM model may be different from the latest received and
-persisted by CRP which is reported back if by GetVM API. To resolve this
-issue, please look at the error message (either from the last failed
-operation of the VM instance view). If the error is due to API input
-validation then try to fix the inputs but if the error is due to Azure
+persisted by CRP that is reported back if by GetVM API. To resolve this
+issue, look at the error message (either from the last failed
+operation of the VM instance view). If the error is due to API input validation, then try to fix the inputs but if the error is due to Azure
 internal errors a retry of the management operation should resolve the
 issue.
