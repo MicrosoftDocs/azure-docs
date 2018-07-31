@@ -21,18 +21,24 @@ IoT Hub's capabilities help you build scalable, full-featured IoT solutions such
 
 ## Scale your solution
 
-IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. [Learn more](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. Learn more by checking out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Secure your communications
 
 IoT Hub gives you a secure communication channel for your devices to send data.
 
 * Per-device authentication enables each device to connect securely to IoT Hub and for each device to be managed securely.
+
 * You have complete control over device access and can control connections at the per-device level.
+
 * The [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) automatically provisions devices to the right IoT hub when the device first boots up.
+
 * Multiple authentication types support a variety of device capabilities:
+
   * SAS token-based authentication to quickly get started with your IoT solution.
+
   * Individual X.509 certificate authentication for secure, standards-based authentication.
+
   * X.509 CA authentication for simple, standards-based enrollment.
 
 ## Route device data
@@ -40,7 +46,9 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 Built-in message routing functionality gives you flexibility to set up automatic rules-based message fan-out:
 
 * Use message routing to control where your hub sends device telemetry.
+
 * There is no additional cost to route messages to multiple endpoints.
+
 * No-code routing rules take the place of custom message dispatcher code.
 
 ## Integrate with other services
@@ -60,7 +68,9 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 You can manage your devices connected to IoT Hub with an array of built-in functionality.
 
 * Store, synchronize, and query device metadata and state information for all your devices.
+
 * Set device state either per-device or based on common characteristics of devices.
+
 * Automatically respond to a device-reported state change with message routing integration.
 
 ## Make your solution highly available
@@ -90,6 +100,7 @@ If your solution cannot use the device libraries, devices can use the MQTT v3.1.
 If your solution cannot use one of the supported protocols, you can extend IoT Hub to support custom protocols:
 
 * Use [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) to create a field gateway to perform protocol translation on the edge.
+
 * Customize the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) to perform protocol translation in the cloud.
 
 ## Quotas and limits
@@ -97,6 +108,7 @@ If your solution cannot use one of the supported protocols, you can extend IoT H
 Each Azure subscription has default quota limits in place to prevent service abuse, and these limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 IoT hubs per subscription. You can request quota increases by contacting support. For more details on quota limits:
 
 * [Azure subscription service limits](../azure-subscription-service-limits.md)
+
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to issues seen in Azure Data Box Disk.
+description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
 
 This article applies to Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
 
-You can manage the Data Box using the Data Box service UI (referred to as the portal UI) and the local web UI for the device. Data Box Disk can only be managed via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to the terminal stage.
+You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to completion.
 
 This article includes the following tutorials:
 
@@ -59,11 +59,11 @@ To navigate to the path for copy log, go to the storage account associated with 
 
 Use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. Through activity logs, you can determine:
 
-- what operations were taken on the resources in your subscription
-- who initiated the operation 
-- when the operation occurred
-- the status of the operation
-- the values of other properties that might help you research the operation
+- What operations were taken on the resources in your subscription.
+- Who initiated the operation. 
+- When the operation occurred.
+- The status of the operation.
+- The values of other properties that might help you research the operation.
 
 The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET). 
 

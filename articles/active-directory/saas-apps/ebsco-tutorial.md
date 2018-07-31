@@ -240,7 +240,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 1. When you click the EBSCO tile in the Access Panel, you should get automatically signed-on to your EBSCO application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 2. Once you login to the application, click on the **sign in** button in the top right corner.
 

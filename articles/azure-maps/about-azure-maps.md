@@ -82,12 +82,13 @@ The Traffic service is a suite of web services designed for developers to create
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
-Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/timezone) page for more details.
+Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/traffic) page for more details.
 
 ### IP to Location
 
 The IP to Location is a preview service that allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
+For information on the REST APIs for IP to Location service, visit the [Azure Maps Geolocation APIs](https://docs.microsoft.com/rest/api/maps/geolocation) page.
 
 ## Programming model
 
@@ -117,6 +118,6 @@ Check your current IP address and verify that the location of your IP address is
 ## Next steps
 
 - For more information on the new features of Azure Maps: 
-    - [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/preview/). 
+    - [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/). 
 - Proceed to trying out a sample app showcasing the service
     - [Launch a demo interactive search map](quick-demo-map-app.md)

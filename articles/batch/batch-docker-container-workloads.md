@@ -39,7 +39,9 @@ Using containers provides an easy way to run Batch tasks without having to manag
 
 ### Limitations
 
-* Batch provides RDMA support only for containers running on Linux pools.
+* Batch provides RDMA support only for containers running on Linux pools
+
+* For Windows container workloads, it's recommended to choose a multicore VM size for your pool
 
 ## Supported virtual machine images
 

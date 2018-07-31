@@ -160,7 +160,7 @@ To delete a device, you have two options:
 
 **Remarks:**
 
-- You need to be a global administrator in Azure AD to delete a device.  
+- You need to be a global administrator or an Intune administrator in Azure AD to delete a device.
 
 - Deleting a device:
  
@@ -195,6 +195,9 @@ to view or copy the BitLocker keys, you need to be either the owner of the devic
 - Security Administrators
 - Security Readers
 - Intune Service Administrators
+
+> [!NOTE]
+> Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
 
 
 ## Audit logs

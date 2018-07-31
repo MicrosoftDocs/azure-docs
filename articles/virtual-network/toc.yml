@@ -35,7 +35,7 @@
     href: policy-samples.md
 - name: Concepts
   items:
-  - name: Security
+  - name: Security groups
     href: security-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md

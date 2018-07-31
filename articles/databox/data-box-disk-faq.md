@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 07/17/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -52,7 +52,7 @@ A. During the preview, Data Box Disks are available for no charge. Shipping is a
 A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](http://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
-A. For 5 disks each of 4 TB (3.5 TB usable capacity), the maximum usable capacity is 18 TB. For disks of 8 TB (7 TB usable capacity), maximum usable capacity is 35 TB. Hence, you can transfer 18 TB or 35 TB of data in one instance.  To transfer more data, you need to order more disks.
+A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance.  To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
 A.  Data Box Disks are available in US and all the countries in European Union during the preview phase.  
@@ -66,7 +66,7 @@ A. If you encounter any issues with Data Box Disks, please contact [Data Box Dis
 ## Configure and connect
  
 ### Q. Can I specify the number of Data Box Disks in the order?
-A.  No. You get 4 TB or 8 TB disks (a maximum of up to 5 disks) depending upon your data size and availability of the disks.  
+A.  No. You get 8 TB disks (a maximum of up to 5 disks) depending upon your data size and availability of the disks.  
 
 ### Q. How do I unlock the Data Box Disks? 
 A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Device details**. Copy the passkey. Download and extract the Data Box Disk unlock tool from the Azure portal and run *DataBoxDiskUnlock.exe* on the computer that has the data you want to copy to the disks. Provide the passkey to unlock your disks. The same passkey unlocks all the disks.
@@ -91,7 +91,7 @@ A.  Microsoft provides a shipping label with the Data Box Disks in the shipping 
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box Disks?  
-A.  Data Box Disks solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 4 TB (usable 3.5 TB) and 8 TB (usable 7 TB) respectively. 
+A.  Data Box Disks solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 8 TB (usable 7 TB). 
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box Disks? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 

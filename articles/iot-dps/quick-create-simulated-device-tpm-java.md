@@ -1,8 +1,8 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using Java | Microsoft Docs
 description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps

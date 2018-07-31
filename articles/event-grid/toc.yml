@@ -89,14 +89,6 @@
     href: /powershell/module/azurerm.eventgrid
   - name: REST
     href: /rest/api/eventgrid
-  - name: Template resources
-    items:
-    - name: Event subscriptions
-      href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-    - name: Topics
-      href: /azure/templates/microsoft.eventgrid/topics
-  - name: SDKs
-    href: sdk-overview.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
@@ -106,6 +98,8 @@
       href: event-schema-subscriptions.md
     - name: Blob storage
       href: event-schema-blob-storage.md
+    - name: Container Registry
+      href: event-schema-container-registry.md
     - name: Event Hubs
       href: event-schema-event-hubs.md
     - name: IoT Hub
@@ -116,6 +110,14 @@
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+  - name: Template resources
+    items:
+    - name: Event subscriptions
+      href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+    - name: Topics
+      href: /azure/templates/microsoft.eventgrid/topics
+  - name: SDKs
+    href: sdk-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap

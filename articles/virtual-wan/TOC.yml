@@ -1,4 +1,5 @@
-- name: Virtual WAN documentation
+- name: Virtual WAN Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual WAN
@@ -9,7 +10,7 @@
     href: virtual-wan-site-to-site-portal.md
 - name: How-to guides
   items:
-  - name: Configure automation - for Providers
+  - name: Configure automation - WAN Partners
     href: virtual-wan-configure-automation-providers.md
 - name: Reference
   items:

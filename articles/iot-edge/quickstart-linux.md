@@ -74,7 +74,7 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
 1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. 

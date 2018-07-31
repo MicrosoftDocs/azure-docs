@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/09/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
 ---
 # Access Key Vault secret when deploying Azure Managed Applications
@@ -47,6 +47,37 @@ When you need to pass a secure value (like a password) as a parameter during dep
    ![Search for provider](./media/key-vault-access/search-provider.png)
 
 1. Select **Save**.
+
+## Reference Key Vault secret
+
+To pass a secret from a Key Vault to a template in your Managed Application, you must use a [linked template](../azure-resource-manager/resource-group-linked-templates.md) and reference the Key Vault in the parameters for the linked template. Provide the resource ID of the Key Vault and the name of the secret.
+
+```json
+"resources": [{
+  "apiVersion": "2015-01-01",
+  "name": "linkedTemplate",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "mode": "incremental",
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "parameters": {
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"
+          },
+          "secretName": "<secret-name>"
+        }
+      },
+      "adminLogin": { "value": "[parameters('adminLogin')]" },
+      "sqlServerName": {"value": "[parameters('sqlServerName')]"}
+    }
+  }
+}],
+```
 
 ## Next steps
 

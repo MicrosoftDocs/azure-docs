@@ -232,7 +232,7 @@ Test your Azure AD SSO configuration by using the Access Panel.
 
 When you select the **BambooHR** tile in the Access Panel, you should get automatically signed in to your BambooHR application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

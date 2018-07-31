@@ -1,10 +1,9 @@
 ---
-title: Cognitive Services Speech SDK License | Microsoft Docs
+title: Cognitive Services Speech SDK License
 description: License page for the Cognitive Services Speech SDK
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.topic: article

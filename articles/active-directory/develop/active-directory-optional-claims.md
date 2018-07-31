@@ -37,8 +37,8 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 | Account Type | V1.0 Endpoint                      | V2.0 Endpoint  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - RPS Tickets are used instead | Support coming |
-| AAD          | Supported                          | Supported      |
+| Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
+| Azure AD account          | Supported                          | Supported      |
 
 ## Standard optional claims set
 The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
@@ -62,7 +62,7 @@ The set of optional claims available by default for applications to use are list
 | `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user.  | JWT |  |  |
 | `vnet`                     | VNET specifier information.    | JWT        |           |      |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `ctry`                     | User’s country | JWT |           | |
+| `ctry`                     | User’s country | JWT |           | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country code, such as FR, JP, SZ, and so on. |
 | `tenant_ctry`              | Resource tenant’s country | JWT | | |
 | `xms_pdl`		     | Preferred data location   | JWT | | For Multi-Geo tenants, this is the 3-letter code showing which geographic region the user is in.  For more details, see the [Azure AD Connect documentation about preferred data location](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set.  Sourced from their home tenant, in guest access scenarios.  Formatted LL-CC (“en-us”). |
@@ -211,7 +211,7 @@ In the example below, you will modify an application’s manifest to add claims 
 3.	Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
 4.	Find the application you want to configure optional claims for in the list and click on it.
 5.	From the application page, click **Manifest** to open the inline manifest editor. 
-6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elemets will be added to the `OptionalClaims` property.
+6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 

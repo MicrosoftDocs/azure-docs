@@ -116,6 +116,8 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Naming rules
+    href: naming-rules.md
 - name: How-to guides
   items:
   - name: Author
@@ -299,15 +301,15 @@
   - name: Transform data
     href: transform-data.md
     items:
-    - name: HdInsight Hive Activity
+    - name: HDInsight Hive Activity
       href: transform-data-using-hadoop-hive.md
-    - name: HdInsight Pig Activity
+    - name: HDInsight Pig Activity
       href: transform-data-using-hadoop-pig.md
-    - name: HdInsight MapReduce Activity
+    - name: HDInsight MapReduce Activity
       href: transform-data-using-hadoop-map-reduce.md
-    - name: HdInsight Streaming Activity
+    - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: HdInsight Spark Activity
+    - name: HDInsight Spark Activity
       href: transform-data-using-spark.md
     - name: ML Batch Execution Activity
       href: transform-data-using-machine-learning.md
@@ -319,6 +321,10 @@
       href: transform-data-using-data-lake-analytics.md
     - name: Databricks Notebook Activity
       href: transform-data-databricks-notebook.md
+    - name: Databricks Jar Activity
+      href: transform-data-databricks-jar.md
+    - name: Databricks Python Activity
+      href: transform-data-databricks-python.md
     - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
@@ -383,24 +389,26 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
-    - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
-    - name: Enable Azure AD authentication for Azure-SSIS IR
-      href: enable-aad-authentication-azure-ssis-ir.md
-    - name: Configure high performance for Azure-SSIS IR
-      href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Provision Enterprise Edition for Azure-SSIS IR
-      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-    - name: Customize setup for Azure-SSIS IR
-      href: how-to-configure-azure-ssis-ir-custom-setup.md
-    - name: Install licensed components for Azure-SSIS IR
-      href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Join Azure-SSIS IR to a virtual network
+      href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Enable Azure AD authentication for Azure-SSIS IR
+      href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Provision Enterprise Edition for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+    - name: Customize setup for Azure-SSIS IR
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Install licensed components for Azure-SSIS IR
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
+    - name: Configure high performance for Azure-SSIS IR
+      href: configure-azure-ssis-integration-runtime-performance.md
+    - name: Configure disaster recovery for Azure-SSIS IR
+      href: configure-bcdr-azure-ssis-integration-runtime.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger
