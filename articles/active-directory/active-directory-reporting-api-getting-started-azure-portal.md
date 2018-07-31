@@ -65,7 +65,7 @@ Get a first impression of the reporting APIs:
    - [Using the samples for the sign-in activity report API](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## Next Steps
+## Next steps
 
  * [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
  * [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
