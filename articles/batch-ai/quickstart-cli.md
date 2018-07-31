@@ -20,7 +20,7 @@ ms.author: Alexander.Yukhanov
 
 # Run a CNTK training job using the Azure CLI
 
-Azure CLI 2.0 allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
+The Azure CLI allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
 and submit/terminate/delete/monitor training jobs.
 
 This quickstart shows how to create a GPU cluster and run a training job using Microsoft Cognitive Toolkit (CNTK).
@@ -50,7 +50,7 @@ file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/sc
 
 * Azure subscription - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
-* Access to Azure CLI 2.0 with version 0.3 or higher of the batchai module. You can either use Azure CLI 2.0 available in [Azure Cloud Shell](../cloud-shell/overview.md)
+* Access to Azure CLI with version 0.3 or higher of the batchai module. You can either use [Azure Cloud Shell](../cloud-shell/overview.md)
 or install it locally following [these instructions](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:

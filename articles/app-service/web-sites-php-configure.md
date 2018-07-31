@@ -54,7 +54,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### Azure CLI 2.0 (Linux, Mac, Windows)
+### Azure CLI 
 
 To use the Azure Command-Line Interface, you must [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
 

@@ -20,7 +20,7 @@ ms.custom: mvc
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
-It also assumes that you have the Azure CLI 2.0 and `kubectl` tools installed.
+It also assumes that you have the Azure CLI and `kubectl` tools installed.
 
 You can test if you have the `az` tool installed by running:
 
