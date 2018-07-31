@@ -27,28 +27,27 @@ The DPDK consists of set of user space libraries providing access to lower-level
 
 The DPDK can run in Azure virtual machines, supporting multiple operating system distributions. The DPDK provides a key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVA) such as a virtual router, firewall, VPN, load balancer, evolved packet core, and denial-of-service (DDoS) applications.
 
-## Benefits
+## Benefit
 
-* **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in user space reduces the cycle count by eliminating context switch and improves the rate of packets processed per second in Azure Linux virtual machines.
-* **Higher connections processed per second**: Number of connections processed per second would be improved for users running multi-threaded use space applications in Azure Linux virtual machines by leveraging logical cores framework of the DPDK.
-* **Reduced packet loss and latency**: HugeTLBfs of the DPDK eliminates packet misses during memory allocations of large-size packets, which improves packets processed per second for user space applications and reduces latency in Azure Linux virtual machines.
+**Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in user space reduces the cycle count by eliminating context switch and improves the rate of packets processed per second in Azure Linux virtual machines.
+
 
 ## Supported operating systems
 
 The following distributions from the Azure Gallery are supported:
 
-| Linux OS     | Kernel Version |
-|--------------|----------------|
-| Ubuntu 16.04 | 4.15           |
-| Ubuntu 18.04 | 4.15           |
-| SLES 12 SP3  | 4.10           |
-| SLES 15      | 4.10           |
-| RHEL 7.5     | 4.10.04        |
-| CentOS 7.5   | 4.10.04        |
+| Linux OS     | Kernel Version        |
+|--------------|----------------       |
+| Ubuntu 16.04 | 4.15.0-1015-azure     |
+| Ubuntu 18.04 | 4.15.0-1015-azure     |
+| SLES 12 SP3  | 4.4.138-94.39-default |
+| SLES 15      | 4.12.14-5.5-azure     |
+| RHEL 7.5     | 3.10.0-862.9.1.el7    |
+| CentOS 7.5   | 3.10.0-862.3.3.el7    |
 
 **Custom kernel support**
 
-Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed.
+Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed. Contact us through the [Virtual network forum](https://feedback.azure.com/forums/217313-networking?category_id=195844). 
 
 ## Region support
 
@@ -83,7 +82,7 @@ sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
 ```
 
-### SLES 15/12
+### SLES 15
 
 #### Azure kernel
 
@@ -103,12 +102,35 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
+### SLES 12SP3
+
+**Default kernel**
+
+```bash
+zypper \
+  --no-gpg-checks \
+  --non-interactive \
+  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+```
+
 ## Setup virtual machine environment (once)
 
-1. [Download the latest DPDK](<https://dpdk.org/download>), version 18.02 or higher.
-2. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
-3. Once you've downloaded and uncompressed the file, change into the directory, and edit the *config/common_base* file. Add the following line to the file: `CONFIG_RTE_LIBRTE_MLX4_PMD=y`.
-4. Compile the DPDK with `make install T=x86_64-native-linuxapp-gcc DESTDIR=<output folder>`.
+1. Install Mellanox OFED only for SLES 12SP3 and skip to step 2 for any other distro.
+   * [Download 4.2-1.2.2.0 (or latest) Mellanox OFED](http://www.mellanox.com/page/firmware_table_Microsoft?mtag=oem_firmware_download) (under archive version). 
+   * Once you've downloaded and uncompressed the file, cd into the directory, and run (may require sudo permission) the following command: 
+   
+   ```bash
+   zypper install -y python-libxml2 kernel-syms python-devel rpm-build ./mlnxofedinstall \ 
+     --guest --dpdk --upstream-libs --add-kernel-support --force --skip-repo
+   ```
+   
+   * Once OFED installation is complete, use the following command to restart the driver (requires sudo permission): 
+`/etc/init.d/openibd restart`.
+
+2. [Download the latest DPDK](<https://dpdk.org/download>). Version 18.02 or higher is recommended for Azure.
+3. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
+4. Once you've downloaded and uncompressed the file, change into the directory, and edit the *config/common_base* file. Add the following line to the file: `CONFIG_RTE_LIBRTE_MLX4_PMD=y`.
+5. Compile the DPDK with `make install T=x86_64-native-linuxapp-gcc DESTDIR=<output folder>`.
 
 # Configure runtime environment
 
@@ -137,9 +159,11 @@ Run the following commands once, after rebooting:
    * Find out which PCI address to use for *VF* with `ethtool -i <vf interface name>`.
    * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If the DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to kill the DPDK application, or to stop or start the virtual machine.
 
-4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`.
+4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, load *mlx4_ib* with 'modprobe -a mlx4_ib'.
 
 ## Run testpmd
+
+Use `sudo` before the *testpmd* command to run in root mode.
 
 ### Basic: Sanity check, failsafe adapter initialization
 
