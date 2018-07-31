@@ -13,7 +13,7 @@ ms.date: 07/31/2018
 
 # Azure Machine Learning Services architecture and concepts
 
-The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning, including run history records, compute targets, models, Docker images and deployments, among other things. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registory and an AppInsights instance. It is also the security boundary for for enabling secured sharing and collaboration among multiple users. 
+The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning, including run history records, compute targets, models, Docker images, and deployments, among other things. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an AppInsights instance. It is also the security boundary for enabling secured sharing and collaboration among multiple users. 
 
 The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
 
@@ -21,7 +21,7 @@ The following diagram shows the major components of Azure Machine Learning, and 
 
 The workflow for developing and deploying a model with Azure Machine Learning generally follows these steps:
 
-1. Develop machine learning training scripts in __Python__ using __Jupyter Notebooks__, __Visual Studio Code__ or any other Python development environment of your choice.
+1. Develop machine learning training scripts in __Python__ using __Jupyter Notebooks__, __Visual Studio Code__, or any other Python development environment of your choice.
 2. Provision and configure a __compute target__, which can be either local or cloud compute resources, to use when training the model.
 3. Submit the scripts to the configured __compute target__ to run in that environment.
 4. Query the __run history__ for logged metric from this run (and past runs) of your training job. If the metric does not indicate a desired outcome, loop back to step 1 and iterate on your scripts.
@@ -68,7 +68,7 @@ When you submit a project for training, the entire folder is copied to the compu
 
 ## Model
 
-A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. You can use any popular machine learning framework of your choice, includuing scikit-learn, xgboost, TensorFlow, CNTK etc. Azure Machine Learning takes a framework-agnostic approach when it comes to model type and model file format.
+A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. You can use any popular machine learning framework of your choice, including scikit-learn, xgboost, TensorFlow, CNTK etc. Azure Machine Learning takes a framework-agnostic approach when it comes to model type and model file format.
 
 ## Docker image
 A Docker image is created from your project, and registered with the workspace. It encapsulates:
