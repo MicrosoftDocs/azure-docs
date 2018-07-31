@@ -26491,8 +26491,53 @@
         "redirect_document_id": true
         },
         {
+            "source_path": "articles/powerbi-embedded/create-capacity.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/get-started.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/pause-start.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/scale-capacity.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/what-is-power-bi-embedded.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/migrate-from-power-bi-workspace-collections.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/power-bi-embedded/migrate-tool.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/migrate-code-snippets.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "redirect_document_id": true
+        },
+        {    
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/azure-security-disk-encryption.md",
+            "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": true
         }
     ]
