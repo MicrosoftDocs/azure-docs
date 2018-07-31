@@ -116,8 +116,8 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 Actions are any steps that occur after the trigger starts the logic app workflow. For this tutorial, the action is to send an email notification from your email provider. 
 
-1. Select **New step**. This will open a window to **Choose an action**. 
-2. Search for **Email**. 
+1. Select **New step**. This will open a window to **Choose an action**.
+2. Search for **Email**.
 3. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar. 
 
    ![Select email provider connector](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
