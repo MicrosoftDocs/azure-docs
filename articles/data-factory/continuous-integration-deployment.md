@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 07/30/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -861,9 +861,7 @@ The following example shows a sample parameters file. Use this sample as a refer
 					"tenant": "=",
 					"dataLakeStoreUri": "=",
 					"baseUrl": "=",
-					"connectionString": {
-						"secretName": "="
-					}
+					"connectionString": "|:-connectionString:secureString"
 				}
 			}
 		}
@@ -880,4 +878,3 @@ The following example shows a sample parameters file. Use this sample as a refer
 	}
 }
 ```
-
