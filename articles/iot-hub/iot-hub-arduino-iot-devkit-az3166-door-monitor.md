@@ -130,8 +130,7 @@ Expand the left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCH
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-> [!NOTE]
-> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+You can also open the example app from the command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ### Provision Azure services
 
@@ -144,7 +143,7 @@ In the VS Code terminal, an interactive command line guides you through provisio
 ![Cloud Provision](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/cloud-provision.png)
 
 > [!NOTE]
-> If the page hangs in the loading status when trying to sign in to Azure, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure) to resolve this issue. 
+> If the page hangs in the loading status when trying to sign in to Azure, refer to the ["page hanges when logging in" section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure) to resolve this issue. 
 
 ### Build and upload the device code
 
@@ -173,7 +172,7 @@ VS Code then starts verifying and uploading the Arduino sketch to the DevKit.
 The DevKit reboots and starts running the code.
 
 > [!NOTE]
-> Occasionally, you may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Occasionally, you may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to the [development section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## Test the project
 

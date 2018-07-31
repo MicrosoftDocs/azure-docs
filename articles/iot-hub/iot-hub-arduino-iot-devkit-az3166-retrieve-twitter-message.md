@@ -78,7 +78,7 @@ Use `Ctrl+P` (macOS: `Cmd+P`) to run `task cloud-deploy` to start deploying the 
 ![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
-> Occasionally, the Azure Function may not work properly. To resolve this issue when it occurs, check this step in the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
+> Occasionally, the Azure Function may not work properly. To resolve this issue when it occurs, check the ["compilation error" section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
 
 ## Build and upload the device code
 

@@ -212,7 +212,7 @@ Launch Terminal app, locate the folder you extract .zip file and run the followi
 ![macOS install](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
 
 > [!NOTE] 
-> If you meet a Homebrew permission error, run `brew doctor` to get it fixed. Check the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) for more details.
+> If you meet a Homebrew permission error, run `brew doctor` to get it fixed. Check the ["homebrew error" section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) for more details.
 
 You now have all the necessary tools and packages installed for macOS.
 
