@@ -98,6 +98,8 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 } 
 ```
 
+## Field and property descriptions
+
 | Field name | Description |
 |------------|-------------|
 | time       | The date and time (UTC). |
