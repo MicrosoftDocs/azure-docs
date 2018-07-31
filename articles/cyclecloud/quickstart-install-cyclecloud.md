@@ -96,18 +96,12 @@ The files in the repo include:
 * `params.azuredeploy.json` contains the parameters necessary to configure the ARM template
 * `params-vnet.json` contains the vnet configuration parameters
 
-## Create a Resource Group and Virtual Network
+## Create a Resource Group 
 
 Create a resource group in the region of your choice. Note that resource group names are unique within a subscription. For example, you could use *AzureCycleCloud* as the resource group name and *South Central US* as the region:
 
 ```azurecli-interactive
 az group create --name "AzureCycleCloud" --location "South Central US"
-```
-
-Next, create the virtual network and subnets. The default vnet name is *cyclevnet*:
-
-```azurecli-interactive
-az group deployment create --name "vnet_deployment" --resource-group "{RESOURCE_GROUP}" --template-file deploy-vnet.json --parameters params-vnet.json
 ```
 
 ## Add Parameters
