@@ -201,6 +201,8 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
+  - name: Publish
+    href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
     - name: Use entities
@@ -209,8 +211,6 @@
       href: luis-how-to-use-prebuilt-domains.md
   - name: Manage app
     items: 
-    - name: Publish app
-      href: luis-how-to-publish-app.md
     - name: Create endpoint keys in Azure
       href: luis-how-to-azure-subscription.md
     - name: Add endpoint keys to app 
