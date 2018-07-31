@@ -16,7 +16,7 @@ Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleClou
 
 ## Select a Cluster Type
 
-Click on "Clusters" in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
+Click on **Clusters** in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
 
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/cyclecloud) and can easily be imported into CycleCloud.
@@ -43,7 +43,7 @@ Under **Networking**, select the subnet to use for the compute infrastructure. U
 
 ### Advanced Settings
 
-Your credentials will be automatically set for you, based on the information you added to the `params-cyclecloud.json` file in the first quickstart.
+Your credentials will be automatically set for you, based on the information you added to the `params-azuredeploy.json` file in the first quickstart.
 
 The Software options allow you to select the operating system and any custom specifications you have. The default CycleCloud cluster template has selected the appropriate options for you, and do not need to be changed at this time.
 
@@ -69,4 +69,7 @@ It's time to put your cluster to work. In the cluster summary window, click **St
 
 Confirm that you want to start the cluster. Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
-QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](quickstart-submit-jobs.md) now.
+QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100.
+
+> [!div class="nextstepaction"]
+> [Continue to Quickstart 3](quickstart-submitjobs.md)

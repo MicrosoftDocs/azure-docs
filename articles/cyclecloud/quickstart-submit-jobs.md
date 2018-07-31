@@ -91,4 +91,7 @@ In this quickstart you submitted 100 jobs, so 100 cores will be requested. Since
 
 When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
 
-QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity. Continue on to [QuickStart 4](quickstart-clean-up-resources.md) now.
+QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
+
+> [!div class="nextstepaction"]
+> [Continue to Quickstart 4](quickstart-clean-up-resources.md)

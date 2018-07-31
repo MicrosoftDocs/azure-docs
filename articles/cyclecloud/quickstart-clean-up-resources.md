@@ -20,7 +20,7 @@ When all submitted jobs are complete, you no longer need the cluster. To clean u
 
 ## Delete the Resource Group
 
-To remove the resources you created for the QuickStart, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
+To remove the resources you created for the quickstart, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
 
 ```CLI
 az group delete --name "{RESOURCE GROUP}"
@@ -29,7 +29,7 @@ az group delete --name "{RESOURCE GROUP}"
 Using the example created in the first QuickStart:
 
 ```azurecli-interactive
-az group delete --name "CycleCloudApp"
+az group delete --name "AzureCycleCloud"
 ```
 
 ## Delete the Service Principal
@@ -39,6 +39,8 @@ Run the following command to delete the service principal created at the start o
 ```azurecli-interactive
 az ad sp delete --id "http://CycleCloudApp"
 ```
+
+## Next Steps
 
 If you've gone through all four QuickStarts, you've covered the installation, setup, and configuration of Azure CycleCloud, created and ran a simple HPC cluster, added a cost usage alert, submitted 100 jobs, witnessed the auto scaling, and cleaned up after yourself. You've only begun to scratch the surface of what Azure CycleCloud offers - check out the product and documentation pages to learn more!
 
