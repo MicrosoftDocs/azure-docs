@@ -1,5 +1,5 @@
 ---
-title: Attribute-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
+title: Property-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 07/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
 ---
 
-# Create dynamic groups with attribute-based membership in Azure Active Directory
+# Create groups using dynamic membership rules in Azure Active Directory
 
 In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
@@ -72,95 +72,42 @@ The following status messages can be shown for **Membership last updated** statu
 
 If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
 
-![processing error message](./media/groups-dynamic-membership/processing-error.png)
+!- 
+[processing error message](./media/groups-dynamic-membership/processing-error.png)
 
-## Constructing the body of an advanced rule
+## Constructing the body of an simple rule
 
-The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
+The simple rule that you can create for the dynamic memberships for groups of users or devices is essentially a binary expression that results in a true or false outcome. The three parts of a simple rule are:
 
-* Left parameter
-* Binary operator
-* Right constant
+* Property
+* Operator
+* Value
 
-A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are optional for the entire binary expression, double quotes are optional as well, only required for the right constant when it is string, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
+The order of the parts within an expression are important to avoid syntax errors.
 
-The following are examples of a properly constructed advanced rule:
+### Constructing rules with a single expression
+
+A single expression is the simplest form of an advanced rule and only has the three parts mentioned above. A complete advanced rule with a single expression looks similar to this: Property Operator Value, where the syntax for the Property is object.property. 
+The following is an example of a properly constructed advanced rule with a single expression:
+
 ```
-(user.department -eq "Sales") -or (user.department -eq "Marketing")
-(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+user.department -eq "Sales"
 ```
-For the complete list of supported parameters and expression rule operators, see sections below. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
+
+Opening and closing parenthesis are optional for the entire expression. 
 
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
-> [!NOTE]
-> String and regex operations are not case sensitive. You can also perform Null checks, using *null* as a constant, for example, user.department -eq *null*.
-> Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
-
-## Supported expression rule operators
-
-The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
-
-| Operator | Syntax |
-| --- | --- |
-| Not Equals |-ne |
-| Equals |-eq |
-| Not Starts With |-notStartsWith |
-| Starts With |-startsWith |
-| Not Contains |-notContains |
-| Contains |-contains |
-| Not Match |-notMatch |
-| Match |-match |
-| In | -in |
-| Not In | -notIn |
-
-## Operator precedence
-
-All Operators are listed below per precedence from lower to higher. Operators on same line are in equal precedence:
-
-````
--any -all
--or
--and
--not
--eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-````
-
-All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
-For example:
-
-```
-   user.department –eq "Marketing" –and user.country –eq "US"
-```
-
-is equivalent to:
-
-```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
-```
-
-## Using the -In and -notIn operators
-
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
-```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
-```
-Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
-
-
-## Query error remediation
-
-The following table lists common errors and how to correct them
-
-| Query Parse Error | Error Usage | Corrected Usage |
-| --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
-| Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "\@domain.ext$")|
-
 ## Supported properties
 
-The following are all the user properties that you can use in your advanced rule:
+There are three types of properties that can be used to construct an advanced rule.
+
+* Boolean
+* String
+* String collection
+
+The following are the user properties that you can use to create your advanced rule with a single expression:
+
 
 ### Properties of type boolean
 
@@ -230,19 +177,129 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Supported operators
+
+The following table lists all the supported expression rule operators and their syntax for use in the body of a rule with a single expression:
+
+| Operator | Syntax |
+| --- | --- |
+| Not Equals |-ne |
+| Equals |-eq |
+| Not Starts With |-notStartsWith |
+| Starts With |-startsWith |
+| Not Contains |-notContains |
+| Contains |-contains |
+| Not Match |-notMatch |
+| Match |-match |
+| In | -in |
+| Not In | -notIn |
+
+### Using the -In and -notIn operators
+
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
+
+```
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+```
+
+Use the "[" and "]" symbols at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one or more of the values in the list.
+
+## Supported values
+
+The values used in an expression can consist of several types, including:
+
+* Strings
+* Boolean – true false
+* Numbers
+* Arrays – number array, string array
+
+When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some simple things to note are:
+
+* Double quotes are optional unless the value is a string.
+* String and regex operations are not case sensitive. 
+* When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value.
+* You can also perform Null checks, using null as a value, for example, user.department -eq null.
+
+
+### Use of Null values
+
+To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null. Instead, use -eq or -ne. The correct way to reference the null value is as follows:
+
+```
+   user.mail –ne $null
+```
+
+## Constructing rules with multiple simple expressions
+
+An advanced rule can consist of more than one expressions separated by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
+The following are examples of properly constructed advanced rules with multiple expressions:
+
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
+
+### Operator precedence
+
+All Operators are listed below per precedence from highest to lowest. Operators on same line are in equal precedence:
+
+```
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+-not
+-and
+-or
+-any -all
+```
+
+The following is an example of operator precedence, where the department and country properties are being evaluated for the user:
+
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+
+Parentheses are needed only when precedence does not meet your requirements. For example, if you want department to be evaluated first, the following shows how parentheses can be used to determine order:
+
+```
+   user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
+```
+
+## Constructing rules with complex expressions
+An advanced rule can consist of complex expressions where the properties, operators, and values take on a more complex form. Expressions are considered complex when:
+
+* The property consists of a collection of values (specifically, multi-valued properties)
+* The expressions use the -any and -all operators
+* The value of the expression can itself be one or more expressions
+
+
+
+
+
+### Query error remediation
+
+The following table lists common errors and how to correct them
+
+| Query Parse Error | Error Usage | Corrected Usage |
+| --- | --- | --- |
+| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
+| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
+| Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "\@domain.ext$")|
+
+
 ## Multi-value properties
 
-Allowed operators
+Multi-value properties are collections of objects of the same type. They can be used to create advanced rules using the -any and -all logical operators.
 
 * -any (satisfied when at least one item in the collection matches the condition)
 * -all (satisfied when all items in the collection match the condition)
 
 | Properties | Values | Usage |
 | --- | --- | --- |
-| assignedPlans |Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans | Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
-Multi-value properties are collections of objects of the same type. You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively. For example:
+You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively.
+
+For example:
 
 assignedPlans is a multi-value property that lists all service plans assigned to the user. The below expression will select users who have the Exchange Online (Plan 2) service plan that is also in Enabled state:
 
@@ -270,12 +327,6 @@ Here's an example of using the underscore (\_) in a rule to add members based on
 (user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
-## Use of Null values
-
-To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null. Instead, use -eq or -ne. The correct way to reference the null value is as follows:
-```
-   user.mail –ne $null
-```
 
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
