@@ -21,14 +21,14 @@ ms.reviewer: sandeo
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [../Introduction to device management in Azure Active Directory](device-management-introduction.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
 
 
 
 > [!TIP]
-> If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join significantly.
+> If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join significantly.
 
 
 ## Before you begin
@@ -192,7 +192,7 @@ In the script above,
 
 - `$verifiedDomain = "contoso.com"` is a placeholder you need to replace with one of your verified domain names in Azure AD. You will have to own the domain before you can use it.
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
 To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
@@ -338,7 +338,7 @@ In the claim above,
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
@@ -616,7 +616,7 @@ The output of this cmdlet shows devices that are registered and joined with Azur
 
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
 
 
 
