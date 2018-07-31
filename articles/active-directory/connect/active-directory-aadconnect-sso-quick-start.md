@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -75,6 +75,9 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 4. Verify that the **Seamless single sign-on** feature appears as **Enabled**.
 
 ![Azure portal: Azure AD Connect pane](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
 
 ## Step 3: Roll out the feature
 

@@ -1,23 +1,18 @@
 ---
-title: Migrating BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Docs
-description: Migrate EDI to MABS; Microsoft Azure BizTalk Services
+title: Migrate BizTalk Server EDI Solutions to BizTalk Services | Microsoft Docs
+description: Learn how you can migrate your Microsoft BizTalk Server EDI solutions to Microsoft Azure BizTalk Services (MABS)
 services: biztalk-services
-documentationcenter: na
-author: MandiOhlinger
-manager: anneta
-editor: ''
-
-ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 11/07/2016
-ms.author: mandia
-
+ms.date: 07/31/2018
+ms.reviewer: jonfan, LADocs
+ms.suite: integration
 ---
-# Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide
+
+# Migrate BizTalk Server EDI Solutions to BizTalk Services: Technical Guide
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -28,9 +23,9 @@ Reviewers: Karthik Bharthy
 Written using:  Microsoft Azure BizTalk Services – February 2014 release.
 
 ## Introduction
-Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions. BizTalk Server has had EDI support for over a decade, since the initial BizTalk Sever release. With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform. B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform. Microsoft Azure provides this capability through BizTalk Services.
+Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions. BizTalk Server has had EDI support for over a decade since the initial BizTalk Sever release. With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform. B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform. Microsoft Azure provides this capability through BizTalk Services.
 
-While some customers look at BizTalk Services as a "greenfield" platform for new EDI solutions, many customers have current BizTalk Server EDI solutions that they may want to migrate to Azure. Because BizTalk Services EDI is architected based on the same key entities as BizTalk Server EDI architecture (trading partners, entities, agreements), it is possible to migrate BizTalk Server EDI artifacts to BizTalk Services.
+While some customers look at BizTalk Services as a "green field" platform for new EDI solutions, many customers have current BizTalk Server EDI solutions that they may want to migrate to Azure. Because BizTalk Services EDI is architected based on the same key entities as BizTalk Server EDI architecture (trading partners, entities, agreements), it is possible to migrate BizTalk Server EDI artifacts to BizTalk Services.
 
 This document discusses some of the differences involved with migrating BizTalk Server EDI artifacts to BizTalk Services. This document assumes a working knowledge of BizTalk Server EDI processing and Trading Partner Agreements. For more information on BizTalk Server EDI, see [Trading Partner Management Using BizTalk Server](https://msdn.microsoft.com/library/bb259970.aspx).
 
@@ -72,7 +67,7 @@ In BizTalk Server EDI, pipelines are message processing entities that can also i
 
 You can insert a publish/subscribe flow with custom code and/or using Service Bus messaging Queues and Topics before the trading partner agreement receives the message, or after the agreement processes the message and routes it to a Service Bus endpoint.
 
-See **Scenarios/Message Flow** in this topic for the message flow pattern.
+See **Scenarios/Message Flow** in this article for the message flow pattern.
 
 ## Agreements
 If you are familiar with the BizTalk Server 2010 Trading Partner Agreements used for EDI processing, then BizTalk Services trading partner agreements look very familiar. Most of the agreement settings are the same and use the same terminology. In some cases, the agreement settings are much simpler compared to the same settings in BizTalk Server. Microsoft Azure BizTalk Services supports X12, EDIFACT, and AS2 transport.
@@ -114,10 +109,7 @@ BizTalk Server EDI processing has the concept of "Fallback Agreements".  BizTalk
 ### Routing to multiple destinations
 BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model. Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.
 
-## Conclusion
-Microsoft Azure BizTalk Services is updated at regular milestones to add more features and capabilities. With each update, we look forward to supporting increased functionality to facilitate creating end-to-end solutions using BizTalk Services and other Azure technologies.
-
 ## See Also
-[Developing Enterprise Applications with Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[LOB solutions in Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
