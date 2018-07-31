@@ -13,7 +13,10 @@ This article describes how to:
 > 
 
 ## Injecting custom data into your Azure virtual machine
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Here we create a `custom-data.txt` file that contains our data, then inject that in to the VM during provisioning. Although you may use any of the options for the `azure vm create` command, the following example demonstrates one basic approach:
+
+[!INCLUDE [classic-cli](contains-classic-cli-content.md)]
+
+This feature is currently supported only in the [Azure CLI](https://github.com/Azure/azure-xplat-cli). Here we create a `custom-data.txt` file that contains our data, then inject that in to the VM during provisioning. Although you may use any of the options for the `azure vm create` command, the following example demonstrates one basic approach:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
