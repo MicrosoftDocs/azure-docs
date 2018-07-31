@@ -467,8 +467,6 @@
         href: detailed-troubleshoot-ssh-connection.md
     - name: Understand system reboot
       href: understand-vm-reboot.md
-    - name: Access to applications
-      href: troubleshoot-app-connection.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM

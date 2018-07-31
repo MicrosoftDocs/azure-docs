@@ -380,10 +380,6 @@
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
-    - name: Application access
-      href: troubleshoot-app-connection.md
-    - name: Activation problems
-      href: troubleshoot-activation-problems.md
     - name: VM recovery access
       items:
       - name: Azure PowerShell

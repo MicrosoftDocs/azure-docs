@@ -60,3 +60,5 @@
   href: storage-resource-deletion-errors.md      
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
+- name: Application access issues
+  href: troubleshoot-app-connection.md

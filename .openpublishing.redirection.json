@@ -15165,6 +15165,16 @@
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
+		        {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-app-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-app-connection",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-app-connection.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-app-connection",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-create-lamp-stack.md",
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
