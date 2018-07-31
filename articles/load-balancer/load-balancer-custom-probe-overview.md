@@ -25,7 +25,7 @@ Azure Load Balancer uses health probes to determine which backend pool instances
 When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether a flow is TCP or UDP as well as which Load Balancer SKU you are using.  Review [probe down behavior for details](#probedown).
 
 > [!IMPORTANT]
-> Load Balancer health probes originate from the IP address 168.63.129.16 and it must not be blocked for probes to succeed.  Review [probe source IP address](#probesource) for details.
+> Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance up.  Review [probe source IP address](#probesource) for details.
 
 ## Health probe types
 
@@ -128,11 +128,11 @@ Basic Load Balancer exposes health probe status per backend pool via Log Analyti
 
 ## <a name="probesource"></a>Probe source IP address
 
-All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. Even though it is globally reserved, it should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
+All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
 
 For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.
 
-If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can caused the failure of your load balanced service. 
+If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can cause your load balanced service to fail. 
 
 You should also not configure your VNet with the Microsoft owned IP address range which contains 168.63.129.16.  This will collide with the IP address of the health probe.
 
