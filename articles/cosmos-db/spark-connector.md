@@ -47,7 +47,7 @@ There are two approaches to connect Apache Spark and Azure Cosmos DB:
 |---------|-------|
 |Apache Spark| 2.1.x, 2.2.x, 2.3.x |
 | Scala|2.11|
-| Databricks runtime version | > 3.4 |
+| Azure Databricks runtime version | > 3.4 |
 | Azure Cosmos DB SQL Java SDK | 1.16.2 |
 
 ## Connect by using Python or pyDocumentDB SDK
@@ -71,10 +71,10 @@ Communication between Spark and Azure Cosmos DB is limited to the Spark master n
 
 Run the following steps to connect Spark to Azure Cosmos DB by using pyDocumentDB SDK:
 
-1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
+1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Azure Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
 
 2. When the cluster is created and is running, go to **Workspace** > **Create** > **Library**.  
-3. From the New Library dialog box, choose **Upload Python Egg or PyPi** as the source. Provide **pydocumentdb** as the name, and select **Install Library**. PyDocumentdb SDK is already published to the pip packages, so you can find and install it. 
+3. From the New Library dialog box, choose **Upload Python Egg or PyPi** as the source. Provide **pydocumentdb** as the name, and select **Install Library**. pyDocumentdb SDK is already published to the pip packages, so you can find and install it. 
 
    ![Screenshot of the New Library dialog box](./media/spark-connector/create-library.png)
 
@@ -84,7 +84,7 @@ Run the following steps to connect Spark to Azure Cosmos DB by using pyDocumentD
 
 6. In the **Create Notebook** dialog box, enter a user-friendly name, and choose **Python** as the language. From the drop-down list, select the cluster that you created earlier, and select **Create**.  
 
-7. Run few Spark queries by using the flights sample data hosted in the “doctorwho” Cosmos DB account. (This account is publicly accessible.) The HTML version of the notebook is hosted in the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository. Download the repository files, and go to `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
+7. Run a few Spark queries by using the flights sample data hosted in the “doctorwho” Azure Cosmos DB account. (This account is publicly accessible.) The [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub repository hosts the HTML version of the notebook. Download the repository files, and go to `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. You can import the notebook to your Azure Databricks account and run it. The following section explains the functionality of the code blocks in detail.
 
 The following code snippet shows how to import the pyDocumentDB SDK, and run a query in the Spark context. As noted in the code snippet, the pyDocumentDB SDK contains the connection parameters required to connect to the Azure Cosmos DB account. It imports the required libraries, and configures the master key and host, to create the Azure Cosmos DB client (pydocumentdb.document_client).
 
@@ -108,7 +108,7 @@ client = document_client.DocumentClient(host, {'masterKey': masterKey}, connecti
 
 ```
 
-Next, you can run queries. The following code snippet connects to the airports.codes collection in the DoctorWho account, and runs a query to extract the airport cities in Washington state. 
+Next, you can run queries. The following code snippet connects to the airports.codes collection in the doctorwho account, and runs a query to extract the airport cities in Washington state. 
 
 ```python
 # Configure Database and Collections
@@ -141,7 +141,7 @@ df.show()
 ```
 
 ### Considerations when using pyDocumentDB SDK
-Connecting spark to Azure Cosmos DB by using pyDocumentDB SDK is recommended in the following scenarios:
+Connecting Spark to Azure Cosmos DB by using pyDocumentDB SDK is recommended in the following scenarios:
 
 * You want to use Python.  
 
@@ -182,7 +182,7 @@ Communication between Spark and Azure Cosmos DB is significantly faster, because
 
 5. Go to `http://apps.twitter.com/`, and register the Twitter feed script as a new application. After choosing a name and application for your app, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the application programmatic access to Twitter.   
 
-6. Save the config.py file. Open command prompt, and run the Python application by using the following command:
+6. Save the config.py file. Open a command prompt, and run the Python application by using the following command:
 
    ```bash
    Python driver.py
@@ -192,7 +192,7 @@ Communication between Spark and Azure Cosmos DB is significantly faster, because
 
 ### Find and attach the Java SDK to the Spark cluster
 
-1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
+1. Create an [Azure Databricks workspace](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) and a [Spark cluster](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). Azure Databricks runtime version 4.0 includes Apache Spark 2.3.0 and Scala 2.11 within that workspace.  
 
 2. When the cluster is created and is running, go to **Workspace** > **Create** > **Library**.  
 
