@@ -88,6 +88,6 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 ## Next steps
 
-* Learn [how Traffic Manager works](traffic-manager-it-works.md).
+* Learn [how Traffic Manager works](traffic-manager-how-it-works.md).
 * Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 * Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
