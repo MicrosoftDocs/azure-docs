@@ -267,7 +267,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | Active LTS and Current Node.js versions with 8.11.1 and 10.6.0 recommended. Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | __Active LTS__ and __Current__ Node.js versions with 8.11.1 and 10.6.0 recommended. Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 You can see the current version that the runtime is using by printing `process.version` from any function.
 
