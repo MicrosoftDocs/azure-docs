@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
