@@ -1,6 +1,6 @@
 ---
 title: Configure file upload to IoT Hub using Azure CLI (az.py) | Microsoft Docs
-description: How to configure fileuploads to Azure IoT Hub using the cross-platform Azure CLI 2.0 (az.py).
+description: How to configure fileuploads to Azure IoT Hub using the cross-platform Azure CLI.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -19,9 +19,9 @@ To use the [file upload functionality in IoT Hub][lnk-upload], you must first as
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure CLI 2.0][lnk-CLI-install].
+* [Azure CLI][lnk-CLI-install].
 * An Azure IoT hub. If you don't have an IoT hub, you can use the `az iot hub create` [command][lnk-cli-create-iothub] to create one or use the portal to [Create an IoT hub][lnk-portal-hub].
-* An Azure Storage account. If you don't have an Azure Storage account, you can use the [Azure CLI 2.0 - Manage storage accounts][lnk-manage-storage] to create one or use the portal to [Create a storage account][lnk-portal-storage].
+* An Azure Storage account. If you don't have an Azure Storage account, you can use the [Azure CLI - Manage storage accounts][lnk-manage-storage] to create one or use the portal to [Create a storage account][lnk-portal-storage].
 
 ## Sign in and set your Azure account
 

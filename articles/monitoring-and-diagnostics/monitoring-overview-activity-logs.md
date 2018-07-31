@@ -152,7 +152,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### Configure log profiles Using the Azure CLI 2.0
+### Configure log profiles Using the Azure CLI
 
 #### Get existing log profile
 

@@ -132,9 +132,9 @@ You can obtain the resource ID of your Log Analytics workspace using the followi
 
 You can combine these parameters to enable multiple output options.
 
-### Enable collection of resource diagnostic logs via Azure CLI 2.0
+### Enable collection of resource diagnostic logs via Azure CLI
 
-To enable collection of resource diagnostic logs via the Azure CLI 2.0, you use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+To enable collection of resource diagnostic logs via the Azure CLI, you use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 To enable storage of diagnostic logs in a Storage Account:
 

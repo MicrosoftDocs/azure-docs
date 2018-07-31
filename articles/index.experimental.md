@@ -3311,13 +3311,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0
+                                                <h3>Azure CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Download Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Reference</a>
@@ -3362,7 +3362,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
+                                                <h3>Azure classic CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>

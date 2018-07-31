@@ -90,7 +90,7 @@ The following restrictions apply during public preview:
 
 ## Getting started
 
-Azure Immutable Storage for Azure Blobs is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Azure Immutable Storage for Azure Blobs is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### Azure portal
 
@@ -124,7 +124,7 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
 
     ![Set legal hold tags](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-### CLI 2.0
+### Azure CLI 
 
 Install the [CLI extension](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
 
