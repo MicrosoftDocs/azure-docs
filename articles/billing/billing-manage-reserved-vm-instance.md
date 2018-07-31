@@ -3,8 +3,8 @@ title: Manage Azure Reserved Instances - Azure Billing | Microsoft Docs
 description: Learn how you can change subscription scope and manage access for Azure Reserved VM Instances. 
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 
 ms.service: billing
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
-ms.author: vikdesai
+ms.date: 07/31/2018
+ms.author: yashesvi
 ---
 # Manage reserved instances
 
@@ -28,6 +28,16 @@ To update the scope of a reserved instance:
 3. Select the reserved instance.
 4. Select **Settings** > **Configuration**.
 5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reserved instance, can be selected. The billing context is determined by the subscription that you selected when the reserved instance was bought. The scope only applies to Pay-As-You-Go offer MS-AZR-0003P subscriptions and Enterprise offer MS-AZR-0017P subscriptions. For enterprise agreements, dev/test subscriptions are not eligible to get the reserved instance discount.
+
+## Change VM instance flexibility or prioritize capacity
+ VM instance flexibility will apply the reservation discount to other VMs in the same [VM group](https://aka.ms/RIVMGroups), instance size flexibility is on when the scope of the reservation is set to Shared. For reservations where the scope is Single, you can optimize the reservation for capacity priority instead of VM instance flexibility.
+
+To update the scope of a reserved instance: 
+1. Log in to the [Azure portal](https://portal.azure.com).
+2. Select **All Services** > **Reservations**.
+3. Select the reserved instance.
+4. Select **Settings** > **Configuration**.
+5. Change the Optimize for setting.
 
 ## Split a single reserved instance into two reserved instances
  After you buy more than one instance, you may want to assign instances within a reserved instance to different subscriptions. By default, all instances (quantity specified during the purchase) have one scope - either single subscription or shared. For example, you purchased 10 Standard D2 VMs and specified the scope to be subscription A. You may now want to change the scope for seven reserved instances to subscription A and the remaining 3 to subscription B. Splitting a reserved instance allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
