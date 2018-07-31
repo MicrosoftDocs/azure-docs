@@ -159,6 +159,13 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
+#### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
