@@ -103,18 +103,18 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 | time       | The date and time (UTC). |
 | operationName | The name of the operation. |
 | operationVersion | The REST API version that's requested by the client. |
-| category | Currently, *Audit* is the only value supported. |
+| category | Currently, *Audit* is the only supported value. |
 | tenantId | The tenant GUID that's associated with the logs. |
 | resultType | The result of the operation. The result can be *Success* or *Failure*. |
 | resultSignature |  This field is unmapped, and you can safely ignore it. | 
 | resultDescription | An additional description of the result, where available. | 
 | durationMs |  This field is unmapped, and you can safely ignore it. |
 | callerIpAddress | The IP address of the client that made the request. | 
-| correlationId | An optional GUID that's passed by the client. It can help correlate client-side operations with server-side operations and is useful when you're tracking logs that span services. |
-| identity | The identity from the token that was presented when you made  the request. The identity can be a user account, system account, or service principal. |
+| correlationId | An optional GUID that's passed by the client. It can help correlate client-side operations with server-side operations and it's useful when you're tracking logs that span services. |
+| identity | The identity from the token that was presented when you made the request. The identity can be a user account, system account, or service principal. |
 | level | The message type. For audit logs, the level is always *Informational*. |
 | location | The location of the datacenter. |
-| properties | Lists the supported properties that are related to an audit log. For more information see the following table. | 
+| properties | Lists the supported properties that are related to an audit log. For more information, see the next table. | 
 
 <br>
 
@@ -125,7 +125,7 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 | Operation Type | The type can be *Add*, *Update*, *Delete*. or *Other*. |
 | Target Resource Type | Specifies the target resource type that the operation was performed on. The type can be *Application*, *User*, *Role*, *Policy* | 
 | Target Resource Name | The name of the target resource. It can be an application name, a role name, a user principal name, or a service principal name. |
-| additionalTargets | A list of any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties*. | 
+| additionalTargets | Lists any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties*. | 
 
 ## Next steps
 
