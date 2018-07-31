@@ -31,18 +31,18 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>VM is starting up.</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/creating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Creating"</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/starting",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM starting"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/creating",
+ "level": "Info",
+ "displayStatus": "Creating"
+ },
+ {
+ "code": "PowerState/starting",
+ "level": "Info",
+ "displayStatus": "VM starting"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Not Billed</strong></p>
@@ -54,19 +54,19 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>Running state for a VM</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/succeeded",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Provisioning succeeded",</p>
-<p> "time": &ldquo;time&rdquo;</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/running",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM running"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/succeeded",
+ "level": "Info",
+ "displayStatus": "Provisioning succeeded",
+ "time": &ldquo;time&rdquo;
+ },
+ {
+ "code": "PowerState/running",
+ "level": "Info",
+ "displayStatus": "VM running"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Billed (Hardware + Software) </strong></p>
@@ -78,18 +78,18 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>Status of the VM when a VM is either stopped from client or guest OS. Stopping status is a transitional state which eventually transitions to its final state of Stopped.</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/updating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Updating"</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/stopping",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM stopping"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/updating",
+ "level": "Info",
+ "displayStatus": "Updating"
+ },
+ {
+ "code": "PowerState/stopping",
+ "level": "Info",
+ "displayStatus": "VM stopping"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Billed (Hardware + Software)</strong></p>
@@ -102,19 +102,19 @@ Figure 1: VM power state diagram
 <td width="484">
 <p>State occurs when a VM has been shut down from the guest OS then the VM transitions to the stopped state.</p>
 <p>An important distinction to note is that VM is only stopped on the host but not removed as compared to deallocate and is still billed.</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/succeeded",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Provisioning succeeded",</p>
-<p> "time": "time"</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/stopped",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM stopped"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/succeeded",
+ "level": "Info",
+ "displayStatus": "Provisioning succeeded",
+ "time": "time"
+ },
+ {
+ "code": "PowerState/stopped",
+ "level": "Info",
+ "displayStatus": "VM stopped"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Billed (Hardware only)</strong></p>
@@ -126,18 +126,18 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>when the user stops the VM using client APIs VM transitions to deallocating transitional state.</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/updating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Updating"</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/deallocating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM deallocating"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/updating",
+ "level": "Info",
+ "displayStatus": "Updating"
+ },
+ {
+ "code": "PowerState/deallocating",
+ "level": "Info",
+ "displayStatus": "VM deallocating"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Billed (Hardware only)</strong></p>
@@ -149,19 +149,19 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>VM is stopped and removed/deallocated from the host. VM in the deallocated state are not billed, but other resources like network and storage are billed.</p>
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/succeeded",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Provisioning succeeded",</p>
-<p> "time": "time"</p>
-<p> },</p>
-<p> {</p>
-<p> "code": "PowerState/deallocated",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "VM deallocated"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/succeeded",
+ "level": "Info",
+ "displayStatus": "Provisioning succeeded",
+ "time": "time"
+ },
+ {
+ "code": "PowerState/deallocated",
+ "level": "Info",
+ "displayStatus": "VM deallocated"
+ }
+ ]</code>
 </td>
 <td width="83">
 <p><strong>Not billed </strong></p>
@@ -215,12 +215,12 @@ accepted the request for user action.
 <p><strong>Creating</strong></p>
 </td>
 <td width="366">
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/creating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Creating"</p>
-<p> }</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/creating",
+ "level": "Info",
+ "displayStatus": "Creating"
+ }</code>
 </td>
 </tr>
 <tr>
@@ -228,13 +228,13 @@ accepted the request for user action.
 <p><strong>Updating</strong></p>
 </td>
 <td width="366">
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/updating",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Updating"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/updating",
+ "level": "Info",
+ "displayStatus": "Updating"
+ }
+ ]</code>
 </td>
 </tr>
 <tr>
@@ -242,13 +242,13 @@ accepted the request for user action.
 <p><strong>Deleting</strong></p>
 </td>
 <td width="366">
-<p>"statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/deleting",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "Deleting"</p>
-<p> }</p>
-<p> ]</p>
+<code>"statuses": [
+ {
+ "code": "ProvisioningState/deleting",
+ "level": "Info",
+ "displayStatus": "Deleting"
+ }
+ ]</code>
 </td>
 </tr>
 <tr>
@@ -273,20 +273,22 @@ accepted the request for user action.
 </td>
 <td width="366">
 <p>If a VM is created with an OS image and not with a specialized image then following sub-states can be observed</p>
-<p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <br /> "statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/ OSProvisioningInprogress",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "OS Provisioning In progress"</p>
-<p> }</p>
-<p>]</p>
-<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension, installation of extension take time and thus provides a window where this state can be observed before it transitions over to succeed.<br /> "statuses": [</p>
-<p> {</p>
-<p> "code": "ProvisioningState/ OSProvisioningComplete",</p>
-<p> "level": "Info",</p>
-<p> "displayStatus": "OS Provisioning Complete"</p>
-<p> }</p>
-<p>]</p>
+<p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <br /> 
+<code> "statuses": [
+ {
+ "code": "ProvisioningState/ OSProvisioningInprogress",
+ "level": "Info",
+ "displayStatus": "OS Provisioning In progress"
+ }
+]</code>
+<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension, installation of extension take time and thus provides a window where this state can be observed before it transitions over to succeed.<br />
+<code> "statuses": [
+ {
+ "code": "ProvisioningState/ OSProvisioningComplete",
+ "level": "Info",
+ "displayStatus": "OS Provisioning Complete"
+ }
+]</code>
 <p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time customers will be billed for the deployed VM on the infrastructure. In cases where OS take longer than expected to complete the installation, the platform will automatically transition to success from failure. In other cases re-starting a VM can resolve the issue. If the issue is persistent, then refer to error codes documentation for resolution.</p>
 </td>
 </tr>
