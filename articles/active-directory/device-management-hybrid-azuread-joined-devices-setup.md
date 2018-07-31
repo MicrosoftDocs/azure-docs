@@ -53,8 +53,8 @@ To improve the readability of the descriptions, this article uses the following 
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso). 
-- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication.
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
 - The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
 
 
@@ -90,13 +90,11 @@ If your organization is planning to use Seamless SSO, then the following URLs ne
 
 - https://autologon.microsoftazuread-sso.com
 
-- https://aadg.windows.net.nsatc.net
-
 - Also, the following setting should be enabled in the user's intranet zone: "Allow status bar updates via script."
 
 If your organization uses managed (non-federated) setup with on-premises AD and does not use ADFS to federate with Azure AD, then hybrid Azure AD join on Windows 10 relies on the computer objects in AD to be sync'ed to Azure AD. Make sure that any Organizational Units (OU) that contain the computer objects that need to be hybrid Azure AD joined are enabled for sync in the Azure AD Connect sync configuration.
 
-If your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
+For Windows 10 devices on version 1703 or earlier, if your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD. 
 
 ## Configuration steps
 
@@ -176,7 +174,6 @@ In a multi-forest configuration, you should use the following script to create t
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -269,7 +266,7 @@ The definition helps you to verify whether the values are present or if you need
  
 ### Issue objectSID of the computer account on-premises
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - This claim must contain the the **objectSid** value of the on-premises computer account. In AD FS, you can add an issuance transform rule that looks like this:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - This claim must contain the **objectSid** value of the on-premises computer account. In AD FS, you can add an issuance transform rule that looks like this:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -569,7 +566,7 @@ When you have completed the required steps, domain-joined devices are ready to a
 
 ### Remarks
 
-- You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. **If you do not want these devices to automatically register with Azure AD or you want to control the registration**, then you must roll out group policy disabling the automatic registration to all these devices first, before starting with configuration steps. After you are done configuring, and when you are ready to test, you must roll out group policy enabling the automatic registration only to the test devices and then to all other devices as you choose.
+- You can use a Group Policy object or System Center Configuration Manager client setting to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. **If you do not want these devices to automatically register with Azure AD or you want to control the registration**, then you must roll out group policy disabling the automatic registration to all these devices first or if you are using Configuration Manager you must configure the client setting under Cloud Services -> Automatically register new Windows 10 domain joined devices with Azure Active Directory to "No", before starting with any of the configuration steps. After you are done configuring, and when you are ready to test, you must roll out group policy enabling the automatic registration only to the test devices and then to all other devices as you choose.
 
 - To rollout of Windows down-level computers, you can deploy a [Windows Installer package](#windows-installer-packages-for-non-windows-10-computers) to computers that you select.
 

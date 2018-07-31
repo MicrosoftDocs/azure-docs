@@ -244,7 +244,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 **To access the HBase Master UI**
 
-1. Sign into the the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
+1. Sign into the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
 2. Click **HBase** from the left menu.
 3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 

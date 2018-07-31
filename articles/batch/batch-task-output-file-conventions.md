@@ -18,7 +18,7 @@ ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
-# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist 
+# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 

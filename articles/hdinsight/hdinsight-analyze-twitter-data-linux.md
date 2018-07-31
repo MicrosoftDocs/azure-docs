@@ -1,6 +1,6 @@
 ---
 title: Analyze Twitter data with Apache Hive - Azure HDInsight | Microsoft Docs
-description: Learn how to use use Hive and Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
+description: Learn how to use Hive and Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -304,7 +304,7 @@ These commands store the data in a location that all nodes in the cluster can ac
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    This command runs the the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
+    This command runs the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
 
 4. From the beeline prompt, use the following query to verify that data was imported:
 

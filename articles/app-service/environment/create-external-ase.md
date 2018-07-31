@@ -63,10 +63,7 @@ To create an ASE while you create an App Service plan:
 
 3. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
 
-4. Select your OS. 
-
-    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
-    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
+4. Select your OS (Windows, Linux, or Docker). 
 
 5. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
 
@@ -74,13 +71,7 @@ To create an ASE while you create an App Service plan:
 
 6. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-    > [!NOTE]
-    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
-    >
-
 7. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
-
-    * For the Linux on ASE preview, a 50% discount will be applied to the Isolated SKU (there will be no discount on the flat-fee for the ASE itself).
 
     ![Pricing tier selection][3]
 
@@ -116,13 +107,7 @@ To create an ASE while you create an App Service plan:
 
 5. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-    > [!NOTE]
-    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
-    >
-
 6. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
-
-    * For the Linux on ASE preview, a 50% discount will be applied to the Isolated SKU (there will be no discount on the flat-fee for the ASE itself).
 
     ![Pricing tier selection][3]
 
@@ -166,7 +151,7 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
 5. Select your VNet and location. You can create a new VNet or select an existing VNet: 
 
-    * If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
+    * If you select a new VNet, you can specify a name and location. 
     
     * The new VNet has the address range 192.168.250.0/23 and a subnet named default. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager VNet. The **VIP Type** selection determines if your ASE can be directly accessed from the internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service environment][MakeILBASE]. 
 

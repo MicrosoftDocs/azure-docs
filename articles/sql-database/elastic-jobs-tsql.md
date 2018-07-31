@@ -75,7 +75,7 @@ Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run t
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group = N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup'
 GO
 
 -- Add a server target member

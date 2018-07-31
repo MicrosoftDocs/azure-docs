@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 07/24/2018
 ms.author: juliako
 
 ---
@@ -41,6 +41,10 @@ These release notes for Azure Media Services summarize changes from previous rel
 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## July 2018
+
+With the latest service release, there are minor formatting changes to the error messages returned by the service when a Job fails, with respect to how it is broken up into two or more lines.
 
 ## May 2018 
 
@@ -392,7 +396,7 @@ The changes in 3.0.0.1 and 3.0.0.2 include:
 * Issues related to the usage of LINQ queries with OrderBy statements were fixed.
 * Test solutions in [GitHub] were split into unit-based tests and scenario-based tests.
 
-For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
 The following changes were made in version 3.0.0.3:
 

@@ -36,8 +36,9 @@ To run the sample, do the following steps:
 1. Replace `Program.cs` with the following code.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change `computerVision.AzureRegion = AzureRegions.Westcentralus` to the location where you obtained your subscription keys, if necessary.
-1. Replace `<LocalImage>` with the path and file name of a local image.
+1. Optionally, replace `<LocalImage>` with the path and file name of a local image (will be ignored if not set).
 1. Optionally, set `remoteImageUrl` to a different image.
+1. Optionally, set `writeThumbnailToDisk` to `true` to save the thumbnail to disk.
 1. Run the program.
 
 ```csharp
@@ -52,6 +53,8 @@ namespace ImageThumbnail
 {
     class Program
     {
+        private const bool writeThumbnailToDisk = false;
+
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
@@ -81,11 +84,11 @@ namespace ImageThumbnail
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
+            Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
-            Task.WhenAll(t1, t2).Wait();
-
+            Task.WhenAll(t1, t2).Wait(5000);
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -94,15 +97,22 @@ namespace ImageThumbnail
         private static async Task GetRemoteThumbnailAsync(
             ComputerVisionAPI computerVision, string imageUrl)
         {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
             Stream thumbnail = await computerVision.GenerateThumbnailAsync(
                 thumbnailWidth, thumbnailHeight, imageUrl, true);
 
+            string path = Environment.CurrentDirectory;
             string imageName = imageUrl.Substring(imageUrl.LastIndexOf('/') + 1);
-            string path = Environment.ExpandEnvironmentVariables("%TEMP%");
             string thumbnailFilePath =
                 path + "\\" + imageName.Insert(imageName.Length - 4, "_thumb");
 
-            // Save the thumbnail to the users %TEMP% folder,
+            // Save the thumbnail to the current working directory,
             // using the original name with the suffix "_thumb".
             SaveThumbnail(thumbnail, thumbnailFilePath);
         }
@@ -114,7 +124,7 @@ namespace ImageThumbnail
             if (!File.Exists(imagePath))
             {
                 Console.WriteLine(
-                    "\n{0} doesn't exist or you don't have read permission\n", imagePath);
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
                 return;
             }
 
@@ -136,11 +146,15 @@ namespace ImageThumbnail
         // NOTE: This will overwrite an existing file of the same name.
         private static void SaveThumbnail(Stream thumbnail, string thumbnailFilePath)
         {
-            using (Stream file = File.Create(thumbnailFilePath))
+            if (writeThumbnailToDisk)
             {
-                thumbnail.CopyTo(file);
+                using (Stream file = File.Create(thumbnailFilePath))
+                {
+                    thumbnail.CopyTo(file);
+                }
             }
-            Console.WriteLine("Thumbnail written to: {0}\n", thumbnailFilePath);
+            Console.WriteLine("Thumbnail {0} written to: {1}\n",
+                writeThumbnailToDisk ? "" : "NOT", thumbnailFilePath);
         }
     }
 }
@@ -153,7 +167,7 @@ A successful response saves the thumbnail for each image locally and displays th
 ```cmd
 Thumbnail written to: C:\Documents\LocalImage_thumb.jpg
 
-Thumbnail written to: C:\Users\user\AppData\Local\Temp\Bloodhound_Puppy_thumb.jpg
+Thumbnail written to: ...\bin\Debug\Bloodhound_Puppy_thumb.jpg
 ```
 
 ## Next steps

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring | Microsoft Docs
 description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
 services: virtual-machines-linux
@@ -243,7 +243,7 @@ To open an Azure support request, choose "Virtual Machine running Cloud Foundry"
 
 ## Next step
 
-From PCF2.0, VM performance metrics are transferred to Azure log analytics nozzle by System Metrics Forwarder, and integrated into the OMS workspace. You no longer need the OMS agent for the the VM performance metrics. 
+From PCF2.0, VM performance metrics are transferred to Azure log analytics nozzle by System Metrics Forwarder, and integrated into the OMS workspace. You no longer need the OMS agent for the VM performance metrics. 
 However you can still use the OMS agent to collect Syslog information. The OMS agent is installed as a Bosh add-on to your CF VMs. 
 
 For details, see [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease).

@@ -59,7 +59,7 @@
       href: container-instances-log-analytics.md
   - name: Run workloads
     items:
-    - name: Run containerized tasks
+    - name: Run tasks with restart policy
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md

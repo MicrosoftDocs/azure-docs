@@ -3,18 +3,18 @@ title: Threat intelligence in Azure Security Center | Microsoft Docs
 description: Learn how to use the threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
+ms.date: 07/10/2018
+ms.author: terrylan
 
 ---
 # Threat intelligence in Azure Security Center
@@ -39,20 +39,24 @@ One of the steps of a [security incident response process](https://docs.microsof
 - Identify the systems that were compromised.
 - Identify the files that were accessed and determine the sensitivity of those files.
 
-You can use threat intelligence information in Security Center to help with these tasks. 
+You can use threat intelligence information in Security Center to help with these tasks.
 
 ## Access the threat intelligence
 To visualize the current threat intelligence for your environment, you must first select the workspace where your information resides. If you don't have multiple workspaces, you bypass the workspace selector and go directly to the **Threat intelligence** dashboard. To access the dashboard:
 
 1. Open the **Security Center** dashboard.
 
-2. In the left pane, under **Detection** select **Threat intelligence**. The **Threat intelligence** dashboard appears.
+2. In the left pane, under **Threat Protection** select **Threat intelligence**. A map opens.
+
+	![Threat intelligence map](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
 
 	![Threat intelligence dashboard](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
 	> [!NOTE]
-	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
-	> 
+	> If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing.
+	>
 3. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
 
 	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -93,7 +97,6 @@ In this article, you learned how to use threat intelligence in Security Center t
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center troubleshooting guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
+* [Azure Security Center troubleshooting guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using the service.
 * [Azure security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-

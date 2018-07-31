@@ -3,22 +3,22 @@ title: Build a LUIS app programmatically using Node.js | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Build a LUIS app programmatically using Node.js
 
-LUIS provides a programmatic API that does everything that the [LUIS][LUIS] website does. This can save time when you have pre-existing data and it would be faster to create a LUIS app programmatically than by entering information by hand. 
+LUIS provides a programmatic API that does everything that the [LUIS](luis-reference-regions.md) website does. This can save time when you have pre-existing data and it would be faster to create a LUIS app programmatically than by entering information by hand. 
 
 ## Prerequisites
 
-* Log in to the [LUIS][LUIS] website and find your [authoring key](luis-concept-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
+* Log in to the [LUIS](luis-reference-regions.md) website and find your [authoring key](luis-concept-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
@@ -158,7 +158,7 @@ upload done
 
 
 ## Open the LUIS app
-Once the script completes, you can log in to [LUIS][LUIS] and see the LUIS app you created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
+Once the script completes, you can log in to [LUIS](luis-reference-regions.md) and see the LUIS app you created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
 
 ![TurnOn intent](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -166,7 +166,7 @@ Once the script completes, you can log in to [LUIS][LUIS] and see the LUIS app y
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](interactive-test.md)
+> [Test and train your app in LUIS website](luis-interactive-test.md)
 
 ## Additional resources
 
@@ -174,7 +174,4 @@ This sample application uses the following LUIS APIs:
 - [create app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [add intents](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

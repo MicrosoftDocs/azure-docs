@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/28/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a local image with C&#35;
+# Quickstart: Analyze an image with C&#35;
 
 In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
 
@@ -64,11 +64,11 @@ namespace ImageAnalyze
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
-        private const string remoteImageUrl =
-            "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
-
         // localImagePath = @"C:\Documents\LocalImage.jpg"
         private const string localImagePath = @"<LocalImage>";
+
+        private const string remoteImageUrl =
+            "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
 
         // Specify the features to return
         private static readonly List<VisualFeatureTypes> features =
@@ -96,11 +96,11 @@ namespace ImageAnalyze
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
+            Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
-            Task.WhenAll(t1, t2).Wait();
-
+            Task.WhenAll(t1, t2).Wait(5000);
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -109,6 +109,13 @@ namespace ImageAnalyze
         private static async Task AnalyzeRemoteAsync(
             ComputerVisionAPI computerVision, string imageUrl)
         {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
             ImageAnalysis analysis =
                 await computerVision.AnalyzeImageAsync(imageUrl, features);
             DisplayResults(analysis, imageUrl);
@@ -121,7 +128,7 @@ namespace ImageAnalyze
             if (!File.Exists(imagePath))
             {
                 Console.WriteLine(
-                    "\n{0} doesn't exist or you don't have read permission\n", imagePath);
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
                 return;
             }
 
@@ -145,7 +152,9 @@ namespace ImageAnalyze
 
 ## AnalyzeImageAsync response
 
-A successful response displays the most relevant caption for each image, for example:
+A successful response displays the most relevant caption for each image.
+
+See [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) for an example of raw JSON output.
 
 ```cmd
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

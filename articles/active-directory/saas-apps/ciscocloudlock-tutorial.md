@@ -163,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a The Cloud Security Fabric test user
 
-In this section, you create a user called Britta Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
@@ -179,7 +179,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **The Cloud Security Fabric**.
 
-	![The The Cloud Security Fabric link in the Applications list](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+	![The Cloud Security Fabric link in the Applications list](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -199,8 +199,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the The Cloud Security Fabric tile in the Access Panel, you should get automatically signed-on to your The Cloud Security Fabric application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+When you click The Cloud Security Fabric tile in the Access Panel, you should get automatically signed-on to your The Cloud Security Fabric application.
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

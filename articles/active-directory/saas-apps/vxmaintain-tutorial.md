@@ -191,7 +191,7 @@ In this section, you test your Azure AD SSO configuration by using the Access Pa
 
 Selecting the **vxMaintain** tile in the Access Panel should sign you in to your vxMaintain application automatically.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Next steps
 

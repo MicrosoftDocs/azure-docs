@@ -18,8 +18,9 @@ ms.custom: "include file"
 | Max size of a Module |100 MB ||
 | Job Run Time - Free tier |500 minutes per subscription per calendar month ||
 | Max amount of disk space allowed per sandbox**<sup>1</sup>** |1 GB |Applies to Azure sandboxes only|
-| Max amount of memory given to a sandbox**<sup>1</sup>** |400 MB |Applies to Azure sandboxes only|
-| Max number of network sockets allowed per sandbox**<sup>1</sup>** |1000 |Applies to Azure sandboxes only|
+| Max amount of memory given to a sandbox **<sup>1</sup>** |400 MB |Applies to Azure sandboxes only|
+| Max number of network sockets allowed per sandbox **<sup>1</sup>** |1000 |Applies to Azure sandboxes only|
+| Maximum runtime allowed per runbook  **<sup>1</sup>** |3 hours |Applies to Azure sandboxes only|
 | Max number of Automation Accounts in a subscription |No Limit ||
 |Max number of concurrent jobs that be run on a single Hybrid Runbook Worker|50 ||
 

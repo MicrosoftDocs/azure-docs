@@ -31,61 +31,61 @@ ms.author: sajagtap
 | Chinese (Traditional) | Bangla - Bangladesh | Finnish  | Italian
 | Church (Slavic) | Bangla - India | French     | Korean
 | Coptic | Basque | German                      | Norwegian
-| Dhivehi | Belarusian | Greek (modern)         | Polish
-| Farsi | Bosnian - Cyrillic | Hungarian        | Portuguese
-| Greek | Bosnian - Latin | Italian             | Romanian
-| Haitian (Creole) | Breton [non-GeoPol] | Japanese  | Russian
-| Hebrew | Bulgarian | Korean                        | Slovak
-| Hmong | Catalan | Norwegian                        | Spanish
-| Kurdish (Arabic) | Central Kurdish | Polish        | Turkish
-| Kurdish (Latin) | Cherokee | Portuguese
-| Lepcha | Chinese (Simplified) | Romanian
-| Limbu | Chinese (Traditional) - Hong Kong SAR | Russian
-| Lu | Chinese (Traditional) - Taiwan | Serbian Cyrillic
-| Lycian | Croatian | Serbian Latin
-| Lydian | Czech | Slovak
-| Mycenaean (Greek) | Danish | Spanish
-| Nko | Dari | Swedish
-| Norwegian (Bokmal) | Dutch | Turkish
-| Norwegian (Nynorsk) | English 
-| Old (Persian) | Estonian 
-| Pashto | Filipino
-| Punjabi | Finnish
-| Rejang | French
-| Santali | Galician
-| Sasak | Georgian
-| Saurashtra | German
-| Serbian (Cyrillic) | Greek
-| Serbian (Latin) | Gujarati
-| Sinhala | Hausa
-| Slovenian | Hebrew
-| Sylheti | Hindi
-| Syriac | Hungarian
-| Tagbanwa | Icelandic
-| Tai (Nua) | Igbo
-| Tamashek | Indonesian
-| Ugaritic | Inuktitut
-| Uzbek (Cyrillic) | Irish
-| Uzbek (Latin) | isiXhosa
-| Vai | isiZulu
-| Yi | Italian
-| Zhuang, Chuang | Japanese
-| | Kannada
-| | Kazakh
-| | Khmer
-| | K'iche
-| | Kinyarwanda
-| | Kiswahili
-| | Konkani
-| | Korean
-| | Kyrgyz
-| | Lao
-| | Latvian
-| | Lithuanian
-| | Luxembourgish
-| | Macedonian
-| | Malay
-| | Malayalam
+| Czech |  Belarusian | Greek (modern)         | Polish
+| Dhivehi | Bosnian - Cyrillic | Hungarian      | Portuguese
+| Dutch | Bosnian - Latin | Italian             | Romanian
+| English | (Creole) | Breton [non-GeoPol] | Japanese  | Russian
+| Farsi | Bulgarian | Korean                        | Slovak
+| French | Catalan | Norwegian                        | Spanish
+| German | Central Kurdish | Polish        | Turkish
+| Greek | Cherokee | Portuguese
+| Haitian | Chinese (Simplified) | Romanian
+| Hebrew | Chinese (Traditional) - Hong Kong SAR | Russian
+| Hindi | Chinese (Traditional) - Taiwan | Serbian Cyrillic
+| Hmong | Croatian | Serbian Latin
+| Hungarian | Czech | Slovak
+| Italian | Danish | Spanish
+| Japanese | Dari | Swedish
+| Korean | Dutch | Turkish
+| Kurdish (Arabic) | English
+| Kurdish (Latin) | Estonian
+| Lepcha | Filipino
+| Limbu | Finnish
+| Lu | French
+| Lycian | Galician
+| Lydian | Georgian
+| Mycenaean (Greek) | German
+| Nko | Greek
+| Norwegian (Bokmal) | Gujarati
+| Norwegian (Nynorsk) |  Hausa
+| Old (Persian) | Hebrew
+| Pashto | Hindi
+| Polish | Hungarian
+| Portugese | Icelandic
+| Punjabi | Igbo
+| Rejang | Indonesian
+| Russian | Inuktitut
+| Santali | Irish
+| Sasak | isiXhosa
+| Saurashtra | isiZulu
+| Serbian (Cyrillic) | Italian
+| Serbian (Latin) | Japanese
+| Sinhala | Kannada
+| Slovenian | Kazakh
+| Spanish | Khmer
+| Swedish | K'iche
+| Sylheti | Kinyarwanda
+| Syriac | Kiswahili
+| Tagbanwa | Konkani
+| Tai (Nua) | Korean
+| Tamashek | Kyrgyz
+| Turkish | Lao
+| Ugaritic | Latvian
+| Uzbek (Cyrillic) | Lithuanian
+| Uzbek (Latin) | Luxembourgish
+| Vai | Macedonian
+| Yi | Malay
+| Zhuang, Chuang | Malayalam
 | | Maltese
 | | Maori
 | | Marathi

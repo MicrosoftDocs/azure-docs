@@ -320,7 +320,7 @@ You use *properties* to store information about your device in the application. 
 
 ## Use commands
 
-You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the the connected air conditioner display (this works with MxChip sample code).
+You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the connected air conditioner display (this works with MxChip sample code).
 
 1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template:
 

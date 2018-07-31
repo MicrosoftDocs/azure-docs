@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
@@ -44,7 +44,12 @@ VM configuration | VMs that replicate to Azure must meet [Azure requirements](#f
 Guest operating system | Any guest OS supported by Azure.<br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
+## VM/Disk management
 
+**Action** | **Details**
+--- | ---
+Resize disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then reenable replication for the VM.
+Add disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then reenable replication for the VM.
 
 ## Hyper-V network configuration
 

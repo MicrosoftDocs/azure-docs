@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -45,9 +45,6 @@ The following versions of the Windows operating system are officially supported 
 * Windows Server 2008 Service Pack 1 (SP1) or later
 * Windows 7 SP1 and later.
 
-> [!NOTE]
-> The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  
-
 ## Supported Linux operating systems
 The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.  Unless otherwise noted, all minor releases are supported for each major version listed.  
 
@@ -58,6 +55,9 @@ The following Linux distributions are officially supported.  However, the Linux 
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+
+## TLS 1.2 protocol
+To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  

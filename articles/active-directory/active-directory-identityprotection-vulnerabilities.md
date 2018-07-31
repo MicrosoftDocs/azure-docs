@@ -54,7 +54,7 @@ To enable users to carry out privileged operations, organizations need to grant 
 
 We recommend that your organization uses Azure AD Privileged Identity Management to manage, control, and monitor privileged identities and their access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
 
-For more information, see [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+For more information, see [Azure AD Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 ## See also
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

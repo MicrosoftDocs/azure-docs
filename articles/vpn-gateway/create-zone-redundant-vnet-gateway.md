@@ -8,7 +8,7 @@ Customer intent: As someone with a basic network background, I want to understan
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
 
 ---
@@ -203,10 +203,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 Create the virtual network gateway.
 
->[!NOTE]
->At this time, you cannot specify the gateway SKU. The SKU will automatically default to ErGw1AZ for ExpressRoute, and VpnGw1AZ for VPN Gateway.
->
-
 ### For ExpressRoute
 
 ```azurepowershell-interactive
@@ -232,6 +228,10 @@ You can [self-enroll](#enroll) using the PowerShell commands in this article.
 ### What will change when I enroll?
 
 From your perspective, during Preview, you can deploy your gateways with zone-redundancy. This means that all instances of the gateways will be deployed across Azure Availability Zones, and each Availability Zone is a different fault and update domain. This makes your gateways more reliable, available, and resilient to zone failures.
+
+### Can I use the Azure portal?
+
+Yes, you can use the Azure portal for the Preview. However, you still need to enroll using PowerShell or you won't be able to use the portal during Preview.
 
 ### What regions are available for the Preview?
 

@@ -34,7 +34,7 @@ Video Indexer is a cloud application built using Azure Media Analytics, Cognitiv
 - **Translation**: Video Indexer has the ability to translate the audio transcript from one language to another. The following languages are supported: English, Spanish, French, German, Italian, Chinese-Simplified, Portuguese-Brazilian, Japanese, and Russian. Once translated, the user can even get captioning in the video player in other languages.
 - **Visual content moderation**: This technology enables detection of adult and/or racy material present in the video and can be used for content filtering. 
 - **Keywords extraction**: Video Indexer extracts keywords based on the transcript of the spoken words and text recognized by visual text recognizer.
-- **Annotation**: Video Indexer annotates the video based on a pre-defined model of 2000 objects.
+- **Labels**: Video Indexer provides labels for visual objects such as cat, dog, table, car, as well as actions such as standing, running or flying.
 - **Brands**: Video Indexer extracts business brands based on the transcript of the spoken words and text recognized by visual text recognizer.
 
 Once Video Indexer is done processing and analyzing, you can review, curate, search, and publish the video insights.

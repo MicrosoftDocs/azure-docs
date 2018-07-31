@@ -66,7 +66,17 @@ Within the solution you have three items:
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder contains subfolders for each module. Right now you only have one, but you could add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * A **.env** file lists your environment variables. If you are ACR as your registry, right now you have ACR username and password in it. 
+
+   >[!NOTE]
+   >The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables. 
+
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+
+## Devlop your module
+
+The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **app.js**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+
+When you're ready to customize the Node.js template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
 ## Build and deploy your module for debugging
 
@@ -104,3 +114,4 @@ The preceding example shows how to debug Node.js IoT Edge modules on containers.
 
 Once you have your module built, learn how to [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md)
 
+To develop modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).

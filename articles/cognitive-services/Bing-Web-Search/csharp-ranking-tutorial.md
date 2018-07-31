@@ -217,7 +217,7 @@ Before showing how to display the results in ranked order, take a look at a samp
 
 The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups: 
 
-- `pole`: The search results to get the the most visible treatment (for example, displayed above the mainline and sidebar).
+- `pole`: The search results to get the most visible treatment (for example, displayed above the mainline and sidebar).
 - `mainline`: The search results to display in the mainline.
 - `sidebar`: The search results to display in the sidebar. If there is no sidebar, display the results below the mainline.
 

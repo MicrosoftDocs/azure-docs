@@ -439,7 +439,7 @@
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST
-    href: /rest/api/disks
+    href: /rest/api/compute/disks
 - name: Resources
   items:
   - name: Author templates

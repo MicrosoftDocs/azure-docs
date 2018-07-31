@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
 
 ---
@@ -37,6 +37,7 @@ This article includes frequently asked questions about configuration and managem
 
 - [What are the upcoming Cloud Service capabilities in the Azure portal which can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Why does IIS stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory)
+- [How do I enable WAD logging for Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Network configuration**
 
@@ -135,6 +136,15 @@ For more information, see the following documents:
 * [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
+### How do I enable WAD logging for Cloud Services?
+You can enable Windows Azure Diagnostics (WAD) logging through following options:
+1. [Enable from Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Enable through .Net code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
+
+
 ## Network configuration
 
 ### How do I set the idle timeout for Azure load balancer?
@@ -200,10 +210,10 @@ For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
 ## Permissions
 
-### How can I implement Role-Based Access for Cloud Services?
-Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
+### How can I implement role-based access for Cloud Services?
+Cloud Services doesn't support the role-based access control (RBAC) model, as it's not an Azure Resource Manager based service.
 
-See [Azure RBAC vs. classic subscription administrators](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## Remote desktop
 

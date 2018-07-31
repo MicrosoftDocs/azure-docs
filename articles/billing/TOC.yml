@@ -131,6 +131,9 @@
   items:
   - name: Billing Automation Scenarios
     href: billing-cost-management-automation-scenarios.md  
+    items:
+      - name: Manage costs with Azure Budgets
+        href: billing-cost-management-budget-scenario.md  
   - name: Azure Billing API overview
     href: billing-usage-rate-card-overview.md
     items:

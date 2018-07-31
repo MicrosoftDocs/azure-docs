@@ -41,12 +41,16 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Migrate OMS update deployments to Azure
+        href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
     - name: Change Tracking
       items:
       - name: Change Tracking overview
         href: automation-change-tracking.md
+      - name: View file contents of tracked files
+        href: change-tracking-file-contents.md
     - name: Inventory
       items:
       - name: Manage a VM with inventory collection
@@ -95,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Source control integration
           href: automation-source-control-integration.md
+        - name: Create runbooks with the Graphical runbook SDK
+          href: graphical-runbook-sdk.md
     - name: Automate
       items:
         - name: Start a runbook

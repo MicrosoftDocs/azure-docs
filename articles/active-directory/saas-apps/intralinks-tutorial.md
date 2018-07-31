@@ -235,7 +235,7 @@ After that you can follow the below procedure to add another Intralinks applicat
  
 	![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-8. Get the the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
+8. Get the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     
@@ -254,7 +254,7 @@ After that you can follow the below procedure to add another Intralinks applicat
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Intralinks tile in the Access Panel, you should get automatically signed-on to your Intralinks application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

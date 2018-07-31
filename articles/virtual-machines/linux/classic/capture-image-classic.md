@@ -3,7 +3,7 @@ title: Capture an image of a Linux VM | Microsoft Docs
 description: Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to capture a classic Linux virtual machine as an image

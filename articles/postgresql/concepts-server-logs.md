@@ -23,7 +23,7 @@ The log files rotate every one hour or 100 MB size, whichever comes first.
 ## Configure logging for Azure PostgreSQL server
 You can enable query logging and error logging for your server. Error logs can contain auto-vacuum, connection, and checkpoints information.
 
-You can enable query logging for your PostgreSQL DB instance by setting two server parameters: `log\_statement` and `log\_min\_duration\_statement`.
+You can enable query logging for your PostgreSQL DB instance by setting two server parameters: `log_statement` and `log_min_duration_statement`.
 
 The **log\_statement** parameter controls which SQL statements are logged. We recommend setting this parameter to ***all*** to log all statements; the default value is none.
 

@@ -3,7 +3,7 @@ title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Configuring a custom domain name for an Azure cloud service
@@ -122,7 +122,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 
 | Host name/Subdomain | IP address |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 
