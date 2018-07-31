@@ -8,35 +8,50 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry;
 ---
 
-
 # Publish your trained app
-When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](luis-how-to-manage-keys.md), are then integrated into any client, chatbot, or backend application. 
 
-You can always [test](luis-interactive-test.md) your app before publishing it. 
+When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
 
-## Production and staging slots
-You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
+<a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
-<!-- TBD: what is the technical difference? log files, endpoint quota? -->
+## Publishing
 
-## Settings configuration requires publishing model
-Publish to the endpoint after changes to the following settings. 
+To publish to the endpoint, select **Publish** in the top, right panel. 
 
-## External services settings
-External service settings include **[Sentiment Analysis](#enable-sentiment-analysis)** and **[Speech Priming](#enable-speech-priming)**.
+![Top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-### Enable sentiment analysis
-In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
+When the pop-up window displays, select the correct slot: staging or production. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
+ 
+![Publishing pop-up window](./media/luis-how-to-publish-app/publish-pop-up.png)
+
+When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
+
+![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
+
+If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
+
+## Configuring publish settings
+
+Configure publish settings by selecting **Manage** in the top, right navigation, then selecting **Publish Settings**. 
+
+![Publish settings](./media/luis-how-to-publish-app/publish-settings.png)
+
+### Publish after enabling sentiment analysis
+
+Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. 
+
+You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
-### Enable speech priming 
+### Enable speech priming
+ 
 In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chatbot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
@@ -51,7 +66,7 @@ In order to complete the use of Speech priming, you need the following informati
 For more information, see the [Speech to Intent](http://aka.ms/speechsdk) sample.
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
-
+<!--
 ## Endpoint URL settings
 Endpoint URL services settings include **[Timezone](#set-timezone-offset)** offset, **[all predicted intent scores](#include-all-predicted-intent-scores)**, and **[Bing spell checker](#enable-bing-spell-checker)**.
 
@@ -103,16 +118,7 @@ Add the **spellCheck=true** querystring parameter and the **bing-spell-check-sub
 }
 ```
 
-## Publish your trained app to an HTTP endpoint
-Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. When the pop-up window displays, select the correct slot: staging or production.
- 
-![Publishing pop-up window](./media/luis-how-to-publish-app/publish-pop-up.png)
 
-When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
-
-![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
-
-If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
 
 <!--
 ## Assign key
