@@ -42,7 +42,7 @@
       href: azure-security-disk-encryption-overview.md
       items:
       - name: Disk encryption prerequisites
-        href: azure-security-disk-encryption-prereq.md
+        href: azure-security-disk-encryption-prerequisites.md
       - name: Disk encryption for Windows VMs
         href: azure-security-disk-encryption-windows.md
       - name: Disk encryption for Linux VMs
