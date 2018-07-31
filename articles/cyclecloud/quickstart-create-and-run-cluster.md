@@ -1,6 +1,6 @@
 ---
 title: Azure CycleCloud QuickStart - Create and Run a Cluster | Microsoft Docs
-description: Azure CycleCloud QuickStart - Create and Run a Cluster
+description: In this quickstart, you will create an HPC cluster
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
@@ -23,11 +23,11 @@ Click on "Clusters" in the main menu, which will bring up the list of available 
 
 In this quickstart, you will create an HPC cluster configured with [Open Grid Scheduler](http://gridscheduler.sourceforge.net/), which is the open source version of the Sun Grid Engine job scheduler. Click on **Grid Engine** to bring up the cluster creation wizard.
 
-![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) (kimli screenshot)
+![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.png)
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in  then click **Next**.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Click **Next**.
 
 ### Required Settings
 
@@ -37,6 +37,8 @@ Azure CycleCloud will automatically scale your cluster if you choose to enable i
 
 Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
 
+![New Cluster Required Settings screen](~/images/quickstart-required-settings.png)
+
 ### Advanced Settings
 
 Your credentials will be automatically set for you, based on the information you added to the `params-cyclecloud.json` file in the first quickstart.
@@ -45,18 +47,24 @@ The Software options allow you to select the operating system and any custom spe
 
 The Advanced Networking options allow you to control access to and from your cluster. The default settings here are appropriate and do not need to be changed. Click **Save**.
 
+![New Cluster Advanced Settings screen](~/images/quickstart-advanced-settings.png)
+
 ## Usage Alert
 
 Before you start your cluster, add an alert that will notify you if the accumulated usage cost has reached a specific limit. Click **Create New Alert** in the cluster summary window.
 
+![Cluster Summary Window](~/images/create-new-alert.png)
+
 Set the Budget to $100.00 per month. Enable the Notifications, and add your email address in the **Recipients** field. This will send you an email when the cost hits $100 within the selected timeframe. Click **Save** to activate this alert.
+
+![Cluster Usage Alert Window](~/images/cluster-usage-alert.png)
 
 ## Start the Cluster
 
 It's time to put your cluster to work. In the cluster summary window, click **Start** under the cluster name.
 
-(Kimli screenshot)
+![Cluster Summary - Start](~/images/start-cluster.png)
 
-Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
+Confirm that you want to start the cluster. Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
-QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](quickstart-submit-jobs.md) now!
+QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](quickstart-submit-jobs.md) now.
