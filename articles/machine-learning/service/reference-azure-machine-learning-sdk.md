@@ -25,7 +25,7 @@ Use this SDK to quickly build, train, and deploy highly accurate machine learnin
 
 Try these next steps to learn how to use this Azure Machine Learning Services SDK for Python:
 
-1. [Follow the tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) to learn how to build, train, and deploy a model in Python.
+1. [Follow the tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy a model in Python.
 
 1. Look up classes and modules in [the reference documentation](https://docs.microsoft.com/python/api/overview/azure-ml-sdk/azure-ml-sdk-overview/).
 

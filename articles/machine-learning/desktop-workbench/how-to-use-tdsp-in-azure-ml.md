@@ -8,7 +8,6 @@ manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -21,14 +20,11 @@ ms.author: bradsev
 ROBOTS: NOINDEX
 ---
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
-
-
-
 # Structure projects with the Team Data Science Process template
 
-This document provides instructions on how to create data science projects in Azure Machine Learning with Team Data Science Process (TDSP) templates. These templates help to structure projects for collaboration and reproducibility. 
+This document provides instructions on how to create data science projects in an earlier version of Azure Machine Learning using Team Data Science Process (TDSP) templates. These templates help to structure projects for collaboration and reproducibility. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## What is the Team Data Science Process?
 The TDSP is an agile, iterative, data science process for executing and delivering advanced analytics solutions. It's designed to improve the collaboration and efficiency of data science teams in enterprise organizations. It supports these objectives with four key components:

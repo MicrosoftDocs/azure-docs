@@ -48,7 +48,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
    + [Use Azure Portal to get started](quickstart-get-started.md) 
    + [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
 
-2. Follow the full-length [tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) to learn how to train and deploy models with Azure Machine Learning Services. 
+2. Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services. 
 
 @PLACEHOLDER: In this 9-minute video, learn how BLAH BLAH BLAH can benefit your app. You'll learn about key features and what a typical workflow looks like. 
 

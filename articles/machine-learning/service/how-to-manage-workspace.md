@@ -59,4 +59,4 @@ Use the Delete button at the top of the workspace you wish to delete.
 Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning Services.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
+> [Tutorial: Train models](tutorial-train-models-with-aml.md)

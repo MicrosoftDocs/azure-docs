@@ -36,7 +36,6 @@ The reporting architecture relies on two main pillars:
 ![Reporting](./media/active-directory-reporting-azure-portal/01.png)
 
 
-
 ## Security reports
 
 The security reports in Azure Active Directory help you to protect your organization's identities.  

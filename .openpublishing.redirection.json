@@ -2032,7 +2032,12 @@
         },
         {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
-            "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
+            "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/xplat-cli-azure-resource-manager.md",
+            "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
             "redirect_document_id": false
         },
         {
@@ -6943,6 +6948,16 @@
         {
             "source_path": "articles/azure-stack/user/sql-server-vm-considerations.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/azure-stack-update-1807.md",
+            "redirect_url": "/azure/azure-stack",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/azure-stack-add-scale-node.md",
+            "redirect_url": "/azure/azure-stack",
             "redirect_document_id": false
         },
         {
@@ -26459,6 +26474,16 @@
         "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
         "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/china/china-get-started-service-availability.md",
+        "redirect_url": "https://www.azure.cn/home/features/products-by-region",
+        "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
+            "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
+            "redirect_document_id": true
         }
     ]
 }

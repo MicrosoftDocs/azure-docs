@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: haining
 author: haining
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ---
 
 # How to migrate to the latest version of Azure Machine Learning Services 
@@ -84,7 +84,7 @@ In the latest version, models are deployed as web services to [Azure Container I
 Learn more in these articles:
 + [Deploy to ACI](how-to-deploy-to-aci.md)
 + [Deploy to AKS](how-to-deploy-to-aks.md)
-+ [Tutorial: train and deploy models with Azure Machine Learning Services](tutorial-build-train-deploy-with-azure-machine-learning.md)
++ [Tutorial:Deploy models with Azure Machine Learning Services](tutorial-deploy-models-with-aml.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
@@ -94,7 +94,7 @@ When [support for the previous CLI ends](overview-what-happened-to-workbench.md#
 
 While you can't continue to add to your existing run histories under the old workspace, you can export the histories you have using the previous CLI. When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to export these run histories anymore.
 
-Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train and deploy models with Azure Machine Learning Services](tutorial-build-train-deploy-with-azure-machine-learning.md).
+Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning Services](tutorial-train-models-with-aml.md).
 
 To export the run history with previous CLI:
 
@@ -110,7 +110,7 @@ az ml history download
 ```
 
 ## Data preparation files
-**TBD .. @@@**
+Data preparation files are not portable to the new release since we don't have Workbench anymore. However, you can still prepare any size data set for modeling using the new data preparation SDK or use Azure Data Bricks for big data sets.
 
 ## Next steps
 
@@ -121,4 +121,4 @@ For a quickstart showing you how to create a workspace, create a project, run a 
 For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for training and deploying models with Azure Machine Learning Services. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)
+> [Tutorial: Train and deploy models](tutorial-train-models-with-aml.md)
