@@ -228,8 +228,14 @@ After the actions list opens, select this action:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-      Inside your function, you can reference the properties 
-      in the context object by using this syntax:
+      This example creates an `input` variable for 
+      referencing the `data` parameter. In your function, 
+      you can reference the properties in the context 
+      object by using this syntax where the `body` 
+      property here belongs to the context object, 
+      which you pass into your function and can have any name. 
+      This property also differs from any **Body** token 
+      you might pass into the function at a later time.
 
       ```
       context.body.<property-name>
@@ -238,22 +244,15 @@ After the actions list opens, select this action:
       So, for example:
 
       ```
-      context.body.content
+      context.body.sender
       ```
 
-      Inside JavaScript functions, the `data` parameter 
-      is a just shortcut for `context.body`, so you could 
-      use this syntax:
+      Inside JavaScript functions, you can use the `data` 
+      variable as a shortcut for `context.body`:
 
       ```
-      data.content
+      data.sender
       ```
-
-      The `body` property here doesn't refer to and differs 
-      from the **Body** token that this example coincidentally 
-      passes to this function in a later step. This `body` 
-      property refers to the body for the context object, 
-      which can have any name, that you pass into the function.
 
    3. When you're done, choose **Create**.
 
