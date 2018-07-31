@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: markvi
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
@@ -27,7 +27,7 @@ In a similar way to a user, a device is becoming another identity you want to pr
 - Hybrid Azure AD join
 - Azure AD registration
 
-By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](active-directory-conditional-access-azure-portal.md).
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
 
 In this tutorial, you learn how to configure hybrid Azure AD join for devices that federated using ADFS.
 

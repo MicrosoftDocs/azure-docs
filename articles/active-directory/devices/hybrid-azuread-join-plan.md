@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.author: markvi
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 
 ---
 # How to plan your hybrid Azure Active Directory join implementation

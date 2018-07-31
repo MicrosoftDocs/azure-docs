@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: markvi
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 
 ---
 # How to control the hybrid Azure AD join of your devices
