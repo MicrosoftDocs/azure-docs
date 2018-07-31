@@ -1,19 +1,18 @@
 ---
-title: What is Traffic Manager | Microsoft Docs
-description: This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application
+title: How Traffic Manager works | Microsoft Docs
+description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
+manager: jeconnoc
 editor: ''
-
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
+ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/25/2018
+ms.date: 07/25/2018
 ms.author: kumud
 ---
 

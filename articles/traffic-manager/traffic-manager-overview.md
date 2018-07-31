@@ -52,8 +52,6 @@ Traffic Manager can help you:
 
     Using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), traffic-routing methods can be combined to create sophisticated and flexible rules to scale to the needs of larger, more complex deployments.
 
-
-
 ## Pricing
 
 For pricing information, see [Traffic Manager Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
@@ -61,10 +59,11 @@ For pricing information, see [Traffic Manager Pricing](https://azure.microsoft.c
 
 ## Next steps
 
-- Learn how to create a [Traffic Manager profile](traffic-manager-create-profile.md)
-- Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
+- Learn how to create a [Traffic Manager profile](traffic-manager-create-profile.md).
+- Learn how [How Traffic Manager Works](traffic-manager-how-it-works.md).
 - Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 - For frequently asked questions about Traffic Manager, see the [Traffic Manager FAQ](traffic-manager-FAQs.md).
+- Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
 
 
