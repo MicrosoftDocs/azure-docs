@@ -197,7 +197,8 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
 3. Delete Gateway Subnet.
 
   ```powershell
-  $vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+  $vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+  Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
   ```
 4. Add a Gateway Subnet that is /27 or larger.
    
