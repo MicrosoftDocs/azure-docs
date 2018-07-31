@@ -2,7 +2,7 @@
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
-Below you can find a list of all the authorized Cloud Solution Providers which can resell Azure Government. This list includes all approved CSPs as of **July 31, 2018** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
+Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **July 31, 2018** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 
 ## Approved Direct CSPs
 |Partner Name|
@@ -17,7 +17,7 @@ Below you can find a list of all the authorized Cloud Solution Providers which c
 |[Affigent](http://www.affigent.com/)|
 |[Agile IT](https://www.agileit.com/)|
 |[AIS Network](https://www.aisn.net/)|
-|[Alexan Consulting Enterprise Services, LLC (ACES)](www.acesred.com)|
+|[Alexan Consulting Enterprise Services, LLC (ACES)](http://www.acesred.com)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Ambonare](https://www.ambonare.com)|
 |[American Technology Services](https://networkats.com/)|
