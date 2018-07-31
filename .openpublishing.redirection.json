@@ -26534,6 +26534,11 @@
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/azure-security-disk-encryption.md",
+            "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+            "redirect_document_id": true
         }
     ]
 }
