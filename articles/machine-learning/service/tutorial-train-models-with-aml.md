@@ -25,40 +25,61 @@ This tutorial is **part one of a two-part series**. In this tutorial, you walk t
 > * Submit a job to a target
 > * Review run histories and accuracy
 
-You'll learn how to select a model and deploy in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later.
+You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later.
 
 
 ## Prerequisites
-To complete this tutorial, you must have the following prerequisites.
+To complete this tutorial, you need the following prerequisites.
 
-1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+1. An Azure subscription. If you don't have a subscription yet, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 1. The following resources and assets must be available:
    - [Python 3.5 or higher](https://www.python.org/) installed
-   - A package manager installed, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html)
+   - A package manager, such as [Continuum Anaconda](https://anaconda.org/anaconda/continuum-docs) or [Miniconda](https://conda.io/miniconda.html), installed
    - The Azure Machine Learning SDK for Python installed
    - An Azure Machine Learning Workspace named docs-ws 
-   - A local project directory named docs-prj
+   - A project directory on your local machine named docs-prj
 
-   If these are not yet created or installed, then learn how to get these prerequisites in the [Get started with Azure Machine Learning Services](quickstart-get-started.md).
+   If these are not yet created or installed, then follow the steps in the [Get started with Azure Machine Learning Services](quickstart-get-started.md) article.
 
-1. The following package dependencies (tensorflow, matplotlib, and numpy) must be installed in the conda environment where Azure Machine Learning SDK is installed.
-   ```python
-    conda install -y matplotlib tensorflow
-
-    %matplotlib inline
-    import numpy as np
-    import matplotlib
-    import matplotlib.pyplot as plt
-
-    import azureml
-    from azureml.core import Workspace, Project, Run  
+1. The following package dependencies (tensorflow, matplotlib, and numpy) installed in the conda environment in which you installed the Azure Machine Learning SDK.
    ```
+   conda install -y matplotlib tensorflow
+   ``` 
 
-## Get sample data and notebook
+## Get the sample notebook
+
+To try the whole example out yourself, download and run [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification).
+
+To connect a notebook server to the conda environment for Azure Machine Learning, do the following:
+```
+#go to the directory containing the tutorial notebook
+cd <notebook-directory>
+#install the jupyter package if not installed
+pip3 install jupyter
+#start up the notebook server
+jupyter notebook
+```
+
+## Import package dependencies
+
+Import the package dependencies for this tutorial.
+
+```python
+%matplotlib inline
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+import azureml
+from azureml.core import Workspace, Project, Run  
+```
+
+## Get the sample data
+
 ### Download the sample data
 
-Download the MNIST dataset from Yan LeCun's web site directly and save the dataset in a local data folder called `tutorial-data`.    
+Download the MNIST dataset from Yan LeCun's web site directly and save the dataset in a local data folder called `tutorial-data`.
 
 ```python
 import os
@@ -107,10 +128,6 @@ plt.show()
 The output resembles the following image.
 ![png](media/tutorial-train-models-with-azure-machine-learning/explore-images.png)
 
-### Download the Jupyter notebook
-
-If you'd like to try the whole example out yourself, download and run [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification).
-
 
 ## Get the right workspace and project
 
@@ -146,10 +163,10 @@ found = False
 
 print('creating a new compute target...')
 provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
-                                                            #vm_priority = 'lowpriority', # optional
-                                                            autoscale_enabled = True,
-                                                            cluster_min_nodes = 1, 
-                                                            cluster_max_nodes = 4)
+                            #vm_priority = 'lowpriority', # optional
+                            autoscale_enabled = True,
+                            cluster_min_nodes = 1, 
+                            cluster_max_nodes = 4)
 
 # create the cluster
 compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
