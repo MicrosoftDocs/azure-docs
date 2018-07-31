@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Power BI Embedded
-    href: https://review.docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded?branch=pr-en-us-896
+    href: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
 - name: Tutorials
   items:
   - name: Embed content for customers sample
@@ -53,9 +53,9 @@
 - name: Resources
   items:
   - name: Pricing calculator
-    href: https://azure.microsoft.com/en-us/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
+    href: https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
   - name: "Dev Center"
-    href: https://powerbi.microsoft.com/en-us/developers/
+    href: https://powerbi.microsoft.com/developers/
   - name: "Onboarding Experience Tool for embedding"
     href: https://aka.ms/embedsetup
   - name: Code samples
