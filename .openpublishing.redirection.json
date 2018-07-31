@@ -1111,6 +1111,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/serial-console.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-linux",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/serial-console.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/serial-console-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/storage-resource-deletion-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/storage-resource-deletion-errors",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/storage-resource-deletion-errors.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/storage-resource-deletion-errors",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/boot-diagnostics.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/boot-diagnostics",
             "redirect_document_id": false

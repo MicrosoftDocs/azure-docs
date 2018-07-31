@@ -50,3 +50,11 @@
   href: reset-network-interface.md
 - name: Restarting or resizing a VM
   href: restart-resize-error-troubleshooting.md
+- name: Use the serial console
+  items:
+  - name: Linux VM
+    href: serial-console-linux.md
+  - name: Windows VM   
+    href: serial-console-windows.md
+- name: Errors when deleting storage resources
+  href: storage-resource-deletion-errors.md      
