@@ -16,7 +16,7 @@ ms.author: diberry
 You can collaborate with others on your LUIS app together. 
 
 ## Owner and collaborators
-An app has a single owner but can have many collaborators. 
+An app has a single author, the owner, but can have many collaborators. 
 
 ## Add collaborator
 
