@@ -145,7 +145,7 @@ To add an ILPIP to a Cloud Services role instance, complete the following steps:
 3. Upload the .cscfg file for the cloud service by completing the steps in the [How to Configure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) article.
 
 ### How to retrieve ILPIP information for a Cloud Service
-To view the ILPIP information per role instance, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
+To view the ILPIP information per role instance, run the following PowerShell command and observe the values for *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* and *PublicIPFqdns*:
 
 ```powershell
 Add-AzureAccount
