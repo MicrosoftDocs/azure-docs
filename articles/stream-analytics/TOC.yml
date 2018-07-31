@@ -52,6 +52,8 @@
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Error policy
+    href: output-error-policy.md
 - name: How-to-guides
   items:
   - name: Manage
