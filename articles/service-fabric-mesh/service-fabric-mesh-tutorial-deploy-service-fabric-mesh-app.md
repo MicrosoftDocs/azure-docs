@@ -106,7 +106,7 @@ Open a web browser and navigate to the URL to see the website running in Azure.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps.
 
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install the Azure CLI][azure-cli-install].
 
 ## Install the az mesh cli
 At the CLI prompt

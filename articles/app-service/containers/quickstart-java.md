@@ -35,7 +35,7 @@ App Service on Linux currently provides a preview feature to support Java web ap
 
 To complete this quickstart: 
 
-* [Azure CLI 2.0 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed locally.
+* [Azure CLI version 2.0 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed locally.
 * [Apache Maven](http://maven.apache.org/).
 
 

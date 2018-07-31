@@ -15,7 +15,7 @@ ms.date: 04/10/2018
 # This is the H1 and the article title that shows on the web. A sample script.
 The article contains a sample CLI script that does something. Focus on a longer block intended to be copied and pasted. Only intro explanation needed.
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version` . If you need to install or upgrade, see [Install Azure CLI 2.0](overview-what-is-azure-ml.md). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version` . If you need to install or upgrade, see [Install the Azure CLI](overview-what-is-azure-ml.md). 
 
 ## Sample script
 In the sample script, change the highlighted lines to customize the admin username and password. Replace the subscription ID used in the az monitor commands with your own subscription ID.
