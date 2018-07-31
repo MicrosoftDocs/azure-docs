@@ -1,20 +1,20 @@
 ---
-title: What happened to Azure Machine Learning Workbench? | Microsoft Docs
+title: What happened to Workbench in Azure Machine Learning? | Microsoft Docs
 description: Learn about what happened the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
 services: machine-learning
-author: mwinkle
-ms.author: mwinkle
+author: j-martens
+ms.author: jmartens
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/27/2018
 ---
-# What happened to Azure Machine Learning Workbench?
+# What happened to Workbench in Azure Machine Learning?
  
-In September 2017, Azure Machine Learning Services previewed in Azure portal. Since then, our customers have shared their feedback and we've been listening. 
+In the September 2018 preview refresh of Azure Machine Learning services, the Workbench application as well as some other early features were deprecated to make way for a newer, better [architecture](concept-azure-machine-learning-architecture.md). 
 
-We are pleased to announce that the September 2018 Public Preview Refresh version contains many significant updates based on that feedback to improve your experience. The core functionality of the backend services from experiment execution to model deployment have not changed. Some early features, such as the installed Workbench, were also deprecated to make way for a newer, better [architecture](concept-azure-machine-learning-architecture.md). 
+We are pleased to announce that the September 2018 version contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment execution to model deployment have not changed, but now you can use the robust SDK and CLI to accomplish your machine learning tasks and pipelines.  
 
 In this article, you'll learn about what changed and how it affects your pre-existing work with Azure Machine Learning Services.
 
@@ -26,7 +26,7 @@ While the overall workflow hasn't changed, the latest release of Azure Machine L
 + A new, more comprehensive [Python SDK](reference-azure-machine-learning-sdk.md)
 + An updated and expanded [Azure CLI extension](reference-azure-machine-learning-sdk.md)
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. 
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  A workspace can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. 
 
 While Azure Machine Learning still offers CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run histories, but now you'll do so in the Azure portal online. In the online workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
