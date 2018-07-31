@@ -42,6 +42,8 @@ Configure publish settings by selecting **Manage** in the top, right navigation,
 
 ### Publish after enabling sentiment analysis
 
+<a name="enable-sentiment-analysis"></a>
+
 Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. 
 
 You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
@@ -50,8 +52,11 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
-### Enable speech priming
+### Publish after enabling speech priming
  
+<a name="enable-bing-spell-checker"></a>
+
+
 In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chatbot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
