@@ -85,7 +85,7 @@ Click the button below to deploy Azure CycleCloud into your subscription:
 Enter the required information:
 
 * *Tenant ID*: The Tenant ID listed above in the service principal
-* *Applicatiton ID*: Application ID of the service principal
+* *Application ID*: Application ID of the service principal
 * *Application Secret*: Application password of the service principal
 * *SSH Public Key*: The public key used to log into the CycleCloud VM
 * *Username*: The username for the CycleCloud VM. Use your Azure Portal username without the domain (e.g. *johnsmith* instead of *johnsmith@domain.com*)
