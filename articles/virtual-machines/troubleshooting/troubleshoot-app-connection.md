@@ -25,8 +25,8 @@ There are various reasons when you cannot start or connect to an application run
 
 If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:
 
-* [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
-* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
+* [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
+* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md).
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
@@ -38,12 +38,12 @@ If you have problems connecting to an application, try the following general tro
 
 * Restart the virtual machine
 * Recreate the endpoint / firewall rules / network security group (NSG) rules
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
-  * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Resource Manager model - Manage Network Security Groups](../../virtual-network/manage-network-security-group.md)
+  * [Classic model - Manage Cloud Services endpoints](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connect from different location, such as a different Azure virtual network
 * Redeploy the virtual machine
-  * [Redeploy Windows VM](../articles/virtual-machines/windows/redeploy-to-new-node.md)
-  * [Redeploy Linux VM](../articles/virtual-machines/linux/redeploy-to-new-node.md)
+  * [Redeploy Windows VM](redeploy-to-new-node-windows.md)
+  * [Redeploy Linux VM](redeploy-to-new-node-linux.md)
 * Recreate the virtual machine
 
 For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
