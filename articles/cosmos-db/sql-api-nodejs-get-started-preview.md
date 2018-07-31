@@ -47,7 +47,7 @@ Now let's get started!
 
 ## Prerequisites for the Node.js tutorial
 
-Please make sure you have the following:
+Make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -57,7 +57,7 @@ Please make sure you have the following:
 
 ## Step 1: Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -321,11 +321,11 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 ## <a id="CreateContainer"></a>Step 6: Create a container
 
 > [!WARNING]
-> **createContainer** will create a new container, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **createContainer** will create a new container, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 A container can be created by using the [create](/javascript/api/%40azure/cosmos/containers) function of the **Containers** class. A container consists of items (which in the case of the SQL API are JSON documents) and associated JavaScript application logic.
 
-Copy and paste the **createContainer**  and **readContainer** function underneath the **readDatabase** function in the app.js file. The **createContainer** function will create a new container with the ```containerId``` specified from the ```config``` object if it does not alraedy exist. The **readContainer** function will read the container definition to verify the container exists.
+Copy and paste the **createContainer**  and **readContainer** function underneath the **readDatabase** function in the app.js file. The **createContainer** function will create a new container with the ```containerId``` specified from the ```config``` object if it does not already exist. The **readContainer** function will read the container definition to verify the container exists.
 
 ```nodejs
 /**
@@ -433,7 +433,7 @@ Congratulations! You have successfully created an Azure Cosmos DB container.
 
 ## <a id="CreateItem"></a>Step 7: Create an item
 
-An item can be created by using the [create](/javascript/api/%40azure/cosmos/items) function of the **Items** class. When using the SQL API, items are projected as documents, which are user defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
+An item can be created by using the [create](/javascript/api/%40azure/cosmos/items) function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
 
 Copy and paste the **createFamilyItem** function underneath the **readContainer** function. The **createFamilyItem** function creates the items containing the JSON data saved in the ```config``` object. We'll check to make sure an item with the same id does not already exist before creating it.
 
@@ -557,7 +557,7 @@ async function replaceFamilyItem(itemBody) {
     const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).replace(itemBody);
 };
 ```
-Copy and paste the code below the call to **queryContainer** to execute the **replaceFamilyItem** function. Also, add the code to call **queryContainer** again to verify that the item has successfully changed.
+Copy and paste the code below the call to **queryContainer** to execute the **replaceFamilyItem** function. Also, add the code to call **queryContainer** again to verify that item has successfully changed.
 
 ```nodejs
 createDatabase()
