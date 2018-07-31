@@ -31,20 +31,19 @@ Figure 1: VM power state diagram
 </td>
 <td width="484">
 <p>VM is starting up.</p>
-<code>
-"statuses": [
-   {
-      "code": "ProvisioningState/creating",
-       "level": "Info",
- "displayStatus": "Creating"
-  },
-   {
-      "code": "PowerState/starting",
-       "level": "Info",
-        "displayStatus": "VM starting"
-    }
-    ]
-</code>
+<code>"statuses": [</code></br>
+<code>   {</code></br>
+ <code>     "code": "ProvisioningState/creating",</code></br>
+ <code>      "level": "Info",</code></br>
+ <code>"displayStatus": "Creating"</code></br>
+ <code> },</code></br>
+ <code>  {</code></br>
+ <code>     "code": "PowerState/starting",</code></br>
+ <code>      "level": "Info",</code></br>
+ <code>       "displayStatus": "VM starting"</code></br>
+ <code>   }</code></br>
+ <code>   ]</code></br>
+
 </td>
 <td width="83">
 <p><strong>Not Billed</strong></p>
