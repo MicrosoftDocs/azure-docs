@@ -34,9 +34,9 @@ Azure Disk Encryption is supported on the following operating systems:
 
 ## <a name="bkmk_LinuxPrereq"></a> Additional prerequisites for Linux Iaas VMs 
 
-1. Azure Disk Encryption for Linux requires 7GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
-2. Prior to enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format cannot be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
-3. Ensure the /etc/fstab settings are configured properly for mounting. To configure these settings, run the mount -a command or reboot the VM and trigger the remount that way. Once that is complete, check the output of the lsblk command to verify that the desired drive is still mounted. 
+- Azure Disk Encryption for Linux requires 7GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
+- Prior to enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format cannot be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Ensure the /etc/fstab settings are configured properly for mounting. To configure these settings, run the mount -a command or reboot the VM and trigger the remount that way. Once that is complete, check the output of the lsblk command to verify that the desired drive is still mounted. 
     - If the /etc/fstab file does not mount the drive properly prior to enabling encryption, Azure Disk Encryption will not able to mount it properly.
     - The Azure Disk Encryption process will move the mount information out of /etc/fstab and into its own configuration file as part of the encryption process. Don't be alarmed to see the entry missing from /etc/fstab after data drive encryption completes.
     -  After reboot, it will take time for the Azure Disk Encryption process to mount the newly encrypted disks. They will not be immediately available after a reboot. The process needs time to start, unlock, and then mount the encrypted drives prior to their being available for other processes to access. This process may take more than a minute after reboot depending on the system characteristics.
@@ -130,13 +130,13 @@ The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resour
 
 
 ## Prerequisite workflow for Key Vault and the Azure AD app
-1. [Create a key vault](#bkmk_KeyVault). 
-2. [Set up an Azure AD application and service principal](#bkmk_ADapp).
-3. [Set the key vault access policy for the Azure AD app](#bkmk_KVAP).
-4. [Set key vault advanced access policies](#bkmk_KVper).
+1. Create a key vault. 
+2. Set up an Azure AD application and service principal.
+3. Set the key vault access policy for the Azure AD app.
+4. Set key vault advanced access policies.
  
 ## <a name="bkmk_KeyVault"></a> Create a key vault 
-Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.micros oft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) and [Secure your key vault](../key-vault/key-vault-secure-your-key-vault.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault. 
+Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) and [Secure your key vault](../key-vault/key-vault-secure-your-key-vault.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault. 
 
 
 >[!WARNING]
@@ -569,7 +569,7 @@ If you would like to use certificate authentication and wrap the encryption key 
 ```
 
  
-## Next Steps
+## Next steps
 > [!div class="nextstepaction"]
 > [Enable Azure Disk Encryption for Windows](azure-security-disk-encryption-windows.md)
 

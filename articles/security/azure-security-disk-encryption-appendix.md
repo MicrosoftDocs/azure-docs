@@ -20,7 +20,7 @@ ms.author: mstewart
 This article is an appendix to [Azure Disk Encryption for IaaS VMs](azure-security-disk-encryption-overview.md). Make sure you read the Azure Disk Encryption for IaaS VMs articles first to understand the context. This article describes how to prepare pre-encrypted VHDs and other tasks.
 
 ## Connect to your subscription
-Before you proceed, review the [Prerequisites](azure-security-disk-encryption-prereq.md) article. After you ensure that all prerequisites have been met, connect to your subscription by running the following cmdlets:
+Before you proceed, review the [Prerequisites](azure-security-disk-encryption-prerequisites.md) article. After you ensure that all prerequisites have been met, connect to your subscription by running the following cmdlets:
 
 ### <a name="bkmk_ConnectPSH"></a> Connect to your subscription with PowerShell
 

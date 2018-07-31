@@ -31,7 +31,7 @@ This error can occur when OS disk encryption is tried on a target VM environment
 - The OS disk uses a Logical Volume Manager (LVM) scheme. Although limited LVM data disk support is available, an LVM OS disk is not.
 - Minimum memory requirements are not met (7 GB is suggested for OS disk encryption).
 - Data drives are recursively mounted under the /mnt/ directory, or each other (for example, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Other Azure Disk Encryption [prerequisites](azure-security-disk-encryption-prereq.md) for Linux are not met.
+- Other Azure Disk Encryption [prerequisites](azure-security-disk-encryption-prerequisites.md) for Linux are not met.
 
 ## Unable to encrypt
 
@@ -39,7 +39,7 @@ In some cases, the Linux disk encryption appears to be stuck at "OS disk encrypt
 
 The Linux OS disk encryption sequence unmounts the OS drive temporarily. It then performs block-by-block encryption of the entire OS disk, before it remounts it in its encrypted state. Unlike Azure Disk Encryption on Windows, Linux Disk Encryption doesn't allow for concurrent use of the VM while the encryption is in progress. The performance characteristics of the VM can make a significant difference in the time required to complete encryption. These characteristics include the size of the disk and whether the storage account is standard or premium (SSD) storage.
 
-To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzureRmVmDiskEncryptionStatus]((/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress. Several hours later, a **VMRestartPending** message prompts you to restart the VM. For example:
+To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress. Several hours later, a **VMRestartPending** message prompts you to restart the VM. For example:
 
 
 ```
@@ -68,7 +68,7 @@ Before the next attempt, reevaluate the characteristics of the VM and ensure tha
 When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM." In expected scenarios, the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
 
 ### Network security groups
-Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](azure-security-disk-encryption-prereq.md#bkmk_GPO) for disk encryption.
+Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) for disk encryption.
 
 ### Azure Key Vault behind a firewall
 The VM must be able to access a key vault. Refer to guidance on access to the key vault from behind a firewall that the [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team maintains. 

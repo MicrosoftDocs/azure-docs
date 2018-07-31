@@ -94,7 +94,7 @@ Azure Disk Encryption for IaaS VMS for Windows and Linux solution includes:
 * The disk encryption Azure command-line interface (CLI) cmdlets.
 * The disk encryption Azure Resource Manager templates.
 
-The Azure Disk Encryption solution is supported on IaaS VMs that are running Windows or Linux OS. For more information about the supported operating systems, see the [Prerequisites](azure-security-disk-encryption-prereq.md) article.
+The Azure Disk Encryption solution is supported on IaaS VMs that are running Windows or Linux OS. For more information about the supported operating systems, see the [Prerequisites](azure-security-disk-encryption-prerequisites.md) article.
 
 > [!NOTE]
 > There is not an additional charge for encrypting VM disks with Azure Disk Encryption. Standard [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) applies to the key vault used to store the encryption keys. 
@@ -143,6 +143,6 @@ To understand some of the common terms used by this technology, use the followin
 | KEK | Key encryption key is the asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation. |
 | PS cmdlets | See [Azure PowerShell cmdlets](/powershell/azure/overview). |
 
-## Next Step
+## Next steps
 > [!div class="nextstepaction"]
-> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prereq.md)
+> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)
