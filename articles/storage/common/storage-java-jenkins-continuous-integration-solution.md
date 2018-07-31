@@ -1,24 +1,17 @@
 ---
 title: Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Docs
 description: This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
-services: storage
-documentationcenter: java
-author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: f4e5ca75-f6cb-4f74-981b-2aa06bb8de45
-ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-
+ms.author: tarcher
+author: tarcher
+manager: jpconnock
+services: devops
+custom: jenkins
+ms.date: 07/31/2018
 ---
+
 # Using Azure Storage with a Jenkins Continuous Integration solution
-## Overview
+
 The following information shows how to use Blob storage as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
 In this tutorial you will be using the Azure Storage Plugin for Jenkins CI made available by Microsoft.
@@ -143,6 +136,10 @@ The following provides an overview of the Blob service components.
     In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
+
+## Troubleshooting the Jenkins plugin
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
 ## Next steps
 * [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)

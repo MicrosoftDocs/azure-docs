@@ -7,7 +7,7 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
+ms.date: 07/31/2018
 ---
 
 # Deploy to Azure App Service by using the Jenkins plugin 
@@ -218,7 +218,7 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 
 3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Replace &lt;x> and &lt;y> with any numbers to get the sum of x + y.
     
-## Troubleshooting
+## Troubleshooting the Jenkins plugin
 
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
