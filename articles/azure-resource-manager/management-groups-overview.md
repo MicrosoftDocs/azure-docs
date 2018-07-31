@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/26/2018
+ms.date: 7/31/2018
 ms.author: rithorn
 ---
 
@@ -19,18 +19,18 @@ ms.author: rithorn
 
 If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
-The management group feature is available in a public preview. To start using management groups, sign in to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section.
-
 For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
 ## Hierarchy of management groups and subscriptions
 
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management.
-The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.
+The following diagram shows an example of creating a hierarchy for governance using management groups.
 
 ![tree](media/management-groups/MG_overview.png)
 
-By creating a hierarchy that is grouped by departments, you can assign [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once.
+By creating a hierarchy like this example you can apply a policy, for example, VM locations limited to US West Region on the group “Infrastructure Team management group” to enable internal compliance and security policies. This policy will inherit onto both EA subscriptions under that management group and will apply to all VMs under those subscriptions. As this policy inherits from the management group to the subscriptions, this security policy cannot be altered by the resource or subscription owner allowing for improved governance.
+
+Another scenario where you would use management groups is to provide user access to multiple subscriptions.  By moving multiple subscriptions under that management group, you have the ability create one RBAC assignment on the management group, which will inherit that access to all the subscriptions.  Without the need to script RBAC assignments over multiple subscriptions, one assignment on the management group can enable users to have access to everything they need.
 
 ### Important facts about management groups
 
@@ -40,11 +40,6 @@ By creating a hierarchy that is grouped by departments, you can assign [Azure Ro
 - Each management group and subscription can only support one parent.
 - Each management group can have multiple children.
 - All subscriptions and management groups are contained within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
-
-### Cloud Solution Provider (CSP) limitation during Preview
-
-There's a current limitation for Cloud Solution Provider (CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
-This item is being worked on and will be resolved before management groups are announced as "General Availability."
 
 ## Root management group for each directory
 
