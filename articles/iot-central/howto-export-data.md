@@ -200,7 +200,7 @@ The following example shows the records in a decoded AVRO file:
 }
 ```
 
-## Set up data export
+## Set up continuous data export
 
 1. If you don't have an Azure Storage account, [create a new Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal. Create the Storage account **in the Azure subscription that has your IoT Central application**.
     - For the account type, choose **General purpose** or **Blob storage**.
