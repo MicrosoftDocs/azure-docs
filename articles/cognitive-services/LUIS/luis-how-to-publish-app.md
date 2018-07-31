@@ -104,14 +104,17 @@ Add the **spellCheck=true** querystring parameter and the **bing-spell-check-sub
 ```
 
 ## Publish your trained app to an HTTP endpoint
-Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. 
-
-![Publish page-](./media/luis-how-to-publish-app/publish-to-production.png)
+Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. When the pop-up window displays, select the correct slot: staging or production.
  
-When your app is successfully published, a green success notification appears at the top of the browser. 
+![Publishing pop-up window](./media/luis-how-to-publish-app/publish-pop-up.png)
 
-* Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Select slot**. 
+When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
 
+![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
+
+If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
+
+<!--
 ## Assign key
 
 If you want to use a key other than the free Starter_Key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](luis-how-to-manage-keys.md).
@@ -130,8 +133,6 @@ The URL route is constructed with the region, and the app ID. If you are publish
 ### Optional query string parameters
 The following query string parameters can be used with the endpoint URL:
 
-<!-- TBD: what about speech priming? -->
-
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
@@ -146,6 +147,8 @@ The following query string parameters can be used with the endpoint URL:
 Test your published endpoint by selecting the URL in the **Endpoint** column. The default browser opens with the generated URL. Set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
 ![JSON response from a published HTTP endpoint](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
+
+-->
 
 ## Next steps
 
