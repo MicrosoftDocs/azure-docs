@@ -22,13 +22,13 @@ ms.reviewer: dhanyahk
 
 # Integrate Azure AD logs with Splunk by using Azure Monitor (preview)
 
-In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Splunk by using Azure Monitor. First, you route the logs to an Azure event hub, and then you integrate the event hub with Splunk.
+In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Splunk by using Azure Monitor. You first route the logs to an Azure event hub, and then you integrate the event hub with Splunk.
 
 ## Prerequisites
 
 To use this feature, you need:
 * An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md). 
-* Azure Monitor add-on for Splunk. [Download and configure your Splunk instance](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md).
+* The Azure Monitor Add-on for Splunk. [Download and configure your Splunk instance](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md).
 
 ## Tutorial 
 
@@ -45,7 +45,7 @@ To use this feature, you need:
     ![Activity logs](./media/reporting-azure-monitor-diagnostics-splunk-integration/activitylogs.png)
 
 > [!NOTE]
-> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using this [Azure Function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
+> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector by using this [Azure function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
 >
 
 ## Next steps
