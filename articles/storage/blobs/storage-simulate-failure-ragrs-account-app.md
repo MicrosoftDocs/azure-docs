@@ -6,8 +6,6 @@ author: tamram
 
 
 ms.service: storage 
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram 

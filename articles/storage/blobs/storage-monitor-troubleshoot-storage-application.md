@@ -6,7 +6,6 @@ author: tamram
 
 
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram

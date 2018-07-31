@@ -5,6 +5,7 @@ services: storage
 author: michaelhauss
 
 ms.service: storage
+ms.devlang: objective-c
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
