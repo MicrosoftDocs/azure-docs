@@ -26539,6 +26539,11 @@
             "source_path": "articles/security/azure-security-disk-encryption.md",
             "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
+            "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
+            "redirect_document_id": true
         }
     ]
 }
