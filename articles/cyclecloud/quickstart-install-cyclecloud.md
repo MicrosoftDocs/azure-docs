@@ -31,7 +31,7 @@ Azure CycleCloud is a free application that provides a simple, secure, and scala
 
 For the purposes of this quickstart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation documentation](installation.md).
 
-## Gather the Prerequisites
+## Prerequisites
 
 For this QuickStart, you will need:
 
@@ -40,9 +40,13 @@ For this QuickStart, you will need:
 3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
 4. An SSH keypair
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+
 ### Subscription ID
 
-Run this command to list all your available Azure subscription IDs:
+This command will list your available Azure subscription IDs:
 
 ```azurecli-interactive
 az account list -o table
@@ -56,7 +60,7 @@ If you do not have a service principal available, you can create one now. Note t
 az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
-The output will display a series of information. You will need to save the app ID, password, and tenant ID:
+The output will display a series of information. You will need to save *appId*, *password*, and *tenant ID*:
 
 ``` output
     "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -66,11 +70,11 @@ The output will display a series of information. You will need to save the app I
     "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-The `password` shown here is the `applicationSecret` used below.
+The *password* shown here is used as *applicationSecret* below.
 
 ### SSH KeyPair
 
-In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a SSH keypair. You will need to do the following:
+In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a new SSH keypair. You will need to do the following:
 
   1. **Save Public Key**
   2. **Save Private Key**
@@ -94,21 +98,15 @@ There are two ARM templates in the .git file:
         * `user`: The subnet for creating login nodes
       * `deploy-cyclecloud.json` provisions and sets up the CycleCloud application server
 
-## Create a Resource Group and VNET
+## Create a Resource Group and Virtual Network
 
-Create a resource group in the region of your choice. Note that resource group names are unique within a subscription:
-
-```azurecli-interactive
-az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
-```
-
-For example, you could use "CycleCloudApp" as the resource group name and southern US as the region:
+Create a resource group in the region of your choice. Note that resource group names are unique within a subscription. For example, you could use *CycleCloudApp* as the resource group name and *South Central US* as the region:
 
 ```azurecli-interactive
 az group create --name "CycleCloudApp" --location "South Central US"
 ```
 
-Next, create the Virtual Network and subnets. The default vnet name is **cyclevnet**:
+Next, create the virtual network and subnets. The default vnet name is *cyclevnet*:
 
 ```azurecli-interactive
 az group deployment create --name "vnet_deployment" --resource-group "{RESOURCE_GROUP}" --template-file deploy-vnet.json --parameters params-vnet.json
@@ -143,11 +141,11 @@ An example `params-cyclecloud.json` might look like this:
 
 ### Application Parameters
 
-`applicationSecret`, `tenantID`, and `applicationID` were all generated when setting up the Service Principal for your Azure Active Directory. Please note that `applicationSecret` is the `password` as displayed in the Service Principle output viewed previously. Input those values now.
+*applicationSecret*, *tenantID*, and *applicationID* were all generated when setting up the Service Principal for your Azure Active Directory. Please note that *applicationSecret* is the *password* as displayed in the Service Principle output viewed previously. Input those values now.
 
 ### CycleCloud Admin Password
 
-Specify a password for the CycleCloud application server `admin` user. The password needs to meet the following specifications:
+Use *cyclecloudAdminPW* to set a password for the CycleCloud application server `admin` user. The password needs to meet the following specifications:
 
 * Between 3-8 characters and meeting three of the following four conditions:
    - Contains an upper case character
@@ -169,4 +167,7 @@ To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
-That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [Quickstart 2](quickstart-create-and-run-cluster.md) now!
+That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. 
+
+[!div class="nextstepaction"]
+[Continue to Quickstart 2](quickstart-create-and-run-cluster.md)
