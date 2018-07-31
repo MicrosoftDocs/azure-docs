@@ -127,11 +127,12 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Save with Reserved VM Instances</h3>
+                        <h3>Save with reserved instances</h3>
                         <p>
                         <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a Reserved VM Instance</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-vcores?toc=/azure/billing/TOC.json">Buy a SQL Database reserved vCore</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How VM discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
                     </div>
