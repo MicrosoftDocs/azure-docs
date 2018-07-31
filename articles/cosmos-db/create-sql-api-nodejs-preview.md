@@ -18,7 +18,7 @@ ms.author: sngun
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Node.js SDK](sql-api-sdk-node.md). This quickstart uses version 2.0 of the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos), which is currently in preview. 
+This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built on the [SQL Node.js SDK](sql-api-sdk-node.md). This quickstart uses version 2.0 of the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos), which is currently in preview. 
 
 ## Prerequisites
 
@@ -71,6 +71,8 @@ Now let's clone a SQL API app from Github, set the connection string, and run it
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
+Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item', which may be a document, edge/vertex, or row to describe these concepts.
+
 The following snippets are all taken from the app.js file.
 
 * The `CosmosClient` is initialized.
@@ -85,13 +87,13 @@ The following snippets are all taken from the app.js file.
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* A new container is created.
+* A new container (collection) is created.
 
     ```nodejs
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
-* Some items, which are documents, are created.
+* An item (document) is created.
 
     ```nodejs
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
