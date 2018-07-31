@@ -1,7 +1,6 @@
 #Virtual Machines Lifecycle and States
 
-Understand different VM states which makes up a Virtual Machine (VM)
-lifecycle. VMs can be in one of the two distinct state machines called
+Virtual Machines goes through different states in its lifecycle. VMs can be in one of the two distinct state machines called
 provisioning and power states. Understanding these states will help
 build a great customer experience for your applications.
 
@@ -15,7 +14,7 @@ Figure 1: VM power state diagram
 
 |    State    |    Description    |    Billing    |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-|    Starting    |    VM is starting up.    "statuses": [       {         "code":   "ProvisioningState/creating",         "level":   "Info",           "displayStatus": "Creating"       },       {         "code":   "PowerState/starting",         "level":   "Info",           "displayStatus": "VM starting"       }     ]    |    Not Billed    |
+|    Starting    |    VM is starting up.    `"statuses": [       {         "code":   "ProvisioningState/creating",         "level":   "Info",           "displayStatus": "Creating"       },       {         "code":   "PowerState/starting",         "level":   "Info",           "displayStatus": "VM starting"       }`    ]    |    Not Billed    |
 |    Running    |    Running state for a VM   "statuses": [       {         "code":   "ProvisioningState/succeeded",         "level":   "Info",           "displayStatus": "Provisioning succeeded",         "time": “time”       },       {         "code":   "PowerState/running",         "level":   "Info",           "displayStatus": "VM running"       }     ]    |    Billed (Hardware + Software)     |
 |    Stopping    |    Status of the VM when a VM is either   stopped from client or guest OS. Stopping   status is a transitional state which eventually transitions to its final state of Stopped.   "statuses": [       {         "code":   "ProvisioningState/updating",         "level":   "Info",           "displayStatus": "Updating"       },       {         "code":   "PowerState/stopping",         "level":   "Info",           "displayStatus": "VM stopping"       }     ]     |    Billed (Hardware + Software)    |
 |    Stopped    |    State occurs when a VM has been shut   down from the guest OS then the VM transitions to the stopped state.    An important distinction to   note is that VM is only stopped on the host but not removed as compared to   deallocate and is still billed.    "statuses": [       {         "code":   "ProvisioningState/succeeded",         "level":   "Info",           "displayStatus": "Provisioning succeeded",         "time":   "time"       },       {         "code":   "PowerState/stopped",         "level":   "Info",           "displayStatus": "VM stopped"       }     ]    |    Billed (Hardware only)    |
