@@ -252,7 +252,7 @@ To migrate data sources from the legacy mode of protection to Modern Backup Stor
 4. Make a backup of the Data Protection Manager database.
 
   > [!IMPORTANT]
-  > - The new server must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and Data Protection Manager database to retain recovery points.
+  > - The new server name must be the same name as the original Azure Backup Server instance. You can't change the name of the new Azure Backup Server instance if you want to use the previous storage pool and Data Protection Manager database to retain recovery points.
   > - You must have a backup of the Data Protection Manager database. You'll need to restore the database.
 
 5. Shut down the original Azure Backup Server instance, or take the server offline.
