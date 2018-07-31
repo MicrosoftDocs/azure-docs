@@ -158,8 +158,7 @@ Sentiment analysis provides positive or negative values of the utterances provid
 
 ## <a name="speech-priming"></a>Speech priming
 
-Speech priming allows your speech service to be primed with your LUIS model. See [Enable speech priming
-](luis-how-to-publish-app.md#enable-speech-priming).
+Speech priming allows your speech service to be primed with your LUIS model. 
 
 ## <a name="spelling-correction"></a>Spelling correction
 
