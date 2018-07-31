@@ -20,10 +20,10 @@ ms.author: spelluru
 This article shows you how to delete a lab or VM in a lab.
 
 ## Delete a lab
-When you delete a DevTest Lab instance from a resource group, the DevTest Labs service performs the following actions: 
+When you delete a DevTest Labs instance from a resource group, the DevTest Labs service performs the following actions: 
 
 - All the resources that were automatically created at the time of lab creation are automatically deleted. The resource group itself is not deleted. If you had manually created any resources this resource group, the service doesn't delete them. 
-- All VMs in the lab and resource groups associated with these VMs are automatically deleted. When you create a VM in a lab, the service creates resources (disk, network interface, public IP address, etc.) for the VM in a seperate resource group. Howerver, if you manually create any additional resources in these resource groups, the DevTest Lab service does not delete those resources and the resource group. 
+- All VMs in the lab and resource groups associated with these VMs are automatically deleted. When you create a VM in a lab, the service creates resources (disk, network interface, public IP address, etc.) for the VM in a separate resource group. However, if you manually create any additional resources in these resource groups, the DevTest Labs service does not delete those resources and the resource group. 
 
 To delete a lab, do the following actions: 
 
@@ -46,7 +46,7 @@ To delete a lab, do the following actions:
 If I delete a VM in a lab, some of the resources (not all) that were created at the time of lab creation are deleted. The following resources are not deleted: 
 
 -	Key vault in the main resource group
--	Availability set, load balancer, public IP address in the VM resource group. These are the resources shared by multiple VMs in the resource group that's associated with the VM. 
+-	Availability set, load balancer, public IP address in the VM resource group. These resources are shared by multiple VMs in a resource group. 
 
 Virtual machine, network interface, and disk associated with the VM are deleted. 
 
