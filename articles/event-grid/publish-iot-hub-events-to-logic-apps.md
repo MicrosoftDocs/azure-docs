@@ -33,7 +33,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 ### Create a logic app resource
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Enterprise Integration** > **Logic App**.
+1. In the [Azure portal](https://portal.azure.com), select **New** > **Integration** > **Logic App**.
 
    ![Create logic app](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
@@ -116,10 +116,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 Actions are any steps that occur after the trigger starts the logic app workflow. For this tutorial, the action is to send an email notification from your email provider. 
 
-1. Select **New step** then **Add an action**. 
-
-   ![New step, add an action](./media/publish-iot-hub-events-to-logic-apps/new-step.png)
-
+1. Select **New step**. This will open a window to **Choose an action**. 
 2. Search for **Email**. 
 3. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar. 
 
@@ -162,12 +159,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-    **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
-    **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+    * **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
+    * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
     ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
+    * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
 
 You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
 

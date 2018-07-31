@@ -136,7 +136,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 ### Create a logic app resource
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Enterprise Integration** > **Logic App**.
+1. In the [Azure portal](https://portal.azure.com), select **New** > **Integration** > **Logic App**.
 
    ![Create logic app](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
@@ -195,9 +195,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 Conditions help run specific actions after passing a specific condition, in your the logic app workflow. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database. 
 
-1. Select **New step** then **Add a condition**. 
-
-   ![New step, add a condition](./media/iot-hub-how-to-order-connection-state-events/add-a-condition.png)
+1. Select **New step** then **Built-ins** and **Condition**. 
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
   * Choose a value: **eventType**
