@@ -95,8 +95,6 @@ config.primaryKey = "~your primary key here~";
 
 Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) rather than defining the data here.
 
-Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item', which may be a document, edge/vertex, or row to describe these concepts.
-
 ```nodejs
 var config = {}
 
@@ -167,8 +165,8 @@ config.items = {
         "isRegistered": false
     }
 };
-
 ```
+Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item', which may be a document, edge/vertex, or row to describe these concepts.
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 ```nodejs
@@ -242,7 +240,7 @@ async function readDatabase() {
 }
 ```
 
-Copy and paste the code below where you set the **createDatabase** and **readDatabase** function to add the helper function **exit** that will print the exit message. 
+Copy and paste the code below where you set the **createDatabase** and **readDatabase** functions to add the helper function **exit** that will print the exit message. 
 
 ```nodejs
 // ADD THIS PART TO YOUR CODE
@@ -254,7 +252,7 @@ function exit(message) {
     process.stdin.on('data', process.exit.bind(process, 0));
 };
 ```
-Copy and paste the code below where you set the **exit** function to call **createDatabase** and **readDatabase**.
+Copy and paste the code below where you set the **exit** function to call the **createDatabase** and **readDatabase** functions.
 
 ```nodejs
 createDatabase()
@@ -266,6 +264,8 @@ createDatabase()
 At this point, your code in ```app.js``` should now look like this:
 
 ```nodejs
+const CosmosClient = require('@azure/cosmos').CosmosClient;
+
 const config = require('./config');
 const url = require('url');
 
@@ -321,9 +321,11 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 ## <a id="CreateContainer"></a>Step 6: Create a container
 
 > [!WARNING]
-> **createContainer** will create a new container, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> Calling the function**createContainer** will create a new container, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-A container can be created by using the [create](/javascript/api/%40azure/cosmos/containers) function of the **Containers** class. A container consists of items (which in the case of the SQL API are JSON documents) and associated JavaScript application logic.
+A container can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/containers) or [create](/javascript/api/%40azure/cosmos/containers) function from the **Containers** class. 
+
+A container consists of items (which in the case of the SQL API are JSON documents) and associated JavaScript application logic.
 
 Copy and paste the **createContainer**  and **readContainer** function underneath the **readDatabase** function in the app.js file. The **createContainer** function will create a new container with the ```containerId``` specified from the ```config``` object if it does not already exist. The **readContainer** function will read the container definition to verify the container exists.
 
@@ -362,6 +364,8 @@ createDatabase()
 At this point, your code in ```app.js``` should now look like this:
 
 ```nodejs
+const CosmosClient = require('@azure/cosmos').CosmosClient;
+
 const config = require('./config');
 const url = require('url');
 
@@ -484,7 +488,7 @@ Congratulations! You have successfully created an Azure Cosmos DB item.
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
 Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your container.
 
-Copy and paste the **queryCollection** function underneath the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
+Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
 
 ```nodejs
 /**
@@ -518,7 +522,7 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax is ca
 
 The [FROM](sql-api-sql-query.md#FromClause) keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single container. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB will infer that Families, root, or the variable name you chose, reference the current container by default.
 
-Copy and paste the code below the call to **createFamilyItem** to execute the **queryCollection** function.
+Copy and paste the code below the calls to **createFamilyItem** to execute the **queryCollection** function.
 
 ```nodejs
 createDatabase()
