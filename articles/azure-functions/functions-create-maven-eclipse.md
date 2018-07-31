@@ -40,8 +40,7 @@ To develop a functions app with Java and Eclipse, you must have the following in
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
-It is highly reccommended to also install [Azure Functions Core Tools, version 2](functions-run-local.md#v2), which provide a local development environment for writing, running, and debugging Azure Functions. 
-
+It's highly recommended to also install [Azure Functions Core Tools, version 2](functions-run-local.md#v2), which provide a local environment for running and debugging Azure Functions. 
 
 ## Create a Functions project
 
@@ -49,8 +48,8 @@ It is highly reccommended to also install [Azure Functions Core Tools, version 2
 1. Open the **Java Project** folder in the **New Project** window and select **Maven Project**, then select **Next**.
 1. Accept the defaults in the **New Maven Project** dialogue and select **Next**.
 1. Select **Add Archetype** and add the entries for the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
-    - Archtype Group Id: com.microsoft.azure
-    - Archtype Artifact Id: azure-functions-archetype
+    - Archetype Group ID: com.microsoft.azure
+    - Archetype Artifact ID: azure-functions-archetype
     - Version: Use latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Click **OK** and enter details for current project, and eventually **Finish**.
@@ -62,8 +61,8 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 > [!NOTE]
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
-1. Right-click on the generated proejct, then choose **Run As..** and  **Maven build...**.
-1. In the **Edit Configuration** dialog, Under **Goals** , enter `package`.  Under **Name** enter `package`. Then select **Run**. This will build and package the function code.
+1. Right-click on the generated project, then choose **Run As** and **Maven build**.
+1. In the **Edit Configuration** dialog, Enter `name` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
 1. Once the build is complete, create another Run configuration as above, using `azure-functions:run` as the goal and name. Select **Run** to run the function in the IDE.
 
 Terminate the runtime in the console window when you're done testing your function. Only one function host can be active and running locally at a time.
