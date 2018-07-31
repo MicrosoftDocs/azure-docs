@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 07/31/2018
 ms.author: tamram
 
 ---
@@ -131,7 +131,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
-    ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
     
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
