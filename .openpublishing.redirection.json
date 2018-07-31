@@ -26535,6 +26535,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-node.md",
+            "redirect_url": "https://docs.microsoft.com/active-directory-b2c/active-directory-b2c-tutorials-spa",
+            "redirect_document_id": true
+        },
         {    
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
