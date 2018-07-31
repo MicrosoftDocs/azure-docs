@@ -1,5 +1,5 @@
 ---
-title: Manage your endpoint keys in LUIS | Microsoft Docs
+title: Manage the authoring and endpoint keys in LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys.
 titleSuffix: Azure
 services: cognitive-services
@@ -8,12 +8,15 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 07/31/2018
 ms.author: diberry
 ---
 
-# Manage your LUIS endpoint keys
-A key allows you to author and publish your LUIS app, or query your endpoint. 
+# Add LUIS endpoint keys to app
+
+After you create a LUIS endpoint key in the Azure portal, assign the key to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
+
+A key allows you to author _or_ query your LUIS app. 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -25,27 +28,32 @@ A key allows you to author and publish your LUIS app, or query your endpoint.
 ## Key concepts
 See [Keys in LUIS](luis-concept-keys.md) to understand LUIS authoring and endpoint key concepts.
 
+On the **Keys and Endpoints** page, both the free authoring key and the Azure-created endpoint key are displayed. 
+
+## Authoring key
+
+Your authoring key in displayed both at the top and in the endpoint keys table only to help you get started using LUIS. This key has a limited number of endpoint queries it allows. After those few endpoint queries, the key will not work as and endpoint key. Create a endpoint key to extend the number of available endpoint queries. 
+
 <a name="create-and-use-an-endpoint-key"></a>
 ## Assign endpoint key
-On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating an endpoint key using Azure](luis-how-to-azure-subscription.md).
  
-2. In order to add the LUIS key created in the previous step, click the **Add Key** button to open the **Assign a key to your app** dialog. 
+2. In order to add the LUIS key created in the previous step, select **Assign Key +** to open the **Assign a key to your app** dialog. 
 
     ![Assign a key to your app](./media/luis-manage-keys/assign-key.png)
-3. Select a Tenant in the dialog. 
+3. Select a Tenant in the dialog associated with the email address you login with to the LUIS website.  
  
     > [!Note]
     > In Azure, a tenant represents the Azure Active Directory ID of the client or organization associated with a service. If you previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant! When you log in to the Azure portal, you are automatically logged in to [your default tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant). You are free to use this tenant but you may want to create an Organizational administrator account.
 
-4. Choose the Azure subscription associated with the Azure LUIS key you want to add.
+4. Choose the **Subscription Name** associated with the Azure LUIS key you want to add.
 
-5. Select the Azure LUIS account. The region of the account is displayed in parentheses. 
+5. Select the **LUIS resource name**. The region of the resource is displayed in parentheses. 
 
-    ![Choose the key](./media/luis-manage-keys/assign-key-filled-out.png)
+6. Select the **Region Time Zone**. See [Change time zone of prebuilt datetimeV2 entity](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for more information.
 
-6. After you assign this endpoint key, use it in all endpoint queries. 
+7. Select **Assign Keys**. After you assign this endpoint key, use it in all endpoint queries.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -53,16 +61,11 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 <a name="publishing-to-australia"></a>
 
 ## Publishing regions
-Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
+
+Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Create an app in the authoring region corresponding to the publishing region you want for the query endpoint.
 
 ## Unassign key
-
-* In the **Resources and Keys list**, click the trash bin icon next to the entity you want to unassign. Then, click **OK** in the confirmation message to confirm deletion.
- 
-    ![Unassign Entity](./media/luis-manage-keys/unassign-key.png)
-
-> [!NOTE]
-> Unassigning the LUIS key does not delete it from your Azure subscription.
+When you unassign the key, it is not deleted it from your Azure subscription.
 
 ## Next steps
 

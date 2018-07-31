@@ -213,7 +213,7 @@
     items: 
     - name: Using the dashboard
       href: luis-how-to-use-dashboard.md
-    - name: Create endpoint keys in Azure
+    - name: Create endpoint keys
       href: luis-how-to-azure-subscription.md
     - name: Add endpoint keys to app 
       href: luis-how-to-manage-keys.md
