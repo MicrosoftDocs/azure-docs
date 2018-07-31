@@ -52,8 +52,6 @@
       href: https://msdn.microsoft.com/library/mt147898.aspx
 - name: Resources
   items:
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
   - name: "Dev Center"
     href: https://powerbi.microsoft.com/developers/
   - name: "Onboarding Experience Tool for embedding"
@@ -62,10 +60,10 @@
     href: https://github.com/Microsoft/PowerBI-Developer-Samples
   - name: .NET SDK download
     href: https://www.nuget.org/packages/Microsoft.PowerBI.Api/
-  - name: .NET for Power BI
-    href: https://github.com/Microsoft/PowerBI-CSha
   - name: JavaScript SDK download
     href: https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/
+  - name: .NET for Power BI
+    href: https://github.com/Microsoft/PowerBI-CSharp
   - name: JavaScript for Power BI
     href: https://github.com/Microsoft/PowerBI-JavaScript
   - name: "JavaScript Playground Sample"
@@ -76,5 +74,9 @@
     href: https://go.microsoft.com/fwlink/?linkid=848276
   - name: "Power BI C# Git Repo"
     href: https://go.microsoft.com/fwlink/?linkid=848273
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
   - name: Power BI community
     href: http://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: "Stack Overflow"
+    href: https://go.microsoft.com/fwlink/?linkid=848281
