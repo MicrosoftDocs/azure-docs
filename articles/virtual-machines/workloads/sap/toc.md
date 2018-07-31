@@ -15,7 +15,7 @@
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
-## [SAP HANA on Azure operations guide](hana-vm-operations.md)
+## [SAP HANA infrastructure configurations and operations on Azure](hana-vm-operations.md)
 ## SAP HANA Availability in Azure Virtual Machines
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)

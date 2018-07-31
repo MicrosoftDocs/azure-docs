@@ -83,7 +83,7 @@ Choose a partition key such that:
   The left image above shows the result of a bad partition key and the right image above shows the result when a good partition key was chosen. In the left image, you can see that the data is not evenly distributed across the partitions. You should strive to choose a partition key that distributes your data so it looks similar to the right image.
 
 * Queries that are invoked with high concurrency can be efficiently routed by including the partition key in the filter predicate.  
-* Choosing a partition key with higher cardinality is generally preferred – becaue it typically yields better distribution and scalability. For example, a composite key can be formed by concatenating values from multiple properties to increase the cardinality.  
+* Choosing a partition key with higher cardinality is generally preferred – becaue it typically yields better distribution and scalability. For example, a synthetic key can be formed by concatenating values from multiple properties to increase the cardinality.  
 
 When you choose a partition key with above considerations, you don’t have to worry about the number of partitions or how much throughput is allocated per physical partition, as Azure Cosmos DB scales out the number of physical partitions, and it can also scale the individual partitions as needed.
 
@@ -202,9 +202,9 @@ g.E(['USA', 'I5'])
 
 For more information, see [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md).
 
-## Composite partition key
+## Form partition key by concatenating multiple fields
 
-You can form a composite partition key by concatenating and padding multiple property values into a single artificial “partitionKey” property of the item.
+You can also form a partition key by concatenating and padding multiple property values into a single artificial “partitionKey” property of the item. These keys are referred as synthetic keys.
 
 For example, you have a document that looks like:
 
@@ -215,7 +215,7 @@ For example, you have a document that looks like:
 }
 ```
 
-One option is to set partitionKey on /deviceId or /date. If want to form a composite key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
+One option is to set partitionKey on /deviceId or /date. If want to form a partition key on device id and date. Concatenate these two values in to an artificial "partitionKey" property, and set the partition key to /partitionKey.
 
 ```json
 {
@@ -225,7 +225,7 @@ One option is to set partitionKey on /deviceId or /date. If want to form a compo
 }
 ```
 
-In real time scenarios you can have thousands of documents so you should define client side logic to concatenate values into a composite key, insert the composite key into the documents and then use it to specify partition key.
+In real time scenarios you can have thousands of documents so you should define client side logic to concatenate values into a synthetic key, insert the synthetic key into the documents and then use it to specify partition key.
 
 <a name="designing-for-scale"></a>
 ## Design for scale
