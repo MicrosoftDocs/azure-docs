@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio. A [Service Fabric cluster](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
-For this tutorial, you have two options for deployment of the voting application to a Service Fabric cluster by using Visual Studio:
+For this tutorial, there are two options to deploy the voting application to a Service Fabric cluster by using Visual Studio:
 
 * Publish to a trial (party) cluster.
 * Publish to an existing cluster in your subscription. You can create Service Fabric clusters through the [Azure portal](https://portal.azure.com) by using [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from a [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -66,9 +66,9 @@ For this tutorial, you have two options for deployment of the voting application
 
 ### Find the voting web service endpoint for your Azure subscription
 
-To publish the voting application to your own Azure subscription, find the endpoint of the front-end web service. If you use a party cluster, connect to port 8080 by using the voting sample that's automatically open. You don't need to configure it in the party cluster's load balancer.
+To publish the voting application to your own Azure subscription, find the endpoint of the front-end web service. If you use a party cluster, connect to port 8080 by using the automatically open voting sample. You don't need to configure it in the party cluster's load balancer.
 
-The front-end web service is listening on a specific port. When the application deploys to a cluster in Azure, both the cluster and the application run behind an Azure Load Balancer instance. The application port must be open by using a rule in the Azure Load balancer for the cluster, so inbound traffic can get through to the web service. The port 8080 is found in the *VotingWeb/PackageRoot/ServiceManifest.xml* file in the **Endpoint** element. An example is port 8080.
+The front-end web service is listening on a specific port. When the application deploys to a cluster in Azure, both the cluster and the application run behind an Azure Load Balancer instance. The application port must be opened by using a rule in the Azure Load Balancer for the cluster. The open port sends inbound traffic through to the web service. The port is found in the *VotingWeb/PackageRoot/ServiceManifest.xml* file in the **Endpoint** element. An example is port 8080.
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
@@ -116,11 +116,11 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 1. Right-click **Voting** in the Solution Explorer. Choose **Publish**. The **Publish** dialog box appears.
 
-2. Copy the **Connection Endpoint** from the party cluster page or from your Azure subscription into the **Connection Endpoint** field. An example is `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Select **Advanced Connection Parameters**. Ensure that the *FindValue* and *ServerCertThumbprint* values match the thumbprint of the certificate installed in a previous step for a party cluster or the certificate that matches your Azure subscription.
+2. Copy the **Connection Endpoint** from either the party cluster page or your Azure subscription into the **Connection Endpoint** field. An example is `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Select **Advanced Connection Parameters**.  Make sure that the *FindValue* and *ServerCertThumbprint* values match the thumbprint of the certificate. Either it was installed in a previous step for a party cluster, or it's the certificate that matches your Azure subscription.
 
     ![Publish dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-    Each application in the cluster must have a unique name. Party clusters are a public, shared environment. So there might be a conflict with an existing application. If there's a name conflict, rename the Visual Studio project and deploy it again.
+    Each application in the cluster must have a unique name. Party clusters are a public, shared environment, so there might be a conflict with an existing application. If there's a name conflict, rename the Visual Studio project and deploy it again.
 
 3. Select **Publish**.
 
