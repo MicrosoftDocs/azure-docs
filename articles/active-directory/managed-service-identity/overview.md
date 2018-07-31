@@ -28,7 +28,7 @@ The Managed Service Identity feature is free with Azure AD for Azure subscriptio
 
 ## How does the feature work?<a name="how-does-it-work"></a>
 
-There are two types of managed service identities:
+There are two types of managed identities:
 
 - A **system assigned identity** is enabled directly on an Azure service instance. When the identity's enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity's created, the credentials are provisioned onto the instance. The lifecycle of a system assigned identity is directly tied to the Azure service instance that it's enabled on. If the instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 - A **user assigned identity** is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity's created, the identity can be assigned to one or more Azure service instances. The lifecycle of a user assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned.
