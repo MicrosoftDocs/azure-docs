@@ -43,4 +43,3 @@ For information about how to get started, see [How to sign up and upload your fi
 ## See also
 
 [Video Indexer overview](video-indexer-overview.md)
-
