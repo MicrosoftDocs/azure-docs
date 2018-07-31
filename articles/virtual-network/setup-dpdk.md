@@ -119,10 +119,10 @@ zypper \
    * [Download 4.2-1.2.2.0 (or latest) Mellanox OFED](http://www.mellanox.com/page/firmware_table_Microsoft?mtag=oem_firmware_download) (under archive version). 
    * Once you've downloaded and uncompressed the file, cd into the directory, and run (may require sudo permission) the following command: 
    
-   ```bash
-   zypper install -y python-libxml2 kernel-syms python-devel rpm-build ./mlnxofedinstall \ 
-     --guest --dpdk --upstream-libs --add-kernel-support --force --skip-repo
-   ```
+     ```bash
+     zypper install -y python-libxml2 kernel-syms python-devel rpm-build ./mlnxofedinstall \ 
+       --guest --dpdk --upstream-libs --add-kernel-support --force --skip-repo
+     ```
    
    * Once OFED installation is complete, use the following command to restart the driver (requires sudo permission): 
 `/etc/init.d/openibd restart`.
