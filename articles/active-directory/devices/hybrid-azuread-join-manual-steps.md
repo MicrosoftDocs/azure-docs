@@ -21,7 +21,7 @@ ms.reviewer: sandeo
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [../Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [../Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
 
