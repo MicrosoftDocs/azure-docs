@@ -2242,7 +2242,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Massively scalable, secure data lake storage with Blob storage integration</p>
+                                                    <p>Massively scalable, secure Data Lake storage with Blob storage integration</p>
                                                 </div>
                                             </div>
                                         </div>
