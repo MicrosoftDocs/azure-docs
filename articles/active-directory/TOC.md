@@ -131,7 +131,6 @@
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -168,7 +167,7 @@
 
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot

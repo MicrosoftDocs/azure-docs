@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -107,6 +107,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
     1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this github repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## Next Steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
