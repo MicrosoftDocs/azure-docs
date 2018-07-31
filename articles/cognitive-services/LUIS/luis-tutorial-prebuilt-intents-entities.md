@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 * Train and publish
 * Query LUIS and receive prediction response
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## Before you begin
 If you do not have the [Human Resources](luis-quickstart-intents-only.md) app from the previous tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
@@ -32,8 +34,6 @@ If you want to keep the original Human Resources app, clone the version on the [
 LUIS provides several prebuilt intents to help with common user intentions.  
 
 1. Make sure your app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
-
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Select **Add prebuilt domain intent**. 
 
@@ -68,24 +68,20 @@ LUIS provides several prebuilt entities for common data extraction.
     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## Train and publish the app
-1. In the top right side of the LUIS website, select the **Train** button. 
 
-    ![Train button](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    Training is complete when you see the green status bar at the top of the website confirming success.
+## Publish app to endpoint
 
-    ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
-
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. 
-
-3. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
-
-    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query endpoint with an utterance
-On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
 
-The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Go to the end of the URL in the address and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
+
+    The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
 
     ```
     {
@@ -162,12 +158,13 @@ The result predicted the Utilities.Cancel intent and extracted the date of March
     }
     ```
 
-There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the LUIS-calling application to make an assumption or ask for clarification, if that is needed. 
+    There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the LUIS-calling application to make an assumption or ask for clarification, if that is needed. 
 
-By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
+    By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select **My apps** from the top left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
