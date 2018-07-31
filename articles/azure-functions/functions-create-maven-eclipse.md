@@ -62,7 +62,7 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Right-click on the generated project, then choose **Run As** and **Maven build**.
-1. In the **Edit Configuration** dialog, Enter `name` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
+1. In the **Edit Configuration** dialog, Enter `package` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
 1. Once the build is complete, create another Run configuration as above, using `azure-functions:run` as the goal and name. Select **Run** to run the function in the IDE.
 
 Terminate the runtime in the console window when you're done testing your function. Only one function host can be active and running locally at a time.
@@ -71,11 +71,11 @@ Terminate the runtime in the console window when you're done testing your functi
 
 In your Run As configuration set up in the previous step, change `azure-functions:run` to `mvn azure-functions:run -DenableDebug` and run the updated configuration to start the function app in debug mode.
 
-Click on `Run` and open `Debug Configurations`. Choose `Remote Java Application` and create a new one. Give your configuration a name and fill in the settings. The port should be consistent with the debug port opened by function host. After setup, click on `Debug` to start debugging.
+Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java Application** and create a new one. Give your configuration a name and fill in the settings. The port should be consistent with the debug port opened by function host, which by default is `5005`. After setup, click on `Debug` to start debugging.
 
-    ![Debug functions in Eclipse](media/functions-create-java-maven/debug-configuration-eclipse.png)
+![Debug functions in Eclipse](media/functions-create-java-maven/debug-configuration-eclipse.png)
 
-When finished stop the debugger and the running process. Only one function host can be active and running locally at at time.
+Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at at time.
 
 ## Deploy the function to Azure
 
@@ -85,11 +85,7 @@ The deploy process to Azure Functions uses account credentials from the Azure CL
 az login
 ```
 
-Deploy your code into a new Function app using the `azure-functions:deploy` Maven target, or select the azure-functions:deploy option in the Maven Projects window.
-
-```
-mvn azure-functions:deploy
-```
+Deploy your code into a new Function app using the `azure-functions:deploy` Maven goal in a new **Run As** configuration.
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:
 
