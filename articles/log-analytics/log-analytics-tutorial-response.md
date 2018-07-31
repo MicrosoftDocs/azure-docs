@@ -71,7 +71,7 @@ In the following example, you create a metric measurement alert rule based off o
     ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
 8. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.  
-9. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:
+9. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
    a. Select **New action group** and the **Add action group** pane appears.  
    b. For **Action group name**, specify a name such as **IT Operations - Notify** and a **Short name** such as **itops-n**.  
    c. Verify the default values for **Subscription** and **Resource group** are correct. If not, select the correct one from the drop-down list.  
