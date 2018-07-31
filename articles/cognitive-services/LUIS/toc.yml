@@ -211,6 +211,8 @@
       href: luis-how-to-use-prebuilt-domains.md
   - name: Manage app
     items: 
+    - name: Using the dashboard
+      href: luis-how-to-use-dashboard.md
     - name: Create endpoint keys in Azure
       href: luis-how-to-azure-subscription.md
     - name: Add endpoint keys to app 
@@ -227,8 +229,6 @@
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
         href: luis-traffic-manager.md  
-  - name: Using the dashboard
-    href: luis-how-to-use-dashboard.md
   - name: Migrate to V2 API
     href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
