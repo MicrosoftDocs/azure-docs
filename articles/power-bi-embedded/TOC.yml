@@ -29,19 +29,19 @@
   - name: Manage capacities in Azure
     items:
     - name: "Create a capacity in Azure"
-      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start/azure-pbie-scale-capacity/azure-pbie-create-capacity
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity
     - name: "Scale a capacity in Azure"
-      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start/azure-pbie-scale-capacity
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity
     - name: "Pause and start a capacity in Azure"
       href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start
   - name: Migrate from Workspace Collections
     items:
     - name: "How to migrate from Power BI Workspace Collections"
-      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded
+      href: https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded
     - name: Migration tool
-      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool
+      href: https://docs.microsoft.com/power-bi/developer/migrate-tool
     - name: "Migration code snippets"
-      href: https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippetsd
+      href: https://docs.microsoft.com/power-bi/developer/migrate-code-snippetsd
 - name: Reference
   items:
   - name: APIs

@@ -26492,7 +26492,7 @@
         },
         {
             "source_path": "articles/powerbi-embedded/create-capacity.md",
-            "redirect_url": "/power-bi/developer/azure-pbie-create-capacity",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity",
             "redirect_document_id": true
         },
         {
