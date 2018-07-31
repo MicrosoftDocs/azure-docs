@@ -44,14 +44,6 @@ For this quickstart, you will need:
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-### Subscription ID
-
-Run this command to list your available Azure subscription IDs:
-
-```azurecli-interactive
-az account list -o table
-```
-
 ### Service Principal
 
 Azure CycleCloud requires a service principal with contributor access to your Azure subscription. If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, *CycleCloudApp* can be replaced with whatever you like:
@@ -74,6 +66,8 @@ The *password* shown here is the *applicationSecret* used below.
 
 ### SSH KeyPair
 
+An SSH key is needed to log into the CycleCloud VM and clusters. Specify a public SSH key to use with all clusters, as well as the application server.
+
 On Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a ssh keypair. You will need to do the following:
 
   1. **Save Public Key**
@@ -82,73 +76,19 @@ On Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows
 
 On Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
 
-## Clone the Repo
+## Deploy Azure CycleCloud
 
-Start by cloning the CycleCloud repo:
+Click the button below to deploy Azure CycleCloud into your subscription:
 
-```azurecli-interactive
-git clone https://github.com/CycleCloudCommunity/cyclecloud_arm.git
-```
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fdeploy-azure%2Fazuredeploy.json)
 
-The files in the repo include:
+Enter the required information:
 
-* `azuredeploy.json` is the ARM template that configures the vnet and provisions the VM
-* `params.azuredeploy.json` contains the parameters necessary to configure the ARM template
-* `params-vnet.json` contains the vnet configuration parameters
-
-## Create a Resource Group 
-
-Create a resource group in the region of your choice. Note that resource group names are unique within a subscription. For example, you could use *AzureCycleCloud* as the resource group name and *South Central US* as the region:
-
-```azurecli-interactive
-az group create --name "AzureCycleCloud" --location "South Central US"
-```
-
-## Add Parameters
-
-Locate and edit the `params-azuredeploy.json` file. Specify the following parameters:
-
-* rsaPublicKey
-* applicationSecret
-
-### rsaPublicKey
-
-To copy the ssh key, open the **exported** public key, and copy the contents of the key into the `params-azuredeploy.json`.
-
-An example `params-azuredeploy.json` might look like this:
-
-``` sample-json
-{
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-"contentVersion": "1.0.0.0",
-"parameters": {
-"username": { "value": "cycleadmin" },
-...
-"rsaPublicKey": { "value": "XXXXXXXXXXXXXXXXXXXXXXXXXX="}
-}
-```
-
-### Application Parameters
-
-*applicationSecret*, *tenantID*, and *applicationID* were all generated when setting up the Service Principal for your Azure Active Directory. Please note that *applicationSecret* is the *password* as displayed in the Service Principle output viewed previously. Input those values now.
-
-### CycleCloud Admin Password
-
-Specify a password for the CycleCloud application server `admin` user. The password needs to meet the following specifications:
-
-* Between 3-8 characters and meeting three of the following four conditions:
-   - Contains an upper case character
-   - Contains a lower case character
-   - Contains a number
-   - Contains a special character: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ?  ~ " ( ) ;
-
-## Deploy the Template
-
-Deploy the CycleCloud VM using the edited `params-azuredeploy.json`:
-
-```azurecli-interactive
-az group deployment create --name "cyclecloud_deployment" --resource-group "AzureCycleCloud" --template-file azuredeploy.json --parameters params-azuredeploy.json
-```
+* *Tenant ID*: The Tenant ID listed above in the service principal
+* *Applicatiton ID*: Application ID of the service principal
+* *Application Secret*: Application password of the service principal
+* *SSH Public Key*: The public key used to log into the CycleCloud VM
+* *Username*: The username for the CycleCloud VM. Use your Azure Portal username without the domain (e.g. *johnsmith* instead of *johnsmith@domain.com*)
 
 The deployment process runs an installation script as a custom script extension, which installs and sets up CycleCloud. This process takes between 5 and 8 mins.
 
@@ -160,9 +100,11 @@ To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name
 az network public-ip list -g AzureCycleCloud | grep fqdn
 ```
 
-Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser. The Azure CycleCloud End User License Agreement will be displayed - click to accept it.
 
-Login to the webserver using the *cycleadmin* user and the *cyclecloudAdminPW* password defined in the `params-azuredeploy.json` parameters file.
+You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above.
+
+![CycleCloud Create New User screen](~/images/create-new-user.png)
 
 That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
 
