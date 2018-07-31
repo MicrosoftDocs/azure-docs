@@ -21,7 +21,13 @@ ms.reviewer: sandeo
 ---
 # How to plan your hybrid Azure Active Directory join implementation
 
-In a similar way to a user, the device is becoming another identity that you as an IT admin, want to protect and use to protect your resources at any time and location. You can accomplish this goal by bringing your device identities to Azure AD. You can do this by doing an Azure AD join, a hybrid Azure AD join or an Azure AD registered device state. By bringing your devices to Azure AD, you get to maximize your end user productivity by enjoying Single-Sign-On (SSO) across your cloud and on-premises resources and at the same time securing access to your cloud and on-premises resources by enabling Conditional Access. For more details, see Conditional Access in Azure AD.
+In a similar way to a user, a device is becoming another identity you want to protect and also use to protect your resources at any time and location. You can accomplish this goal by bringing your devices' identities to Azure AD using one of the following methods:
+
+- Azure AD join
+- Hybrid Azure AD join
+- Azure AD registration
+
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
