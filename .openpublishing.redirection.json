@@ -15170,6 +15170,11 @@
             "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
             "redirect_document_id": false
         },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-activation-problems.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-activation-problems",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-create-ssh-keys-detailed.md",
             "redirect_url": "/azure/virtual-machines/linux/create-ssh-keys-detailed",

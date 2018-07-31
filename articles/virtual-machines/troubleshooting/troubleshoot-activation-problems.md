@@ -12,14 +12,12 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
 ---
 
 # Troubleshoot Azure Windows virtual machine activation problems
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 If you have trouble when activating Azure Windows virtual machine (VM) that is created from a custom image, you can use the information provided in this document to troubleshoot the issue. 
 
