@@ -12,7 +12,7 @@ ms.date: 07/31/2018
 
 # Using Azure Storage with a Jenkins continuous integration solution
 
-This article illustrates how to use Blob storage as a repository of build artifacts created by a Jenkins continuous cntegration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this solution useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
+This article illustrates how to use Blob storage as a repository of build artifacts created by a Jenkins continuous integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this solution useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
 
 In this tutorial, you will be using the Azure Storage Plugin for Jenkins CI made available by Microsoft.
 
@@ -50,30 +50,30 @@ Benefits of using the Blob service to host your agile development build artifact
 To use the Blob service with Jenkins, you'll need to install the Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
 
 ## How to install the Azure Storage plugin
-1. Within the Jenkins dashboard, click **Manage Jenkins**.
-2. In the **Manage Jenkins** page, click **Manage Plugins**.
-3. Click the **Available** tab.
+1. Within the Jenkins dashboard, select **Manage Jenkins**.
+2. In the **Manage Jenkins** page, select **Manage Plugins**.
+3. Select the **Available** tab.
 4. In the **Artifact Uploaders** section, check **Microsoft Azure Storage plugin**.
-5. Click either **Install without restart** or **Download now and install after restart**.
+5. Select either **Install without restart** or **Download now and install after restart**.
 6. Restart Jenkins.
 
 ## How to configure the Azure Storage plugin to use your storage account
-1. Within the Jenkins dashboard, click **Manage Jenkins**.
-2. In the **Manage Jenkins** page, click **Configure System**.
+1. Within the Jenkins dashboard, select **Manage Jenkins**.
+2. In the **Manage Jenkins** page, select **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
    1. Enter your storage account name, which you can obtain from the [Azure Portal](https://portal.azure.com).
    2. Enter your storage account key, also obtainable from the [Azure Portal](https://portal.azure.com).
    3. Use the default value for **Blob Service Endpoint URL** if you are using the global Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal](https://portal.azure.com) for your storage account. 
-   4. Click **Validate storage credentials** to validate your storage account. 
-   5. [Optional] If you have additional storage accounts that you want made available to your Jenkins CI, click **Add more Storage Accounts**.
-   6. Click **Save** to save your settings.
+   4. Select **Validate storage credentials** to validate your storage account. 
+   5. [Optional] If you have additional storage accounts that you want made available to your Jenkins CI, select **Add more Storage Accounts**.
+   6. Select **Save** to save your settings.
 
 ## How to create a post-build action that uploads your build artifacts to your storage account
 For instructional purposes, you first need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
 
-1. Within the Jenkins dashboard, click **New Item**.
-2. Name the job **MyJob**, click **Build a free-style software project**, and then click **OK**.
-3. In the **Build** section of the job configuration, click **Add build step** and choose **Execute Windows batch command**.
+1. Within the Jenkins dashboard, select **New Item**.
+2. Name the job **MyJob**, select **Build a free-style software project**, and then select **OK**.
+3. In the **Build** section of the job configuration, select **Add build step** and select **Execute Windows batch command**.
 4. In **Command**, use the following commands:
 
 	```   
@@ -84,32 +84,32 @@ For instructional purposes, you first need to create a job that will create seve
 	time /t >> date.txt
 	```
 
-5. In the **Post-build Actions** section of the job configuration, click **Add post-build action** and choose **Upload artifacts to Azure Blob storage**.
+5. In the **Post-build Actions** section of the job configuration, select **Add post-build action** and select **Upload artifacts to Azure Blob storage**.
 6. For **Storage account name**, select the storage account to use.
-7. For **Container name**, specify the container name. (The container will be created if it does not already exist when the build artifacts are uploaded.) You can use environment variables, so for this example enter **${JOB_NAME}** as the container name.
+7. For **Container name**, specify the container name. (The container will be created if it does not already exist when the build artifacts are uploaded.) You can use environment variables, so for this example enter `${JOB_NAME}` as the container name.
    
     **Tip**
    
-    Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Click that link to learn the environment variable names and descriptions. Environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
-8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
-9. [Optional] Click **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
-10. For **List of Artifacts to upload**, enter **text/*.txt**.
-11. For **Common virtual path for uploaded artifacts**, for purposes of this tutorial, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
-12. Click **Save** to save your settings.
-13. In the Jenkins dashboard, click **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure storage will be included in the console output when the post-build action starts to upload build artifacts.
+    Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Select that link to learn the environment variable names and descriptions. Environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
+8. Select **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access, which is beyond the scope of this article. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
+9. [Optional] Select **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
+10. For **List of Artifacts to upload**, enter `text/*.txt`.
+11. For **Common virtual path for uploaded artifacts**, for purposes of this tutorial, enter `${BUILD\_ID}/${BUILD\_NUMBER}`.
+12. Select **Save** to save your settings.
+13. In the Jenkins dashboard, select **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure storage will be included in the console output when the post-build action starts to upload build artifacts.
 14. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
     1. Sign in to the [Azure Portal](https://portal.azure.com).
-    2. Click **Storage**.
-    3. Click the storage account name that you used for Jenkins.
-    4. Click **Containers**.
-    5. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Jenkins job. Container names and blob names are lowercase (and case-sensitive) in Azure storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
+    2. Select **Storage**.
+    3. Select the storage account name that you used for Jenkins.
+    4. Select **Containers**.
+    5. Select the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Jenkins job. Container names and blob names are lowercase (and case-sensitive) in Azure storage. Within the list of blobs for the container named **myjob**, you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
 
-Only one post-build action that uploads artifacts to Azure blob storage can be created per job. Note that the single post-build action to upload artifacts to Azure blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Jenkins build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure blob storage, use the following value for the **List of Artifacts to upload** option: **build/\*.jar;build/\*.txt**. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following value for the **List of Artifacts to upload** option: **build/\*.jar::binaries;build/\*.txt::notices**.
+Only one post-build action that uploads artifacts to Azure blob storage can be created per job. The single post-build action to upload artifacts to Azure blob storage can specify different files (including wildcards) and paths to files within **List of Artifacts to upload** using a semi-colon as a separator. For example, if your Jenkins build produces JAR files and TXT files in your workspace's **build** folder, and you want to upload both to Azure blob storage, use the following value for the **List of Artifacts to upload** option: `build/\*.jar;build/\*.txt`. You can also use double-colon syntax to specify a path to use within the blob name. For example, if you want the JARs to get uploaded using **binaries** in the blob path and the TXT files to get uploaded using **notices** in the blob path, use the following value for the **List of Artifacts to upload** option: `build/\*.jar::binaries;build/\*.txt::notices`.
 
 ## How to create a build step that downloads from Azure blob storage
-The following steps show how to configure a build step to download items from Azure blob storage. This would be useful if you want to include items in your build, for example, JARs that you keep in Azure blob storage.
+The following steps illustrate to configure a build step to download items from Azure blob storage, which is useful if you want to include items in your build. An example of using this pattern is JARs that you might want to persist in Azure blob storage.
 
-1. In the **Build** section of the job configuration, click **Add build step** and choose **Download from Azure Blob storage**.
+1. In the **Build** section of the job configuration, select **Add build step** and select **Download from Azure Blob storage**.
 2. For **Storage account name**, select the storage account to use.
 3. For **Container name**, specify the name of the container that has the blobs you want to download. You can use environment variables.
 4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\*** would specify all blobs whose names start with **project**.
