@@ -1,10 +1,10 @@
-# Azure Government authorized reseller list
+# Azure government authorized reseller list
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
 Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **July 31, 2018** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 
-## Approved Direct CSPs
+## Approved direct CSPs
 |Partner Name|
 |----------------------------|
 |[10th Magnitude](https://www.10thmagnitude.com)|
@@ -215,7 +215,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |En Pointe Technologies|govsales@enpointe.com|310-337-5977|
 |Hewlett Packard||877-686-9637|
-|Insight Direct|Loren.Kilcup@Insight.com|800-467-4448|
+|Insight Direct||800-467-4448|
 |PC Connection|govccollections@govconnection.com|800-998-0009|
 |PCM, Inc.|sales@pcmallgov.com|800-625-5468|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
@@ -224,4 +224,4 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |SoftwareONE|sales@softwareone.com|800-444-9890|
 |Zones International|publicsector@zones.com|253-205-3000|
 
-If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](https://docs.microsoft.com/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-csp-application). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).
+If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](https://docs.microsoft.com/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](https://docs.microsoft.com/azure/azure-government/documentation-government-csp-application). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).
