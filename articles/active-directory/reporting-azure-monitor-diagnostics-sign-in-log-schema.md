@@ -144,6 +144,9 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
         } 
     } 
 ```
+
+## Field descriptions
+
 | Field name | Description |
 |------------|-------------|
 | Time | The date and time, in UTC. |
