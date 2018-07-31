@@ -34,6 +34,10 @@ Within a namespace, you can use one or more instances of three different communi
 * *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages; it's not a broker. Instead, it just passes them on to the destination application.
 
 When you create a queue, topic, or relay, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, or relay to communicate with each other. 
+Example: 
+  *https://<servicebus-namespace-name>.servicebus.windows.net/<queue-name>*
+  *https://<servicebus-namespace-name>.servicebus.windows.net/<topic-name>*
+  *https://<servicebus-namespace-name>.servicebus.windows.net/<relay-name>*
 
 To use any of these objects in the relay scenario, Windows applications can use Windows Communication Foundation (WCF). This service is known as [WCF Relay](../service-bus-relay/relay-what-is-it.md). For queues and topics, Windows applications can use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues and topics using [REST APIs](/rest/api/servicebus/) over HTTP(s). 
 
