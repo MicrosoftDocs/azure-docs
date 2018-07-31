@@ -175,16 +175,20 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Basic query construction
+    - name: Query fundamentals
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
-    - name: Simple query syntax
-      href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
-    - name: Lucene query syntax
-      href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
-    - name: Lucene query examples
+    - name: Examples for simple syntax
+      href: search-query-simple-examples.md
+    - name: Examples for full syntax
       href: search-query-lucene-examples.md
+    - name: Query reference
+      items:
+      - name: Simple query syntax
+        href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
+      - name: Lucene query syntax
+        href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
     - name: Paging results
       href: search-pagination-page-layout.md
     - name: Relevance tuning

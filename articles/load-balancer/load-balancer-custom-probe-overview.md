@@ -1,6 +1,6 @@
 ---
 title: Use Load Balancer custom probes to monitor health status | Microsoft Docs
-description: Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer
+description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: kumud
 ---
 
@@ -23,6 +23,9 @@ ms.author: kumud
 Azure Load Balancer uses health probes to determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend instance. You can also generate a custom response to a health probe and use the health probe for flow control and signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance. This can be used to manage load or planned downtime.
 
 When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether a flow is TCP or UDP as well as which Load Balancer SKU you are using.  Review [probe down behavior for details](#probedown).
+
+> [!IMPORTANT]
+> Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance up.  Review [probe source IP address](#probesource) for details.
 
 ## Health probe types
 
@@ -33,6 +36,8 @@ For UDP load balancing, you should generate a custom health probe signal for the
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  
 
 You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.
+
+If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination or [source](#probesource)).
 
 ### TCP probe
 
@@ -95,9 +100,6 @@ The timeout and frequency values set in SuccessFailCount determine whether an in
 
 A load balancing rule has a single health probe defined the respective backend pool.
 
-> [!IMPORTANT]
-> A load balancer health probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a packet from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios, including failure of your load balanced service. You should also not configure your VNet with an IP address range containing 168.63.129.16.  If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require uniquely source NAT'ing this address in the VM on a per interface basis.
-
 ## <a name="probedown"></a>Probe down behavior
 
 ### TCP Connections
@@ -118,11 +120,25 @@ UDP is connectionless and there is no flow state tracked for UDP. If any backend
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
+
+## <a name="probesource"></a>Probe source IP address
+
+All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
+
+For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.
+
+If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can cause your load balanced service to fail. 
+
+You should also not configure your VNet with the Microsoft owned IP address range which contains 168.63.129.16.  This will collide with the IP address of the health probe.
+
+If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require uniquely source NAT'ing this address in the VM on a per interface basis.
+
 ## Monitoring
 
 All [Standard Load Balancer](load-balancer-standard-overview.md) exposes health probe status as multi-dimensional metrics per instance via Azure Monitor.
 
 Basic Load Balancer exposes health probe status per backend pool via Log Analytics.  This is only available for public Basic Load Balancers and not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+
 
 ## Limitations
 

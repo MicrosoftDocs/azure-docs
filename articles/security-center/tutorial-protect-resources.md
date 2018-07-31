@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
 
 ---
@@ -34,8 +34,6 @@ To step through the features covered in this tutorial, you must be on Security C
 
 ## Manage VM access
 Just in time VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
-
-Just in time VM access is in preview.
 
 Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
@@ -71,7 +69,7 @@ Management ports do not need to be open at all times. They only need to be open 
 ## Harden VMs against malware
 Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
 
-Adaptive application controls is in preview. This feature is only available for Windows machines.
+This feature is only available for Windows machines.
 
 1. Return to the Security Center main menu. Under **ADVANCED CLOUD DEFENSE**, select **Adaptive application controls**.
 
