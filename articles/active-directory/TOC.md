@@ -167,7 +167,7 @@
 
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
