@@ -1,6 +1,6 @@
 ---
 title: Update containers in Azure Container Instances
-description: Learn how to update existing containers in your Azure Container Instances container groups.
+description: Learn how to update running containers in your Azure Container Instances container groups.
 services: container-instances
 author: mmacy
 manager: jeconnoc
@@ -17,7 +17,7 @@ During normal operation of your container instances, you may find it necessary t
 
 ## Update a container group
 
-Update the containers in a container group by redeploying an existing group with at least one modified property. When you update a container group, all containers in the group are restarted in-place.
+Update the containers in a container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place.
 
 Redeploy an existing container group by issuing the create command (or use the Azure portal) and specify the name of an existing group. Modify at least one valid property of the group when you issue the create command to trigger the redeployment. Not all container group properties are valid for redeployment. See [Properties that require delete](#properties-that-require-delete) for a list of unsupported properties.
 
