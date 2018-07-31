@@ -61,7 +61,7 @@ You now see the SendGrid sign-up form.
 
 Complete the sign-up form:
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](azure-resource-manager/resource-group-portal.md).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
 
    * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -101,7 +101,7 @@ The sign-up form appears.
 
 Fill in the fields on the sign-up form.
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
 
    * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 
