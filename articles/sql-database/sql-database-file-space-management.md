@@ -13,13 +13,13 @@ ms.author: carlrab
 ---
 # Learn how and when to shrink a database in Azure SQL Database to recover allocated but unused space
 
-In Azure SQL Database, storage size metrics displayed in the Azure portal and the following APIs measure the amount of used data pages for databases and elastic pools:
-- ARM based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+In Azure SQL Database, storage size metrics displayed in the Azure portal and the following APIs measure the number of used data pages for databases and elastic pools:
+- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-There are workload patterns in which the allocation of space in the underlying data files for databases becomes larger than the amount of used data pages in the data files. This scenario can occur when space used increases and then data is subsequently deleted. When the data is deleted, the file space allocated is not automatically reclaimed when the data is deleted. In such scenarios, the allocated space for a database or pool may exceed supported max limits set (or supported) for the database and, as a result, prevent data growth or prevent performance tier changes, even though the database space actually used is less than the max space limit. To mitigate, you may need to shrink the database to reduce allocated but unused space in the database.
+There are workload patterns in which the allocation of space in the underlying data files for databases becomes larger than the number of used data pages in the data files. This scenario can occur when space used increases and then data is subsequently deleted. When the data is deleted, the file space allocated is not automatically reclaimed when the data is deleted. In such scenarios, the allocated space for a database or pool may exceed supported max limits set (or supported) for the database and, as a result, prevent data growth or prevent performance tier changes, even though the database space actually used is less than the max space limit. To mitigate, you may need to shrink the database to reduce allocated but unused space in the database.
 
 The SQL Database service does not automatically shrink database files to reclaim unused allocated space due to the potential impact on database performance. However, you can shrink the file in a database at a time of your choosing by following the steps described in this article. 
 
@@ -161,7 +161,7 @@ ORDER BY end_time DESC
 
 ## Reclaim allocated space in individual databases
 
-Once you have determined that you have unused allocated space that you widh to reclaim, use the following command to shrink the database space allocated. 
+Once you have determined that you have unused allocated space that you wish to reclaim, use the following command to shrink the database space allocated. 
 
 > [!IMPORTANT]
 > For databases in an elastic pool, databases with the most space allocated unused should be shrunk first to reclaim file space most quickly.  
