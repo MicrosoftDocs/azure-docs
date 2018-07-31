@@ -114,7 +114,7 @@
   items:
   - name: Service overview
     href: https://azure.microsoft.com/services/key-vault/
-  - name: About Keys, Secrets and Certificates]
+  - name: About keys, secrets and certificates
     href: about-keys-secrets-and-certificates.md
     items:
     - name: Get started with certificates
@@ -123,19 +123,19 @@
       href: create-certificate.md
     - name: Monitor and manage certificate creation
       href: create-certificate-scenarios.md
-  - name: Authentication, Requests and Responses
+  - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Customer data features
     href: key-vault-customer-data.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: Key Vault Versions
+  - name: Key Vault versions
     href: key-vault-versions.md
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Blog
     href: http://blogs.technet.com/b/kv/
-  - name: Code Samples
+  - name: Code samples
     href: https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=
   - name: Forums
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault
