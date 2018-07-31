@@ -30,7 +30,7 @@ These release notes provide information about improvements, fixes, and known iss
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
-<!-- Check -->
+<!-- Check -->  
 - <!--	1751628  | ASDK  --> **Enable customer-driven validation of cloud recovery** - You can periodically test end-to-end recovery and validate multi-node backup data on-demand without interrupting your production Azure Stack environment.
 
 - <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. 
