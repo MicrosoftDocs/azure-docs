@@ -7,7 +7,7 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
+ms.date: 07/31/2018
 ---
 
 # Create a Jenkins server on an Azure Linux VM from the Azure portal
@@ -82,7 +82,7 @@ Select **Build Now** to compile the code and package the sample app. When your b
 
 Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
 
-## Troubleshooting
+## Troubleshooting the Jenkins solution template
 
 If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
 
