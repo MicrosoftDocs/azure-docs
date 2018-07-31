@@ -185,7 +185,7 @@ These states reflect statuses of User-initiated (control plane)
 operations on the VM. These states are independent of the running state of a VM, which is exposed as Power states and discussed later in this
 document.
 
-**User Initiated actions **
+**User Initiated actions**
 
 1.  **Create** – Create a VM
 
