@@ -262,8 +262,6 @@ To execute the following commands, obtain and use the [Azure AD PowerShell modul
     New-MsolServicePrincipalCredential -AppPrincipalId $aadClientID -Type password -Value $clientSecret
 
 #### Certificate-based authentication for Azure AD
-> [!NOTE]
-> Azure AD certificate-based authentication is currently not supported on Linux VMs.
 
 The sections that follow show how to configure a certificate-based authentication for Azure AD.
 
