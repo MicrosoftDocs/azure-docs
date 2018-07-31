@@ -416,8 +416,9 @@ Azure Backup provides functionality to restore individual databases to a specifi
 
 You can also select a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
 
-### Pre-requisite before trigerting a restore
-1. You can restore the database to an instance of a SQL Server in the same Azure region. The destination server needs to be registered to the same Recovery Services vault as the source.  
+### Pre-requisite before triggering a restore
+
+1. You can restore the database to an instance of a SQL Server in the same Azure region. The destination server must be registered to the same Recovery Services vault as the source.  
 2. To restore a TDE encrypted database to another SQL Server, please first restore the certificate to the destination server by following steps documented [here](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 3. Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
 
