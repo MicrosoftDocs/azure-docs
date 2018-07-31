@@ -21,14 +21,7 @@ ms.reviewer: sandeo
 ---
 # How to control the hybrid Azure AD join of your devices
 
-
-As a IT admin, you typically want to so that I can do...
-You can accomplish this goal by ...
-
-
-
-
-Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. This is for example true, (during the initial rollout to verify that everything works as expected?).
+Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. This is for example true, during the initial rollout to verify that everything works as expected.
 
 This article provides you with guidance on how you can control hybrid Azure AD join of your devices. 
 
