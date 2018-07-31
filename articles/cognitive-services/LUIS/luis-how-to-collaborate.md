@@ -16,20 +16,21 @@ ms.author: diberry
 You can collaborate with others on your LUIS app together. 
 
 ## Owner and collaborators
+
 An app has a single author, the owner, but can have many collaborators. 
 
 ## Add collaborator
 
-To allow collaborators to edit your LUIS app, on the **Settings** page of your LUIS app, enter the email of the collaborator and click **Add collaborator**.
+To allow collaborators to edit your LUIS app, on the **Settings** page of your LUIS app, enter the email of the collaborator and click **Add collaborator**. Collaborators can sign in and edit your LUIS app at the same time you are working on the app.
 
 ![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png)
 
-* Collaborators can sign in and edit your LUIS app at the same time you are working on the app. 
+## Transfer of ownership
 
-## Set application as public
-See [Public app endpoint access](luis-concept-security.md#public-app-endpoint-access) for more information.
+While LUIS doesn't currently support transfer of ownership, you can export your app, and another LUIS user can import the app. There may be minor differences in LUIS scores between the two applications. 
 
 ## Azure Active Directory tenant user
+
 LUIS uses standard Azure Active Directory (Azure AD) consent flow. 
 
 The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD. 
@@ -45,8 +46,5 @@ If the tenant admin will not sign in to LUIS, the admin can access [consent](htt
 If the tenant admin only wants certain users to use LUIS, refer to this [identity blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
 ### User accounts with multiple emails for collaborators
-If you add collaborators to a LUIS app, you are specifying the exact email address a collaborator needs to use LUIS as a collaborator. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to log in with the email address specified in the collaborator's list. 
 
-
-### Transfer of ownership
-While LUIS doesn't currently support transfer of ownership, you can export your app, and another LUIS user can import the app. There may be minor differences in LUIS scores between the two applications. 
+If you add collaborators to a LUIS app, you are specifying the exact email address a collaborator needs to use LUIS as a collaborator. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to log in with the email address specified in the collaborator's list.
