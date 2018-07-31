@@ -55,4 +55,6 @@
   - name: Linux VM
     href: serial-console-linux.md
   - name: Windows VM   
-    href: serial-console-windows.md  
+    href: serial-console-windows.md
+- name: Errors when deleting storage resources
+  href: storage-resource-deletion-errors.md      

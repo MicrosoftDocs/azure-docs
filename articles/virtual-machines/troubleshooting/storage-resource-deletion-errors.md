@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot storage resource deletion errors in an Azure Resource Manager deployment on Linux VMs | Microsoft Docs
+title: Troubleshoot storage resource deletion errors on Linux VMs in Azure | Microsoft Docs
 description: How to troubleshoot problems when deleting storage resources containing attached VHDs.
-keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
-services: virtual-machines-linux
+keywords: 
+services: virtual-machines
 author: genlin
 manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/01/2018
 ms.author: genli
 ---
@@ -24,7 +24,7 @@ In certain scenarios, you may encounter one of the following errors occur while 
 
 >**Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
 
-The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure. For more information about Azure disks, see [About unmanaged and managed disk storage for Microsoft Azure Linux VMs](about-disks-and-vhds.md). 
+The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure. For more information about Azure disks, see [About unmanaged and managed disk storage for Microsoft Azure Linux VMs](../linux/about-disks-and-vhds.md). 
 
 Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts that have a page blob that is attached to a VM. 
 

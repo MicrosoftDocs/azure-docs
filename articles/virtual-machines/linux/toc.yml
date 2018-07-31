@@ -483,8 +483,6 @@
         href: troubleshoot-recovery-disks-portal.md
     - name: Attached VHDs
       items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md
 - name: Reference
