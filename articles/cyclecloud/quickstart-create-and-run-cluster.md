@@ -72,4 +72,4 @@ Confirm that you want to start the cluster. Once the cluster is started, it will
 QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100.
 
 > [!div class="nextstepaction"]
-> [Continue to Quickstart 3](quickstart-submitjobs.md)
+> [Continue to Quickstart 3](quickstart-submit-jobs.md)
