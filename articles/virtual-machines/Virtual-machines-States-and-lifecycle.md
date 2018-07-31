@@ -282,13 +282,13 @@ accepted the request for user action.
  }
 ]</code>
 <p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension, installation of extension take time and thus provides a window where this state can be observed before it transitions over to succeed.<br />
-<code> "statuses": [
- {
- "code": "ProvisioningState/ OSProvisioningComplete",
- "level": "Info",
- "displayStatus": "OS Provisioning Complete"
- }
-]</code>
+<code> <p>"statuses": [</p>
+ <p>{</p>
+ <p>"code": "ProvisioningState/ OSProvisioningComplete",</p>
+ <p>"level": "Info",</p>
+ <p>"displayStatus": "OS Provisioning Complete"</p>
+ <p>}</p>
+<p>]</p></code>
 <p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time customers will be billed for the deployed VM on the infrastructure. In cases where OS take longer than expected to complete the installation, the platform will automatically transition to success from failure. In other cases re-starting a VM can resolve the issue. If the issue is persistent, then refer to error codes documentation for resolution.</p>
 </td>
 </tr>
