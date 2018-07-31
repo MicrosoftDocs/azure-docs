@@ -99,7 +99,7 @@ All VMs that you create in Azure by using the classic deployment model can autom
 
 ### Step 8: Try to connect to a VM network share
 
-If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
 ### Step 9: Check Inter-Vnet connectivity
 

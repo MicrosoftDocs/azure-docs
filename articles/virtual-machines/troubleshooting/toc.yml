@@ -40,3 +40,13 @@
     href: redeploy-to-new-node-linux.md
   - name: Windows
     href: redeploy-to-new-node-windows.md
+- name: Reset VM password
+  items:    
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: Reset NIC
+  href: reset-network-interface.md
+- name: Restarting or resizing a VM
+  href: restart-resize-error-troubleshooting.md

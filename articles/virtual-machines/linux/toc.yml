@@ -465,8 +465,6 @@
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Reset Linux VM password
-      href: reset-password.md
     - name: Understand system reboot
       href: understand-vm-reboot.md
     - name: Serial console 

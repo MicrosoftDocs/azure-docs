@@ -374,20 +374,14 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
-    - name: Reset local password without Azure agent
-      href: reset-local-password-without-agent.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
-    - name: Reset NIC
-      href: reset-network-interface.md
     - name: Serial console 
       href: serial-console.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
-    - name: Restarting or resizing a VM
-      href: restart-resize-error-troubleshooting.md
     - name: Application access
       href: troubleshoot-app-connection.md
     - name: Activation problems
