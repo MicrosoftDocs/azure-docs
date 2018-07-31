@@ -18,11 +18,11 @@ ms.date: 06/28/2018
 ms.author: danlep
 ---
 
-# Quickstart: Create a cluster for Batch AI training jobs
+# Quickstart: Create a cluster for Batch AI training using the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a cluster you can use for Batch AI training jobs. The cluster initially has a single GPU node.
+This quickstart shows how to use the Azure CLI to create a cluster you can use for training AI and machine learning models. The cluster initially has a single GPU node.
 
-After completing this quickstart, you'll have a cluster you can scale up and use to train deep learning models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
+After completing this quickstart, you'll have a cluster you can scale up and use to train your models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -162,9 +162,9 @@ If you want to continue with Batch AI tutorials and samples, use the Batch AI wo
 You're charged for the Batch AI cluster while the nodes are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When you no longer need a cluster, delete it with the [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) command:
 
 ```azurecli-interactive
-az batchai cluster delete 
-    --name mycluster
-    --workspace myworkspace
+az batchai cluster delete \
+    --name mycluster \
+    --workspace myworkspace \
     --resource-group myResourceGroup
 ```
 
