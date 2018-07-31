@@ -600,7 +600,7 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]
