@@ -34,7 +34,9 @@ Once you have added the credentials for your Azure account, click **Validate Cre
 
 Once your account credentials have been validated, you will be able to enter or select the resources to be used with Azure CycleCloud. Using the dropdown menus, choose a **Default Location** for your resources.
 
-Next, select your **Resource Group** and **Storage Account**. If the Storage Account doesn't exist, you can create it here. Finally, enter a **Storage Container**. This will be created if it does not exist within your account.
+Next, select your **Resource Group** and **Storage Account**. If the Storage Account doesn't exist, you can create it here. Finally, enter a **Storage Container**. This will be created if it does not exist within your account. Click **Save** to store the information.
+
+![Select Azure Resources window](~/images/provider-configuration.png)
 
 This information is required to start using CycleCloud, but can be changed at any time via [cluster template](cluster-templates.md).
 
