@@ -69,7 +69,6 @@ Get a first impression of the reporting APIs:
 
  * [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
  * [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
- * [Troubleshoot errors in Azure AD reporting API](active-directory-reporting-troubleshoot-graph-api.md).
-
+ * [Troubleshoot errors in Azure AD reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 
