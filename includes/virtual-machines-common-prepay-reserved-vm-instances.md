@@ -11,7 +11,7 @@ You can buy Azure reserved instances in the [Azure portal](https://portal.azure.
 -   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the reserved instances.
 
 [!IMPORTANT]
-You must use one of the methods described below to identify the correctly VM size for a reservation purchase.
+You must use one of the methods described below to identify the correct VM size for a reservation purchase.
 
 ## Determine the right VM size before purchase
 1. Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since these fields do not differentiate between S and Non-S versions of a VM.
