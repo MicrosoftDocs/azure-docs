@@ -25,9 +25,6 @@ You can buy Azure vCore reservations in the [Azure portal](https://portal.azure.
 
 The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases is covered in [Frequently asked questions](#frequently-asked-questions).
 
-[!IMPORTANT]
-You must use one of the methods described below to identify the correctly SQL size for a reservation purchase.
-
 ## Determine the right SQL size before purchase
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed SQL single databases and/or elastic pools within a specific region and using the same performance tier and hardware generation. 
