@@ -222,38 +222,44 @@ After the actions list opens, select this action:
    code to the template, including the response 
    and payload you want returned to your logic 
    app after your function finishes running. 
-   The context object in the template code 
-   describes the message and content that your 
+   The `context` object in the template code 
+   contains the message content that your 
    logic app passes to your function, for example:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-      This example creates an `input` variable for 
-      referencing the `data` parameter. In your function, 
-      you can reference the properties in the context 
-      object by using this syntax where the `body` 
-      property here belongs to the context object, 
-      which you pass into your function and can have any name. 
-      This property also differs from any **Body** token 
-      you might pass into the function at a later time.
+      In your function, you can reference properties 
+      in the `context` object by using this syntax: 
 
       ```
       context.body.<property-name>
       ```
 
-      So, for example:
+      The `body` property here refers to the context object, 
+      which you pass into your function, can have any name, 
+      and contains the message sent to your function from your 
+      logic app. The `body` property differs from any **Body** 
+      token you might pass into the function at a later time.
+
+      To reference the `content` property in the `context` object, 
+      here's the syntax to use: 
 
       ```
-      context.body.sender
+      context.body.content
       ```
 
-      Inside JavaScript functions, you can use the `data` 
-      variable as a shortcut for `context.body`:
+      This example creates an `input` variable for 
+      content that passes through the `data` parameter. 
+      So, to reference the content in `data`, 
+      you can just use `input`. 
+
+      Inside JavaScript functions, you can use the 
+      `data` variable as a shortcut for `context.body`:
 
       ```
       data.sender
       ```
-
+ 
    3. When you're done, choose **Create**.
 
 6. In the **Request Body** box, specify the context object 
