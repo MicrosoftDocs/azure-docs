@@ -55,11 +55,11 @@ The Advanced Networking options allow you to control access to and from your clu
 
 Before you start your cluster, add an alert that will notify you if the accumulated usage cost has reached a specific limit. Click **Create New Alert** in the cluster summary window.
 
-![Cluster Summary Window](~/images/create-new-alert.png)
+![Cluster Summary Window](~/images/cluster-usage-alert.png)
 
 Set the Budget to $100.00 per month. Enable the Notifications, and add your email address in the **Recipients** field. This will send you an email when the cost hits $100 within the selected timeframe. Click **Save** to activate this alert.
 
-![Cluster Usage Alert Window](~/images/cluster-usage-alert.png)
+![Cluster Usage Alert Window](~/images/create-new-alert.png)
 
 ## Start the Cluster
 

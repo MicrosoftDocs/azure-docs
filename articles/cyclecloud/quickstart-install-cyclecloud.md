@@ -26,9 +26,9 @@ Working through all the QuickStarts should take 60 to 90 minutes. You will get t
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this quickstart, you will install CycleCloud on Azure resources, using an Azure Resource Manager (ARM) template that is stored on GitHub. The ARM template:
 
 1. Deploys a virtual network with three separate subnets:
-    a. *cycle*: The subnet in which the CycleCloud server is started in
-    b. *compute*: A /22 subnet for the HPC clusters
-    c. *user*: The subnet for creating user logins
+  * *cycle*: The subnet in which the CycleCloud server is started in
+  * *compute*: A /22 subnet for the HPC clusters
+  * *user*: The subnet for creating user logins
 2. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
 
 For the purposes of this quickstart, much of the setup has been done via the ARM template. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation](installation.md) documentation.
@@ -37,10 +37,10 @@ For the purposes of this quickstart, much of the setup has been done via the ARM
 
 For this quickstart, you will need:
 
-1. An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin
-2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with your Azure subscription
-3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
-4. An SSH keypair
+1. An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with your Azure subscription.
+3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory.
+4. An SSH keypair.
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
