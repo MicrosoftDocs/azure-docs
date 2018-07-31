@@ -168,7 +168,7 @@ After you upgrade to or install Backup Server v2 and then upgrade the operating 
 
 Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources by using the retain data option. Then, add the data sources to a new protection group.
 
-1. In the Administrator Console, select the **Protection** feature. In the **Protection Group Member** list, right-click the member, and then select **Stop protection of member**.
+1. In the System Center 2016 DPM Administrator Console, select the **Protection** feature. In the **Protection Group Member** list, right-click the member, and then select **Stop protection of member**.
 
   ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
@@ -187,7 +187,7 @@ If you want to use legacy storage with Backup Server, you might need to add disk
 
 To add disk storage:
 
-1. In the Administrator Console, select **Management** > **Disk Storage** > **Add**.
+1. In the System Center 2016 DPM Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
   ![Add Disk Storage dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
@@ -231,10 +231,12 @@ The following sections describe how to update protection agents for client compu
 
 When Azure Backup Server and the OS are both updated, you're ready to protect new data sources by using Modern Backup Storage. Data sources that are already protected continue to be protected as they were in Azure Backup Server (legacy). All new protection groups use Modern Backup Storage.
 
-Complete the following steps to migrate data sources from the legacy mode of protection to Modern Backup Storage:
+To migrate data sources from the legacy mode of protection to Modern Backup Storage:
 
 1.  Add the new volume(s) to the Data Protection Manager storage pool. You can also assign a friendly name and select data source tags.
+
 2. For each data source that is in legacy mode, stop protection of the data sources. Then, select **Retain Protected Data**.  This allows recovery of old recovery points after migration.
+
 3. Create a new protection group. Then, select the data sources that you want to store by using the new format.
 
   Data Protection Manager stores a replica copy from the legacy backup storage in the Modern Backup Storage volume locally.
@@ -274,7 +276,7 @@ Complete the following steps to migrate data sources from the legacy mode of pro
   Example:  
   C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\ to Azure Backup
 
-14. Run `DPMSYNC -SYNC`
+14. Run `DPMSYNC -SYNC`.
   
   > [!NOTE]
   > If you added *new* disks to the Data Protection Manager storage pool instead of moving the old ones, run `DPMSYNC -Reallocatereplica`.
