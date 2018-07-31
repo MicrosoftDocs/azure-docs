@@ -10,9 +10,9 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud Quickstarts
+# Azure CycleCloud QuickStarts
 
-There are four parts to the Azure CycleCloud Quickstart:
+There are four parts to the Azure CycleCloud QuickStart:
 
 1. Setup and install CycleCloud on a Virtual Machine
 2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
@@ -42,7 +42,7 @@ For this QuickStart, you will need:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ### Subscription ID
 
@@ -167,7 +167,7 @@ To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
-That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. 
+That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
 
 [!div class="nextstepaction"]
 [Continue to Quickstart 2](quickstart-create-and-run-cluster.md)
