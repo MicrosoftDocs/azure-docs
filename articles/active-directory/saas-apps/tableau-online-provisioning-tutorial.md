@@ -29,11 +29,11 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ta
 The scenario outlined in this tutorial assumes that you already have the following:
 
 *   An Azure AD tenant
-*   A [Tableau Online tenant](https://bonus.ly/pricing)
+*   A [Tableau Online tenant](https://www.tableau.com/)
 *   A user account in Tableau Online with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Tableau Online Rest API](https://tableau-online.gelato.io/reference), which is available to Tableau Online developers.
+> The Azure AD provisioning integration relies on the [Tableau Online Rest API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm), which is available to Tableau Online developers.
 
 ## Adding Tableau Online from the gallery
 Before configuring Tableau Online for automatic user provisioning with Azure AD, you need to add Tableau Online from the Azure AD application gallery to your list of managed SaaS applications.
@@ -81,7 +81,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Tableau Online based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Tableau Online, following the instructions provided in the [Tableau Online single sign-on tutorial](bonus-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Tableau Online, following the instructions provided in the [Tableau Online single sign-on tutorial](tableauonline-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Tableau Online in Azure AD:
 
@@ -99,27 +99,33 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Under the **Admin Credentials** section, input the **Secret Token** of your Tableau Online account as described in Step 6.
+5. Under the **Admin Credentials** section, input the **Domain**, **Admin Username**, **Admin Password**, and **Content URL** of your Tableau Online account:
 
-6. The **Secret Token** for your Tableau Online account is located in **Admin > Company > Integrations**. In the **If you want to code** section, click on **API > Create New API Access Token** to create a new Secret Token.
+	*   In the **Domain** field, populate subdomain based on Step 6.
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/Tableau OnlineIntegrations.png)
+	*   In the **Admin Username** field, populate the username of the admin account on your Clarizen Tenant. Example: admin@contoso.com.
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/BonsulyRestApi.png)
+	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/CreateToken.png)
+	*   In the **Content URL** field, populate subdomain based on Step 6.
 
-7. On the following screen, type a name for the access token in the provided text box, then press **Create Api Key**. The new access token will appear for a few seconds in a pop-up.
+6. After logging in to your administrative account for Tableau Online, the values for **Domain** and **Content URL** can be extracted from the URL of the Admin page.
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/Token01.png)
+	*	The **Domain** for your Tableau Online account can be copied from this part of the URL:	
+	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/Token02.png)
+	*	The **Content URL** for your Tableau Online account can be copied from this section, and is a value defined during account set-up. In this example, the value is "contoso":	
+	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
-8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Tableau Online. If the connection fails, ensure your Tableau Online account has Admin permissions and try again.
+		> [!NOTE]
+		> Your **Domain** may be different from the one shown here. 
+
+
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Tableau Online. If the connection fails, ensure your Tableau Online account has Admin permissions and try again.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-9. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
