@@ -47,4 +47,4 @@ If the tenant admin only wants certain users to use LUIS, refer to this [identit
 
 ### User accounts with multiple emails for collaborators
 
-If you add collaborators to a LUIS app, you are specifying the exact email address a collaborator needs to use LUIS as a collaborator. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to log in with the email address specified in the collaborator's list.
+If you add collaborators to a LUIS app, you are specifying the exact email address a collaborator needs to use LUIS as a collaborator. While Azure Active Directory (Azure AD) allows a single user to have more than one email account used interchangeably, LUIS requires the user to sign in with the email address specified in the collaborator's list.
