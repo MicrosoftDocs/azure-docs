@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud QuickStart - Create and Run a Cluster | Microsoft Docs
-description: Azure CycleCloud QuickStart - Create and Run a Cluster
+title: Azure CycleCloud Quickstart - Create and Run a Cluster | Microsoft Docs
+description: In this quickstart, you will create an HPC cluster.
 services: azure cyclecloud
 author: KimliW
 ms.prod: cyclecloud
@@ -10,30 +10,31 @@ ms.date: 08/01/2018
 ms.author: a-kiwels
 ---
 
-# Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
+# Azure CycleCloud Quickstart 2: Create and Run a Simple HPC Cluster
 
-Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleCloud. The steps from this point forward will be done within the GUI to familiarize you with the graphical interface of the tool.
+Until now, we’ve worked with the Azure CLI to set up and log into CycleCloud. The steps from this point forward will be done within the GUI to familiarize you with the graphical interface of the tool.
 
 ## Select a Cluster Type
 
-Click on "Clusters" in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
+Click on **Clusters** in the main menu, which will bring up the list of available cluster types. These are built-in quick buttons for common cluster types, and expose a limited number of parameters in order to simplify and standardize cluster creation.
 
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/cyclecloud) and can easily be imported into CycleCloud.
 
 In this quickstart, you will create an HPC cluster configured with [Open Grid Scheduler](http://gridscheduler.sourceforge.net/), which is the open source version of the Sun Grid Engine job scheduler. Click on **Grid Engine** to bring up the cluster creation wizard.
 
-![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) (kimli screenshot)
+![New Grid Engine Cluster screen](~/images/quickstart-new-cluster.jpg) 
+[//]: # (kimli screenshot)
 
 ## New Cluster Settings
 
-The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in  then click **Next**.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart. Your Cloud Provider, Credentials, and Region were set in then click **Next**.
 
 ### Required Settings
 
 Under **Virtual Machines**, use the dropdown to select your region. **Master VM Type** and **Execute VM Type** refer to the infrastructure used in your cluster, and should be automatically populated for you.
 
-Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and that `Max Cores` has been set to 100.
+Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and that **Max Cores** has been set to 100.
 
 Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
 
@@ -55,8 +56,12 @@ Set the Budget to $100.00 per month. Enable the Notifications, and add your emai
 
 It's time to put your cluster to work. In the cluster summary window, click **Start** under the cluster name.
 
-(Kimli screenshot)
+[//]: # (kimli screenshot)
 
 Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
-QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](quickstart-submit-jobs.md) now!
+QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. 
+
+[!div class="nextstepaction"]
+[Continue to Quickstart 3](quickstart-submit-jobs.md)
+
