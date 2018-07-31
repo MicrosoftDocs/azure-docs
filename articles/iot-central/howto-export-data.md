@@ -25,14 +25,14 @@ manager: peterpr
 This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your Azure Blob storage account. You can export **measurements**, **devices**, and **device templates** to files with the [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
-> When you turn on continuous data export, you get only the data that arrives from that moment onward. Currently, data can't be retrieved from a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
+> When you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 ## Prerequisites
 
 - An extended 30-day trial IoT Central application, or a paid application.
 - An Azure account with an Azure subscription.
-- The same Azure account must be an administrator in your IoT Central application.
-- The same Azure account must have permissions to create a storage account or access an existing storage account in the same Azure subscription.
+- The same Azure account is an administrator in your IoT Central application.
+- The same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription.
 
 ## Types of data to export
 
@@ -41,7 +41,7 @@ This article describes how to use the continuous data export feature in Azure Io
 The measurements that devices send are exported to your Storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
-> The devices that send the measurements are represented by device IDs, as described in the following sections. To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the device ID.
+> The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the device ID.
 
 The following example shows a record in a decoded AVRO file:
 
@@ -75,11 +75,10 @@ A new snapshot is written once per minute. The snapshot includes:
 
 > [!NOTE]
 > Devices deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted devices.
+>
+> The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
 
-The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
-
-
-The following example shows the records in a decoded AVRO file:
+Each record in the decoded AVRO file looks like:
 
 ```json
 {
@@ -124,7 +123,7 @@ A new snapshot is written once per minute. The snapshot includes:
 > [!NOTE]
 > Device templates deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted device templates.
 
-The following example shows the records in a decoded AVRO file:
+Each record in the decoded AVRO file looks like:
 
 ```json
 {
