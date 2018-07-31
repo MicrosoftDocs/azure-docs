@@ -40,8 +40,6 @@ To access the reporting API, even if you are planning on accessing the API using
 3. Grant permissions
 4. Gather configuration settings
 
-
- 
 For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## APIs with Graph Explorer
@@ -52,11 +50,11 @@ You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/g
 
 ![Modify permissions UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## Recommendation 
+## Use certificates to access the Azure AD reporting API 
 
-If you are planning on retrieving reporting data without user intervention, you should consider using the Azure AD Reporting API with certificates.
+Consider using the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
 
-For detailed instructions, see [get data using the Azure AD Reporting API with certificates](active-directory-reporting-api-with-certificates.md).
+For detailed instructions, see [Get data using the Azure AD Reporting API with certificates](active-directory-reporting-api-with-certificates.md).
 
 
 ## Explore
@@ -64,17 +62,13 @@ For detailed instructions, see [get data using the Azure AD Reporting API with c
 Get a first impression of the reporting APIs:
    
    - [Using the samples for the audit API](active-directory-reporting-api-audit-samples.md) 
- 
    - [Using the samples for the sign-in activity report API](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## Customize  
+## Next steps
 
-Create your own solution: 
-   
-   - [Using the audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Using the sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Troubleshoot errors in Azure AD reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 
