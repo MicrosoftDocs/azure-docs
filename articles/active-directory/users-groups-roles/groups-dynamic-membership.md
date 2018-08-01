@@ -76,7 +76,7 @@ If an error occurs while processing the membership rule for a specific group, an
 
 ## Constructing the body of a membership rule
 
-The **Simple** rule that you can create to automatically populate groups with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
+A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
 
 * Property
 * Operator
