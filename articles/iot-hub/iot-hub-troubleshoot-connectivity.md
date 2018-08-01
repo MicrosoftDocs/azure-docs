@@ -23,10 +23,10 @@ Use Azure Monitor to get alerts and write logs when device connections drop.
 
 To log device connection events and errors, turn on diagnostics for IoT Hub. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Navigate to your IoT hub
-1. Select **Diagnostics settings**
-1. Then select **Turn on diagnostics**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your IoT hub.
+1. Select **Diagnostics settings**.
+1. Then select **Turn on diagnostics**.
 1. Make sure you enable **Connections** logs to be collected. 
 1. To make analysis easier, you should turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). An example later in the article uses Log Analytics.
 
@@ -38,10 +38,10 @@ To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems qu
 
 To get alerts when devices disconnect, configure alerts on the *Connected devices* metric. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Navigate to your IoT Hub
-1. Select **Alerts (classic)**
-1. Click **Add metric alert (classic)**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your IoT Hub.
+1. Select **Alerts (classic)**.
+1. Click **Add metric alert (classic)**.
 1. Fill in the form and select **OK**. 
 
    ![Recommended metric alert][3]
@@ -52,9 +52,9 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../monitoring-a
 
 When diagnostic logs and alerts for connected devices are turned on, you get alerts when things go wrong. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Log Analytics for your diagnostic logs. 
 
-1. Go your workspace for **Log Analytics** in Azure portal
-1. Click **Log Search**
-1. To isolate connectivity error logs for IoT Hub, enter this query in the box, then press **Run**
+1. Go your workspace for **Log Analytics** in Azure portal.
+1. Click **Log Search**.
+1. To isolate connectivity error logs for IoT Hub, enter this query in the box, then press **Run**.
 
     ```
     search *
@@ -66,7 +66,7 @@ When diagnostic logs and alerts for connected devices are turned on, you get ale
 
    ![Example of error log][4]
 
-1. Use this table to understand and resolve common errors
+1. Use this table to understand and resolve common errors.
 
     | Error | Root cause | Resolution |
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -78,11 +78,11 @@ When diagnostic logs and alerts for connected devices are turned on, you get ale
 
 ## Other steps to try
 
-If the steps above didn't help, here are few more things to try
+If the steps above didn't help, here are few more things to try:
 
-* If you have access to the problematic devices, either physically or remotely (like SSH), follow the [device-side troubleshooting guide](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) to continue troubleshooting
-* Verify that your devices are **Enabled** in Azure portal > your IoT Hub > IoT devices
-* Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/)
+* If you have access to the problematic devices, either physically or remotely (like SSH), follow the [device-side troubleshooting guide](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) to continue troubleshooting.
+* Verify that your devices are **Enabled** in the Azure portal > your IoT Hub > IoT devices.
+* Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
 To help improve the documentation for everyone, leave a comment below if this guide didn't help you.
 
