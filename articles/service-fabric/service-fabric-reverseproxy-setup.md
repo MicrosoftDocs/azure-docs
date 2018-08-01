@@ -142,7 +142,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
     ```
 
 ### Supporting a reverse proxy certificate that's different from the cluster certificate
- If the reverse proxy certificate is different from the certificate that secures the cluster, then the previously specified certificate should be installed on the virtual machine and added to the access control list (ACL) so that Service Fabric can access it. This can be done in the **virtualMachineScaleSets** [Resource type section](../resource-group-authoring-templates.md). For installation, add that certificate to the osProfile. The extension section of the template can update the certificate in the ACL.
+ If the reverse proxy certificate is different from the certificate that secures the cluster, then the previously specified certificate should be installed on the virtual machine and added to the access control list (ACL) so that Service Fabric can access it. This can be done in the **virtualMachineScaleSets** [Resource type section](../resource-group-authoring-templates.md). For installation, add the certificate to the osProfile. The extension section of the template can update the certificate in the ACL.
 
   ```json
   {
