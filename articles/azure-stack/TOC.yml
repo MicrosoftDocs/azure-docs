@@ -83,11 +83,12 @@
         href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
-    - name : Security integration
-      href: azure-stack-integrate-security.md
+    - name: External auditing
       items:
       - name: Syslog forwarding
-        href: azure-stack-integrate-syslog.md
+        href: azure-stack-integrate-security.md
+      - name: Device auditing
+        href: azure-stack-integrate-physical-device-auditing.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
