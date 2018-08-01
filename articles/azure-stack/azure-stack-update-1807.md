@@ -30,7 +30,7 @@ This article describes the contents of the 1807 update package. This update incl
 
 ## Build reference
 
-The Azure Stack 1807 update build number is **1.1807.XX.X**.  
+The Azure Stack 1807 update build number is **1.1807.0.65**.  
 
 
 ### New features
@@ -47,11 +47,13 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2508488 |  IS   -->   Expand capacity by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
 
-- <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present.
+- <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](user/azure-stack-network-differences.md) for functionality differences.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
+
+- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available via Portal, PowerShell and CLI.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
@@ -122,6 +124,7 @@ This update includes the following improvements for Azure Stack.
 The following are post-installation known issues for this build version.
 
 ### Portal
+- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 - <!-- TBD - IS ASDK --> Some admin subscription types are not available. When you upgrade Azure Stack to the 1807 version, the two subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) are not visible in the portal. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
@@ -200,77 +203,15 @@ The following are post-installation known issues for this build version.
 
 - <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription.
-
-
 - <!-- 1902460 - IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
 - <!-- 16309153 - IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
-- <!-- TBD - IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- 2702741 -  IS ASDK --> Public IPs that are deployed by using the Dynamic allocation method are not guaranteed to be preserved after a Stop-Deallocate is issued.
 
-- <!-- 2096388 IS --> You cannot use the admin portal to update rules for a network security group.
+- <!-- 2529607 - IS ASDK --> During Azure Stack *Secret Rotation*, there is a period in which Public IP Addresses are unreachable for two to five minutes.
 
-    Work around for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:  
-
-    - *Allow:*
-
-      ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
-
-      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-
-      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-
-      ##This doesn’t work. Need to set properties again even in case of edit
-
-      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-
-      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-        -Name $RuleConfig_Inbound_Rdp_3389.Name `
-        -Description "Inbound_Rdp_3389" `
-        -Access Allow `
-        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-
-      # Commit the changes back to NSG
-      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
-
-    - *Deny:*
-
-        ```powershell
-
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
-
-        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-
-        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-
-        ##This doesn’t work. Need to set properties again even in case of edit
-
-        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-
-        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-          -Name $RuleConfig_Inbound_Rdp_3389.Name `
-          -Description "Inbound_Rdp_3389" `
-          -Access Deny `
-          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-
-        # Commit the changes back to NSG
-        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-        ```
+-	<!-- 2664148 - IS ASDK --> In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premise subnet was added to the Local Network Gateway after gateway was already created. 
 
 
 ### SQL and MySQL
