@@ -62,7 +62,7 @@ If you are running the registration script on more than one instance of Azure St
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
-    -RegistrationName "<Unique-name>   
+    -RegistrationName "<Unique-name>"
   ```
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
