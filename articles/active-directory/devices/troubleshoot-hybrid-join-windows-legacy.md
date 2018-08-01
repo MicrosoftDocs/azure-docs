@@ -29,13 +29,13 @@ This article is applicable only to the following devices:
 - Windows Server 2012 R2 
  
 
-For Windows 10 or Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md).
+For Windows 10 or Windows Server 2016, see [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
 
-This article assumes that you have [configured hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md) to support the following scenarios:
+This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
 - Device-based conditional access
 
-- [Enterprise roaming of settings](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
 
 - [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md) 
 
@@ -49,7 +49,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 - The maximum number of devices per user is device-centric. For example, if *jdoe* and *jharnett* sign in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab.  
 
-- The initial registration / join of devices is configured to perform an attempt at either logon or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
+- The initial registration / join of devices is configured to perform an attempt at either sign in or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
 
 - A reinstallation of the operating system or manual re-registration may create a new registration in Azure AD, which results in multiple entries under the USER info tab in the Azure portal. 
 
@@ -118,4 +118,4 @@ You can also find the status information in the event log under: **Applications 
 
 ## Next steps
 
-For questions, see the [device management FAQ](device-management-faq.md)  
+For questions, see the [device management FAQ](faq.md)  
