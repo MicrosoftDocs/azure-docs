@@ -44,7 +44,7 @@ Azure Accelerated Networking improves network performance by enabling single roo
 ```
 
 ## Create a scale set that references an existing Azure Load Balancer
-When a scale set is created using the Azure portal, a new load balancer is created for most configuration options. If you create a scale set, which needs to reference an existing load balancer, you can do this using CLI. The following example script creates a load balancer and then creates a scale set, which references it:
+When a scale set is created using the Azure portal, a new load balancer is created for most configuration options. If you create a scale set, which needs to reference an existing load balancer, you can do this using the CLI. The following example script creates a load balancer and then creates a scale set, which references it:
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
