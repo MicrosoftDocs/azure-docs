@@ -22,8 +22,8 @@ Azure reserved instances helps you save money by pre-paying for one-year or thre
 
 You can buy a reserved instance in the [Azure portal](https://aka.ms/reservations). For more information, see the following topics:
 
-- [Prepay for virtual machines and save money with reserved instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database reserved vCore to save money](../sql-database/sql-database-reserved-sqldb-instances.md).
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-instances.md).
 
 ## Why should I buy a reserved instance?
 
@@ -44,7 +44,7 @@ Azure customers with these subscriptions types can purchase a reserved instance:
 
 - Enterprise agreement subscription offer type (MS-AZR-0017P).
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P). You must have the “Owner” role on the subscription to buy a reserved instance. To purchase reserved instances in an enterprise enrollment, the enterprise administrator must enable reserved instance purchases in the EA portal. By default, this setting is enabled.
-- Cloud Solution Provider (CSP) partners can use Azure Portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase reserved instances.
+- Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase reserved instances.
 
 ## How is a reserved instance purchase billed?
 
@@ -64,7 +64,7 @@ At the end of the reserved instance term, the billing discount expires, and the 
 
 ## Next steps
 
-Start saving on your virtual machines by purchasing a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md) or [SQL Database reserved vCore](../sql-database/sql-database-reserved-sqldb-instances.md). 
+Start saving on your virtual machines by purchasing a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md) or [SQL Database reserved vCore](../sql-database/sql-database-reserved-instances.md).
 
 To learn more about reserved instances, see the following articles:
 
