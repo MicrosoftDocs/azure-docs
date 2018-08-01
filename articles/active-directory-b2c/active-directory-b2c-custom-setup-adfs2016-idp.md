@@ -91,7 +91,7 @@ Federation with ADFS accounts requires a client secret for ADFS account to trust
 4.  For **Options**, use **Upload**.
 5.  For **Name**, use `ADFSSamlCert`.  
     The prefix `B2C_1A_` might be added automatically.
-6.  In the File upload,** select your certificate .pfx file with private key. Note: this certificate (with the private key) should be the same one that issued and used for the ADFS relying party.
+6.  In the **File upload**, select your certificate .pfx file with private key. Note: this certificate (with the private key) should be the same one that issued and used for the ADFS relying party.
 ![Upload policy key](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-cert.png)
 7.  Click **Create**
 8.  Confirm that you've created the key `B2C_1A_ADFSSamlCert`.
