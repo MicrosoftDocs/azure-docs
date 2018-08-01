@@ -82,7 +82,8 @@ When you're ready to customize the Node.js template with your own code, use the 
 
 In each module folder, there are multiple Docker files for different container types. You can use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules only support debugging in linux-amd64 containers.
 
-1. In VS Code, navigate to the `deployment.template.json` file. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+1. In VS Code, navigate to the `deployment.template.json` file. Update your module image URL by adding **.debug** to the end.
+2. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```

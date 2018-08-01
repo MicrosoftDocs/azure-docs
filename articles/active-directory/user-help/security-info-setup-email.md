@@ -25,7 +25,7 @@ Setting up your security info requires you to sign in to your work or school acc
 Depending on your organization’s settings, you may be prompted to add an email address to your security info when you sign in. Otherwise, to begin setting up email in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
 
 >[!Note]
->If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>We recommend using an email account that doesn't require your network password to access.<br>If you don't see the email option, it's possible that your organization doesn't allow you to use an email for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To use your email address
 

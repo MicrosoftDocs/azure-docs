@@ -14371,13 +14371,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
             "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
-            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+            "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin",
             "redirect_document_id": false
         },
         {
@@ -26491,8 +26496,58 @@
         "redirect_document_id": true
         },
         {
+            "source_path": "articles/powerbi-embedded/create-capacity.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/get-started.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/pause-start.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/scale-capacity.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/what-is-power-bi-embedded.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/migrate-from-power-bi-workspace-collections.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/power-bi-embedded/migrate-tool.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/powerbi-embedded/migrate-code-snippets.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "redirect_document_id": true
+        },
+        {    
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/azure-security-disk-encryption.md",
+            "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
+            "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
             "redirect_document_id": true
         }
     ]
