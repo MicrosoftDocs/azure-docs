@@ -1,6 +1,6 @@
 ---
-title: Property-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
-description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
+title: Property-based automatic group membership rules in Azure Active Directory | Microsoft Docs
+description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -39,7 +39,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
    ![Add new group](./media/groups-dynamic-membership/new-group-creation.png)
 
-4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write an advanced rule yourself. This article contains more information about available user and device attributes as well as examples of advanced rules.
+4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write a membership rule yourself. This article contains more information about available user and device attributes as well as examples of membership rules.
 
    ![Add dynamic membership rule](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
 
@@ -86,8 +86,7 @@ The order of the parts within an expression are important to avoid syntax errors
 
 ### Rules with a single expression
 
-A single expression is the simplest form of an advanced rule and only has the three parts mentioned above. A complete advanced rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the value of object.property. 
-The following is an example of a properly constructed advanced rule with a single expression:
+A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property. The following is an example of a properly constructed mambership rule with a single expression:
 
 ```
 user.department -eq "Sales"
@@ -216,7 +215,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. The following are examples of properly constructed advanced rules with multiple expressions:
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. The following are examples of properly constructed membership rules with multiple expressions:
 
 ```
 (user.department -eq "Sales") -or (user.department -eq "Marketing")
@@ -249,7 +248,7 @@ Parentheses are needed only when precedence does not meet your requirements. For
 
 ## Rules with complex expressions
 
-An advanced rule can consist of complex expressions where the properties, operators, and values take on more complex forms. Expressions are considered complex when any of the following are true:
+A membership rule can consist of complex expressions where the properties, operators, and values take on more complex forms. Expressions are considered complex when any of the following are true:
 
 * The property consists of a collection of values; specifically, multi-valued properties
 * The expressions use the -any and -all operators
@@ -257,7 +256,7 @@ An advanced rule can consist of complex expressions where the properties, operat
 
 ## Multi-value properties
 
-Multi-value properties are collections of objects of the same type. They can be used to create advanced rules using the -any and -all logical operators.
+Multi-value properties are collections of objects of the same type. They can be used to create membership rules using the -any and -all logical operators.
 
 * -any (satisfied when at least one item in the collection matches the condition)
 * -all (satisfied when all items in the collection match the condition)
@@ -319,11 +318,11 @@ The following tips can help you use the rule properly.
 * The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
 * For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
 * This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
-* This rule can't be combined with any other advanced rules.
+* This rule can't be combined with any other membership rules.
 
 ### Create an "All users" rule
 
-You can create a group containing all users within a tenant using an advanced rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
 The “All users” rule is constructed using single expression using the -ne operator and the null value:
 
@@ -333,7 +332,7 @@ user.objectid -ne null
 
 ### Create an “All devices” rule
 
-You can create a group containing all devices within a tenant using an advanced rule. When devices are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+You can create a group containing all devices within a tenant using a membership rule. When devices are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
 The “All Devices” rule is constructed using single expression using the -ne operator and the null value:
 
@@ -409,9 +408,9 @@ We've updated the Azure AD Admin center to add support this functionality. Now, 
 2. Select **Groups**.
 3. From the **All groups** list, open the group that you want to change.
 4. Select **Properties**.
-5. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write an advanced rule yourself. 
+5. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write a membership rule yourself. 
 
-The following steps are an example of changing a group from static to dynamic membership for a group of users. 
+The following steps are an example of changing a group from static to dynamic membership for a group of users.
 
 1. On the **Properties** page for your selected group, select a **Membership type** of **Dynamic User**, then select Yes on the dialog explaining the changes to the group membership to continue. 
   
@@ -425,7 +424,7 @@ The following steps are an example of changing a group from static to dynamic me
 4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
 
 > [!TIP]
-> Group conversion might fail if the advanced rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid.
+> Group conversion might fail if the membership rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid.
 
 #### Change membership type for a group (PowerShell)
 
