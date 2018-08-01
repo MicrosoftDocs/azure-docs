@@ -14,19 +14,20 @@ ms.author: scottwhi
 
 # What is Bing Image Search?
 
-Bing Image Search API provides an experience similar to [Bing Images](https://www.bing.com/images) by letting you send a user search query to Bing and get back a list of relevant images.
+The Bing Image Search API enables you to develop intelligent apps that leverage Bing's cognitive image service. By sending user search queries with the API, you can provide relevant image-specific results, similar to [Bing Images](https://www.bing.com/images).    
 
-If you're building an images-only search results page to find images that are relevant to the user's search query, call this API instead of calling the more general [Web Search API](../bing-web-search/search-the-web.md). If you want images and other types of content such as webpages, news, and videos, then call the Web Search API.
+> [NOTE]
+> The Bing Image Search API provides image-only search results. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) and [News Search API](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search) for other types of web content. 
 
-## Suggesting & using search terms
+## Using and suggesting search terms
 
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
+After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *flying fish*, set `q` to `flying+fish` or `flying%20fish`.
 
-After the user enters their search term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in realtime. The API returns suggested query strings based on partial search terms and Azure cognitive services. 
 
 ## Getting images
 
-To get images related to the user's search term from the web, send the following GET request:
+To get images from the web that are related to the user's search term, send the following GET request:
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -39,7 +40,8 @@ Host: api.cognitive.microsoft.com
 
 All requests must be made from a server. You may not make calls from a client.
 
-If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
+> [!IMPORTANT]
+> If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
@@ -47,7 +49,7 @@ To get images from a specific domain, use the [site:](http://msdn.microsoft.com/
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-The response contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Bing thought were relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
+The response contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Azure cognitive services determined to be relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the following information about the image: the URL, its size, its dimensions,its encoding format, a URL to a thumbnail of the image, and the thumbnail's dimensions.
 
 ```json
 {
