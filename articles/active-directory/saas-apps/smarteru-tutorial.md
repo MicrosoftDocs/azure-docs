@@ -123,11 +123,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In the toolbar on the top, click **Account Settings**.
    
-    ![Account Settings](./media/smarteru-tutorial/IC777326.png "Account Settings")
+    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
 
 8. On the account configuration page, perform the following steps:
    
-    ![External Authorization](./media/smarteru-tutorial/IC777327.png "External Authorization") 
+    ![External Authorization](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Select **Enable External Authorization**.
   
@@ -135,11 +135,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
       c. In the **User Default Login** section, select the **SmarterU** tab.
   
-      d. Select **Enable Okta**.
+      d. Select **Enable SAML**.
   
-      e. Copy the content of the downloaded metadata file, and then paste it into the **Okta Metadata** textbox.
+      e. Copy the content of the downloaded metadata file, and then paste it into the **IdP Metadata** textbox.
+      
+      f. Select an **Identifier Attribute/Claim**.
   
-      f. Click **Save**.
+      g. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,7 +192,7 @@ When SmarterU, provisioning is a manual task.
 
 3. In the user section, perform the following steps:
    
-    ![New User](./media/smarteru-tutorial/IC777329.png "New User")  
+    ![New User](./media/smarteru-tutorial/adduser.png)  
 
 	a. Click **+User**.
 	

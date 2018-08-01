@@ -79,6 +79,10 @@
       href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
+    - name: With roles
+      href: luis-tutorial-pattern-roles.md
+    - name: With Pattern.any entity
+      href: luis-tutorial-pattern-any.md
 - name: Samples
   items:
   - name: Code samples
@@ -194,7 +198,7 @@
   - name: Test
     items:
     - name: Interactive testing
-      href: interactive-test.md
+      href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
   - name: Publish app
@@ -227,7 +231,7 @@
         href: luis-traffic-manager.md  
 
   - name: Migrate to V2 API
-    href: migration-v1-to-v2.md
+    href: luis-migration-api-v1-to-v2.md
   - name: Find region programmatically
     items: 
     - name: Using C#

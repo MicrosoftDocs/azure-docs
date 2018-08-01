@@ -92,6 +92,8 @@
     href: functions-best-practices.md 
   - name: Functions Proxies
     href: functions-proxies.md 
+  - name: IP addresses
+    href: ip-addresses.md 
   - name: On-premises functions
     href: functions-runtime-overview.md
   - name: Durable Functions

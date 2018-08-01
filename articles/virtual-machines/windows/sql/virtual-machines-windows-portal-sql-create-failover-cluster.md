@@ -278,7 +278,7 @@ Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+1. Configure the failover cluster quorum witness. See, [Configure the quorum witness in the user interface](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 ### Add storage
 

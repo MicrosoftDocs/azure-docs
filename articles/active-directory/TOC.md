@@ -46,6 +46,7 @@
 ## Manage users
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Restore a deleted user](fundamentals/active-directory-users-restore.md)
@@ -113,26 +114,31 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
+### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
+
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
+#### [Route activity logs to an Azure event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Archive activity logs to an Azure storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Errors in Azure Active Directory Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,32 +146,10 @@
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
-## Manage passwords
-### [Passwords overview](authentication/active-directory-passwords-overview.md)
+## [Manage passwords](authentication/concept-sspr-howitworks.md)
 ### User documents
 #### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
-### [SSPR How it works](authentication/concept-sspr-howitworks.md)
-### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
-### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR Policies ](authentication/concept-sspr-policy.md)
-### [SSPR Customization](authentication/concept-sspr-customization.md)
-### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
-### [SSPR Reporting](authentication/howto-sspr-reporting.md)
-### [Smart lockout](authentication/howto-password-smart-lockout.md)
-### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
-### [Configure the banned password list](authentication/howto-password-ban-bad.md)
-### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
-### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
-### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
-### IT Admins: Reset passwords
-#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [License SSPR](authentication/concept-sspr-licensing.md)
-### [Password writeback](authentication/howto-sspr-writeback.md)
-### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](authentication/active-directory-passwords-faq.md)
 
 
 ## Manage devices
@@ -174,9 +158,16 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
+#### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
 ### Troubleshoot
@@ -237,11 +228,13 @@
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
+#### [Add an application](manage-apps/add-application-portal.md)
+#### [View tenant apps](manage-apps/view-applications-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
-#### [View all my apps](manage-apps/view-applications-portal.md)
+
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)

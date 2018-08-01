@@ -73,7 +73,7 @@ In order to determine if you have properly authenticated to Azure and have acces
 
 #### Issue
 
-You receive the the following error when authenticating to Azure with your Azure username and password:
+You receive the following error when authenticating to Azure with your Azure username and password:
 
 ```
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required

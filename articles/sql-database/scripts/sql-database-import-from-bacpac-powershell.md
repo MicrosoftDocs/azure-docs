@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/01/2018
+ms.date: 07/24/2018
 ms.author: carlrab
 ---
 

@@ -67,7 +67,12 @@ sections:
       - href: quickstart-nodejs-dictionary
       - href: quickstart-python-dictionary
       - href: quickstart-go-dictionary
-
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: "Learn how to develop applications using the Translator Text API:"
+  - type: paragraph
+    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
 - title: Reference
   items:
   - type: paragraph
