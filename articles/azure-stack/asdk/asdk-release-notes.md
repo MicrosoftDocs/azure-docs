@@ -31,11 +31,11 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. 
+- <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS --> **Added data transfer time into the total backup time.**
+- <!-- 2496385 | ASDK, IS -->  **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
 
--	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.)
+-	<!-- 1702130 | ASDK, IS -->  **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.) For more information, see [Enable Backup for Azure Stack with PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
@@ -43,7 +43,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
-- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available via Portal, PowerShell and CLI.
+- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available by using the portal, PowerShell, and CLI. For more information, see [Add or remove network interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) in the Azure documentation. 
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**. Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
@@ -56,6 +56,8 @@ This build includes the following improvements and fixes for Azure Stack.
   With this preview, you can see a much larger number of audits and alerts. 
 
   Because this feature is still in preview, you don't rely on it in production environments.
+
+- <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 ### Fixed issues
 
@@ -76,6 +78,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
+
+
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 

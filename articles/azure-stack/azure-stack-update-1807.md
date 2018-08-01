@@ -37,8 +37,6 @@ The Azure Stack 1807 update build number is **1.1807.0.65**.
 
 This update includes the following improvements for Azure Stack.
 
-- <!-- 1751628  | ASDK   |   -->  **Enable customer-driven validation of cloud recovery** - You can periodically test end-to-end recovery and verify multi-node backup data on-demand without interrupting your production Azure Stack environment. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
-
 - <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 - <!-- 2496385 | ASDK, IS -->  **Added data transfer time into the total backup time.** For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
@@ -53,7 +51,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
-- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available via Portal, PowerShell and CLI.
+- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available by using the portal, PowerShell, and CLI. For more information, see [Add or remove network interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) in the Azure documentation. 
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
@@ -69,7 +67,7 @@ This update includes the following improvements for Azure Stack.
 
   Because this feature is still in preview, don't rely on it in production environments.
 
-- <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more infomration about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
+- <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 
 ### Fixed issues
