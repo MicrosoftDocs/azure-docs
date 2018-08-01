@@ -225,21 +225,17 @@ After the actions list opens, select this action:
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
       In the function template code, the *`context` object* 
-      contains the message your logic app sends to your function 
+      references the message your logic app sends to your function 
       through the **Request Body** field in the next step. 
-      To reference the `context` object's properties from 
+      To access the `context` object's properties from 
       inside your function, use this syntax: 
 
-      ```text
-      context.body.<property-name>
-      ```
+      `context.body.<property-name>`
 
-      For example, to referece the `content` property 
+      For example, to reference the `content` property 
       inside the `context` object, use this syntax: 
 
-      ```text
-      context.body.content
-      ```
+      `context.body.content`
 
       The template code also includes an `input` variable, 
       which stores the value from the `data` parameter 
@@ -256,6 +252,7 @@ After the actions list opens, select this action:
 
 6. In the **Request Body** box, provide your function's input, 
 which must be formatted as a JavaScript Object Notation (JSON) object. 
+
 This input is the *context object*, or message, that your logic app 
 sends to your function. When you click in the **Request Body** field, 
 the dynamic content list opens so you can select 
@@ -340,11 +337,10 @@ request headers, or query parameters, choose **Show advanced options**.
 ## Call logic apps from functions
 
 To trigger a logic app from inside an Azure function, 
-that logic app must have a callable endpoint, 
-or more specifically, a **Request** trigger. 
-Then, from inside your function, send an HTTP POST 
-request to the URL for that **Request** trigger and 
-include the payload you want that logic app to process. 
+that logic app must start with a trigger that provides a callable endpoint, 
+such as the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. 
+Then, from inside your function, send an HTTP POST request to the URL for 
+that trigger and include the payload you want that logic app to process. 
 For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## Get support
