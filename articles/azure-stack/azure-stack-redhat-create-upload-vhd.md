@@ -26,11 +26,9 @@ For Red Hat Enterprise Linux support information, refer to [Red Hat and Azure St
 
 ## Prepare a Red Hat-based virtual machine from Hyper-V Manager
 
-### Prerequisites
-
 This section assumes that you already have an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more information about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-#### RHEL installation notes
+### RHEL installation notes
 
 * Azure Stack does not support the VHDX format. Azure supports only fixed VHD. You can use Hyper-V Manager to convert the disk to VHD format, or you can use the convert-vhd cmdlet. If you use VirtualBox, select **Fixed size** as opposed to the default dynamically allocated option when you create the disk.
 * Azure Stack supports only generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed-size disk. You can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -49,14 +47,14 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 3. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
-```sh
+    ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
-```
+    ```
 
-4. Create or edit the `/etc/sysconfig/network-scripts/ifcfg-eth0` file, and add the following text:
+4. Create or edit the `/etc/sysconfig/network-scripts/ifcfg-eth0` file, and add the following text as needed:
 
-```sh
+    ```sh
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -65,93 +63,92 @@ This section assumes that you already have an ISO file from the Red Hat website 
     PEERDNS=yes
     IPV6INIT=no
     NM_CONTROLLED=no
-```
+    ```
 
 5. Ensure that the network service starts at boot time by running the following command:
 
-```sh
-    sudo systemctl enable network
-```
+    ```sh
+    # sudo systemctl enable network
+    ```
 
 6. Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
-```sh
-    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
-```
+    ```sh
+    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```
 
-7. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
+7. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor, and modify the `GRUB_CMDLINE_LINUX` parameter. For example:
 
-```sh
-       GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-```
+    ```sh
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    ```
 
-   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. 
 
-```sh
+   Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes. We recommend that you remove the following parameters:
+
+    ```sh
     rhgb quiet crashkernel=auto
-```
-
-    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    ```
 
 8. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
-```sh
-    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-```
+    ```sh
+    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
 
 9. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
-```sh
-       ClientAliveInterval 180
-```
+    ```sh
+    ClientAliveInterval 180
+    ```
 
 10. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-```sh
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-```
+    ```sh
+    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
 
 11. Install the Azure Linux Agent by running the following command:
 
-```sh
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-```
+    ```sh
+    # sudo yum install WALinuxAgent
+    # sudo systemctl enable waagent.service
+    ```
 
 12. Do not create swap space on the operating system disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. The local resource disk is a temporary disk, and it might be emptied when the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in `/etc/waagent.conf` appropriately:
 
-```sh
-       ResourceDisk.Format=y
-       ResourceDisk.Filesystem=ext4
-       ResourceDisk.MountPoint=/mnt/resource
-       ResourceDisk.EnableSwap=y
-       ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-```
+    ```sh
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ```
 
 13. If you want to unregister the subscription, run the following command:
 
-```sh
-    sudo subscription-manager unregister
-```
+    ```sh
+    # sudo subscription-manager unregister
+    ```
 
 14. If you are using a system that was deployed using an Enterprise Certificate Authority, the RHEL virtual machine will not trust the Azure Stack root certificate. You need to place that into the trusted root store. See [Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-```sh
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-```
+    ```sh
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 
-16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+16. Click **Action** > **Shut Down** in Hyper-V Manager.
 
+17. Convert the VHD to a fixed size VHD using either the Hyper-V Manager "Edit disk" feature, or the Convert-VHD PowerShell command. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Prepare a Red Hat-based virtual machine from KVM
-
-### Prepare a RHEL 7 virtual machine from KVM
 
 1. Download the KVM image of RHEL 7 from the Red Hat website. This procedure uses RHEL 7 as the example.
 
@@ -159,20 +156,20 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
     Generate an encrypted password, and copy the output of the command:
 
-```sh
-    openssl passwd -1 changeme
-```
+    ```sh
+    # openssl passwd -1 changeme
+    ```
 
    Set a root password with guestfish:
 
-```sh
-    guestfish --rw -a <image-name>
+    ```sh
+    # guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
     > <fs> mount /dev/sda1 /
     > <fs> vi /etc/shadow
     > <fs> exit
-```
+    ```
 
    Change the second field of root user from "!!" to the encrypted password.
 
@@ -180,14 +177,14 @@ This section assumes that you already have an ISO file from the Red Hat website 
 
 4. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
-```sh
+    ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
-```
+    ```
 
 5. Create or edit the `/etc/sysconfig/network-scripts/ifcfg-eth0` file, and add the following text:
 
-```sh
+    ```sh
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -196,151 +193,155 @@ This section assumes that you already have an ISO file from the Red Hat website 
     PEERDNS=yes
     IPV6INIT=no
     NM_CONTROLLED=no
-```
+    ```
 
 6. Ensure that the network service starts at boot time by running the following command:
 
-```sh
-    sudo systemctl enable network
-```
+    ```sh
+    # sudo systemctl enable network
+    ```
 
 7. Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-```sh
-    subscription-manager register --auto-attach --username=XXX --password=XXX
-```
+    ```sh
+    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```
 
-8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
+8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this configuration, open `/etc/default/grub` in a text editor, and modify  the `GRUB_CMDLINE_LINUX` parameter. For example:
 
-```sh
+    ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-```
+    ```
 
-   This command also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. The command also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This command also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. The command also turns off the new RHEL 7 naming conventions for NICs
 
-```sh
+   Graphical and quiet boot are not useful in a cloud environment where all the logs are sent to the serial port. You can leave the `crashkernel` option configured if desired. This parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes. We recommend that you remove the following parameters:
+
+    ```sh
     rhgb quiet crashkernel=auto
-```
-
-   Graphical and quiet boot are not useful in a cloud environment where all the logs are sent to the serial port. You can leave the `crashkernel` option configured if desired. This parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    ```
 
 9. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
-```sh
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-```
+    ```sh
+    # grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
 
 10. Add Hyper-V modules into initramfs.
 
     Edit `/etc/dracut.conf` and add content:
 
-```sh
+    ```sh
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```
 
-   Rebuild initramfs:
+    Rebuild initramfs:
 
-```sh
-    dracut -f -v
-```
+    ```sh
+    # dracut -f -v
+    ```
 
 11. Uninstall cloud-init:
 
-```sh
-    yum remove cloud-init
-```
+    ```sh
+    # yum remove cloud-init
+    ```
 
 12. Ensure that the SSH server is installed and configured to start at boot time:
 
-```sh
-    systemctl enable sshd
-```
+    ```sh
+    # systemctl enable sshd
+    ```
 
     Modify /etc/ssh/sshd_config to include the following lines:
 
-```sh
+    ```sh
     PasswordAuthentication yes
     ClientAliveInterval 180
-```
+    ```
 
 13. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-        subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```sh
+    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
 
 14. Install the Azure Linux Agent by running the following command:
 
-        yum install WALinuxAgent
+    ```sh
+    # yum install WALinuxAgent
+    ```
 
     Enable the waagent service:
 
-        systemctl enable waagent.service
+    ```sh
+    # systemctl enable waagent.service
+    ```
 
 15. Do not create swap space on the operating system disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. The local resource disk is a temporary disk, and it might be emptied when the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in `/etc/waagent.conf` appropriately:
 
-```sh
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
-```
+    ```sh
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ```
 
 16. Unregister the subscription (if necessary) by running the following command:
 
-```sh
-        subscription-manager unregister
-```
+    ```sh
+    # subscription-manager unregister
+    ```
 
 17. If you are using a system that was deployed using an Enterprise Certificate Authority, the RHEL virtual machine will not trust the Azure Stack root certificate. You need to place that into the trusted root store. See [Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 18. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-```sh
-        sudo waagent -force -deprovision
-        export HISTSIZE=0
-        logout
-```
+    ```sh
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 
 19. Shut down the virtual machine in KVM.
 
 20. Convert the qcow2 image to the VHD format.
 
-> [!NOTE]
-> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+    > [!NOTE]
+    > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
 
-   First convert the image to raw format:
+    First convert the image to raw format:
 
-```sh
-    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
-```
+    ```sh
+    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```
 
-   Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-```sh
-    MB=$((1024*1024))
-    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
-          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    rounded_size=$((($size/$MB + 1)*$MB))
-    qemu-img resize rhel-7.4.raw $rounded_size
-```
+    ```sh
+    # MB=$((1024*1024))
+    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+    # rounded_size=$((($size/$MB + 1)*$MB))
+    # qemu-img resize rhel-7.4.raw $rounded_size
+    ```
 
-   Convert the raw disk to a fixed-sized VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-```sh
-    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
-```
+    ```sh
+    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```
 
-   Or, with qemu version **2.6+** include the `force_size` option:
+    Or, with qemu version **2.6+** include the `force_size` option:
 
-```sh
-    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
-```
+    ```sh
+    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```
 
 ## Prepare a Red Hat-based virtual machine from VMware
-
-### Prerequisites
 
 This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html).
 
@@ -352,277 +353,274 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 1. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
-```sh
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
-```
+    ```sh
+    NETWORKING=yes
+    HOSTNAME=localhost.localdomain
+    ```
 
 2. Create or edit the `/etc/sysconfig/network-scripts/ifcfg-eth0` file, and add the following text:
 
-```sh
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
-        NM_CONTROLLED=no
-```
+    ```sh
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    NM_CONTROLLED=no
+    ```
 
 3. Ensure that the network service will start at boot time by running the following command:
 
-```sh
-        sudo chkconfig network on
-```
+    ```sh
+    # sudo chkconfig network on
+    ```
 
 4. Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
-```sh
-        sudo subscription-manager register --auto-attach --username=XXX --password=XXX
-```
+    ```sh
+    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```
 
-5. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
+5. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this modification, open `/etc/default/grub` in a text editor, and modify the `GRUB_CMDLINE_LINUX` parameter. For example:
 
-```sh
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-```
+    ```sh
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    ```
 
     This configuration also ensures that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
 
-```sh
-        rhgb quiet crashkernel=auto
-```
+    ```sh
+    rhgb quiet crashkernel=auto
+    ```
 
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 6. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
-```sh
-        sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-```
+    ```sh
+    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
 
 7. Add Hyper-V modules to initramfs.
 
     Edit `/etc/dracut.conf`, add content:
 
-```sh
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```sh
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    ```
 
     Rebuild initramfs:
 
-```sh
-        dracut -f -v
-```
+    ```sh
+    # dracut -f -v
+    ```
 
 8. Ensure that the SSH server is installed and configured to start at boot time. This setting is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
-```sh
-        ClientAliveInterval 180
-```
+    ```sh
+    ClientAliveInterval 180
+    ```
 
 9. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
-```sh
-        subscription-manager repos --enable=rhel-7-server-extras-rpms
-```
+    ```sh
+    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
 
 10. Install the Azure Linux Agent by running the following command:
 
-```sh
-        sudo yum install WALinuxAgent
-        sudo systemctl enable waagent.service
-```
+    ```sh
+    # sudo yum install WALinuxAgent
+    # sudo systemctl enable waagent.service
+    ```
 
 11. Do not create swap space on the operating system disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. Note that the local resource disk is a temporary disk, and it might be emptied when the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in `/etc/waagent.conf` appropriately:
 
-```sh
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-```
+    ```sh
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ```
 
 12. If you want to unregister the subscription, run the following command:
 
-```sh
-        sudo subscription-manager unregister
-```
+    ```sh
+    # sudo subscription-manager unregister
+    ```
 
 13. If you are using a system that was deployed using an Enterprise Certificate Authority, the RHEL virtual machine will not trust the Azure Stack root certificate. You need to place that into the trusted root store. See [Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-```sh
-        sudo waagent -force -deprovision
-        export HISTSIZE=0
-        logout
-```
+    ```sh
+    # sudo waagent -force -deprovision
+    # export HISTSIZE=0
+    # logout
+    ```
 
 15. Shut down the virtual machine, and convert the VMDK file to the VHD format.
 
-> [!NOTE]
-> There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
->
+    > [!NOTE]
+    > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: <https://bugs.launchpad.net/qemu/+bug/1490611.>
 
-   First convert the image to raw format:
+    First convert the image to raw format:
 
-```sh
-    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
-```
+    ```sh
+    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```
 
-   Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-```sh
-    MB=$((1024*1024))
-    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
-          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    rounded_size=$((($size/$MB + 1)*$MB))
-    qemu-img resize rhel-7.4.raw $rounded_size
-```
+    ```sh
+    # MB=$((1024*1024))
+    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+    # rounded_size=$((($size/$MB + 1)*$MB))
+    # qemu-img resize rhel-7.4.raw $rounded_size
+    ```
 
-   Convert the raw disk to a fixed-sized VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-```sh
-    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
-```
+    ```sh
+    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```
 
-   Or, with qemu version **2.6+** include the `force_size` option:
+    Or, with qemu version **2.6+** include the `force_size` option:
 
-```sh
-    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
-```
+    ```sh
+    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```
 
 ## Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
 
-### Prepare a RHEL 7 virtual machine from a kickstart file
-
 1. Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
-```sh
-        # Kickstart for provisioning a RHEL 7 Azure VM
+    ```sh
+    # Kickstart for provisioning a RHEL 7 Azure VM
 
-        # System authorization information
-          auth --enableshadow --passalgo=sha512
+    # System authorization information
+    auth --enableshadow --passalgo=sha512
 
-        # Use graphical install
-        text
+    # Use graphical install
+    text
 
-        # Do not run the Setup Agent on first boot
-        firstboot --disable
+    # Do not run the Setup Agent on first boot
+    firstboot --disable
 
-        # Keyboard layouts
-        keyboard --vckeymap=us --xlayouts='us'
+    # Keyboard layouts
+    keyboard --vckeymap=us --xlayouts='us'
 
-        # System language
-        lang en_US.UTF-8
+    # System language
+    lang en_US.UTF-8
 
-        # Network information
-        network  --bootproto=dhcp
+    # Network information
+    network  --bootproto=dhcp
 
-        # Root password
-        rootpw --plaintext "to_be_disabled"
+    # Root password
+    rootpw --plaintext "to_be_disabled"
 
-        # System services
-        services --enabled="sshd,waagent,NetworkManager"
+    # System services
+    services --enabled="sshd,waagent,NetworkManager"
 
-        # System timezone
-        timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
+    # System timezone
+    timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-        # Partition clearing information
-        clearpart --all --initlabel
+    # Partition clearing information
+    clearpart --all --initlabel
 
-        # Clear the MBR
-        zerombr
+    # Clear the MBR
+    zerombr
 
-        # Disk partitioning information
-        part /boot --fstype="xfs" --size=500
-        part / --fstyp="xfs" --size=1 --grow --asprimary
+    # Disk partitioning information
+    part /boot --fstype="xfs" --size=500
+    part / --fstyp="xfs" --size=1 --grow --asprimary
 
-        # System bootloader configuration
-        bootloader --location=mbr
+    # System bootloader configuration
+    bootloader --location=mbr
 
-        # Firewall configuration
-        firewall --disabled
+    # Firewall configuration
+    firewall --disabled
 
-        # Enable SELinux
-        selinux --enforcing
+    # Enable SELinux
+    selinux --enforcing
 
-        # Don't configure X
-        skipx
+    # Don't configure X
+    skipx
 
-        # Power down the machine after install
-        poweroff
+    # Power down the machine after install
+    poweroff
 
-        %packages
-        @base
-        @console-internet
-        chrony
-        sudo
-        parted
-        -dracut-config-rescue
+    %packages
+    @base
+    @console-internet
+    chrony
+    sudo
+    parted
+    -dracut-config-rescue
 
-        %end
+    %end
 
-        %post --log=/var/log/anaconda/post-install.log
+    %post --log=/var/log/anaconda/post-install.log
 
-        #!/bin/bash
+    #!/bin/bash
 
-        # Register Red Hat Subscription
-        subscription-manager register --username=XXX --password=XXX --auto-attach --force
+    # Register Red Hat Subscription
+    subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-        # Install latest repo update
-        yum update -y
+    # Install latest repo update
+    yum update -y
 
-        # Enable extras repo
-        subscription-manager repos --enable=rhel-7-server-extras-rpms
+    # Enable extras repo
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-        # Install WALinuxAgent
-        yum install -y WALinuxAgent
+    # Install WALinuxAgent
+    yum install -y WALinuxAgent
 
-        # Unregister Red Hat subscription
-        subscription-manager unregister
+    # Unregister Red Hat subscription
+    subscription-manager unregister
 
-        # Enable waaagent at boot-up
-        systemctl enable waagent
+    # Enable waaagent at boot-up
+    systemctl enable waagent
 
-        # Disable the root account
-        usermod root -p '!!'
+    # Disable the root account
+    usermod root -p '!!'
 
-        # Configure swap in WALinuxAgent
-        sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
-        sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
+    # Configure swap in WALinuxAgent
+    sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
+    sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-        # Set the cmdline
-        sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
+    # Set the cmdline
+    sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-        # Enable SSH keepalive
-        sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
+    # Enable SSH keepalive
+    sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-        # Build the grub cfg
-        grub2-mkconfig -o /boot/grub2/grub.cfg
+    # Build the grub cfg
+    grub2-mkconfig -o /boot/grub2/grub.cfg
 
-        # Configure network
-        cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
-        NM_CONTROLLED=no
-        EOF
+    # Configure network
+    cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    NM_CONTROLLED=no
+    EOF
 
-        # Deprovision and prepare for Azure
-        waagent -force -deprovision
+    # Deprovision and prepare for Azure
+    waagent -force -deprovision
 
-        %end
-```
+    %end
+    ```
 
 2. Place the kickstart file where the installation system can access it.
 
@@ -654,11 +652,15 @@ To resolve this issue, add Hyper-V modules to initramfs and rebuild it:
 
 Edit `/etc/dracut.conf`, and add the following content:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 Rebuild initramfs:
 
-        dracut -f -v
+```sh
+# dracut -f -v
+```
 
 For more information, see [rebuilding initramfs](https://access.redhat.com/solutions/1958).
 
