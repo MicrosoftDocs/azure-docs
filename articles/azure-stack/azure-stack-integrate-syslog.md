@@ -30,17 +30,17 @@ The following diagram shows the main components that participate in the syslog i
 
 The syslog client in Azure Stack supports the following configurations:
 
-1. Syslog over UDP. In this configuration, neither the syslog client nor syslog server verifies the identity of each other. The messages are sent in clear text.
+1. **Syslog over UDP:** In this configuration, neither the syslog client nor syslog server verifies the identity of each other. The messages are sent in clear text.
 
-2. Syslog over TCP with client authentication and TLS 1.2 encryption. In this configuration, the syslog server can verify the identity of the syslog client via a certificate. The messages are sent over a TLS 1.2 encrypted channel.
+2. **Syslog over TCP with client authentication and TLS 1.2 encryption:** In this configuration, the syslog server can verify the identity of the syslog client via a certificate. The messages are sent over a TLS 1.2 encrypted channel.
 
-3. Syslog over TCP, with mutual authentication (client and server) and TLS 1.2 encryption. In this configuration, both the syslog server and the syslog client can verify the identity of each other via certificates. The messages are sent over a TLS 1.2 encrypted channel. 
+3. **Syslog over TCP, with mutual authentication (client and server) and TLS 1.2 encryption:** In this configuration, both the syslog server and the syslog client can verify the identity of each other via certificates. The messages are sent over a TLS 1.2 encrypted channel. 
 
 > [!IMPORTANT]
-> Microsoft strongly recommends to use configuration #3 for production environments to protect against man-in-the-middle attacks and  eavesdropping of messages.
+> Microsoft strongly recommends to use TCP using authentication and encryption (configuration #3) for production environments to protect against man-in-the-middle attacks and eavesdropping of messages.
 
 ### Cmdlets to configure syslog forwarding
-Configuring syslog forwarding requires access to the Privileged Endpoint (PEP). Two PowerShell cmdlets have been added to the PEP to configure the syslog forwarding:
+Configuring syslog forwarding requires access to the privileged endpoint (PEP). Two PowerShell cmdlets have been added to the PEP to configure the syslog forwarding:
 
 
 ```powershell
@@ -74,7 +74,7 @@ Parameters for *Set-SyslogClient* cmdlet:
 
 
 
-### Configuring syslog forwarding with UDP, no encryption
+### Configuring syslog forwarding with UDP and no encryption
 
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over UDP, with no encryption. The client does not verify the identity of the server nor it provides its own identity to the server for verification. 
 
@@ -87,7 +87,7 @@ While UDP with no encryption is the easiest to configure, it does not provide an
 > Microsoft recommends against using this configuration for production environments. 
 
 
-### Configuring syslog forwarding with TCP, no encryption
+### Configuring syslog forwarding with TCP and no encryption
 
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with no encryption. The client does not verify the identity of the server nor it provides its own identity to the server for verification. 
 
@@ -98,7 +98,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 > Microsoft recommends against using this configuration for production environments. 
 
 
-### Configuring syslog forwarding with TCP, Server authentication, TLS 1.2 encryption
+### Configuring syslog forwarding with TCP, Server authentication, and TLS 1.2 encryption
 
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with TLS 1.2 encryption. During the initial handshake, the client also verifies that the server provides a valid, trusted certificate. This prevents the client to send messages to untrusted destinations.
 TCP using authentication and encryption is the default configuration and represents the minimum level of security that Microsoft recommends for a production environment. 
@@ -119,14 +119,14 @@ In case you want to test the integration of your syslog server with the Azure St
 > [!IMPORTANT]
 > Microsoft recommends against the use of -SkipCertificateCheck flag for production environments. 
 
-### Configuring syslog forwarding with TCP, mutual authentication and TLS 1.2 encryption
+### Configuring syslog forwarding with TCP, mutual authentication, and TLS 1.2 encryption
 
 In this configuration, the syslog client in Azure Stack forwards the messages to the syslog server over TCP, with TLS 1.2 encryption. During the initial handshake, the client verifies that the server provides a valid, trusted certificate; similarly, the client also provides a certificate to the server as proof of its identity. This configuration is the most secure as it provides a full validation of the identity of both the client and the server and it sends messages over an encrypted channel. 
 
 > [!IMPORTANT]
 > Microsoft strongly recommends to use this configuration for production environments. 
 
-To configure syslog forwarding with TCP, mutual authentication and TLS 1.2 encryption, run both these cmdlets:
+To configure syslog forwarding with TCP, mutual authentication, and TLS 1.2 encryption, run both these cmdlets:
 ```powershell
 # Configure the server
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
@@ -138,7 +138,7 @@ Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, pa
 Set-SyslogClient  -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file> -RemoveCertificate <switch, if you want to remove syslog Client setting>
 
 
-### Removing syslog forwarding configuration
+## Removing syslog forwarding configuration
 
 To remove the syslog server configuration altogether and stop syslog forwarding:
 
@@ -170,7 +170,7 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Version: 1.0
 ```
 
-### CEF Mapping for Windows Events
+### CEF mapping for Windows events
 ```
 * Signature ID: ProviderName:EventID
 * Name: TaskName
@@ -178,7 +178,7 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
 ```
 
-Severity table for Windows Events: 
+Severity table for Windows events: 
 | CEF Severity Value | Windows Event Level | Numerical Value |
 |--------------------|---------------------| ----------------|
 |0|Undefined|Value: 0. Indicates logs at all levels|
@@ -188,7 +188,7 @@ Severity table for Windows Events:
 |2|Information|Value: 4. Indicates logs for an informational message|
 |0|Verbose|Value: 5. Indicates logs at all levels|
 
-Custom Extension table for Windows Events in Azure Stack:
+Custom extension table for Windows events in Azure Stack:
 | Custom Extension Name | Windows Event Example | 
 |-----------------------|---------|
 |MasChannel | System|
@@ -215,7 +215,7 @@ Custom Extension table for Windows Events in Azure Stack:
 |MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
 |MasVersion|0|
 
-### CEF Mapping for Alerts created
+### CEF mapping for alerts created
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
@@ -234,7 +234,7 @@ Custom Extension table for Alerts created in Azure Stack:
 |-----------------------|---------|
 |MasEventDescription|DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Contact support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles |
 
-### CEF Mapping for Alerts closed
+### CEF mapping for alerts closed
 ```
 * Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
