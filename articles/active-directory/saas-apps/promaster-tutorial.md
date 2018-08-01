@@ -106,20 +106,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<customdomain>/<SAMLBASE>`
+    a. In the **Identifier** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>`
+	`https://<SUBDOMAIN>.com/base`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customdomain>/<SAMLBASE>/saml/acs`
+	b. In the **Reply URL** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`
+	`https://<SUBDOMAIN>.com/base/saml/acs`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customdomain>/<SAMLBASE>/saml/acs`
+    In the **Sign-on URL** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `
+	`https://<SUBDOMAIN>.com/base/saml/acs`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ProMaster (by Inlogik) Client support team](mailto:michael.boldiston@inlogik.com) to get these values.
 
-5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
+5. On the **SAML Signing Certificate** section, click the co button to copy **App Federation Metadata Url** and paste it into Notepad.
 
 	![The Certificate download link](./media/promaster-tutorial/tutorial_promaster_certificate.png)
 
