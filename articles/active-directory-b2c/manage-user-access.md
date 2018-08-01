@@ -24,8 +24,6 @@ This article discusses how to manage user access to your applications by using A
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-stponly.md)]
-
 ## Control minor access
 
 Applications and organizations may decide to block minors from using applications and services that are not targeted to this audience. Alternatively, applications and organizations may decide to accept minors and subsequently manage the parental consent, and deliver permissible experiences for minors as dictated by business rules and allowed by regulation. 
