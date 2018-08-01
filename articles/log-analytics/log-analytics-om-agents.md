@@ -44,8 +44,8 @@ Before starting, review the following requirements.
 * You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
->Recent updates to Azure APIs will prevent customers who already have deployed System Center Operations Manager 2012 R2 or higher, but haven't configured integration with Log Analytics, from completing successfully.  For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
->A new management pack has been release for each version of Operations Manager.  
+>Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Log Analytics for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
+>A new management pack has been release for each version of Operations Manager:  
 >* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
