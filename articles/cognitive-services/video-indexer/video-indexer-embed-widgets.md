@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 07/31/2018
 ms.author: juliako
 
 ---
