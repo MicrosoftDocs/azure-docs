@@ -31,7 +31,7 @@ To enable your users to register authentication methods for both Azure Multi-Fac
 2. Browse to **Azure Active Directory**, **User settings**, **Manage settings for access panel preview features**.
 3. Under **Users can use preview features for registering and managing security info**, you can choose to enable for a **Selected** group of users or for **All** users.
 
-Users can now go to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) to register their authentication methods for both MFA and SSPR. To learn more about what your users will see in this new experience, see our [end user documentation at https://aka.ms/securityinfoguide](https://aka.ms/securityinfoguide).  
+Users can now go to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) to register their authentication methods for both MFA and SSPR. To learn more about what your users will see in this new experience, see our [end user documentation](https://aka.ms/securityinfoguide).  
 
 > [!NOTE]
 > Once you enable this experience, users who register or confirm their phone number or mobile app through the new experience will have the ability to use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who navigate to the previous SSPR registration page at aka.ms/ssprsetup will be required to perform MFA before they can access the page.  
@@ -51,11 +51,11 @@ Users who are prompted to register while signing in will see the following exper
 > [!NOTE]
 > This experience will only be shown when a user is prompted to register while signing in. Users who go directly to the new experience at aka.ms/setupsecurityinfo will see a different version of the experience, which is described later in this article.
 
-The authentication methods shown will change based on the methods enabled in your MFA or SSPR policies. The user will be asked to register the minimum number of authentication methods needed to be compliant with the MFA policy, SSPR policy, or both. If there is flexibility in which authentication methods the user can register, they can select Choose security info to choose other authentication methods.  
+The authentication methods shown will change based on the methods enabled in your MFA or SSPR policies. The user will be asked to register the minimum number of authentication methods needed to be compliant with the MFA policy, SSPR policy, or both. If there is flexibility in which authentication methods the user can register, they can select **Choose security info** to choose other authentication methods.  
 
 Unlike the previous MFA registration experience, users will not be prompted to register an app password when going through the new registration experience. Instead they should follow the steps listed in our apps passwords tutorial to register app passwords in the new experience.  
 
-Once a user completes registration, their default MFA method will automatically be set. If the user registered an authenticator app, the default method will be set to app. If the user did not register an authenticator app and only registered their phone number, the default method will be set to phone call. Users can change their default by going to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) and selecting Change default.  
+Once a user completes registration, their default MFA method will automatically be set. If the user registered an authenticator app, the default method will be set to app. If the user did not register an authenticator app and only registered their phone number, the default method will be set to phone call. Users can change their default by going to [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) and selecting **Change default**.  
 
 If registration is not enforced, users can manage their own authentication methods at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). If a user has previously registered a method that can be used to perform MFA, they will be asked to perform MFA before they can access the page.  
 
