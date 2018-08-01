@@ -7,37 +7,63 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/1/2017
 ms.author: diberry
 ---
 
 # Manage versions
 
-Versioning the LUIS app allows you to keep separate versions of the app. A version can be based on changes over time, feature groups, or minor fixes as they occur. 
+Versions allow you to build and publish different models. 
 
-A LUIS app has only one version active at the time. The active version name is visible in the top, left navigation bar and on **Versions**, found in the **Build** section. 
+A good practice is each time you work on the model, create a different [version](luis-concept-version.md) of the app. 
 
-![Versions Page](./media/luis-how-to-manage-versions/180731-manage-version.png)
+To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation. 
 
-A version name is 10 characters and is used as part of the API route by the API. The name of the first active version is `0.1`. 
+The list of versions show which versions are published, where they are published, and which version is currently active. 
+
+![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png)
+
+## Clone a version
+
+1. Select the version you want to clone then select **Clone** from the toolbar. 
+
+2. In the **Clone version** dialog box, type a name for the new version such as "0.2".
+
+   ![Clone Version dialog box](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
+ 
+     > [!NOTE]
+     > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
+ 
+ A new version with the specified name is created and set as the active version.
 
 ## Set active version
 
-Change the active version by selecting the name in the top, left navigation bar or by changing the active version on **Versions**. 
+Select a version from the list, then select **Make Active** from the toolbar. 
 
-## Actions for versions
+![Manage section, versions page](./media/luis-how-to-manage-versions/versions-other.png)
 
-<a name="clone-a-version"></a>
-<a name="set-active-version-1"></a>
-<a name="import-version"></a>
-<a name="export-version"></a>
-<a name="delete-a-version"></a>
-<a name="rename-a-version"></a>
+## Import version
 
-A version can be imported from a *.json file, renamed, cloned, exported, deleted, or made the active version from the toolbar. 
+1. Select **Import version** from the toolbar. 
 
-When you import a version, it becomes the active version. 
+2. In the **Import new version** pop-up window, enter the new ten character version name. You only need to set a version ID if the version in the JSON file already exists in the app.
 
-You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
+    ![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-Search for a version either by type (active, staging, production) or by version name. 
+    Once you import a version, the new version becomes the active version.
+
+## Export version
+
+Select a version from the list, then select **Export app** from the toolbar. The file is downloaded to your local machine. 
+
+## Delete a version
+
+Select a version from the list, then select **Delete** from the toolbar. Select **Ok**
+
+![Manage section, versions page](./media/luis-how-to-manage-versions/versions-delete.png)
+
+## Rename a version
+
+Select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
+
+![Manage section, versions page](./media/luis-how-to-manage-versions/versions-rename.png)
