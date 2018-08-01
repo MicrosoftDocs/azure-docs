@@ -1,7 +1,7 @@
 ---
 title: Build a Node.js web app for Azure Cosmos DB | Microsoft Docs
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
-keywords: Application development, database tutorial, learn node.js, node.js tutorial
+keywords: Application development, database tutorial, learn Node.js, Node.js tutorial
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -14,11 +14,11 @@ ms.date: 07/31/2018
 ms.author: sngun
 
 ---
-# <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB
+# <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB - Uses preview version of Node.js SDK
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- Preview](sql-api-nodejs-application.md)
+> * [Node.js- Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -28,7 +28,9 @@ This Node.js tutorial shows you how to use Azure Cosmos DB SQL API account to st
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/sql-api-nodejs-application/cosmos-db-node-js-mytodo.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
+This tutorial demonstrates how to create an Azure Cosmos DB SQL API account using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create database, container and add items to the container. This tutorial uses 2.0 version of the Node.js SDK, which is currently in preview.
+
+You can also get the completed sample from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
@@ -88,19 +90,13 @@ The **package.json** file is one of the files created in the root of the project
         npm install async --save
    ```
 
-2. Install the **documentdb** module via npm. This is the module where all the Azure Cosmos DB magic happens.
-
-   ```bash
-        npm install documentdb --save
-   ```
-
-3. Install the **@azure/cosmos** module via npm. 
+2. Install the **@azure/cosmos** module via npm. 
 
    ```bash
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a node application
+## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a Node application
 Now that you have completed the initial setup and configuration, next you will write code that is required by the todo application to communicate with Azure Cosmos DB.
 
 ### Create the model
@@ -188,7 +184,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 1. In the **routes** directory of your project, create a new file named **tasklist.js**.  
 
-2. Add the following code to **tasklist.js**. This loads the DocumentDBClient and async modules, which are used by **tasklist.js**. This also defined the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
+2. Add the following code to **tasklist.js**. This loads the CosmosClient and async modules, which are used by **tasklist.js**. This also defines the **TaskList** class, which is passed an instance of the **TaskDao** object we defined earlier:
    
    ```nodejs
    const TaskDao = require("../models/TaskDao");
@@ -475,5 +471,5 @@ This should be all that we need for our application to work.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 
