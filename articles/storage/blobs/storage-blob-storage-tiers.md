@@ -2,21 +2,15 @@
 title: Azure hot, cool, and archive storage for blobs | Microsoft Docs
 description: Hot, cool, and archive storage for Azure storage accounts.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor:
 
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-
+ms.component: blobs
 ---
+
 # Azure Blob storage: Hot, cool, and archive storage tiers
 
 ## Overview
