@@ -12,7 +12,7 @@
 
 ### What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall is currently in public preview.
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall is currently in public preview.
 
 ### Which capabilities are supported in the Azure Firewall public preview release?  
 
@@ -30,14 +30,14 @@ Azure Firewall is currently a managed public preview that you can join by  using
 
 ### What is the pricing for Azure Firewall?
 
-Azure Firewall has a fixed cost and a variable cost. The prices are as follows, and these are further discounted by 50% during public preview.
+Azure Firewall has a fixed cost and a variable cost. The prices are as follows, and are further discounted by 50% during public preview.
 
 * Fixed fee: $1.25/firewall/hour
 * Variable fee: $0.03/GB processed by the firewall (ingress or egress)
 
 ### What is the typical deployment model for Azure Firewall?
 
-While it is possible to deploy Azure Firewall on any virtual network, customers typically deploy Azure Firewall on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
+While you can deploy Azure Firewall on any virtual network, customers typically it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
 
 ### How can I install the Azure Firewall?
 
@@ -60,9 +60,9 @@ Azure Firewall public preview supports outbound filtering only. Inbound protecti
 
 Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hub. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](../articles/firewall/tutorial-diagnostics.md).
 
-### How does Azure Firewall work relative to existing like NVAs in the marketplace?
+### How does Azure Firewall work differently from existing like NVAs in the marketplace?
 
-Azure Firewall is a basic firewall service that can address certain customer scenarios. It is expected that you will have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
+Azure Firewall is a basic firewall service that can address certain customer scenarios. It's expected that you will have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
  
 ### What is the difference between Application Gateway WAF and Azure Firewall?
 
@@ -70,7 +70,7 @@ The Web Application Firewall (WAF) is a feature of Application Gateway that prov
 
 ### What is the difference between Network Security Groups (NSG) and Azure Firewall?
 
-The Azure Firewall service complements network security group functionality and together provides better defense-in-depth network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks. 
+The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks. 
 
 ### How do I set up Azure Firewall with my service endpoints?
 
@@ -79,6 +79,6 @@ For secure access to PaaS services, we recommend service endpoints. Azure Firewa
 ### What are the known service limits?
 
 * Azure Firewall has a soft limit of 1000 TB per firewall per month. 
-* An instance of Azure Firewall that is running in a central virtual network is subject to virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
+* An instance of Azure Firewall that is running in a central virtual network has virtual network peering limitations, with a maximum of 50 spoke virtual networks.  
 * Azure Firewall does not work with global peering, so you should have at least one firewall deployment per region.
 * Azure Firewall supports 10k application rules and 10k network rules.
