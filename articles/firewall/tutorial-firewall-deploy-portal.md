@@ -85,6 +85,9 @@ First, create a resource group to contain the resources needed to deploy the fir
 11. For **Address range**, type **10.0.1.0/24**.
 12. Use the other default settings, and then click **Create**.
 
+> [!NOTE]
+> The minimum size of the AzureFirewallSubnet subnet is /25.
+
 ### Create additional subnets
 
 Next, create subnets for the jump server, and a subnet for the workload servers.
@@ -167,6 +170,9 @@ Use the information in the following table to configure the **Settings** for the
    This will take a few minutes to deploy.
 4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
 6. Note the private IP address. You'll use it later when you create the default route.
+
+> [!NOTE]
+> The Public IP address must be the Standard SKU type.
 
 [//]: # (Remember to note the private IP for the firewall.)
 
