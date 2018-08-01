@@ -1,24 +1,32 @@
 ---
-title: include file
-description: include file
-services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.topic: include
-ms.date: 05/17/2018
-ms.author: cynthn
-ms.custom: include file
+title: Troubleshoot VM application access in Azure | Microsoft Docs
+description: Use these detailed troubleshooting steps to isolate issues in connecting to applications running on virtual machines in Azure.
+services: virtual-machines
+documentationcenter: ''
+author: genlin
+manager: jeconnoc
+editor: ''
+tags: top-support-issue,azure-service-management,azure-resource-manager
+keywords: cannot start application, program won't open, listen port blocked, unable to start program, listen port blocked
+
+ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
+ms.service: virtual-machines
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: troubleshooting
+ms.date: 05/11/2018
+ms.author: genli
+
 ---
+# Troubleshoot application connectivity issues on virtual machines in Azure
 
 There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM). Reasons include the application not running or listening on the expected ports, the listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
 If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:
 
-* [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
-* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
-
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
+* [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
+* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -27,12 +35,12 @@ If you have problems connecting to an application, try the following general tro
 
 * Restart the virtual machine
 * Recreate the endpoint / firewall rules / network security group (NSG) rules
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
-  * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Resource Manager model - Manage Network Security Groups](../../virtual-network/manage-network-security-group.md)
+  * [Classic model - Manage Cloud Services endpoints](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connect from different location, such as a different Azure virtual network
 * Redeploy the virtual machine
-  * [Redeploy Windows VM](../articles/virtual-machines/windows/redeploy-to-new-node.md)
-  * [Redeploy Linux VM](../articles/virtual-machines/linux/redeploy-to-new-node.md)
+  * [Redeploy Windows VM](redeploy-to-new-node-windows.md)
+  * [Redeploy Linux VM](redeploy-to-new-node-linux.md)
 * Recreate the virtual machine
 
 For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -87,8 +95,8 @@ If you cannot access the application, verify the following settings:
 * The host firewall on the target VM is allowing the inbound request and outbound response traffic.
 * Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
 * Cloud Services endpoints or Network Security Groups are allowing the traffic:
-  * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
+  * [Classic model - Manage Cloud Services endpoints](../../cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Resource Manager model - Manage Network Security Groups](../../virtual-network/manage-network-security-group.md)
 * A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
 
 On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.
@@ -106,12 +114,12 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
-  * For more information, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  * For more information, see [How to Set Up Endpoints to a Virtual Machine](../windows/classic/setup-endpoints.md).
 * For VMs created using the Resource Manager deployment model:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
-  * For more information, see [What is a network security group?](../articles/virtual-network/security-overview.md)
+  * For more information, see [What is a network security group?](../../virtual-network/security-overview.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 
@@ -130,7 +138,8 @@ If you can access the application, ensure that your Internet edge device is allo
 For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Additional resources
-[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md)
+
 
