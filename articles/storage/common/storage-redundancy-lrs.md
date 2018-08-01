@@ -13,7 +13,7 @@ ms.author: jeking
 
 # Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage
 
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
 ## See also
 

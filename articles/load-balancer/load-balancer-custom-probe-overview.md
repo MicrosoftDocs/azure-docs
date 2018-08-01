@@ -1,5 +1,5 @@
 ---
-title: Use Load Balancer custom probes to monitor health status | Microsoft Docs
+title: Use Load Balancer health probes to protect your service | Microsoft Docs
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 07/31/2018
 ms.author: kumud
 ---
 
