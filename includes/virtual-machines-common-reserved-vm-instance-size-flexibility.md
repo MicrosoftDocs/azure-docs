@@ -1,6 +1,6 @@
 ---
-author: yashesvi 
-ms.author: yashar 
+author: manish-shukla01
+ms.author: manshuk
 ms.service: virtual-machines-windows 
 ms.topic: include 
 ms.date: 08-03-2018 
