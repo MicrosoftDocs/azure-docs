@@ -6,7 +6,7 @@ Virtual Machines goes through different provisioning and power states during its
 
 The Power states represent VM’s running state as seen by the hypervisor.
 
-<img src="./media/Virtual-Machines-States/VM-Power-States.png" height=500px width=500px alt="VM power state diagram"/>
+<img src="./media/Virtual-Machines-States/VM-Power-States.png" alt="VM power state diagram"/>
 
 
 <table width="685">
