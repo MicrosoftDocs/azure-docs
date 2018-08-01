@@ -1,6 +1,6 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Configure hybrid Azure Active Directory joined devices manually | Microsoft Docs
+description: Learn how to  manually configure hybrid Azure Active Directory joined devices.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,16 +14,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.author: markvi
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 
 ---
-# How to configure hybrid Azure Active Directory joined devices
+# Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [Introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see [../Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. This article provides you with the related steps. 
+
+
+
+> [!TIP]
+> If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join significantly.
 
 
 ## Before you begin
@@ -187,10 +192,10 @@ In the script above,
 
 - `$verifiedDomain = "contoso.com"` is a placeholder you need to replace with one of your verified domain names in Azure AD. You will have to own the domain before you can use it.
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
 To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
-![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
+![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
 ## Step 2: Setup issuance of claims
 
@@ -333,11 +338,11 @@ In the claim above,
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
-![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
+![Get-MsolDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
 ### Issue ImmutableID for computer when one for users exist (e.g. alternate login ID is set)
 
@@ -514,7 +519,7 @@ To register Windows down-level devices, you need to make sure that the setting t
     
 The following policy must be set to **All**: **Users may register their devices with Azure AD**
 
-![Register devices](./media/active-directory-conditional-access-automatic-device-registration-setup/23.png)
+![Register devices](./media/hybrid-azuread-join-manual-steps/23.png)
 
 
 ### Configure on-premises federation service 
@@ -611,9 +616,9 @@ The output of this cmdlet shows devices that are registered and joined with Azur
 
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
 
 
 
 <!--Image references-->
-[1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
+[1]: ./media/hybrid-azuread-join-manual-steps/12.png
