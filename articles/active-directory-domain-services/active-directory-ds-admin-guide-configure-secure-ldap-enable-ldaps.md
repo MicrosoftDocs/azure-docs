@@ -21,7 +21,7 @@ ms.author: maheshu
 # Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 
 ## Before you begin
-Ensure you've completed [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
+Complete [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 
 ## Task 3 - enable secure LDAP for the managed domain using the Azure portal
@@ -44,7 +44,7 @@ To enable secure LDAP, perform the following configuration steps:
 4. By default, secure LDAP access to your managed domain is disabled. Toggle **Secure LDAP** to **Enable**.
 
     ![Enable secure LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if desired.
+5. By default, secure LDAP access to your managed domain over the internet is disabled. Toggle **Allow secure LDAP access over the internet** to **Enable**, if you need to.
 
     > [!WARNING]
     > When you enable secure LDAP access over the internet, your domain is susceptible to password brute force attacks over the internet. Therefore, we recommend setting up an NSG to lock down access to required source IP address ranges. See the instructions to [lock down LDAPS access to your managed domain over the internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -54,9 +54,9 @@ To enable secure LDAP, perform the following configuration steps:
 
 7. Specify the **Password to decrypt .PFX file**. Provide the same password you used when exporting the certificate to the PFX file.
 
-8. When you are done, click the **Save** button.
+8. When you're done, click the **Save** button.
 
-9. You see a notification that informs you secure LDAP is being configured for the managed domain. Until this operation is complete, you cannot modify other settings for the domain.
+9. You see a notification that informs you secure LDAP is being configured for the managed domain. Until this operation is complete, you can't modify other settings for the domain.
 
     ![Configuring secure LDAP for the managed domain](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configuring.png)
 

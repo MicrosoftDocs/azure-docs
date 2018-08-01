@@ -21,19 +21,20 @@ ms.author: maheshu
 # Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 
 ## Connection issues
-If you have trouble connecting to the managed domain using secure LDAP, perform the following troubleshooting steps:
+If you have trouble connecting to the managed domain using secure LDAP:
+
 * Ensure that the issuer chain of the secure LDAP certificate is trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
 * Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
-* Verify the DNS name the LDAP client connects to resolves to the public IP address for secure LDAP on the managed domain.
+* Check the DNS name the LDAP client connects to. It must resolve to the public IP address for secure LDAP on the managed domain.
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.
-* If you are connecting via secure LDAP over the internet, ensure the NSG settings for the virtual network allow the traffic to port 636 from the internet.
+* Ensure the NSG settings for the virtual network allow the traffic to port 636 from the internet. This applies only if you've enabled secure LDAP access over the internet.
 
 
 ## Need help?
 If you still have trouble connecting to the managed domain using secure LDAP, [contact the product team](active-directory-ds-contact-us.md) for help. Include the following information to help diagnose the issue better:
 * A screenshot of ldp.exe making the connection and failing.
 * Your Azure AD tenant ID, and the DNS domain name of your managed domain.
-* Exact user name that you are trying to bind as.
+* Exact user name that you're trying to bind as.
 
 
 ## Related content
