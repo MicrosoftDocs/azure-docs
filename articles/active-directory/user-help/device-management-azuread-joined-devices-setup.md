@@ -15,67 +15,36 @@ ms.author: lizross
 ms.reviewer: jairoc
 
 ---
-# Set up Azure Active Directory joined devices
+# Set up Azure Active Directory-joined devices
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
+Your organization has asked that if you plan to join your work-owned Windows 10 devices to their network, so you can sign in using your work or school account instead of your personal account, that your device meets specific standards for security and compatibility.
 
-If you want to bring work-owned Windows 10 devices under the control of Azure AD, you can accomplish this by configuring Azure AD joined devices. This topic provides you with the related steps. 
+## Join your device to your organization's network
+While you are joining your device to your organization's network, the following will happen:
 
+- Windows 10 joins your device to your organization's domain.
 
-## Prerequisites
+- You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your administrator has set up.
 
-To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../device-management-azure-portal.md#configure-device-settings).
+- You'll be automatically enrolled in mobile device management, if it's required.
 
+- You'll go through sign-in, using either automatic sign-in (if you're a managed user) or by using your work or school account user name and password (if you're not a managed user).
 
+### To join your device to your network
 
-## What you should know
+1. Open **Settings**, and then select **Accounts**.
 
+    ![Accounts on the Settings screen](./media/device-management-azuread-joined-devices-setup/02.png)
 
-- Windows joins the device in the organization’s directory in Azure AD.
+2. Select **Access work or school**, and then select **Connect**.
 
-- You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
+    ![Access work or school and Connect links](./media/device-management-azuread-joined-devices-setup/03.png)
 
-- Azure AD checks whether the device requires mobile device management enrollment and enrolls it if applicable.
+3. On the **Set up a work or school account** screen, select **Join this device to Azure Active Directory**.
 
-- If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
-
-- If you are a federated user, you have to sign in using your credentials.
-
-- If you are federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password. 
-
-
-
-
-## Joining a device
-
-This section provides you with the steps to join your Windows 10 device to your Azure AD. A successfully joined  device shows up as **Connected to \<your Azure AD\>**.
-
-![Connected](./media/device-management-azuread-joined-devices-setup/13.png)
+    ![Set up a work or school account screen](./media/device-management-azuread-joined-devices-setup/04.png)
 
 
-**To join your Windows 10 device:**
-
-1. In the **Start** menu, click **Settings**.
-
-    ![Settings](./media/device-management-azuread-joined-devices-setup/01.png)
-
-2. Click **Accounts**.
-
-    ![Accounts](./media/device-management-azuread-joined-devices-setup/02.png)
-
-
-3. Click **Access work or school**.
-
-    ![Access work or school](./media/device-management-azuread-joined-devices-setup/03.png)
-
-4. On the **Access work or school** dialog, click **Connect**.
-
-    ![Connect](./media/device-management-azuread-joined-devices-setup/04.png)
-
-
-5. On the  **Setup a work or school account** dialog, click **Join this device to Azure Active Directory**.
-
-    ![Connect](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
 6. On the **Let's get you signed in** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
