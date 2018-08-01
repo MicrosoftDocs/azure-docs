@@ -15,15 +15,20 @@ ms.author: diberry
 
 You can collaborate with others on your LUIS app together. 
 
-## Owner and collaborators
-
-An app has a single author, the owner, but can have many collaborators. 
+<a name="owner-and-collaborators"></a>
 
 ## Add collaborator
+An app has a single author, the owner, but can have many collaborators. To allow collaborators to edit your LUIS app, you must add the email they use to access the LUIS portal to the collaborators list. Once they are added, the app shows in their LUIS portal.
 
-To allow collaborators to edit your LUIS app, on the **Settings** page of your LUIS app, enter the email of the collaborator and click **Add collaborator**. Collaborators can sign in and edit your LUIS app at the same time you are working on the app.
+1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
 
-![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png)
+2. Select **Add Collaborator** from the toolbar.
+
+    ![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png)
+
+3. Enter the email address the collaborator uses to sign in to the LUIS portal.
+
+    ![Add collaborator's email address](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 ## Transfer of ownership
 
@@ -41,7 +46,7 @@ Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog.
 
 If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS. 
 
-![Azure active directory permission by app website](./media/luis-how-to-account-settings/tenant-permissions.png)
+![Azure active directory permission by app website](./media/luis-how-to-collaborate/tenant-permissions.png)
 
 If the tenant admin only wants certain users to use LUIS, refer to this [identity blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
