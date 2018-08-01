@@ -149,7 +149,7 @@ The process of delegating an offer is finished. Now a user can sign up for this 
 
 ## Move subscriptions between delegated providers
 
-If needed, a subscription can be moved between new or existing delegated provider subscriptoins that belong to the same Directory tenant. This is by using the PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+If needed, a subscription can be moved between new or existing delegated provider subscriptions that belong to the same Directory tenant. This is by using the PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
 
 This is useful when:
 - You onboard a new team member that will take on the delegated provider role and you want to assign to this team member user-subscriptions that were previously created in the Default Provider Subscription.
