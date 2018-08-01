@@ -42,12 +42,13 @@ Before registering Azure Stack with Azure, you must have:
 
 - The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
 
-- The user account needs to be an Admin in the Azure AD tenant to which Azure Stack is registered, for example, in `yourazurestacktenant@onmicrosoft.com`.
-
   > [!Note]  
   > Germany and US Government cloud subscriptions are not currently supported.
 
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported).
+
+- The user account needs to be an Admin in the Azure AD tenant to which Azure Stack is registered, for example, `yourazurestacktenant.onmicrosoft.com`.
+
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details).
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
@@ -66,11 +67,11 @@ Ensure the output returns **FullLanguageMode**. If any other language mode is re
 
 You need to use the latest PowerShell for Azure Stack to register with Azure.
 
-If not already installed, [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+If not the latest version is not already installed, see [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
 ### 4. Download the Azure Stack tools
 
-The Azure Stack tools GitHub repository contains PowerShell modules that support Azure Stack functionality; including registration functionality. During the registration process, you need to import and use the RegisterWithAzure.psm1 PowerShell module, found in the Azure Stack tools repository, to register your Azure Stack instance with Azure.
+The Azure Stack tools GitHub repository contains PowerShell modules that support Azure Stack functionality; including registration functionality. During the registration process, you need to import and use the **RegisterWithAzure.psm1** PowerShell module, found in the Azure Stack tools repository, to register your Azure Stack instance with Azure.
 
 To ensure you are using the latest version, you should delete any existing versions of the Azure Stack tools and [download the latest version from GitHub](azure-stack-powershell-download.md) before registering with Azure.
 
@@ -94,10 +95,10 @@ Your Azure Stack deployment may be *connected* or *disconnected*.
 
 Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
-Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
-
 > [!Note]  
 > All these steps must be run from a computer that has access to the privileged endpoint (PEP). For details about the PEP, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+
+Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
 1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell commands with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
@@ -110,7 +111,6 @@ Connected environments can access the internet and Azure. For these environments
    | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud** or, if using a China Azure Subscription, **AzureChinaCloud**.  |
-   |  |  |
 
 3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
@@ -147,7 +147,7 @@ Connected environments can access the internet and Azure. For these environments
       -BillingModel PayAsYouUse
       -RegistrationName $RegistrationName
    ```
-   For more details on the use of the [Set-AzsRegistration](#set-azsregistration) cmdlet, see [Registration reference](#registration-reference).
+   For more information on the use of the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
   The process will take between 10 and 15 minutes. When the command completes, you will see the message **"Your environment is now registered and activated using the provided parameters."**
 
@@ -155,10 +155,10 @@ Connected environments can access the internet and Azure. For these environments
 
 Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
-Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
-
 > [!Note]  
 > All these steps must be run from a computer that has access to the privileged endpoint (PEP). For details about the PEP, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+
+Connected environments can access the internet and Azure. For these environments, you need to register the Azure Stack resource provider with Azure and then configure your billing model.
 
 1. To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell commands with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below).
 
@@ -171,7 +171,6 @@ Connected environments can access the internet and Azure. For these environments
    | Parameter | Description |  
    |-----|-----|
    | EnvironmentName | The Azure cloud subscription environment name. Supported environment names are **AzureCloud** or, if using a China Azure Subscription, **AzureChinaCloud**.  |
-   |  |  |
 
 3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
@@ -198,7 +197,7 @@ Set-AzsRegistration `
     -UsageReportingEnabled False
     -RegistrationName $RegistrationName
 ```
-   For more details on the use of the [Set-AzsRegistration](#set-azsregistration) cmdlet, see [Registration reference](#registration-reference).
+   For more information on the use of the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
 ## Register a disconnected Azure Stack using the capacity billing model
 
@@ -218,7 +217,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   For more details on the use of the [Get-AzsRegistrationToken](#get-azsregistrationtoken) cmdlet, see [Registration reference](#registration-reference).
+   For more information on the use of the Get-AzsRegistrationToken cmdlet, see [Registration reference](#registration-reference).
 
    > [!Tip]  
    > The registration token is saved in the file specified for *$FilePathForRegistrationToken*. You can change the filepath or filename at your discretion.
@@ -354,11 +353,11 @@ Or you can use the registration name:
 
 You have now completely unregistered in a disconnected scenario and must repeat the steps for registering an Azure Stack environment in a disconnected scenario.
 
-## Disable or enable usage reporting
+### Disable or enable usage reporting
 
 For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **EnableUsageReporting** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting.
 
-### With a connected Azure Stack
+#### With a connected Azure Stack
 
    ```PowerShell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -370,7 +369,7 @@ For Azure Stack environments that use a capacity billing model, turn off usage r
       -RegistrationName $RegistrationName
    ```
 
-### With a disconnected Azure Stack
+#### With a disconnected Azure Stack
 
 1. To change the registration token, run the following PowerShell cmdlets:  
 
@@ -427,14 +426,14 @@ Get-AzsRegistrationToken will generate a registration token from the input param
 ```
 | Parameter | Type | Description |
 |-------------------------------|--------------|-------------|
-| PrivilegedEndpointCredential | PSCredential |  |
-| PrivilegedEndpoint | String |  |
+| PrivilegedEndpointCredential | PSCredential | The credentials used to [access the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). The username is in the format **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | String |  A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. To learn more, refer to the [using the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) article. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
-| BillingModel | String |  |
+| BillingModel | String | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False |  |
+| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | String |  |
 
 
