@@ -25,7 +25,7 @@ After you buy an Azure reserved instance, you may want to apply the reserved ins
 
 To update the scope of a reserved instance:
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select the reserved instance.
 4. Select **Settings** > **Configuration**.
@@ -70,7 +70,7 @@ You can manage access to reserved instances independently from the subscriptions
 
 To delegate access management for a reserved instance:
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservation** to list reserved instances that you have access to.
 3. Select the reserved instance that you want to delegate access to other users.
 4. Select **Access Control (IAM)** in the menu.
@@ -84,7 +84,7 @@ To learn more about Azure reserved instances, see the following articles:
 
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database reserved vCore](../sql-database/sql-database-reserved-sqldb-instances.md). 
+- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-instances.md)
 - [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
