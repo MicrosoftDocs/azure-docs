@@ -49,7 +49,7 @@ When combined with a mobile device management(MDM) solution such as Microsoft In
 
 The goal of Azure AD registered devices is to provide you with support for the **Bring Your Own Device (BYOD)** scenario. In this scenario, a user can access your organization’s Azure Active Directory controlled resources using a personal device.  
 
-![Azure AD registered devices](./media/device-management-introduction/03.png)
+![Azure AD registered devices](./media/devices/overview/03.png)
 
 The access is based on a work or school account that has been entered on the device.  
 For example, Windows 10 enables users to add a work or school account to a personal computer, tablet, or phone.  
@@ -69,7 +69,7 @@ The goal of Azure AD joined devices is to simplify:
 - Access to organizational apps and resources from any Windows device
 - Cloud-based management of work-owned devices
 
-![Azure AD registered devices](./media/device-management-introduction/02.png)
+![Azure AD registered devices](./media/devices/overview/02.png)
 
 Azure AD Join can be deployed by using any of the following methods: 
  - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
@@ -120,7 +120,7 @@ Typically, organizations with an on-premises footprint rely on imaging methods t
 
 If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
 
-![Azure AD registered devices](./media/device-management-introduction/01.png)
+![Azure AD registered devices](./media/devices/overview/01.png)
 
 
 You should use Azure AD hybrid joined devices if:

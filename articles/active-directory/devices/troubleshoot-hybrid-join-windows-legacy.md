@@ -67,7 +67,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 This command displays a dialog box that provides you with more details about the join status.
 
-![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
+![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## Step 2: Evaluate the hybrid Azure AD join status 
@@ -78,11 +78,11 @@ If the hybrid Azure AD join was not successful, the dialog box provides you with
 
 - A misconfigured AD FS or Azure AD
 
-    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/02.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
 
 - You are not signed on as a domain user
 
-    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
     
     There are a few different reasons why this can occur:
     
@@ -94,11 +94,11 @@ If the hybrid Azure AD join was not successful, the dialog box provides you with
 
 - A quota has been reached
 
-    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
 
 - The service is not responding 
 
-    ![Workplace Join for Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
+    ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
 You can also find the status information in the event log under: **Applications and Services Log\Microsoft-Workplace Join**
   

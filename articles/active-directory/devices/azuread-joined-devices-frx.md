@@ -47,17 +47,17 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 
 2. Start by customizing your region and language. Then accept the Microsoft Software License Terms.
  
-    ![Customize for your region](./media/device-management-azuread-joined-devices-frx/01.png)
+    ![Customize for your region](./media/azuread-joined-devices-frx/01.png)
 
 3. Select the network you want to use for connecting to the Internet.
 
 4. Click **This device belongs to my organization**. 
 
-    ![Who owns this PC screen](./media/device-management-azuread-joined-devices-frx/02.png)
+    ![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)
 
 5. Enter the credentials that were provided to you by your organization, and then click **Sign in**.
 
-    ![Sign-in screen](./media/device-management-azuread-joined-devices-frx/03.png)
+    ![Sign-in screen](./media/azuread-joined-devices-frx/03.png)
 
 6. You device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
 
@@ -78,7 +78,7 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 
 To verify whether a device is joined to your Azure AD, review the **Access work or school** dialog on your Windows device. The dialog should indicate that you are connected to your Azure AD directory.
 
-![Access work or school](./media/device-management-azuread-joined-devices-frx/13.png)
+![Access work or school](./media/azuread-joined-devices-frx/13.png)
 
 
 ## Next steps
