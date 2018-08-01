@@ -7,11 +7,11 @@ ms.date: 08-03-2018
 ---
 # Size series covered when buying a reserved VM instance
 
-The reserved VM instance you buy can cover the VMs sizes in the same size series groupings that are described in this article. For example, there are two different groupings for reservations within the B-series burstable VM sizes. If you buy a reservation for Standard_B2s, that reservation discount can apply to running VM that are sizes Standard_B21s or Standard_B2s. If you buy a reservation for a Standard_B8ms sized VM, the reservation discount can apply to the 4 sizes listed in that table grouping: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms.
+The reserved VM instance you buy can cover the VMs sizes in the same size series groupings that are described in this article. For example, there are two different groupings for reservations within the B-series burstable VM sizes. If you buy a reservation for Standard_B2s, that reservation discount can apply to running VMs that are sizes Standard_B21s or Standard_B2s. If you buy a reservation for a Standard_B8ms sized VM, the reservation discount can apply to the four sizes listed in that table grouping: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms.
 
-The number of VMs covered in the series grouping depends on the VM size you pick when you buy a reserved instances and the sizes of the VMs that are running.
+The number of VMs covered in the series grouping depends on the VM size you pick when you buy a reserved instance and the sizes of the VMs that are running.
 
-The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_D4, the ratio or relative footprint compared to the other sizes in that series is 8. So if you run 2 Standard_D2 VMs (ratio = 2 for each) and 1 Standard_D3 VM (ratio = 4), the ratios add up to 8 (2+2+4). You get the reservation discount on those three VMs as they fit within the footprint that you bought. If you create and run an additional VM that is Standard_D1 size (ratio = 1), it isn't covered by the reservation discount because it exceeds the footprint that you bought.
+The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_D4, the ratio or relative footprint compared to the other sizes in that series is 8. So if you run two Standard_D2 VMs (ratio = 2 for each) and one Standard_D3 VM (ratio = 4), the ratios add up to 8 (2+2+4). You get the reservation discount on those three VMs as they fit within the footprint that you bought. If you create and run an additional VM that is Standard_D1 size (ratio = 1), it isn't covered by the reservation discount because it exceeds the footprint that you bought.
 
 
 ## B-series burstable size groupings
