@@ -62,7 +62,8 @@
   href: troubleshoot-activation-problems.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
-- name: New VM deployments 
+- name: New VM deployments
+  items: 
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
     - name: Windows
