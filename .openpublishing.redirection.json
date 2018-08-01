@@ -5508,7 +5508,7 @@
         {
             "source_path": "articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-tutorial",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-linkedinlearning-tutorial.md",
