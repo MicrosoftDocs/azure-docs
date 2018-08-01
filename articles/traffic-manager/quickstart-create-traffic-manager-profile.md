@@ -118,8 +118,8 @@ In this section, you first determine the domain name of your Traffic Manager pro
 When no longer needed, delete the resource groups *ResourceGroupTM1* and  *ResourceGroupTM2*.
 
 ## Next steps
+In this quickstart, you created a Traffic Manager profile that allows you to direct user traffic for highly availability web application. Next, learn how to [direct user traffic to improve website performance](traffic-manager-configure-performance-routing-method.md).
 
-- Learn how to [direct traffic to improve your app performance](traffic-manager-configure-performance-routing-method.md).
 
 
 
