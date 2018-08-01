@@ -26,7 +26,7 @@ File storage offers file shares in the cloud that use the standard SMB protocol.
 
 Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. The same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
 
-This guide requires that you're running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+This guide requires that you're running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Create a resource group

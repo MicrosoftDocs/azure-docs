@@ -82,7 +82,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## Getting help
 
-All CLI 2.0 commands relating to Azure DNS start with `az network dns`. Help is available for each command using the `--help` option (short form `-h`).  For example:
+All Azure CLI commands relating to Azure DNS start with `az network dns`. Help is available for each command using the `--help` option (short form `-h`).  For example:
 
 ```azurecli
 az network dns --help

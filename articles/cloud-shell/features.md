@@ -27,7 +27,7 @@ Azure Cloud Shell runs on `Ubuntu 16.04 LTS`.
 
 ### Secure automatic authentication
 
-Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0 and Azure PowerShell.
+Cloud Shell securely and automatically authenticates account access for the Azure CLI and Azure PowerShell.
 
 ### $Home persistence across sessions
 
@@ -56,7 +56,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Category   |Name   |
 |---|---|
 |Linux tools            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure tools            |[Azure CLI](https://github.com/Azure/azure-cli) and [Azure classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
@@ -78,5 +78,5 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell (Preview) Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

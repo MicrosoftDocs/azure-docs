@@ -84,7 +84,7 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  Sign in to the customer's tenant with the user account or service principal. For more information, see [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2.  Sign in to the customer's tenant with the user account or service principal. For more information, see [Log in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
