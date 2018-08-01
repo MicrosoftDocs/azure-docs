@@ -44,7 +44,7 @@ sections:
       href: /azure/key-vault/quick-create-net
     - image: 
         src: media/index/logo_nodejs.svg
-      text: .NET
+      text: Node.js
       href: /azure/key-vault/quick-create-node
     
 - title: Step-by-Step Tutorials
