@@ -23,7 +23,7 @@ The feature automatically encrypts data in:
 - Both deployment models (Azure Resource Manager and classic).
 
 > [!Note]  
-> Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
+> Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
 
 Storage Service Encryption does not affect the performance of Azure storage services.
 
@@ -57,7 +57,7 @@ Yes, you can use your own encryption keys. For more information, see [Storage Se
 Yes, if you [use your own encryption keys](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
 
 **Is Storage Service Encryption available on Azure Managed Disks?**  
-No, Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
+No, Storage Service Encryption is not available for [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). We recommend you use encryption on the OS level, such as [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), which uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide encryption integrated with KeyVault.
 
 **How is Storage Service Encryption different from Azure Disk Encryption?**  
 Azure Disk Encryption provides integration between OS-based solutions like BitLocker and DM-Crypt and Azure KeyVault. Storage Service Encryption provides encryption natively at the Azure storage platform layer, below the virtual machine.
