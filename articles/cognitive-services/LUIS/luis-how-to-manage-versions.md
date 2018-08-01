@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/1/2017
+ms.date: 08/01/2017
 ms.author: diberry
 ---
 
