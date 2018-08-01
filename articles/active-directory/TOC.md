@@ -106,7 +106,7 @@
 #### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
 ### Dynamic groups
 #### [Create a dynamic group](users-groups-roles/groups-create-rule.md)
-#### [Rule syntax and examples](users-groups-roles/groups-dynamic-membership.md)
+#### [Syntax and property reference](users-groups-roles/groups-dynamic-membership.md)
 #### [Change group membership type](users-groups-roles/groups-change-type.md)
 #### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
