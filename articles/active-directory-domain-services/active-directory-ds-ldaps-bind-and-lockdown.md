@@ -18,6 +18,11 @@ ms.date: 08/01/2018
 ms.author: maheshu
 
 ---
+# Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+
+## Before you begin
+Complete [Task 4 - configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md).
+
 
 ## Task 5: Bind to the managed domain over LDAP using LDP.exe
 You can use the LDP.exe tool, which is included in the Remote Server Administration tools package to bind and search over LDAP.
