@@ -47,15 +47,17 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**. Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
-- <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack Syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software external to Azure Stack. The Syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
+- <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
-  To configure how the Syslog client communicates (such as protocol, encryption, and authentication) with the Syslog server, use the Set-SyslogServer cmdlet. This cmdlet is available from the privileged endpoint (PEP). 
+  To configure how the syslog client communicates (such as protocol, encryption, and authentication) with the syslog server, use the Set-SyslogServer cmdlet. This cmdlet is available from the privileged endpoint (PEP). 
 
-  To add the client-side certificate for the Syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
+  To add the client-side certificate for the syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
 
   With this preview, you can see a much larger number of audits and alerts. 
 
   Because this feature is still in preview, you don't rely on it in production environments.
+
+  For more information, see [Azure Stack syslog forwarding](../azure-stack-integrate-security.md).
 
 ### Fixed issues
 
