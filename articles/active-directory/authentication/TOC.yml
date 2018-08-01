@@ -25,6 +25,8 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
+  - name: Converged registration
+    href: concept-registration-mfa-sspr-converged.md
   - name: Self-service password reset
     items:
     - name: How password reset works
