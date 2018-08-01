@@ -47,11 +47,11 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 **What you should know:** 
 
-- The maximum number of devices per user is device-centric. For example, if *jdoe* and *jharnett* sign in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab.  
+- The maximum number of devices per user is device-centric. For example, if *jdoe* and *jharnett* sign-in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab.  
 
-- The initial registration / join of devices is configured to perform an attempt at either sign in or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
+- The initial registration / join of devices is configured to perform an attempt at either sign-in or lock / unlock. There could be 5-minute delay triggered by a task scheduler task. 
 
-- A reinstallation of the operating system or manual re-registration may create a new registration in Azure AD, which results in multiple entries under the USER info tab in the Azure portal. 
+- You can get multiple entries for a device on the user info tab in the Azure portal due to a reinstallation of the operating system or a manual re-registration. 
 
 - Make sure [KB4284842](https://support.microsoft.com/en-us/help/4284842) is installed, in case of Windows 7 SP1 or Windows Server 2008 R2 SP1. This update prevents future authentication failures due to customer's access loss to protected keys after changing password.
 
