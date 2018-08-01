@@ -10,10 +10,12 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Log alerts in Azure Monitor - Alerts 
-This article provides details of Log alerts are one of the types of alerts supported within the new [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.. For details of Metric Alerts using Logs, refer to [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
+This article provides details of Log alerts are one of the types of alerts supported within the new [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
 
-Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Pricing details for Log Alerts is available at the [Azure Monitor Pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
+- Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
+- Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<ActionId>` along with resource group and alert properties
 
 
 ## Log search alert rule - definition and types
@@ -126,7 +128,7 @@ For details as well as examples on using Resource Manager templates, kindly refe
  
 
 ## Next steps
-* Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md).
+* Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
 * Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
