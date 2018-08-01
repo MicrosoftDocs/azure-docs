@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -35,12 +35,21 @@ The following diagram shows the connection between the management servers and ag
 
 If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solutions enabled.  For more information and steps on how to configure your Operations Manager management group to communicate through an OMS Gateway to the Log Analytics service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
 
-## System requirements
-Before starting, review the following details to verify you meet prerequisites.
+## Prerequisites 
+Before starting, review the following requirements.
 
-* Log Analytics only supports System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
-* All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent traffic may fail and many errors might fill the Operations Manager event log.
-* A Log Analytics workspace.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
+* Log Analytics only supports System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
+* All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
+* A Log Analytics workspace.  For further information, review [Connect computers from your environment to Log Analytics](log-analytics-concept-hybrid.md).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](log-analytics-manage-access.md#manage-accounts-and-users).  
+
+>[!NOTE]
+>Recent updates to Azure APIs will prevent customers who already have deployed System Center Operations Manager 2012 R2 or higher, but haven't configured integration with Log Analytics, from completing successfully.  For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
+>A new management pack has been release for each version of Operations Manager.  
+>* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
+>* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
+>* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+
 
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Log Analytics.  Traffic from each component is outbound from your network to the Log Analytics service.     
@@ -87,7 +96,7 @@ After completing the following steps to integrate with Log Analytics, you can re
 2. Expand the Operations Management Suite node and click **Connection**.
 3. Click the **Register to Operations Management Suite** link.
 4. On the **Operations Management Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
-5. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you are prompted to select your Log Analytics workspace.  If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
+5. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you are prompted to select your Azure tenant, subscription, and Log Analytics workspace.  If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
    
    > [!NOTE]
    > Operations Manager only supports one Log Analytics workspace at a time. The connection and the computers that were registered to Log Analytics with the previous workspace are removed from Log Analytics.
@@ -197,6 +206,7 @@ Management packs for the solutions you have enabled that integrate with Operatio
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
+
 7. In the OMS portal, click the **Settings** tile.
 8. Select **Connected Sources**.
 9. In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
