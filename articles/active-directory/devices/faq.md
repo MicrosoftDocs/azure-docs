@@ -173,11 +173,6 @@ For more information, see [Require managed devices for cloud app access with con
 **A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
 
----
-
-**Q: Where can I find instructions for the setup of automatic device registration?**
-
-**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ---
 

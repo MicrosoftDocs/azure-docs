@@ -112,15 +112,15 @@ You can also review device settings on the Azure AD portal.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/15.png)
 
-For more information, see [locate devices](../device-management-azure-portal.md#locate-devices).
+For more information, see [locate devices](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## Next steps
 
 For more information, see: 
 
-- The [introduction to device management in Azure Active Directory](overview.md)
-- [Managing devices using the Azure portal](device-management-azure-portal.md)
+- The [introduction to device management in Azure Active Directory](../devices/overview.md)
+- [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
 - 
 
 

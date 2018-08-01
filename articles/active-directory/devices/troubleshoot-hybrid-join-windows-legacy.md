@@ -37,7 +37,7 @@ This article assumes that you have [configured hybrid Azure Active Directory joi
 
 - [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
 
-- [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md) 
+- [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 
 
 
 
