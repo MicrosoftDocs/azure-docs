@@ -198,7 +198,7 @@ Management packs for the solutions you have enabled that integrate with Operatio
 4. To remove any management packs remaining which have a dependency on other System Center Advisor management packs, use the script *RecursiveRemove.ps1* you downloaded from the TechNet Script Center earlier.  
  
     > [!NOTE]
-    > Do not delete the Microsoft System Center Advisor or Microsoft System Center Advisor Internal management packs.  
+    > The step to remove the Advisor management packs with PowerShell will not automatically delete the Microsoft System Center Advisor or Microsoft System Center Advisor Internal management packs.  Do not attempt to delete them.  
     >  
 
 5. Open the Operations Manager Operations console with an account that is a member of the Operations Manager Administrators role.
