@@ -81,10 +81,9 @@ You can now choose to export this data to a CSV and save to a SIEM system. You c
 
 ## Next steps
 
-- [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Create your own solution](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 
