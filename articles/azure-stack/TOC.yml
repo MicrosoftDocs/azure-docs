@@ -86,7 +86,7 @@
     - name : Security integration
       href: azure-stack-integrate-security.md
       items:
-      - name: Syslog integration
+      - name: Syslog forwarding
         href: azure-stack-integrate-syslog.md
   - name: Servicing policy
     href: azure-stack-servicing-policy.md
