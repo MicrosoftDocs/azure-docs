@@ -14,7 +14,7 @@ ms.date: 7/27/2018
 
 # Tutorial #2: Deploy model on Azure Machine Learning with MNIST dataset and TensorFlow
 
-This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services to:
+This tutorial is **part two of a three-part series**. In this part of the tutorial, you use Azure Machine Learning services (Preview) to:
 
 > [!div class="checklist"]
 > * Choose the best model

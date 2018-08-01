@@ -12,7 +12,7 @@ ms.date: 7/27/2018
 ---
 # Quickstart: Get started with Azure Machine Learning using the CLI extension
 
-In this quickstart, you'll use a machine learning CLI extension to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md).
+In this quickstart, you'll use a machine learning CLI extension to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md) (Preview).
 
 Using the CLI, you'll learn how to:
 

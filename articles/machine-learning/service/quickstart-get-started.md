@@ -13,7 +13,7 @@ ms.date: 09/27/2018
 
 # Quickstart: Get started with Azure Machine Learning Services
 
-In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md).
+In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md) (Preview).
 
 You'll learn how to:
 

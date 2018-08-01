@@ -14,7 +14,7 @@ ms.date: 09/21/2017
 
 # What is Azure Machine Learning?
 
-Azure Machine Learning is a fully managed service for the end to end development and deployment of machine learning models.  Azure Machine Learning lets developers and data scientists track all of their model training and then deploy and manage those models. Azure Machine Learning fully supports open-source technologies so you can use tens of thousands of open-source Python packages, such as the following machine learning frameworks: 
+Azure Machine Learning services  (Preview) is a fully managed service for the end to end development and deployment of machine learning models.  Azure Machine Learning lets developers and data scientists track all of their model training and then deploy and manage those models. Azure Machine Learning fully supports open-source technologies so you can use tens of thousands of open-source Python packages, such as the following machine learning frameworks: 
 - [PyTorch](https://pytorch.org)
 - [Scikit-learn](http://scikit-learn.org/stable/)
 - [Tensorflow](https://www.tensorflow.org)
