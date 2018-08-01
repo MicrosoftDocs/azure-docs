@@ -67,7 +67,7 @@ If SSPR is enabled, you must select at least one of the following options for th
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled.
 
 > [!WARNING]
-> Accounts assigned Azure Administrator roles will be required use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
+> Accounts assigned Azure Administrator roles will be required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 ![Authentication][Authentication]
 
