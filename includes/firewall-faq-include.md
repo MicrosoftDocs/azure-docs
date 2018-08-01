@@ -21,23 +21,23 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 * FQDN filtering 
 * Network traffic filtering rules
 * Outbound SNAT support
-* The ability to centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
+* The ability to centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and virtual networks
 * Full integration with Azure Monitor for logging and analytics 
 
 ### How can I join the Azure Firewall Public Preview?
 
-Azure Firewall is currently a managed public preview that you can join by  using the Register-AzureRmProviderFeature PowerShell command. This command is explained in the Azure Firewall Public Preview documentation.
+Azure Firewall is currently a managed public preview that you can join by  using the Register-AzureRmProviderFeature PowerShell command. This command is explained in the Azure Firewall public preview documentation.
 
 ### What is the pricing for Azure Firewall?
 
-Azure Firewall has a fixed cost and a variable cost. The prices are as follows, and are further discounted by 50% during public preview.
+Azure Firewall has a fixed and variable cost. The prices are as follows, and are further discounted by 50% during public preview.
 
 * Fixed fee: $1.25/firewall/hour
 * Variable fee: $0.03/GB processed by the firewall (ingress or egress)
 
 ### What is the typical deployment model for Azure Firewall?
 
-While you can deploy Azure Firewall on any virtual network, customers typically it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
+You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
 
 ### How can I install the Azure Firewall?
 
@@ -45,12 +45,12 @@ You can set up Azure Firewall by using the Azure portal, PowerShell, REST API, o
 
 ### What are some Azure Firewall concepts?
 
-Azure Firewall supports rules and rule collections. A rule collection is a set of rules that shares the same order and priority. Rule collections are executed in order of their priority. Network rule collections are higher priority than application rule collections, and all rules are terminating.
+Azure Firewall supports rules and rule collections. A rule collection is a set of rules that share the same order and priority. Rule collections are executed in order of their priority. Network rule collections are higher priority than application rule collections, and all rules are terminating.
 
 There are two types of rule collections:
 
 * *Application rules*: Enable you to configure fully qualified domain names (FQDNs) that can be accessed from a subnet. 
-* *Network rules*: Enable you to configure rules that contains source addresses, protocols, destination ports, and destination addresses. 
+* *Network rules*: Enable you to configure rules that contain source addresses, protocols, destination ports, and destination addresses. 
 
 ### Does Azure Firewall support inbound traffic filtering?
 
@@ -58,9 +58,9 @@ Azure Firewall public preview supports outbound filtering only. Inbound protecti
  
 ### Which logging and analytics services are supported by the Azure Firewall?
 
-Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hub. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](../articles/firewall/tutorial-diagnostics.md).
+Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](../articles/firewall/tutorial-diagnostics.md).
 
-### How does Azure Firewall work differently from existing like NVAs in the marketplace?
+### How does Azure Firewall work differently from existing services such as NVAs in the marketplace?
 
 Azure Firewall is a basic firewall service that can address certain customer scenarios. It's expected that you will have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
  
@@ -68,7 +68,7 @@ Azure Firewall is a basic firewall service that can address certain customer sce
 
 The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides outbound network-level protection for all ports and protocols and application-level protection for outbound HTTP/S. Inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP) is tentatively planned for Azure Firewall GA.
 
-### What is the difference between Network Security Groups (NSG) and Azure Firewall?
+### What is the difference between Network Security Groups (NSGs) and Azure Firewall?
 
 The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks. 
 
