@@ -84,7 +84,7 @@ To learn more about Azure reserved instances, see the following articles:
 
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-instances.md)
+- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-vcores.md)
 - [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
