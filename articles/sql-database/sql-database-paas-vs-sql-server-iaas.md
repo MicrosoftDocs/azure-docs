@@ -16,12 +16,15 @@ ms.author: carlrab
 In Azure, you can have your SQL Server workloads running in a hosted infrastructure (IaaS) or running as a hosted service ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database engine, based on the Enterprise Edition of SQL Server, that is optimized for modern application development. Azure SQL Database offers several deployment options:
-  - You can deploy a single database to a [logical server](sql-database-logical-server.md).
-  - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-server.md) to share resources and reduce costs. 
+  - You can deploy a single database to a [logical server](sql-database-logical-servers.md).
+  - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources and reduce costs. 
 
       > [!NOTE]
       > An [Azure SQL Database  containing single and pooled databases offers most of database-scoped features of SQL Server.
 
+      The following illustration shows these deployment options:
+
+      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
   - You can deploy to a [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
 
       > [!NOTE]

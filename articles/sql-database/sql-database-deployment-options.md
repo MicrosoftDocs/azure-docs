@@ -20,7 +20,7 @@ Azure SQL Database provides the following deployment options for an Azure SQL da
 
 The following illustration shows these deployment options:
 
-![deployment-options](./media/sql-database-technnical-overview/deployment-options.png) 
+![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
 
 

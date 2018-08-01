@@ -186,7 +186,7 @@
         href: sql-database-managed-instance-threat-detection.md
     - name: Firewall rules
       items:
-      - name: Create and manage firewall rules
+      - name: Create and manage
         href: sql-database-firewall-configure.md      
       - name: Virtual network endpoints
         href: sql-database-vnet-service-endpoint-rule-overview.md

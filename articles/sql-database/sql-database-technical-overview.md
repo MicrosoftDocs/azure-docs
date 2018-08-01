@@ -21,7 +21,7 @@ Azure SQL Database provides the following deployment options for an Azure SQL da
 
 The following illustration shows these deployment options:
 
-![deployment-options](./media/sql-database-technnical-overview/deployment-options.png) 
+![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
 
