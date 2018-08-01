@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -24,6 +24,10 @@ Azure Stack collects operating system and security events for infrastructure rol
 There’s one storage account per infrastructure role, and one general storage account for all the typical operating system events.
 
 The health resource provider can be called via the REST protocol to retrieve the URL to the blob container. Third-party security solutions can use the API and storage accounts to retrieve events for processing.
+
+### Syslog forwarding
+
+Use syslog forwarding to integrate with security monitoring solutions and/or to retrieve all audits, alerts, and security logs and store them for retention. For more information on integrating security logs, see [Azure Stack datacenter integration - Syslog forwarding](azure-stack-integrate-syslog.md)
 
 ### Use Azure Storage Explorer to view events
 
@@ -80,11 +84,26 @@ Azure Stack solutions do not ship with either RADIUS or TACACS built in. However
 For RADIUS only, MSCHAPv2 was validated. This represents the most secure implementation using RADIUS.
 Consult with your OEM hardware vendor to enable TACAS or RADIUS in the devices included with your Azure Stack solution.
 
+## Physical device access auditing
+
+All physical devices in Azure Stack support the use of TACACS or RADIUS. This includes access to the baseboard management controller (BMC) and network switches.
+
+Azure Stack solutions do not ship with either RADIUS or TACACS built in. However, the solutions have been validated to support the use of existing RADIUS or TACACS solutions available in the market.
+
+For RADIUS only, MSCHAPv2 was validated. This represents the most secure implementation using RADIUS.
+Consult with your OEM hardware vendor to enable TACAS or RADIUS in the devices included with your Azure Stack solution.
+
 ## Syslog
 
-All physical devices in Azure Stack can send Syslog messages. Azure Stack solutions do not ship with a Syslog server. However, the solutions have been validated to support sending messages to existing Syslog solutions available in the market.
+All physical devices in Azure Stack can send syslog messages. Azure Stack solutions do not ship with a syslog server. However, the solutions have been validated to support sending messages to existing syslog solutions available in the market.
 
-The Syslog destination address is an optional parameter collected for deployment, but it can also be added post deployment.
+The syslog destination address is an optional parameter collected for deployment, but it can also be added post deployment.
+
+## Syslog forwarding for network devices
+
+All physical networking devices in Azure Stack support syslog messages. Azure Stack solutions do not ship with a syslog server. However, the devices have been validated to support sending messages to existing syslog solutions available in the market.
+
+The syslog destination address is an optional parameter collected for deployment, but it can also be added post deployment. Consult with your OEM hardware vendor to configure syslog forwarding on your networking devices.
 
 ## Next steps
 
