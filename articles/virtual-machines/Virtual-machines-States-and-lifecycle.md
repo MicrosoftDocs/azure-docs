@@ -6,7 +6,8 @@ Virtual Machines goes through different provisioning and power states during its
 
 The Power states represent VM’s running state as seen by the hypervisor.
 
-<img src="./media/Virtual-Machines-States/VM-Power-States.png" alt="VM power state diagram"/>
+![VM power state diagram](./media/Virtual-Machines-States/VM-Power-States.png)
+
 
 
 <table width="685">
@@ -291,6 +292,7 @@ accepted the request for user action.
 
 **Success**– This state represents that user-initiated actions have
 completed.
+</p>
 <code>
  "statuses": \[ </br>
  {</br>
@@ -301,9 +303,10 @@ completed.
  }</br>
  \]</br>
 </code>
-
+</p>
 **Failed** – This state represent a failed operation. Refer to the error codes to get more information and possible
 resolution.
+</p>
 <code>
  "statuses": \[</br>
  {</br>
@@ -314,6 +317,7 @@ resolution.
  }</br>
  \]</br>
 </code>
+</p>
 **Edge cases**: In cases where a VM was running and in a good state, a
 failed management operation will typically leave the VM running with the
 original VM model (configuration). If such a case happens, then the
