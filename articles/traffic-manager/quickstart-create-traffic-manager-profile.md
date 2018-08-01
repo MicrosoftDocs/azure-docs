@@ -108,14 +108,14 @@ In this section, you first determine the domain name of your Traffic Manager pro
 
       ![Test Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-test.png)
 
-2. To view Traffic Manager failover in action, disable your primary website as follows:
-    a. In the Traffic Manager Profile page, select **Settings**>**Endpoints**>*MyPrimaryEndpoint*.
-    b. In *MyPrimaryEndpoint*, select **Disabled**. 
-    c. The primary endpoint *MyPrimaryEndpoint* status now shows as ****Disabled**.
+2. To view Traffic Manager failover in action, disable your primary site as follows:
+    1. In the Traffic Manager Profile page, select **Settings**>**Endpoints**>*MyPrimaryEndpoint*.
+    2. In *MyPrimaryEndpoint*, select **Disabled**. 
+    3. The primary endpoint *MyPrimaryEndpoint* status now shows as **Disabled**.
 3. Copy the DNS name of your Traffic Manager Profile from the preceding step to successfully view the website in a web browser. When the primary endpoint is disabled, the user traffic gets routed to the secondary endpoint.
 
 ## Delete the Traffic Manager profile
-When no longer needed, select delete the resource groups - **ResourceGroupTM1** and  **ResourceGroupTM2**.
+When no longer needed, delete the resource groups *ResourceGroupTM1* and  *ResourceGroupTM2*.
 
 ## Next steps
 
