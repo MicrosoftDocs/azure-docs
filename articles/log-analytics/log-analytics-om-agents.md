@@ -81,7 +81,7 @@ The information below list the proxy and firewall configuration information requ
 ## Connecting Operations Manager to Log Analytics
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.
 
-If this is the first time your Operations Manager management group is registering with a Log Analytics workspace and the management servers need to communicate to the service through a proxy or OMS Gateway server, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  You need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
+During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  To work around this, you need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
 
 1. Open an elevated command-prompt.
    a. Go to **Start** and type **cmd**.
@@ -106,7 +106,7 @@ After completing the following steps to integrate with Log Analytics, you can re
 7. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
 ### Add agent-managed computers
-After configuring integration with your Log Analytics workspace, this only establishes a connection with the service, no data is collected from the agents reporting to your management group. This won’t happen until after you configure which specific agent-managed computers collects data for Log Analytics. You can either select the computer objects individually or you can select a group that contains Windows computer objects. You cannot select a group that  contains instances of another class, such as logical disks or SQL databases.
+After configuring integration with your Log Analytics workspace, it only establishes a connection with the service, no data is collected from the agents reporting to your management group. This won’t happen until after you configure which specific agent-managed computers collect data for Log Analytics. You can either select the computer objects individually or you can select a group that contains Windows computer objects. You cannot select a group that  contains instances of another class, such as logical disks or SQL databases.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 2. Expand the Operations Management Suite node and click **Connection**.
@@ -116,7 +116,7 @@ After configuring integration with your Log Analytics workspace, this only estab
 You can view computers and groups configured to collect data from the Managed Computers node under Operations Management Suite in the **Administration** workspace of the Operations console.  From here, you can add or remove computers and groups as necessary.
 
 ### Configure proxy settings in the Operations console
-Perform the following steps if an internal proxy server is between the management group and Log Analtyics service.  These settings are centrally managed from the management group and distributed to agent-managed systems that are included in the scope to collect data for Log Analytics.  This is beneficial for when certain solutions bypass the management server and send data directly to the service.
+Perform the following steps if an internal proxy server is between the management group and Log Analytics service.  These settings are centrally managed from the management group and distributed to agent-managed systems that are included in the scope to collect data for Log Analytics.  This is beneficial for when certain solutions bypass the management server and send data directly to the service.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 2. Expand Operations Management Suite, and then click **Connections**.
@@ -148,10 +148,10 @@ After configuration is completed, the Operations Manager management group establ
 
 You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with OMS to determine if a new management pack is available and should be downloaded.  Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules.  Target the overrides to all objects of class Operations Manager Management Group.
 
-If you want to continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario.  This allows you to review and evaluate the iterative releases of the Log Analytics management packs before releasing them into your production management group.
+To continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario.  This allows you to review and evaluate the iterative releases of the Log Analytics management packs before releasing them into your production management group.
 
 ## Switch an Operations Manager group to a new Log Analytics Workspace
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics** and then create a workspace.  
 3. Open the Operations Manager console with an account that is a member of the Operations Manager Administrators role and select the **Administration** workspace.
 4. Expand Operations Management Suite, and select **Connections**.
