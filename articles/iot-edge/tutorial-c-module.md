@@ -32,7 +32,13 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+An Azure IoT Edge device.
+
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+
+Cloud resources
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for Visual Studio Code.
