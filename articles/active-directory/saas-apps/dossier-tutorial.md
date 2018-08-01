@@ -106,10 +106,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Dossier Domain and URLs single sign-on information](./media/dossier-tutorial/tutorial_dossier_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `Dossier/<CLIENTNAME`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `Dossier/<CLIENTNAME>`
 
 	> [!NOTE]
-	> As for Entity ID, you can set Entity ID as format: Dossier/ClientName or whatever other name which you like.
+	> For identifier value it should be in the format of `Dossier/<CLIENTNAME>` or any user personalized value.
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://dossier.<CLIENTDOMAINNAME>/azuresso`
 
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn `
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Dossier Client support team](mailto:support@intellimedia.ca) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Dossier Client support team](mailto:support@intellimedia.ca) to get these values.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
 
