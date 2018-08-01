@@ -19,6 +19,12 @@ The query design can express simple pass-through logic to move event data from o
 
 This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
 
+## Work with complex Data Types in JSON and AVRO 
+Azure Stream Analytics supports processing events in CSV, JSON and Avro data formats.
+Both JSON and Avro may contain complex types such as nested objects (records) or arrays. In order to work with these complex data types, please refer to the [MSDN page explaining how to work with complex Data Types in JSON and AVRO page](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
+
 ## Query example: Convert data types
 **Description**: Define the types of properties on the input stream.
 For example, the car weight is coming on the input stream as strings and needs to be converted to **INT** to perform **SUM** it up.

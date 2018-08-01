@@ -7,7 +7,7 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
+ms.date: 07/31/2018
 ---
 
 # Set up continuous integration and deployment to Azure App Service with Jenkins
@@ -173,7 +173,7 @@ Set up Jenkins to receive [GitHub webhooks](https://developer.github.com/webhook
 3. A new build starts in Jenkins, triggered by the new commit on the `master` branch of the repo. Once it completes, reload your app on Azure.     
       ![View your deployed app on Azure](media/jenkins-java-quickstart/hello_docker_world.png)
 
-## Troubleshooting
+## Troubleshooting the Jenkins plugin
 
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
