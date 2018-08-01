@@ -1,6 +1,6 @@
 ---
 title: Detach a data disk from a Linux VM - Azure| Microsoft Docs
-description: Learn to detach a data disk from a virtual machine in Azure using CLI 2.0 or the Azure portal.
+description: Learn to detach a data disk from a virtual machine in Azure using Azure CLI or the Azure portal.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -95,7 +95,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## Detach a data disk using CLI 2.0
+## Detach a data disk using Azure CLI 
 
 This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
 

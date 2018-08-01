@@ -51,7 +51,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 If the feature is approved and properly registered, you should receive the "Registered" state.
 
-### CLI 2.0
+### Azure CLI
 
 To submit a request: 
 ```cli

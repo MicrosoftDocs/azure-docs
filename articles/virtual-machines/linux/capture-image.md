@@ -1,5 +1,5 @@
 ---
-title: Capture an image of a Linux VM in Azure using CLI 2.0 | Microsoft Docs
+title: Capture an image of a Linux VM in Azure using Azure CLI | Microsoft Docs
 description: Capture an image of an Azure VM to use for mass deployments using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
