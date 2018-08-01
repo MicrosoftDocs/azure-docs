@@ -62,4 +62,3 @@ To use Facebook as an identity provider in Azure Active Directory (Azure AD) B2C
 
 > [!NOTE]
 > Adding an **Identity provider** to your tenant does not modify your existing policies. Remember to update your policies by including the identity provider you just created.
-> Your Privacy Statement Policy URL should be also add to your directory. See how to update in the next link - [How-to: Add your organization's privacy info in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-properties-area)
