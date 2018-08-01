@@ -31,11 +31,21 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+An Azure IoT Edge device:
+
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* The Azure Machine Learning module does not support ARM processors.
+
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
+Development resources:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
-* [Node.js and npm](https://nodejs.org). npm is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
+* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
+* [Docker CE](https://docs.docker.com/engine/installation/). 
+* [Node.js and npm](https://nodejs.org). The npm package is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  

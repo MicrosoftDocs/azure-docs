@@ -56,12 +56,12 @@ Cloud resources:
 
 A Windows computer or virtual machine to act as your IoT Edge device: 
 
-1. Make sure you're using a supported Windows version:
+* Use a supported Windows version:
    * Windows 10 or newer
    * Windows Server 2016 or newer
-2. If it's a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-3. Install [Docker for Windows][lnk-docker] and make sure it's running.
-4. Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+* If it's a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+* Install [Docker for Windows][lnk-docker] and make sure it's running.
+* Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## Create an IoT hub
 

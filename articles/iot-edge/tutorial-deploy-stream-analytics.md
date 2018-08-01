@@ -35,8 +35,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An IoT hub
-* The IoT Edge device that you created and configured in the quickstart for [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin]. 
+An Azure IoT Edge device:
+
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* The Azure Machine Learning module does not support ARM processors.
+
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
 
 ## Create an Azure Stream Analytics job
 
