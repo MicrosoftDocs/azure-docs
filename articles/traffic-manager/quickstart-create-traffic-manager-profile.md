@@ -17,7 +17,7 @@ ms.date: 07/18/2018
 ms.author: kumud
 ---
 
-# Quickstart: Create a Traffic Manager profile for a highly available web applications
+# Quickstart: Create a Traffic Manager profile for a highly available web application
 
 This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. 
 
