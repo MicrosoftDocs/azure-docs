@@ -3,8 +3,8 @@ title: Become a Publisher in the storefronts on the marketplace | Azure
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: 
