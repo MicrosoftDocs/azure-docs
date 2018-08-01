@@ -37,7 +37,7 @@ Enabled by changing user state - This is the traditional method for requiring tw
 
 ## Choose authentication methods
 
-Enable at least one authentication method for your users based on your organization's requirements. We find that when enabled for users the Microsoft Authenticator app provides the best user experience. If you need to understand which methods are available and how to set them see the article [What are authentication methods]](concept-authentication-methods.md).
+Enable at least one authentication method for your users based on your organization's requirements. We find that when enabled for users the Microsoft Authenticator app provides the best user experience. If you need to understand which methods are available and how to set them see the article [What are authentication methods](concept-authentication-methods.md).
 
 ## Get users to enroll
 
