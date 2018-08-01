@@ -102,16 +102,19 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     + Green for succeeded: The job has completed successfully.
     + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
-    + Red for failed: The task has failed.
     + Blue for running: The task is running.
-    + White for skipped or waiting: The task is waiting to run, or the stage has skipped.
+    + White for waiting or skipped: The task is waiting to run, or the stage has skipped.
+    + Red for failed: The task has failed.
 
     ![graph color sample, running](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    The skipped stage display in white.
+    ![graph color sample, skip](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![graph color sample, failed](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
+    > Playback for each job is allowed. For incomplete job, playback is not supported.
 
 
 + Mouse scrolls to zoom in/out the job graph, or click **Zoom to fit** to make it fit to screen.
