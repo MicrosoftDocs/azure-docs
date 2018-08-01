@@ -3,10 +3,10 @@
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 
 ### [Become a publisher on the marketplace](./become-publisher.md)  
-##### [Create a Microsoft account](./guidelines.md)
-##### [Register in Dev Center](./register-dev-center.md) 
-##### [Billing options for Azure Marketplace](./billing-options-azure-marketplace.md)  
-##### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
+#### [Create a Microsoft account](./guidelines.md)
+#### [Register in Dev Center](./register-dev-center.md) 
+#### [Billing options for Azure Marketplace](./billing-options-azure-marketplace.md)  
+#### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
 
 ### Storefronts [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 
