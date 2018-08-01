@@ -136,6 +136,8 @@ items:
               href: mobile-apps-with-xamarin.md
             - name: Node.js
               href: sql-api-nodejs-application.md
+            - name: Node.js - V2 Preview
+              href: sql-api-nodejs-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Python Flask
