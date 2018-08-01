@@ -42,16 +42,9 @@
     - name: VMs (Data Science/Deep Learning) 
     - name: Azure Batch AI clusters
     - name: Azure Container Instances
-  - name: Get data and share	
-    items:    
-    - name: Access data store in training  
-    - name: Share and collaborate
   - name: Train and tune models
     items:    
     - name: Choose an ML algorithm	
-    - name: Train TensorFlow models
-    - name: Tune hyperparameters for DNN / ML models
-    - name: Run jobs on Spark
   - name: Track and evaluate models	
     items:    
     - name: Track run history and training metrics
@@ -63,13 +56,6 @@
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
       href: how-to-deploy-to-aks.md
-    - name: Deploy a model built with Spark ML
-    - name: IoT deployment
-  - name: Scale and secure	
-    items:    
-    - name: Encrypt web services in transit  
-    - name: 	Encrypt web services at rest
-  - name: Build and Deploy with VS Code	
 - name: Reference
   items:    
   - name: Machine learning SDK
