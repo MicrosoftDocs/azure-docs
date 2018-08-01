@@ -66,7 +66,7 @@ You can use the admin portal or PowerShell to add new nodes. The add node operat
    ![View scale unit details](media/azure-stack-add-scale-node/select-node2.png)
  
 3. The following parameters are required:  
-   - **BMC IP ADDRESS** for each scale unit node you add. Only one add node operation is supported at a time.
+   - **BMC IP ADDRESS** for each scale unit node you add. Only one *add node* operation is supported at a time.
    ![Add node](media/azure-stack-add-scale-node/add-node.png)
 
 ### Use PowerShell
