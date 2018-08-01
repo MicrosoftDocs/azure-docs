@@ -36,6 +36,7 @@
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Troubleshoot secure LDAP](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
 ### [Create a group managed service account on a managed domain](active-directory-ds-create-gmsa.md)
