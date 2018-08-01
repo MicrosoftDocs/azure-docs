@@ -44,10 +44,7 @@ While you are joining your device to your organization's network, the following 
 
     ![Set up a work or school account screen](./media/device-management-azuread-joined-devices-setup/04.png)
 
-
-
-
-6. On the **Let's get you signed in** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
+4. On the **Let's get you signed in** screen, type your email address (for example, alain@contoso.com), and then select **Next**.
 
     ![Let's get you signed in](./media/device-management-azuread-joined-devices-setup/10.png)
 
