@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/30/2018
+ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -14,23 +14,20 @@ manager: carmonm
 
 The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Log Analytics, and sends optional emails by using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
 
-This solution provides a decentralized automation option for users who want to reduce their costs by using serverless, low-cost resources. With this solution, you can:
+This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 
 - Schedule VMs to start and stop.
 - Schedule VMs to start and stop in ascending order by using Azure Tags (not supported for classic VMs).
 - Auto-stop VMs based on low CPU usage.
 
+The following are limitations to the current solution:
+
+- This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
+- This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts. AzureGov regions currently do not support email functionality.
+
 ## Prerequisites
 
-- The runbooks work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
-- This solution manages only VMs that are in the same subscription as your Azure Automation account.
-- This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts.
-
-  > [!NOTE]
-  > The runbooks managing the VM schedule can target VMs in any region.
-
-  > [!NOTE]
-  > AzureGov regions do not support email functionality.
+The runbooks for this solution work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
 
 ## Deploy the solution
 
@@ -58,7 +55,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Log Analytics has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
-1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following information:
+1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you can create a new Automation account to be associated with it, or select an existing Automation Account that is not already linked to a Log Analystics workspace. Select an existing Automation Account or click **Create an Automation account**, and on the **Add Automation account** page, provide the following information:
    - In the **Name** field, enter the name of the Automation account.
 
     All other options are automatically populated based on the Log Analytics workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
