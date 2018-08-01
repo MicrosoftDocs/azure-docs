@@ -57,6 +57,8 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 
+- <!-- 2753080 | IS -->  **Update available notification**- Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
+
 - <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack Syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software external to Azure Stack. The Syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
   To configure how the Syslog client communicates (such as protocol, encryption, and authentication) with the Syslog server, use the *Set-SyslogServer* cmdlet. This cmdlet is available from the privileged endpoint (PEP).
@@ -102,6 +104,8 @@ This update includes the following improvements for Azure Stack.
 ### Prerequisites
 
 - Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update.  There was no update 1806.  
+
+- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps). 
 
 - Before you start installation of update 1807, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action.
 
