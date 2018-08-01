@@ -74,7 +74,7 @@ The Azure Firewall service complements network security group functionality. Tog
 
 ### How do I set up Azure Firewall with my service endpoints?
 
-For secure access to PaaS services, we recommend service endpoints. Azure Firewall customers can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
+For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
 
 ### What are the known service limits?
 
