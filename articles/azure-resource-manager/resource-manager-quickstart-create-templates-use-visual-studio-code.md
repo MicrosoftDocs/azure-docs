@@ -126,7 +126,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
 
     From the screenshot output, the storage account name is *3tqebj3slyfyestandardsa*. 
 
-7. Run the following PowerShell command to list the newly created storage account:
+7. Run the following CLI command to list the newly created storage account:
 
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
