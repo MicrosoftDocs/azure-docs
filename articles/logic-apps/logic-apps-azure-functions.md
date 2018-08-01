@@ -14,16 +14,15 @@ ms.suite: integration
 
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
-When you want to create and run only enough code 
+When you want to create and only run just enough code 
 that addresses a specific problem in your logic apps, 
 you can create your own functions by using 
 [Azure Functions](../azure-functions/functions-overview.md). 
-This service provides the capability for creating and running 
-custom code snippets written with Node.js or C# in your logic 
-apps without worrying about creating an entire app or the 
-infrastructure for running your code. Azure Functions 
-provides serverless computing in the cloud and is useful 
-for performing tasks, such as these examples:
+This service helps you create and run Node.js or C# code in 
+your logic apps so you don't have to worry about creating an 
+entire app or the infrastructure for running your code. 
+Azure Functions provides serverless computing in the cloud 
+and is useful for performing tasks, for example:
 
 * Extend your logic app's behavior with functions supported by Node.js or C#.
 * Perform calculations in your logic app workflow.
@@ -66,7 +65,7 @@ in the Logic App Designer.
   * Your function must use the **Generic webhook** function template for 
   either **JavaScript** or **C#**. This template can accept content that has 
   `application/json` type from your logic app. These templates also help the 
-  Logic App Designer find and show the custom functions that you create with 
+  Logic App Designer find and show custom functions that are created from 
   these templates when you add those functions to your logic apps.
 
   * Check that your function template's **Mode** property is set to 
@@ -121,7 +120,8 @@ function template for either **JavaScript** or **C#**.
 formerly known as a [Swagger file](http://swagger.io/), for your function, 
 you can get a richer experience when you work with function parameters 
 in the Logic Apps Designer. To set up your function app so your logic 
-app can find and access functions that have Swagger descriptions:
+app can find and use functions that have Swagger descriptions, 
+follow these steps:
 
   * Make sure your function app is actively running.
 
