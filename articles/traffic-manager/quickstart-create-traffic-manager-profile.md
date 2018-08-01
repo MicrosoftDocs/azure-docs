@@ -17,11 +17,11 @@ ms.date: 07/18/2018
 ms.author: kumud
 ---
 
-# Quickstart: Create a Traffic Manager profile for high availability of applications
+# Quickstart: Create a Traffic Manager profile for a highly available web applications
 
-Azure Traffic Manager allows you to control user traffic distribution to websites or web applications across the different Azure regions. 
+This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. 
 
-This quickstart describes how to create a Traffic Manager profile that delivers high availability of your website. Traffic Manager continuously monitors the websites and provides automatic failover to the backup website when the primary website is not available.
+The scenario described in this quickstart includes two instances of a web application running in different Azure regions. A Traffic Manager profile that is configured to direct traffic based on [endpoint priority](traffic-manager-routing-methods.md#priority) is created to direct direct to the primary site running the web application. Traffic Manager continuously monitors the web application and provides automatic failover to the backup site of web application of when the primary site is unavailable.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,9 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Sign in to the Azure portal at https://portal.azure.com.
 
 ## Prerequisites
-This quickstart requires that you have deploy two instances of websites running in different Azure regions. The two websites serve as primary and backup endpoints for Traffic Manager.
-
-In this section, you create two website instances using Azure Web Apps in two Azure regions, namely, *East US* and *West Europe*. These websites later serve as primary and backup service endpoints for the Traffic Manager profile.
+This quickstart requires that you have deploy two instances of a web application running in different Azure regions (*East US* and *West Europe*). The two web application instances serve as primary and backup endpoints for Traffic Manager.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
 2. In **Web App**, enter or select the following information and enter default settings where none are specified:
@@ -58,13 +56,13 @@ In this section, you create two website instances using Azure Web Apps in two Az
 
 
 ## Create a Traffic Manager profile
-Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
+Create a Traffic manager profile that directs user traffic based on endpoint priority.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
+    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, **trafficmanager.net** which is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Priority** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and then select *myResourceGroupTM1*. |
@@ -117,7 +115,7 @@ In this section, you first determine the domain name of your Traffic Manager pro
 3. Copy the DNS name of your Traffic Manager Profile from the preceding step to successfully view the website in a web browser. When the primary endpoint is disabled, the user traffic gets routed to the secondary endpoint.
 
 ## Delete the Traffic Manager profile
-When no longer needed, select the resource groups (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
+When no longer needed, select delete the resource groups - **ResourceGroupTM1** and  **ResourceGroupTM2**.
 
 ## Next steps
 
