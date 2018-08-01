@@ -47,6 +47,7 @@ In this section, you create two website instances using Azure Web Apps in two Az
 3. Select **Create**.
 4. A default website is created when the Web App is successfully deployed.
 5. Repeat steps 1-3 to create a second website in a different Azure region with the following settings:
+
      | Setting         | Value     |
      | ---              | ---  |
      | Name           | Enter a unique name for your Web App  |
@@ -54,6 +55,7 @@ In this section, you create two website instances using Azure Web Apps in two Az
      | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanWestEurope*, and then select **OK**. 
      |      Location  |   West Europe      |
     |||
+
 
 ## Create a Traffic Manager profile
 Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
