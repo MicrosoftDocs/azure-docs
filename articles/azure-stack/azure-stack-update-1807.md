@@ -53,7 +53,7 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
-- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available via Portal, PowerShell and CLI.
+- <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available by using the portal, PowerShell, and CLI. 
 
 - <!-- 2222444 | IS, ASDK   -->  **Improvements in accuracy and resiliency have been made to networking usage meters**.  Network usage meters are now more accurate and take into account suspended subscriptions, outage periods and race conditions.
 

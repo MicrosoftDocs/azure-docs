@@ -55,9 +55,9 @@ The following steps are a high-level overview of how to add a node. Don't follow
 
 ## Add the node
 
-You can use the admin console or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *compute* and *storage* scale together.
+You can use the admin portal or PowerShell to add new nodes. The add node operation first adds the new scale unit node as available compute capacity and then automatically extends the storage capacity. The capacity expands automatically because Azure Stack is a hyperconverged system where *compute* and *storage* scale together.
 
-### Use the admin console
+### Use the admin portal
 
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
 2. Navigate to **Region management** > **Scale units**, and then select the scale unit that you want to expand capacity for.  
@@ -66,12 +66,12 @@ You can use the admin console or PowerShell to add new nodes. The add node opera
    ![View scale unit details](media/azure-stack-add-scale-node/select-node2.png)
  
 3. The following parameters are required:  
-   - **BMC IP ADDRESS** for each scale unit node you add. (One IP address per line.)
+   - **BMC IP ADDRESS** for each scale unit node you add. Only one add node operation is supported at a time.
    ![Add node](media/azure-stack-add-scale-node/add-node.png)
 
 ### Use PowerShell
 
-Use the **New-AzsScaleUnitNodeObject** cmdlet to add one or more nodes.  
+Use the **New-AzsScaleUnitNodeObject** cmdlet to add a node.  
 
 Before using either of the following sample PowerShell scripts, replace the values *node names* and *IP addresses* with values from your Azure Stack environment.
 
@@ -83,20 +83,11 @@ Before using either of the following sample PowerShell scripts, replace the valu
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
-**Add multiple nodes:**
-  ```powershell
-  ## Add multiple nodes 
-  $NewNode1=New-AzsScaleUnitNodeObject -computername "<name_of_new_node01>"  -BMCIPv4Address "<BMCIP_address_of_new_node01>" 
- 
-  $NewNode2=New-AzsScaleUnitNodeObject -computername "<name_of_new_node02>" -BMCIPv4Address “<BMCIP_address_of_new_node02>”$ 
- 
-  Add-AzsScaleUnitNode -NodeList @($NewNode1,$NewNode2) -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```
 
 ## Monitor add node operations 
 You can use the admin portal or PowerShell to get the status of the add node operation. Add node operations can take several hours to days to complete.
 
-### Use the admin console 
+### Use the admin portal 
 To monitor the addition of a new node, in the admin portal review the scale unit or scale unit node objects. To do so, go to **Region management** > **Scale units**. Next, select the scale unit or scale unit node you want to review. 
 
 ### Use PowerShell
