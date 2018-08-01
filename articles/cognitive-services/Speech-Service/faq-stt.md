@@ -1,9 +1,8 @@
 ---
-title: Frequently asked questions for Speech to Text Service on Azure | Microsoft Docs
+title: Frequently asked questions for Speech to Text Service on Azure
 description: Here are answers to the most popular questions about the Speech to Text.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
@@ -13,7 +12,7 @@ ms.author: panosper
 
 # Speech To Text Frequently Asked Questions
 
-If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
+If you can't find answers to your questions in this FAQ, check out other support options [here](support.md).
 
 ## General
 
@@ -23,7 +22,7 @@ If you can't find answers to your questions in this FAQ, try asking the Custom S
 
 **Question**: Where do I start if I want to use a baseline model?
 
-**Answer**: First you need to get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models,  consult the [details here](rest-apis.md). If you want to use WebSockets download the [SDK](speech-sdk.md)
+**Answer**: First you need to get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models, consult the [details here](rest-apis.md). If you want to use WebSockets download the [SDK](speech-sdk.md)
 
 **Question**: Do I always need to build a custom speech model?
 

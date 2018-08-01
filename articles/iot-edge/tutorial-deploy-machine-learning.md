@@ -103,7 +103,7 @@ Check that your container image was successfully created and stored in the Azure
 4. Copy the **Login server**, **Username**, and **Password**.  You need these to access the registry from your Edge devices.
 5. Select **Repositories**
 6. Select **machinelearningmodule**
-7. You now have the full image path of the container. Take note of this image path for the next section. It should look like this:  **<registry_name>.azureacr.io/machinelearningmodule:1**
+7. You now have the full image path of the container. Take note of this image path for the next section. It should look like this:  **<registry_name>.azurecr.io/machinelearningmodule:1**
 
 ## Deploy to your device
 

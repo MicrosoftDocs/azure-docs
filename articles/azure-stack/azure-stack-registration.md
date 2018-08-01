@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -120,7 +120,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel PayAsYouUse
+      -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
 
@@ -146,7 +146,7 @@ Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
     -AgreementNumber <EA agreement number> `
-    -BillingModel Capacity
+    -BillingModel Capacity `
     -RegistrationName $RegistrationName
 ```
 
