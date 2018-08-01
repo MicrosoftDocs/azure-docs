@@ -4,7 +4,7 @@ description: How to set up expiration for Office 365 groups in Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: curtand                   
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ---

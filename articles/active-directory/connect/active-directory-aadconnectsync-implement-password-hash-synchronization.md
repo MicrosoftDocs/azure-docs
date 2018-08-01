@@ -169,3 +169,4 @@ If you have problems with password hash synchronization, see [Troubleshoot passw
 ## Next steps
 * [Azure AD Connect sync: Customizing synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Get a step-by-step deployment plan for migrating from ADFS to Password Hash Synchronization](https://aka.ms/authenticationDeploymentPlan)

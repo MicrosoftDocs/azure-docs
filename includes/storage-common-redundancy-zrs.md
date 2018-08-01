@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 07/03/2018
+ ms.date: 07/11/2018
  ms.author: tamram
  ms.custom: include file
 ---
@@ -23,6 +23,7 @@ ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/
 ZRS is generally available in the following regions:
 
 - US East 2
+- US West 2
 - US Central
 - North Europe
 - West Europe

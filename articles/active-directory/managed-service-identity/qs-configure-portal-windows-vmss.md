@@ -1,6 +1,6 @@
 ---
-title: Configure MSI on an Azure virtual machine scale set using the Azure portal
-description: Step by step instructions for configuring a Managed Service Identity (MSI) on Azure VMSS, using the Azure portal.
+title: Configure Managed Service Identity on an Azure virtual machine scale set using the Azure portal
+description: Step by step instructions for configuring a Managed Service Identity on Azure VMSS, using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -17,7 +17,7 @@ ms.date: 02/20/2018
 ms.author: daveba
 ---
 
-# Configure a virtual machine scale set Managed Service Identity (MSI) using the Azure portal
+# Configure a virtual machine scale set Managed Service Identity using the Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -41,7 +41,7 @@ Currently, VM creation via the Azure portal does not support Managed Service Ide
 
 - [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Then proceed to the next section for details on enabling MSI on the virtual machine scale set.
+Then proceed to the next section for details on enabling Managed Service Identity on the virtual machine scale set.
 
 ## Enable Managed Service Identity on an existing Azure VMMS
 
@@ -57,7 +57,7 @@ To enable the system assigned identity on a VM that was originally provisioned w
 
 ## Remove Managed Service Identity from an Azure virtual machine scale set
 
-If you have a virtual machine scale set that no longer needs an MSI:
+If you have a virtual machine scale set that no longer needs a Managed Service Identity:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the virtual machine scale set. Also make sure your account belongs to a role that gives you write permissions on the virtual machine scale set.
 
@@ -73,6 +73,6 @@ If you have a virtual machine scale set that no longer needs an MSI:
 
 ## Next steps
 
-- Using the Azure portal, give an Azure virtual machine scale set MSI [access to another Azure resource](howto-assign-access-portal.md).
+- Using the Azure portal, give an Azure virtual machine scale set Managed Service Identity [access to another Azure resource](howto-assign-access-portal.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.

@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na 
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/17/2018
+  ms.date: 07/26/2018
   ms.author: ryanwi
 abstract:
   description: Azure Service Fabric Mesh is a fully managed service which enables developers to build and deploy mission critical applications without managing any infrastructure.  Use Service Fabric Mesh to build and run secure, distributed microservices applications that scale on demand. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.  To learn more, read the <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh overview</a>.
@@ -39,3 +39,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Create, debug, and deploy a multi-service web application to Service Fabric Mesh</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/servicefabric/sfmeshrp-index">Service Fabric Mesh Resource Provider APIs</a></p><p><a href="/rest/api/servicefabric/sfclient-index#service-fabric-resource-model">Service Fabric Client Resource APIs</a></p>
