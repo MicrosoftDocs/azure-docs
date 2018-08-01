@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Machine Learning with Azure IoT Edge | Microsoft Docs
-description: Deploy Azure Machine Learning as a module to an edge device
+description: In this tutorial, you deploy Azure Machine Learning as a module to an edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Deploy Azure Machine Learning as an IoT Edge module - preview
+# Tutorial: Deploy Azure Machine Learning as an IoT Edge module (preview)
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on simulated machine temperature data. For more information about Azure ML on IoT Edge, see [Azure Machine Learning documentation](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
@@ -28,15 +28,23 @@ In this tutorial, you learn how to:
 >[!NOTE]
 >Azure Machine Learning modules on Azure IoT Edge are in public preview. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## Prerequisites
 
-To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
+An Azure IoT Edge device:
 
-The Azure Machine Learning module does not support ARM processors.
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* The Azure Machine Learning module does not support ARM processors.
 
-Have the following prerequisites on your development machine: 
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
+Development resources:
 * An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
-* Model Management for Azure ML on your machine. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
+* Model Management for Azure ML. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
 
 ### Disable process identification
 
