@@ -47,7 +47,7 @@ To help secure your application, you first need to create an application in your
 2. Choose your Azure AD tenant by clicking on your account in the top right corner of the page, followed by clicking on the **Switch Directory** navigation and then select the appropriate tenant.
  * Skip this step, if you've only one Azure AD tenant under your account or if you've already selected the appropriate Azure AD tenant.
 
-3. In the left hand navigation pane, click on Azure Active Directory.
+3. In the left hand navigation pane, click on **Azure Active Directory**.
 
 4. Click **App registrations**, and then select **Add**.
 
