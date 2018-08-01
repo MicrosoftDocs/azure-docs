@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
 ---
 # Questions about the Azure Backup service
