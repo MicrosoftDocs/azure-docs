@@ -29,11 +29,11 @@ ms.reviewer: jairoc
 **A:** To register macOS device:
 
 1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.	[Define a conditional access policy for macOS devices](active-directory-conditional-access-azure-portal.md) 
+2.	[Define a conditional access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access attempt, your users are prompted to enroll the device using the company portal.
 
@@ -108,13 +108,13 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 **A:**
 
--	For Windows 10 and Windows Server 2016, if there are repeated attempts to unjoin and re-join the same device, there might be duplicate entries. 
+-	For Windows 10 and Windows Server 2016, if there are repeated attempts to unjoin and rejoin the same device, there might be duplicate entries. 
 
 -	If you have used Add Work or School Account, each windows user who uses Add Work or School Account will create a new device record with the same device name.
 
 -	For down-level Windows OS versions that are on-premises AD domain-joined using automatic registration will create a new device record with the same device name for each domain user who logs into the device. 
 
--	An Azure AD joined machine that has been wiped, re-installed and re-joined with the same name, will show up as another record with the same device name.
+-	An Azure AD joined machine that has been wiped, reinstalled, and rejoined with the same name, will show up as another record with the same device name.
 
 ---
 
@@ -123,7 +123,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 **A:** It can take up to an hour for a revoke to be applied.
 
 >[!Note] 
->For enrolled devices, we recommend wiping the device to ensure that users cannot access the resources. For more details, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>For enrolled devices, we recommend wiping the device to ensure that users cannot access the resources. For more information, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
@@ -144,7 +144,7 @@ Please evaluate the conditional access policy rules and ensure that the device i
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
-For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).
+For more information, see [Require managed devices for cloud app access with conditional access](../active-directory-conditional-access-policy-connected-applications.md).
 
 ---
 
@@ -156,8 +156,6 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 - Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
 
-- The Azure AD Join pre-requisites were not met. Please ensure that you have followed the steps for [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
-
 - Federated logins requires your federation server to support a WS-Trust active endpoint. 
 
 - You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
@@ -166,7 +164,7 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **Q: Why do I see the “Oops… an error occurred!" dialog when I try do Azure AD join my PC?**
 
-**A:** This is a result of setting up Azure Active Directory enrollment with Intune. Please make sure that the user attempting to do Azure AD join has correct Intune license assigned. For more details, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**A:** This is a result of setting up Azure Active Directory enrollment with Intune. Please make sure that the user attempting to do Azure AD join has correct Intune license assigned. For more information, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
@@ -175,11 +173,6 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 **A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
 
----
-
-**Q: Where can I find instructions for the setup of automatic device registration?**
-
-**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ---
 
@@ -187,9 +180,9 @@ Please create a different local account before using Azure Active Directory Join
 
 **A:** For troubleshooting information, see:
 
-- [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
 
-- [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](troubleshoot-hybrid-join-windows-legacy.md)
  
 
 ---
