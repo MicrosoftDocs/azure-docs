@@ -24,14 +24,14 @@ In Azure Active Directory (Azure AD), you can create complex attribute-based rul
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
+* You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
+* You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
+
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 >
-> You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
-> 
-> At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
-## To create an advanced rule
+## To create a group membership rule
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **Users and groups**.
@@ -72,12 +72,11 @@ The following status messages can be shown for **Membership last updated** statu
 
 If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
 
-!- 
 [processing error message](./media/groups-dynamic-membership/processing-error.png)
 
-## Constructing the body of an simple rule
+## Constructing the body of a membership rule
 
-The simple rule that you can create for the dynamic memberships for groups of users or devices is essentially a binary expression that results in a true or false outcome. The three parts of a simple rule are:
+The **Simple** rule that you can create to automatically populate groups with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
 
 * Property
 * Operator
@@ -85,29 +84,26 @@ The simple rule that you can create for the dynamic memberships for groups of us
 
 The order of the parts within an expression are important to avoid syntax errors.
 
-### Constructing rules with a single expression
+### Rules with a single expression
 
-A single expression is the simplest form of an advanced rule and only has the three parts mentioned above. A complete advanced rule with a single expression looks similar to this: Property Operator Value, where the syntax for the Property is object.property. 
+A single expression is the simplest form of an advanced rule and only has the three parts mentioned above. A complete advanced rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the value of object.property. 
 The following is an example of a properly constructed advanced rule with a single expression:
 
 ```
 user.department -eq "Sales"
 ```
 
-Opening and closing parenthesis are optional for the entire expression. 
-
-The total length of the body of your advanced rule cannot exceed 2048 characters.
+Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
 
 ## Supported properties
 
-There are three types of properties that can be used to construct an advanced rule.
+There are three types of properties that can be used to construct a membership rule.
 
 * Boolean
 * String
 * String collection
 
-The following are the user properties that you can use to create your advanced rule with a single expression:
-
+The following are the user properties that you can use to create a single expression.
 
 ### Properties of type boolean
 
@@ -122,19 +118,6 @@ Allowed operators
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### Properties of type string
-
-Allowed operators
-
-* -eq
-* -ne
-* -notStartsWith
-* -StartsWith
-* -contains
-* -notContains
-* -match
-* -notMatch
-* -in
-* -notIn
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
@@ -167,19 +150,16 @@ Allowed operators
 
 ### Properties of type string collection
 
-Allowed operators
-
-* -contains
-* -notContains
-
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+For the properties used for device rules, see [Rules for devices](#rules-for-devices).
+
 ## Supported operators
 
-The following table lists all the supported expression rule operators and their syntax for use in the body of a rule with a single expression:
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
 
 | Operator | Syntax |
 | --- | --- |
@@ -196,43 +176,47 @@ The following table lists all the supported expression rule operators and their 
 
 ### Using the -In and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values. This condition evaluates to True of the value of user.department equals one or more of the values in the list.
+
+ In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
 ```
    user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
-
-Use the "[" and "]" symbols at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one or more of the values in the list.
 
 ## Supported values
 
 The values used in an expression can consist of several types, including:
 
 * Strings
-* Boolean – true false
+* Boolean – true, false
 * Numbers
 * Arrays – number array, string array
 
-When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some simple things to note are:
+When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some syntax tips are:
 
 * Double quotes are optional unless the value is a string.
-* String and regex operations are not case sensitive. 
+* String and regex operations are not case sensitive.
 * When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value.
 * You can also perform Null checks, using null as a value, for example, user.department -eq null.
 
-
 ### Use of Null values
 
-To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null. Instead, use -eq or -ne. The correct way to reference the null value is as follows:
+To specify a null value in a rule, you can use the *null* value. 
+
+* Use -eq or -ne when comparing the *nulll* value in an expression.
+* Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
+* The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
+
+The correct way to reference the null value is as follows:
 
 ```
-   user.mail –ne $null
+   user.mail –ne null
 ```
 
-## Constructing rules with multiple simple expressions
+## Rules with multiple expressions
 
-An advanced rule can consist of more than one expressions separated by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
-The following are examples of properly constructed advanced rules with multiple expressions:
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. The following are examples of properly constructed advanced rules with multiple expressions:
 
 ```
 (user.department -eq "Sales") -or (user.department -eq "Marketing")
@@ -241,7 +225,7 @@ The following are examples of properly constructed advanced rules with multiple 
 
 ### Operator precedence
 
-All Operators are listed below per precedence from highest to lowest. Operators on same line are in equal precedence:
+All operators are listed below in order of precedence from highest to lowest. Operators on same line are of equal precedence:
 
 ```
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
@@ -251,7 +235,7 @@ All Operators are listed below per precedence from highest to lowest. Operators 
 -any -all
 ```
 
-The following is an example of operator precedence, where the department and country properties are being evaluated for the user:
+The following is an example of operator precedence where two expressions are being evaluated for the user:
 
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -263,27 +247,13 @@ Parentheses are needed only when precedence does not meet your requirements. For
    user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
 ```
 
-## Constructing rules with complex expressions
-An advanced rule can consist of complex expressions where the properties, operators, and values take on a more complex form. Expressions are considered complex when:
+## Rules with complex expressions
 
-* The property consists of a collection of values (specifically, multi-valued properties)
+An advanced rule can consist of complex expressions where the properties, operators, and values take on more complex forms. Expressions are considered complex when any of the following are true:
+
+* The property consists of a collection of values; specifically, multi-valued properties
 * The expressions use the -any and -all operators
 * The value of the expression can itself be one or more expressions
-
-
-
-
-
-### Query error remediation
-
-The following table lists common errors and how to correct them
-
-| Query Parse Error | Error Usage | Corrected Usage |
-| --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
-| Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "\@domain.ext$")|
-
 
 ## Multi-value properties
 
@@ -297,22 +267,27 @@ Multi-value properties are collections of objects of the same type. They can be 
 | assignedPlans | Each object in the collection exposes the following string properties: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
+### Using the -any and -all operators
+
 You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively.
 
-For example:
+* -any (satisfied when at least one item in the collection matches the condition)
+* -all (satisfied when all items in the collection match the condition)
 
-assignedPlans is a multi-value property that lists all service plans assigned to the user. The below expression will select users who have the Exchange Online (Plan 2) service plan that is also in Enabled state:
+#### Example 1
+
+assignedPlans is a multi-value property that lists all service plans assigned to the user. The following expression selects users who have the Exchange Online (Plan 2) service plan (as a GUID value) that is also in Enabled state:
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(The GUID identifier identifies the Exchange Online (Plan 2) service plan.)
+A rule such as this one can be used to group all users for whom an Office 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
-> [!NOTE]
-> This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
+#### Example 2
 
 The following expression selects all users who have any service plan that is associated with the Intune service (identified by service name "SCO"):
+
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
@@ -327,49 +302,78 @@ Here's an example of using the underscore (\_) in a rule to add members based on
 (user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
+## Other properties and common rules
 
-## Extension attributes and custom attributes
-Extension attributes and custom attributes are supported in dynamic membership rules.
+### "Direct Reports" rule
 
-Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
-An example of a rule that uses an extension attribute would be
+You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership is adjusted automatically.
+
+The direct reports rule is constructed using the following syntax:
+
+```
+Direct Reports for "{objectID_of_manager}"
+```
+
+The following tips can help you use the rule properly.
+
+* The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
+* For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
+* This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
+* This rule can't be combined with any other advanced rules.
+
+### Create an "All users" rule
+
+You can create a group containing all users within a tenant using an advanced rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+
+The “All users” rule is constructed using single expression using the -ne operator and the null value:
+
+```
+user.objectid -ne null
+```
+
+### Create an “All devices” rule
+
+You can create a group containing all devices within a tenant using an advanced rule. When devices are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+
+The “All Devices” rule is constructed using single expression using the -ne operator and the null value:
+
+```
+device.objectid -ne null
+```
+
+### Extension properties and custom extension properties
+
+Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. An example of a rule that uses an extension attribute might be:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in Azure AD and [Attribute] is the name of the attribute as it was created. An example of a rule that uses a custom attribute is
+Custom extension properties are synced from on-premises Windows Server AD or from a connected SaaS application and the format of `user.extension_[GUID]\__[Attribute]`, where:
+
+* [GUID] is the unique identifier in Azure AD for the application that created the attribute in Azure AD
+* [Attribute] is the name of the attribute as it was created
+
+An example of a rule that uses a custom attribute is
 
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
 
-The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name.
 
-## "Direct Reports" Rule
-You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership will be adjusted automatically.
+### Error remediation
 
-> [!NOTE]
-> 1. For the rule to work, make sure the **Manager ID** property is set correctly on users in your tenant. You can check the current value for a user on their **Profile tab**.
-> 2. This rule only supports **direct** reports. It is currently not possible to create a group for a nested hierarchy; for example, a group that includes direct reports and their reports.
-> 3. This rule cannot be combined with any other advanced rules.
+The following table lists common errors and how to correct them
 
-**To configure the group**
+| Rule parser error | Error usage | Corrected usage |
+| --- | --- | --- |
+| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
+| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
 
-1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
-2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
+## Rules for devices
 
-    *Direct Reports for "{objectID_of_manager}"*
-
-    An example of a valid rule:
-```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
-```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. After saving the rule, all users with the specified Manager ID value will be added to the group.
-
-## Using attributes to create rules for device objects
-You can also create a rule that selects device objects for membership in a group. The following device attributes can be used.
+You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
@@ -389,8 +393,6 @@ You can also create a rule that selects device objects for membership in a group
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
-
-
 ## Changing dynamic membership to static, and vice versa
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
@@ -401,7 +403,7 @@ We've updated the Azure AD Admin center to add support this functionality. Now, 
 >
 > We recommend that you test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
-### Using Azure AD admin center to change membership management on a group 
+### Change membership type for a group (Azure portal)
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
 2. Select **Groups**.
@@ -425,7 +427,7 @@ The following steps are an example of changing a group from static to dynamic me
 > [!TIP]
 > Group conversion might fail if the advanced rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid.
 
-### Using PowerShell to change membership management on a group
+#### Change membership type for a group (PowerShell)
 
 > [!NOTE]
 > To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
@@ -475,14 +477,19 @@ function ConvertStaticGroupToDynamic
 }
 ```
 To make a group static:
+
 ```
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
+
 To make a group dynamic:
+
 ```
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
+
 ## Next steps
+
 These articles provide additional information on groups in Azure Active Directory.
 
 * [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
