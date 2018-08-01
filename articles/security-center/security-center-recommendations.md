@@ -3,7 +3,7 @@ title: Managing security recommendations in Azure Security Center  | Microsoft D
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
 
 ---
@@ -91,7 +91,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
 | [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 | [Enable encryption for Azure Storage Account](security-center-enable-encryption-for-storage-account.md) | Recommends that you enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs. To learn more, see [Storage Service Encryption for data at rest](../storage/common/storage-service-encryption.md).</br>SSE is only supported on Resource Manager storage accounts. |
-| [Enable adaptive applications controls](security-center-adaptive-application.md) | Recommends that you apply adaptive application controls on your Windows VMs. This feature is in preview and available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
+| [Enable adaptive applications controls](security-center-adaptive-application.md) | Recommends that you apply adaptive application controls on your Windows VMs. This feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
 | App Service should only be accessible over HTTPS | Recommends that you limit access of App Service over HTTPS only. |
 | Web Sockets should be disabled for Web Application| Recommends that you carefully review the use of Web Sockets within web applications.  The Web Sockets protocol is vulnerable to different types of security threats. |
 | Use custom domains for your Web Application | Recommends that you use custom domains to protect a web application from common attacks such as phishing and other DNS-related attacks. |

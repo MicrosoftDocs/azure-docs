@@ -39,8 +39,16 @@
     - name: Data encryption-at-rest
       href: azure-security-encryption-atrest.md
     - name: Disk encryption for IaaS VMs
-      href: azure-security-disk-encryption.md
+      href: azure-security-disk-encryption-overview.md
       items:
+      - name: Disk encryption prerequisites
+        href: azure-security-disk-encryption-prerequisites.md
+      - name: Disk encryption for Windows VMs
+        href: azure-security-disk-encryption-windows.md
+      - name: Disk encryption for Linux VMs
+        href: azure-security-disk-encryption-linux.md
+      - name: Appendix for disk encryption
+        href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
       - name: Troubleshooting
@@ -198,6 +206,16 @@
     items:
     - name: Health Data and AI
       href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    items:
+      - name: Data analytics
+        href: ./blueprints/nist171-analytics-overview.md
+      - name: Data warehouse
+        href: ./blueprints/nist171-datawarehouse-overview.md
+      - name: IaaS web application
+        href: ./blueprints/nist171-iaaswa-overview.md
+      - name: PaaS web application
+        href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
     items:
     - name: Data analytics
