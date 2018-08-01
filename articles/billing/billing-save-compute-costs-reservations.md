@@ -23,7 +23,7 @@ Azure reserved instances helps you save money by pre-paying for one-year or thre
 You can buy a reserved instance in the [Azure portal](https://aka.ms/reservations). For more information, see the following topics:
 
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-instances.md).
+- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-vcores.md).
 
 ## Why should I buy a reserved instance?
 
@@ -64,7 +64,7 @@ At the end of the reserved instance term, the billing discount expires, and the 
 
 ## Next steps
 
-Start saving on your virtual machines by purchasing a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md) or [SQL Database reserved vCore](../sql-database/sql-database-reserved-instances.md).
+Start saving on your virtual machines by purchasing a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md) or [SQL Database reserved vCore](../sql-database/sql-database-reserved-vcores.md).
 
 To learn more about reserved instances, see the following articles:
 
