@@ -23,11 +23,11 @@ ms.author: maheshu
 ## Connection issues
 If you have trouble connecting to the managed domain using secure LDAP:
 
-* Ensure that the issuer chain of the secure LDAP certificate is trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
+* The issuer chain of the secure LDAP certificate must be trusted on the client. You may choose to add the Root certification authority to the trusted root certificate store on the client to establish the trust.
 * Verify that the LDAP client (for example, ldp.exe) connects to the secure LDAP endpoint using a DNS name, not the IP address.
 * Check the DNS name the LDAP client connects to. It must resolve to the public IP address for secure LDAP on the managed domain.
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the Subject or the Subject Alternative Names attribute.
-* Ensure the NSG settings for the virtual network allow the traffic to port 636 from the internet. This applies only if you've enabled secure LDAP access over the internet.
+* The NSG settings for the virtual network must allow the traffic to port 636 from the internet. This step applies only if you've enabled secure LDAP access over the internet.
 
 
 ## Need help?
