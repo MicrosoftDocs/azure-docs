@@ -81,12 +81,12 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
    * To customize the menu, right-click anywhere on the menu, and then click **Customize**.
    * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
-   * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
-     -**Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
+   * **Dashboard**, **Cluster Dashboard** and **URL**: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
+   * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
    * **Quickstart**: Displays information that will help you get started using HDInsight.
-   * **Users: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
+   * **Users**: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
 
      > [!IMPORTANT]
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
