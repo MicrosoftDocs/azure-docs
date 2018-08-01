@@ -57,7 +57,7 @@
   items:
   - name: Create workspace
     items:
-     - name Azure portal
+     - name: Azure portal
        href: log-analytics-quick-create-workspace.md  
   - name: Collect data
     items:
