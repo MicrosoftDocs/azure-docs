@@ -1,6 +1,6 @@
 ---
-title: Configure Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
-description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed domain | Microsoft Docs
+description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
