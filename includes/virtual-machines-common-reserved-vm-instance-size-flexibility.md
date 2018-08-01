@@ -7,16 +7,23 @@ ms.date: 08-03-2018
 ---
 # Size series covered when buying a reserved VM instance
 
-The reserved VM instance you buy can cover the VMs sizes in the same size series. The number of VMs covered in the series depends on the VM size you pick when you buy a reserved instance. The ratios listed in the follow tables show how many VMs are covered by reserved instance pricing when you create a VM that's a smaller size. For example, if you buy a reserved VM instance that's a Standard_B2 size, the reserved instance pricing applies to 4 Standard_B1s sized VMs. If you buy a reserved VM instance that's a Standard_B1 size, the reserved instance pricing only applies to 1 Standard_B1s sized VM and not to the larger a Standard_B2s sized VM.
+The reserved VM instance you buy can cover the VMs sizes in the same size series groupings that are described in this article. For example, there are two different groupings for reservations within the B-series burstable VM sizes. If you buy a reservation for Standard_B2s, that reservation discount can apply to running VM that are sizes Standard_B21s or Standard_B2s. If you buy a reservation for a Standard_B8ms sized VM, the reservation discount can apply to the 4 sizes listed in that table grouping: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms.
 
-## B-series
+The number of VMs covered in the series grouping depends on the VM size you pick when you buy a reserved instances and the sizes of the VMs that are running.
+
+The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_D4, the ratio or relative footprint compared to the other sizes in that series is 8. So if you run 2 Standard_D2 VMs (ratio = 2 for each) and 1 Standard_D3 VM (ratio = 4), the ratios add up to 8 (2+2+4). You get the reservation discount on those three VMs as they fit within the footprint that you bought. If you create and run an additional VM that is Standard_D1 size (ratio = 1), it isn't covered by the reservation discount because it exceeds the footprint that you bought.
+
+
+## B-series burstable size groupings
+
+### B-series
 
 | Size | Ratio|
 |---|---|
 | Standard_B1s | 1 |
 |Standard_B2s|4|
 
-## B-series Hi Mem - I don't see this in the VM docs - what is this? B-series burstable??
+### B-series high memory
 
 | Size | Ratio|
 |---|---|
@@ -25,7 +32,11 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_B4ms|8|
 |Standard_B8ms|16|
 
-## D-series
+For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
+
+## D-series size grouping
+
+### D-series
 
 | Size | Ratio|
 |---|---|
@@ -34,7 +45,7 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D3|4|
 |Standard_D4|8|
 
-## D-series Hi Mem - What is this in VM docs?
+### D-series high memory
 
 | Size | Ratio|
 |---|---|
@@ -43,7 +54,11 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D13|4|
 |Standard_D14|8|
 
-## Ds-series - What is this in VM docs?
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
+
+## Ds-series
+
+### Ds-series 
 
 | Size | Ratio|
 |---|---|
@@ -52,7 +67,7 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_DS3|4|
 |Standard_DS4|8|
 
-## Ds-series Hi Mem - What is this in VM docs?
+### Ds-series high memory
 
 | Size | Ratio|
 |---|---|
@@ -61,7 +76,11 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_DS13|4|
 |Standard_DS14|8|
 
-## DSv2-series
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
+
+## DSv2-series size groupings
+
+### DSv2-series
 
 | Size | Ratio|
 |---|---|
@@ -71,7 +90,7 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_DS4_v2|8|
 |Standard_DS5_v2|16|
 
-## DSv2-series Hi Mem - what is this in VM docs
+### DSv2-series high memory
 
 | Size | Ratio|
 |---|---|
@@ -80,6 +99,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_DS13_v2|4|
 |Standard_DS14_v2|8|
 |Standard_DS15_v2|10|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
 
 ## DSv3-series
 
@@ -92,7 +113,11 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D32s_v3|16|
 |Standard_D64s_v3|32|
 
-## Dv2-series
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv3-series-sup1sup).
+
+## Dv2-series size groupings
+
+### Dv2-series
 
 | Size | Ratio|
 |---|---|
@@ -102,7 +127,9 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D4_v2|8|
 |Standard_D5_v2|16|
 
-## Dv2-series Hi mem - what is this in VM docs?
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
+
+### Dv2-series high memory
 
 | Size | Ratio|
 |---|---|
@@ -111,6 +138,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D13_v2|4|
 |Standard_D14_v2|8|
 |Standard_D15_v2|10|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
 
 ## Dv3-series
 
@@ -123,6 +152,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_D32_v3|16|
 |Standard_D64_v3|32|
 
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv3-series-sup1sup).
+
 ## ESv3-series
 
 | Size | Ratio|
@@ -133,6 +164,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_E16s_v3|8|
 |Standard_E32s_v3|16|
 |Standard_E64s_v3|32|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
 ## Ev3-series
 
@@ -145,6 +178,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
 
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#ev3-series).
+
 ## F-series
 
 | Size | Ratio|
@@ -154,6 +189,8 @@ The reserved VM instance you buy can cover the VMs sizes in the same size series
 |Standard_F4|4|
 |Standard_F8|8|
 Standard_F16|16|
+
+For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#f-series).
 
 ## FS-series
 
@@ -165,7 +202,9 @@ Standard_F16|16|
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-## Fv2-series
+For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fs-series-sup1sup).
+
+## Fsv2-series
 
 | Size | Ratio|
 |---|---|
@@ -177,21 +216,27 @@ Standard_F16|16|
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-## H-series
+For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-sup1sup).
+
+## H-series size groupings
+
+### H-series
 
 | Size | Ratio|
 |---|---|
 | Standard_H8|1|
 |Standard_H16|2|
 
-## H-series Hi Mem
+### H-series high memory
 
 | Size | Ratio|
 |---|---|
 | Standard_H8m|1|
 |Standard_H16m|2|
 
-## L-series
+For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
+
+## Ls-series
 
 | Size | Ratio|
 |---|---|
@@ -200,21 +245,25 @@ Standard_F16|16|
 |Standard_L16s|4|
 |Standard_L32s|8|
 
-## M-series
+For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
+
+## M-series size groupings
+
+### M-series
 
 | Size | Ratio|
 |---|---|
 | Standard_M64s|1|
 |Standard_M128s|2|
 
-## M-series fractional - VM docs?
+### M-series fractional
 
 | Size | Ratio|
 |---|---|
 | Standard_M16s|1|
 |Standard_M32s|2|
 
-## M-series fractional high memory - VM docs?
+### M-series fractional high memory
 
 | Size | Ratio|
 |---|---|
@@ -222,19 +271,21 @@ Standard_F16|16|
 |Standard_M16ms|2|
 |Standard_M32ms|4|
 
-## M-series fractional large
+### M-series fractional large
 
 | Size | Ratio|
 |---|---|
 | Standard_M32ls|1|
 |Standard_M64ls|2|
 
-## M-series high memory
+### M-series high memory
 
 | Size | Ratio|
 |---|---|
 | Standard_M64ms|1|
 |Standard_M128ms|2|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
 ## NC-series
 
@@ -244,6 +295,8 @@ Standard_F16|16|
 |Standard_NC12|2|
 |Standard_NC24|4|
 
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-gpu.md).
+
 ## NCv2-series
 
 | Size | Ratio|
@@ -252,10 +305,34 @@ Standard_F16|16|
 |Standard_NC12s_v2|2|
 |Standard_NC24s_v2|4|
 
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series).
 
+## NCv3-series
 
+| Size | Ratio|
+|---|---|
+| Standard_NC6s_v3|1|
+|Standard_NC12s_v3|2|
+|Standard_NC24s_v3|4|
 
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#ncv3-series).
 
+## ND-series
 
+| Size | Ratio|
+|---|---|
+| Standard_ND6s|1|
+|Standard_ND12s|2|
+|Standard_ND24s|4|
 
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#nd-series).
 
+## NV-series
+
+| Size | Ratio|
+|---|---|
+| Standard_NV6|1|
+|Standard_NV12|2|
+|Standard_NV24|4|
+
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#nv-series).
