@@ -38,7 +38,7 @@ When you create a function app, you choose the hosting plan for functions in the
 > [!IMPORTANT]
 > You must choose the type of hosting plan during the creation of the function app. You can't change it afterward.
 
-On an App Service plan, you can scale between tiers to allocate different amount of resources. On the Consumption plan, Azure Functions automatically handles all resource allocation.
+On an App Service plan, you can scale between tiers to allocate different amount of resources. On the Consumption plan, Azure Functions automatically handles all resource allocation. 
 
 ## Consumption plan
 
@@ -78,6 +78,21 @@ When running JavaScript functions on an App Service plan, you should choose a pl
 ### Always On
 
 If you run on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Always on is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
+
+## What is my hosting plan
+
+To determine the hosting plan used by your function app, see **App Service plan / pricing tier** in the **Overview** tab for the function app in the [Azure portal](https://portal.azure.com). For App Service plans, the pricing tier is also indicated. 
+
+![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
+
+You can also use the Azure CLI to determine the plan, as follows:
+
+```azurecli-interactive
+appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-group <my_resource_group> --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+```  
+
+When the output from this command is `dynamic`, your function app is in the Consumption plan. All other values indicate tiers of an App Service plan.
 
 ## Storage account requirements
 
