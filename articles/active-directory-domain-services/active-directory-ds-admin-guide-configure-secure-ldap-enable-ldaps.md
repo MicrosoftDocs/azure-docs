@@ -1,6 +1,6 @@
 ---
-title: Configure Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
-description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+title: Enable Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
+description: Enable Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -18,13 +18,13 @@ ms.date: 08/01/2018
 ms.author: maheshu
 
 ---
-# Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+# Enable secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 
 ## Before you begin
 Complete [Task 2 - export the secure LDAP certificate to a .PFX file](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 
-## Task 3 - enable secure LDAP for the managed domain using the Azure portal
+## Task 3: Enable secure LDAP for the managed domain using the Azure portal
 To enable secure LDAP, perform the following configuration steps:
 
 1. Navigate to the **[Azure portal](https://portal.azure.com)**.
@@ -66,4 +66,4 @@ To enable secure LDAP, perform the following configuration steps:
 >
 
 ## Next step
-[Task 4 - configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md)
+[Task 4: configure DNS to access the managed domain from the internet](active-directory-ds-ldaps-configure-dns.md)

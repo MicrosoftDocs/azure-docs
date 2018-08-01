@@ -1,6 +1,6 @@
 ---
-title: Configure Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
-description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+title: Configure DNS to access a managed domain using LDAPS over the internet | Microsoft Docs
+description: Configure DNS to access an Azure AD Domain Services managed domain using LDAPS over the internet
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -18,12 +18,12 @@ ms.date: 08/01/2018
 ms.author: maheshu
 
 ---
-# Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+# Configure DNS to access an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 
 ## Before you begin
-Complete [Task 3 - enable secure LDAP for the managed domain using the Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+Complete [Task 3: enable secure LDAP for the managed domain using the Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
-## Task 4 - configure DNS to access the managed domain from the internet
+## Task 4: Configure DNS to access the managed domain from the internet
 > [!TIP]
 > **Optional task** - If you do not plan to access the managed domain using LDAPS over the internet, skip this configuration task.
 >
@@ -45,4 +45,4 @@ That's it! You're now ready to connect to the managed domain using secure LDAP o
 >
 
 ## Next step
-[Task 5 - bind to the managed domain and lock down secure LDAP access](active-directory-ds-ldaps-bind-and-lockdown.md)
+[Task 5: bind to the managed domain and lock down secure LDAP access](active-directory-ds-ldaps-bind-lockdown.md)
