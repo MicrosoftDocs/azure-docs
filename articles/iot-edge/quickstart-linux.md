@@ -41,18 +41,18 @@ Add the Azure IoT extension to the cloud shell instance.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## Prerequisites
 
-This quickstart uses a Linux machine as an IoT Edge device. If you don't have one available for testing, you can create one using the Azure CLI. 
+Cloud resources: 
 
-Create a new resource group. You can use this resource group for the other Azure resources that you create in this quickstart, for easy management.  
+* A resource group to manage all the resources you use in this quickstart. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Create the virtual machine. You don't need a very large virtual machine to test IoT Edge. A size like **B1ms** is sufficient.
+* A Linux virtual machine to act as your IoT Edge device. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -60,18 +60,13 @@ Create the virtual machine. You don't need a very large virtual machine to test 
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub in the Azure portal.
+Start the quickstart by creating your IoT Hub with Azure CLI. 
+
 ![Create IoT Hub][3]
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
 
-1. In the Azure cloud shell, create a resource group if you didn't as part of the prerequisites. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
+The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
