@@ -56,7 +56,7 @@ Consider a scenario where you want to know when your web-based App gives a respo
 - **Query:** requests | where resultCode == "500"<br>
 - **Time period:** 30 minutes<br>
 - **Alert frequency:** five minutes<br>
-- **Threshold value:** Great than 0<br>
+- **Threshold value:** Greater than 0<br>
 
 Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
 
@@ -82,7 +82,7 @@ Consider a scenario where you wanted an alert if any computer exceeded processor
 - **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
 - **Time period:** 30 minutes<br>
 - **Alert frequency:** five minutes<br>
-- **Aggregate value:** Great than 90<br>
+- **Aggregate value:** Greater than 90<br>
 - **Trigger alert based on:** Total breaches Greater than 2<br>
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
@@ -100,7 +100,7 @@ Log alert as well as its consisting log search alert rule can be viewed, created
 - Azure Resource Manager Templates
 
 ### Azure portal
-Since the introduction of the [new Azure alerts](monitoring-overview-unified-alerts.md), now users can manage all types of alerts in Azure portal from a single location and similar steps. Learn more about [using new Azure Alerts](monitor-alerts-unified-usage.md).
+Since the introduction of the [new Azure alerts](monitoring-overview-unified-alerts.md), now users can manage all types of alerts in Azure portal from a single location and with similar steps for usage. Learn more about [using new Azure Alerts](monitor-alerts-unified-usage.md).
 
 Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts  by saving the query*. Steps to follow:
 - *For Application Insights*: Go-to Analytics portal, validate query and its results. Then save with unique name into *Shared Queries*.
