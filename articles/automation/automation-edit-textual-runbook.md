@@ -68,7 +68,7 @@ The following sample commands show how to retrieve the script for a runbook and 
 $resourceGroupName = "MyResourceGroup"
 $automationAccountName = "MyAutomatonAccount"
 $runbookName = "Hello-World"
-$scriptFolder = "c:\runbooks\"
+$scriptFolder = "c:\runbooks"
 
 Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -OutputFolder $scriptFolder -Slot Draft
 ```
@@ -81,7 +81,7 @@ The following sample commands show how to replace the existing contents of a run
 $resourceGroupName = "MyResourceGroup"
 $automationAccountName = "MyAutomatonAccount"
 $runbookName = "Hello-World"
-$scriptFolder = "c:\runbooks\"
+$scriptFolder = "c:\runbooks"
 
 Import-AzureRmAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookName -Type PowerShell -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -Force
 Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
