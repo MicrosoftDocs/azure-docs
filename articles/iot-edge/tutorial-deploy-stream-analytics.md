@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy ASA jobs to Azure IoT Edge devices | Microsoft Docs 
-description: Deploy Azure Stream Analytics as a module to an Iot Edge device
+description: In this tutorial, you deploy Azure Stream Analytics as a module to an Iot Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module - preview
+# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module (preview)
 
 Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from the IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics][azure-stream] logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
@@ -30,6 +30,8 @@ In this tutorial, you learn how to:
 
 >[!NOTE]
 >Azure Stream Analytics modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
