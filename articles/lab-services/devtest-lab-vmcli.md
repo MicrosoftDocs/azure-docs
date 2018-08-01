@@ -23,7 +23,7 @@ Before you begin:
 
 * If a lab has not been created, instructions can be found [here](devtest-lab-create-lab.md).
 
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
+* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
 
 ## Create and verify the virtual machine 
 Create a VM from a marketplace image with ssh authentication.
