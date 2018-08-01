@@ -18,12 +18,12 @@ ms.author: yashar
 ---
 # What are Azure reserved instances?
 
-Azure reserved instances helps you save money by pre-paying for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying allows you to get a discount on the resources you use. Azure reserved instances can significantly reduce your virtual machine or SQL database compute costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved instances provide a billing discount and do not affect the runtime state of your virtual machines or SQL databases.
+Azure reserved instances helps you save money by pre-paying for one-year or three-years of virtual machine or SQL Database compute capacity. Pre-paying allows you to get a discount on the resources you use. Azure reserved instances can significantly reduce your virtual machine or SQL database compute costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved instances provide a billing discount and don't affect the runtime state of your virtual machines or SQL databases.
 
 You can buy a reserved instance in the [Azure portal](https://aka.ms/reservations). For more information, see the following topics:
 
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-vcores.md).
+- [Prepay for SQL Database compute resources with SQL reserved vCores](../sql-database/sql-database-reserved-vcores.md)
 
 ## Why should I buy a reserved instance?
 
@@ -31,12 +31,10 @@ If you have virtual machines or SQL databases that run for long periods of time,
 
 ## What charges does a reserved instance cover?
 
-- Reserved Virtual Machine Instance: A reserved instance only covers the virtual machine compute costs. A reserved instance does not cover additional software, networking, or storage charges.
+- Reserved Virtual Machine Instance: A reserved instance only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
 - SQL Database reserved vCore: Only the compute costs are included with a reserved instance. The license is billed separately.
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-A SQL Reserved Instance covers the infrastructure charges for your SQL database.
 
 ## Who’s eligible to purchase a reserved instance?
 
@@ -54,13 +52,13 @@ The reserved instance purchase is charged to the payment method tied to the subs
 
 The reserved instance discount applies to the resource usage that matches the attributes you select when you purchase the reserved instance. The attributes include the scope where the matching VMs, SQL databases, or other resources run. For example, if you want a reserved instance discount for four Standard D2 virtual machines in the West US region, select the subscription where the VMs are running. If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reserved instance discount to be applied across subscriptions. You can change the scope after you buy a reserved instance. For more information, see [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md).
 
-The reserved instance discount only applies to virtual machines or SQL databases associated with enterprise or Pay-As-You-Go subscription types. Virtual machines or SQL databases that run in a subscription with other offer types do not receive the reserved instance discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the reserved instance benefits.
+The reserved instance discount only applies to virtual machines or SQL databases associated with enterprise or Pay-As-You-Go subscription types. Virtual machines or SQL databases that run in a subscription with other offer types don't receive the reserved instance discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the reserved instance benefits.
 
-To better understand how reserved instance affects your virtual machine or SQL database billing, see [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md).
+To better understand how reserved instances affects your virtual machine or SQL database billing, see [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md).
 
 ## What happens when the reserved instance term expires?
 
-At the end of the reserved instance term, the billing discount expires, and the virtual machine, SQL database, or other resources are billed at the pay-as-you go price. Azure reserved instances do not auto-renew. To continue getting the billing discount, you must buy a new reserved instance for reservation eligible services.
+At the end of the reserved instance term, the billing discount expires, and the virtual machine, SQL database, or other resources are billed at the pay-as-you go price. Azure reserved instances don't auto-renew. To continue getting the billing discount, you must buy a new reserved instance for reservation eligible services.
 
 ## Next steps
 

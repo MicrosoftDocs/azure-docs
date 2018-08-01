@@ -19,14 +19,14 @@ ms.author: yashar
 
 After you buy an Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your virtual machines.
 
-The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
+The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you're charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reserved instance |
 |-----------------------|--------------------------------------------|
 |Linux VMs without additional software | The reserved instance covers your VM infrastructure costs.|
-|Linux VMs with software charges (For example, Red Hat) | The reserved instance covers the infrastructure costs. You are charged for additional software.|
-|Windows VMs without additional software |The reserved instance covers the infrastructure costs. You are charged for Windows software.|
-|Windows VMs with additional software (For example, SQL server) | The reserved instance covers the infrastructure costs. You are charged for Windows software and for additional software.|
+|Linux VMs with software charges (For example, Red Hat) | The reserved instance covers the infrastructure costs. You're charged for additional software.|
+|Windows VMs without additional software |The reserved instance covers the infrastructure costs. You're charged for Windows software.|
+|Windows VMs with additional software (For example, SQL server) | The reserved instance covers the infrastructure costs. You're charged for Windows software and for additional software.|
 |Windows VMs with [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | The reserved instance covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.| 
 
 ## Application of reserved instance discount to non-Windows VMs
@@ -36,7 +36,7 @@ The following table illustrates the costs for your virtual machine after you pur
 ![Screenshot of one applied Reserved Instance and two matching VM instances](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
 1. Any usage that’s above the reserved instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the reserved instances line, since it has been already paid as part of reserved instance purchase.
-2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You are charged the pay-as-you-go rates for the remaining 0.25 hours.
+2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
 3. For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reserved instance and the other is charged at pay-as-you-go rates.
 4. For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reserved instance and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
@@ -44,7 +44,7 @@ To understand and view the application of your Azure reserved instances in billi
 
 ## Application of reserved instance discount to Windows VMs
 
-When you are running Windows VM instances, the reserved instance is applied to cover the infrastructure costs. The application of the reserved instance to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reserved instances](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+When you're running Windows VM instances, the reserved instance is applied to cover the infrastructure costs. The application of the reserved instance to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with reserved instances](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Next steps
 
@@ -53,7 +53,6 @@ To learn more about reserved instances, see the following articles:
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
-- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reserved instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
