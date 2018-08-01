@@ -76,7 +76,7 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Stopping</strong></p>
 </td>
 <td width="484">
-<p>Status of the VM when a VM is either stopped from client or guest OS. Stopping status is a transitional state, which eventually transitions to its final state of Stopped.</p>
+<p>Status of the VM, when a VM is either stopped from client or guest OS. Stopping status is a transitional state, which eventually transitions to its final state of Stopped.</p>
 <code>"statuses": [</br>
  {</br>
  "code": "ProvisioningState/updating",</br>
@@ -99,8 +99,8 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Stopped</strong></p>
 </td>
 <td width="484">
-<p>State occurs when a VM has been shut down from the guest OS then the VM transitions to the stopped state.</p>
-<p>An important distinction to note is that VM is only stopped on the host but not removed as compared to deallocate and is still billed.</p>
+<p>Stopped state is observed when a VM has been shut down from the guest OS then the VM transitions to the stopped state.</p>
+<p>VM in a stopped state is only stopped on the host but not removed as compared to deallocate state. </p>
 <code>"statuses": [</br>
  {</br>
  "code": "ProvisioningState/succeeded",</br>
@@ -124,7 +124,7 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Deallocating</strong></p>
 </td>
 <td width="484">
-<p>when the user stops the VM using client APIs VM transitions to deallocating transitional state.</p>
+<p>when the user stops the VM using client APIs, VM transitions to deallocating transitional state.</p>
 <code>"statuses": [</br>
  {</br>
  "code": "ProvisioningState/updating",</br>
@@ -169,14 +169,11 @@ The Power states represent VM’s running state as seen by the hypervisor.
 </tbody>
 </table>
 
-Refer to the following [Virtual
-Machines Error
-Messages](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages)
-for details.
+For list of Virtual Machines errors, visit [here] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages).
 
 ##Provisioning
 
-These states are statuses of User-initiated (control plane)
+Provisioning states are statuses of User-initiated (control plane)
 operations on the VM. These states are independent of the running state of a VM, which is observed as Power states and discussed earlier.
 
 **User Initiated actions**
@@ -193,7 +190,7 @@ operations on the VM. These states are independent of the running state of a VM,
     into provisioning states related to updating.
 
 **Operation states** – Transitional states after the platform has
-accepted the request for user action.
+accepted the request for user-initiated action.
 
 <table>
 <tbody>
@@ -268,7 +265,7 @@ accepted the request for user action.
 </td>
 <td width="366">
 <p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed</p>
-<p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <br /> 
+<p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
 <code> "statuses": [</br>
  {</br>
  "code": "ProvisioningState/ OSProvisioningInprogress",</br>
@@ -276,7 +273,7 @@ accepted the request for user action.
  "displayStatus": "OS Provisioning In progress"</br>
  }</br>
 ]</code></br>
-<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived as it quickly transitions to Success state from completion unless VM has to install the extension. Installation of extension take time and thus provides a window to observe these states. <br />
+<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived state, as it quickly transitions to Success unless VM has to install any extensions. Installation of extensions take time and thus provides a window to observe these states. <br />
 <code> "statuses": [</br>
  {</br>
  "code": "ProvisioningState/ OSProvisioningComplete",</br>
@@ -304,7 +301,7 @@ completed.
  \]</br>
 </code>
 </p>
-**Failed** – This state represent a failed operation. Refer to the error codes to get more information and possible
+**Failed** – This state represents a failed operation. Refer to the error codes to get more information and possible
 resolution.
 </p>
 <code>
