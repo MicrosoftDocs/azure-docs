@@ -21,7 +21,7 @@ ms.author: kumud
 
 This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. 
 
-The scenario described in this quickstart includes two instances of a web application running in different Azure regions. A Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority) is created to direct to the primary site running the web application. Traffic Manager continuously monitors the web application and provides automatic failover to the backup site when the primary site is unavailable.
+The scenario described in this quickstart includes two instances of a web application running in different Azure regions. A Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority) is created that helps direct user traffic to the primary site running the application. Traffic Manager continuously monitors the web application and provides automatic failover to the backup site when the primary site is unavailable.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
