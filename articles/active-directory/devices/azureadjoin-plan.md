@@ -47,12 +47,12 @@ Enterprises can provide cloud-only accounts to partner companies and organizatio
 * Windows 10 (Professional and Enterprise editions)
 
 ### Administrator tasks
-* [Set up device registration](active-directory-azureadjoin-setup.md)
+* [Set up device registration](device-management-azure-portal.md)
 
 ### User tasks
-* [Set up a new Windows 10 device with Azure AD during setup](active-directory-azureadjoin-user-frx.md)
+* [Set up a new Windows 10 device with Azure AD during setup](azuread-joined-devices-frx.md)
 * [Set up a Windows 10 device with Azure AD from the settings menu](active-directory-azureadjoin-user-upgrade.md)
-* [Join a personal Windows 10 device to your organization](active-directory-azureadjoin-personal-device.md)
+* [Join a personal Windows 10 device to your organization](../user-help/device-management-azuread-joined-devices-setup.md)
 
 ## Enable BYOD in your organization for Windows 10
 You can set up your users and employees to use their personal Windows devices (BYOD) to access company apps and resources. Your users can add their Azure AD accounts (work or school accounts) to a personal Windows device to access resources in a secure and compliant fashion.
@@ -67,16 +67,12 @@ You can set up your users and employees to use their personal Windows devices (B
 * Windows 10 (Professional and Enterprise editions)
 
 ### Administrator tasks
-* [Set up device registration](active-directory-azureadjoin-setup.md)
+* [Set up device registration](device-management-azure-portal.md)
 
 ### User tasks
-* [Join a personal Windows 10 device to your organization](active-directory-azureadjoin-personal-device.md)
+* [Join a personal Windows 10 device to your organization](../user-help/device-management-azuread-joined-devices-setup.md)
 
-## Additional information
-* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-* [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
-* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
-* [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+## Next steps
+
+- [Device management](overview.md)
 
