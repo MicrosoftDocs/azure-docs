@@ -3,14 +3,13 @@ title: Make application data highly available in Azure | Microsoft Docs
 description: Use read-access geo-redundant storage to make your application data highly available
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
+ms.component: blobs
 ---
 
 # Make your application data highly available with Azure storage
