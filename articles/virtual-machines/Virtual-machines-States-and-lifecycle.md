@@ -1,8 +1,8 @@
 #Virtual Machines Lifecycle and States
 
-Virtual Machines goes through different provisioning and power states during its lifecycle. The purpose of this document is to describe these states and specifically highlight when our customers are billed for hardware + software usage. 
+Virtual Machines goes through different "provisioning" and "power" states during its lifecycle. The purpose of this document, is to describe these states and specifically highlight when our customers are billed for hardware + software usage. 
 
-##Power State
+##Power States
 
 The Power states represent VM’s running state as seen by the hypervisor.
 
@@ -171,7 +171,7 @@ The Power states represent VM’s running state as seen by the hypervisor.
 
 For list of Virtual Machines errors, visit [here] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages).
 
-##Provisioning
+##Provisioning States
 
 Provisioning states are statuses of User-initiated (control plane)
 operations on the VM. These states are independent of the running state of a VM, which is observed as Power states and discussed earlier.
