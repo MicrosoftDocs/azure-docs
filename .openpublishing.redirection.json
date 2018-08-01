@@ -8191,6 +8191,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/event-hubs/event-hubs-overview.md",
             "redirect_url": "/azure/event-hubs/event-hubs-what-is-event-hubs",
             "redirect_document_id": false
@@ -11593,11 +11598,6 @@
         {
             "source_path": "articles/traffic-manager/traffic-manager-endpoints.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-endpoints",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/traffic-manager/traffic-manager-how-traffic-manager-works.md",
-            "redirect_url": "/azure/traffic-manager/traffic-manager-overview",
             "redirect_document_id": false
         },
         {
@@ -26533,6 +26533,11 @@
         {
             "source_path": "articles/powerbi-embedded/migrate-code-snippets.md",
             "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-node.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-spa",
             "redirect_document_id": true
         },
         {    
