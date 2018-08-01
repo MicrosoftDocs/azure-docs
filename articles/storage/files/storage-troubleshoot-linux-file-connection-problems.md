@@ -135,12 +135,16 @@ Common causes for this issue are:
 
 - You are using an incompatible Linux distribution client. We recommend you use the following Linux Distributions to connect to Azure file share:
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)**    
+    
+    |   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - CIFS-utils are not installed on the client.
 - The minimum SMB/CIFS version 2.1 is not installed the client.
@@ -166,6 +170,31 @@ Upgrade the Linux kernel to the following versions that have fix for this issue:
 - 4.9.48+
 - 4.12.11+
 - All versions that is greater or equal to 4.13
+
+## Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported
+
+### Cause
+By default mounting Azure File Shares on linux using CIFS doesn’t enable support for symlinks. You’ll see an error link this:
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### Solution
+The Linux CIFS client doesn’t support creation of Windows style symbolic links over SMB2/3 protocol. Currently Linux client supports another style of symbolic links called [Mishall+French symlinks] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) for both create and follow operations. Customers who need symbolic links can use "mfsymlinks" mount option. “mfsymlinks” are usually recommended because that is also the format used by Macs.
+
+Inorder to be able to use symlinks, add the following to the end of your CIFS mount command:
+
+```
+,mfsymlinks
+```
+
+So the command will look something like:
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Once added, you will be able to create symlinks as suggested on the [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers)
 
 ## Need help? Contact support.
 
