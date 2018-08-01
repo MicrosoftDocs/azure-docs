@@ -7,47 +7,15 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: tomfitz
 ---
 
-# Manage Event Grid delivery settings
+# Dead letter and retry policies
 
 When creating an event subscription, you can customize the settings for event delivery. You can set how long Event Grid tries to deliver the message. You can set a storage account to use for storing events that can't be delivered to an endpoint.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
-## Set retry policy
-
-When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid attempts for 24 hours (1440 minutes), and tries a maximum of 30 times. You can set either of these values for your event grid subscription.
-
-To set the event time-to-live to a value other than 1440 minutes, use:
-
-```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --event-ttl 720
-```
-
-To set the maximum retry attempts to a value other than 30, use:
-
-```azurecli-interactive
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --max-delivery-attempts 18
-```
-
-If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire for retry attempts.
 
 ## Set dead-letter location
 
@@ -82,8 +50,41 @@ To use Event Grid to respond to undelivered events, [create an event subscriptio
 
 To turn off dead-lettering, rerun the command to create the event subscription but don't provide a value for `deadletter-endpoint`. You don't need to delete the event subscription.
 
+## Set retry policy
+
+When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid attempts for 24 hours (1440 minutes), and tries a maximum of 30 times. You can set either of these values for your event grid subscription.
+
+To set the event time-to-live to a value other than 1440 minutes, use:
+
+```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --event-ttl 720
+```
+
+To set the maximum retry attempts to a value other than 30, use:
+
+```azurecli-interactive
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --max-delivery-attempts 18
+```
+
+If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire for retry attempts.
+
 ## Next steps
 
+* For a sample application that uses an Azure Function app to process dead letter events, see [Azure Event Grid Dead Letter Samples for .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

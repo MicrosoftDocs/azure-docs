@@ -10902,7 +10902,17 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-servers-databases.md",
+            "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
+            "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
             "redirect_document_id": false
         },
         {
@@ -10947,7 +10957,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-technical-overview",
             "redirect_document_id": false
         },
         {
@@ -11027,7 +11037,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-servers-databases",
+            "redirect_url": "/azure/sql-database/sql-database-logical-servers",
             "redirect_document_id": false
         },
         {
@@ -26535,6 +26545,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
             "redirect_document_id": true
         },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-node.md",
+            "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-spa",
+            "redirect_document_id": true
+        },
         {    
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
@@ -26548,6 +26563,36 @@
 		{
             "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
             "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-troubleshoot-hybrid-join-windows-current.md",
+            "redirect_url": "/azure/active-directory/devices/troubleshoot-hybrid-join-windows-current",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-troubleshoot-hybrid-join-windows-legacy.md",
+            "redirect_url": "/azure/active-directory/devices/troubleshoot-hybrid-join-windows-legacy",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-introduction.md",
+            "redirect_url": "/azure/active-directory/devices/overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-faq.md",
+            "redirect_url": "/azure/active-directory/devices/faq",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-azure-portal.md",
+            "redirect_url": "/azure/active-directory/devices/device-management-azure-portal",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/device-management-azuread-joined-devices-frx.md",
+            "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
             "redirect_document_id": true
         }
     ]
