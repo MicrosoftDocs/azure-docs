@@ -162,6 +162,8 @@ The following procedure describes how to add a Terms of use language.
 
     ![Add TOU](media/active-directory-tou/languages-tou.png)
 
+1. Click **Add language**.
+
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
     ![Add TOU](media/active-directory-tou/language-add-tou.png)
