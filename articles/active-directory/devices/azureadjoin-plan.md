@@ -51,7 +51,7 @@ Enterprises can provide cloud-only accounts to partner companies and organizatio
 
 ### User tasks
 * [Set up a new Windows 10 device with Azure AD during setup](azuread-joined-devices-frx.md)
-* [Set up a Windows 10 device with Azure AD from the settings menu](active-directory-azureadjoin-user-upgrade.md)
+* [Set up a Windows 10 device with Azure AD from the settings menu](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
 * [Join a personal Windows 10 device to your organization](../user-help/device-management-azuread-joined-devices-setup.md)
 
 ## Enable BYOD in your organization for Windows 10
