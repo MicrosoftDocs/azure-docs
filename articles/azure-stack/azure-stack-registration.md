@@ -144,7 +144,7 @@ Connected environments can access the internet and Azure. For these environments
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel PayAsYouUse
+      -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
    For more information on the use of the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).

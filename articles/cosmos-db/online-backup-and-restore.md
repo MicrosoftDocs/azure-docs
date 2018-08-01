@@ -46,7 +46,7 @@ As described above, Azure Cosmos DB takes snapshots of your data every four hour
 For SQL API, If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
 
 > [!NOTE]
-> If you “Provision throughput for a set of containers at Database level” – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container - collection/table/graph if you use this new capability. 
+> If you “Provision throughput for a set of containers at Database level” – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container. Data can't be restored if you don't contact the support team within 8 hours. 
 
 
 ## Restoring a database from an online backup

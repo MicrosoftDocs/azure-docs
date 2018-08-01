@@ -131,14 +131,13 @@
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -154,19 +153,23 @@
 
 
 ## Manage devices
-### [Introduction](device-management-introduction.md)
-### [Using the Azure portal](device-management-azure-portal.md)
-### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [FAQs](device-management-faq.md)
+### [Overview](devices/overview.md)
+### [Using the Azure portal](devices/device-management-azure-portal.md)
+### [Plan Azure AD Join](devices/azureadjoin-plan.md)
+### [FAQs](devices/faq.md)
 ### Tasks
+#### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
+#### [Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
 ### Troubleshoot
-#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -222,11 +225,13 @@
 #### [Troubleshoot](manage-apps/application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
+#### [Add an application](manage-apps/add-application-portal.md)
+#### [View tenant apps](manage-apps/view-applications-portal.md)
 #### [Assign users](manage-apps/assign-user-or-group-access-portal.md)
 #### [Customize branding](manage-apps/change-name-or-logo-portal.md)
 #### [Disable user sign-ins](manage-apps/disable-user-sign-in-portal.md)
 #### [Remove users](manage-apps/remove-user-or-group-access-portal.md)
-#### [View all my apps](manage-apps/view-applications-portal.md)
+
 #### [Manage user account provisioning](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Manage single sign-on for enterprise apps](manage-apps/configure-single-sign-on-portal.md)
 #### [Advanced certificate signing for SAML apps](manage-apps/certificate-signing-options.md)

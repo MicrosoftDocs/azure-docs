@@ -25,7 +25,7 @@ In this quickstart, you go over the necessary steps for getting an Azure web app
 > * [Enable managed service identities](../active-directory/managed-service-identity/overview.md).
 > * Grant the required permissions for the web application to read data from Key vault.
 
-Before we go any further, read the basic concepts especially [Managed Service Identity](../active-directory/managed-service-identity/overview.md)
+Before we go any further, read the [basic concepts](key-vault-whatis.md#basic-concepts) especially [Managed Service Identity](../active-directory/managed-service-identity/overview.md)
 
 ## Prerequisites
 

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Use the Speech C# SDK sample to speak into microphone and get LUIS intent and entities predictions returned.
 services: cognitive-services
 author: diberry
-manager: kamran.iqbal
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: luis

@@ -50,6 +50,10 @@ sections:
       text: Java
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
     - image: 
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
+      text: Python (on Linux)
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
+    - image: 
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html

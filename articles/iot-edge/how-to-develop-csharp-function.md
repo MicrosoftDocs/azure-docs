@@ -18,7 +18,7 @@ This article shows you how to use [Visual Studio Code (VS Code)](https://code.vi
 This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
 
 > [!NOTE]
-> This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C# modules in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 This article uses Visual Studio Code as the main development tool. Install VS Code. Then add the necessary extensions: 
 
@@ -66,7 +66,7 @@ There are four items within the solution:
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
 
-## Devlop your module
+## Develop your module
 
 The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **EdgeHubTrigger-Csharp** > **run.csx**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
