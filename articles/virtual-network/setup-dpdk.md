@@ -46,7 +46,7 @@ The following distributions from the Azure Gallery are supported:
 
 **Custom kernel support**
 
-Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed. Contact us through the [Virtual network forum](https://feedback.azure.com/forums/217313-networking?category_id=195844). 
+Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed, or contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com), for further information. 
 
 ## Region support
 
