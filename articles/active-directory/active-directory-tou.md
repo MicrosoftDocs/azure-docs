@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
 
 ---
@@ -82,7 +82,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
     ![Add TOU](media/active-directory-tou/create-tou.png)
 
-## View who has accepted and declined
+## View report of who has accepted and declined
 The Terms of use blade shows a count of the users who have accepted and declined. These counts and who accepted/declined are stored for the life of the Terms of use.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
@@ -93,10 +93,10 @@ The Terms of use blade shows a count of the users who have accepted and declined
 
     ![Audit Event](media/active-directory-tou/accepted-tou.png)
 
-## View audit logs
+## View Azure AD audit logs
 If you want to view additional activity, Azure AD Terms of use includes audit logs. Each user consent triggers an event in the audit logs that is stored for 30 days. You can view these logs in the portal or download as a .csv file.
 
-To get started with audit logs, use the following procedure:
+To get started with Azure AD audit logs, use the following procedure:
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -163,10 +163,19 @@ Conditional access policies take effect immediately. When this happens, the admi
 ## Frequently asked questions
 
 **Q: How do I see when/if a user has accepted a Terms of use?**</br>
-A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the audit logs. For more information, see [View who has accepted and declined](#view-who-has-accepted-and-declined) and [View audit logs](#view-audit-logs).
+A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
+ 
+**Q: How long is information stored?**</br>
+A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.
 
-**Q: If you change the Terms of use terms, does it require users to accept again?**</br>
+**Q: Why do I see a different number of consents in the Terms of use report vs. the Azure AD audit logs?**</br>
+A: The Terms of use report is stored for the lifetime of that Terms of use, while the Azure AD audit logs are stored for 30 days. Also, the Terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the Terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
+
+**Q: If I change the Terms of use terms, does it require users to accept again?**</br>
 A: Yes, an administrator can change the Terms of use terms and it requires users to reaccept the new terms.
+
+**Q: If hyperlinks are in the Terms of use PDF document, will end users be able to click them?**</br>
+A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
 
 **Q: Can a Terms of use support multiple languages?**</br>
 A: Yes.  Currently there are 18 different languages an administrator can configure for a single Terms of use. 
@@ -185,6 +194,7 @@ A: The user is blocked from getting access to the application. The user would ha
  
 **Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
 A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
- 
-**Q: How long is information stored?**</br>
-A: The user counts and who accepted/declined are stored for the life of the Terms of use. The audit logs are stored for 30 days.
+
+## Next steps
+
+- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md)

@@ -8,22 +8,20 @@
 ### How to Publish on the Marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
 #### [Become a Publisher on the marketplace](./become-publisher.md)  
-#### [Requirements by Listing Type](./listing-type-requirements.md) 
-#### Business Validation Checklists  
-##### [Guidelines](./guidelines.md)  
-##### [Register in Dev Center](./register-dev-center.md)  
-##### [Add Bank and Tax Information](./add-bank-tax-info.md)  
-##### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
+##### [Create a Microsoft Account](./guidelines.md)
+##### [Register in Dev Center](./register-dev-center.md) 
 ##### [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md)  
+##### [Azure Partner Customer Usage Attribution](./azure-partner-customer-usage-attribution.md)
 
 ### Publishing Guide by Offer Type 
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure Apps: Solution Templates](./marketplace-solution-templates.md)
 #### [Azure Apps: Managed Applications](./marketplace-managed-apps.md)
-#### [SaaS app publishing guide](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [SaaS App](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
 #### [Consulting Service](./consulting-services.md)  
 #### [AppSource Apps](./appsource-offer-publishing-guide.md)
+#### [Enable Your Marketplace Trial Experience using Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred Solutions](./preferred-solutions.md) 

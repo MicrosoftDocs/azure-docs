@@ -1,7 +1,7 @@
 ---
 title: Deploy an app to Azure Service Fabric Mesh using a template | Microsoft Docs
 description: Learn how to deploy a .NET Core application to Service Fabric Mesh from a template using the Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -49,28 +49,28 @@ The preceding command deploys a Windows application using [mesh_rp.windows.json 
 
 In a few minutes, your command should return with:
 
-`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>.` 
-
-For example, the IP address is 13.68.129.22.
+`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>` 
 
 ## Open the application
-Once the application successfully deploys, connect to the endpoint of the service (13.68.129.22, from the preceding example) in a browser.  
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It displays following web page. 
 
 ![Voting application](./media/service-fabric-mesh-howto-deploy-app-template/VotingApplication.png)
 
 You can now add voting options to the application and vote on it, or delete the voting options.
+
+The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint. 
+
+The network resource name for this application is `VotingAppNetwork`, fetch information about it using the following command. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
+```
 
 ## Check the application details
 You can check the application's status using the `app show` command. The application name for the deployed application is "VotingApp", so fetch its details. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
-```
-
-You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 ## List the deployed applications

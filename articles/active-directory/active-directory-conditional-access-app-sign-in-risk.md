@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
@@ -59,7 +59,7 @@ The goal of this step is to make sure that your test account can access your ten
 
 ## Create your conditional access policy 
 
-The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk event. The risk level of this risk event is medium.   
+The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk event. The risk level of this risk event is medium. To respond to this risk event, you set the sign-in risk condition to medium. In a production environment, you should set the sign-in risk condition either to high or to medium and high.     
 
 This section shows how to create the required conditional access policy. In your policy, set:
 
@@ -67,10 +67,11 @@ This section shows how to create the required conditional access policy. In your
 |---     | --- |
 | Users and groups | Alain Charon  |
 | Cloud apps | All cloud apps |
+| Sign-in risk | Medium |
 | Grant | Block access |
  
 
-![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -122,6 +123,26 @@ This section shows how to create the required conditional access policy. In your
     a. Click **All cloud apps**.
 
     b. Click **Done**.
+
+10. Click **Conditions**. 
+
+    ![Access controls](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. On the **Conditions** page:
+
+    ![Sign-in risk level](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Click **Sign-in risk**.
+ 
+    b. As **Configure**, click **Yes**.
+
+    c. As sign-in risk level, select **Medium**.
+
+    d. Click **Select**.
+
+    e. On the **Conditions** page, click **Done**.
+
+
 
 10. In the **Access controls** section, click **Grant**.
 

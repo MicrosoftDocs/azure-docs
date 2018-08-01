@@ -45,7 +45,7 @@ properties:
                 - "/tmp/healthy"
         periodSeconds: 5
   osType: Linux
-  restartPolicy: Never
+  restartPolicy: Always
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```

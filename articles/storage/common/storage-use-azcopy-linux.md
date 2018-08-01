@@ -346,6 +346,9 @@ azcopy \
 	--set-content-type
 ```
 
+### Customizing the MIME content type mapping
+AzCopy uses a configuration file that contains a mapping of file extension to content type. You can customize this mapping and add new pairs as needed. The mapping is located at  ```/usr/lib/azcopy/AzCopyConfig.json```
+
 ## Blob: Copy
 ### Copy single blob within Storage account
 

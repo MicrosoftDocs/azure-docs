@@ -1,7 +1,7 @@
 ---
-title: Deploy an Service Fabric Mesh app that uses Azure Files volume| Microsoft Docs
-description: Learn how to deploy an application that uses the Azure Files volume to Service Fabric Mesh using the Azure CLI.
-services: service-fabric
+title: Store state by mounting Azure Files based volume inside the container in Service Fabric Mesh application | Microsoft Docs
+description: Learn how to store state by mounting Azure Files based volume inside the container in Service Fabric Mesh application using the Azure CLI.
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -18,77 +18,75 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
 
-# Deploy a Service Fabric Mesh application that uses the Azure Files volume
-This sample illustrates the use of storage volumes in a container running in Azure Service Fabric Mesh. As a part of this sample:
+# Store state by mounting Azure Files based volume in Service Fabric Mesh application
 
-- Create a file share with [Azure Files](/azure/storage/files/storage-files-introduction) 
-- Reference that share as a volume for a container instance that we'll deploy
-  - When the container starts, it mounts that share as a specific location within the container
-- The code running inside the container writes a text file to that location
-- Verify the file is written correctly in the share that backs the volume
+This article shows how to store state in Azure Files by mounting a volume inside the container of a Service Fabric Mesh application. In this example, Counter application has an ASP.NET Core service with a web page that shows counter value in a browser. 
 
-## Example JSON templates
+The `counterService` perodically reads a counter value from a file, increments it and write it back to the file. The file is stored in a folder that is mounted on the volume backed by Azure Files share. 
 
-Linux: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json)
+## Set up Service Fabric Mesh CLI 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-Windows: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json)
-
-## Create the Azure Files file share
-
-Follow the instructions in the [Azure Files documentation](/azure/storage/files/storage-how-to-create-file-share) to create a file share for the application to use.
-
-## Set up Service Fabric Mesh CLI
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
-
-Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
-
-```azurecli-interactive
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
-
-## Log in to Azure
-Log in to Azure and set your subscription.
+## Sign in to Azure
+Sign in to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
-az account set --subscription "<subscriptionName>"
+az account set --subscription "<subscriptionID>"
 ```
 
+## Create file share 
+Create an Azure file share by following these [instructions](/azure/storage/files/storage-how-to-create-file-share). The storage account name, storage account key and the file share name are referenced as  `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following instructions.
+
 ## Create resource group
-Create a resource group (RG) to deploy this example or you can use an existing resource group and skip this step. The preview is available only in `eastus` location.
+Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
 
 ```azurecli-interactive
-az group create --name <resourceGroupName> --location eastus
+az group create --name myResourceGroup --location eastus 
 ```
 
 ## Deploy the template
-Create the application and related resources using one of the following commands.
 
-For Linux:
+Create the application and related resources using the following command, and provide the values for `storageAccountName`, `storageAccountKey` and `fileShareName` from the previous step.
 
-```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json
-```
-
-For Windows:
+The `storageAccountKey` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
-Follow the prompts to enter the file share name, account name, and account key for the Azure File share that provides the volume. In a minute or so, your command should return with `"provisioningState": "Succeeded"`.
+The preceding command deploys a Linux application using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
-The password parameter in the template is of `string` type for ease of use. It will be displayed on the screen in clear-text and in the deployment status.
+In a few minutes, your command should return with:
+
+`counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>` 
+
+## Open the application
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It displays a web page with the counter value being updated every second.
+
+The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint. 
+ 
+The network resource name for this application is `counterAppNetwork`, fetch information about it using the following command. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+```
 
 ## Verify that the application is able to use the volume
-The application creates a file named _data.txt_ in the file share (if it does not exist already). The content of this file is a number that is incremented every 30 seconds by the application. To verify that the example works correctly, open the _data.txt_ file periodically and verify that the number is being updated.
+The application creates a file named `counter.txt` in the file share inside `counter/counterService` folder. The content of this file is the counter value being displayed on the web page.
 
 The file may be downloaded using any tool that enables browsing an Azure Files file share. The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is an example of such a tool.
 
+## Delete the resources
+
+To conserve the limited resources assigned for the preview program, delete the resources frequently. To delete resources related to this example, delete the resource group in which they were deployed.
+
+```azurecli-interactive
+az group delete --resource-group myResourceGroup 
+```
+
 ## Next steps
 
-- View the Azure Files volume sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume).
+- View the Azure Files volume sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
 - To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).

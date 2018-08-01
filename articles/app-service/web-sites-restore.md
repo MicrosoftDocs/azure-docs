@@ -54,6 +54,11 @@ backups to be performed than **Standard** tier.
    > 
    > 
    
+   > [!WARNING]
+   > If the App Service is writing data to the database while you are restoring it, it may result in symptoms such as violation of PRIMARY KEY and data loss. It is suggested to stop the App Service first before you start to restore the database.
+   > 
+   > 
+   
     You can select **Existing App** to restore the app backup to another app in the same resource group. Before you use this option, you should have already created another app in your resource group with mirroring database configuration to the one defined in the app backup. You can also Create a **New** app to restore your content to.
 
 4. Click **OK**.
