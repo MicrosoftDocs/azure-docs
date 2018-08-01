@@ -40,7 +40,6 @@ The following distributions from the Azure Gallery are supported:
 |--------------|----------------       |
 | Ubuntu 16.04 | 4.15.0-1015-azure     |
 | Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 12 SP3  | 4.4.138-94.39-default |
 | SLES 15      | 4.12.14-5.5-azure     |
 | RHEL 7.5     | 3.10.0-862.9.1.el7    |
 | CentOS 7.5   | 3.10.0-862.3.3.el7    |
@@ -84,7 +83,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
 
 ### SLES 15
 
-#### Azure kernel
+**Azure kernel
 
 ```bash
 zypper  \
@@ -92,6 +91,10 @@ zypper  \
   --non-interactive \
   --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
+
+### SLES 12SP3
+
+####
 
 #### Default kernel
 
@@ -115,22 +118,10 @@ zypper \
 
 ## Setup virtual machine environment (once)
 
-1. Install Mellanox OFED only for SLES 12SP3 and skip to step 2 for any other distro.
-   * [Download 4.2-1.2.2.0 (or latest) Mellanox OFED](http://www.mellanox.com/page/firmware_table_Microsoft?mtag=oem_firmware_download) (under archive version). 
-   * Once you've downloaded and uncompressed the file, cd into the directory, and run (may require sudo permission) the following command: 
-   
-     ```bash
-     zypper install -y python-libxml2 kernel-syms python-devel rpm-build ./mlnxofedinstall \ 
-       --guest --dpdk --upstream-libs --add-kernel-support --force --skip-repo
-     ```
-   
-   * Once OFED installation is complete, use the following command to restart the driver (requires sudo permission): 
-`/etc/init.d/openibd restart`.
-
-2. [Download the latest DPDK](<https://dpdk.org/download>). Version 18.02 or higher is recommended for Azure.
-3. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
-4. Once you've downloaded and uncompressed the file, change into the directory, and edit the *config/common_base* file. Add the following line to the file: `CONFIG_RTE_LIBRTE_MLX4_PMD=y`.
-5. Compile the DPDK with `make install T=x86_64-native-linuxapp-gcc DESTDIR=<output folder>`.
+1. [Download the latest DPDK](<https://dpdk.org/download>). Version 18.02 or higher is required for Azure.
+2. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
+3. Once you've downloaded and uncompressed the file, change into the directory, and edit the *config/common_base* file. Add the following line to the file: `CONFIG_RTE_LIBRTE_MLX4_PMD=y`.
+4. Compile the DPDK with `make install T=x86_64-native-linuxapp-gcc DESTDIR=<output folder>`.
 
 # Configure runtime environment
 
