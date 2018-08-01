@@ -20,7 +20,7 @@ In Azure, you can have your SQL Server workloads running in a hosted infrastruct
   - You can deploy into an [elastic pool](sql-database-elastic-pool.md) on a [logical server](sql-database-logical-servers.md) to share resources and reduce costs. 
 
       > [!NOTE]
-      > An [Azure SQL Database  containing single and pooled databases offers most of database-scoped features of SQL Server.
+      > An Azure SQL Database containing single and pooled databases offers most of database-scoped features of SQL Server.
 
       The following illustration shows these deployment options:
 

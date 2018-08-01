@@ -10952,7 +10952,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-overview.md",
-            "redirect_url": "/azure/sql-database/sql-database-deployment-options",
+            "redirect_url": "/azure/sql-database/sql-database-technical-overview",
             "redirect_document_id": false
         },
         {
