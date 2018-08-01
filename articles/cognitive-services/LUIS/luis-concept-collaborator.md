@@ -19,7 +19,7 @@ A LUIS account is associated with a single [Microsoft Live](https://login.live.c
 
 A LUIS account may have many LUIS apps.
 
-See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 ## LUIS app owner
 The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 
