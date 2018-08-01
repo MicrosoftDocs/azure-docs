@@ -286,7 +286,7 @@ Format a claim according to the provided format string. This transformation uses
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | The ClaimType that acts as string format {0} parameter. |
 | InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
-| InputParameter | stringFormat | string | The string format, including the {0} parameters. |
+| InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 Use this claims transformation to format any string with two parameters, {0} and {1}. The following XML example creates an `exampleOutputClaim` with the specified format.
