@@ -121,7 +121,5 @@ For more information, see:
 
 - The [introduction to device management in Azure Active Directory](../devices/overview.md)
 - [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
-- 
-
 
 
