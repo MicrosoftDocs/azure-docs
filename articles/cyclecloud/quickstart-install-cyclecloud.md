@@ -19,7 +19,7 @@ There are four parts to the Azure CycleCloud QuickStart:
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
 
-Working through all the QuickStarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
+Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
 
 ## QuickStart 1: Install and Setup Azure CycleCloud
 
