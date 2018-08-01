@@ -153,26 +153,23 @@
 
 
 ## Manage devices
-### [Introduction](device-management-introduction.md)
-### [Using the Azure portal](device-management-azure-portal.md)
-### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [FAQs](device-management-faq.md)
+### [Overview](devices/overview.md)
+### [Using the Azure portal](devices/device-management-azure-portal.md)
+### [Plan Azure AD Join](devices/azureadjoin-plan.md)
+### [FAQs](devices/faq.md)
 ### Tasks
 #### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
 #### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
 #### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
 #### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
-
-
-
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
+#### [Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
 ### Troubleshoot
-#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
