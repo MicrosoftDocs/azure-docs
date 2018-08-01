@@ -22,14 +22,8 @@ This solution provides a decentralized low-cost automation option for users who 
 
 The following are limitations to the current solution:
 
-- This solution manages only VMs that are in the same subscription as your Azure Automation account.
-- This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts.
-
-  > [!NOTE]
-  > The runbooks managing the VM schedule can target VMs in any region.
-
-  > [!NOTE]
-  > AzureGov regions do not support email functionality.
+- This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
+- This solution is available in Azure and AzureGov to any region that supports a Log Analytics workspace, an Azure Automation account, and Alerts. AzureGov regions currently do not support email functionality.
 
 ## Prerequisites
 
