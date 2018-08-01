@@ -35,8 +35,8 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer list, click **Action** > **Edit Disk**.
 2. On the **Locate Virtual Hard Disk** screen, locate and select your virtual disk.
 3. On the **Choose Action** screen, and then select **Convert** and **Next**.
-4. If you need to convert from VHDX, select **VHD** and then click **Next**
-5. If you need to convert from a dynamically expanding disk, select **Fixed size** and then click **Next**
+4. If you need to convert from VHDX, select **VHD** and then click **Next**.
+5. If you need to convert from a dynamically expanding disk, select **Fixed size** and then click **Next**.
 6. Locate and select a path to save the new VHD file to.
 7. Click **Finish**.
 
@@ -69,7 +69,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```PowerShell
     netsh winhttp reset proxy
     ```
-3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
+3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -149,21 +149,21 @@ Make sure that the following settings are configured correctly for remote deskto
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" 1 -Type DWord
      ```
 
-5. Set the keep-alive value：
+5. Set the keep-alive value:
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
     ```
-6. Reconnect：
+6. Reconnect:
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" 0 -Type DWord
     ```
-7. Limit the number of concurrent connections：
+7. Limit the number of concurrent connections:
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" 4294967295 -Type DWord
@@ -201,7 +201,7 @@ Make sure that the following settings are configured correctly for remote deskto
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
    ```
-3. Enable the following firewall rules to allow the RDP traffic 
+3. Enable the following firewall rules to allow the RDP traffic:
 
    ```PowerShell
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
@@ -288,9 +288,9 @@ Make sure that the following settings are configured correctly for remote deskto
 
 6. If the Windows VHD that you want to upload is a domain controller, then follow these steps:
 
-    A. Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
+    1. Follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 
-    B. Make sure that you know the DSRM password in case you have to start the VM in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+    1. Make sure that you know the DSRM password in case you have to start the VM in DSRM at some point. You may want to refer to this link to set the [DSRM password](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
 7. Make sure that the Built-in Administrator account and password are known to you. You may want to reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy object. You can view this object in the Local Group Policy Editor under:
 
