@@ -1,5 +1,5 @@
 ---
-title: Property-based automatic group membership rules in Azure Active Directory | Microsoft Docs
+title: Dynamic automatic group membership rules reference in Azure Active Directory | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
 ---
 
-# Create groups using dynamic membership rules in Azure Active Directory
+# Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
@@ -30,49 +30,6 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 >
-
-## To create a group membership rule
-
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
-2. Select **Users and groups**.
-3. Select **All groups**, and select **New group**.
-
-   ![Add new group](./media/groups-dynamic-membership/new-group-creation.png)
-
-4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write a membership rule yourself. This article contains more information about available user and device attributes as well as examples of membership rules.
-
-   ![Add dynamic membership rule](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
-
-5. After creating the rule, select **Add query** at the bottom of the blade.
-6. Select **Create** on the **Group** blade to create the group.
-
-> [!TIP]
-> Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.
-
-## Status of the dynamic rule
-
-You can see the membership processing status and the last updated date on the Overview page for your dynamic group.
-  
-  ![dynamic group status display](./media/groups-dynamic-membership/group-status.png)
-
-
-The following status messages can be shown for **Membership processing** status:
-
-* **Evaluating**:  The group change has been received and the updates are being evaluated.
-* **Processing**: Updates are being processed.
-* **Update complete**: Processing has completed and all applicable updates have been made.
-* **Processing error**: An error was encountered while evaluating the membership rule and processing could not be completed.
-* **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
-
-The following status messages can be shown for **Membership last updated** status:
-
-* &lt;**Date and time**&gt;: The last time the membership was updated.
-* **In Progress**: Updates are currently in progress.
-* **Unknown**: The last update time cannot be retrieved. It may be due to the group being newly created.
-
-If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
-
-[processing error message](./media/groups-dynamic-membership/processing-error.png)
 
 ## Constructing the body of a membership rule
 
@@ -303,7 +260,7 @@ Here's an example of using the underscore (\_) in a rule to add members based on
 
 ## Other properties and common rules
 
-### "Direct Reports" rule
+### Create a "Direct reports" rule
 
 You can create a group containing all direct reports of a manager. When the manager's direct reports change in the future, the group's membership is adjusted automatically.
 
@@ -342,7 +299,7 @@ device.objectid -ne null
 
 ### Extension properties and custom extension properties
 
-Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. An example of a rule that uses an extension attribute might be:
+Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -353,22 +310,13 @@ Custom extension properties are synced from on-premises Windows Server AD or fro
 * [GUID] is the unique identifier in Azure AD for the application that created the attribute in Azure AD
 * [Attribute] is the name of the attribute as it was created
 
-An example of a rule that uses a custom attribute is
+An example of a rule that uses a custom attribute is:
 
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
 
 The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name.
-
-### Error remediation
-
-The following table lists common errors and how to correct them
-
-| Rule parser error | Error usage | Corrected usage |
-| --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
 
 ## Rules for devices
 
@@ -391,101 +339,6 @@ You can also create a rule that selects device objects for membership in a group
  organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
-
-## Changing dynamic membership to static, and vice versa
-It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
-
-We've updated the Azure AD Admin center to add support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa either via Azure AD Admin center or PowerShell cmdlets as shown below.
-
-> [!WARNING]
-> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
->
-> We recommend that you test the new membership rule beforehand to make sure that the new membership in the group is as expected.
-
-### Change membership type for a group (Azure portal)
-
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
-2. Select **Groups**.
-3. From the **All groups** list, open the group that you want to change.
-4. Select **Properties**.
-5. On the **Properties** page for the group, select a **Membership type** of either Assigned (static), Dynamic User, or Dynamic Device, depending on your desired membership type. For dynamic membership, you can use the rule builder to select options for a simple rule or write a membership rule yourself. 
-
-The following steps are an example of changing a group from static to dynamic membership for a group of users.
-
-1. On the **Properties** page for your selected group, select a **Membership type** of **Dynamic User**, then select Yes on the dialog explaining the changes to the group membership to continue. 
-  
-   ![select membership type of dynamic user](./media/groups-dynamic-membership/select-group-to-convert.png)
-  
-2. Select **Add dynamic query**, and then provide the rule.
-  
-   ![enter the rule](./media/groups-dynamic-membership/enter-rule.png)
-  
-3. After creating the rule, select **Add query** at the bottom of the page.
-4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
-
-> [!TIP]
-> Group conversion might fail if the membership rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid.
-
-#### Change membership type for a group (PowerShell)
-
-> [!NOTE]
-> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
-
-Here is an example of functions that switch membership management on an existing group. In this example, care is taken to correctly manipulate the GroupTypes property and preserve any values that are unrelated to dynamic membership.
-
-```
-#The moniker for dynamic groups as used in the GroupTypes property of a group object
-$dynamicGroupTypeString = "DynamicMembership"
-
-function ConvertDynamicGroupToStatic
-{
-    Param([string]$groupId)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a static group. Aborting conversion.";
-    }
-
-
-    #remove the type for dynamic groups, but keep the other type values
-    $groupTypes.Remove($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
-}
-
-function ConvertStaticGroupToDynamic
-{
-    Param([string]$groupId, [string]$dynamicMembershipRule)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a dynamic group. Aborting conversion.";
-    }
-    #add the dynamic group type to existing types
-    $groupTypes.Add($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
-}
-```
-To make a group static:
-
-```
-ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
-```
-
-To make a group dynamic:
-
-```
-ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
-```
 
 ## Next steps
 
