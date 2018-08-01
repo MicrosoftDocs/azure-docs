@@ -13,7 +13,7 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev

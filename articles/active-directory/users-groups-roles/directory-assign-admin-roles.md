@@ -361,11 +361,7 @@ Members of this role are added to the local administrators group on Azure AD-joi
 | --- | --- |
 
 ### Directory Readers
-<<<<<<< HEAD
 Can read basic directory information. For granting access to applications.
-=======
-Can read basic directory information. For granting access to applications
->>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
 
 | **Actions** | **Description** |
 | --- | --- |
