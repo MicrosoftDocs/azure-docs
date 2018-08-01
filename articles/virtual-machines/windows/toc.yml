@@ -376,8 +376,6 @@
       href: reset-rdp.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
-    - name: Creating a VM
-      href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
     - name: VM recovery access
