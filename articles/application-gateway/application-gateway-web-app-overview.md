@@ -1,18 +1,11 @@
 ---
-title: Overview of multi-tenant back ends with Azure Application Gateway | Microsoft Docs
+title: Overview of multi-tenant back ends with Azure Application Gateway
 description: This page provides an overview of the Application Gateway support for multi-tenant back ends.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: 
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
 
 ---
@@ -20,6 +13,9 @@ ms.author: victorh
 # Application Gateway support for multi-tenant back ends
 
 Azure Application Gateway supports virtual machine scale sets, network interfaces, public/private IP, or fully qualified domain name (FQDN) as part of its back end pools. By default, application gateway does not change the incoming HTTP host header from the client and sends the header unaltered to the back end. There are many services like [Azure Web Apps](../app-service/app-service-web-overview.md) that are multi-tenant in nature and rely on a specific host header or SNI extension to resolve to the correct endpoint. Application Gateway now supports the ability for users to overwrite the incoming HTTP host header based on the back end HTTP settings. This capability enables support for multi-tenant back ends Azure web apps and API management. This capability is available for both the standard and WAF SKU. Multi-tenant back end support also works with SSL termination and end to end SSL scenarios.
+
+> [!NOTE]
+> Authentication certificate setup is not required for trusted Azure services such as Azure Web Apps.
 
 ![web app scenario](./media/application-gateway-web-app-overview/scenario.png)
 
