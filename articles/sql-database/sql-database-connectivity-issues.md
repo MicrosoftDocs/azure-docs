@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
 ---
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
@@ -190,7 +190,7 @@ Starting with ADO.NET 4.6.1:
 * For SQL Database, reliability is improved when you open a connection by using the **SqlConnection.Open** method. The **Open** method now incorporates best-effort retry mechanisms in response to transient faults for certain errors within the connection timeout period.
 * Connection pooling is supported, which includes an efficient verification that the connection object it gives your program is functioning.
 
-When you use a connection object from a connection pool, we recommend that your program temporarily close the connection when it's not immediately in use. It's not expensive to reopen a connection, but it is to create a new connection.
+When you use a connection object from a connection pool, we recommend that your program temporarily closes the connection when it's not immediately in use. It's not expensive to reopen a connection, but it is to create a new connection.
 
 If you use ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest ADO.NET. As of August 2018, you can [download ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
