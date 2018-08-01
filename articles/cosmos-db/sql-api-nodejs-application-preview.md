@@ -60,19 +60,19 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 3. Use the express generator to generate a new application called **todo**.
 
    ```bash
-        express todo
+   express todo
    ```
 4. Open your new **todo** directory and install dependencies.
 
    ```bash
-        cd todo
-        npm install
+   cd todo
+   npm install
    ```
 5. Run your new application.
 
    ```bash
-        npm start
-```
+   npm start
+   ```
 
 6. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
@@ -87,7 +87,7 @@ The **package.json** file is one of the files created in the root of the project
 1. Open the terminal, install the **async** module via npm.
 
    ```bash
-        npm install async --save
+   npm install async --save
    ```
 
 2. Install the **@azure/cosmos** module via npm. 
@@ -184,7 +184,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 1. In the **routes** directory of your project, create a new file named **tasklist.js**.  
 
-2. Add the following code to **tasklist.js**. This loads the CosmosClient and async modules, which are used by **tasklist.js**. This also defines the **TaskList** class, which is passed an instance of the **TaskDao** object we defined earlier:
+2. Add the following code to **tasklist.js**. This loads the CosmosClient and async modules, which are used by **tasklist.js**. This also defines the **TaskList** class, which is passed as an instance of the **TaskDao** object we defined earlier:
    
    ```nodejs
    const TaskDao = require("../models/TaskDao");
@@ -273,7 +273,7 @@ Now that you have completed the initial setup and configuration, next you will w
 ### Modify app.js
 1. In the project directory, open the **app.js** file. This file was created earlier when the Express web application was created.  
 
-2. Add the following code to the **app.js** file. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon. 
+2. Add the following code to the **app.js** file. This code defines the config file to be used, and proceeds to read values out of this file into some variables which we will use soon. 
    
    ```nodejs
    const CosmosClient = require("@azure/cosmos").CosmosClient;
@@ -355,68 +355,69 @@ Now let’s turn our attention to building the user interface so a user can actu
 
 2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following:
 
-    ```
-    doctype html
-    html
-      head
-        title= title
-        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-      body
-        nav.navbar.navbar-inverse.navbar-fixed-top
-          div.navbar-header
-            a.navbar-brand(href='#') My Tasks
-        block content
-        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
-    ```
+   ```html
+   doctype html
+   html
+     head
+       title= title
+       link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+       link(rel='stylesheet', href='/stylesheets/style.css')
+     body
+       nav.navbar.navbar-inverse.navbar-fixed-top
+         div.navbar-header
+           a.navbar-brand(href='#') My Tasks
+       block content
+       script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+       script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+   ```
 
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
 
     Save and close this **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
-   
-        extends layout
-        block content
-           h1 #{title}
-           br
+
+   ```html
+   extends layout
+   block content
+        h1 #{title}
+        br
         
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                      if(task.completed) 
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-                      else
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn.btn-primary(type="submit") Update tasks
-           hr
-          form.well(action="/addtask", method="post")
-           label Item Name:
-           input(name="name", type="textbox")
-           label Item Category:
-           input(name="category", type="textbox")
-           br
-           button.btn(type="submit") Add item
-   
+        form(action="/completetask", method="post")
+         table.table.table-striped.table-bordered
+            tr
+              td Name
+              td Category
+              td Date
+              td Complete
+            if (typeof tasks === "undefined")
+              tr
+                td
+            else
+              each task in tasks
+                tr
+                  td #{task.name}
+                  td #{task.category}
+                  - var date  = new Date(task.date);
+                  - var day   = date.getDate();
+                  - var month = date.getMonth() + 1;
+                  - var year  = date.getFullYear();
+                  td #{month + "/" + day + "/" + year}
+                  td
+                   if(task.completed) 
+                    input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+                   else
+                    input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+          button.btn.btn-primary(type="submit") Update tasks
+        hr
+       form.well(action="/addtask", method="post")
+        label Item Name:
+        input(name="name", type="textbox")
+        label Item Category:
+        input(name="category", type="textbox")
+        br
+        button.btn(type="submit") Add item
+   ```
 
 This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
