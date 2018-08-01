@@ -7,7 +7,7 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
+ms.date: 07/31/2018
 ---
 
 # Scale your Jenkins deployments to meet demand with Azure VM agents
@@ -135,7 +135,7 @@ Select **Verify Template** to verify the configuration and then select **Save** 
 
 ![Console output](./media/jenkins-azure-vm-agents/console-output.png)
 
-## Troubleshooting
+## Troubleshooting the Jenkins plugin
 
 If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
 
