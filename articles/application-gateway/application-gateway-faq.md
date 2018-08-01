@@ -90,8 +90,7 @@ For example, if Application Gateway is set to three instances and no private fro
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
 
-> [!NOTE]
-> Application Gateway does not currently support the X-Forwarded-Host header. In order to retrieve the original host requested by the client, please use the X-Original-Host header.
+Application Gateway also inserts X-Original-Host header which contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
 
 **Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
 
