@@ -16,8 +16,9 @@ ms.author: raynew
 
 InMage Scout in [Azure Site Recovery](site-recovery-overview.md) provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
 
-[!NOTE]
-> ## End-of-Life and End-of-sale announcement for DR between > > VMware datacenters with InMage / ASR “Scout”
+> [!IMPORTANT]
+>
+> ## End-of-Life and End-of-sale announcement for DR between VMware datacenters with InMage / ASR “Scout”
 
 > Azure Site Recovery’s InMage / ASR Scout scenario for disaster recovery between on-premises VMware (or Physical)datacenters will not be available or supported after December 31, 2020. Further, the InMage / ASR Scout scenario will enter end-of-sale starting August 2018. 
 
