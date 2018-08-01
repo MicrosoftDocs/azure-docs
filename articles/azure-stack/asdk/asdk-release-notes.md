@@ -76,7 +76,6 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
- 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -88,8 +87,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
 
 #### Portal  
-- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
-- 
+- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
+
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available. When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md) are not visible in the console. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
 
 - <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
@@ -151,6 +150,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
 - <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.
+
+- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page will not be able to show metric data. To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
 #### Networking
 - <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.

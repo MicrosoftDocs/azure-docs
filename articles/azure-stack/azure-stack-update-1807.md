@@ -45,7 +45,7 @@ This update includes the following improvements for Azure Stack.
 
 -	<!-- 1702130 | ASDK, IS -->  **Backup external capacity now shows the correct capacity of the external share.** (Previously this was hard-code to 10 GB.)
 
-- <!-- 2508488 |  IS   -->   Expand capacity by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
+- <!-- 2508488 |  IS   -->  **Expand capacity** by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
 
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager templates now support the condition element** - You can now deploy a resource in an Azure Resource Manger template using a condition. You can design your template to deploy a resource based on a condition, such as evaluating if a parameter value is present. For information about using a template as a condition, see [Conditionally deploy a resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) and [Variables section of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) in the Azure documentation. 
 
@@ -197,7 +197,7 @@ The following are post-installation known issues for this build version.
 
 - <!-- 1662991 IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
-<!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page will not be able to show metric data. To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
+- <!-- 2724961- IS ASDK --> When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page will not be able to show metric data. To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
 ### Networking  
 
