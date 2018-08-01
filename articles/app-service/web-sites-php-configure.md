@@ -56,7 +56,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 ### Azure CLI 
 
-To use the Azure Command-Line Interface, you must [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
+To use the Azure Command-Line Interface, you must [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
 
 1. Open Terminal, and login to your account.
 
