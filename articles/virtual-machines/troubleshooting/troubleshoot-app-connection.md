@@ -28,9 +28,6 @@ If you are having issues connecting to your VM using RDP or SSH, see one of the 
 * [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 * [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md).
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../articles/resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
-
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 ## Quick-start troubleshooting steps
