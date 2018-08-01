@@ -3,13 +3,14 @@ title: Static website hosting in Azure Storage (Preview) | Microsoft Docs
 description: Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
 author: MichaelHauss
-manager: vamshik
 
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
+ms.component: blobs
 ---
+
 # Static website hosting in Azure Storage (Preview)
 Azure Storage now offers static website hosting (Preview), enabling you to deploy cost-effective and scalable modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
