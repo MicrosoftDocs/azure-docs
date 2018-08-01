@@ -26,7 +26,7 @@ With device management in Azure Active Directory (Azure AD), you can ensure that
 
 This article:
 
-- Assumes that you are familiar with the [introduction to device management in Azure Active Directory](device-management-introduction.md)
+- Assumes that you are familiar with the [introduction to device management in Azure Active Directory](overview.md)
 
 - Provides you with information about managing your devices using the Azure portal
 
@@ -57,7 +57,7 @@ The **Devices** page enables you to:
 
 ## Configure device settings
 
-To manage your devices using the Azure portal, your devices need to be either [registered or joined](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings. 
+To manage your devices using the Azure portal, your devices need to be either [registered or joined](overview.md#getting-devices-under-the-control-of-azure-ad) to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings. 
 
 ![Configure device settings](./media/device-management-azure-portal/22.png)
 
@@ -66,14 +66,14 @@ The device settings page enables you to configure:
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](device-management-introduction.md#azure-ad-joined-devices) to Azure AD. The default is **All**.
+- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](overview.md#azure-ad-joined-devices) to Azure AD. The default is **All**.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS). 
 
-- **Users may register their devices with Azure AD** - You need to configure this setting to allow devices to be [registered](device-management-introduction.md#azure-ad-registered-devices) with Azure AD. If you select **None**, devices are not allowed to register when they are not Azure AD joined or hybrid Azure AD joined. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
+- **Users may register their devices with Azure AD** - You need to configure this setting to allow devices to be [registered](overview.md#azure-ad-registered-devices) with Azure AD. If you select **None**, devices are not allowed to register when they are not Azure AD joined or hybrid Azure AD joined. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
 
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to [join](device-management-introduction.md#azure-ad-joined-devices) their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](authentication/concept-mfa-whichversion.md). 
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide a second authentication factor to [join](overview.md#azure-ad-joined-devices) their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
 
 - **Maximum number of devices** - This setting enables you to select the maximum number of devices that a user can have in Azure AD. If a user reaches this quota, they are not be able to add additional devices until one or more of the existing devices are removed. The device quote is counted for all devices that are either Azure AD joined or Azure AD registered today. The default value is **20**.
 
@@ -248,7 +248,7 @@ In addition to the filters, you can search for specific entries.
 
 ## Next steps
 
-* [Introduction to device management in Azure Active Directory](device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](overview.md)
 
 
 
