@@ -29,7 +29,7 @@ If you are having issues connecting to your VM using RDP or SSH, see one of the 
 * [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md).
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../articles/resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -98,8 +98,8 @@ If you cannot access the application, verify the following settings:
 * The host firewall on the target VM is allowing the inbound request and outbound response traffic.
 * Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
 * Cloud Services endpoints or Network Security Groups are allowing the traffic:
-  * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
+  * [Classic model - Manage Cloud Services endpoints](../../cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Resource Manager model - Manage Network Security Groups](../../virtual-network/manage-network-security-group.md)
 * A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
 
 On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.
@@ -117,12 +117,12 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
-  * For more information, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  * For more information, see [How to Set Up Endpoints to a Virtual Machine](../windows/classic/setup-endpoints.md).
 * For VMs created using the Resource Manager deployment model:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that Network Security Groups are allowing the inbound request and outbound response traffic.
-  * For more information, see [What is a network security group?](../articles/virtual-network/security-overview.md)
+  * For more information, see [What is a network security group?](../../virtual-network/security-overview.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 
@@ -141,8 +141,8 @@ If you can access the application, ensure that your Internet edge device is allo
 For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Additional resources
-[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 
-[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+[Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md)
 
 
