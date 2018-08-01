@@ -73,7 +73,7 @@ In your Run As configuration set up in the previous step, change `azure-function
 
 Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java Application** and create a new one. Give your configuration a name and fill in the settings. The port should be consistent with the debug port opened by function host, which by default is `5005`. After setup, click on `Debug` to start debugging.
 
-![Debug functions in Eclipse](media/functions-create-java-eclipse/debug-configuration-eclipse.png)
+![Debug functions in Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
 Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at at time.
 
