@@ -94,6 +94,12 @@ The **package.json** file is one of the files created in the root of the project
         npm install documentdb --save
    ```
 
+3. Install the **@azure/cosmos** module via npm. 
+
+   ```bash
+   npm install @azure/cosmos
+   ```
+
 ## <a name="_Toc395783180"></a>Step 4: Using the Azure Cosmos DB service in a node application
 Now that you have completed the initial setup and configuration, next you will write code that is required by the todo application to communicate with Azure Cosmos DB.
 
