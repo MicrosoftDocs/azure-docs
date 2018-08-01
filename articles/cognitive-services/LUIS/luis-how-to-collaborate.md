@@ -18,6 +18,7 @@ You can collaborate with others on your LUIS app together.
 <a name="owner-and-collaborators"></a>
 
 ## Add collaborator
+
 An app has a single author, the owner, but can have many collaborators. To allow collaborators to edit your LUIS app, you must add the email they use to access the LUIS portal to the collaborators list. Once they are added, the app shows in their LUIS portal.
 
 1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
