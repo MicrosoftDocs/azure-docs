@@ -8192,7 +8192,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
-            "redirect_url": "/develop/active-directory-saml-protocol-reference",
+            "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
             "redirect_document_id": false
         },
         {
