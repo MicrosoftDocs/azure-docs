@@ -150,6 +150,8 @@
        href: functions-run-local.md
      - name: IntelliJ IDEA development
        href: functions-create-maven-intellij.md
+     - name: Eclipse development
+       href: functions-create-maven-eclipse.md
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling

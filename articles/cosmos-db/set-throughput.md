@@ -223,7 +223,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Get throughput by using MongoDB API's GetLastRequestStatistics command
+## Get throughput by using MongoDB API portal metrics
+
+The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
+
+![MongoDB API portal metrics][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
+Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Get request charge by using MongoDB API's GetLastRequestStatistics command
 
 The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
 
@@ -251,14 +260,19 @@ One method for estimating the amount of reserved throughput required by your app
 > 
 > 
 
-## Get throughput by using MongoDB API portal metrics
+## <a id="RequestchargeGraphAPI"></a>Get request charge for Gremlin API accounts 
 
-The simplest way to get a good estimate of request unit charges for your MongoDB API database is to use the [Azure portal](https://portal.azure.com) metrics. With the *Number of requests* and *Request Charge* charts, you can get an estimate of how many request units each operation is consuming and how many request units they consume relative to one another.
+Here is a sample on how to get request charge for Gremlin API accounts by using the Gremlin.Net library. 
 
-![MongoDB API portal metrics][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+In addition to the above method, you can also use “x-ms-total-request-charge” header for Request Units calculations.
+
 
 ## Throughput FAQ
 

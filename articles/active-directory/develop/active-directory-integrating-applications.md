@@ -49,7 +49,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
    ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
-   If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md#get-started).
+   If you'd like specific examples for web applications or native applications, check out our [quickstarts](azure-ad-developers-guide.md#get-started).
 
 5. When finished, click **Create**. Azure AD assigns a unique Application ID to your application, and you're taken to your application's main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application. See the next section for an overview of consent, and details on enabling additional configuration features in your application registration (credentials, permissions, enable sign-in for users from other tenants.)
 
@@ -316,5 +316,5 @@ In order to remove a multi-tenant application’s access to your directory (afte
 - For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 - See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure AD developer concepts.
-- Visit the [Active Directory developer's guide](active-directory-developers-guide.md) for an overview of all developer-related content.
+- Visit the [Active Directory developer's guide](azure-ad-developers-guide.md) for an overview of all developer-related content.
 
