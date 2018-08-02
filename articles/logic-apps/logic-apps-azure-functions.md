@@ -7,7 +7,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/02/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
@@ -15,16 +15,16 @@ ms.suite: integration
 # Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
 When you want to create and run only enough code 
-that addresses a specific problem in your logic apps, 
-you can create your own functions by using 
+that performs a specific job in your logic apps, 
+you can create your own functions with 
 [Azure Functions](../azure-functions/functions-overview.md). 
-This service helps you create and run Node.js or C# code in 
-your logic apps so you don't have to worry about creating an 
+This service helps you create and run Node.js or 
+C# code snippets so you don't have to create an 
 entire app or the infrastructure for running your code. 
-Azure Functions provides serverless computing in the cloud 
-and is useful for performing tasks, for example:
+Azure Functions provides serverless computing in the 
+cloud and is useful for performing tasks, for example:
 
-* Extend your logic app's behavior with functions supported by Node.js or C#.
+* Extend your logic app's behavior with functions writtien in Node.js or C#.
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
@@ -62,11 +62,12 @@ in the Logic App Designer.
 
   * Your function app must belong to the same Azure subscription as your logic app.
 
-  * Your function must use the **Generic webhook** function template for 
-  either **JavaScript** or **C#**. This template can accept content that has 
-  `application/json` type from your logic app. These templates also help the 
-  Logic App Designer find and show custom functions that are created from 
-  these templates when you add those functions to your logic apps.
+  * Your function must use the **Generic webhook** function 
+  template for either **JavaScript** or **C#**. 
+
+    This template can accept content with the `application/json` type from your logic app. 
+    Also, when you add an Azure function to your logic app, the Logic App Designer shows 
+    custom functions created from this template and with your Azure subscription. 
 
   * Check that your function template's **Mode** property is set to 
   **Webhook** and the **Webhook type** property is set to **Generic JSON**.
@@ -224,11 +225,11 @@ After the actions list opens, select this action:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-      In the function template code, the *`context` object* 
-      references the message your logic app sends to your function 
-      through the **Request Body** field in the next step. 
-      To access the `context` object's properties from 
-      inside your function, use this syntax: 
+      In the template's code, the *`context` object* is the 
+      message sent from your logic app from the 
+      **Request Body** field in the next step. 
+      To access the `context` object's properties 
+      from inside your function, use this syntax: 
 
       `context.body.<property-name>`
 
@@ -253,23 +254,21 @@ After the actions list opens, select this action:
 6. In the **Request Body** box, provide your function's input, 
 which must be formatted as a JavaScript Object Notation (JSON) object. 
 
-This input is the *context object*, or message, that your logic app 
-sends to your function. When you click in the **Request Body** field, 
-the dynamic content list opens so you can select 
-tokens for properties available from previous steps. 
-
-   This example specifies that the context payload contains 
-   a property named `content` with the **From** token's value 
-   from the email trigger:
+   This input is the *context object* or message that your logic app 
+   sends to your function. When you click in the **Request Body** field, 
+   the dynamic content list appears so you can select tokens for outputs 
+   from previous steps. This example specifies that the context payload 
+   contains a property named `content` that has the **From** token's 
+   value from the email trigger:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. In the cases where 
-   the context object isn't a JSON token that's a string, a JSON object, 
-   or a JSON array, you get an error. So, if this example used the 
-   passed the **Received Time** token instead, you cast the context 
-   object as a string by adding double-quotation marks: 
+   content gets added directly to the JSON payload. In the cases 
+   where the context object isn't a JSON token that contains a string, 
+   a JSON object, or a JSON array, you get an error. So, if this example 
+   used the **Received Time** token instead, you can cast the context 
+   object as a string by adding double-quotation marks:  
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -309,22 +308,21 @@ After the functions list appears, select your function.
 
 5. In the **Request Body** box, provide your function's input, 
 which must be formatted as a JavaScript Object Notation (JSON) object. 
-This input is the *context object*, or message, that your logic app 
-sends to your function. When you click in the **Request Body** field, 
-the dynamic content list opens so you can select 
-tokens for properties available from previous steps. 
 
-   This example specifies that the context payload contains 
-   a property named `content` with the **From** token's value 
-   from the email trigger:  
+   This input is the *context object* or message that your logic app 
+   sends to your function. When you click in the **Request Body** field, 
+   the dynamic content list appears so you can select tokens for outputs 
+   from previous steps. This example specifies that the context payload 
+   contains a property named `content` that has the **From** token's 
+   value from the email trigger:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. In the cases where 
-   the context object isn't a JSON token that's a string, a JSON object, 
-   or a JSON array, you get an error. So, if this example used the 
-   passed the **Received Time** token instead, you cast the context 
+   content gets added directly to the JSON payload. In the cases 
+   where the context object isn't a JSON token that contains a string, 
+   a JSON object, or a JSON array, you get an error. So, if this example 
+   used the **Received Time** token instead, you can cast the context 
    object as a string by adding double-quotation marks: 
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
