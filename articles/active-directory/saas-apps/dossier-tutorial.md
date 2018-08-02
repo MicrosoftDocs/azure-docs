@@ -102,27 +102,34 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Single sign-on dialog box](./media/dossier-tutorial/tutorial_dossier_samlbase.png)
 
-3. On the **Dossier Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Dossier Domain and URLs** section, perform the following steps:
 
 	![Dossier Domain and URLs single sign-on information](./media/dossier-tutorial/tutorial_dossier_url1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `Dossier/<CLIENTNAME>`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
+	| | |
+	|-|-|
+	| `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
+	| `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
+	| |
+
+    b. In the **Identifier** textbox, type a URL using the following pattern: `Dossier/<CLIENTNAME>`
 
 	> [!NOTE]
 	> For identifier value it should be in the format of `Dossier/<CLIENTNAME>` or any user personalized value.
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://dossier.<CLIENTDOMAINNAME>/azuresso`
-
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![Dossier Domain and URLs single sign-on information](./media/dossier-tutorial/tutorial_dossier_url2.png)
-
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn `
+	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	| | |
+	|-|-|
+	|  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
+	| `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
+	| |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Dossier Client support team](mailto:support@intellimedia.ca) to get these values.
 
-5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
 
 	![The Certificate download link](./media/dossier-tutorial/tutorial_dossier_certificate.png) 
 
@@ -203,7 +210,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Dossier tile in the Access Panel, you should get automatically signed-on to your Dossier application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
