@@ -168,8 +168,8 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
 
-* **Prefix filter**: Enter `devices/Building1_` to filter for device events in building 1.
-* **Suffix filter**: Enter `_Temperature` to filter for device events related to temperature.
+* **Subject Begins With**: Enter `devices/Building1_` to filter for device events in building 1.
+* **Subject Ends With**: Enter `_Temperature` to filter for device events related to temperature.
 
 When you're done, the form should look like the following example: 
 
