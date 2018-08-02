@@ -18,7 +18,7 @@ SQL Data Sync lets users synchronize data between Azure SQL Databases and on-pre
 This article introduces a solution to automatically replicate schema changes to all SQL Data Sync endpoints.
 1. This solution uses a DDL trigger to track schema changes.
 2. The trigger inserts the schema change commands in a tracking table.
-3. This tracking table table is synced to all endpoints using the Data Sync service.
+3. This tracking table is synced to all endpoints using the Data Sync service.
 4. DML triggers after insertion are used to apply the schema changes on the other endpoints.
 
 This article uses ALTER TABLE as an example of a schema change, but this solution also works for other types of schema changes.

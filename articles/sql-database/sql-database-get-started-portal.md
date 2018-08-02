@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
 
 ---
@@ -19,7 +19,7 @@ This quickstart walks through how to create a SQL database in Azure using the [D
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
   >[!NOTE]
-  >This tutorial uses the DTU-based purchasing model but the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) is also available.
+  >This tutorial uses the DTU-based purchasing model but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
 
 ## Log in to the Azure portal
 

@@ -76,7 +76,7 @@ In this section, you create a storage account.
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
-    ![Create new storage account](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Create new storage account](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## Create a blob container and upload a file to the storage account
 
@@ -87,12 +87,12 @@ Files require blob storage so you need to create a blob container in which to st
 3. Click **+ Container** on the top of the page.
 4. Under **New container**, enter a name for the container and under **Public access level** keep the default value .
 
-    ![Create storage container](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Using an editor of your choice, create a file titled *hello world.txt* on your local machine.  Open the file and add the text (without the quotes) "Hello world! :)" and then save it. 
 6. Upload the file to the newly created container by clicking on the container name, then **Upload**
 7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
-    ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Upload text file](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## Grant your VM access to an Azure Storage container 
 

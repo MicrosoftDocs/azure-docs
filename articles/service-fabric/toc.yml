@@ -551,7 +551,7 @@
           href: service-fabric-cluster-scale-up-down.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
-        - name: Scale up the primary node type VMs
+        - name: Scale or upgrade the primary node type VMs
           href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
@@ -568,9 +568,7 @@
       - name: Delete
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-      - name: Upgrade/migrate VMSS SKU 
-        href: service-fabric-update-vmss-sku.md
+        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
     - name: Standalone clusters
       items:
       - name: Create

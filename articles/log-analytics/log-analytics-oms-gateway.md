@@ -84,8 +84,8 @@ The following table highlights the supported number of agents communicating with
 
 |Gateway |Approx. Number of agents supported|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 2 Cores<br> - Memory: 4 GB<br> - Network Bandwidth: 1 Gbps| 600|  
-|- CPU: Intel XEON CPU E5-2660 v3 @ 2.6GHz 4 Cores<br> - Memory: 8 GB<br> - Network Bandwidth: 1 Gbps| 1000|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2 Cores<br> - Memory: 4 GB<br> - Network Bandwidth: 1 Gbps| 600|  
+|- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4 Cores<br> - Memory: 8 GB<br> - Network Bandwidth: 1 Gbps| 1000|  
 
 ## Download the OMS Gateway
 

@@ -217,7 +217,7 @@
         "articles/connectors/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/container-instances/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
-        "articles/container-service/**/*.md": "https://github.com/Azure/AKS/issues",        
+        "articles/container-service/**/*.md": "https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks",        
         "articles/containers/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",        
         "articles/cosmos-db/**/*.md": "https://feedback.azure.com/forums/263030-azure-cosmos-db",
         "articles/cost-management/**/*.md": "https://feedback.azure.com/forums/906772-cost-management",

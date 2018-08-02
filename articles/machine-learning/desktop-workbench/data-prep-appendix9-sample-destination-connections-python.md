@@ -1,6 +1,6 @@
 ---
 title: Example destinations/outputs possible with Azure Machine Learning data preparation | Microsoft Docs
-description: This document provides a a set of examples of custom data destinations/outputs with Azure Machine Learning data preparation
+description: This document provides a set of examples of custom data destinations/outputs with Azure Machine Learning data preparation
 services: machine-learning
 author: euangMS
 ms.author: euang

@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
 
 abstract:
@@ -27,27 +27,63 @@ sections:
     style: dataMatrix
     columns:
       - image:
+          src: media/index/uwp.jpg
+      - image:
           src: media/index/logo_csharp.svg
       - image:
           src: media/index/logo_cplusplus.svg
       - image:
-          src: media/index/logo_java.jpg
+          src: media/index/logo_netcore.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_rest_sr.svg
+      - image:
+          src: media/index/logo_rest_tts.svg
     rows:
       - title: Windows
         values:
+        - href: quickstart-csharp-uwp
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
+        - href: quickstart-csharp-dotnetcore-windows
+        - href:
+        - href:
         - href:
       - title: Linux
         values:
         - href:
+        - href:
         - href: quickstart-cpp-linux
         - href:
-      - title: Devices SDK (Android)
+        - href:
+      - title: Android SDK
         values:
         - href:
         - href:
-        - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+        - href:
+        - href:
+        - href: quickstart-java-android
+        - href:
+        - href:
+      - title: Devices SDK
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: speech-devices-sdk
+        - href:
+        - href:
+      - title: Web
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: rest-apis
+        - href: rest-apis
 
 - title: Samples and Reference
   items:
@@ -58,12 +94,9 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Speech Devices SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (including UWP and .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a> for Speech SDK<br>and Speech Devices SDK</li></ul>
 
 - title: Speech Devices SDK
   items:
   - type: paragraph
-    text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <b>Speech Devices SDK</b>. This SDK is suitable for developing smart speech devices for all types of applications."
-  - type: paragraph
-    text: The <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> allows you to build your own ambient devices with a customized wake word unique to your brand that triggers audio capture. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
-
+    text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Suitable for developing ambient devices for all types of applications, this SDK allows you to define a custom <I>wake word</I> unique to your brand. The hardware provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming."

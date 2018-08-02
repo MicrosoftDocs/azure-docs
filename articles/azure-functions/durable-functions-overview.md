@@ -295,7 +295,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const moment = require('moment');
+const df = require('moment');
 
 module.exports = df(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");

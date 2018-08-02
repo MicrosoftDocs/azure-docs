@@ -84,7 +84,7 @@ After you remove the association with the current repo, you can configure your G
 ### Use version control
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
-Each VSTS Git repository that's associated with a data factory has a a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
+Each VSTS Git repository that's associated with a data factory has a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
 
 ![Change the code by syncing or publishing](media/author-visually/sync-publish.png)
 

@@ -34,18 +34,6 @@ The module that you deploy in this quickstart is a simulated sensor that generat
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
-## Prerequisites
-
-This quickstart turns your Windows computer or virtual machine into an IoT Edge device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-
-Have the following prerequisites ready on the machine that you're using for an IoT Edge device:
-
-1. Make sure you're using a supported Windows version:
-   * Windows 10 or newer
-   * Windows Server 2016 or newer
-2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality. 
@@ -56,24 +44,40 @@ Add the Azure IoT extension to the cloud shell instance.
    az extension add --name azure-cli-iot-ext
    ```
 
-## Create an IoT hub
+## Prerequisites
 
-Start the quickstart by creating your IoT Hub in the Azure portal.
-![Create IoT Hub][3]
+Cloud resources: 
 
-The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
-
-1. In the Azure cloud shell, create a resource group. The following code creates a resource group called **IoTEdgeResources** in the **West US** region. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together. 
+* A resource group to manage all the resources you use in this quickstart. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
+A Windows computer or virtual machine to act as your IoT Edge device: 
+
+* Use a supported Windows version:
+   * Windows 10 or newer
+   * Windows Server 2016 or newer
+* If it's a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+* Install [Docker for Windows][lnk-docker] and make sure it's running.
+* Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+
+## Create an IoT hub
+
+Start the quickstart by creating your IoT Hub with Azure CLI. 
+
+![Create IoT Hub][3]
+
+The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
+
+The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. 
 
 ## Register an IoT Edge device
 
@@ -204,7 +208,13 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is uncommented and set to **azure-iot-edge**
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. Save the configuration file. 
 
@@ -235,7 +245,8 @@ Verify that the runtime was successfully installed and configured.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 
@@ -291,46 +302,41 @@ Remove the **IoTEdgeResources** group.
 
 ### Remove the IoT Edge runtime
 
+If you plan on using the IoT Edge device for future testing, but want to stop the tempSensor module from sending data to your IoT hub while not in use, use the following command to stop the IoT Edge service. 
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   ```
+
+You can restart the service when you're ready to start testing again
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
 If you want to remove the installations from your device, use the following commands.  
 
 Remove the IoT Edge runtime.
 
-   ```bash
-   sudo apt-get remove --purge iotedge
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
    ```
 
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
 
-   ```bash
-   sudo docker ps -a
+   ```powershell
+   docker ps -a
    ```
 
 Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different. 
 
-   ```bash
-   sudo docker rm -f tempSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
-   ```
-
-Remove the container runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
-You can use the simulated device that you configured in this quickstart to test the IoT Edge tutorials. If you want to stop the tempSensor module from sending data to your IoT hub, use the following command to stop the IoT Edge service and delete the containers that were created on your device. When you want to use your machine as an IoT Edge device again, remember to start the service. 
-
    ```powershell
-   Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
    ```
-
-When you no longer need the Azure resources that you created, you can use the following command to delete the resource group that you created and any resources associated with it:
-
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
+   
 ## Next steps
 
 In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment. 

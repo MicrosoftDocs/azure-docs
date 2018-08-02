@@ -17,7 +17,7 @@ ms.author: scottwhi
 
 This tutorial breaks down the process of uploading an image to Bing and getting back insights. It also shows how to access and display the insights in the JSON response. For the complete HTML and JavaScript example, see [Complete code](#complete-code).
 
-This tutorial is provided for the developer that wants to explore the contents of the Bing response. It does not apply all use and display requirements (for example, it does not provide a link to Microsoft's privacy policy). For all usage requirements, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
+This tutorial is provided for the developer that wants to explore the contents of the Bing Visual Search response. It does not apply all use and display requirements (for example, it does not provide a link to Microsoft's privacy policy). For all usage requirements, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
 
 
 ## Where to start?

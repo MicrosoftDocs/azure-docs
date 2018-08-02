@@ -22,10 +22,11 @@ ms.reviewer: dhanyahk
 
 This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
 
+## Getting started 
+
 **Q: I am using the https://graph.windows.net/&lt;tenant-name&gt;/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 
 **A:** Look up the [API reference documentation](https://developer.microsoft.com/graph/) to see how you can use the new APIs to access [activity reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). This endpoint has two reports (Audit and Sign-ins) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
-
 
 --- 
 
@@ -34,6 +35,34 @@ This article includes answers to frequently asked questions about Azure Active D
 **A:** You can use the [Identity Protection risk events API](active-directory-identityprotection-graph-getting-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
 
 --- 
+
+**Q: How do I get a premium license?**
+
+**A:** See [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) for an answer to this question.
+
+---
+
+**Q: How soon should I see activities data after getting a premium license?**
+
+**A:** If you already have activities data as a free license, then you can see the same data. If you don’t have any data, then it will take one or two days.
+
+---
+
+**Q: Do I see last month's data after getting an Azure AD premium license?**
+
+**A:** If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
+
+---
+
+**Q: Do I need to be a global admin to see the activity sign-ins to the Azure portal or to get data through the API?**
+
+**A:** No. You must be a **Security Reader**, a **Security Admin**, or a **Global Admin** to get reporting data in the Azure portal or through the API.
+
+---
+
+
+## Activity logs
+
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
@@ -47,11 +76,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: Do I need to be a global admin to see the activity sign-ins to the Azure portal or to get data through the API?**
-
-**A:** No. You must be a **Security Reader**, a **Security Admin**, or a **Global Admin** to get reporting data in the Azure portal or through the API.
-
----
 
 **Q: Can I get Office 365 activity log information through the Azure portal?**
 
@@ -78,23 +102,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: How do I get a premium license?**
-
-**A:** See [Getting started with Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) for an answer to this question.
-
----
-
-**Q: How soon should I see activities data after getting a premium license?**
-
-**A:** If you already have activities data as a free license, then you can see the same data. If you don’t have any data, then it will take one or two days.
-
----
-
-**Q: Do I see last month's data after getting an Azure AD premium license?**
-
-**A:** If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you will see up to 30 days.
-
----
+## Risky sign-ins
 
 **Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the all sign-ins. Is this expected?**
 
@@ -125,3 +133,36 @@ This article includes answers to frequently asked questions about Azure Active D
 **A:** To give you an insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
 
 ---
+
+## Conditional access
+
+**Q: What's new with this feature?**
+
+**A:** Customers can now troubleshoot conditional access policies through all sign-ins report. Customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+
+**Q: How do I get started?**
+
+**A:** To get started:
+    * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com). 
+    * Click on the sign-in that you want to troubleshoot.
+    * Navigate to the **Conditional access** tab.
+    Here, you can view all the policies that impacted the sign-in and the result for each policy. 
+    
+**Q: What are all possible values for the conditional access status?**
+
+**A:** Conditional access status can have the following values:
+    * **Not Applied**: This means that there was no CA policy with the user and app in scope. 
+    * **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+    * **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
+    
+**Q: What are all possible values for the conditional access policy result?**
+
+**A:** A conditional access policy can have the following results:
+    * **Success**: The policy was successfully satisfied.
+    * **Failure**: The policy was not satisfied.
+    * **Not applied**: This might be because the policy conditions did not meet.
+    * **Not enabled**: This is due to the policy in disabled state. 
+    
+**Q: The policy name in the all sign-in report does not match the policy name in CA. Why?**
+
+**A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.

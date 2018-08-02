@@ -44,6 +44,9 @@ In this tutorial, you learn how to:
 
     ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
+    > [!NOTE]
+    > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
+
 6. Click **"Send"** to make an API call. 
 7. Wait for the call to complete. 
 8. Go to the **Trace** tab in the **API console**. You can click any of the following links to jump to detailed trace info: **inbound**, **backend**, **outbound**.

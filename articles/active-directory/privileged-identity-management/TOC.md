@@ -42,9 +42,9 @@
 ### [Start an access review](pim-resource-roles-start-access-review.md)
 ### [Finish an access review](pim-resource-roles-complete-access-review.md)
 
-# FAQs
-## PIM for resource roles
-### [Assignment Types](pim-resource-roles-eligible-visibility.md)
+# Concepts
+## [Assignment types](pim-resource-roles-eligible-visibility.md)
+## [Email notifications](pim-email-notifications.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)

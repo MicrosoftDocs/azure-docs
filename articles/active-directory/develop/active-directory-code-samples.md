@@ -117,7 +117,7 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 ## See also
 
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
 [Azure AD Graph API Conceptual and Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 

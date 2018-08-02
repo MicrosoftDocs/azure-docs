@@ -34,41 +34,20 @@ This command creates a proxy between your development system and the Kubernetes 
 
 ### For RBAC-enabled clusters
 
-If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can access the dashboard. Without a role binding, the Azure CLI returns an error similar to the following example:
+If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you can correctly access the dashboard. By default, the Kubernetes dashboard is deployed with minimal read access and displays RBAC access errors. The Kubernetes dashboard does not currently support user-provided credentials to determine the level of access, rather it uses the roles granted to the service account. A cluster administrator can choose to grant additional access to the *kubernetes-dashboard* service account, however this can be a vector for privilege escalation. You can also integrate Azure Active Directory authentication to provide a more granular level of access.
 
-```
-error: unable to forward port because pod is not running. Current status=Pending
-```
+To create a binding, use the [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] command as shown in the following example. 
 
-To create a binding, create a file named *dashboard-admin.yaml* and paste the following sample. This sample binding does not apply any additional authentication components. You can use mechanisms such as bearer tokens or a username/password to control who can access the dashboard and what permissions they have. For more information on authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+> [!WARNING]
+> This sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
+>
+> For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: kubernetes-dashboard
-  labels:
-    k8s-app: kubernetes-dashboard
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kubernetes-dashboard
-  namespace: kube-system
-```
-
-Apply the binding with [kubectl apply][kubectl-apply] and specify your *dashboard-admin.yaml*, as shown in the following example:
-
-```
-$ kubectl apply -f dashboard-admin.yaml
-
-clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
 You can now access the Kubernetes dashboard in your RBAC-enabled cluster. To start the Kubernetes dashboard, use the [az aks browse][az-aks-browse] command as detailed in the previous step.
-
 
 ## Run an application
 
@@ -116,6 +95,7 @@ For more information about the Kubernetes dashboard, see the Kubernetes document
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->

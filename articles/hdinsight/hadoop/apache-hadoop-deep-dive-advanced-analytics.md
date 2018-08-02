@@ -92,7 +92,7 @@ There are three key tasks in this advanced analytics scenario:
 
 1. Create an Azure HDInsight Hadoop cluster with an Apache Spark 2.1.0 distribution. 
 2. Run a custom script to install Microsoft Cognitive Toolkit on all nodes of an Azure HDInsight Spark cluster. 
-3. Upload a pre-built Jupyter notebook to your HDInsight Spark cluster to to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the Spark Python API (PySpark). 
+3. Upload a pre-built Jupyter notebook to your HDInsight Spark cluster to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the Spark Python API (PySpark). 
 
 This example uses the CIFAR-10 image set compiled and distributed by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton. The CIFAR-10 dataset contains 60,000 32×32 color images belonging to 10 mutually exclusive classes:
 

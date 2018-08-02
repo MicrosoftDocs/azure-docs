@@ -2,13 +2,13 @@
 title: Manage Azure endpoint subscription | Microsoft Docs
 description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Manage Azure endpoint subscription keys
