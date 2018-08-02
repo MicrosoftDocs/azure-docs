@@ -35,7 +35,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroupSLB* in the *westeurope* location:
 
@@ -65,7 +65,7 @@ This section details how you can create and configure the following components o
 - a load balancer rule that defines how traffic is distributed to the VMs.
 
 ### Create the load balancer
-Create a Standard load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration.
+Create a Standard load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration.
 
 ```azurecli-interactive
 az network lb create \
@@ -80,7 +80,7 @@ az network lb create \
 ## Create health probe on port 80
 
 A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with az network lb probe create to monitor the health of the virtual machines. 
-To create a TCP health probe, you use [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). The following example creates a health probe named *myHealthProbe*:
+To create a TCP health probe, you use [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). The following example creates a health probe named *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -93,7 +93,7 @@ az network lb probe create \
 
 ## Create load balancer rule for port 80
 A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. 
-Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
+Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -113,7 +113,7 @@ Before you deploy some VMs and can test your load balancer, create the supportin
 
 ### Create a virtual network
 
-Create a virtual network named *myVnet* with a subnet named *mySubnet* in the myResourceGroup using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Create a virtual network named *myVnet* with a subnet named *mySubnet* in the myResourceGroup using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -126,7 +126,7 @@ az network vnet create \
 
 ### Create a network security group
 
-Create network security group named *myNetworkSecurityGroup* to define inbound connections to your virtual network  with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+Create network security group named *myNetworkSecurityGroup* to define inbound connections to your virtual network  with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -134,7 +134,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Create a network security group rule named *myNetworkSecurityGroupRule* for port 80 with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Create a network security group rule named *myNetworkSecurityGroupRule* for port 80 with [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -151,7 +151,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### Create NICs
-Create three virtual NICs with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the Public IP address and the network security group. The following example creates six virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Create three virtual NICs with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. The following example creates six virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -215,7 +215,7 @@ runcmd:
 ```
 
 ### Create the zonal virtual machines
-Create the VMs with [az vm create](/cli/azure/vm#az_vm_create) in zone 1, zone 2, and zone 3. The following example creates a VM in each zone and generates SSH keys if they do not already exist:
+Create the VMs with [az vm create](/cli/azure/vm#az-vm-create) in zone 1, zone 2, and zone 3. The following example creates a VM in each zone and generates SSH keys if they do not already exist:
 
 Create a VM in each zone (zone 1, zone2, and zone 3) of the *westeurope* location.
 
@@ -233,7 +233,7 @@ done
 ```
 ## Test the load balancer
 
-Get the public IP address of the load balancer using [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Get the public IP address of the load balancer using [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \
