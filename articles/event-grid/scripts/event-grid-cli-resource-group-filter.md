@@ -14,7 +14,7 @@ ms.date: 08/02/2018
 ms.author: tomfitz
 ---
 
-# Subscribe to events for a resource group with Azure CLI and filter for a resource
+# Subscribe to events for a resource group and filter for a resource with Azure CLI
 
 This script creates an Event Grid subscription to the events for a resource group. It uses a filter to get only events for a specified resource in the resource group.
 
