@@ -399,7 +399,7 @@
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
 ##### [Configure per cloud app MFA](conditional-access/app-based-mfa.md)
-##### [Require terms of use to be accepted](conditional-access/tou.md)
+##### [Require terms of use to be accepted](conditional-access/require-tou.md)
 ##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
