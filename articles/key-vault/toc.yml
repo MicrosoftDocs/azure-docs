@@ -6,15 +6,15 @@
     href: key-vault-overview.md
 - name: Quickstarts
   items:
-  - name: Set/retrieve key from Key Vault - CLI
+  - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md
-  - name: Set/retrieve key from Key Vault - PowerShell
+  - name: Set and retrieve a secret - PowerShell
     href: quick-create-powershell.md
-  - name: Set/retrieve key from Key Vault - Portal
+  - name: Set and retrieve a secret - Portal
     href: quick-create-portal.md
-  - name: Set/retrieve key from Key Vault - .NET
+  - name: Set and retrieve a secret - .NET
     href: quick-create-net.md
-  - name: Set/retrieve key from Key Vault - Node.js
+  - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
 - name: Tutorials
   items:
