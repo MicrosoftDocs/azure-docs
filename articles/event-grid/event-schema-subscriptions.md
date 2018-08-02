@@ -17,6 +17,8 @@ This article provides the properties and schema for Azure subscription events. 
 
 Azure subscriptions and resource groups emit the same event types. The event types are related to changes in resources. The primary difference is that resource groups emit events for resources within the resource group, and Azure subscriptions emit events for resources across the subscription.
 
+Resource events are created for PUT, PATCH and DELETE operations that are sent to `management.azure.com`. POST and GET operations do not create events. Operations sent to the data plane (like `myaccount.blob.core.windows.net`) do not create events.
+
 ## Available event types
 
 Azure subscriptions emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted.
