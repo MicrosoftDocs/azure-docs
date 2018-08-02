@@ -13,3 +13,4 @@ ms.author: wolfma
 > - [C++ - Windows](~/articles/cognitive-services/speech-service/quickstart-cpp-windows.md)
 > - [C++ - Linux](~/articles/cognitive-services/speech-service/quickstart-cpp-linux.md)
 > - [Java - Android](~/articles/cognitive-services/speech-service/quickstart-java-android.md)
+> - [Java - JRE](~/articles/cognitive-services/speech-service/quickstart-java-jre.md)

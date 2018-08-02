@@ -43,6 +43,9 @@
     - name: Recognize speech in Java for Android
       href: quickstart-java-android.md
       displayName: recognize speech, speech recognition, speech to text, stt
+    - name: Recognize speech in Java in the Java Run-Time Environment
+      href: quickstart-java-jre.md
+      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
