@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/01/2018
 ms.author: bahariri
 
 ---
@@ -98,8 +98,7 @@ You can now stream events from your applications that use the Kafka protocol int
 If your Event Hubs Kafka cluster has events, you now start receiving them from the consumer.
 
 ## Next steps
+In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more, continue with the following tutorial:
 
-* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
-* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Learn how to stream into Kafka enabled Event Hubs using [Apache Flink](event-hubs-kafka-flink-tutorial.md) or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).
+> [!div class="nextstepaction"]
+> [Use Kafka MirrorMaker with Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md)
