@@ -1,6 +1,6 @@
 ---
 title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
-description: Learn about functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your Azure SQL database.
+description: Learn about functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your Azure SQL database.
 services: sql-database
 author: ronitr
 manager: craigg
