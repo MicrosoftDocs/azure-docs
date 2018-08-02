@@ -1,6 +1,6 @@
 ---
-title: Set up Azure Active Directory registered devices | Microsoft Docs
-description: Learn how to set up Azure Active Directory registered devices.
+title: Register your device on your organization's network - Azure Active Directory | Microsoft Docs
+description: Learn how to register your work or personal device on your organization's network.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,82 +15,96 @@ ms.author: lizross
 ms.reviewer: jairoc
 
 ---
-# Set up Azure Active Directory registered Windows 10 devices
+# Register your device on your organization's network
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
+Your organization wants you to register your work-owned (or personally-owned, if allowed by your administrator) Windows 10 devices on their network. If your administrator allows it, you can add your personally-owned devices running Windows 10, iOS, Android, or macOS.
 
-If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can accomplish this by configuring Azure AD registered devices. In Azure AD, you can configure Azure AD registered devices for Windows 10, iOS, Android, and macOS. This article provides you with the related steps for Windows 10 devices. 
+## What happens when you register your device
+While you're registering your Windows 10 device on your organization's network, the following will happen:
+
+- Windows registers your device on your organization's network.
+
+- You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your administrator has set up.
+
+- You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's required. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
+
+- You'll go through the sign-in process, using either automatic sign-in (if your organization manages your device) or by using your work or school account user name and password (if you manage your own device).
+
+## To register your Windows 10 device
+
+Follow these steps to register your device on your network.
+
+1. Open **Settings**, and then select **Accounts**.
+
+    ![Accounts on the Settings screen](./media/user-help-register-device-on-network/01.png)
+
+2. Select **Access work or school**, and then select **Connect**.
+
+    ![Access work or school and Connect links](./media/user-help-register-device-on-network/03.png)
+
+3. On the **Set up a work or school account** screen, select **Join this device to Azure Active Directory**.
+
+    ![Set up a work or school account screen](./media/user-help-register-device-on-network/04.png)
+
+4. On the **Let's get you signed in** screen, type your email address (for example, alain@contoso.com), and then select **Next**.
+
+    ![Let's get you signed in screen](./media/user-help-register-device-on-network/10.png)
 
 
-## Before you begin
-
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../devices/device-management-azure-portal.md#configure-device-settings).
-
-## What you should know
-
-When registering a device, you should keep the following in mind:
-
-- Windows registers the device in the organization’s directory in Azure AD
-
-- You might be required to go through multi-factor authentication challenge. This challenge is configurable by your IT administrator.
-
-- Azure AD checks whether the device requires mobile device management enrollment and enrolls it if applicable.
-
-- If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
-
-- If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
 
 
-## Registering a device
 
-This section provides you with the steps to register your Windows 10 device to your Azure AD. A successfully registered device shows up with a **Work or school account** entry.
 
-![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+
+
+
+
+
 
 
 **To register your Windows 10 device:**
 
 1. In the **Start** menu, click **Settings**.
 
-    ![Settings](./media/device-management-azuread-registered-devices-windows10-setup/01.png)
+    ![Settings](./media/user-help-register-device-on-network/01.png)
 
 2. Click **Accounts**.
 
-    ![Accounts](./media/device-management-azuread-registered-devices-windows10-setup/02.png)
+    ![Accounts](./media/user-help-register-device-on-network/02.png)
 
 
 3. Click **Access work or school**.
 
-    ![Access work or school](./media/device-management-azuread-registered-devices-windows10-setup/03.png)
+    ![Access work or school](./media/user-help-register-device-on-network/03.png)
 
 4. On the **Access work or school** dialog, click **Connect**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
+    ![Connect](./media/user-help-register-device-on-network/04.png)
 
 
 5. On the  **Set up a work or school account** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
+    ![Connect](./media/user-help-register-device-on-network/06.png)
 
 
 6. On the  **Enter password** dialog, enter your password, and then click **Next**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/05.png)
+    ![Connect](./media/user-help-register-device-on-network/05.png)
 
 
 7. On the **You're all set** dialog, click **Done**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
+    ![Connect](./media/user-help-register-device-on-network/07.png)
 
 ## Verification
 
 To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
 
-![Register](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Register](./media/user-help-register-device-on-network/08.png)
 
 Alternatively, you can review device settings on the Azure AD portal.
 
-![Register](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
+![Register](./media/user-help-register-device-on-network/09.png)
 
 
 

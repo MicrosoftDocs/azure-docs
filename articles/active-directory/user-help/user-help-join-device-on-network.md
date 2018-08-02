@@ -1,5 +1,5 @@
 ---
-title: Join your device to your organization's network | Microsoft Docs
+title: Join your device to your organization's network - Azure Active Directory | Microsoft Docs
 description: Learn how to join your work device to your organization's network.
 services: active-directory
 author: eross-msft
@@ -19,10 +19,10 @@ ms.reviewer: jairoc
 
 Your organization wants you to join your work-owned Windows 10 devices to their network so you can sign in using your work or school account instead of your personal account.
 
-## Join your device to your organization's network
-While you're joining your device to your organization's network, the following will happen:
+## What happens when you join your device
+While you're joining your Windows 10 device to your organization's network, the following will happen:
 
-- Windows 10 joins your device to your organization's network.
+- Windows joins your device to your organization's network.
 
 - You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your administrator has set up.
 
@@ -30,23 +30,25 @@ While you're joining your device to your organization's network, the following w
 
 - You'll go through the sign-in process, using either automatic sign-in (if your organization manages your device) or by using your work or school account user name and password (if you manage your own device).
 
-### To join your device to your network
+## To join your Windows 10 device
+
+Follow these steps to join your device to your network.
 
 1. Open **Settings**, and then select **Accounts**.
 
-    ![Accounts on the Settings screen](./media/device-management-azuread-joined-devices-setup/02.png)
+    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/02.png)
 
 2. Select **Access work or school**, and then select **Connect**.
 
-    ![Access work or school and Connect links](./media/device-management-azuread-joined-devices-setup/03.png)
+    ![Access work or school and Connect links](./media/user-help-join-device-on-network/03.png)
 
 3. On the **Set up a work or school account** screen, select **Join this device to Azure Active Directory**.
 
-    ![Set up a work or school account screen](./media/device-management-azuread-joined-devices-setup/04.png)
+    ![Set up a work or school account screen](./media/user-help-join-device-on-network/04.png)
 
 4. On the **Let's get you signed in** screen, type your email address (for example, alain@contoso.com), and then select **Next**.
 
-    ![Let's get you signed in screen](./media/device-management-azuread-joined-devices-setup/10.png)
+    ![Let's get you signed in screen](./media/user-help-join-device-on-network/10.png)
 
 
 
@@ -54,32 +56,32 @@ While you're joining your device to your organization's network, the following w
 
 6. On the  **Enter password** dialog, enter your password, and then click **Sign in**.
 
-    ![Enter password](./media/device-management-azuread-joined-devices-setup/05.png)
+    ![Enter password](./media/user-help-join-device-on-network/05.png)
 
 
 7. On the  **Make sure this is your organization** dialog, click **Join**.
 
-    ![Make sure this is your organization](./media/device-management-azuread-joined-devices-setup/11.png)
+    ![Make sure this is your organization](./media/user-help-join-device-on-network/11.png)
 
 
 8. On the **You're all set** dialog, click **Done**.
 
-    ![You're all set](./media/device-management-azuread-joined-devices-setup/12.png)
+    ![You're all set](./media/user-help-join-device-on-network/12.png)
 
 ## Verification
 
 To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
 
-![Connected](./media/device-management-azuread-joined-devices-setup/13.png)
+![Connected](./media/user-help-join-device-on-network/13.png)
 
 Alternatively, you can run the following command: `dsregcmd /status`  
 On a successfully joined device, **AzureAdJoined** is **Yes**.
 
-![Connected](./media/device-management-azuread-joined-devices-setup/14.png)
+![Connected](./media/user-help-join-device-on-network/14.png)
 
 You can also review device settings on the Azure AD portal.
 
-![Connected](./media/device-management-azuread-joined-devices-setup/15.png)
+![Connected](./media/user-help-join-device-on-network/15.png)
 
 For more information, see [locate devices](../devices/device-management-azure-portal.md#locate-devices).
 
