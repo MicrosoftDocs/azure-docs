@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/27/2018
+ms.date: 07/30/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
 
 This article applies to Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
 
-You can manage the Data Box using the Data Box service UI (referred to as the portal UI) and the local web UI for the device. Data Box Disk can only be managed via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to the terminal stage.
+You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to completion.
 
 This article includes the following tutorials:
 

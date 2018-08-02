@@ -902,7 +902,7 @@ and help you organize workflow execution
 ### Built-in actions
 
 | Action type | Description | 
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 

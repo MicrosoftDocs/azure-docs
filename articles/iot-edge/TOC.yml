@@ -32,7 +32,7 @@
       - name: Node.js
         href: tutorial-node-module.md
       - name: C
-        name: tutorial-c-module.md
+        href: tutorial-c-module.md
   - name: Store data locally with SQL
     href: tutorial-store-data-sql-server.md
 - name: Concepts
@@ -54,6 +54,9 @@
     href: iot-edge-as-gateway.md
   - name: Security
     href: security.md
+    items:
+    - name: IoT Edge security manager
+      href: iot-edge-security-manager.md
   - name: Platform support
     href: support.md
   - name: IoT Edge glossary

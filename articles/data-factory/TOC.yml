@@ -116,6 +116,8 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Naming rules
+    href: naming-rules.md
 - name: How-to guides
   items:
   - name: Author
@@ -299,15 +301,15 @@
   - name: Transform data
     href: transform-data.md
     items:
-    - name: HdInsight Hive Activity
+    - name: HDInsight Hive Activity
       href: transform-data-using-hadoop-hive.md
-    - name: HdInsight Pig Activity
+    - name: HDInsight Pig Activity
       href: transform-data-using-hadoop-pig.md
-    - name: HdInsight MapReduce Activity
+    - name: HDInsight MapReduce Activity
       href: transform-data-using-hadoop-map-reduce.md
-    - name: HdInsight Streaming Activity
+    - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: HdInsight Spark Activity
+    - name: HDInsight Spark Activity
       href: transform-data-using-spark.md
     - name: ML Batch Execution Activity
       href: transform-data-using-machine-learning.md
