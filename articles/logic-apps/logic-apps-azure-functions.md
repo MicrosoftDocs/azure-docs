@@ -230,7 +230,7 @@ After the actions list opens, select this action:
 
       In the template's code, the *`context` object* refers 
       to the message that your logic app sends through 
-      the **Request Body** field in the next step. 
+      the **Request Body** field in a later step. 
       To access the `context` object's properties 
       from inside your function, use this syntax: 
 
