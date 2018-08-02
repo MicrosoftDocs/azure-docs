@@ -103,7 +103,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## Create linked services
-You create linked services to link your data stores and computes to a data factory. A linked has the connection information that the Data Factory service uses to connect to the data store at runtime. 
+You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
 
 In this tutorial, you link your Azure SQL Database, Azure SQL Data Warehouse, and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure SQL Data Warehouse is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into SQL Data Warehouse by using PolyBase. 
 
