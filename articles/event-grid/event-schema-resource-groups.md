@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
 ---
 
@@ -32,7 +32,7 @@ Resource groups emit management events from Azure Resource Manager, such as when
 
 ## Example event
 
-The following example shows the schema of a resource created event: 
+The following example shows the schema for a **ResourceWriteSuccess** event. The same schema is used for **ResourceWriteFailure** and **ResourceWriteCancel** events with different values for `eventType`.
 
 ```json
 [{
@@ -92,7 +92,7 @@ The following example shows the schema of a resource created event:
 }]
 ```
 
-The schema for a resource deleted event is similar:
+The following example shows the schema for a **ResourceDeleteSuccess** event. The same schema is used for **ResourceDeleteFailure** and **ResourceDeleteCancel** events with different values for `eventType`.
 
 ```json
 [{
@@ -180,7 +180,7 @@ The data object has the following properties:
 | authorization | object | The requested authorization for the operation. |
 | claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
-| httpRequest | object | The details of the operation. |
+| httpRequest | object | The details of the operation. This object is only included when updating an existing resource or deleting a resource. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |
