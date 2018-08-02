@@ -14,48 +14,47 @@ ms.author: raynew
 ---
 # Set up disaster recovery of on-premises VMware virtual machines or physical servers to a secondary site
 
-> [!IMPORTANT]
->
-> ## End-of-Life and End-of-sale announcement for DR between VMware datacenters with InMage / ASR “Scout”
->
-> Azure Site Recovery’s InMage / ASR Scout scenario for disaster recovery between on-premises VMware (or Physical)datacenters will not be available or supported after December 31, 2020. Further, the InMage / ASR Scout scenario will enter end-of-sale starting August 2018.  
->
->Azure Site Recovery continues to innovate by providing VMware and Hyper-V customers a seamless and best-in-class DRaaS solution with Azure as a disaster recovery site. Microsoft recommends that existing InMage / ASR Scout customers consider using Azure Site Recovery’s VMware to Azure scenario for their business continuity needs. Azure Site Recovery's VMware to Azure scenario is an enterprise-class DR solution for VMware applications, which offers RPO and RTO of minutes, support for multi-VM application replication and recovery, seamless onboarding, comprehensive monitoring, and significant TCO advantage.
->
->During the notice period, ASR Scout will release two updates - Update7 and Update8.  In Update 8, RHEL/CentOS 7.3/7.4/7.5 and SUSE 12 OSes support will be added. No new OSes will be released post Update8. No new feature will be added during notice period. Limited hotfix support post Update 8 for the newly added OSes. All the bug fixes will be based on best effort.
->
-> ### Migration path from VMware Site to Site replication to VMware Site to Azure replication
->We encourage you to use Azure as your DR site using Azure Site Recovery -VMware to Azure scenario.  This section describes how to migrate from Azure Site Recovery VMware to VMware(V2V) stack to Azure Site Recovery VMware to Azure(V2A) stack. Before you move to V2A stack, you need to identify whether the VMs are compatible by V2A because supported OSes by V2A and V2V are different. For example, V2V supports 32-bit OS as well but V2A supports only 64-bit. V2V supports some older version of Linux, whereas V2A does not. The churn limit supported by V2A is not the same as that of V2V. Share disk cluster is supported by V2V but not by V2A. To find the compatibility before moving to V2A stack, you must run the [ASR Deployment Planner](./site-recovery-deployment-planner.md) on your VMware environment to find the virtual machines that can be protected to Azure using ASR.
-Once the compatible VMs are identified, uninstall existing ASR Scout agent from source VMs and reboot the machines. Then follow the [V2A deployment guidance](./vmware-azure-architecture.md) to protect a VM.
->
-> ### How to migrate from Azure Site Recovery VMware/physical to VMware replication to VMware/Physical to Azure replication?
->Below table provide high-level information that helps you to understand the difference between ASR VMware/Physical to Azure (V2A)  and ASR Scout - VMware/Physical to VMware (V2V). 
-> 
->| | **VMware/physical to Azure (V2A)** |**VMware/Physical to VMware (V2V)**
---|--|--
-Components used in the scenarios |Mobility service, Process Server, Configuration Server and Master Target|Mobility service, Process Server, Configuration Server and Master Target
-Orchestration for protection, failover, failback |From Azure portal|From vContinuum wizard 
-Monitoring |From Azure portal|From CX (Configuration Server)
-Protection unit|Disk (both Windows and Linux) |Volume for Windows<br> Disk for Linux
-Shared disk cluster|Not supported|Supported
-Churn limit |Average 10 MB/s data churn per disk<br> 25MB/s average data curn per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s average data churn per disk  <br> > 25 MB/s average data churn per VM
-Support Matrix| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
->
->From the architecture perspective Azure Site Recovery components remain the same for both V2V and V2A. Refer to [VMware to Azure replication Architecture](./vmware-azure-architecture.md) to know more about the V2A.  Both have Mobility service, Process Server, Configuration Server and Master Target. But both are using different binaries and have different installers. You cannot use your ASR Scout components to protect your on-premises VMs to Azure.  
->
->Follow the steps to migrate to Azure
-•	Run [ASR Deployment Planner](./site-recovery-deployment-planner.md)  for your VMware environment to understand what all VMs can be protected to Azure, Network bandwidth requirements, Azure storage requirements, On-premises ASR Component requirements and estimated cost.
-•	Identify the VMs that can be protected to Azure using ASR from the ASR Deployment Planner report.
-•	Now stop existing V2V replication plan from vContinuum wizard.
-•	Uninstall ASR Scout unified agent from source server. 
-•	Reboot the server.
-•	Once all your on-premises VMs are removed from V2V replication you can decommission ASR Scout CX.
-•	Follow [V2A deployment guidance](./tutorial-prepare-azure.md) to deploy  and protect your compatible VMware VMs to Azure.
-
-
 InMage Scout in [Azure Site Recovery](site-recovery-overview.md) provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
 
- ## Prerequisites
+## End-of-life announcement
+
+The Azure Site Recovery scenario for replication between on-premises VMware or physical datacenters is reaching end-of-life.
+
+-	From August 2018, the scenario can’t be configured in the Recovery Services vault, and the  InMage Scout software can’t be downloaded from the vault. Existing deployments will be supported.
+-	From December 31 2020, the scenario won’t be supported.
+
+During 2018 and 2019, two updates will be released: 
+
+-	Update 7: Fixes network configuration and compliance issues, and provides TLS 1.2 support.
+-	Update 8: Adds support for Linux operating systems RHEL/CentOS 7.3/7.4/7.5, and for SUSE 12
+
+After Update 8, no further updates will be released. There will be limited hotfix support for the operating systems added in Update 8, and bug fixes based on best effort.
+
+Azure Site Recovery continues to innovate by providing VMware and Hyper-V customers a seamless and best-in-class DRaaS solution with Azure as a disaster recovery site. Microsoft recommends that existing InMage / ASR Scout customers consider using Azure Site Recovery’s VMware to Azure scenario for their business continuity needs. Azure Site Recovery's VMware to Azure scenario is an enterprise-class DR solution for VMware applications, which offers RPO and RTO of minutes, support for multi-VM application replication and recovery, seamless onboarding, comprehensive monitoring, and significant TCO advantage.
+
+### Scenario migration
+As an alternative, we recommend setting up disaster recovery for on-premises VMware VMs and physical machines by replicating them to Azure. Do this as follows:
+
+1.	Review the quick comparison below. Before you can replicate on-premises machines, you need check that they meet [requirements](./vmware-physical-azure-support-matrix.md#replicated-machines) for replication to Azure. If you’re replicating VMware VMs, we recommend that you review [capacity planning guidelines](./site-recovery-plan-capacity-vmware.md), and run the [Deployment Planner tool](./site-recovery-deployment-planner) to identity capacity requirements, and verify compliance.
+2.	After running the Deployment Planner, you can set up replication:
+o	For VMware VMs, follow these tutorials to [prepare Azure](./tutorial-prepare-azure.md), [prepare your on-premises VMware environment](./vmware-azure-tutorial-prepare-on-premises.md), and [set up disaster recovery](./vmware-azure-tutorial-prepare-on-premises.md).
+o	For physical machines, follow this [tutorial](./physical-azure-disaster-recovery.md).
+3.	After machines are replicating to Azure, you can run a [disaster recovery drill](./site-recovery-test-failover-to-azure.md) to make sure everything’s working as expected.
+
+### Quick comparison
+
+**Feature** | **Replication to Azure** |**Replication between VMware datacenters**
+--|--|--
+**Required components** |Mobility service on replicated machines. On-premises configuration server, process server, master target server.Temporary process server in Azure for failback.|Mobility service, Process Server, Configuration Server and Master Target
+**Configuration and orchestration** |Recovery Services vault in the Azure portal | Using vContinuum 
+**Replicated**|Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
+**Shared disk cluster**|Not supported|Supported
+**Data churn limits (average)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
+**Monitoring** |From Azure portal|From CX (Configuration Server)
+**Support Matrix**| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
+
+
+## Prerequisites
 To complete this tutorial:
 
 - [Review](vmware-physical-secondary-support-matrix.md) the support requirements for all components.
