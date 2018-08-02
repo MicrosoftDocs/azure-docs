@@ -1,5 +1,5 @@
 ---
-title: Collect logs in a hybrid environment with Azure Log Analytics agent | Microsoft Docs
+title: Collect data in a hybrid environment with Azure Log Analytics agent | Microsoft Docs
 description: This topic helps you understand how to collect data and monitor computers hosted in your on-premises or other cloud environment with Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
 ---
 
-# Collect logs in a hybrid environment with Log Analytics agent
+# Collect data in a hybrid environment with Log Analytics agent
 
 Azure Log Analytics can collect and act on data from computers running the Windows or Linux operating system running in:
 
