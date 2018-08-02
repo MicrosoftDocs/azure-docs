@@ -20,9 +20,9 @@ ms.author: genli
 
 #  Network virtual appliance issues in Azure
 
-You may experience VM or VPN connectivity issues and errors that affect a Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you troubleshoot the NVA issues. 
-Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly. . This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
+You may experience VM or VPN connectivity issues and errors that affect a Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
+Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
