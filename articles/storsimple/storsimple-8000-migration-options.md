@@ -29,7 +29,7 @@ The customers using StorSimple 5000-7000 series have the following two key optio
 
 - **Migrate to Azure File Sync** – This brand new migration option enables customers to store their organization’s file shares in the Azure Files. These files shares are then centralized for on-premises access using Azure File Sync (AFS). AFS can be deployed on a Windows Server host. The actual data migration is then performed as a host copy or using the migration tool.
 
-    For more information on how to migrate data to Azure File Sync, go to [Migrate data from StorSimple 5000-7000 series to Azure File Sync](link).
+    For more information on how to migrate data to Azure File Sync, go to [Migrate data from StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
 
 ## Migration - Frequently asked questions
 
@@ -60,4 +60,4 @@ A. Cost of migration varies depending on the option you choose. While migration 
 
 ## Next steps
  - [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](link)
+ - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS)
