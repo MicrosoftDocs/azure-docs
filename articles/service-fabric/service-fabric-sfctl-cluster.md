@@ -18,7 +18,7 @@ ms.author: bikang
 
 ---
 # sfctl cluster
-Select, manage and operate Service Fabric clusters.
+Select, manage, and operate Service Fabric clusters.
 
 ## Commands
 
@@ -38,7 +38,7 @@ Select, manage and operate Service Fabric clusters.
 | unprovision | Unprovision the code or configuration packages of a Service Fabric cluster. |
 | upgrade | Start upgrading the code or configuration version of a Service Fabric cluster. |
 | upgrade-resume | Make the cluster upgrade move on to the next upgrade domain. |
-| upgrade-rollback | Rollback the upgrade of a Service Fabric cluster. |
+| upgrade-rollback | Roll back the upgrade of a Service Fabric cluster. |
 | upgrade-status | Gets the progress of the current cluster upgrade. |
 | upgrade-update | Update the upgrade parameters of a Service Fabric cluster upgrade. |
 
@@ -136,14 +136,19 @@ Get the Service Fabric cluster manifest. The cluster manifest contains propertie
 ## sfctl cluster operation-cancel
 Cancels a user-induced fault operation.
 
-The following APIs start fault operations that may be cancelled by using CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command.  It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. Important note\:  if this API is invoked with force==true, internal state may be left behind.
+The following APIs start fault operations that may be cancelled by using CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. 
+
+ Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command. It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. 
+
+> [!NOTE]
+> If this API is invoked with force==true, internal state may be left behind.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
 | --operation-id [Required] | A GUID that identifies a call of this API.  This is passed into the corresponding GetProgress API. |
-| --force | Indicates whether to gracefully rollback and clean up internal system state modified by executing the user-induced operation. |
+| --force | Indicates whether to gracefully roll back and clean up internal system state modified by executing the user-induced operation. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
@@ -159,15 +164,15 @@ The following APIs start fault operations that may be cancelled by using CancelO
 ## sfctl cluster operation-list
 Gets a list of user-induced fault operations filtered by provided input.
 
-Gets the a list of user-induced fault operations filtered by provided input.
+Gets the list of user-induced fault operations filtered by provided input.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --state-filter | Used to filter on OperationState's for user-induced operations. - 65535 - select All - 1 - select Running - 2 - select RollingBack - 8 - select Completed - 16 - select Faulted - 32 - select Cancelled - 64 - select ForceCancelled.  Default\: 65535. |
+| --state-filter | Used to filter on OperationState's for user-induced operations. <br> 65535 - select All <br> 1 - select Running <br> 2     - select RollingBack <br>8     - select Completed <br>16    - select Faulted <br>32    - select Cancelled <br>64    - select ForceCancelled.  <br>Default\: 65535. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --type-filter | Used to filter on OperationType for user-induced operations. - 65535 - select all - 1 - select PartitionDataLoss. - 2 - select PartitionQuorumLoss. - 4 - select PartitionRestart. - 8 - select NodeTransition.  Default\: 65535. |
+| --type-filter | Used to filter on OperationType for user-induced operations. <br> 65535 - select all <br> 1     - select PartitionDataLoss. <br> 2     - select PartitionQuorumLoss. <br> 4     - select PartitionRestart. <br> 8     - select NodeTransition.  <br> Default\: 65535. |
 
 ### Global Arguments
 
@@ -255,7 +260,7 @@ The report must contain the information about the source of the health report an
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, specify also an absolute path to a CA bundle file or directory of trusted CA certs.
+If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, specify also an absolute path to a CA bundle file or directory of trusted CA certs.
 
 ### Arguments
 
@@ -378,7 +383,7 @@ Make the cluster code or configuration upgrade move on to the next upgrade domai
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl cluster upgrade-rollback
-Rollback the upgrade of a Service Fabric cluster.
+Roll back the upgrade of a Service Fabric cluster.
 
 Rollback the code or configuration upgrade of a Service Fabric cluster.
 

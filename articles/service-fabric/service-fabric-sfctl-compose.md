@@ -18,7 +18,7 @@ ms.author: bikang
 
 ---
 # sfctl compose
-Create, delete and manage Docker Compose applications.
+Create, delete, and manage Docker Compose applications.
 
 ## Commands
 
@@ -133,7 +133,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment if
 | --- | --- |
 | --deployment-name  [Required] | The name of the deployment. |
 | --file-path        [Required] | Path to the target Docker compose file. |
-| --default-svc-type-health-map | JSON encoded dictionary that describe the health policy used to evaluate the health of services. |
+| --default-svc-type-health-map | JSON encoded dictionary that describes the health policy used to evaluate the health of services. |
 | --encrypted-pass | Rather than prompting for a container registry password, use an already encrypted pass-phrase. |
 | --failure-action | Possible values include\: 'Invalid', 'Rollback', 'Manual'. |
 | --force-restart | Force restart. |

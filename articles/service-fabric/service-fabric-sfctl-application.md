@@ -425,7 +425,7 @@ This operation can only be performed if all application instances of the applica
 ## sfctl application upgrade
 Starts upgrading an application in the Service Fabric cluster.
 
-Validates the supplied application upgrade parameters and starts upgrading the application if the parameters are valid. Note that upgrade description replaces the existing application description. This means that if the parameters are not specified, the existing parameters on the applications will be overwritten with the empty parameters list. This would results in application using the default value of the parameters from the application manifest.
+Validates the supplied application upgrade parameters and starts upgrading the application if the parameters are valid. Note that upgrade description replaces the existing application description. This means that if the parameters are not specified, the existing parameters on the applications will be overwritten with the empty parameters list. This would result in the application using the default value of the parameters from the application manifest.
 
 ### Arguments
 

@@ -19,7 +19,7 @@ ms.author: bikang
 ---
 
 # sfctl chaos
-Start, stop and report on the chaos test service.
+Start, stop, and report on the chaos test service.
 
 ## Subgroups
 |Subgroup|Description|

@@ -368,7 +368,7 @@ Downloads packages associated with specified service manifest to the image cache
 | --app-type-version      [Required] | The version of the application manifest for the corresponding requested service manifest. |
 | --node-name             [Required] | The name of the node. |
 | --service-manifest-name [Required] | The name of service manifest associated with the packages that will be downloaded. |
-| --share-policy | JSON encoded list of sharing policies. Each sharing policy element is composed of a 'name' and 'scope'. The name corresponds to the name of the code, configuration, or data package that is to be shared. The scope can either 'None', 'All', 'Code', 'Config' or 'Data'. |
+| --share-policy | JSON encoded list of sharing policies. Each sharing policy element is composed of a 'name' and 'scope'. The name corresponds to the name of the code, configuration, or data package that is to be shared. The scope can be either 'None', 'All', 'Code', 'Config' or 'Data'. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments

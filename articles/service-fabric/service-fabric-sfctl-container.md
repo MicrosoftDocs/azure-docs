@@ -36,7 +36,7 @@ Invoke container REST API.
 | --- | --- |
 | --application-id           [Required] | Application identity. |
 | --code-package-instance-id [Required] | Code package instance ID, which can be retrieved by 'service code-package-list'. |
-| --code-package-name        [Required] | Code packge name. |
+| --code-package-name        [Required] | Code package name. |
 | --container-api-uri-path   [Required] | Container REST API URI path, use '{id}' in place of container name/id. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | Service manifest name. |
@@ -64,7 +64,7 @@ Retrieving container logs.
 | --- | --- |
 | --application-id           [Required] | Application identity. |
 | --code-package-instance-id [Required] | Code package instance ID, which can be retrieved by 'service code-package-list'. |
-| --code-package-name        [Required] | Code packge name. |
+| --code-package-name        [Required] | Code package name. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | Service manifest name. |
 | --tail | Only return this number of log lines from the end of the logs. Specify as an integer or all to output all log lines. Defaults to 'all'. |
