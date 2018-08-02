@@ -47,7 +47,7 @@ To complete this tutorial:
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# [V10 Java] (#tab/java v10)
+# [V10 Java] (#tab/java-future)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
