@@ -35,7 +35,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 - Routing tables and rules within the NVA (for example, from NIC1 to NIC2)
 - Tracing on NVA NICs to verify receiving and sending network traffic
 
-## Basic troubleshoot steps
+## Basic troubleshooting steps
 
 - Check the basic configuration
 - Check NVA performance
@@ -55,7 +55,7 @@ Use Azure portal
 
 Use PowerShell
 
-1. Open PowerShell and then login to your Azure account.
+1. Open PowerShell and then sign in to your Azure account.
 2. Run the following command (replace the bracketed values with your information):
 
         Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
@@ -125,7 +125,7 @@ Capture a simultaneous network trace on the source VM, the NVA, and the destinat
 
 3. Open the network trace from the destination VM by using [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **Nmap** from, such as `IPv4.address==10.0.0.4 (Windows netmon)` or `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
-### Analyze Traces
+### Analyze traces
 
 If you do not see the packets incoming to the backend VM trace, there is likely an NSG or UDR interfering or the NVA routing tables are incorrect.
 
