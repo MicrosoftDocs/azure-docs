@@ -21,7 +21,7 @@ Use this SDK to quickly build, train, and deploy highly accurate machine learnin
 
 [!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
 
-## Learn how to use it
+## Next steps
 
 Try these next steps to learn how to use this Azure Machine Learning Services SDK for Python:
 
