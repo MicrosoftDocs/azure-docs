@@ -17,16 +17,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-
-ROBOTS: NOINDEX
 ---
 
-
 # Server workload forecasting on terabytes of data
-
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
-
-
 
 This article covers how data scientists can use Azure Machine Learning Workbench to develop solutions that require the use of big data. You can start from a sample of a large data set, iterate through data preparation, feature engineering, and machine learning, and then extend the process to the entire large data set. 
 
@@ -52,7 +45,7 @@ In this scenario, you focus on workload prediction for each machine (or server).
 The prerequisites to run this example are as follows:
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). To install the program and create a workspace, see the [quickstart installation guide](../desktop-workbench/quickstart-installation.md). If you have multiple subscriptions, you can [set the desired subscription to be the current active subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (the instructions in this example are generally the same for macOS systems).
 * A Data Science Virtual Machine (DSVM) for Linux (Ubuntu), preferably in East US region where the data locates. You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. 
 
