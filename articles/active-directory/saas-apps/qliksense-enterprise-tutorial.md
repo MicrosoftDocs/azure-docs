@@ -114,6 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
+    | |
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 
