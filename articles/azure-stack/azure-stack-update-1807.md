@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -71,6 +71,9 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more infomration about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
+- <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](azure-stack-delegated-provider.md).
+
+- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from teh Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption. 
 
 ### Fixed issues
 

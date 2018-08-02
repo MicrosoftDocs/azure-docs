@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: alfredop
 
@@ -46,7 +46,7 @@ The following roles are part of delegation:
 
 There are two basic steps to setting up delegation:
 
-1. *Create a delegated provider* subscription by subscribing a user to an offer containing only the subscriptions service. Users who subscribe to this offer can then extend the delegated offers to other users by signing them up for those offers.
+1. *Create a Delegated Provider Subscription* by subscribing a user to an offer containing only the subscriptions service. Users who subscribe to this offer can then extend the delegated offers to other users by signing them up for those offers.
 
 2. *Delegate an offer to the delegated provider*. This offer enables the delegated provider to create subscriptions or to extend the offer to their users. The delegated provider can now take the offer and offer it to other users.
 
@@ -126,11 +126,11 @@ Sign in to the user portal as the delegated provider and then create a new offer
 
 4. The public delegated offers are now visible only through the delegated portal. To find and change this URL:
 
-    a.  Select **Browse** > **More services** > **Subscriptions**. Then select the delegated provider subscription. For example, **DPSubscription** > **Properties**.
+    a.  Select **Browse** > **More services** > **Subscriptions**. Then select the Delegated Provider Subscription. For example, **DPSubscription** > **Properties**.
 
     b.  Copy the portal URL to a separate location, such as Notepad.
 
-    ![Select the delegated provider subscription](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Select the Delegated Provider Subscription](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    You've finished creating a delegated offer as a delegated provider. Sign out as the delegated provider and close the browser window you're using.
 
