@@ -15,21 +15,9 @@ ms.author: lizross
 ms.reviewer: jairoc
 
 ---
-# Join your device to your organization's network
+# Set up Azure Active Directory-joined devices
 
 Your organization has asked that if you plan to join your work-owned Windows 10 devices to their network, so you can sign in using your work or school account instead of your personal account, that your device meets specific standards for security and compatibility.
-
-## Registering versus joining your device to a network
-
-**Registering a device** gives your device an ID that can be used to authenticate you when you sign in using it. If you want to register your device, see [Register your device on your organization's network](user-help-register-device-on-network.md).
-
-**Joining a device** is an extension to registering a device. This means, it provides you with all the benefits of registering a device and in addition to this, it also changes the local state of a device. Changing the local state enables your users to sign-in to a device using an organizational work or school account instead of a personal account.
-
-
-
-When combined with a mobile device management(MDM) solution such as Microsoft Intune, the device attributes in Azure AD are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see Enroll devices for management in Intune .
-
-
 
 ## Join your device to your organization's network
 While you are joining your device to your organization's network, the following will happen:
