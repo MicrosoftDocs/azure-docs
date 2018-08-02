@@ -18,7 +18,7 @@ ms.author: v-jamebr
 
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
-Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. This article shows you how to set up reverse proxy in your cluster. 
+Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. This article shows you how to set up reverse proxy in your cluster.
 
 ## Enable reverse proxy using Azure portal
 
@@ -33,13 +33,28 @@ To configure reverse proxy when you create a cluster using Azure portal, do the 
 
    ![Configure secure reverse proxy on portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
+### Make the reverse proxy public
+To address the reverse proxy from outside the Azure cluster, set up Azure Load Balancer rules for the reverse proxy port. These steps can be performed at any time after you have created the cluster.
+
+1. On the Azure portal, click the resource group for your cluster, then click the load balancer for your cluster.
+2. To add a health Probe for the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Health probes**. Then click **Add** at the top of the Health probes window and enter details for the reverse proxy port, then click **OK**. By defaunlt, the reverse proxy port is 19081, unless you changed it when you created the cluster.
+
+   ![Configure reverse proxy health probe](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
+3. To add a Load Balancer rule to expose the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Load balancing rules**. Then click **Add** at the top of the Load balancing rules window and enter details for the reverse proxy port. Make sure you set the **Port** value to the port you want the reverse proxy exposed on, the **Backend port** value to the port you set when you enabled reverse proxy, and the **Health probe** value to the health probe you configured in the previous step. Set other fields as appropriate and click **OK**.
+
+   ![Configure load balancer rule for reverse proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
+
+
+
 ## Enable reverse proxy via Azure Resource Manager templates
 
-For clusters on Azure, you can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric for the cluster. You can enable reverse proxy when you create the cluster or updae it duringupgrade at a later time. 
+For clusters on Azure, you can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric. You can enable reverse proxy when you create the cluster or update the cluster at a later time. 
 
-Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) for Azure Resource Manager template samples to configure secure reverse proxy with a certificate and handling certificate rollover.
+You can find Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and templates to configure secure reverse proxy with a certificate and handling certificate rollover.
 
-First, you get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. Then, you can enable the reverse proxy by using the following steps:
+First, you need a Resource Manager template for the cluster that you want to deploy. For a new cluster, you can either use the sample templates or create a custom Resource Manager template. For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+
+After you have a Resource Manager template, you can enable the reverse proxy by using the following steps:
 
 1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
 
@@ -74,7 +89,7 @@ First, you get the template for the cluster that you want to deploy. You can eit
         ...
     }
     ```
-3. To address the reverse proxy from outside the Azure cluster, set up the Azure Load Balancer rules for the port that you specified in step 1.
+3. (Optional) To address the reverse proxy from outside the Azure cluster, set up the Azure Load Balancer rules for the port that you specified in step 1.
 
     ```json
     {
