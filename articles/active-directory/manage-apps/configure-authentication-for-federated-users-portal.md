@@ -258,4 +258,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## Next steps
 - For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/active-directory-authentication-scenarios.md).
 - For more information about user single sign-on, see [Application access and single sign-on with Azure Active Directory](configure-single-sign-on-portal.md).
-- Visit the [Active Directory developer's guide](../develop/active-directory-developers-guide.md) for an overview of all developer-related content.
+- Visit the [Active Directory developer's guide](../develop/azure-ad-developers-guide.md) for an overview of all developer-related content.
