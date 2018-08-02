@@ -232,7 +232,7 @@
       href: prepay-reserved-vm-instances.md
     - name: What are reserved instances?
       href: ../../billing/billing-save-compute-costs-reservations.md
-    - name: VM size groupings - reserved instances
+    - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
