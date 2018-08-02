@@ -42,7 +42,7 @@ Experimental support for PowerShell is limited to version 5.1, because that is w
 
 If you want to use one of the languages that are only available in 1.x, stay on the 1.x runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
 
-The version 2.x runtime doesn't support experimental languages. New languages are added only when they can be supported for production use. 
+The version 2.x runtime doesn't support experimental languages. Support for new languages is added only when the language can be supported in production. 
 
 ### Language extensibility
 
