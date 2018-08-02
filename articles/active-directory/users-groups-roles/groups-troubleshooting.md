@@ -25,7 +25,7 @@ ms.custom: it-pro
 
 **I don’t see membership changes instantly when I add or change a rule, why not?**<br/>Dedicated membership evaluation is done periodically in an asynchronous background process. How long the process takes is determined by the number of users in your directory and the size of the group created as a result of the rule. Typically, directories with small numbers of users will see the group membership changes in less than a few minutes. Directories with a large number of users can take 30 minutes or longer to populate.
 
-The following table lists common dynamic membership rule errors and how to correct them.
+**I encountered a rule processing error**<br/>The following table lists common dynamic membership rule errors and how to correct them.
 
 | Rule parser error | Error usage | Corrected usage |
 | --- | --- | --- |
