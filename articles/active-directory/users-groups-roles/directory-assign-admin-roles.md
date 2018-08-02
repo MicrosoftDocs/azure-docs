@@ -23,12 +23,15 @@ ms.custom: it-pro
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names.
 
 ## Details about the global administrator role
+
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
 ## Assign or remove administrator roles
+
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Available roles
+
 The following administrator roles are available:
 
 * **[Application Administrator](#application-administrator)**: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Members of this role are not added as owners when creating new application registrations or enterprise applications.
@@ -45,7 +48,7 @@ The following administrator roles are available:
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
   
-* **[Device Administrators](#device-administrators)**: Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
+* **[Device Administrators](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
 * **[Directory Readers](#directory-readers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/active-directory-integrating-applications.md). It should not be assigned to any users.
 
@@ -350,15 +353,13 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Update ConditionalAccessPolicys.Owners property in Azure Active Directory. |
 
 ### Device Administrators
-Members of this role are added to the local administrators group on Azure AD-joined devices.
+
+Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage device objects in Azure Active Directory.
 
   > [!NOTE]
   > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Actions** | **Description** |
-| --- | --- |
 
 ### Directory Readers
 Can read basic directory information. For granting access to applications.
