@@ -46,7 +46,7 @@ The above logic can be shown in the following matrix:
 ## Configuring TTL
 By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or by using the Azure portal. Use the following steps to configure TTL from Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and navige to your Azure Cosmos DB account.  
+1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.  
 
 2. Navigate to the collection you want to set the TTL value, Open the **Scale & Settings** pane. You can see that the Time to Live is by default set to **off**. You can change it to **on (no default)** or **on**.
 
