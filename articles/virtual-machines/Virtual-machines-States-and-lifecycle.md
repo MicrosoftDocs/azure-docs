@@ -1,10 +1,10 @@
 #Virtual Machines Lifecycle and States
 
-Virtual Machines goes through different "provisioning" and "power" states during its lifecycle. The purpose of this document, is to describe these states and specifically highlight when our customers are billed for hardware + software usage. 
+Virtual Machine goes through different states that can be categories into "provisioning" and "power" states. The purpose of this document is to describe these states and specifically highlight when customers are billed for hardware and software usage. 
 
 ##Power States
 
-The Power states represent VM’s running state as seen by the hypervisor.
+The Power states represent last known VM running state.
 
 ![VM power state diagram](./media/Virtual-Machines-States/VM-Power-States.png)
 
@@ -31,17 +31,11 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p>VM is starting up.</p>
 <code>"statuses": [</br>
    {</br>
-      "code": "ProvisioningState/creating",</br>
-       "level": "Info",</br>
- "displayStatus": "Creating"</br>
-  },</br>
-   {</br>
       "code": "PowerState/starting",</br>
        "level": "Info",</br>
         "displayStatus": "VM starting"</br>
     }</br>
     ]</code></br>
-
 </td>
 <td width="83">
 <p><strong>Not Billed</strong></p>
@@ -54,12 +48,6 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <td width="484">
 <p>Running state for a VM</p>
 <code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/succeeded",</br>
- "level": "Info",</br>
- "displayStatus": "Provisioning succeeded",</br>
- "time": &ldquo;time&rdquo;</br>
- },</br>
  {</br>
  "code": "PowerState/running",</br>
  "level": "Info",</br>
@@ -76,13 +64,8 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Stopping</strong></p>
 </td>
 <td width="484">
-<p>Status of the VM, when a VM is either stopped from client or guest OS. Stopping status is a transitional state, which eventually transitions to its final state of Stopped.</p>
+<p>Stopping is a transitional state, which eventually transitions to its final state of Stopped.</p>
 <code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- },</br>
  {</br>
  "code": "PowerState/stopping",</br>
  "level": "Info",</br>
@@ -99,15 +82,9 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Stopped</strong></p>
 </td>
 <td width="484">
-<p>Stopped state is observed when a VM has been shut down from the guest OS then the VM transitions to the stopped state.</p>
-<p>VM in a stopped state is only stopped on the host but not removed as compared to deallocate state. </p>
+<p>Stopped state is observed when a VM has been shut down from the guest OS or client PowerOff APIs.</p>
+<p>VM in a stopped state is not removed from the host as compared to deallocated state. </p>
 <code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/succeeded",</br>
- "level": "Info",</br>
- "displayStatus": "Provisioning succeeded",</br>
- "time": "time"</br>
- },</br>
  {</br>
  "code": "PowerState/stopped",</br>
  "level": "Info",</br>
@@ -124,13 +101,8 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Deallocating</strong></p>
 </td>
 <td width="484">
-<p>when the user stops the VM using client APIs, VM transitions to deallocating transitional state.</p>
+<p>Deallocating is a transitional state of a VM when user performs a deallocate action.</p>
 <code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- },</br>
  {</br>
  "code": "PowerState/deallocating",</br>
  "level": "Info",</br>
@@ -147,14 +119,8 @@ The Power states represent VM’s running state as seen by the hypervisor.
 <p><strong>Deallocated</strong></p>
 </td>
 <td width="484">
-<p>VM is stopped and removed/deallocated from the host. VM in the deallocated state is not billed, but other resources like network and storage are billed.</p>
+<p>Deallocated status is observed when CRP has successfully stopped and removed the VM from the host. </p>
 <code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/succeeded",</br>
- "level": "Info",</br>
- "displayStatus": "Provisioning succeeded",</br>
- "time": "time"</br>
- },</br>
  {</br>
  "code": "PowerState/deallocated",</br>
  "level": "Info",</br>
@@ -169,12 +135,11 @@ The Power states represent VM’s running state as seen by the hypervisor.
 </tbody>
 </table>
 
-For list of Virtual Machines errors, visit [here] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/error-messages).
 
 ##Provisioning States
 
 Provisioning states are statuses of User-initiated (control plane)
-operations on the VM. These states are independent of the running state of a VM, which is observed as Power states and discussed earlier.
+operations on the VM. These states are independent of the running state of a VM; which are observed as Power states and discussed earlier.
 
 **User Initiated actions**
 
@@ -185,8 +150,7 @@ operations on the VM. These states are independent of the running state of a VM,
 
 3.  **Delete** – VM deletion
 
-4.  **Deallocate** – Deallocating a VM is a power state. Internal effect
-    of deallocating a VM results into Update of the VM hence resulting
+4.  **Deallocate** – VM deallocate is a CRP control plane operation, where VM is stopped and removed from the host. Deallocating a VM results into Update of the VM model hence resulting
     into provisioning states related to updating.
 
 **Operation states** – Transitional states after the platform has
@@ -245,22 +209,6 @@ accepted the request for user-initiated action.
 </tr>
 <tr>
 <td width="162">
-<p><strong>InProgress</strong></p>
-</td>
-<td width="366">
-<p>Creating or updating or deletion status</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><strong>Canceled</strong></p>
-</td>
-<td width="366">
-<p>User-initiated cancel will result in this state</p>
-</td>
-</tr>
-<tr>
-<td width="162">
 <p><strong>OS provisioning states</strong></p>
 </td>
 <td width="366">
@@ -268,26 +216,26 @@ accepted the request for user-initiated action.
 <p><strong>1. </strong><strong>OSProvisioningInprogress</strong> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
 <code> "statuses": [</br>
  {</br>
- "code": "ProvisioningState/ OSProvisioningInprogress",</br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
  "level": "Info",</br>
  "displayStatus": "OS Provisioning In progress"</br>
  }</br>
 ]</code></br>
-<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived state, as it quickly transitions to Success unless VM has to install any extensions. Installation of extensions take time and thus provides a window to observe these states. <br />
+<p><strong>2. </strong><strong>OSProvisioningComplete</strong> &ndash; Short-lived state, as it quickly transitions to Success unless VM has to install any extensions. Installation of extensions takes time and provides a window to observe this state. <br />
 <code> "statuses": [</br>
  {</br>
- "code": "ProvisioningState/ OSProvisioningComplete",</br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
  "level": "Info",</br>
  "displayStatus": "OS Provisioning Complete"</br>
  }</br>
 ]</code></br>
-<p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time, customers will be billed for the deployed VM on the infrastructure. In cases where OS takes longer than expected to complete the installation, the platform will automatically transition to success from failure. In other cases, restarting a VM can resolve the issue. If the issue is persistent, then refer to error codes documentation for resolution.</p>
+<p><strong>Note</strong>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time, customers will be billed for the deployed VM on the infrastructure.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
-**Success**– This state represents that user-initiated actions have
+**Succeeded**– This state represents that user-initiated actions have
 completed.
 </p>
 <code>
@@ -305,14 +253,14 @@ completed.
 resolution.
 </p>
 <code>
- "statuses": \[</br>
- {</br>
-     "code": "ProvisioningState/failed",</br>
-     "level": "Info",</br>
-     "displayStatus": "Provisioning failed",</br>
-     "time": "time"</br>
- }</br>
- \]</br>
+ "statuses": [</br>
+    {</br>
+      "code": "ProvisioningState/failed/InternalOperationError",</br>
+      "level": "Error",</br>
+      "displayStatus": "Provisioning failed",</br>
+      "message": "Operation abandoned due to internal error. Please try again later.",</br>
+      "time": "time"</br>
+    }</br>
 </code>
 </p>
 **Edge cases**: In cases where a VM was running and in a good state, a
@@ -324,3 +272,10 @@ issue, look at the error message (either from the last failed
 operation of the VM instance view). If the error is due to API input validation, then try to fix the inputs. If the error, is due to Azure
 internal errors a retry of the management operation should resolve the
 issue.
+
+##VM Instance View
+Virtual Machine Instance View API provides VM running-state information. [Here] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/instanceview) is the API documentation.
+
+Azure Resources explorer provides a simple UX to view VM running state: [Resource Explorer] (https://resources.azure.com/)
+
+Provisioning states are visible on VM properties and Instance View whereas Power States are available in Instance View of VM. 
