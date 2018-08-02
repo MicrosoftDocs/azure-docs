@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Machine Learning Services Documentation
 metadata:
-  title: Azure Machine Learning Services Documentation
-  meta.description: Learn how to use Azure Machine Learning Services.
+  title: Azure Machine Learning Services Documentation (Preview)
+  meta.description: Learn how to use Azure Machine Learning Services (Preview).
   services: machine-learning
   author: garyericson
   manager: jhubbard
@@ -15,7 +15,7 @@ metadata:
   ms.date: 06/18/2018
   ms.author: jmartens
 abstract:
-  description: Azure Machine Learning Services enable building, deploying, and managing machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure to store and process your data.
+  description: Azure Machine Learning Services  (Preview) enable building, training, deploying, and managing machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure to store and process your data.
 sections:
 
 - title: 5-Minute Quickstarts
