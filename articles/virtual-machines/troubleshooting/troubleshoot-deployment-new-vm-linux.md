@@ -26,7 +26,7 @@ ms.author: cjiang
 ## Top issues
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
-For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
+For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm-linux.md).
 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
@@ -59,7 +59,7 @@ To resolve both these errors, upload the original VHD, available on-prem, with t
 
 **Resolution:**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
@@ -85,5 +85,5 @@ This error arises in situations when the new VM request is pinned to a cluster t
   * Add the new VM to the same virtual network.
 
 ## Next steps
-If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](../linux/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

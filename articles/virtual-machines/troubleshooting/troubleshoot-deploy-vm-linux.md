@@ -57,15 +57,15 @@ To activate your monthly  credit, see this [article](https://azure.microsoft.com
 
 ## Why can I not install the GPU driver for an Ubuntu NV VM?
 
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](n-series-driver-setup.md).
+Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](../linux/n-series-driver-setup.md).
 
 ## My drivers are missing for my Linux N-Series VM
 
-Drivers for Linux-based VMs are located [here](n-series-driver-setup.md). 
+Drivers for Linux-based VMs are located [here](../linux/n-series-driver-setup.md). 
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
 
 ## Is N-Series VMs available in my region?
 
@@ -85,7 +85,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## What Linux distributions/versions are supported on Azure?
 
-You can find the list at Linux on [Azure-Endorsed Distributions](endorsed-distros.md).
+You can find the list at Linux on [Azure-Endorsed Distributions](../linux/endorsed-distros.md).
 
 ## Can I add an existing Classic VM to an availability set?
 
