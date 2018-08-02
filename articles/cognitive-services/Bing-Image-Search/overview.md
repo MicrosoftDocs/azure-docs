@@ -22,7 +22,7 @@ The Bing Image Search API enables you to develop intelligent apps that leverage 
 
 ## Using and suggesting search terms
 
-After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if the user enters *flying fish*, set `q` to `flying+fish` or `flying%20fish`.
+After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if a user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
 If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in realtime. The API returns suggested query strings based on partial search terms and Azure cognitive services. 
 
@@ -99,7 +99,7 @@ To get insights about the image, such as web pages that include the image or peo
 
 ## Filtering images
 
- By default, the Images Search API returns all images that are relevant to the query. But if you want only images with a transparent background or images of a specific size, you'd use the following query parameters to filter the images that Bing returns.  
+ By default, the Image Search API will return all images that are relevant to the query. If you want to filter the images Bing returns (for example, to return only images with a transparant background or specific size), you can use the following query parameters:
 
 - [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)—Filter images by aspect ratio (for example, standard or wide screen images)
 - [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)—Filter images by dominant color or black and white
@@ -113,7 +113,7 @@ To get insights about the image, such as web pages that include the image or peo
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 > [!NOTE]
-> Depending on the query, if you use the `site:` operator, there is the chance that the response contains adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
+> Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site` if you are aware of the content on the site.
 
 The following example shows how to get small images from ContosoSailing.com that Bing has discovered in the past week.  
 
@@ -128,9 +128,9 @@ Host: api.cognitive.microsoft.com
 
 ## Pivoting the query
 
-If Bing can segment the original search query, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object contains the `pivotSuggestions` field. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface*.  
+If Bing can segment the original search query, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object will contain the `pivotSuggestions` field. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These can be displayed as optional query terms to the user. 
 
-The following example shows the pivot suggestions for *Microsoft Surface*.  
+The following example shows the pivot suggestions for *Microsoft Surface*:  
 
 ```json
 {
@@ -188,8 +188,6 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
     "nextOffsetAddCount": 0
 }
 ```
-
-You could then display to the user the optional query terms in case they're of interest to the user.
 
 The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query and the `displayText` field contains the term that replaces the pivot in the original query. For example, Release Date of Surface.
 
