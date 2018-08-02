@@ -26,7 +26,7 @@ While you are joining your device to your organization's network, the following 
 
 - You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your administrator has set up.
 
-- You'll be automatically enrolled in mobile device management, if it's required.
+- You'll be automatically enrolled in mobile device management, if it's required. For more info, see ...
 
 - You'll go through sign-in, using either automatic sign-in (if you're a managed user) or by using your work or school account user name and password (if you're not a managed user).
 
@@ -78,16 +78,14 @@ You can also review device settings on the Azure AD portal.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/15.png)
 
-For more information, see [locate devices](../device-management-azure-portal.md#locate-devices).
+For more information, see [locate devices](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## Next steps
 
 For more information, see: 
 
-- The [introduction to device management in Azure Active Directory](../device-management-introduction.md)
-- [Managing devices using the Azure portal](../device-management-azure-portal.md)
-- 
-
+- The [introduction to device management in Azure Active Directory](../devices/overview.md)
+- [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
 
 

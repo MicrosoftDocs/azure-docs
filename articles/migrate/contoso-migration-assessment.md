@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
 
 
@@ -96,7 +96,7 @@ In this scenario, Contoso downloads and runs Data Migration Assistant to assess 
 - Contoso is a fictitious name that represents a typical enterprise organization.
 - Contoso has an on-premises datacenter (**contoso-datacenter**) and on-premises domain controllers (**CONTOSODC1**, **CONTOSODC2**).
 - VMware VMs are located on VMware ESXi hosts running version 6.5 (**contosohost1**, **contosohost2**).
-- The VMware environment is managed by vCenter Server 6.5 (**vcenter**, running on a VM).
+- The VMware environment is managed by vCenter Server 6.5 (**vcenter.contoso.com**, running on a VM).
 - The SmartHotel travel app has these characteristics:
     - The app is tiered across two VMware VMs (**WEBVM** and **SQLVM**).
     - The VMs are located on VMware ESXi host **contosohost1.contoso.com**.
@@ -120,12 +120,10 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-        
-- You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- If your VMs don't have internet connectivity, the Azure Log Analytics [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them.
+        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        - If your VMs don't have internet connectivity, the Azure Log Analytics [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
-- Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). The setup allows Data Migration Assistant to connect.
+- Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
 ## Assessment overview
 
@@ -294,7 +292,7 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
 
 ### Create the collector appliance
 
-Now, Contoso can import the downloaded file to the vCenter Server instance and provision the configuration server VM:
+Now, Contoso can import the downloaded file to the vCenter Server instance and provision the collector appliance VM:
 
 1. In the vSphere Client console, Contoso selects **File** > **Deploy OVF Template**.
 
@@ -350,7 +348,7 @@ When collection is finished, Contoso checks that the VMs appear in the portal:
 
 ## Step 5: Prepare for dependency analysis
 
-To view dependencies between VMs that it wants to access, Contoso downloads and installs agents on the app VMs. Contoso installs agents on all VMs for its apps, both for Windows and Linux.
+To view dependencies between VMs that it wants to assess, Contoso downloads and installs agents on the app VMs. Contoso installs agents on all VMs for its apps, both for Windows and Linux.
 
 ### Take a snapshot
 
