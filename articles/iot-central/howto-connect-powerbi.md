@@ -38,9 +38,9 @@ This solution template sets up the pipeline that takes the data in your Azure Bl
 ## Prerequisites
 Setting up the template requires the following:
 - Access to an Azure subscription
-- Exported data using [continuous data export](howto-export-data.md) from your IoT Central app. We recommend you turn on measurements, devices, and device template streams to get - the most out of the Power BI dashboard.
+- Exported data using [continuous data export](howto-export-data.md) from your IoT Central app. We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
 - Power BI Desktop (latest version)
-- Power BI Pro (to share the template with others)
+- Power BI Pro (if you want to share the dashboard with others)
 
 ## Reports
 

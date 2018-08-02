@@ -61,6 +61,8 @@
       href: devtest-lab-create-lab.md
     - name: Create a VM in the lab
       href: devtest-lab-create-first-vm.md
+    - name: Delete a lab or VM in a lab
+      href: devtest-lab-delete-lab-vm.md
     - name: Set policies for the lab
       href: devtest-lab-get-started-with-lab-policies.md 
     - name: Store secrets in Azure Key Vault

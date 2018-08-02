@@ -177,8 +177,14 @@ Configure the runtime with your IoT Edge device connection string that you copie
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
+8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is uncommented and set to **azure-iot-edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. Save the configuration file. 
 
 10. In PowerShell, restart the IoT Edge service.
@@ -208,7 +214,8 @@ Verify that the runtime was successfully installed and configured.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. View all the modules running on your IoT Edge device. Since the service just started for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default, and helps to install and start any additional modules that you deploy to your device. 

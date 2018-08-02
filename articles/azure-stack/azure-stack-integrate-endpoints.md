@@ -62,7 +62,7 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Purpose|URL|Protocol|Ports|
 |---------|---------|---------|---------|
 |Identity|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
-|Marketplace syndication|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Marketplace |https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |Patch & Update|https://&#42;.azureedge.net|HTTPS|443|
 |Registration|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
