@@ -1,6 +1,6 @@
 ---
-title: Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
-description: Learn how to deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
+title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
+description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
 services: app-service\web
 documentationcenter: ''
 author: tomarcher
@@ -17,63 +17,63 @@ ms.author: tarcher
 ms.custom: jenkins
 ---
 
-# Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
+# Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
 
-Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, see to the [AKS documentation](/azure/aks/).
+Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications. You don't need expertise in container orchestration. AKS also eliminates the burden of ongoing operations and maintenance, by provisioning, upgrading, and scaling resources on demand. You don't need to take your applications offline. For more information about AKS, see the [AKS documentation](/azure/aks/).
 
-Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, see to the article, [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).
+Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment, which is still running. For more information about Continuous Delivery, see [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).
 
-In this tutorial, you learn how to perform the following tasks in learning how to deploy to AKS using Jenkins and the blue/green deployment pattern:
+In this tutorial, you learn how to perform the following tasks:
 
 > [!div class="checklist"]
 > * Learn about the blue/green deployment pattern
-> * Create a managed Kubernetes cluster.
+> * Create a managed Kubernetes cluster
 > * Run a sample script to configure a Kubernetes cluster
 > * Manually configure a Kubernetes cluster
 > * Create and run a Jenkins job
 
 ## Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : The Azure CLI 2.0 is used to create the Kubernetes cluster.
-- [Chocolatey](https://chocolatey.org) - A package manager used to install kubectl.
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : A command-line interface for running commands against Kubernetes clusters.
-- [jq](https://stedolan.github.io/jq/download/) : A lightweight command-line JSON processor.
+- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
+- [Chocolatey](https://chocolatey.org): A package manager you use to install kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): A command-line interface you use for running commands against Kubernetes clusters.
+- [jq](https://stedolan.github.io/jq/download/): A lightweight, command-line JSON processor.
 
 ## Clone the sample app from GitHub
 
-A sample app that illustrates how to deploy to AKS using Jenkins and the blue/green pattern is on the Microsoft repo in GitHub. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
+On the Microsoft repo in GitHub, you can find a sample app that illustrates how to deploy to AKS by using Jenkins and the blue/green pattern. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
 
 1. Browse to the GitHub repo for the [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git) sample app.
 
-    ![Sample app on Microsoft GitHub repo.](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
+    ![Screenshot of sample app on Microsoft GitHub repo](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
 
 1. Fork the repo by selecting **Fork** in the upper right of the page, and follow the instructions to fork the repo in your GitHub account.
 
-    ![Fork the sample app to your GitHub account.](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
+    ![Screenshot of GitHub option to fork](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
 
-1. Once you fork the repo, you see that the account name changes to your account name, and a note indicates from where the repo was forked (Microsoft).
+1. After you fork the repo, you see that the account name changes to your account name, and a note indicates from where the repo was forked (Microsoft).
 
-    ![Sample app after being forked to another GitHub account.](./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png)
+    ![Screenshot of GitHub account name and note](./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png)
 
-1. Selecting **Clone or download**.
+1. Select **Clone or download**.
 
-    ![GitHub allows you to quickly clone or download a repo.](./media/jenkins-aks-blue-green-deployment/github-sample-clone.png)
+    ![Screenshot of GitHub option to clone or download a repo](./media/jenkins-aks-blue-green-deployment/github-sample-clone.png)
 
-1. In the **Clone with HTTPS** window, select the copy icon.
+1. In the **Clone with HTTPS** window, select the **copy** icon.
 
-    ![Copy the clone URL to the clipboard.](./media/jenkins-aks-blue-green-deployment/github-sample-copy.png)
+    ![Screenshot of GitHub option to copy the clone URL to the clipboard](./media/jenkins-aks-blue-green-deployment/github-sample-copy.png)
 
-1. Open a terminal or Bash window.
+1. Open a terminal or Git Bash window.
 
 1. Change directories to the desired location where you want to store the local copy (clone) of the repo.
 
 1. Using the `git clone` command, clone the URL you copied previously.
 
-    ![Type "git clone" and the clone URL to create a clone of the repo.](./media/jenkins-aks-blue-green-deployment/git-clone-command.png)
+    ![Screenshot of Git Bash git clone command](./media/jenkins-aks-blue-green-deployment/git-clone-command.png)
 
-1. Select the &lt;Enter> key to start the clone process.
+1. Press the Enter key to start the clone process.
 
-    ![The "git clone" command creates a personal copy of the repo in which you can test](./media/jenkins-aks-blue-green-deployment/git-clone-results.png)
+    ![Screenshot of Git Bash git clone command results](./media/jenkins-aks-blue-green-deployment/git-clone-results.png)
 
 1. Change directories to the newly created directory that contains the clone of the app source.
 
@@ -82,35 +82,35 @@ A sample app that illustrates how to deploy to AKS using Jenkins and the blue/gr
 In this section, you perform the following steps:
 
 - Use the Azure CLI 2.0 to create a managed Kubernetes cluster.
-- Learn how to set up a cluster either by using the setup script or manually.
+- Learn how to set up a cluster, either by using the setup script or manually.
 - Create the Azure Container Registry.
 
 > [!NOTE]	
-> AKS is currently in preview. For information on enabling the preview for your Azure subscription. see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
-](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
+> AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
+](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
-In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using Azure CLI version 2.0.25 or later.
+In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using the Azure CLI version 2.0.25 or later.
 
-1. Sign in to your Azure account. Once you enter the following `az login` command, instructions are provided that explain how to complete the signin. 
+1. Sign in to your Azure account. After you enter the following command, you  receive instructions that explain how to complete the sign-in. 
     
     ```bash
     az login
     ```
 
-1. When you run the `az login` command in the previous step, a list of all your Azure subscriptions displays (along with their subscription IDs). In this step, you set the default Azure subscription. Replace the &lt;your-subscription-id> placeholder with the desired Azure subscription ID. 
+1. When you run the `az login` command in the previous step, a list of all your Azure subscriptions appears (along with their subscription IDs). In this step, you set the default Azure subscription. Replace the &lt;your-subscription-id> placeholder with the desired Azure subscription ID. 
 
     ```bash
     az account set -s <your-subscription-id>
     ```
 
-1. Create a resource group. Replace the &lt;your-resource-group-name> placeholder with the name of your new resource group, and replace the &lt;your-location> placeholder with the location. The command `az account list-locations` displays all Azure locations. During the AKS preview, not all locations are available. If you enter a location that is not valid at this time, the error message will list the available locations.
+1. Create a resource group. Replace the &lt;your-resource-group-name> placeholder with the name of your new resource group, and replace the &lt;your-location> placeholder with the location. The command `az account list-locations` displays all Azure locations. During the AKS preview, not all locations are available. If you enter a location that is not valid at this time, the error message lists the available locations.
 
     ```bash
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
-1. Create the Kubernetes cluster. Replace the &lt;your-resource-group-name> with the name of the resource group created in the previous step, and replace the &lt;you-kubernetes-cluster-name> with the name of your new cluster. (This process can take several minutes to complete.)
+1. Create the Kubernetes cluster. Replace the &lt;your-resource-group-name> with the name of the resource group created in the previous step, and replace the &lt;your-kubernetes-cluster-name> with the name of your new cluster. (This process can take several minutes to complete.)
 
     ```bash
     az aks create -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --generate-ssh-keys --node-count 2
