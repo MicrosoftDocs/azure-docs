@@ -234,7 +234,7 @@ The  **GetTableListAndTriggerCopyData** takes a list of tables as a parameter. F
 
     ![ForEach activity settings](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
 
-    c. In the **Add Dynamic Content** page, collapse the System Vairables and Funcstions section, click the **tableList** under **Parameters** which will automatically populate the top expression text box as `@pipeline().parameter.tableList`, then click **Finish**. 
+    c. In the **Add Dynamic Content** page, collapse the System Vairables and Functions section, click the **tableList** under **Parameters** which will automatically populate the top expression text box as `@pipeline().parameter.tableList`, then click **Finish**. 
 
     ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
