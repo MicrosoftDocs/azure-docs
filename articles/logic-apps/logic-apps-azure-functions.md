@@ -71,16 +71,15 @@ in the Logic App Designer.
 
   * For your function template, check these property values: 
   
-    * The **Mode** property is set to **Webhook**.
-    * The **Webhook type** property is set to **Generic JSON**.
+    * The **Mode** property value is **Webhook**.
+    * The **Webhook type** property value is **Generic JSON**.
 
     1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
     2. On the main Azure menu, select **Function Apps**. 
     3. In the **Function Apps** list, select your function app, 
     expand your function, and select **Integrate**. 
-    4. Check your template's **Mode** property 
-    is set to **Webhook** and that the **Webhook type** 
-    property is set to **Generic JSON**. 
+    4. Check the **Mode** property value is **Webhook** and 
+    the **Webhook type** property value is **Generic JSON**. 
 
   * If your function has an 
   [API definition](../azure-functions/functions-openapi-definition.md), 
@@ -106,14 +105,16 @@ function template for either **JavaScript** or **C#**.
 
   ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
 
-* After you create your Azure function, check that the template's 
-**Mode** and **Webhook type** properties are set correctly.
+* After you create your Azure function, 
+check your function template's property values: 
 
   1. In the **Function Apps** list, expand your function, 
   and select **Integrate**. 
 
-  2. Check that your template's **Mode** property is set to **Webhook** 
-  and that the **Webhook type** property is set to **Generic JSON**. 
+  2. Check these property values: 
+
+     * The **Mode** property value is **Webhook**.
+     * The **Webhook type** property value is **Generic JSON**.
 
      ![Your function template's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
@@ -228,7 +229,7 @@ After the actions list opens, select this action:
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
       In the template's code, the *`context` object* refers 
-      to the message that's sent from your logic app through 
+      to the message that your logic app sends through 
       the **Request Body** field in the next step. 
       To access the `context` object's properties 
       from inside your function, use this syntax: 
@@ -266,10 +267,10 @@ which must be formatted as a JavaScript Object Notation (JSON) object.
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. However, 
-   when the context object isn't a JSON token that contains a string, 
-   a JSON object, or a JSON array, you get an error. So, if this example 
-   used the **Received Time** token instead, you can cast the context 
+   content gets added directly to the JSON payload. However, when the 
+   context object isn't a JSON token that passes a string, a JSON object, 
+   or a JSON array, you get an error. So, if this example used the 
+   **Received Time** token instead, you can cast the context 
    object as a string by adding double-quotation marks:  
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
@@ -321,10 +322,10 @@ which must be formatted as a JavaScript Object Notation (JSON) object.
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. However, 
-   when the context object isn't a JSON token that contains a string, 
-   a JSON object, or a JSON array, you get an error. So, if this example 
-   used the **Received Time** token instead, you can cast the context 
+   content gets added directly to the JSON payload. However, when the 
+   context object isn't a JSON token that passes a string, a JSON object, 
+   or a JSON array, you get an error. So, if this example used the 
+   **Received Time** token instead, you can cast the context 
    object as a string by adding double-quotation marks: 
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
