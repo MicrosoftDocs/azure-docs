@@ -34,7 +34,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/@azure/cosmos)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/en-us/javascript/api/%40azure/cosmos/?view=azure-node-latest)</td></tr>
+<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)</td></tr>
 
 <tr><td>**SDK installation instructions**</td><td>[Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)</td></tr>
 
@@ -47,7 +47,7 @@ ms.custom: H1Hack27Feb2017
 <tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application-preview.md)</td></tr>
 
 <tr><td>**Current supported platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
+[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for Version 2.0.0 and above.<br/> 
 [Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
 [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
 [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
@@ -58,7 +58,8 @@ ms.custom: H1Hack27Feb2017
 
 ### <a name="2.0.0-3"/>2.0.0-3</a>
 * RC1 of Version 2.0.0 of the Node SDK for public preview.
-* New API surface, with support for promises. 
+* New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
+* Support for [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
 * SDK converted to TypeScript.
 
 ### <a name="1.14.4"/>1.14.4</a>

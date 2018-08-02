@@ -14,7 +14,7 @@ ms.date: 07/30/2018
 ms.author: dech
 
 ---
-# Azure Cosmos DB: Build a Node.js app using SQL API, Node SDK 2.0 and the Azure portal 
+# Azure Cosmos DB: Build a Node.js app using SQL API, Node SDK 2.0 (preview) and the Azure portal 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

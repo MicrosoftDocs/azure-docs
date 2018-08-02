@@ -3,8 +3,8 @@ title: Node.js tutorial for the SQL API for Azure Cosmos DB | Microsoft Docs
 description: A Node.js tutorial that demonstrates how to connect to and query Azure Cosmos DB using the SQL API
 keywords: node.js tutorial, node database
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: deborahc
+manager: andrl
 editor: monicar
 
 ms.service: cosmos-db
@@ -12,10 +12,10 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/30/2018
-ms.author: sngun
+ms.author: dech
 
 ---
-# Node.js tutorial: Use the SQL API in Azure Cosmos DB to create a Node.js console application
+# Node.js tutorial: Create a Node.js console application with Azure Cosmos DB SQL API and Node SDK 2.0 (preview)
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -53,7 +53,7 @@ Make sure you have the following:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js](https://nodejs.org/) version v0.10.29 or higher.
+* [Node.js](https://nodejs.org/) version v6.0.0 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account
 
@@ -166,7 +166,7 @@ config.items = {
     }
 };
 ```
-Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item', which may be a document, edge/vertex, or row to describe these concepts.
+Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 ```nodejs
@@ -314,7 +314,10 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command: 
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully created an Azure Cosmos DB database.
 
