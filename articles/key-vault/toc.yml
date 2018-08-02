@@ -82,6 +82,8 @@
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
   - name: Python
     href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
   - name: Develop
     items:
     - name: Developer quick start video
@@ -143,3 +145,5 @@
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
