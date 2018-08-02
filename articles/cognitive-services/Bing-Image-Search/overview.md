@@ -10,6 +10,7 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: scottwhi
+#Customer intent: As a developer, I want to integrate Bing's image search capabilities into my app, so that I can provide relevant, high-quality images to my users.
 ---
 
 # What is Bing Image Search?
