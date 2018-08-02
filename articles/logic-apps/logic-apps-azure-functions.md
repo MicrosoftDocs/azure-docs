@@ -24,7 +24,7 @@ entire app or the infrastructure for running your code.
 Azure Functions provides serverless computing in the 
 cloud and is useful for performing tasks, for example:
 
-* Extend your logic app's behavior with functions writtien in Node.js or C#.
+* Extend your logic app's behavior with functions in Node.js or C#.
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
@@ -69,8 +69,10 @@ in the Logic App Designer.
     Also, when you add an Azure function to your logic app, the Logic App Designer shows 
     custom functions created from this template and with your Azure subscription. 
 
-  * Check that your function template's **Mode** property is set to 
-  **Webhook** and the **Webhook type** property is set to **Generic JSON**.
+  * For your function template, check these property values: 
+  
+    * The **Mode** property is set to **Webhook**.
+    * The **Webhook type** property is set to **Generic JSON**.
 
     1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
     2. On the main Azure menu, select **Function Apps**. 
@@ -225,9 +227,9 @@ After the actions list opens, select this action:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-      In the template's code, the *`context` object* is the 
-      message sent from your logic app from the 
-      **Request Body** field in the next step. 
+      In the template's code, the *`context` object* refers 
+      to the message that's sent from your logic app through 
+      the **Request Body** field in the next step. 
       To access the `context` object's properties 
       from inside your function, use this syntax: 
 
@@ -264,8 +266,8 @@ which must be formatted as a JavaScript Object Notation (JSON) object.
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. In the cases 
-   where the context object isn't a JSON token that contains a string, 
+   content gets added directly to the JSON payload. However, 
+   when the context object isn't a JSON token that contains a string, 
    a JSON object, or a JSON array, you get an error. So, if this example 
    used the **Received Time** token instead, you can cast the context 
    object as a string by adding double-quotation marks:  
@@ -319,8 +321,8 @@ which must be formatted as a JavaScript Object Notation (JSON) object.
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
    Here, the context object isn't cast as a string, so the object's 
-   content gets added directly to the JSON payload. In the cases 
-   where the context object isn't a JSON token that contains a string, 
+   content gets added directly to the JSON payload. However, 
+   when the context object isn't a JSON token that contains a string, 
    a JSON object, or a JSON array, you get an error. So, if this example 
    used the **Received Time** token instead, you can cast the context 
    object as a string by adding double-quotation marks: 
@@ -334,12 +336,13 @@ request headers, or query parameters, choose **Show advanced options**.
 
 ## Call logic apps from functions
 
-To trigger a logic app from inside an Azure function, 
-that logic app must start with a trigger that provides a callable endpoint, 
-such as the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. 
-Then, from inside your function, send an HTTP POST request to the URL for 
-that trigger and include the payload you want that logic app to process. 
-For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
+When you want to trigger a logic app from inside an Azure function, 
+the logic app must start with a trigger that provides a callable endpoint. 
+For example, you can start the logic app with the **HTTP**, **Request**, 
+**Azure Queues**, or **Event Grid** trigger. Inside your function, 
+send an HTTP POST request to the trigger's URL, and include the 
+payload you want that logic app to process. For more information, see 
+[Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## Get support
 
