@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: sahenry, michmcla
 
 ---
-# Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview) - Rollback instructions
+# Converged registration (Public preview) - Rollback instructions
 
 On Monday, July 30 we enabled the new self-service password reset (SSPR) and Azure Multi-Factor Authentication (MFA) registration converged experience as a public preview feature. This public preview was intended to be opt-in. Unfortunately, there was a bug in the feature enablement functionality that caused tenants to be enabled by default. This caused many users to be redirected to the new experience without the administrator enabling it.
 
