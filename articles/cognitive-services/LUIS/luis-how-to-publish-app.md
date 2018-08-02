@@ -24,7 +24,7 @@ To publish to the endpoint, select **Publish** in the top, right panel.
 
 ![Top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-When the pop-up window displays, select the correct slot: staging or production. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
+Select the correct slot when the pop-up window displays: staging or production. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
  
 ![Publishing pop-up window](./media/luis-how-to-publish-app/publish-pop-up.png)
 
@@ -163,5 +163,6 @@ Test your published endpoint by selecting the URL in the **Endpoint** column. Th
 
 ## Next steps
 
-* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
+* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
 * See [Train and test your app](luis-interactive-test.md) for instructions on how to test your published app in the test console.
+
