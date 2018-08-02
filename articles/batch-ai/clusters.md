@@ -16,8 +16,11 @@ ms.custom: mvc
 ---
 # Working with clusters on Azure Batch AI
 
+The following article explains the process of working with clusters in Azure Batch AI. It will introduce the concept of clusters, the types of configurations that are possible, and examples of different use cases. Before moving forward with reading this article, be sure to familiarize yourself with the [overview](overview.md) of Azure Batch AI in order to understand the scope of clusters within the service.
 
 ## Introduction to clusters
+
+
 
 
 ## Workflow
