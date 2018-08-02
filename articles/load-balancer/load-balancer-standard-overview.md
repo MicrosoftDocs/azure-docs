@@ -60,11 +60,13 @@ The backend pool can contain standalone virtual machines, availability sets, or 
 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
-### <a name="probes">Health probes
+### <a name="probes"></a>Health probes
   
-Standard Load Balancer adds support for HTTPS (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
+Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probes.md#httpsprobes) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
 
-In addition, the behavior has changed for when the entire backend pool probes down at the same time.  Standard Load Balancer will allow TCP connections to continue in this scenario as well (Basic Load Balancer will terminate all TCP connections to all instances).
+In addition, when the entire backend pool [probes down](load-balancer-custom-probes.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
+
+Review [Load Balancer health probes](load-balancer-custom-probes.md) for details.
 
 ### <a name="az"></a>Availability Zones
 
