@@ -21,9 +21,9 @@ StorSimple 5000-7000 series is reaching [end of Support](https://support.microso
 
 ## Migration options
 
-StorSimple 5000-7000 series customer have the following two key options:
+The customers using StorSimple 5000-7000 series have the following two key options:
 
-- **Upgrade to StorSimple 8000 Series** – Upgrade to StorSimple 8000 series and thus continue on StorSimple platform.  This upgrade path requires customers to replace their 5000-7000 series devices with an 8000 series. The data is migrated from the 5000-7000 series device by using the migration tool. Once the migration is successfully complete, the StorSimple 8000 series devices will continue to tier data to Azure Blob Storage. 
+- **Upgrade to StorSimple 8000 Series** – Upgrade to StorSimple 8000 series and thus continue on the StorSimple platform.  This upgrade path requires customers to replace their 5000-7000 series devices with an 8000 series. The data is migrated from the 5000-7000 series device by using the migration tool. Once the migration is successfully complete, the StorSimple 8000 series devices will continue to tier data to Azure Blob Storage. 
 
     For more information on how to migrate data using a StorSimple 8000 series, go to [Migrate data from StorSimple 5000-7000 series to 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
 
@@ -35,7 +35,7 @@ StorSimple 5000-7000 series customer have the following two key options:
 
 ### Q. When do the StorSimple 5000 and 7000 series devices reach end of life? 
 
-A. StorSimple 5000-7000 series reach [end of support life](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. After this time, the devices will be out of support. We strongly recommend that you start forumlating a plan to migrate the data from your devices now.
+A. StorSimple 5000-7000 series reach [end of support life](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. After this time, the devices will be out of support. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
 ### Q. What options are available to migrate data from StorSimple 5000-7000 series devices? 
 
@@ -56,7 +56,7 @@ A. Migrating from 5000 or 7000 series is a fully supported operation. In fact, M
 
 ### Q. How does the cost compare for the two listed migrations to Azure hybrid services? 
 
-A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Please refer to [Microsoft pricing calculator for the respective services](https://azure.microsoft.com/pricing/#product-picker) for an estimate.  
+A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Refer to [Microsoft pricing calculator for the respective services](https://azure.microsoft.com/pricing/#product-picker) for an estimate.  
 
 ## Next steps
  - [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
