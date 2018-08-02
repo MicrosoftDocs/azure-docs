@@ -41,10 +41,12 @@ To configure your reference data, you first need to create an input that is of t
 |Encoding   | UTF-8 is the only supported encoding format at this time.  |
 
 ## Static reference data
-If your reference data is not expected to change, then support for static reference data is enabled by specifying a path pattern in the input configuration. Azure Stream Analytics picks up the blob from the specified path. {date} and {time} substitution tokens aren't required. Reference data is immutable in Stream Analytics. Therefore, overwriting a static reference data blob is not recommended.
+If your reference data is not expected to change, then support for static reference data is enabled by specifying a static path in the input configuration. Azure Stream Analytics picks up the blob from the specified path. {date} and {time} substitution tokens aren't required. Reference data is immutable in Stream Analytics. Therefore, overwriting a static reference data blob is not recommended.
 
 ## Generating reference data on a schedule
 If your reference data is a slowly changing data set, then support for refreshing reference data is enabled by specifying a path pattern in the input configuration using the {date} and {time} substitution tokens. Stream Analytics picks up the updated reference data definitions based on this path pattern. For example, a pattern of `sample/{date}/{time}/products.csv` with a date format of **“YYYY-MM-DD”** and a time format of **“HH-mm”** instructs Stream Analytics to pick up the updated blob `sample/2015-04-16/17-30/products.csv` at 5:30 PM on April 16th, 2015 UTC time zone.
+
+Azure Stream Analytics automatically scans for refreshed reference data blobs at a one minute interval.
 
 > [!NOTE]
 > Currently Stream Analytics jobs look for the blob refresh only when the machine time advances to the time encoded in the blob name. For example, the job will look for `sample/2015-04-16/17-30/products.csv` as soon as possible but no earlier than 5:30 PM on April 16th, 2015 UTC time zone. It will *never* look for a blob with an encoded time earlier than the last one that is discovered.
