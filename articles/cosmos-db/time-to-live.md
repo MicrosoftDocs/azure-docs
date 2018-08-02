@@ -51,7 +51,7 @@ By default, time to live is disabled by default in all Cosmos DB collections and
 2. Navigate to the collection you want to set the TTL value, Open the **Scale & Settings** pane. You can see that the Time to Live is by default set to **off**. You can change it to **on (no default)** or **on**.
 
    **off** - Documents are not deleted automatically.  
-   **on (no default)** -   
+   **on (no default)** - This option sets the TTL value to “-1” (infinite) which means documents don’t expire by default.  
    **on** - Documents expire "n” seconds after last modification.  
 
    ![Set time to live](./media/time-to-live/set-ttl-in-portal.png)
