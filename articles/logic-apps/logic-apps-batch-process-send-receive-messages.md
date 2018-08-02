@@ -69,16 +69,17 @@ create a logic app with this name: "BatchReceiver"
 2. In Logic Apps Designer, add the **Batch** trigger, 
 which starts your logic app workflow. 
 In the search box, enter "batch" as your filter. 
-Select this trigger: **Batch – Batch messages**
+Select this trigger: **Batch messages**
 
-   ![Add Batch trigger](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
+   ![Add "Batch messages" trigger](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Provide a name for the batch, 
-and specify criteria for releasing the batch, for example:
+3. Specify a name for your batch, the mode, and criteria for releasing the batch, for example:
 
-   * **Batch Name**: The name used to identify the batch, 
-   which is "TestBatch" in this example.
-   * **Release Criteria**: The batch release criteria, which can be based on the message count, schedule, or both.
+   | Property | Example value | Description | 
+   |----------|-------|-------------|
+   | **Batch Mode** | Inline or Integration Account | The name used to identify the batch | 
+   | **Batch Name** | TestBatch | The name used to identify the batch |  
+   | **Release Criteria** | Message count based, size based, schedule based, or Select All | The criteria to meet before releasing the batch for processing by the logic app workflow | 
    
      ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
 
