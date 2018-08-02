@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Zoom from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Zoom from the gallery
 To configure the integration of Zoom into Azure AD, you need to add Zoom from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Zoom into Azure AD, you need to add Zoom from th
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Zoom**, select **Zoom** from result panel then click **Add** button to add the application.
+1. In the search box, type **Zoom**, select **Zoom** from result panel then click **Add** button to add the application.
 
 	![Zoom in the results list](./media/zoom-tutorial/tutorial_zoom_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Zoom, assign the value of the **user name** in Azure AD as the value of the *
 To configure and test Azure AD single sign-on with Zoom, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Zoom test user](#create-a-zoom-test-user)** - to have a counterpart of Britta Simon in Zoom that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Zoom test user](#create-a-zoom-test-user)** - to have a counterpart of Britta Simon in Zoom that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/zoom-tutorial/tutorial_zoom_samlbase.png)
 
-3. On the **Zoom Domain and URLs** section, perform the following steps:
+1. On the **Zoom Domain and URLs** section, perform the following steps:
 
 	![Zoom Domain and URLs single sign-on information](./media/zoom-tutorial/tutorial_zoom_url.png)
 
@@ -114,11 +114,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc) to get these values.
 
-4. The Zoom application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+1. The Zoom application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
 	![Configure Single Sign-On](./media/zoom-tutorial/tutorial_attribute.png)
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
 	
 	| Attribute Name | Attribute Value | Namespace Value |
 	| ------------------- | -----------|--------- |    
@@ -142,27 +142,27 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e. Click **Ok**. 
  
-6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/zoom-tutorial/tutorial_zoom_certificate.png)
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/zoom-tutorial/tutorial_general_400.png)
 
-8. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Zoom Configuration** section, click **Configure Zoom** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Zoom Configuration](./media/zoom-tutorial/tutorial_zoom_configure.png)
 
-9. In a different web browser window, log in to your Zoom company site as an administrator.
+1. In a different web browser window, log in to your Zoom company site as an administrator.
 
-10. Click the **Single Sign-On** tab.
+1. Click the **Single Sign-On** tab.
    
     ![Single sign-on tab](./media/zoom-tutorial/IC784700.png "Single sign-on")
 
-11. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
+1. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
-12. In the Single Sign-On section, perform the following steps:
+1. In the Single Sign-On section, perform the following steps:
    
     ![Single sign-on section](./media/zoom-tutorial/IC784701.png "Single sign-on")
    
@@ -195,15 +195,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/zoom-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/zoom-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/zoom-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/zoom-tutorial/create_aaduser_04.png)
 
@@ -223,13 +223,13 @@ In order to enable Azure AD users to log in to Zoom, they must be provisioned in
 
 1. Log in to your **Zoom** company site as an administrator.
  
-2. Click the **Account Management** tab, and then click **User Management**.
+1. Click the **Account Management** tab, and then click **User Management**.
 
-3. In the User Management section, click **Add users**.
+1. In the User Management section, click **Add users**.
    
     ![User management](./media/zoom-tutorial/IC784703.png "User management")
 
-4. On the **Add users** page, perform the following steps:
+1. On the **Add users** page, perform the following steps:
    
     ![Add users](./media/zoom-tutorial/IC784704.png "Add users")
    
@@ -254,23 +254,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Zoom**.
+1. In the applications list, select **Zoom**.
 
 	![The Zoom link in the Applications list](./media/zoom-tutorial/tutorial_zoom_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 
