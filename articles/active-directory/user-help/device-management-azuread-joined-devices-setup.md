@@ -24,7 +24,7 @@ If you want to bring work-owned Windows 10 devices under the control of Azure AD
 
 ## Prerequisites
 
-To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../device-management-azure-portal.md#configure-device-settings).
+To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -112,16 +112,14 @@ You can also review device settings on the Azure AD portal.
 
 ![Connected](./media/device-management-azuread-joined-devices-setup/15.png)
 
-For more information, see [locate devices](../device-management-azure-portal.md#locate-devices).
+For more information, see [locate devices](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## Next steps
 
 For more information, see: 
 
-- The [introduction to device management in Azure Active Directory](../device-management-introduction.md)
-- [Managing devices using the Azure portal](../device-management-azure-portal.md)
-- 
-
+- The [introduction to device management in Azure Active Directory](../devices/overview.md)
+- [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
 
 
