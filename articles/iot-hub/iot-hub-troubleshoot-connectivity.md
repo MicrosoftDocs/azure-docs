@@ -88,8 +88,8 @@ To help improve the documentation for everyone, leave a comment below if this gu
 
 ## Next steps
 
-* To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults.md)
-* To learn more about Azure IoT SDK and managing retries, see [How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry)
+* To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults.md).
+* To learn more about Azure IoT SDK and managing retries, see [How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->
 [1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png
