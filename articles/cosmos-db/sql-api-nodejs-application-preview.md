@@ -14,7 +14,7 @@ ms.date: 07/31/2018
 ms.author: sngun
 
 ---
-# <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB - Uses preview version of Node.js SDK
+# <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB and Node.js SDK (Preview)
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
