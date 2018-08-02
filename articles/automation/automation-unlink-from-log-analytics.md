@@ -18,9 +18,9 @@ Azure Automation integrates with Log Analytics to not only support monitoring of
 * [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
 
-If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the topic for the particular solution you have imported to understand the steps required to remove it.
+If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
 
-After you remove these solutions you can perform the following steps to unlink your Automation account.
+After you remove these solutions, you can perform the following steps to unlink your Automation account.
 
 > [!NOTE]
 > Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
