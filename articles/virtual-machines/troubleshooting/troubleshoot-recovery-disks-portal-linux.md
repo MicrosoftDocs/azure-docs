@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
@@ -37,7 +37,7 @@ Examine the boot diagnostics and VM screenshot to determine why your VM is not a
 
 Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the console messages streamed from your VM. Review the console logs to see if you can determine why the VM is encountering an issue. The following example shows a VM stuck in maintenance mode that requires manual interaction:
 
-![Viewing VM boot diagnostics console logs](./media/troubleshoot-recovery-disks-portal/boot-diagnostics-error.png)
+![Viewing VM boot diagnostics console logs](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
 
 You can also click **Screenshot** across the top of the boot diagnostics log to download a capture of the VM screenshot.
 
@@ -47,15 +47,15 @@ Before you can attach your virtual hard disk to another VM, you need to identify
 
 Select your resource group from the portal, then select your storage account. Click **Blobs**, as in the following example:
 
-![Select storage blobs](./media/troubleshoot-recovery-disks-portal/storage-account-overview.png)
+![Select storage blobs](./media/troubleshoot-recovery-disks-portal-linux/storage-account-overview.png)
 
 Typically you have a container named **vhds** that stores your virtual hard disks. Select the container to view a list of virtual hard disks. Note the name of your VHD (the prefix is usually the name of your VM):
 
-![Identify VHD in storage container](./media/troubleshoot-recovery-disks-portal/storage-container.png)
+![Identify VHD in storage container](./media/troubleshoot-recovery-disks-portal-linux/storage-container.png)
 
 Select your existing virtual hard disk from the list and copy the URL for use in the following steps:
 
-![Copy existing virtual hard disk URL](./media/troubleshoot-recovery-disks-portal/copy-vhd-url.png)
+![Copy existing virtual hard disk URL](./media/troubleshoot-recovery-disks-portal-linux/copy-vhd-url.png)
 
 
 ## Delete existing VM
@@ -65,7 +65,7 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
 Select your VM in the portal, then click **Delete**:
 
-![VM boot diagnostics screenshot showing boot error](./media/troubleshoot-recovery-disks-portal/stop-delete-vm.png)
+![VM boot diagnostics screenshot showing boot error](./media/troubleshoot-recovery-disks-portal-linux/stop-delete-vm.png)
 
 Wait until the VM has finished deleting before you attach the virtual hard disk to another VM. The lease on the virtual hard disk that associates it with the VM needs to be released before you can attach the virtual hard disk to another VM.
 
@@ -75,23 +75,23 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 1. Select your resource group from the portal, then select your troubleshooting VM. Select **Disks** and then click **Attach existing**:
 
-    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal/attach-existing-disk.png)
+    ![Attach existing disk in the portal](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
 
 2. To select your existing virtual hard disk, click **VHD File**:
 
-    ![Browse for existing VHD](./media/troubleshoot-recovery-disks-portal/select-vhd-location.png)
+    ![Browse for existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd-location.png)
 
 3. Select your storage account and container, then click your existing VHD. Click the **Select** button to confirm your choice:
 
-    ![Select your existing VHD](./media/troubleshoot-recovery-disks-portal/select-vhd.png)
+    ![Select your existing VHD](./media/troubleshoot-recovery-disks-portal-linux/select-vhd.png)
 
 4. With your VHD now selected, click **OK** to attach the existing virtual hard disk:
 
-    ![Confirm attaching existing virtual hard disk](./media/troubleshoot-recovery-disks-portal/attach-disk-confirm.png)
+    ![Confirm attaching existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/attach-disk-confirm.png)
 
 5. After a few seconds, the **Disks** pane for your VM lists your existing virtual hard disk connected as a data disk:
 
-    ![Existing virtual hard disk attached as a data disk](./media/troubleshoot-recovery-disks-portal/attached-disk.png)
+    ![Existing virtual hard disk attached as a data disk](./media/troubleshoot-recovery-disks-portal-linux/attached-disk.png)
 
 
 ## Mount the attached data disk
@@ -152,24 +152,24 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
-    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal/detach-disk.png)
+    ![Detach existing virtual hard disk](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
 
     Wait until the VM has successfully detached the data disk before continuing.
 
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
 
-![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
+![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal-linux/deploy-template-from-github.png)
 
 The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
 
-![Deploy VM from template](./media/troubleshoot-recovery-disks-portal/deploy-from-image.png)
+![Deploy VM from template](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
 
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
 
-![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
 
 ## Troubleshoot a Managed Disk VM by attaching a new OS disk
 1. Stop the effected VM.

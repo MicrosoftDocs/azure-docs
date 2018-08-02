@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
