@@ -43,6 +43,7 @@ Cloud resources:
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 Development resources:
+
 * An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Model Management for Azure ML. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
 
@@ -215,7 +216,7 @@ Otherwise, you can delete the local configurations and the Azure resources creat
 To delete only the IoT Hub execute the following command using your hub name and resource group name:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

@@ -77,7 +77,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 **Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world. Directory data is guaranteed to be replicated to at least three datacenters. Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
 
 ## Next Steps
-[Get started writing code](active-directory-developers-guide.md#get-started).
+[Get started writing code](azure-ad-developers-guide.md#get-started).
 
 [Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
 
