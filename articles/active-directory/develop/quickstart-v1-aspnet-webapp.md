@@ -98,11 +98,11 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Replace Startup class with the following code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
     
 <!--start-collapse-->
 > [!NOTE]
@@ -123,11 +123,11 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 4.	Name it `HomeController` and click *Add*
 5.	Add *OWIN* namespaces to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
     
 ## Create the app's home page to sign in users via a sign-in button
 
@@ -137,7 +137,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 2.	Name it `Index`.
 3.	Add the following HTML, which includes the sign-in button, to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
+    [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -153,7 +153,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 4.	Name it `ClaimsController`
 5.	Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -168,7 +168,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
+    [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
     
 <!--end-use-->
 
