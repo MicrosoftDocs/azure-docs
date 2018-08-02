@@ -7,9 +7,9 @@ ms.date: 08-03-2018
 ---
 # Virtual machine size flexibility with Reserved VM Instances
 
-The reserved virtual machine instance you buy can apply to the VMs sizes in the same size series described in this article. For example, if you buy a reservation for a Standard_B8ms sized VM, listed in the B-series high memory table, the reservation discount can apply to the four sizes listed in that same table: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms. But that reservation discount doesn't apply to VMs sizes listed in different tables, like the B-series Standard_B1s or Standard_B2s sizes.
+The reserved virtual machine instance you buy can apply to the VMs sizes in the same size series that are described in this article. For example, if you buy a reservation for a Standard_B8ms sized VM, listed in the B-series high memory table, the reservation discount can apply to the four sizes listed in that same table: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms. But that reservation discount doesn't apply to VMs sizes listed in different tables, like the B-series Standard_B1s or Standard_B2s sizes.
 
-The number of VMs that the reservation discount applies to within the size series depends on the VM size you pick when you buy a reserved instance and the sizes of the running VMs. The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_B8ms, the ratio or relative footprint compared to the other sizes in that series is 16. Then you run:
+The number of VMs the reservation discount applies to within the size series depends on the VM size you pick when you buy a reserved instance. It also depends on the sizes of the VMs that you have running. The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_B8ms, the ratio or relative footprint compared to the other sizes in that series is 16. Then you run:
 
 - two Standard_B2ms where the ratio = 4 for each, and
 - one Standard_B4ms where the ratio = 8
