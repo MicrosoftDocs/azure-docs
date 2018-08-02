@@ -64,6 +64,8 @@ As an Azure service, Batch AI supports common tools such as role-based access co
 
 ## Next steps
 
-* Learn more about the [Batch AI resources](resource-concepts.md) you use when training a machine learning or AI model.
+* Learn more about the [Batch AI resources](resource-concepts.md) for training a machine learning or AI model.
 
 * Get started [training a sample deep learning model](quickstart-tensorflow-training-cli.md) with Batch AI.
+
+* Check out sample [training recipes](https://github.com/Azure/BatchAI/blob/master/recipes) for popular AI frameworks.
