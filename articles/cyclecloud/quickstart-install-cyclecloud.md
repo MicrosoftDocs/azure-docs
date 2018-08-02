@@ -52,7 +52,7 @@ Azure CycleCloud requires a service principal with contributor access to your Az
 az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
-The output will display a series of information. You will need to save the *App ID*, *password*, and *tenant ID*:
+The output will display a series of information. You will need to save the `appiD`, `password`, and `tenant`:
 
 ``` output
 "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -61,8 +61,6 @@ The output will display a series of information. You will need to save the *App 
 "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
-
-The *password* shown here is the *applicationSecret* used below.
 
 ### SSH KeyPair
 
@@ -84,9 +82,9 @@ Click the button below to deploy Azure CycleCloud into your subscription:
 
 Enter the required information:
 
-* *Tenant ID*: The Tenant ID listed above in the service principal
-* *Application ID*: Application ID of the service principal
-* *Application Secret*: Application password of the service principal
+* *Tenant ID*: The `tenant` from the service principal above
+* *Application ID*: The `appId` from the service principal above
+* *Application Secret*: The `password` from the service principal above
 * *SSH Public Key*: The public key used to log into the CycleCloud VM
 * *Username*: The username for the CycleCloud VM. Use your Azure Portal username without the domain (e.g. *johnsmith* instead of *johnsmith@domain.com*)
 
