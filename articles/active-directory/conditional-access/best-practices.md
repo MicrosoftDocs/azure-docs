@@ -35,7 +35,7 @@ This article assumes that you familiar the concepts and the terminology outlined
 
 When you create a new policy, there are no users, groups, apps, or access controls selected.
 
-![Cloud apps](./media/active-directory-conditional-access-best-practices/02.png)
+![Cloud apps](./media/best-practices/02.png)
 
 
 To make your policy work, you must configure:

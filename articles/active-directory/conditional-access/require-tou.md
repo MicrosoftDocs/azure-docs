@@ -29,7 +29,7 @@ Before accessing certain cloud apps in your environment, you might want to get c
 
 This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) that requires a ToU to be accepted for a selected cloud app in your environment.
 
-![Create policy](./media/active-directory-conditional-access-tou/5555.png)
+![Create policy](./media/require-tou/5555.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -73,23 +73,23 @@ This section provides you with the steps to create a sample ToU. When you create
 
 4. In the Azure portal, on the left navbar, click **Azure Active Directory**. 
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-tou/02.png)
+    ![Azure Active Directory](./media/require-tou/02.png)
 
 5. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-tou/03.png) 
+    ![Conditional access](./media/require-tou/03.png) 
 
 6. In the **Manage** section, click **Terms of use**.
 
-    ![Terms of use](./media/active-directory-conditional-access-tou/04.png) 
+    ![Terms of use](./media/require-tou/04.png) 
 
 7. In the menu on the top, click **New terms**.
 
-    ![Terms of use](./media/active-directory-conditional-access-tou/05.png) 
+    ![Terms of use](./media/require-tou/05.png) 
 
 8. On the **New terms of use** page:
 
-    ![Terms of use](./media/active-directory-conditional-access-tou/112.png) 
+    ![Terms of use](./media/require-tou/112.png) 
 
     a. In the **Name** textbox, type **My TOU**.
 
@@ -123,7 +123,7 @@ In your policy, set:
 |Grant access | My TOU |
  
 
-![Create policy](./media/active-directory-conditional-access-tou/1234.png)
+![Create policy](./media/require-tou/1234.png)
 
  
 
@@ -132,15 +132,15 @@ In your policy, set:
 
 1. On the **New** page, in the **Name** textbox, type **Require TOU for Isabella**.
 
-    ![Name](./media/active-directory-conditional-access-tou/71.png)
+    ![Name](./media/require-tou/71.png)
 
 2. In the **Assignment** section, click **Users and groups**.
 
-    ![Users and groups](./media/active-directory-conditional-access-tou/06.png)
+    ![Users and groups](./media/require-tou/06.png)
 
 3. On the **Users and groups** page:
 
-    ![Users and groups](./media/active-directory-conditional-access-tou/24.png)
+    ![Users and groups](./media/require-tou/24.png)
 
     a. Click **Select users and groups**, and then select **Users and groups**.
 
@@ -152,11 +152,11 @@ In your policy, set:
 
 4. Click **Cloud apps**.
 
-    ![Cloud apps](./media/active-directory-conditional-access-tou/08.png)
+    ![Cloud apps](./media/require-tou/08.png)
 
 5. On the **Cloud apps** page:
 
-    ![Select cloud apps](./media/active-directory-conditional-access-tou/26.png)
+    ![Select cloud apps](./media/require-tou/26.png)
 
     a. Click **Select apps**.
 
@@ -169,11 +169,11 @@ In your policy, set:
 
 6. In the **Access controls** section, click **Grant**.
 
-    ![Access controls](./media/active-directory-conditional-access-tou/10.png)
+    ![Access controls](./media/require-tou/10.png)
 
 7. On the **Grant** page:
 
-    ![Grant](./media/active-directory-conditional-access-tou/111.png)
+    ![Grant](./media/require-tou/111.png)
 
     a. Select **Grant access**.
 
@@ -183,7 +183,7 @@ In your policy, set:
 
 8. In the **Enable policy** section, click **On**.
 
-    ![Enable policy](./media/active-directory-conditional-access-tou/18.png)
+    ![Enable policy](./media/require-tou/18.png)
 
 9. Click **Create**.
 
@@ -203,7 +203,7 @@ Clicking **What If** creates a simulation report that shows:
 - **Require TOU for Isabella** under **Policies that will apply** 
 - **My TOU** as **Grant Controls**.
 
-![What if policy tool](./media/active-directory-conditional-access-tou/79.png)
+![What if policy tool](./media/require-tou/79.png)
 
 
 
@@ -211,15 +211,15 @@ Clicking **What If** creates a simulation report that shows:
 
 1. On the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
  
-    ![What If](./media/active-directory-conditional-access-tou/14.png)
+    ![What If](./media/require-tou/14.png)
 
 2. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
 
-    ![User](./media/active-directory-conditional-access-tou/15.png)
+    ![User](./media/require-tou/15.png)
 
 2. To select a cloud app:
 
-    ![Cloud apps](./media/active-directory-conditional-access-tou/16.png)
+    ![Cloud apps](./media/require-tou/16.png)
 
     a. Click **Cloud apps**.
 
@@ -240,7 +240,7 @@ In the previous section, you have learned how to evaluate a simulated sign-in. I
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to accept your terms of use.
 
-![Terms of use](./media/active-directory-conditional-access-tou/57.png)
+![Terms of use](./media/require-tou/57.png)
 
 
 ## Clean up resources
@@ -251,15 +251,15 @@ When no longer needed, delete the test user and the conditional access policy:
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
-    ![Multi-factor authentication](./media/active-directory-conditional-access-tou/33.png)
+    ![Multi-factor authentication](./media/require-tou/33.png)
 
 - To delete your terms of use, select it, and then click **Delete terms** in the toolbar on top. 
 
-    ![Multi-factor authentication](./media/active-directory-conditional-access-tou/29.png)
+    ![Multi-factor authentication](./media/require-tou/29.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Require MFA for specific apps](./active-directory-conditional-access-app-based-mfa.md)
-> [Block access when a session risk is detected](./active-directory-conditional-access-app-sign-in-risk.md)
+> [Require MFA for specific apps](app-based-mfa.md)
+> [Block access when a session risk is detected](app-sign-in-risk.md)
 

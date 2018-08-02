@@ -26,7 +26,7 @@ To keep your environment protected, you might want to block suspicious users fro
 
 This quickstart shows how to configure a [conditional access policy](active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected. 
 
-![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/1000.png)
+![Create policy](./media/app-sign-in-risk/1000.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -71,7 +71,7 @@ This section shows how to create the required conditional access policy. In your
 | Grant | Block access |
  
 
-![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
+![Create policy](./media/app-sign-in-risk/130.png)
 
  
 
@@ -82,27 +82,27 @@ This section shows how to create the required conditional access policy. In your
 
 2. In the Azure portal, on the left navbar, click **Azure Active Directory**. 
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-app-sign-in-risk/02.png)
+    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
 3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-app-sign-in-risk/03.png)
+    ![Conditional access](./media/app-sign-in-risk/03.png)
  
 4. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
 
-    ![Name](./media/active-directory-conditional-access-app-sign-in-risk/108.png)
+    ![Name](./media/app-sign-in-risk/108.png)
 
 5. On the **New** page, in the **Name** textbox, type **Block access for medium risk level**.
 
-    ![Name](./media/active-directory-conditional-access-app-sign-in-risk/104.png)
+    ![Name](./media/app-sign-in-risk/104.png)
 
 6. In the **Assignment** section, click **Users and groups**.
 
-    ![Users and groups](./media/active-directory-conditional-access-app-sign-in-risk/06.png)
+    ![Users and groups](./media/app-sign-in-risk/06.png)
 
 7. On the **Users and groups** page:
 
-    ![Conditional access](./media/active-directory-conditional-access-app-sign-in-risk/107.png)
+    ![Conditional access](./media/app-sign-in-risk/107.png)
 
     a. Click **Select users and groups**, and then select **Users and groups**.
 
@@ -114,11 +114,11 @@ This section shows how to create the required conditional access policy. In your
 
 8. Click **Cloud apps**.
 
-    ![Cloud apps](./media/active-directory-conditional-access-app-sign-in-risk/08.png)
+    ![Cloud apps](./media/app-sign-in-risk/08.png)
 
 9. On the **Cloud apps** page:
 
-    ![Conditional access](./media/active-directory-conditional-access-app-sign-in-risk/109.png)
+    ![Conditional access](./media/app-sign-in-risk/109.png)
 
     a. Click **All cloud apps**.
 
@@ -126,11 +126,11 @@ This section shows how to create the required conditional access policy. In your
 
 10. Click **Conditions**. 
 
-    ![Access controls](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+    ![Access controls](./media/app-sign-in-risk/19.png)
 
 11. On the **Conditions** page:
 
-    ![Sign-in risk level](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+    ![Sign-in risk level](./media/app-sign-in-risk/21.png)
 
     a. Click **Sign-in risk**.
  
@@ -146,11 +146,11 @@ This section shows how to create the required conditional access policy. In your
 
 10. In the **Access controls** section, click **Grant**.
 
-    ![Access controls](./media/active-directory-conditional-access-app-sign-in-risk/10.png)
+    ![Access controls](./media/app-sign-in-risk/10.png)
 
 11. On the **Grant** page:
 
-    ![Conditional access](./media/active-directory-conditional-access-app-sign-in-risk/105.png)
+    ![Conditional access](./media/app-sign-in-risk/105.png)
 
     a. Select **Block access**.
 
@@ -158,7 +158,7 @@ This section shows how to create the required conditional access policy. In your
 
 12. In the **Enable policy** section, click **On**.
 
-    ![Enable policy](./media/active-directory-conditional-access-app-sign-in-risk/18.png)
+    ![Enable policy](./media/app-sign-in-risk/18.png)
 
 13. Click **Create**.
 
@@ -169,22 +169,22 @@ Now that you have configured your conditional access policy, you probably want t
 
 When you run the **what if policy tool** for this scenario, the **Block access for medium risk level** should be listed under **Policies that will apply**. 
 
-![User](./media/active-directory-conditional-access-app-sign-in-risk/117.png)
+![User](./media/app-sign-in-risk/117.png)
 
 
 **To evaluate your conditional access policy:**
 
 1. On the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
  
-    ![What If](./media/active-directory-conditional-access-app-sign-in-risk/14.png)
+    ![What If](./media/app-sign-in-risk/14.png)
 
 2. Click **User**, select **Alan Charon** on the **Users** page, and then click **Select**.
 
-    ![User](./media/active-directory-conditional-access-app-sign-in-risk/116.png)
+    ![User](./media/app-sign-in-risk/116.png)
 
 3. As **Sign-in risk**, select **Medium**.
 
-    ![User](./media/active-directory-conditional-access-app-sign-in-risk/119.png)
+    ![User](./media/app-sign-in-risk/119.png)
 
 
 3. Click **What If**.
@@ -196,7 +196,7 @@ In the previous section, you have learned how to evaluate a simulated sign-in. I
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) as **Alan Charon** using the Tor Browser. Your sign-in attempt should be blocked by your conditional access policy.
 
-![Multi-factor authentication](./media/active-directory-conditional-access-app-sign-in-risk/118.png)
+![Multi-factor authentication](./media/app-sign-in-risk/118.png)
 
 
 ## Clean up resources
@@ -207,13 +207,13 @@ When no longer needed, delete the test user, the Tor Browser and the conditional
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
-    ![Multi-factor authentication](./media/active-directory-conditional-access-app-sign-in-risk/33.png)
+    ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
 - For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Require terms of use to be accepted](./active-directory-conditional-access-tou.md)
-> [Require MFA for specific apps](./active-directory-conditional-access-app-based-mfa.md)
+> [Require terms of use to be accepted](require-tou.md)
+> [Require MFA for specific apps](app-based-mfa.md)
 
