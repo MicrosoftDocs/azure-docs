@@ -1,0 +1,17 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Bing Local Search API Documentation
+metadata:
+  title: Bing Local Search Documentation
+  description: How to build applications that use the Bing Local Search API.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-local-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/30/2018
+  ms.author: rosh, v-gedod
+abstract:
+  description: The Bing Local Search API gets localized information from a query.

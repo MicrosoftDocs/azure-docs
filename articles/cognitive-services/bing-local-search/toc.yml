@@ -1,0 +1,28 @@
+- name: Bing Local Search API Documentation
+  href: index.yml
+  expanded: true
+  items:
+  - name: Search the Web locally
+    href: overview.md
+  - name: Geographic search boundaries
+    href: specify-geographic-search.md
+  - name: Local search endpoint
+    href: local-search-endpoint.md
+- name: API Quickstarts
+  expanded: true
+  items:
+  - name: Local Search C# quickstart
+    href: local-quickstart.md
+  - name: Local Search Java quickstart
+    href: local-search-java-quickstart.md
+  - name: Local Search Node quickstart
+    href: local-search-node-quickstart.md
+  - name: Local Search Python quickstart
+    href: local-search-python-quickstart.md
+- name: Reference
+  expanded: true
+  items:
+  - name: Use and display requirements
+    href: use-display-requirements.md
+  - name: Local Search API reference
+    href: local-search-reference.md
