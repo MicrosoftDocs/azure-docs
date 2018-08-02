@@ -118,7 +118,7 @@ The examples are not necessarily in the order shown in the above list.
 
 6.  Set the following variables and export these environment variables into your current shell. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}

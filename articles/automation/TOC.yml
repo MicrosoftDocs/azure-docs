@@ -147,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: Forward Azure Automation DSC reporting data to OMS Log Analytics
           href: automation-dsc-diagnostics.md
-    - name: Manage assets
+    - name: Manage shared resources
       items:
         - name: Certificates
           href: automation-certificates.md
