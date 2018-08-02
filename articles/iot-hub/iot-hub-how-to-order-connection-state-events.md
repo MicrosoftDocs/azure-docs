@@ -171,8 +171,8 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    [{
     "id": "fbfd8ee1-cf78-74c6-dbcf-e1c58638ccbd",
     "topic":
-      "/SUBSCRIPTIONS/BDF55CDD-8DAB-4CF4-9B2F-C21E8A780472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/EGTESTHUB1",
-    "subject": "devices/48e44e11-1437-4907-83b1-4a8d7e89859e",
+      "/SUBSCRIPTIONS/DEMO5CDD-8DAB-4CF4-9B2F-C22E8A755472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/MYIOTHUB",
+    "subject": "devices/Demo-Device-1",
     "eventType": "Microsoft.Devices.DeviceConnected",
     "eventTime": "2018-07-03T23:20:11.6921933+00:00",
     "data": {
