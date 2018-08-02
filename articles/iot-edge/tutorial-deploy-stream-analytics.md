@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy ASA jobs to Azure IoT Edge devices | Microsoft Docs 
-description: Deploy Azure Stream Analytics as a module to an Iot Edge device
+description: In this tutorial, you deploy Azure Stream Analytics as a module to an Iot Edge device
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module - preview
+# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module (preview)
 
 Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from the IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics][azure-stream] logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
@@ -31,10 +31,19 @@ In this tutorial, you learn how to:
 >[!NOTE]
 >Azure Stream Analytics modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
-* An IoT hub
-* The IoT Edge device that you created and configured in the quickstart for [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin]. 
+An Azure IoT Edge device:
+
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* The Azure Machine Learning module does not support ARM processors.
+
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
 
 ## Create an Azure Stream Analytics job
 

@@ -1,6 +1,6 @@
 ---
 title: Configure an Azure web application to read a secret from Key vault tutorial | Microsoft Docs
-description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
+description: Tutorial Configure an Node.js application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -9,15 +9,15 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: barclayn
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 
-# QuickStart: How to set and read a secret from Key Vault in a .NET Web App
+# QuickStart: How to set and read a secret from Key Vault in a Node Web App 
 
-This quickstart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
+This QuickStart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
 
 > [!div class="checklist"]
 > * Create a Key Vault.

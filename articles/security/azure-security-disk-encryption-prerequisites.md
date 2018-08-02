@@ -397,11 +397,6 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
 ## <a name="bkmk_Cert"></a> Certificate-based authentication (optional)
 If you would like to use certificate authentication, you can upload one to your key vault and deploy it to the client. Before using the PowerShell script, you should be familiar with the Azure Disk Encryption prerequisites to understand the steps in the script. The sample script might need changes for your environment.
 
-> [!IMPORTANT]
-> Azure AD certificate-based authentication is currently not supported on Linux VMs.
-
-
-
      
  ```powershell
 
