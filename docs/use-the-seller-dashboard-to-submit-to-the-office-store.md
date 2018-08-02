@@ -36,7 +36,7 @@ Select **Add a new app**. On the **Listing type** page, select the type of solut
 |Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your submission package](upload-package.md).|
 |Submission title|Required|
 |Version|Required (autopopulated)|
-|Release date (UTC)|Required|
+|Release date (UTC)|Required *This controls the date your add-in will be made available on once the add-in passes validation. If this is set to a date in the future, your add-in will not be available until that date. If your submission is an update and you set this field to a date in the future, your existing add-in will be unpublished until the release date of the updated version|
 |Category|One required; two optional|
 |Testing notes|Optional, but recommended|
 |Cryptography and encryption information|Optional|
