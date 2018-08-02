@@ -35,7 +35,7 @@ Azure Site Recovery continues to innovate by providing VMware and Hyper-V custom
 ### Scenario migration
 As an alternative, we recommend setting up disaster recovery for on-premises VMware VMs and physical machines by replicating them to Azure. Do this as follows:
 
-1.	Review the quick comparison below. Before you can replicate on-premises machines, you need check that they meet [requirements](./vmware-physical-azure-support-matrix.md#replicated-machines) for replication to Azure. If you’re replicating VMware VMs, we recommend that you review [capacity planning guidelines](./site-recovery-plan-capacity-vmware.md), and run the [Deployment Planner tool](./site-recovery-deployment-planner) to identity capacity requirements, and verify compliance.
+1.	Review the quick comparison below. Before you can replicate on-premises machines, you need check that they meet [requirements](./vmware-physical-azure-support-matrix.md#replicated-machines) for replication to Azure. If you’re replicating VMware VMs, we recommend that you review [capacity planning guidelines](./site-recovery-plan-capacity-vmware.md), and run the [Deployment Planner tool](./site-recovery-deployment-planner.md) to identity capacity requirements, and verify compliance.
 2.	After running the Deployment Planner, you can set up replication:
 o	For VMware VMs, follow these tutorials to [prepare Azure](./tutorial-prepare-azure.md), [prepare your on-premises VMware environment](./vmware-azure-tutorial-prepare-on-premises.md), and [set up disaster recovery](./vmware-azure-tutorial-prepare-on-premises.md).
 o	For physical machines, follow this [tutorial](./physical-azure-disaster-recovery.md).
