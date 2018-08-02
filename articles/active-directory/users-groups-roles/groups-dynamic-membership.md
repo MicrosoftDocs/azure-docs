@@ -43,7 +43,9 @@ The order of the parts within an expression are important to avoid syntax errors
 
 ### Rules with a single expression
 
-A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property. The following is an example of a properly constructed mambership rule with a single expression:
+A single expression is the simplest form of a membership rule and only has the three parts mentioned above. A rule with a single expression looks similar to this: `Property Operator Value`, where the syntax for the property is the name of object.property.
+
+The following is an example of a properly constructed membership rule with a single expression:
 
 ```
 user.department -eq "Sales"
@@ -62,11 +64,6 @@ There are three types of properties that can be used to construct a membership r
 The following are the user properties that you can use to create a single expression.
 
 ### Properties of type boolean
-
-Allowed operators
-
-* -eq
-* -ne
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
@@ -132,7 +129,7 @@ The following table lists all the supported operators and their syntax for a sin
 
 ### Using the -In and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values. This condition evaluates to True of the value of user.department equals one or more of the values in the list.
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
 
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
@@ -154,13 +151,13 @@ When specifying a value within an expression it is important to use the correct 
 * Double quotes are optional unless the value is a string.
 * String and regex operations are not case sensitive.
 * When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value.
-* You can also perform Null checks, using null as a value, for example, user.department -eq null.
+* You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
 
 ### Use of Null values
 
 To specify a null value in a rule, you can use the *null* value. 
 
-* Use -eq or -ne when comparing the *nulll* value in an expression.
+* Use -eq or -ne when comparing the *null* value in an expression.
 * Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
 * The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
 
@@ -172,7 +169,9 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. The following are examples of properly constructed membership rules with multiple expressions:
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+
+The following are examples of properly constructed membership rules with multiple expressions:
 
 ```
 (user.department -eq "Sales") -or (user.department -eq "Marketing")
@@ -214,9 +213,6 @@ A membership rule can consist of complex expressions where the properties, opera
 ## Multi-value properties
 
 Multi-value properties are collections of objects of the same type. They can be used to create membership rules using the -any and -all logical operators.
-
-* -any (satisfied when at least one item in the collection matches the condition)
-* -all (satisfied when all items in the collection match the condition)
 
 | Properties | Values | Usage |
 | --- | --- | --- |
@@ -270,6 +266,12 @@ The direct reports rule is constructed using the following syntax:
 Direct Reports for "{objectID_of_manager}"
 ```
 
+Here's an example of a valid rule where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager:
+
+```
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+
 The following tips can help you use the rule properly.
 
 * The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
@@ -281,7 +283,7 @@ The following tips can help you use the rule properly.
 
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-The “All users” rule is constructed using single expression using the -ne operator and the null value:
+The “All users” rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
 
 ```
 user.objectid -ne null
@@ -299,21 +301,21 @@ device.objectid -ne null
 
 ### Extension properties and custom extension properties
 
-Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute:
+Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Custom extension properties are synced from on-premises Windows Server AD or from a connected SaaS application and the format of `user.extension_[GUID]\__[Attribute]`, where:
+Custom extension properties are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]__[Attribute]`, where:
 
-* [GUID] is the unique identifier in Azure AD for the application that created the attribute in Azure AD
-* [Attribute] is the name of the attribute as it was created
+* [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
+* [Attribute] is the name of the property as it was created
 
-An example of a rule that uses a custom attribute is:
+An example of a rule that uses a custom extension property is:
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
 The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name.

@@ -103,10 +103,10 @@
 ### [Add group access to SaaS apps](users-groups-roles/groups-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
-#### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
+### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
 ### Dynamic groups
 #### [Create a dynamic group](users-groups-roles/groups-create-rule.md)
-#### [Syntax and property reference](users-groups-roles/groups-dynamic-membership.md)
+#### [Rule syntax and properties](users-groups-roles/groups-dynamic-membership.md)
 #### [Change group membership type](users-groups-roles/groups-change-type.md)
 #### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 

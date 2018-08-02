@@ -27,7 +27,7 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 >
 > We recommend that you test the new membership rule beforehand to make sure that the new membership in the group is as expected.
 
-## Change membership type for a group (Azure portal)
+## Change the membership type for a group
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
 2. Select **Groups**.
