@@ -254,16 +254,10 @@
       href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
+  - name: Azure Community Support
+    href: https://azure.microsoft.com/en-us/support/community/?product=search
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?tag=azure-search
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=search
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=search
   - name: Demo sites
     items:
     - name: JFK demo
@@ -274,13 +268,11 @@
       href: https://searchsamples.azurewebsites.net/
     - name: Search Analyzer Demo
       href: http://alice.unearth.ai/
-  - name: Forums & community
-    items:
-    - name: Azure Community Support
-      href: https://azure.microsoft.com/en-us/support/community/?product=search
-    - name: Suggested resources
-      href: search-video-demo-tutorial-list.md
-    - name: 'blog: Model relational data'
-      href: http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx
-    - name: 'blog: Multilevel faceting'
-      href: http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=search
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=search
