@@ -31,7 +31,7 @@ This section provides links to samples you can use to learn more about the Azure
 > [!NOTE]
 > If you are interested in Azure AD V2 code samples, see [v2.0 code samples by scenario](active-directory-v2-code-samples.md).
 
-To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](active-directory-authentication-scenarios.md).
+To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](authentication-scenarios.md).
 
 You can also contribute to our samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
