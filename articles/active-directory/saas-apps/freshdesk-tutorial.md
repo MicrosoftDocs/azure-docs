@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with FreshDesk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and FreshDesk.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding FreshDesk from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding FreshDesk from the gallery
 To configure the integration of FreshDesk into Azure AD, you need to add FreshDesk from the gallery to your list of managed SaaS apps.
@@ -61,19 +61,19 @@ To configure the integration of FreshDesk into Azure AD, you need to add FreshDe
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. Click **Add** button on the top of the dialog.
+1. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-4. In the search box, type **FreshDesk**.
+1. In the search box, type **FreshDesk**.
 
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/tutorial_freshdesk_search.png)
 
-5. In the results panel, select **FreshDesk**, and then click **Add** button to add the application.
+1. In the results panel, select **FreshDesk**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
@@ -87,10 +87,10 @@ This link relationship is established by assigning the value of the **user name*
 To configure and test Azure AD single sign-on with FreshDesk, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a FreshDesk test user](#creating-a-freshdesk-test-user)** - to have a counterpart of Britta Simon in FreshDesk that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a FreshDesk test user](#creating-a-freshdesk-test-user)** - to have a counterpart of Britta Simon in FreshDesk that is linked to the Azure AD representation of her.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -102,40 +102,40 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
+1. On the **FreshDesk Domain and URLs** section, please enter the **Sign-on URL** as: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
 	> [!NOTE] 
     > Please note that this is not the real value. You have to update the value with the actual Sign-on URL. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get this value.  
 
-4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate on your computer.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
+1. On the **FreshDesk Configuration** section, click **Configure FreshDesk** to open Configure sign-on window. Copy the SAML Single Sign-On Service URL and Sign-Out URL from the **Quick Reference** section.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-7. In a different web browser window, log into your Freshdesk company site as an administrator.
+1. In a different web browser window, log into your Freshdesk company site as an administrator.
 
-8. In the menu on the top, click **Admin**.
+1. In the menu on the top, click **Admin**.
    
    ![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
 
-9. In the **General Settings** tab, click **Security**.
+1. In the **General Settings** tab, click **Security**.
    
    ![Security](./media/freshdesk-tutorial/IC776769.png "Security")
 
-10. In the **Security** section, perform the following steps:
+1. In the **Security** section, perform the following steps:
    
 	![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
    
@@ -166,15 +166,15 @@ The objective of this section is to create a test user in the Azure Management p
 
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+1. Go to **Users and groups** and click **All users** to display the list of users.
 	
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog click **Add** to open the **User** dialog.
+1. At the top of the dialog click **Add** to open the **User** dialog.
  
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/create_aaduser_04.png) 
 
@@ -194,19 +194,19 @@ In the case of FreshDesk, provisioning is a manual task.
 **To provision a user accounts, perform the following steps:**
 
 1. Log in to your **Freshdesk** tenant.
-2. In the menu on the top, click **Admin**.
+1. In the menu on the top, click **Admin**.
    
    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
 
-3. In the **General Settings** tab, click **Agents**.
+1. In the **General Settings** tab, click **Agents**.
    
    ![Agents](./media/freshdesk-tutorial/IC776773.png "Agents")
 
-4. Click **New Agent**.
+1. Click **New Agent**.
    
     ![New Agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
 
-5. On the Agent Information dialog, perform the following steps:
+1. On the Agent Information dialog, perform the following steps:
    
    ![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
    
@@ -240,23 +240,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **FreshDesk**.
+1. In the applications list, select **FreshDesk**.
 
 	![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 

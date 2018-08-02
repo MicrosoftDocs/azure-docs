@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Sequr | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sequr.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Sequr from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Sequr from the gallery
 To configure the integration of Sequr into Azure AD, you need to add Sequr from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Sequr into Azure AD, you need to add Sequr from 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Sequr**, select **Sequr** from result panel then click **Add** button to add the application.
+1. In the search box, type **Sequr**, select **Sequr** from result panel then click **Add** button to add the application.
 
 	![Sequr in the results list](./media/sequr-tutorial/tutorial_sequr_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Sequr, assign the value of the **user name** in Azure AD as the value of the 
 To configure and test Azure AD single sign-on with Sequr, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Sequr test user](#create-a-sequr-test-user)** - to have a counterpart of Britta Simon in Sequr that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Sequr test user](#create-a-sequr-test-user)** - to have a counterpart of Britta Simon in Sequr that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,17 +99,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/sequr-tutorial/tutorial_sequr_samlbase.png)
 
-3. On the **Sequr Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Sequr Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Sequr Domain and URLs single sign-on information](./media/sequr-tutorial/tutorial_sequr_url.png)
 
     In the **Identifier** textbox, type the URL: `https://login.sequr.io`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Sequr Domain and URLs single sign-on information](./media/sequr-tutorial/tutorial_sequr_url1.png)
 
@@ -117,29 +117,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Relay State** textbox, you will get this value, which is explained later in the tutorial.
 	 
-5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/sequr-tutorial/tutorial_sequr_certificate.png) 
 
-6. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/sequr-tutorial/tutorial_general_400.png)
 	
-7. On the **Sequr Configuration** section, click **Configure Sequr** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Sequr Configuration** section, click **Configure Sequr** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Sequr Configuration](./media/sequr-tutorial/tutorial_sequr_configure.png)
 
-8. In a different web browser window, log in to your Sequr company site as an administrator.
+1. In a different web browser window, log in to your Sequr company site as an administrator.
 
-9. Click on the **Integrations** from the left navigation panel.
+1. Click on the **Integrations** from the left navigation panel.
 
 	![Sequr Configuration](./media/sequr-tutorial/configure1.png)
 
-10. Scroll down to the **Single Sign-On** section and click **Manage**.
+1. Scroll down to the **Single Sign-On** section and click **Manage**.
 
 	![Sequr Configuration](./media/sequr-tutorial/configure2.png)
 
-11. In the **Manage Single Sign-On** section, perform the following steps:
+1. In the **Manage Single Sign-On** section, perform the following steps:
 
 	![Sequr Configuration](./media/sequr-tutorial/configure3.png)
 
@@ -166,15 +166,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/sequr-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/sequr-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/sequr-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/sequr-tutorial/create_aaduser_04.png)
 
@@ -202,23 +202,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Sequr**.
+1. In the applications list, select **Sequr**.
 
 	![The Sequr link in the Applications list](./media/sequr-tutorial/tutorial_sequr_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

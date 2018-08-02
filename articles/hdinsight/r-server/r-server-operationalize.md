@@ -1,4 +1,4 @@
----
+﻿---
 title: Operationalize ML Services on HDInsight - Azure | Microsoft Docs
 description: Learn how to operationalize ML Services in Azure HDInsight.
 services: hdinsight
@@ -36,7 +36,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     For instructions on how to use SSH with Azure HDInsight, see [Use SSH with HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Change directory for the relevant version and sudo the dot net dll: 
+1. Change directory for the relevant version and sudo the dot net dll: 
 
     - For Microsoft ML Server 9.1:
 
@@ -48,21 +48,21 @@ After you have used ML Services cluster in HDInsight to complete your data model
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
+1. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
+1. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. When prompted, enter and reenter the password for a local admin user.
+1. When prompted, enter and reenter the password for a local admin user.
 
-6. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
+1. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
+1. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
 
     a. From the main menu, select **6** to run diagnostic tests.
 
@@ -144,9 +144,9 @@ Follow these steps to decommission worker nodes:
 
 1. Log in to the cluster's Ambari console and click on **Hosts** tab.
 
-2. Select worker nodes (to be decommissioned).
+1. Select worker nodes (to be decommissioned).
 
-3. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
+1. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
 
    ![decommission worker nodes](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -162,15 +162,15 @@ Follow these steps to decommission worker nodes:
 
 1. SSH into each decommissioned worker node.
 
-2. Run admin utility using the relevant DLL for the ML Services cluster that you have. For ML Server 9.1, run the following:
+1. Run admin utility using the relevant DLL for the ML Services cluster that you have. For ML Server 9.1, run the following:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Enter **1** to select option **Configure ML Server for Operationalization**.
+1. Enter **1** to select option **Configure ML Server for Operationalization**.
 
-4. Enter **C** to select option `C. Compute node`. This configures the compute node on the worker node.
+1. Enter **C** to select option `C. Compute node`. This configures the compute node on the worker node.
 
-5. Exit the Admin Utility.
+1. Exit the Admin Utility.
 
 ### Step 3: Add compute nodes details on web node
 
@@ -178,9 +178,9 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 1. SSH into the edge node.
 
-2. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Look for the "Uris" section, and add worker node's IP and port details.
+1. Look for the "Uris" section, and add worker node's IP and port details.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
