@@ -1,6 +1,6 @@
 ---
 title: Prepay for Azure SQL Database vCores to save money | Microsoft Docs
-description: Learn how to buy Azure SQL Database reserved capacitys to save on your compute costs.
+description: Learn how to buy Azure SQL Database reserved capacity to save on your compute costs.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -12,7 +12,7 @@ ms.date: 08/08/2018
 ms.author: carlrab
 
 ---
-# Prepay for SQL Database compute resources with Azure SQL Database reserved capacitys
+# Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 
 Save money with Azure SQL Database by prepaying for Azure SQL Database compute resources compared to pay-as-you-go prices. With a vCore reservation, you make an upfront commitment on SQL Database for a period of one or three years to get a significant discount on the compute costs. To purchase a vCore reservation, you need to specify the Azure region, deployment type, service, and term. 
 
@@ -31,7 +31,7 @@ The size of reservation should be based on the total amount of compute used by t
 
 For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database Single/Elastic Pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database Single/Elastic Pool Business Critical - Compute Gen5.
 
-## Buy SQL Database reserved capacitys
+## Buy SQL Database reserved capacity
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
