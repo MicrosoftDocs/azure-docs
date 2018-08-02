@@ -41,7 +41,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](.\.\user\azure-stack-network-differences.md) for functionality differences.
 
-- <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
+- <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
 - <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available by using the portal, PowerShell, and CLI. For more information, see [Add or remove network interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) in the Azure documentation. 
 
@@ -85,7 +85,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
 
+-	<!-- 2055809- IS ASDK --> We fixed an issue that prevented you from deleting VMs from the compute blade when the VM failed to be created.  
 
+- <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
