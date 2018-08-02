@@ -13,12 +13,12 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
 # sfctl compose
-Create, delete, and manage Docker Compose applications.
+Create, delete and manage Docker Compose applications.
 
 ## Commands
 
@@ -58,7 +58,7 @@ Creates a Service Fabric compose deployment.
 ## sfctl compose list
 Gets the list of compose deployments created in the Service Fabric cluster.
 
-Gets the status about the compose deployments that were created or in the process of being created in the Service Fabric cluster. The response includes the name, status, and other details about the compose deployments. If the list of deployments do not fit in a page, one page of results is returned as well as a continuation token that can be used to get the next page.
+Gets the status about the compose deployments that were created or in the process of being created in the Service Fabric cluster. The response includes the name, status, and other details about the compose deployments. If the list of deployments do not fit in a page, one page of results is returned as well as a continuation token, which can be used to get the next page.
 
 ### Arguments
 
@@ -133,7 +133,7 @@ Validates the supplied upgrade parameters and starts upgrading the deployment if
 | --- | --- |
 | --deployment-name  [Required] | The name of the deployment. |
 | --file-path        [Required] | Path to the target Docker compose file. |
-| --default-svc-type-health-map | JSON encoded dictionary that describes the health policy used to evaluate the health of services. |
+| --default-svc-type-health-map | JSON encoded dictionary that describe the health policy used to evaluate the health of services. |
 | --encrypted-pass | Rather than prompting for a container registry password, use an already encrypted pass-phrase. |
 | --failure-action | Possible values include\: 'Invalid', 'Rollback', 'Manual'. |
 | --force-restart | Force restart. |
@@ -183,7 +183,6 @@ Returns the information about the state of the compose deployment upgrade along 
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
-
 
 
 ## Next steps

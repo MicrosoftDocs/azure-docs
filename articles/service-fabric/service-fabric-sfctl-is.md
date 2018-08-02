@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
@@ -37,7 +37,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 |Argument|Description|
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
-| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
+| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric' URI scheme. This parameter required only for the cluster that have more than one instance of infrastructure service running. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
@@ -60,7 +60,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 |Argument|Description|
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
-| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
+| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that have more than one instance of infrastructure service running. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
@@ -72,6 +72,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
