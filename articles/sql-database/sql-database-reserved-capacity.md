@@ -18,10 +18,10 @@ Save money with Azure SQL Database by prepaying for Azure SQL Database compute r
 
 You do not need to assign the reservation to SQL Database instances. Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are pre-paying for the compute costs for the SQL Database instances for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see [SQL Database reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-You can buy Azure vCore reservations in the [Azure portal](https://portal.azure.com). To buy a vCore reservation:
+You can buy Azure SQL Database reserved capacity in the [Azure portal](https://portal.azure.com). To buy SQL Database reserved capacity:
 - You must be in the Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, Reserved instance purchases must be enabled in the [EA portal](https://ea.azure.com).
--  For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase the vCore reservations.
+- For Enterprise subscriptions, SQL Database reserved capacity purchases must be enabled in the [EA portal](https://ea.azure.com).
+-  For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase the SQL Database reserved capacity.
 
 The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases is covered in [Frequently asked questions](#frequently-asked-questions).
 
@@ -57,7 +57,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 ## Next steps 
 The vCore reservation discount is applied automatically to the number of SQL Database instances that match the vCore reservation scope and attributes. You can update the scope of the vCore reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
-To learn how to manage a vCore reservation, see [Manage vCore reservations in Azure](../billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a vCore reservation, see [Manage SQL Database reserved capacity](../billing/billing-manage-reserved-vm-instance.md).
 
 To learn more about Azure reservation, see the following articles:
 
