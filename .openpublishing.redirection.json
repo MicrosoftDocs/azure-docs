@@ -15185,7 +15185,12 @@
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows",
             "redirect_document_id": false
         },
-		        {
+		{
+            "source_path": "articles/virtual-machines/linux/troubleshoot-device-names-problems.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/virtual-machines/linux/troubleshoot-deploy-vm.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux",
             "redirect_document_id": false

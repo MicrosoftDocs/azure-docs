@@ -74,3 +74,5 @@
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
+- name: Device names are changed
+  href: troubleshoot-device-names-problems.md
