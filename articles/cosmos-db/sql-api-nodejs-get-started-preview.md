@@ -434,7 +434,11 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command: 
+
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully created an Azure Cosmos DB container.
 
@@ -482,11 +486,14 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command: 
+
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully created an Azure Cosmos DB item.
 
-![Node.js tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents - Node database](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
 Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your container.
@@ -519,12 +526,6 @@ async function queryContainer() {
 };
 ```
 
-The following diagram illustrates how the Azure Cosmos DB SQL query syntax is called against the container you created.
-
-![Node.js tutorial - Diagram illustrating the scope and meaning of the query - Node database](./media/sql-api-nodejs-get-started/node-js-tutorial-collection-documents.png)
-
-The [FROM](sql-api-sql-query.md#FromClause) keyword is optional in the query because Azure Cosmos DB queries are already scoped to a single container. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. Azure Cosmos DB will infer that Families, root, or the variable name you chose, reference the current container by default.
-
 Copy and paste the code below the calls to **createFamilyItem** to execute the **queryCollection** function.
 
 ```nodejs
@@ -543,7 +544,11 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command:
+
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully queried your Azure Cosmos DB items.
 
@@ -583,7 +588,11 @@ createDatabase()
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command:
+
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.
 
@@ -624,7 +633,11 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command: 
+
+```bash 
+node app.js
+```
 
 Congratulations! You have successfully deleted an Azure Cosmos DB item.
 
@@ -812,7 +825,11 @@ createDatabase()
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 ```
 
-In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
+In your terminal, locate your ```app.js``` file and run the command: 
+
+```bash 
+node app.js
+```
 
 You should see the output of your get started app. The output should match the example text below.
 
@@ -868,7 +885,11 @@ Install the **@azure/cosmos** module via npm. Use the following command:
 
 Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config). 
 
-Then in your terminal, locate your ```app.js``` file and run the command: ```node app.js```.
+Then in your terminal, locate your ```app.js``` file and run the command: 
+
+```bash 
+node app.js
+```
 
 That's it, and you're on your way! 
 
