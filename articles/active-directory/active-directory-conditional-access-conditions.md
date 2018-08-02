@@ -151,7 +151,7 @@ Common use cases for this condition are policies with the following protections:
 
 - Block access from web applications but allow access from mobile and desktop applications.
 
-You can apply this condition to web SSO and modern authentication protocols. You can also apply it to mail applications that use Microsoft Exchange ActiveSync. Examples are the native mail apps on most smartphones. Currently, client apps that use legacy protocols need to be secured by using Azure AD Federation Services.
+You can apply this condition to web SSO and modern authentication protocols. You can also apply it to mail applications that use Microsoft Exchange ActiveSync. Examples are the native mail apps on most smartphones. 
 
 You can only select the client apps condition if Microsoft Office 365 Exchange Online is the only cloud app you've selected.
 

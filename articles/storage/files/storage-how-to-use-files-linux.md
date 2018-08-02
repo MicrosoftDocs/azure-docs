@@ -30,7 +30,7 @@ ms.author: renash
     
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support mounting option specified in the table headers. 
 
-* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0) **    
+* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)**    
     
     |   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
     | --- | :---: | :---: |

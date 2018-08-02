@@ -59,15 +59,15 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory** > **Enterprise Apps** > **All applications** section.
 
-2. If you already configured Pingboard for single sign-on, search for your instance of Pingboard by using the search field. Otherwise, select **Add** and search for **Pingboard** in the application gallery. Select **Pingboard** from the search results, and add it to your list of applications.
+1. If you already configured Pingboard for single sign-on, search for your instance of Pingboard by using the search field. Otherwise, select **Add** and search for **Pingboard** in the application gallery. Select **Pingboard** from the search results, and add it to your list of applications.
 
-3. Select your instance of Pingboard, and then select the **Provisioning** tab.
+1. Select your instance of Pingboard, and then select the **Provisioning** tab.
 
-4. Set **Provisioning Mode** to **Automatic**.
+1. Set **Provisioning Mode** to **Automatic**.
 
     ![Pingboard Provisioning](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5. Under the **Admin Credentials** section, perform the following steps:
+1. Under the **Admin Credentials** section, perform the following steps:
 
     a. In **Tenant URL**, enter `https://your_domain.pingboard.com/scim/v2`, and replace "your_domain" with your real domain.
 
@@ -79,19 +79,19 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
     e. Copy the token in **OAuth Bearer Token**, and enter it in **Secret Token**.
 
-6. In the Azure portal, select **Test Connection** to ensure Azure AD can connect to your Pingboard app. If the connection fails, ensure that your Pingboard account has admin permissions, and try the **Test Connection** step again.
+1. In the Azure portal, select **Test Connection** to ensure Azure AD can connect to your Pingboard app. If the connection fails, ensure that your Pingboard account has admin permissions, and try the **Test Connection** step again.
 
-7. Enter the email address of a person or group that you want to receive provisioning error notifications in **Notification Email**. Select the check box underneath.
+1. Enter the email address of a person or group that you want to receive provisioning error notifications in **Notification Email**. Select the check box underneath.
 
-8. Select **Save**. 
+1. Select **Save**. 
 
-9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Pingboard**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Pingboard**.
 
-10. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select **Save** to commit any changes. For more information, see [Customize user provisioning attribute mappings](../active-directory-saas-customizing-attribute-mappings.md).
+1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Pingboard. The attributes selected as **Matching** properties are used to match the user accounts in Pingboard for update operations. Select **Save** to commit any changes. For more information, see [Customize user provisioning attribute mappings](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. To enable the Azure AD provisioning service for Pingboard, in the **Settings** section, change **Provisioning Status** to **On**.
+1. To enable the Azure AD provisioning service for Pingboard, in the **Settings** section, change **Provisioning Status** to **On**.
 
-12. Select **Save** to start the initial synchronization of users assigned to Pingboard.
+1. Select **Save** to start the initial synchronization of users assigned to Pingboard.
 
 The initial synchronization takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions performed by the provisioning service on your Pingboard app.
 

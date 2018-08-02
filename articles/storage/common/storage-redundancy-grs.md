@@ -13,7 +13,7 @@ ms.author: jeking
 
 # Geo-redundant storage (GRS): Cross-regional replication for Azure Storage
 
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## See also
 
