@@ -64,21 +64,21 @@ To publish a solution to the Marketplace, follow these steps:
 
     c. Fulfill the [solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md).
 
-2. Create your offer.
+1. Create your offer.
 
     a. Create a [virtual machine](marketplace-publishing-vm-image-creation.md) offer.
 
     b. Create a [solution template](marketplace-publishing-solution-template-creation.md) offer.
 
-3. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
+1. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
 
-4. Test your offer in staging.
+1. Test your offer in staging.
 
     a. Test your VM offer in [staging](marketplace-publishing-vm-image-test-in-staging.md).
 
     b. Test your solution template offer in [staging](marketplace-publishing-solution-template-test-in-staging.md).
 
-5. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
+1. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
 
 
 ### Create and manage a virtual machine image
