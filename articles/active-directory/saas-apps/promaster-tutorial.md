@@ -106,18 +106,30 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
-    a. In the **Identifier** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>`
-	`https://<SUBDOMAIN>.com/base`
+    a. In the **Identifier** textbox, use one of the following URL pattern:
+	| |
+	| - |-|
+	|  `https://secure.inlogik.com/<COMPANYNAME>`|
+	| `https://<CUSTOMDOMAIN>/SAMLBASE`|
+	| |
 
-	b. In the **Reply URL** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`
-	`https://<SUBDOMAIN>.com/base/saml/acs`
+	b. In the **Reply URL** textbox, use one of the following URL pattern:
+	| |
+	| - |-|
+	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
+	| `https://<CUSTOMDOMAIN>.com/SAMLBASE/saml/acs`|
+	| |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
-    In the **Sign-on URL** textbox, use one of the following URL pattern: `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `
-	`https://<SUBDOMAIN>.com/base/saml/acs`
+    In the **Sign-on URL** textbox, use one of the following URL pattern:
+	| |
+	| - |-|
+	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
+	| `https://<CUSTOMDOMAIN>.com/SAMLBASE/saml/acs`|
+	| |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [ProMaster (by Inlogik) Client support team](mailto:michael.boldiston@inlogik.com) to get these values.
