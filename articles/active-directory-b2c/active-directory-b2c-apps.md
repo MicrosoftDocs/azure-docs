@@ -64,8 +64,6 @@ In a web application, each execution of a [policy](active-directory-b2c-referenc
 6. The `id_token` is validated and a session cookie is set.
 7. A secure page is returned to the user.
 
-![Web App Swimlanes Image](./media/active-directory-b2c-apps/webapp.png)
-
 Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
 
 To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](active-directory-b2c-overview.md).
