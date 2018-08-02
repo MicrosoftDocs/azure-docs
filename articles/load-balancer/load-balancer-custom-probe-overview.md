@@ -47,7 +47,7 @@ The available type of health probe varies by Load Balancer SKU:
 | Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
 | Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
 
-For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP or HTTP health probe.
+For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe.
 
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response should reflect the status of the entire instance.  
 
