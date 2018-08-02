@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Network Virtual Appliance issues in Azure | Microsoft Docs
-description: Learn how to troubleshoot the Network Virtual Appliance issues in Azure.
+title: Troubleshooting network virtual appliance issues in Azure | Microsoft Docs
+description: Learn how to troubleshoot the network virtual appliance issues in Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
