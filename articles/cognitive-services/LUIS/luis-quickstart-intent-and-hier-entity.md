@@ -68,7 +68,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
 2. Select **MoveEmployee** from the list of intents.
 
-    [ ![Screenshot of LUIS app with MoveEmployee intent hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
+    [ ![Screenshot of LUIS app with MoveEmployee intent highlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
 3. Add the following example utterances:
 
