@@ -110,16 +110,12 @@ Once you've submitted your support request, Azure support will contact you. Comp
 
 ## Next steps
 
-After becoming familiar with the quota limits, the quick start tutorial and Github recipes are a great way to get started with using Batch AI.
+After becoming familiar with the quota limits, check out the following articles for getting started with using Batch AI.
 
 > [!div class="nextstepaction"]
 > [Batch AI quick start tutorial](quickstart-tensorflow-training-cli.md)
 > [Batch AI recipes](https://github.com/Azure/BatchAI/tree/master/recipes)
-
-## Related topics
-
-* [Batch AI overview](overview.md)
-* [Learn more about Batch AI resources](resource-concepts.md)
+> [Learn more about Batch AI resources](resource-concepts.md)
 
 [portal]: https://portal.azure.com
 [support_sev]: http://aka.ms/supportseverity
