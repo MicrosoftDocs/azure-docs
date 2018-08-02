@@ -180,7 +180,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
         "sequenceNumber":
           "000000000000000001D4132452F67CE200000002000000000000000000000001"
       },
-      "hubName": "EGTESTHUB1",
+      "hubName": "MYIOTHUB",
       "deviceId": "48e44e11-1437-4907-83b1-4a8d7e89859e",
       "moduleId": ""
     },
