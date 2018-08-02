@@ -19,7 +19,7 @@
 
 * (*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.
 
-* (**) Contact support if additional connections are needed
+* (**) Contact support if additional connections are needed. This applies to IKEv2 only, number of connections for SSTP cannot be increased.
 
 * Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
 
