@@ -128,7 +128,7 @@ For more information, see [service limits for Load Balancer](https://aka.ms/lbli
 
 A public load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the VM, and vice versa for the response traffic from the VM. By applying load-balancing rules, you can distribute specific types of traffic across multiple VMs or services. For example, you can spread the load of web request traffic across multiple web servers.
 
-The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and private TCP port 80. These three VMs are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and  TCP port 80. These three VMs are in a load-balanced set.
 
 ![Public load balancer example](./media/load-balancer-overview/IC727496.png)
 
