@@ -23,6 +23,8 @@
     href: tutorial-parallel-python.md
   - name: Scene rendering with Arnold
     href: tutorial-rendering-cli.md
+  - name: Rendering using Batch Explorer
+    href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
 - name: Samples
