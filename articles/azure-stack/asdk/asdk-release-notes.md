@@ -57,7 +57,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Because this feature is still in preview, you don't rely on it in production environments.
 
-  For more information, see [Azure Stack syslog forwarding](../azure-stack-integrate-security.md).
+  For more information, see [Azure Stack syslog forwarding](.\.\azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
