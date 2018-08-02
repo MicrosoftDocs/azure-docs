@@ -33,7 +33,7 @@ While Azure Machine Learning still offers CLI and SDK clients, the desktop Workb
 <a name="timeline"></a>
 
 ## What's the support timeline?
-No worries! You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. 
+You can continue to use your experimentation and model management accounts as well as the Workbench application for a while longer after September 2018. 
 
 Support for these resources will be incrementally deprecated over the next 6 - 8 months. 
 
@@ -84,3 +84,13 @@ With smaller data sets, you can use the data preparation SDK to quickly prepare 
 ## What about Visual Studio Code Tools for AI?
 
 With this latest release, the Visual Studio Code Tools for AI extension has been expanded and improved to work with the above new features.
+
+
+## Next steps
+
+Learn about [the new architecture for Azure Machine Learning services](concept-azure-machine-learning-architecture.md) and try one of the quickstarts:
+
+* [What is Azure Machine Learning services](overview-what-is-azure-ml.md)
+* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
+* [Tutorial: Train a model](tutorial-train-models-with-aml.md)

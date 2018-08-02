@@ -14,7 +14,7 @@ ms.date: 7/27/2018
 
 # Tutorial #1: Train a model on Azure Machine Learning with the MNIST dataset and TensorFlow
 
-In this tutorial, you will train a simple deep neural network (DNN) using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and TensorFlow with Azure Machine Learning (Preview). MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing number from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure. Deployment is covered in second part of this two part tutorial.
+In this tutorial, you will train a simple deep neural network (DNN) using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and TensorFlow with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing number from 0 to 9. The goal is to create a multi-class classifier to identify the digit each image represents, and deploy it as a web service in Azure. Deployment is covered in second part of this two part tutorial.
 
 This tutorial is **part one of a two-part series**. In this tutorial, you walk through the basics of Azure Machine Learning services (preview) and learn how to:
 
@@ -43,25 +43,34 @@ To complete this tutorial, you need the following prerequisites.
    If these are not yet created or installed, then follow the steps in the [Get started with Azure Machine Learning Services](quickstart-get-started.md) article.
 
 1. The following package dependencies (tensorflow, matplotlib, and numpy) installed in the conda environment in which you installed the Azure Machine Learning SDK.
+
    ```
    conda install -y matplotlib tensorflow
    ``` 
 
+1. The files [tf_mnist.py]() and [utils.py]() downloaded into your docs-prj folder.  
+
 ## Get the sample notebook
 
-To try the whole example out yourself, download and run [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification).
+To try the whole example out yourself, download and run [this Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification) into your docs-prj folder.
 
-To connect a notebook server to the conda environment for Azure Machine Learning, do the following:
+To run the notebook, execute these commands in your activated conda environment:
 ```
 #go to the directory containing the tutorial notebook
-cd <notebook-directory>
-#install the jupyter package if not installed
-pip3 install jupyter
+cd <path to docs-prj folder>
+
+#install a conda-aware Jupyter Notebook server if necessary
+conda install nb_conda
+
 #start up the notebook server
 jupyter notebook
 ```
 
-## Import package dependencies
+## Setup environment for training
+
+To run this code outside of the notebook, make sure you add it to the docs-prj folder which contains your **config.json** file.  While shown in sections below, all the code in this tutorial should be in the same single python file in order to complete successfully.
+
+### Import package dependencies
 
 Import the package dependencies for this tutorial.
 
@@ -75,7 +84,34 @@ import azureml
 from azureml.core import Workspace, Project, Run  
 ```
 
-## Get the sample data
+### Create a Batch AI cluster and define it as target
+
+Create a new Batch AI cluster and register the cluster as a compute target in your workspace.  
+
+```python
+from azureml.core.compute import BatchAiCompute
+
+# choose a name for your cluster
+batchai_cluster_name = "gpucluster"
+
+found = False
+
+print('creating a new compute target...')
+provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
+                            #vm_priority = 'lowpriority', # optional
+                            autoscale_enabled = True,
+                            cluster_min_nodes = 1, 
+                            cluster_max_nodes = 4)
+
+# create the cluster
+compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
+compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+    
+# Show current status of Batch AI cluster using 'status' property
+print(compute_target.status.serialize())
+```
+
+## Explore Data
 
 ### Download the sample data
 
@@ -94,8 +130,6 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 ```
 
 ### Explore some sample images
-
-@@WHERE DID THIS FILE COME FROM??
 
 Load the downloaded compressed file into `numpy` arrays using utility functions from the `utils.py` library file from the current folder. 
 
@@ -129,15 +163,7 @@ The output resembles the following image.
 ![png](media/tutorial-train-models-with-azure-machine-learning/explore-images.png)
 
 
-## Get the right workspace and project
-
-1. what directory should i be in?
-1. load =the right workspace 
-1. Get the right project @@@@@ 
-1. HOW DO YOU DO THAT??
-
-
-## Upload dataset to the default datastore 
+### Upload dataset to the default datastore 
 
 Upload the MNIST dataset to the default datastore in the Azure blob storage account. A blob storage account was created automatically when you created your workspace.
 
@@ -149,32 +175,7 @@ Output returned should look like this:
 
     $AZUREML_DATAREFERENCE_my_file_datastore_941bacd62925442eb51c98407515f967
 
-## Create a Batch AI cluster and define it as target
 
-Create a new Batch AI cluster and register the cluster as a compute target in your workspace.  
-
-```python
-from azureml.core.compute import BatchAiCompute
-
-# choose a name for your cluster
-batchai_cluster_name = "gpucluster"
-
-found = False
-
-print('creating a new compute target...')
-provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_NC6", # NC6 is GPU-enabled
-                            #vm_priority = 'lowpriority', # optional
-                            autoscale_enabled = True,
-                            cluster_min_nodes = 1, 
-                            cluster_max_nodes = 4)
-
-# create the cluster
-compute_target = ws.create_compute_target(batchai_cluster_name, provisioning_config)
-compute_target.wait_for_provisioning(show_output = True, min_node_count = None, timeout_in_minutes = 20)
-    
-# Show current status of Batch AI cluster using 'status' property
-print(compute_target.status.serialize())
-```
 
 ## Clean up resources
 

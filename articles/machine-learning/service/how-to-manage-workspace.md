@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: yahajiza
 author: YasinMSFT
-ms.date: 04/10/2018
+ms.date: 09/27/2018
 ---
 
 # Manage Azure Machine Learning Workspaces
