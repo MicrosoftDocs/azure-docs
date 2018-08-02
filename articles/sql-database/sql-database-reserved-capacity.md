@@ -1,6 +1,6 @@
 ---
 title: Prepay for Azure SQL Database vCores to save money | Microsoft Docs
-description: Learn how to buy SQL reserved vCores to save on your compute costs.
+description: Learn how to buy Azure SQL Database reserved capacitys to save on your compute costs.
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -12,11 +12,11 @@ ms.date: 08/08/2018
 ms.author: carlrab
 
 ---
-# Prepay for SQL Database compute resources with SQL reserved vCores
+# Prepay for SQL Database compute resources with Azure SQL Database reserved capacitys
 
 Save money with Azure SQL Database by prepaying for Azure SQL Database compute resources compared to pay-as-you-go prices. With a vCore reservation, you make an upfront commitment on SQL Database for a period of one or three years to get a significant discount on the compute costs. To purchase a vCore reservation, you need to specify the Azure region, deployment type, service, and term. 
 
-You do not need to assign the reservation to SQL Database instances. Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are pre-paying for the compute costs for the SQL Database instances for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see [SQL reserved vCore offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+You do not need to assign the reservation to SQL Database instances. Matching SQL Database instances, that are already running or ones that are newly deployed, will automatically get the benefit. By purchasing a reservation, you are pre-paying for the compute costs for the SQL Database instances for a period of one or three years. As soon as you buy a reservation, the SQL Database compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the SQL Database instance. At the end of the reservation term, the billing benefit expires and the SQL Databases are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see [SQL Database reserved capacity offering](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 You can buy Azure vCore reservations in the [Azure portal](https://portal.azure.com). To buy a vCore reservation:
 - You must be in the Owner role for at least one Enterprise or Pay-As-You-Go subscription.
@@ -31,11 +31,11 @@ The size of reservation should be based on the total amount of compute used by t
 
 For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database Single/Elastic Pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database Single/Elastic Pool Business Critical - Compute Gen5.
 
-## Buy SQL reserved vCores
+## Buy SQL Database reserved capacitys
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
-4. Fill in the required fields. Existing or new single databases or elastic pools that match the attributes you select qualify to get the reserved vCore discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
+4. Fill in the required fields. Existing or new single databases or elastic pools that match the attributes you select qualify to get the reserverd capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
 
    ![Screenshot before submitting the vCore reservation purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
