@@ -1,4 +1,4 @@
----
+﻿---
 title: Provision the Windows Data Science Virtual Machine on Azure | Microsoft Docs
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
@@ -41,8 +41,8 @@ The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (V
 Doing data science involves iterating on a sequence of tasks:
 
 1. Finding, loading, and pre-processing data
-2. Building and testing models
-3. Deploying the models for consumption in intelligent applications
+1. Building and testing models
+1. Deploying the models for consumption in intelligent applications
 
 Data scientists use a variety of tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Microsoft Data Science Virtual Machine can ease this burden by providing a ready-to-use image that can be provisioned on Azure with all several popular tools pre-installed and configured. 
 
@@ -63,23 +63,23 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 To create an instance of the Microsoft Data Science Virtual Machine, follow these steps:
 
 1. Navigate to the virtual machine listing on [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
+1. Select the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **four steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
    
    1. **Basics**
       
       1. **Name**: Name of your data science server you are creating.
-      2. **VM Disk Type**: Choose between SSD or HDD. For NC_v1 GPU instance (NVidia Tesla K80 based), choose **HDD** as the disk type. 
-      3. **User Name**: Admin account login id.
-      4. **Password**: Admin account password.
-      5. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
-      6. **Resource Group**: You can create a new one or use an existing group.
-      7. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
-   2. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
-   3. **Settings**:
+      1. **VM Disk Type**: Choose between SSD or HDD. For NC_v1 GPU instance (NVidia Tesla K80 based), choose **HDD** as the disk type. 
+      1. **User Name**: Admin account login id.
+      1. **Password**: Admin account password.
+      1. **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
+      1. **Resource Group**: You can create a new one or use an existing group.
+      1. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access.
+   1. **Size**: Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”.
+   1. **Settings**:
       
       1. **Use Managed Disks**: Choose Managed if you want Azure to manage the disks for the VM.  Otherwise you need to specify a new or existing storage account. 
-      2. **Other parameters**: Usually you just use the default values. If you want to consider using non-default values, hover over the informational link for help on the specific fields.
+      1. **Other parameters**: Usually you just use the default values. If you want to consider using non-default values, hover over the informational link for help on the specific fields.
     a. **Summary**: Verify that all information you entered is correct and click **Create**. **NOTE**: The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 > [!NOTE]

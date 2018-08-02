@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
 ---
 
@@ -180,7 +180,7 @@ The data object has the following properties:
 | authorization | object | The requested authorization for the operation. |
 | claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
-| httpRequest | object | The details of the operation. |
+| httpRequest | object | The details of the operation. This object is only included when updating an existing resource or deleting a resource. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |

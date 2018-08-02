@@ -58,8 +58,8 @@ If you created a Batch account with pool allocation mode set to **user subscript
 View your Batch account quotas in the [Azure portal][portal].
 
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
-2. Select **Quotas** on the Batch account's menu.
-3. View the quotas currently applied to the Batch account
+1. Select **Quotas** on the Batch account's menu.
+1. View the quotas currently applied to the Batch account
    
     ![Batch account quotas][account_quotas]
 
@@ -72,8 +72,8 @@ Follow these steps to request a quota increase for your Batch account or your su
 ### Increase a Batch cores quota 
 
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
-2. Select **New support request** > **Basics**.
-3. In **Basics**:
+1. Select **New support request** > **Basics**.
+1. In **Basics**:
    
     a. **Issue Type** > **Quota**
    
@@ -84,14 +84,14 @@ Follow these steps to request a quota increase for your Batch account or your su
     d. **Support plan** > **Quota support - Included**
    
     Click **Next**.
-4. In **Problem**:
+1. In **Problem**:
    
     a. Select a **Severity** according to your [business impact][support_sev].
    
     b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
    
     Click **Next**.
-5. In **Contact information**:
+1. In **Contact information**:
    
     a. Select a **Preferred contact method**.
    
