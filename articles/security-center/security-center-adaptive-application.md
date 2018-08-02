@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
 
 ---
@@ -83,7 +83,7 @@ The **Groups of VMs** section contains three tabs:
 
 5. Once you finish your selections, select **Create**.
 
- 
+
 > [!NOTE]
 > - Security Center relies on a minimum of two weeks of data in order to create a baseline and populate the unique recommendations per group of VMs. New customers of Security Center standard tier should expect a behavior in which at first their groups of VMs appear under the *no recommendation* tab.
 > - Adaptive Application Controls from Security Center doesn’t support VMs for which an AppLocker policy is already enabled by either a GPO or a local security policy.

@@ -2,19 +2,18 @@
 title: Configure Azure AD SSO for applications | Microsoft Docs
 description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
 services: active-directory
-author: asmalser-msft
+author: barbkess
 documentationcenter: na
 manager: mtillman
-
-ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2018
-ms.author: asmalser
-ms.reviewer: luleon
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser,luleon
 
 ms.custom: H1Hack27Feb2017
 ---

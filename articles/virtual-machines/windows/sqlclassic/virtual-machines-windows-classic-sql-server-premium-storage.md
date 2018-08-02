@@ -3,7 +3,7 @@ title: Use Azure Premium Storage with SQL Server | Microsoft Docs
 description: This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: craigg
 editor: monicar
 tags: azure-service-management

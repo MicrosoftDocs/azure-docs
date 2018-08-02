@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
 ---
 # Questions about the Azure Backup service
@@ -27,8 +27,11 @@ You can register upto 1000 Azure Virtual machines per vault. If you are using MA
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
-### Can I “migrate” my backup data or vault between subscriptions? <br/>
-No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
+### Can I migrate my vault between subscriptions? <br/>
+No. The vault is created at a subscription level, and can't be reassigned to another subscription.
+
+### Can I migrate backup data to another vault? <br/>
+No. Backup data stored in a vault can't be moved to a different vault.
 
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
 Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
