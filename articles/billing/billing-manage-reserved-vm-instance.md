@@ -29,8 +29,22 @@ To update the scope of a reserved instance:
 4. Select **Settings** > **Configuration**.
 5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reserved instance, can be selected. The billing context is determined by the subscription that you selected when the reserved instance was bought. The scope only applies to Pay-As-You-Go offer MS-AZR-0003P subscriptions and Enterprise offer MS-AZR-0017P subscriptions. For enterprise agreements, dev/test subscriptions are not eligible to get the reserved instance discount.
 
-## Change VM instance flexibility or prioritize capacity
- VM instance flexibility will apply the reservation discount to other VMs in the same [VM group](https://aka.ms/RIVMGroups), instance size flexibility is on when the scope of the reservation is set to Shared. For reservations where the scope is Single, you can optimize the reservation for capacity priority instead of VM instance flexibility.
+## Add or change users who can manage a reserved instance
+You can delegate management of a reserved instance by adding people to roles on the reserved instance. By default, the person that bought the reserved instance and the account administrator have the Owner role on the reserved instance. 
+
+You can manage access to reserved instances independently from the subscriptions that get the reserved instance discount. When you give someone permissions to manage a reserved instance, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reserved instance's scope, that doesn't give them rights to manage the reserved instance.
+ 
+To delegate access management for a reserved instance: 
+1.	Log in to the [Azure portal](https://portal.azure.com).
+2.	Select **All Services** > **Reservation** to list reserved instances that you have access to.
+3.	Select the reserved instance that you want to delegate access to other users.
+4.	Select **Access Control (IAM)** in the menu.
+5.	Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
+6. Type the email address of the user you want to add as Owner. 
+7. Select the user, and then select **Save**.
+
+## Optmize Reserved VM Instance for VM size flexibility or capacity priority
+ VM instance flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). By default, when the scope of the reservation is shared, the instance size flexibility is on and datacenter capacity isn't prioritized for VM deployments. For reservations where the scope is single, you can optimize the reservation for capacity priority instead of VM instance size flexibility. Capacity priority reserves data center capacity for your deployments, offering additional confidence in your ability to launch the VM instances when you need them.
 
 To update the scope of a reserved instance: 
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -67,21 +81,6 @@ To update the scope of a reserved instance:
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
-
-## Add or change users who can manage a reserved instance
-You can delegate management of a reserved instance by adding people to roles on the reserved instance. By default, the person that bought the reserved instance and the account administrator have the Owner role on the reserved instance. 
-
-You can manage access to reserved instances independently from the subscriptions that get the reserved instance discount. When you give someone permissions to manage a reserved instance, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reserved instance's scope, that doesn't give them rights to manage the reserved instance.
- 
-To delegate access management for a reserved instance: 
-1.	Log in to the [Azure portal](https://portal.azure.com).
-2.	Select **All Services** > **Reservation** to list reserved instances that you have access to.
-3.	Select the reserved instance that you want to delegate access to other users.
-4.	Select **Access Control (IAM)** in the menu.
-5.	Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
-6. Type the email address of the user you want to add as Owner. 
-7. Select the user, and then select **Save**.
-
 ## Next steps
 To learn more about Azure Reserved Instances, see the following articles:
 
