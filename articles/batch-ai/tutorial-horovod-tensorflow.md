@@ -80,7 +80,7 @@ The next step will be to provision a GPU Cluster that can be used to run the exp
 
 * **VM Size** - Azure contains many options for [GPU-Enabled VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine will be used, which contains one NVIDIA Tesla K80 GPU. This VM is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
 
-* **Priority** - Azure offers dedicated VMs in addition to a [low priority VM](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of jobs being interrupted by higher priority tasks. For this experiment, a `low priority` option will be selected in order to save computing costs.
+* **Priority** - Azure offers dedicated VMs in addition to a [low priority VM](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of jobs being interrpre-empted by higher priority tasks. For this experiment, a `dedicated priority` option will be selected in order to save computing costs.
 
 * **Target** - The number of nodes that should be allocated can be defined at the creation of a cluster or an [auto-scale](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-auto-scale) option can be selected. For this experiment, the target will be manually set to `4 nodes` in order to demonstrate the distributed training performance.
 
@@ -91,7 +91,7 @@ The next step will be to provision a GPU Cluster that can be used to run the exp
 The [az batchai cluster create](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) command will be used to create the cluster. The following command creates a new cluster called `nc6cluster` with the above configurations under the workspace and resource group created earlier.
 
 ```azurecli-interactive
-az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority lowpriority --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
+az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority dedicated --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
 It will also create an Azure File Share and Azure Blob Storage Container with the names **batchaishare** and **batchaicontainer** respectively. They will be mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
@@ -126,6 +126,8 @@ The storage account name can be used to access the file share named `batchaishar
 ```azurecli-interactive
 az storage directory create --name cifar --share-name batchaishare --account-name <STORAGE ACCOUNT NAME>
 ```
+Note, for those who do not wish to use auto storage, see the following [article](./use-azure-storage) for more details on more flexible storage options. 
+
 The next step will be to prepare the actual training script, which will then be uploaded to the newly created directory.
 
 ## Create the training script
