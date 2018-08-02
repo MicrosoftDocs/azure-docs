@@ -79,9 +79,9 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
-- <!-- 2551834 - IS, ASDK --> When you select Overview for a storage account in either the admin or user portals, the Essentials pane now displays all the expected information correctly. 
+- <!-- 2551834 - IS, ASDK --> When you select *Overview* for a storage account in either the admin or user portals, the *Essentials* pane now displays all the expected information correctly. 
 
-- <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
+- <!-- 2551834 - IS, ASDK --> When you select *Tags* for a storage account in either the admin or user portals, the information now displays correctly.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
 
@@ -99,7 +99,7 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
 
 #### Portal  
-- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
+- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
 
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available. When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md) are not visible in the console. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
 

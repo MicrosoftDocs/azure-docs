@@ -91,9 +91,9 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
-- <!-- 2551834 - IS, ASDK --> When you select Overview for a storage account in either the admin or user portals, the Essentials pane now displays all the expected information correctly. 
+- <!-- 2551834 - IS, ASDK --> When you select *Overview* for a storage account in either the admin or user portals, the *Essentials* pane now displays all the expected information correctly. 
 
-- <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
+- <!-- 2551834 - IS, ASDK --> When you select *Tags* for a storage account in either the admin or user portals, the information now displays correctly.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
 
@@ -137,9 +137,9 @@ This update includes the following improvements for Azure Stack.
 The following are post-installation known issues for this build version.
 
 ### Portal
-- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
+- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
-- <!-- TBD - IS --> When you use the admin portal to add a new scale unit node, the first node has **00** added to the end of the node name automatically, and appears as *Prefix-Node**00***. To avoid this behavior, use the *New-AzsScaleUnitNodeObject* and *Add-AzsScaleUnitNode* [PowerShell cmdlets to add additional nodes](azure-stack-add-scale-node.md#use-powershell).
+- <!-- TBD - IS --> When you use the admin portal to add a new scale unit node, the first node has **00** added to the end of the node name automatically, and appears as *Prefix-Node00*. To avoid this behavior, use the *New-AzsScaleUnitNodeObject* and *Add-AzsScaleUnitNode* [PowerShell cmdlets to add additional nodes](azure-stack-add-scale-node.md#use-powershell).
 
 - <!-- TBD - IS ASDK --> Some admin subscription types are not available. When you upgrade Azure Stack to the 1807 version, the two subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) are not visible in the portal. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
