@@ -1,6 +1,6 @@
 ---
-title: Size series covered with Azure Reserved VM Instances | Microsoft Docs
-description: Learn what size series are covered when you buy a reserved VM instance.
+title: Virtual machine size flexibility -Azure Reserved VM Instances | Microsoft Docs
+description: Learn what size series a reservation discount applies to when you by a reserved VM instance.
 services: virtual-machines-windows
 documentationcenter: ''
 author: manish-shukla01
