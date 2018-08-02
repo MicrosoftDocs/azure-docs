@@ -1,6 +1,6 @@
 ---
 title: Collect data from hybrid Linux computers with Azure Log Analytics | Microsoft Docs
-description: Learn how to deploy the Log Analytics agent for Windows running on computers outside of Azure and enable collection of data with Log Analytics.
+description: Learn how to deploy the Log Analytics agent for Linux running on computers outside of Azure and enable collection of data with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -18,7 +18,7 @@ ms.custom: mvc
 ms.component: na
 ---
 
-# Collect data from Linux computers in a hybrid environment
+# Configure Log Analytics agent for Linux computers in a hybrid environment
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
 
 To understand the supported configuration, review [supported Linux operating systems](log-analytics-concept-hybrid.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
