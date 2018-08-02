@@ -7,8 +7,9 @@
   - name: Geographic search boundaries
     href: specify-geographic-search.md
   - name: Local search endpoint
-    href: local-search-endpoint.md
-- name: API Quickstarts
+    href: local-search-endpoint.md 
+  - name: API Quickstarts  
+- name: Quickstarts  
   expanded: true
   items:
   - name: Local Search C# quickstart

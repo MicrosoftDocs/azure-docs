@@ -7,7 +7,7 @@ manager: rosh
 ms.service: cognitive-services
 ms.technology: bing-local-search
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 08/02/2018
 ms.author: rosh, v-gedod
 ---
 # Local Search Python quickstart
