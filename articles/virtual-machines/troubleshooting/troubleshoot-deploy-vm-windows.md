@@ -104,7 +104,7 @@ You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios 
 - Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](../windows/client-images.md#eligible-offers). 
 - Visual Studio subscribers within any type of offer can also [adequately prepare and create](../windows/prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](../windows/upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
-This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+This [article](../windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## I am not able to see VM Size family that I want when resizing my VM.
 
