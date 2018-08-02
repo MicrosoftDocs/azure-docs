@@ -12,11 +12,15 @@ ms.author: marsma
 ---
 # Content trust in Azure Container Registry
 
-Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. You need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article will get you started.
+Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article will get you started.
 
-## Content trust
+## How content trust works
 
-words here
+## Use content trust
+
+### Enable trusted image push
+
+### Enforce trusted image pull
 
 ## Push trusted images
 
@@ -49,6 +53,10 @@ az role assignment create --scope resource_id --role AcrImageSigner --assignee 0
 To pull trusted images, the `Reader` role is sufficient for registry users. No additional roles like `AcrImageSigner` need to be granted.
 
 You can use both the Docker and Notary clients to interact with trusted images in Azure Container Registry. Detailed documentation can be found at [Content trust in Docker](https://docs.docker.com/engine/security/trust/content_trust/).
+
+## Pull trusted images
+
+
 
 ## Next steps
 
