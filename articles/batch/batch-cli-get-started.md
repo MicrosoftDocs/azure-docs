@@ -26,7 +26,7 @@ This article provides an overview of using [Azure CLI version 2.0](https://docs.
 
 ## Set up the Azure CLI
 
-To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+You can run the latest Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). To install the Azure CLI locally, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.

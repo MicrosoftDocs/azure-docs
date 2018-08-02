@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/24/2018
+ms.date: 08/02/2018
 ms.author: danlep
 
 ---
@@ -76,10 +76,10 @@ ffmpeg to transcode source video files to different resolutions.
 
 ## Installation
 
-To install the Azure Batch CLI extension, first [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+To install the Azure Batch CLI extension, first [Install Azure CLI 2.0](/cli/azure/install-azure-cli), or run the Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md).
 
-Once the Azure CLI has been installed, install the latest version of the Batch extension using the
-following CLI command:
+Install the latest version of the Batch extension using the
+following Azure CLI command:
 
 ```azurecli
 az extension add --name azure-batch-cli-extensions
@@ -88,7 +88,7 @@ az extension add --name azure-batch-cli-extensions
 For more information about the Batch CLI extension and additional installation options, see the [GitHub repo](https://github.com/Azure/azure-batch-cli-extensions).
 
 
-To use the CLI extension features, you need an Azure Batch account with a linked storage account.
+To use the CLI extension features, you need an Azure Batch account and, for the commands that transfer files to and from storage, a linked storage account.
 
 To log into a Batch account with the Azure CLI, see [Manage Batch resources with Azure CLI](batch-cli-get-started.md).
 
