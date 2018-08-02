@@ -13,7 +13,7 @@ manager:
 # Zoom levels and tile grid
 Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
-The world is divided into square tiles. Online Maps (Raster) has 21 zoom levels, numbered 0 through 20. Online Maps (Vector) has 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
+The world is divided into square tiles. Render (Raster) has 21 zoom levels, numbered 0 through 20. Render (Vector) has 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
 ![World tile](./media/zoom-levels-and-tile-grid/world0.png)
 
