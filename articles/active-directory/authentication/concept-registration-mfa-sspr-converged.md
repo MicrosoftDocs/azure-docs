@@ -1,6 +1,6 @@
 ---
-title: Converged registration for Azure AD SSPR and MFA
-description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration
+title: Converged registration for Azure AD SSPR and MFA (Public preview)
+description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration (Public preview)
 
 services: active-directory
 ms.service: active-directory
@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: sahenry, michmcla
 
 ---
-# Converged registration for self-service password reset and Azure Multi-Factor Authentication
+# Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)
 
 Until now, users were required to register authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in two different portals. Many users were confused by the fact that similar methods were used for both Azure MFA and SSPR and would not register in both portals. This disparity led to some users being unable to use either Azure MFA or SSPR when needed, leading to a helpdesk call, and potentially an upset user. Now, users can register once and get the benefits of both Azure MFA and SSPR, eliminating the need to register their authentication methods for these features twice.  
 
