@@ -43,7 +43,7 @@ To delegate access management for a reserved instance:
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
 
-## Optmize Reserved VM Instance for VM size flexibility or capacity priority
+## Optimize Reserved VM Instance for VM size flexibility or capacity priority
  VM instance flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). By default, when the scope of the reservation is shared, the instance size flexibility is on and datacenter capacity isn't prioritized for VM deployments. For reservations where the scope is single, you can optimize the reservation for capacity priority instead of VM instance size flexibility. Capacity priority reserves data center capacity for your deployments, offering additional confidence in your ability to launch the VM instances when you need them.
 
 To update the scope of a reserved instance: 
