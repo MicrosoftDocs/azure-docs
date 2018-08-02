@@ -1,42 +1,43 @@
 ---
-title: Troubleshoot devices in remote monitoring solution - Azure | Microsoft Docs
-description: This tutorial shows you how to troubleshoot and remediate device issues in the remote monitoring solution.
+title: Use alerts and fix device issues in the remote monitoring solution tutorial - Azure | Microsoft Docs
+description: This tutorial shows you how to Use alerts to identify and fix issues with devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 05/01/2018
-ms.topic: conceptual
+ms.date: 07/19/2018
+ms.topic: tutorial
+ms.custom: mvc
+
+# As an operator of an IoT monitoring solution, I need to use alerts to identify and fix issues with my devices. 
 ---
 
-# Troubleshoot and remediate device issues
+# Tutorial: Troubleshoot and fix device issues
 
-This tutorial shows you how to use the **Maintenance** page in the solution to troubleshoot and remediate device issues. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
+In this tutorial, you use the Remote Monitoring solution accelerator to identify and fix issues with your connected IoT devices. You use alerts in the solution accelerator dashboard to identify issues and then run remote jobs to fix those issues.
 
-Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is unexpectedly triggering a temperature alert on the dashboard. You must now investigate the behavior of this faulty **Prototype** device.
+Contoso is testing a new **Prototype** device in the field. As a Contoso operator, you notice during testing that the **Prototype** device is unexpectedly triggering a temperature alert on the dashboard. You must now investigate the behavior of this faulty **Prototype** device and resolve the issue.
 
-In this tutorial, you learn how to:
+In this tutorial, you:
 
 >[!div class="checklist"]
-> * Use the **Maintenance** page to investigate the alert
-> * Call a device method to remediate the issue
+> * Investigate an alert from a device
+> * Resolve the issue with the device
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To follow this tutorial, you need a deployed instance of the Remote Monitoring solution in your Azure subscription.
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md) tutorial.
-
-## Use the maintenance dashboard
+## Investigate an alert
 
 On the **Dashboard** page you notice there are unexpected temperature alerts coming from the rule associated with the **Prototype** devices:
 
-![Alerts showing on the dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm.png)
+[![Alerts showing on the dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
 To investigate the issue further, choose the **Explore Alert** option next to the alert:
 
-![Explore alert from the dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm.png)
+[![Explore alert from the dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
 The detail view of the alert shows:
 
@@ -44,47 +45,42 @@ The detail view of the alert shows:
 * Status information about the devices associated with the alert
 * Telemetry from the devices associated with the alert
 
-![Alert details](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail.png)
+[![Alert details](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
-To acknowledge the alert, select the **Alert occurrences** and choose **Acknowledge**. This action enables other operators to see that you have seen the alert and are working on it.
+To acknowledge the alert, select all the **Alert occurrences** and choose **Acknowledge**. This action lets other operators know that you have seen the alert and are working on it:
 
-![Acknowledge the alerts](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge.png)
+[![Acknowledge the alerts](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
 When you acknowledge the alert, the status of the occurrence changes to **Acknowledged**.
 
-In the list, you can see the **Prototype** device responsible for firing the temperature alert:
+In the list of alerted devices, you can see the **Prototype** device responsible for firing the temperature alert:
 
-![List the devices causing the alert](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+[![List the devices causing the alert](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
-## Remediate the issue
+## Resolve the issue
 
-To remediate the issue with the **Prototype** device, you need to call the **DecreaseTemperature** method on the device.
+To resolve the issue with the **Prototype** device, you need to call the **DecreaseTemperature** method on the device.
 
-To act on a device, select it in the list of devices and then choose **Jobs**. The **Prototype** device model specifies six methods a device must support:
+To act on a device, select it in the list of alerted devices and then choose **Jobs**. The **Prototype** device model supports six methods:
 
-![View the methods the device supports](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods.png)
+[![View the methods the device supports](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. Then choose **Apply**:
+Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. Then click **Apply**:
 
-![Create the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob.png)
+[![Create the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-To track the status of the job on the **Maintenance** page, choose **Jobs**. Use the **Jobs** view to track all the jobs and method calls in the solution:
+To track the status of the job, click **View job status**. Use the **Jobs** view to track all the jobs and method calls in the solution:
 
-![Monitor the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob.png)
+[![Monitor the job to decrease the temperature](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-To view the details of a specific job or method call, choose it in the list in the **Jobs** view:
+You can check that the temperature of the device has fallen by viewing the telemetry on the **Dashboard** page:
 
-![View job details](./media/iot-accelerators-remote-monitoring-maintain/maintenancejobdetail.png)
+[![View the decrease in temperature](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## Next steps
 
-In this tutorial, you saw how to:
+This tutorial showed you how to use alerts to identify issues with your devices and how to act on those devices to resolve the issues. To learn how to connect a physical device to your solution accelerator, continue to the how-to articles.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Use the **Maintenance** page to investigate the alert
-> * Call a device method to remediate the issue
-
-Now you have learned how to manage device issues, the suggested next step is to learn how to [Test your solution with simulated devices](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+Now you have learned how to manage device issues, the suggested next step is to learn how to [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).

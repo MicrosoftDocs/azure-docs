@@ -73,7 +73,7 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Multi-master setup
+    - name: Multi-master
       href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
@@ -120,8 +120,6 @@ items:
               href: sql-api-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-            - name: C++
-              href: sql-api-cpp-get-started.md
           - name: Build a web app
             items:
             - name: .NET
@@ -146,10 +144,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-        - name: 6 - Integrate with Functions
-          items:
-          - name: HTTP trigger
-            href: tutorial-functions-http-trigger.md
       - name: Samples
         items:
         - name: Azure CLI
@@ -176,8 +170,6 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -266,8 +258,6 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: SQL playground
@@ -330,12 +320,8 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Graph API Docs
@@ -348,30 +334,14 @@ items:
           href: gremlin-support.md
       - name: Tutorials
         items:
-        - name: 1 - Create
-          href: tutorial-develop-graph-dotnet.md
-        - name: 2 - Query
+        - name: 1 - Query
           href: tutorial-query-graph.md
-        - name: 3 - Distribute globally
-          href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
-        - name: Integrate
-          items:
-          - name: Connect to Spark GraphX
-            href: spark-connector-graph.md 
-      - name: Reference
-        items:
-          - name: .NET
-            href: graph-sdk-dotnet.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Table API Docs
@@ -424,8 +394,6 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide
@@ -446,40 +414,54 @@ items:
           href: cassandra-import-data.md
   - name: How To Guides
     items:
-    - name: Keys and consistency
-      href: manage-account.md
-    - name: Throughput
-      href: set-throughput.md
-    - name: Firewall support
-      href: firewall-support.md
-    - name: Setup virtual network service endpoint
-      href: vnet-service-endpoint.md
-    - name: Metrics
-      href: use-metrics.md
-    - name: Monitor SLAs
-      href: monitor-accounts.md
-    - name: Back up and restore
-      href: online-backup-and-restore.md
-    - name: Regional failover
-      href: regional-failover.md
-    - name: Diagnostic logging
-      href: logging.md
-    - name: BulkExecutor overview
+    - name : Manage
+      items:
+      - name: Manage using PowerShell
+        href: manage-account-with-powershell.md
+      - name: Manage using Storage Explorer
+        href: storage-explorer.md
+      - name: Manage using data explorer
+        href: data-explorer.md
+      - name: Manage keys and consistency levels
+        href: manage-account.md
+      - name: Throughput
+        href: set-throughput.md
+      - name: Expire data automatically
+        href: time-to-live.md
+      - name: Diagnostic logging
+        href: logging.md
+    - name : Secure data
+      items:
+      - name: Firewall support
+        href: firewall-support.md
+      - name: Setup virtual network service endpoint
+        href: vnet-service-endpoint.md
+    - name : Monitor
+      items:
+      - name: Monitor with metrics
+        href: use-metrics.md
+      - name: Monitor SLAs
+        href: monitor-accounts.md
+    - name : Backup and restore
+      items:
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
+      - name: Regional failover
+        href: regional-failover.md
+    - name : Automate
+      items:
+      - name: Stored procedures, triggers, and UDFs
+        href: programming.md
+      - name: Multi-master setup
+        href: multi-master-workaround.md
+    - name: Bulk executor library
       href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
-    - name: Expire data automatically
-      href: time-to-live.md
-    - name: Manage using PowerShell
-      href: manage-account-with-powershell.md
-    - name: Manage using Storage Explorer
-      href: storage-explorer.md
   - name: Resources
     items:
     - name: Query cheat sheet
       href: query-cheat-sheet.md
-    - name: Manage using Storage Explorer
-      href: storage-explorer.md 
     - name: 20 days of tips
       href: 20-days-of-tips.md
     - name: Videos

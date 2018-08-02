@@ -77,7 +77,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Datasheet Links-->
 <!--[birst_datasheet]:-->
 [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
-[dell_statistica_datasheet]:https://software.dell.com/documents/statistica-data-miner-datasheet-69284.pdf
+[dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
 [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
 [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
@@ -133,7 +133,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Twitter links-->
 [birst_twitter]:https://twitter.com/BirstBI
 [clearstory_twitter]:https://twitter.com/ClearStoryData
-[dell_statistica_twitter]:https://twitter.com/DellStatistica
+[dell_statistica_twitter]:https://twitter.com/hashtag/DellStatistica
 [dundas_bi_twitter]:https://twitter.com/dundasdata
 [jinfonet_twitter]:https://twitter.com/Jinfonet
 [logianalytics_twitter]:https://twitter.com/LogiAnalytics

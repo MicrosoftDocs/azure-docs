@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -130,7 +130,7 @@ A Service Principal requires a key for authentication. Use the following steps t
 
     ![Key description and duration](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to log in as the application. Store the key value where your application can retrieve it.
+    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
     ![Key VALUE](media\azure-stack-solution-hybrid-pipeline\000_06.png)
 
@@ -219,13 +219,13 @@ Create a Personal Access Token to access VSTS.
 
     ![Download build agent](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
 
-3. Navigate to the folder for the extracted build agent. Run the **run.cmd** file from an elevated command prompt.
+3. Navigate to the folder for the extracted build agent. Run the **config.cmd** file from an elevated command prompt.
 
     ![Extracted build agent](media\azure-stack-solution-hybrid-pipeline\000_20.png)
 
     ![Register build agent](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-4. When the run.cmd finishes, the build agent folder is updated with additional files. The folder with the extracted contents should look like the following:
+4. When the config.cmd finishes, the build agent folder is updated with additional files. The folder with the extracted contents should look like the following:
 
     ![Build agent folder update](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 

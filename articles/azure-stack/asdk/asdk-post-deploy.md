@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -39,12 +39,12 @@ You can use API version profiles  to specify Azure Stack compatible AzureRM modu
 You can install the latest Azure Stack PowerShell module with or without Internet connectivity to the ASDK host computer:
 
 > [!IMPORTANT]
-> Before installing the required version, make sure that you [uninstall any existing Azure PowerShell modules](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
+> Before installing the required version, make sure that you [uninstall any existing Azure PowerShell modules](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **With an internet connection** from the ASDK host computer. Run the following PowerShell script to install these modules on your development kit installation:
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -52,11 +52,9 @@ You can install the latest Azure Stack PowerShell module with or without Interne
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  # Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
   Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
-  # Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
-  Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
   If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
@@ -80,7 +78,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
     -Name AzureStack `
     -Path $Path `
     -Force `
-    # If you are not running Azure Stack with update 1804 or greater, change the requiredversion parameter value to 1.2.11. 
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
     -RequiredVersion 1.3.0
   ```
 

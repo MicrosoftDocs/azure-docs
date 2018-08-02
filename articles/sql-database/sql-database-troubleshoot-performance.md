@@ -9,7 +9,7 @@ keywords: sql performance tuning, database performance tuning, sql performance t
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
 
 ---
@@ -46,7 +46,7 @@ You can use the following options to improve performance of your database:
 
 ## Improving database performance with more resources
 
-Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. You can assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a standalone database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md), you can change either the service tier or increase the resources allocated to your database. 
+Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. You can assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a standalone database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), you can change either the service tier or increase the resources allocated to your database. 
 1. For standalone databases, you can [change service tiers](sql-database-service-tiers-dtu.md) or [compute resources](sql-database-service-tiers-vcore.md)on-demand to improve database performance.
 2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 

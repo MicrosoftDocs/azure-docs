@@ -39,7 +39,7 @@ Monitor each Batch account using features of [Azure Monitor](../monitoring-and-d
 
 In your Batch applications, use the Batch APIs to monitor or query the status of your resources including jobs, tasks, nodes, and pools. For example:
 
-* [Count tasks by state](batch-get-task-counts.md)
+* [Count tasks and compute nodes by state](batch-get-resource-counts.md)
 * [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md)
 * [Create task dependencies](batch-task-dependencies.md)
 * Use a [job manager task](/rest/api/batchservice/job/add#jobmanagertask)
@@ -59,7 +59,7 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
   > You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows. Optionally configure your Batch solution to [display Application Insights data](https://github.com/Azure/batch-insights) such as VM performance counters in BatchLabs.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. Optionally configure your Batch solution to [display Application Insights data](https://github.com/Azure/batch-insights) such as VM performance counters in Batch Explorer.
 
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Monitor Active Directory replication status with Azure Log Analytics | Mi
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+ms.component: na
 ---
+
 # Monitor Active Directory replication status with Log Analytics
 
 ![AD Replication Status symbol](./media/log-analytics-ad-replication-status/ad-replication-status-symbol.png)

@@ -64,12 +64,12 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-isolation">
+        <a href="/azure/security/azure-security-infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
                         <div class="cardText">
-                            <p style="font-size: 1.12rem;">How does Azure isolate my resources from other Azure customers?</p>
+                            <p style="font-size: 1.12rem;">How does Microsoft secure the Azure infrastructure?</p>
                         </div>
                     </div>
                 </div>

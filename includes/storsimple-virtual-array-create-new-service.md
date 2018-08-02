@@ -1,6 +1,6 @@
 #### To create a new service
 
-1.  Using your Microsoft account credentials, log on to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, log in at: <https://portal.azure.us/>
+1.  Using your Microsoft account credentials, sign in to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, sign in at: <https://portal.azure.us/>
 
 2.  In the Azure portal, click **+ Create a resource** &gt; **Storage** &gt; **StorSimple Virtual Series**.
 

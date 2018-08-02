@@ -3,7 +3,7 @@ title: Azure PowerShell Samples - Create a complete virtual machine scale set | 
 description: Azure PowerShell Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -56,7 +56,7 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Create an IP configuration for the scale set VM instances. The VM instances are connected to the load balancer backend pool, NAT pool, and virtual network subnet. |
 | [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | Creates a scale set configuration. This configuration includes information such as number of VM instances to create, the VM SKU (size), and upgrade policy mode. The configuration is added to by additional cmdlets, and is used during scale set creation. |
 | [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Define the image to be used for the VM instances, and add it to the scale set config. |
-| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile)  Define the administrative username and password credentials, and VM naming prefix. Add these values to the scale set config. |
+| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Define the administrative username and password credentials, and VM naming prefix. Add these values to the scale set config. |
 | [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration) | Add a virtual network interface to the VM instances, based on the IP configuration. Add these values to the scale set config. |
 | [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss) | Create the scale set based on the information provided in the scale set configuration. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |

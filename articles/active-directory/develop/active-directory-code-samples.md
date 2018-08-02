@@ -105,9 +105,11 @@ ASP.NET 4.5 | [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/act
 
 This sample shows how to write a single page application secured with Azure AD.
 
- Platform |  Calls Microsoft Graph | Calls its own API
- -------- |  --------------------- | -------------------------
-JavaScript (Angular) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ Platform |  Calls Microsoft Graph | Calls its own API | Calls another Web API
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## Other Microsoft Graph samples
 
@@ -115,7 +117,7 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 ## See also
 
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
 [Azure AD Graph API Conceptual and Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 

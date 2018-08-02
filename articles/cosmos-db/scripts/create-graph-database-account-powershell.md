@@ -7,8 +7,8 @@ author: SnehaGunda
 manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample

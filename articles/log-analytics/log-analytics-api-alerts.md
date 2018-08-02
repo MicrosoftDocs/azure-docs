@@ -1,24 +1,23 @@
-﻿---
+---
 title: Using OMS Log Analytics Alert REST API
 description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-
-ms.custom: H1Hack27Feb2017
-
+ms.component: na
 ---
+
 # Create and manage alert rules in Log Analytics with REST API
 The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 

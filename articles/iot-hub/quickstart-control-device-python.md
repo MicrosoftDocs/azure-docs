@@ -141,9 +141,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 ## Clean up resources
 
-If you plan to move on to the tutorials, leave the resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 
@@ -152,4 +150,4 @@ In this quickstart, you've called a direct method on a device from a back-end ap
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](iot-hub-python-python-process-d2c.md)
+> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)

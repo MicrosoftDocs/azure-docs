@@ -19,9 +19,6 @@ ms.author: douglasl
 # Programmatically monitor an Azure data factory
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
-
 ## Data range
 
 Data Factory only stores pipeline run data for 45 days. When you query programmatically for data about Data Factory pipeline runs - for example, with the PowerShell command `Get-AzureRmDataFactoryV2PipelineRun` - there are no maximum dates for the optional `LastUpdatedAfter` and `LastUpdatedBefore` parameters. But if you query for data for the past year, for example, the query does not return an error, but only returns pipeline run data from the last 45 days.

@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Java
+# Quickstart: Extract printed text (OCR) with Java
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
@@ -83,7 +83,7 @@ public class Main {
             URIBuilder uriBuilder = new URIBuilder(uriBase);
 
             uriBuilder.setParameter("language", "unk");
-            uriBuilder.setParameter("detectOrientation ", "true");
+            uriBuilder.setParameter("detectOrientation", "true");
 
             // Request parameters.
             URI uri = uriBuilder.build();

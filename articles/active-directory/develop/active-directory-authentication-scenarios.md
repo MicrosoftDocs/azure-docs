@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/26/2018
 ms.author: celested
-ms.reviewer: jmprieur
+ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-
 ---
+
 # Authentication scenarios for Azure AD
 
 Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. This article will help you understand the various scenarios Azure AD supports and show you how to get started. It’s divided into the following sections:
@@ -134,7 +134,7 @@ This section describes an application that authenticates a user in a web browser
 1. When a user visits the application and needs to sign in, they are redirected via a sign-in request to the authentication endpoint in Azure AD.
 1. The user signs in on the sign-in page.
 1. If authentication is successful, Azure AD creates an authentication token and returns a sign-in response to the application’s Reply URL that was configured in the Azure portal. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
-1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, Azure AD starts a new session with the user. This session allows the user to access the application until it expires.
+1. The application validates the token by using a public signing key and issuer information available at the federation metadata document for Azure AD. After the application validates the token, it starts a new session with the user. This session allows the user to access the application until it expires.
 
 #### Code samples
 
@@ -168,7 +168,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 1. The user signs in on the sign-in page.
 1. If authentication is successful, Azure AD creates an ID token and returns it as a URL fragment (#) to the application’s Reply URL. For a production application, this Reply URL should be HTTPS. The returned token includes claims about the user and Azure AD that are required by the application to validate the token.
 1. The JavaScript client code running in the browser extracts the token from the response to use in securing calls to the application’s web API back end.
-1. The browser calls the application’s web API back end with the access token in the authorization header.
+1. The browser calls the application’s web API back end with the ID token in the authorization header. The Azure AD authentication service issues an ID token that can be used as a bearer token if the resource is the same as the client ID (in this case, this is true as the web API is the app's own backend). 
 
 #### Code samples
 
@@ -322,7 +322,7 @@ When the first application uses its authorization code to get a JWT access token
 
 ## See Also
 
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 

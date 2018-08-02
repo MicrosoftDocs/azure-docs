@@ -3,19 +3,19 @@ title: Prerequisites to access the Azure Active Directory reporting API | Micros
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -224,11 +224,9 @@ To get your application's client secret, you need to create a new key and save i
     d. Copy the key value.
 
 
-## Next Steps
+## Next steps
 
-- [Get data using the Azure Active Directory reporting API with certificates](active-directory-reporting-api-with-certificates.md).
-
-- [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Create your own solution](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Get data using the Azure Active Directory reporting API with certificates](active-directory-reporting-api-with-certificates.md)
+* [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

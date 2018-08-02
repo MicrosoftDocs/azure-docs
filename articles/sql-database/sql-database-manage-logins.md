@@ -1,29 +1,27 @@
 ---
 title: Azure SQL logins and users | Microsoft Docs
-description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
+description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/13/2018
 ms.author: carlrab
 
 ---
-# Controlling and granting database access
+# Controlling and granting database access to SQL Database and SQL Data Warehouse
 
-After firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
+After firewall rules have been configured, people can connect to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
->
 
 > [!TIP]
 > For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
->
-
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.

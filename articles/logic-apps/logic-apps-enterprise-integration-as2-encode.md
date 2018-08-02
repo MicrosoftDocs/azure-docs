@@ -4,7 +4,7 @@ description: How to use the AS2 encoder in the Enterprise Integration Pack for A
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3

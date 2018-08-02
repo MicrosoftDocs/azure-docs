@@ -92,7 +92,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
      Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
 ## <a id="summary"></a>Summary
-As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:

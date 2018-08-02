@@ -7,9 +7,10 @@ author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: identity 
+ms.workload: identity
+ms.component: protection 
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: celested
-ms.reviwer: lenalepa; sureshja
+ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ---
 

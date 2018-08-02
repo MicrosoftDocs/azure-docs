@@ -3,17 +3,18 @@ title: How to configure federated single sign-on for an Azure AD Gallery applica
 description: How to configure federated single sign-on for an existing Azure AD Gallery application and use tutorials to get going quickly
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 

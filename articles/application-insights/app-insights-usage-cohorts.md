@@ -9,9 +9,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: mbullwin ; daviste
+ms.reviewer: daviste
+ms.author: mbullwin
 ---
 
 # Application Insights cohorts

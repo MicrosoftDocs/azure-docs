@@ -27,6 +27,10 @@
     href: azure-stack-solution-hybrid-identity.md
   - name: Configure hybrid cloud connectivity
     href: azure-stack-solution-hybrid-connectivity.md
+  - name: Subscribe to an offer
+    href: azure-stack-subscribe-services.md
+  - name: Create a VM from a template
+    href: azure-stack-create-vm-template.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
@@ -106,7 +110,8 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
+        href: ../azure-stack-powershell-install.md
+        maintainContext: true
       - name: Download Azure Stack tools
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User

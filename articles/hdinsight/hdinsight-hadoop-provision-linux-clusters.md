@@ -1,6 +1,6 @@
 ---
-title: Cluster setup for Hadoop, Spark, Kafka, HBase, or R Server - Azure HDInsight | Microsoft Docs
-description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
+title: Cluster setup for Hadoop, Spark, Kafka, HBase, or ML Services - Azure HDInsight | Microsoft Docs
+description: Set up Hadoop, Kafka, Spark, HBase, ML Services, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.author: jgao
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
+Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, ML Services, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
@@ -77,7 +77,7 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [HBase](hbase/apache-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
 | [Kafka](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
-| [R Server](r-server/r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
+| [ML Services](r-server/r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 

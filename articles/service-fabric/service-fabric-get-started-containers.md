@@ -37,17 +37,17 @@ Running an existing application in a Windows container on a Service Fabric clust
   
   To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
 
-  * If the version contains *x.x.14323.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServer 2016-Datacenter-with-Containers* for the operating system or [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
-  * If the version contains *x.x.16299.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system. You cannot use a party cluster.
+  * If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You can also [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
+  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You cannot use a party cluster, however.
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
-> Deploying containers to a Service Fabric cluster in Windows 10 or on a cluster with Docker CE isn't supported. This walkthrough locally tests using the Docker engine on Windows 10, and finally deploys the container services to a Windows Server cluster in Azure running Docker EE. 
+> Deploying containers to a Service Fabric cluster running on Windows 10 is supported.  See [this article](service-fabric-how-to-debug-windows-containers.md) for information on how to configure Windows 10 to run Windows containers.
 >   
 
 > [!NOTE]
-> Service Fabric version 6.1 has preview support for Windows Server version 1709. Open networking and Service Fabric DNS Service do not work with Windows Server version 1709. 
+> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.  
 > 
 
 ## Define the Docker container
@@ -600,7 +600,7 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]

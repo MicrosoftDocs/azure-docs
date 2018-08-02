@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: celested
-ms.reviewer: arielgo; skwan
+ms.reviewer: arielgo, skwan
 ms.custom: aaddev
 ---
 

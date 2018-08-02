@@ -6,6 +6,7 @@ author: govindk
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017

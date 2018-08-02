@@ -2,7 +2,7 @@
 
 
 #### To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://portal.azure.us/).
+1. Use your Microsoft account credentials to sign in to the [Microsoft Azure Government Portal](https://portal.azure.us/).
 2. In the Government Portal, click **+** and then in the marketplace, click **See all**. Search for _StorSimple Physical_. Select and click **StorSimple Physical Device Series** and then click **Create**. Alternatively, in the Government portal, click **+** and then under **Storage**, click **StorSimple Physical Device Series**.
 3. In the **StorSimple Device Manager** blade, do the following steps:
    

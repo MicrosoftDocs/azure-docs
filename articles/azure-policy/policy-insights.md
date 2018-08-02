@@ -206,4 +206,4 @@ Review the following articles for more information about the commands and querie
 - [Azure RM PowerShell Modules](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights resource provider REST API reference](/rest/api/policy-insights)
-- [Organize your resources with Azure Management Groups](../azure-resource-manager/management-groups-overview.md)
+- [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

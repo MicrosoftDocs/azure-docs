@@ -6,6 +6,7 @@ author: heatherbshapiro
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart

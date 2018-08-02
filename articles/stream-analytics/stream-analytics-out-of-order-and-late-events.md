@@ -16,7 +16,7 @@ ms.date: 04/20/2017
 
 In a temporal data stream of events, each event is assigned a time stamp. Azure Stream Analytics assigns a time stamp to each event by using either arrival time or application time. The **System.Timestamp** column has the time stamp assigned to the event. 
 
-Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
+Arrival time is assigned at the input source when the event reaches the source. You can access arrival time by using the **EventEnqueuedUtcTime** property for Event Hubs inputs, **IoTHub.EnqueuedTime** property for IoT Hub, and using the [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) property for blob input. 
 
 Application time is assigned when the event is generated and it is part of the payload. To process events by application time, use the **Timestamp by** clause in the select query. If the **Timestamp by** clause is absent, events are processed by arrival time. 
 
@@ -105,7 +105,7 @@ The query does not have a **Partition by PartitionId** clause, and there are at 
 
 Configuration is the same as example 2. However, absence of data in one of the partitions can delay the output by an additional late arrival tolerance window.
 
-## Handling event producers with differing timelines
+## Handling event producers with differing timelines with "substreams"
 A single input event stream often contains events that originate from multiple event producers, such as individual devices. These events might arrive out of order due to the reasons discussed earlier. In these scenarios, although the disorder across event producers might be large, the disorder within the events from a single producer is small (or even nonexistent).
 
 Azure Stream Analytics provides general mechanisms for dealing with out-of-order events. Such mechanisms result in processing delays (while waiting for the straggling events to reach the system), dropped or adjusted events, or both.

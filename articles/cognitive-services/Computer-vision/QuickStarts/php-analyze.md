@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with PHP
+# Quickstart: Analyze an image with PHP
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 
@@ -41,6 +41,8 @@ To run the sample, do the following steps:
 1. Save the file with a `.php` extension.
 1. Open the file in a browser window with PHP support.
 
+This sample uses the PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) package.
+
 ```php
 <html>
 <head>
@@ -58,8 +60,6 @@ $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 
 $imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
-// This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/analyze');

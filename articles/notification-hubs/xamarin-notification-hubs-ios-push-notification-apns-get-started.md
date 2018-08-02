@@ -80,34 +80,46 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
     ![Visual Studio- iOS App Config][32]
 
-4. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages**. Search for **Xamarin.Azure.NotificationHubs.iOS** and add the package to your project.
+4. From the Solution view, double-click *Entitlements.plist* and ensure that "Enable Push Notifications" is checked.
 
-5. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
+    ![Visual Studio- iOS Entitlements Config][33]
+
+5. Add the Azure Messaging package. In the Solution view, right-click the project and select **Add** > **Add NuGet Packages**. Search for **Xamarin.Azure.NotificationHubs.iOS** and add the package to your project.
+
+6. Add a new file to your class, name it **Constants.cs** and add the following variables and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. In **AppDelegate.cs**, add the following using statement:
+7. In **AppDelegate.cs**, add the following using statement:
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. Declare an instance of **SBNotificationHub**:
+8. Declare an instance of **SBNotificationHub**:
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. In **AppDelegate.cs**, update **FinishedLaunching()** to match the following code:
-   
+9.  In **AppDelegate.cs**, update **FinishedLaunching()** to match the following code:
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -123,12 +135,12 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-9. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
+10. Override the **RegisteredForRemoteNotifications()** method in **AppDelegate.cs**:
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -146,7 +158,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-10. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
+11. Override the **ReceivedRemoteNotification()** method in **AppDelegate.cs**:
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -155,7 +167,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
         }
     ```
 
-11. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
+12. Create the following **ProcessNotification()** method in **AppDelegate.cs**:
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -196,7 +208,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
    > You can choose to override **FailedToRegisterForRemoteNotifications()** to handle situations such as no network connection. This is especially important where the user might start your application in offline mode (for example, Airplane) and you want to handle push messaging scenarios specific to your app.
   
 
-12. Run the app on your device.
+13. Run the app on your device.
 
 ## Send test push notifications
 You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. It sends a test push notification to your device.
@@ -222,6 +234,7 @@ In this tutorial, you sent broadcast notifications to all your iOS devices regis
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

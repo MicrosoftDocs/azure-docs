@@ -4,7 +4,7 @@ description: Deploy and call your web APIs & REST APIs for system integration wo
 keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
 services: logic-apps
 author: stepsic-microsoft-com
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

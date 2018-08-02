@@ -7,6 +7,7 @@ ms.author: padou
 manager: mwinkle
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017

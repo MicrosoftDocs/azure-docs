@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ---
-# Obtaining Subscription Keys
+# How to obtain subscription keys
 
 Computer Vision services require special subscription keys. Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
