@@ -15,8 +15,10 @@ This article provides details of Log alerts are one of the types of alerts suppo
 
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Pricing details for Log Alerts is available at the [Azure Monitor Pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
-- Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<ActionId>` along with resource group and alert properties
+- Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties
 
+    > [!NOTE]
+    > The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase. If invalid characters such as `<, >, %, &, \, ?, /` are used - they will be replaced with `_` in the bill.
 
 ## Log search alert rule - definition and types
 
