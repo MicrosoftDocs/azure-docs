@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -27,9 +27,7 @@ After you remove these solutions you can perform the following steps to unlink y
 
 ## Unlink workspace
 
-1. From the Azure portal, open your Automation account, and on the Automation account page  select **Unlink workspace** under the section **Related Resources** on the left.
-
-   ![Unlink workspace option](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
 1. On the Unlink workspace page, click **Unlink workspace**.
 
@@ -41,9 +39,9 @@ After you remove these solutions you can perform the following steps to unlink y
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
-* Update schedules.  Each will have names that match the update deployments you created)
+* Update schedules - Each will have names that match the update deployments you created)
 
-* Hybrid worker groups created for the solution.  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
