@@ -37,8 +37,8 @@ Complete these prerequisite steps before you manually install Mobility Service o
 
 ### Mobility Service installer-to-operating system mapping
 
-To see a list of Operating System versions with a compatible Mobility Service package refer to the list of [supported operating systems for VMware virtual machines and physical servers](vmware-physical-azure-support-matrix.md#replicated-machines).
-s.
+To see a list of Operating System versions with a compatible Mobility Service package refer to the list of [supported operating systems for VMware virtual machines and physical servers](vmware-physical-azure-support-matrix.md:#replicated-machines).
+
 | Installer file template name| Operating system |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) </br> Windows Server 2016 (64-bit) |
