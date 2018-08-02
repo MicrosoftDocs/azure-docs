@@ -57,17 +57,19 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2753080 | IS -->  **Update available notification**- Connected Azure Stack deployments will now periodically check a secured endpoint and determine if an update is available for your cloud. This notification appears in the Update tile, as it would after manually checking for and importing a new update. Read more about [managing updates for Azure Stack](azure-stack-updates.md).
 
-- <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack Syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software external to Azure Stack. The Syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
+- <!-- 2297790 | IS, ASDK -->  **Improvements to the Azure Stack syslog client (preview feature)**. This client allows the forwarding of audit and logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports the TCP protocol with plain text or TLS 1.2 encryption, the latter being the default configuration. You can configure the TLS connection with either server-only or mutual authentication.
 
-  To configure how the Syslog client communicates (such as protocol, encryption, and authentication) with the Syslog server, use the *Set-SyslogServer* cmdlet. This cmdlet is available from the privileged endpoint (PEP).
+  To configure how the syslog client communicates (such as protocol, encryption, and authentication) with the syslog server, use the *Set-SyslogServer* cmdlet. This cmdlet is available from the privileged endpoint (PEP).
 
-  To add the client-side certificate for the Syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
+  To add the client-side certificate for the syslog client TLS 1.2 mutual authentication, use the Set-SyslogClient cmdlet in the PEP.
 
   With this preview, you can see a much larger number of audits and alerts. 
 
   Because this feature is still in preview, don't rely on it in production environments.
 
-- <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
+  For more information, see [Azure Stack syslog forwarding](azure-stack-integrate-security.md).
+
+- <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more infomration about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 
 ### Fixed issues
