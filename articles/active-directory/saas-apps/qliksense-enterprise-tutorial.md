@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     `https://<Qlik Sense Fully Qualifed Hostname>:4443//samlauthn/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL, Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL which are explained later in this tutorial.
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
