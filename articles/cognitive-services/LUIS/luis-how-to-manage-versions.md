@@ -15,13 +15,13 @@ ms.author: diberry
 
 Versions allow you to build and publish different models. 
 
-A good practice is each time you work on the model, create a different [version](luis-concept-version.md) of the app. 
+A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model. 
 
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation. 
 
 The list of versions show which versions are published, where they are published, and which version is currently active. 
 
-![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png)
+[![](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## Clone a version
 
@@ -40,7 +40,7 @@ The list of versions show which versions are published, where they are published
 
 Select a version from the list, then select **Make Active** from the toolbar. 
 
-![Manage section, versions page](./media/luis-how-to-manage-versions/versions-other.png)
+[![](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## Import version
 
