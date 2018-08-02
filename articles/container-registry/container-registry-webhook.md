@@ -45,7 +45,7 @@ Example webhook form:
 
 ## Create webhook Azure CLI
 
-To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create) command.
+To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -65,7 +65,7 @@ Prior to using the webhook on container image push and delete actions, you can t
 
 ### Azure CLI
 
-To test an ACR webhook with the Azure CLI, use the [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) command.
+To test an ACR webhook with the Azure CLI, use the [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) command.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

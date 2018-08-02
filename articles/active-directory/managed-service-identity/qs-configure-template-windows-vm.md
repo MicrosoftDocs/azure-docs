@@ -1,6 +1,6 @@
 ﻿---
-title: How to configure MSI on an Azure VM by using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using an Azure Resource Manager template.
+title: How to configure  Managed Service Identity on an Azure VM by using a template
+description: Step-by-step instructions for configuring a Managed Service Identity on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -69,7 +69,7 @@ In this section, you will enable and disable a system assigned identity using an
    },
    ```
 
-4. (Optional) Add the VM MSI extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
+4. (Optional) Add the VM Managed Service Identity extension as a `resources` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows VM extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.

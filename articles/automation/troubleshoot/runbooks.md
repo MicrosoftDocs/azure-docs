@@ -89,6 +89,26 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
+### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
+
+#### Issue
+
+Your runbook fails with an error similar to the following example:
+
+```
+Exception: A task was canceled.
+```
+
+#### Cause
+
+This error can be caused by using outdated Azure modules.
+
+#### Resolution
+
+This error can be resolved by updating your Azure modules to the latest version.
+
+In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing.
+
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: The runbook fails because of a missing cmdlet
 
 #### Issue

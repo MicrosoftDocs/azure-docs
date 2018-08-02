@@ -1,10 +1,9 @@
 ---
-title: AudioInputStream concepts | Microsoft Docs
+title: AudioInputStream concepts
 description: An overview of the capabilities of the AudioInputStream API.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: fmegen
-manager: wolfma61
 
 ms.service: cognitive-services
 ms.component: speech-service
