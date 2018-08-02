@@ -114,7 +114,12 @@ This update includes the following improvements for Azure Stack.
 
 - Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update.  There was no update 1806.  
 
-- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps). 
+- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps).  
+  > [!TIP]  
+  > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
+  > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
+  > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+
 
 - Before you start installation of update 1807, run [Test-AzureStack](azure-stack-diagnostic-test.md) to validate the status of your Azure Stack and resolve any operational issues found. Also review active alerts, and resolve any that require action.
 
