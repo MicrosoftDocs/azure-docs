@@ -1,6 +1,6 @@
 ---
-title: Set up Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to set up Azure Active Directory joined devices.
+title: Join your device to your organization's network | Microsoft Docs
+description: Learn how to join your work device to your organization's network.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jairoc
 
 ---
-# Set up Azure Active Directory-joined devices
+# Join your device to your organization's network
 
-Your organization has asked that if you plan to join your work-owned Windows 10 devices to their network, so you can sign in using your work or school account instead of your personal account, that your device meets specific standards for security and compatibility.
+Your organization wants you to join your work-owned Windows 10 devices to their network so you can sign in using your work or school account instead of your personal account.
 
 ## Join your device to your organization's network
-While you are joining your device to your organization's network, the following will happen:
+While you're joining your device to your organization's network, the following will happen:
 
 - Windows 10 joins your device to your organization's network.
 
@@ -90,5 +90,3 @@ For more information, see:
 
 - The [introduction to device management in Azure Active Directory](../devices/overview.md)
 - [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
-
-
