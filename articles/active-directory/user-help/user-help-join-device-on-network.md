@@ -42,7 +42,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
     ![Enter your password screen](./media/user-help-join-device-on-network/join-device-oobe-password.png)
 
-4. On your mobile device, approve your device to access your account. 
+4. On your mobile device, approve your device so it can access your account. 
 
     ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
@@ -55,40 +55,39 @@ You can make sure that you're joined by looking at your Windows Settings.
 
 1. Open **Settings**, and then select **Accounts**.
 
+    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
+
 2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
 
-    ![Access work or school screen with contoso account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
-## To join an existing Windows 10 device
+## To join an already configured Windows 10 device
 If you've had your device for a while and it's already been set up, you can follow these steps to join your device to the network.
 
 1. Open **Settings**, and then select **Accounts**.
 
-    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/02.png)
-
 2. Select **Access work or school**, and then select **Connect**.
 
-    ![Access work or school and Connect links](./media/user-help-join-device-on-network/03.png)
+    ![Access work or school and Connect links](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
 3. On the **Set up a work or school account** screen, select **Join this device to Azure Active Directory**.
 
-    ![Set up a work or school account screen](./media/user-help-join-device-on-network/04.png)
+    ![Set up a work or school account screen](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
 4. On the **Let's get you signed in** screen, type your email address (for example, alain@contoso.com), and then select **Next**.
 
-    ![Let's get you signed in screen](./media/user-help-join-device-on-network/10.png)
+    ![Let's get you signed in screen](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
+5. On the **Enter password** screen, type your password, and then select **Sign in**.
 
+    ![Enter password](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
+6. On your mobile device, approve your device so it can access your account. 
 
+    ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-mobile.png)
 
-6. On the  **Enter password** dialog, enter your password, and then click **Sign in**.
-
-    ![Enter password](./media/user-help-join-device-on-network/05.png)
-
-
-7. On the  **Make sure this is your organization** dialog, click **Join**.
+7. On the  **Make sure this is your organization** screen, review the information to make sure it's right, and then select **Join**.
 
     ![Make sure this is your organization](./media/user-help-join-device-on-network/11.png)
 
