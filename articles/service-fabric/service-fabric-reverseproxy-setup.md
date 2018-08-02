@@ -33,6 +33,8 @@ To configure reverse proxy when you create a cluster using Azure portal, do the 
 
    ![Configure secure reverse proxy on portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
+If you choose not to configure the reverse proxy with a certificate when you create the cluster, you can do so later through the Resource Manager template for the cluster's resource group. To learn more, see [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates).
+
 ### Make the reverse proxy public
 To address the reverse proxy from outside the Azure cluster, set up Azure Load Balancer rules for the reverse proxy port. These steps can be performed at any time after you have created the cluster.
 
@@ -54,7 +56,7 @@ You can find Resource Manager templates that can help you configure secure rever
 
 First, you need a Resource Manager template for the cluster that you want to deploy. For a new cluster, you can either use the sample templates or create a custom Resource Manager template. For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
 
-After you have a Resource Manager template, you can enable the reverse proxy by using the following steps:
+After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
 1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
 
@@ -210,6 +212,104 @@ After you have a Resource Manager template, you can enable the reverse proxy by 
   ```
 > [!NOTE]
 > When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-4.
+
+## Enable reverse proxy on standalone clusters
+
+You enable reverse proxy for standalone clusters through the ClusterConfig.json file. You can enable reverse proxy at cluster creation or by upgrading the configuration for an existing cluster.
+
+The following steps show you the settings to use to enable reverse proxy and, optionally, to secure the reverse proxy with an X.509 certificate. To learn more about the settings available in ClusterConfig.json files, see [Standalone cluster settings](./service-fabric-cluster-manifest.md).
+
+1. To enable reverse proxy, set the **reverseProxyEndpointPort** value for the node type under **properties** in the cluster config. The following JSON shows setting the reverse proxy endpoint port to 19081 for nodes with a type of "NodeType0":
+
+   ```json
+       "properties": {
+          ... 
+           "nodeTypes": [
+               {
+                   "name": "NodeType0",
+                   ...
+                   "reverseProxyEndpointPort": "19081",
+                   ...
+               }
+           ],
+          ...
+       }
+   ```
+2. (Optional) For a secure reverse proxy, configure a certificate in the **security** section under **properties**. 
+   - For a development or test environment, you can use the **ReverseProxyCertificate** setting:
+
+      ```json
+          "properties": {
+              ...
+              "security": {
+                  ...
+                  "CertificateInformation": {
+                      ...
+                      "ReverseProxyCertificate": {
+                          "Thumbprint": "[Thumbprint]",
+                          "ThumbprintSecondary": "[Thumbprint]",
+                          "X509StoreName": "My"
+                      },
+                      ...
+                  }
+              },
+              ...
+          }
+      ```
+   - For a production, the **ReverseProxyCertificateCommonNames** setting is recommended:
+
+      ```json
+          "properties": {
+              ...
+              "security": {
+                  ...
+                  "CertificateInformation": {
+                      ...
+                      "ReverseProxyCertificateCommonNames": {
+                        "CommonNames": [
+                            {
+                              "CertificateCommonName": "[CertificateCommonName]"
+                            }
+                          ],
+                          "X509StoreName": "My"
+                      },
+                      ...
+                  }
+              },
+              ...
+          }
+      ```
+
+   To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.nd).
+
+After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to push the changes to your cluster.
+
+## Customize reverse proxy behavior using fabric settings
+
+You can customize the behavior of reverse proxy through fabric settings in the Resource Manager template for clusters hosted in Azure or in the ClusterConfig.json file for standalone clusters. Settings that control reverse proxy behavior are located in the [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) section in the **fabricSettings** section under the cluster **properties** section. 
+
+For example, you can set the value of **DefaultHttpRequestTimeout** to set the timeout for requests to the reverse proxy to 180 seconds as in the following JSON:
+
+   ```json
+   {
+   "fabricSettings": [
+             ...
+             {
+               "name": "ApplicationGateway/Http",
+               "parameters": [
+                 {
+                   "name": "DefaultHttpRequestTimeout",
+                   "value": "180"
+                 }
+               ]
+             }
+           ],
+           ...
+   }
+   ```
+ 
+
+
 
 ## Next steps
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
