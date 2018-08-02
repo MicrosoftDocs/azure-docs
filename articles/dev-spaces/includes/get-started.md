@@ -16,6 +16,9 @@ manager: "douge"
 Please select a **language-specific guide** to get started:
 
 > [!div class="nextstepaction"]
+> [Java (VS Code & CLI)](../quickstart-java.md)
+
+> [!div class="nextstepaction"]
 > [.NET Core (VS Code & CLI)](../quickstart-netcore.md)
 
 > [!div class="nextstepaction"]
