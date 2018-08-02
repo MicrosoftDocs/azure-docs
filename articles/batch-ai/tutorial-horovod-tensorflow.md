@@ -126,7 +126,7 @@ The storage account name can be used to access the file share named `batchaishar
 ```azurecli-interactive
 az storage directory create --name cifar --share-name batchaishare --account-name <STORAGE ACCOUNT NAME>
 ```
-Note, for those who do not wish to use auto storage, see the following [article](./use-azure-storage) for more details on more flexible storage options. 
+Note, for those who do not wish to use auto storage, see the following [article](use-azure-storage.md) for more details on more flexible storage options. 
 
 The next step will be to prepare the actual training script, which will then be uploaded to the newly created directory.
 
