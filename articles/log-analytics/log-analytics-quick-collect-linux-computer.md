@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Log Analytics Agent for Hybrid Linux Computer | Microsoft Docs
-description: Learn how to deploy the Log Analytics agent for Linux running on computers outside of Azure and enable collection of data with Log Analytics.
+description: Learn how to deploy the Log Analytics agent for Linux running on computers outside of Azure and enable data collection with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
