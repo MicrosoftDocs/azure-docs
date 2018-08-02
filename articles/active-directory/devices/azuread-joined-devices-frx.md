@@ -21,7 +21,7 @@ ms.reviewer: jairoc
 ---
 # Join a new Windows 10 device with Azure AD during a first run
 
-With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more details, see the [introduction to device management in Azure Active Directory](device-management-introduction.md).
+With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see the [introduction to device management in Azure Active Directory](overview.md).
 
 With Windows 10, You can join a new device to Azure AD during the first-run experience (FRX).  
 This enables you to distribute shrink-wrapped devices to your employees or students.
@@ -34,7 +34,7 @@ In the Windows *out-of-box experience*, joining an on-premises Active Directory 
 
 ## Before you begin
 
-To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more details, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 In addition, if your tenant is federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password.
 
@@ -47,17 +47,17 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 
 2. Start by customizing your region and language. Then accept the Microsoft Software License Terms.
  
-    ![Customize for your region](./media/device-management-azuread-joined-devices-frx/01.png)
+    ![Customize for your region](./media/azuread-joined-devices-frx/01.png)
 
 3. Select the network you want to use for connecting to the Internet.
 
 4. Click **This device belongs to my organization**. 
 
-    ![Who owns this PC screen](./media/device-management-azuread-joined-devices-frx/02.png)
+    ![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)
 
 5. Enter the credentials that were provided to you by your organization, and then click **Sign in**.
 
-    ![Sign-in screen](./media/device-management-azuread-joined-devices-frx/03.png)
+    ![Sign-in screen](./media/azuread-joined-devices-frx/03.png)
 
 6. You device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
 
@@ -78,11 +78,11 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 
 To verify whether a device is joined to your Azure AD, review the **Access work or school** dialog on your Windows device. The dialog should indicate that you are connected to your Azure AD directory.
 
-![Access work or school](./media/device-management-azuread-joined-devices-frx/13.png)
+![Access work or school](./media/azuread-joined-devices-frx/13.png)
 
 
 ## Next steps
 
-- For more details, see the [introduction to device management in Azure Active Directory](device-management-introduction.md).
+- For more information, see the [introduction to device management in Azure Active Directory](overview.md).
 
-- For more details about managing devices in the Azure AD portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
+- For more information about managing devices in the Azure AD portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
