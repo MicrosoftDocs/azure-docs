@@ -16,15 +16,14 @@ ms.reviewer: jairoc
 
 ---
 # Register your device on your organization's network
-
-Your organization wants you to register your work-owned (or personally-owned, if allowed by your administrator) Windows 10 devices on their network. If your administrator allows it, you can add your personally-owned devices running Windows 10, iOS, Android, or macOS.
+Register your personal device, running Windows 10, iOS, Android, or macOS, on your organization's network.
 
 ## What happens when you register your device
 While you're registering your Windows 10 device on your organization's network, the following will happen:
 
 - Windows registers your device on your organization's network.
 
-- You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your administrator has set up.
+- You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your organization has set up.
 
 - You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's required. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
 
@@ -36,19 +35,13 @@ Follow these steps to register your device on your network.
 
 1. Open **Settings**, and then select **Accounts**.
 
-    ![Accounts on the Settings screen](./media/user-help-register-device-on-network/01.png)
+    ![Accounts on the Settings screen](./media/user-help-register-device-on-network/02.png)
 
 2. Select **Access work or school**, and then select **Connect**.
 
     ![Access work or school and Connect links](./media/user-help-register-device-on-network/03.png)
 
-3. On the **Set up a work or school account** screen, select **Join this device to Azure Active Directory**.
 
-    ![Set up a work or school account screen](./media/user-help-register-device-on-network/04.png)
-
-4. On the **Let's get you signed in** screen, type your email address (for example, alain@contoso.com), and then select **Next**.
-
-    ![Let's get you signed in screen](./media/user-help-register-device-on-network/10.png)
 
 
 
@@ -96,7 +89,7 @@ Follow these steps to register your device on your network.
 
     ![Connect](./media/user-help-register-device-on-network/07.png)
 
-## Verification
+## Make sure you're registered
 
 To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
 
