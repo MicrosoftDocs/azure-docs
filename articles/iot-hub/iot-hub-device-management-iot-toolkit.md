@@ -64,7 +64,7 @@ Run Azure IoT Toolkit extension for Visual Studio Code with various management o
 ## Read device twin
 
 1. Right-click your device and select **Edit Device Twin**. 
-1. A **azure-iot-device-twin.json** file will be opened with the content of device twin.
+1. An **azure-iot-device-twin.json** file will be opened with the content of device twin.
 
 ## Update device twin
 
