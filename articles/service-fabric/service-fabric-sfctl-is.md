@@ -37,7 +37,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 |Argument|Description|
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
-| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric' URI scheme. This parameter required only for the cluster that have more than one instance of infrastructure service running. |
+| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
@@ -60,7 +60,7 @@ For clusters that have one or more instances of the Infrastructure Service confi
 |Argument|Description|
 | --- | --- |
 | --command [Required] | The text of the command to be invoked. The content of the command is infrastructure-specific. |
-| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that have more than one instance of infrastructure service running. |
+| --service-id | The identity of the infrastructure service. <br><br> This is the full name of the infrastructure service without the 'fabric\:' URI scheme. This parameter required only for the cluster that has more than one instance of infrastructure service running. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
