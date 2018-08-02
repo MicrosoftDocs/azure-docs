@@ -31,7 +31,7 @@ In addition to [Azure Machine Learning](overview-what-is-azure-ml.md), there are
 Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning Services can be deployed using Azure Machine Learning Model Management. 
 
 ## Microsoft Machine Learning Server 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark. It is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). It provides an execution engine for solutions built using [Microsoft Machine Learning packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for the following scenarios:
+[Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) is an enterprise server for hosting and managing parallel and distributed workloads of R and Python processes. Microsoft Machine Learning Server runs on Linux, Windows, Hadoop, and Apache Spark. It is also available on [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/). It provides an execution engine for solutions built using [Microsoft Machine Learning packages](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package), and extends open-source R and Python with support for the following scenarios:
 
 - High-performance analytics
 - Statistical analysis
@@ -54,18 +54,6 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 [Spark MLLib in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning) lets you create models as part of Spark jobs that are executing on big data. Spark lets you easily transform and prepare data and then scale out model creation in a single job. Models created through Spark MLLib can be deployed, managed, and monitored through Azure Machine Learning Model Management. Training runs can be dispatched and managed with Azure Machine Learning Experimentation. Spark can also be used to scale out data preparation jobs created in the Machine Learning Workbench. 
 
 Use Spark when you need to scale out your data processing and create models as part of a data pipeline. You can author Spark jobs in Scala, Java, Python, or R. 
-
-## Batch AI Training 
-[Azure Batch AI Training](https://aka.ms/batchaitraining) helps you experiment in parallel with your AI models using any framework and then trains them at scale across clustered GPUs. Describe your job requirements and configuration to run, and we handle the rest. 
-
-Batch AI Training enables you to scale out deep learning jobs across clustered GPUs, using frameworks such as:
-
-- Cognitive Toolkit
-- Caffe
-- Chainer
-- TensorFlow
-
-Azure Machine Learning Model Management can be used to take models from Batch AI Training to deploy, manage, and monitor them.  Batch AI Training will be integrated with Azure Machine Learning Experimentation in the future. 
 
 ## Microsoft Cognitive Toolkit (CNTK)
 The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) is a unified deep-learning toolkit that describes neural networks as computational steps in a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.

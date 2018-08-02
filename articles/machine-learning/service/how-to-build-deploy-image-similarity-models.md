@@ -59,16 +59,6 @@ The following example uses a dataset consisting of 63 tableware images. Each ima
 
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-## New heading from notebook
-
-
-
-
-
-
-
-
-
 ## Next steps
 
 Learn more about Azure Machine Learning Package for Computer Vision in these articles:

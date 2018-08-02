@@ -18,14 +18,13 @@ Azure Machine Learning services  (Preview) is a fully managed service for the en
 - [PyTorch](https://pytorch.org)
 - [Scikit-learn](http://scikit-learn.org/stable/)
 - [Tensorflow](https://www.tensorflow.org)
-- [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/)
+- [CNTK](https://www.microsoft.com/cognitive-toolkit/)
 - [MXNet](http://mxnet.io)
 
 Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
 
 Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md), [Azure Kubernetes Service](how-to-deploy-to-aks.md), or use that Docker container in your own deployments, on-premises or in the cloud. 
 
-@@ INSERT ARTWORK HERE
 
 In addition to Azure Machine Learning, there are other options to build, deploy, and manage machine learning models. [Learn about them here.](./overview-more-machine-learning.md)
 
@@ -36,8 +35,13 @@ Machine learning is a data science technique that allows computers to use existi
 Forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
 ## Key capabilities
++ BatchAI
++ AutoML
++ Training and deploying
 
 ## How can I use Azure Machine Learning Services?
+
+Use AML to build and deploy custom machine learning and AI models. 
 
 ## Free trial
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
@@ -50,7 +54,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 2. Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services. 
 
-@PLACEHOLDER: In this 9-minute video, learn how BLAH BLAH BLAH can benefit your app. You'll learn about key features and what a typical workflow looks like. 
+In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
  

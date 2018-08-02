@@ -13,7 +13,7 @@ ms.date: 09/27/2018
 
 # How to deploy web services to an Azure Container Instance
 
-You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/) (AKS).
+You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
 
 In this article, you'll learn how to deploy on ACI.  ACI is cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
 
@@ -43,9 +43,6 @@ print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```
 
 ## Register a model
-
-@@TELL ME WHY I NEED TO DO THIS
-
 To register the model, you need the file `best_model.pkl` to be in the current directory. This call registers that file as a model called `best_model.pkl` in the workspace.
 
 
@@ -63,8 +60,6 @@ model = Model.register(model_path = "best_model.pkl",
 ```    
 
 ## Create Docker image
-
-@@TELL ME WHY I NEED TO DO THIS.  ALSO NEED TO EXPLAIN WHAT DOCKER IMAGE IS.
 
 At a minimum, you must include a model file and an entry script to load and call the model for scoring. Include any additional dependencies in a .yml file.
 
@@ -162,7 +157,6 @@ image.wait_for_creation(show_output = True)
 
 ## Deploy image on ACI
 
-@@WHAT'S HAPPENING HERE? ADD SOME DESCRIPTIONS.
 The service creation can take few minutes.
 
 
@@ -219,4 +213,4 @@ aci_service.delete()
 
 ## Next steps
 
-@@ WHAT MIGHT SOMEONE WANT TO DO NOW? TRY DEPLOYING TO AKS WHEN READY FOR PRODUCTION?? LINK TO THAT DOC.
+You can try to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) when you are ready for a larger scale deployment. 

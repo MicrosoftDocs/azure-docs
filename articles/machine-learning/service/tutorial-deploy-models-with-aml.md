@@ -48,4 +48,4 @@ In this Azure Machine Learning tutorial, you used Python to:
 > * Train a model on remote Data Science Virtual Machine (DSVM)
 > * Deploy and test a web service to Azure Container Instances
 
-@@WHat's next best to try out?
+You can also try out the AutoML tutorial to see how Azure Machine Learning can automatically propose the best algorithm for your model and build that model for you. 

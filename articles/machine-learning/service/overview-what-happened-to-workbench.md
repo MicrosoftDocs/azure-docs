@@ -67,11 +67,9 @@ In the newer version, models are deployed as web services to [Azure Container In
 
 ## What about run histories?
 
-The older run histories are accessible until **WHEN???**. When you ready to move to the new version of Azure Machine Learning Services, you can export these run histories if you want to keep a copy. 
+The older run histories will remain accessible for a while. When you ready to move to the new version of Azure Machine Learning Services, you can export these run histories if you want to keep a copy. 
 
 In the latest version of Azure Machine Learning Services, you can still collect the run history of your models and explore them using the new SDK and CLI as well as in the web portal. 
-
-**@@ Portal screenshot?**
 
 ## Will the SDK and CLI still work?
 Yes, they will continue to work for a while (see the [timeline](#timeline) above). But, you can start creating your new experiments and models with the latest SDK and/or CLI.
@@ -86,5 +84,3 @@ With smaller data sets, you can use the data preparation SDK to quickly prepare 
 ## What about Visual Studio Code Tools for AI?
 
 With this latest release, the Visual Studio Code Tools for AI extension has been expanded and improved to work with the above new features.
-
-**@@Screenshot showing code + run history too**

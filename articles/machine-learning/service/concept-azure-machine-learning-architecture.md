@@ -44,13 +44,13 @@ You can create multiple workspaces, and each workspace can be shared by multiple
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) - Registers docker containers that are used during training and when deploying a model.
-* [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) - Used as the default datastore for the workspace.
-* [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) - Stores monitoring information about your models.
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) - Stores secrets used by compute targets and other sensitive information needed by the workspace.
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) - Registers docker containers that are used during training and when deploying a model.
+* [Azure Storage](https://azure.microsoft.com/services/storage/) - Used as the default datastore for the workspace.
+* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) - Stores monitoring information about your models.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) - Stores secrets used by compute targets and other sensitive information needed by the workspace.
 
 > [!NOTE]
-> Instead of creating new versions, you can also use existing Azure services. For more information, see [TBD].
+> Instead of creating new versions, you can also use existing Azure services. 
 
 The following diagram is a taxonomy of the workspace:
 
@@ -61,8 +61,8 @@ The following diagram is a taxonomy of the workspace:
 A project is a local folder that contains the files for your machine learning solution.
 To use a local folder with Azure Machine Learning Services, you simply attach it to a workspace with a run history name. For an example of how to attach a project to a workspace, see one of the following documents:
 
-* [Create a workspace with Python TBD]()
-* [Create a workspace with Azure CLI TBD]()
+* [Create a workspace with Python](quickstart-get-started.md)
+* [Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
 
 When you submit a project for training, the entire folder is copied to the compute target. The entry script is run in the Python environment configured through the __run configuration__. A snapshot of the copy is also stored in run history.
 
@@ -84,9 +84,9 @@ A deployment is a deployed web service in either Azure Container Instances or Az
 It is a live Docker container created from a Docker image that encapsulates your model, script, and associated files, with an HTTP endpoint to send scoring request to.
 
 ## Datastore
-A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores. For information on using additional datastores, see [TBD]().
+A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores. 
 
-You can use the Python SDK API or Azure ML CLI to store and retrieve files from the datastore. For more information, see [TBD]().
+You can use the Python SDK API or Azure ML CLI to store and retrieve files from the datastore. 
 
 ## Run
 A run is an execution record stored in a run history under a workspace.
@@ -126,8 +126,6 @@ Compute targets are attached to a workspace. Computer targets other than the loc
 
 When developing your solution, you can use the Azure Machine Learning Python SDK in your Python script to log any arbitrary metrics information. Post execution, you can query the metrics to determine if the run produces the model you want to deploy. 
 
-For an example of using metrics, see [TBD]()
-
 ## Snapshots
 
 When submitting a project run, Azure Machine Learning compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
@@ -140,3 +138,12 @@ A task represents a long running operation. The following operations are example
 * Executing a script on a compute target
 
 Tasks can provide notifications through the SDK or Web UI so you can easily monitor the progress of these operations.
+
+## Next steps
+
+You can get started using Azure Machine Learning:
+
+* [What is Azure Machine Learning services](overview-what-is-azure-ml.md)
+* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Quickstart: Create a workspace with Azure CLI](quickstart-get-started-with-cli.md)
+* [Tutorial: Train a model](tutorial-train-models-with-aml.md)
