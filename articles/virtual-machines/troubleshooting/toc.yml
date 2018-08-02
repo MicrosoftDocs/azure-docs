@@ -81,7 +81,7 @@
   - name: Windows
     items:
     - name: PowerShell
-     href: troubleshoot-recovery-disks.md
+      href: troubleshoot-recovery-disks.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal.md
   - name: Linux
