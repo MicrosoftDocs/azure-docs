@@ -22,9 +22,9 @@ ms.reviewer: calebb
 
 # Quickstart: Block access when a session risk is detected with Azure Active Directory conditional access  
 
-To keep your environment protected, you might want to block suspicious users from signing insign-in activity. [Azure Active Directory (Azure AD) Identity Protection](active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](active-directory-conditional-access-conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a conditional access policy to respond to specific sign-in risk levels. 
+To keep your environment protected, you might want to block suspicious users from signing insign-in activity. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a conditional access policy to respond to specific sign-in risk levels. 
 
-This quickstart shows how to configure a [conditional access policy](active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected. 
+This quickstart shows how to configure a [conditional access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected. 
 
 ![Create policy](./media/app-sign-in-risk/1000.png)
 
@@ -39,11 +39,11 @@ To complete the scenario in this tutorial, you need:
 
 - **Access to an Azure AD Premium P2 edition** - While conditional access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection. 
 
-- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md).
+- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../active-directory-identityprotection-enable.md).
 
-- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](active-directory-reporting-risk-events.md).  
+- **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../active-directory-reporting-risk-events.md).  
 
-- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 ## Test your sign-in 
@@ -203,7 +203,7 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user, the Tor Browser and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
