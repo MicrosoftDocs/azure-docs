@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
 ---
 
@@ -16,6 +16,8 @@ ms.author: tomfitz
 This article provides the properties and schema for Azure subscription events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 Azure subscriptions and resource groups emit the same event types. The event types are related to changes in resources. The primary difference is that resource groups emit events for resources within the resource group, and Azure subscriptions emit events for resources across the subscription.
+
+Resource events are created for PUT, PATCH and DELETE operations that are sent to `management.azure.com`. POST and GET operations do not create events. Operations sent to the data plane (like `myaccount.blob.core.windows.net`) do not create events.
 
 ## Available event types
 
@@ -32,7 +34,7 @@ Azure subscriptions emit management events from Azure Resource Manager, such as 
 
 ## Example event
 
-The following example shows the schema of a resource created event: 
+The following example shows the schema for a **ResourceWriteSuccess** event. The same schema is used for **ResourceWriteFailure** and **ResourceWriteCancel** events with different values for `eventType`.
 
 ```json
 [{
@@ -92,7 +94,7 @@ The following example shows the schema of a resource created event:
 }]
 ```
 
-The schema for a resource deleted event is similar:
+The following example shows the schema for a **ResourceDeleteSuccess** event. The same schema is used for **ResourceDeleteFailure** and **ResourceDeleteCancel** events with different values for `eventType`.
 
 ```json
 [{
@@ -180,7 +182,7 @@ The data object has the following properties:
 | authorization | object | The requested authorization for the operation. |
 | claims | object | The properties of the claims. For more information, see [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | An operation ID for troubleshooting. |
-| httpRequest | object | The details of the operation. |
+| httpRequest | object | The details of the operation. This object is only included when updating an existing resource or deleting a resource. |
 | resourceProvider | string | The resource provider performing the operation. |
 | resourceUri | string | The URI of the resource in the operation. |
 | operationName | string | The operation that was performed. |
