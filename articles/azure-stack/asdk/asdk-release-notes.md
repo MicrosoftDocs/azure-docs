@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -26,7 +26,7 @@ These release notes provide information about improvements, fixes, and known iss
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
 
-## Build 1.1807.0.65
+## Build 1.1807.0.67
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
@@ -41,7 +41,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--2753073 | IS, ASDK -->  **The Microsoft.Network API resource version support has been updated** to include support for API version 2017-10-01 from 2015-06-15 for Azure Stack network resources.  Support for resource versions between 2017-10-01 and 2015-06-15 is not included in this release but will be included in a future release.  Please refer to [Considerations for Azure Stack networking](.\.\user\azure-stack-network-differences.md) for functionality differences.
 
-- <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
+- <!-- 2272116 | IS, ASDK   -->  **Azure Stack has added support for reverse DNS lookups for externally facing Azure Stack infrastructure endpoints** (that is for portal, adminportal, management, and adminmanagement). This allows Azure Stack external endpoint names to be resolved from an IP address.
 
 - <!-- 2780899 |  IS, ASDK   --> **Azure Stack now supports adding additional network interfaces to an existing VM.**  This functionality is available by using the portal, PowerShell, and CLI. For more information, see [Add or remove network interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) in the Azure documentation. 
 
@@ -61,6 +61,10 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager includes the region name.** With this release, objects retrieved from the Azure Resource Manager will now include the region name attribute. If an existing PowerShell script directly passes the object to another cmdlet, the script may produce an error and fail. This is Azure Resource Manager compliant behavior, and requires the calling client to subtract the region attribute. For more information about the Azure Resource Manager see [Azure Resource Manager Documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
+- <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](.\.\azure-stack-delegated-provider.md).
+ 
+- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption.  
+
 ### Fixed issues
 
 -	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
@@ -75,13 +79,15 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2388980 | ASDK, IS --> We fixed an issue that prevented users from assigned an existing Public IP Address that had been previously assigned to a Network Interface or Load Balancer to a new Network Interface or Load Balancer.  
 
-- <!-- 2551834 - IS, ASDK --> When you select Overview for a storage account in either the admin or user portals, the Essentials pane now displays all the expected information correctly. 
+- <!-- 2551834 - IS, ASDK --> When you select *Overview* for a storage account in either the admin or user portals, the *Essentials* pane now displays all the expected information correctly. 
 
-- <!-- 2551834 - IS, ASDK --> When you select Tags for a storage account in either the admin or user portals, the information now displays correctly.
+- <!-- 2551834 - IS, ASDK --> When you select *Tags* for a storage account in either the admin or user portals, the information now displays correctly.
 
 - <!-- TBD - IS ASDK --> This version of Azure Stack fixes the issue that prevented the application of driver updates from OEM Extension packages.
 
+-	<!-- 2055809- IS ASDK --> We fixed an issue that prevented you from deleting VMs from the compute blade when the VM failed to be created.  
 
+- <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -93,7 +99,7 @@ This build includes the following improvements and fixes for Azure Stack.
 ### Known issues
 
 #### Portal  
-- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates Activation Required might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
+- <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](.\.\azure-stack-registration.md) is required before you can use marketplace syndication. 
 
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available. When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](.\.\azure-stack-update-1804.md) are not visible in the console. This is expected. The unavailable subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider subscription** type.
 
