@@ -1,6 +1,6 @@
 ---
-title: Converged registration for Azure AD SSPR and MFA (Public preview)
-description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration (Public preview)
+title: Roll back converged registration for Azure AD SSPR and MFA (Public preview)
+description: Azure AD Multi-Factor Authenticaiton and self-service password reset registration roll back (Public preview)
 
 services: active-directory
 ms.service: active-directory
