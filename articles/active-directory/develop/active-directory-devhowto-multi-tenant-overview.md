@@ -179,7 +179,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -200,7 +200,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity

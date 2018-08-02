@@ -322,7 +322,7 @@ When the first application uses its authorization code to get a JWT access token
 
 ## See Also
 
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 
