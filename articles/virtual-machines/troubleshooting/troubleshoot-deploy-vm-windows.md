@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
 
@@ -53,7 +53,7 @@ productPesIds="1234, 5678"
 
 ## How can I use and deploy a windows client image into Azure?
 
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and uses of the Azure Gallery images.
+You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](../windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and uses of the Azure Gallery images.
 
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
@@ -73,7 +73,7 @@ For more information, see the following resources:
 
  - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Azure Hybrid Use Benefit for Windows Server and Windows Client](hybrid-use-benefit-licensing.md).
+ - [Azure Hybrid Use Benefit for Windows Server and Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
  - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
@@ -87,11 +87,11 @@ The ability to create subscriptions based on the Enterprise Dev/Test offer is re
 
 ## My drivers are missing for my Windows N-Series VM
 
-Drivers for Windows-based VMs are located [here](n-series-driver-setup.md).
+Drivers for Windows-based VMs are located [here](../windows/n-series-driver-setup.md).
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
 
 ## Is N-Series VMs available in my region?
 
@@ -101,10 +101,10 @@ You can check the availability from the [Products available by region table](htt
 
 You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
-- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](client-images.md#eligible-offers). 
-- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
+- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](../windows/client-images.md#eligible-offers). 
+- Visual Studio subscribers within any type of offer can also [adequately prepare and create](../windows/prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](../windows/upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
-This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+This [article](../windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## I am not able to see VM Size family that I want when resizing my VM.
 
@@ -120,7 +120,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability-classic.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability-classic.md#addmachine).
 
 
 ## Next steps
