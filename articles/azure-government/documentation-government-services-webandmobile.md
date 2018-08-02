@@ -70,7 +70,7 @@ For details on this service and how to use it, see [Azure API Management documen
 
 ### Variations
 
-Azure API Management service is in public preview in Azure Government. Features that are not currently available in API Management service for Azure Government are:
+Azure API Management service  is generally available in Azure Government. Features that are not currently available in API Management service for Azure Government are:
 
 - Azure AD B2C Integration 
     - Integration with Azure AD B2C is not available in Azure Government 

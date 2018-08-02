@@ -1,24 +1,25 @@
-
 ---
 title: Use Azure AD v2.0 to access secure resources without user interaction | Microsoft Docs
 description: Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
@@ -58,7 +59,7 @@ To use application permissions in your app, do the steps we discuss in the next 
 
 #### Request the permissions in the app registration portal
 1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
-2. Locate the **Mcrosoft Graph Permissions** section, and then add the **application permissions** that your app requires.
+2. Locate the **Microsoft Graph Permissions** section, and then add the **application permissions** that your app requires.
 3. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
@@ -147,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | tenant |Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
-| client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
+| client_secret |Required |The Application Secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent.|
 | grant_type |Required |Must be `client_credentials`. |
 
 ### Second case: Access token request with a certificate

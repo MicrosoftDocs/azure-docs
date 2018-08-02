@@ -5,13 +5,15 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: CelesteDG
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
+ms.author: celested
 ms.custom: 
 ---
 
@@ -70,7 +72,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -153,7 +155,7 @@ Your code would be implemented as follows:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -166,9 +168,9 @@ Your code would be implemented as follows:
 
 ## AcquireToken
 
-AcquireToken is the default ADAL method used to get tokens. In cases where user identity is required, AcquireToken attempts to get a token silently first, then displays UI if necessary (unless PromptBehavior.Never is passed). In cases where application identity is required, AcquireToken attempts to get a token, but doesn't show UI as there is no end user.  
+AcquireToken is the default ADAL method used to get tokens. In cases where user identity is required, AcquireToken attempts to get a token silently first, then displays UI if necessary (unless PromptBehavior.Never is passed). In cases where application identity is required, AcquireToken attempts to get a token, but doesn't show UI as there is no end user. 
 
-When handling AcquireToken errors, error handling is dependent on the platform and scenario the application is trying to achieve.  
+When handling AcquireToken errors, error handling is dependent on the platform and scenario the application is trying to achieve. 
 
 The operating system can also generate a set of errors, which require error handling dependent on the specific application. For more information, see "Operating System errors" in [Error and logging reference](#error-and-logging-reference). 
 
@@ -183,7 +185,7 @@ The operating system can also generate a set of errors, which require error hand
 
 ### Error cases and actionable steps: Native client applications
 
-If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn’t perform immediate retries, but rather wait for end-user interaction that prompts a sign-in.  
+If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn’t perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
 
 There are a few special cases in which a single retry may resolve the issue. For example, when a user needs to enable data on a device, or completed the Azure AD broker download after the initial failure. 
 
@@ -361,7 +363,7 @@ catch (AdalException e) {
 
 ### Error cases and actionable steps: Single Page Applications (adal.js)
 
-If you're building a single page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call.  Specifically in adal.js, AcquireToken never shows a UI. 
+If you're building a single page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call. Specifically in adal.js, AcquireToken never shows a UI. 
 
 A failed AcquireToken has the following cases:
 
@@ -508,7 +510,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }
@@ -584,7 +586,7 @@ Use the comments section that follows, to provide feedback and help us refine an
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AZURE-portal]: https://portal.azure.com
 

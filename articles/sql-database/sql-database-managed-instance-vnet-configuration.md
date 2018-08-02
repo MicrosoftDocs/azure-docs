@@ -2,11 +2,11 @@
 title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
@@ -15,7 +15,7 @@ ms.reviewer: bonova, carlrab
 # Configure a VNet for Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
-- Connecting to a Managed Instance directly form an on-premises network 
+- Connecting to a Managed Instance directly from an on-premises network 
 - Connecting a Managed Instance to linked server or another on-premises data store 
 - Connecting a Managed Instance to Azure resources  
 
@@ -54,8 +54,9 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 - Azure uses five IP addresses in the subnet for its own needs 
 - Each General Purpose instance needs two addresses 
+- Each Business Critical instance needs four addresses
 
-**Example**: You plan to have eight Managed Instances. That means you need 5 + 8 * 2 = 21 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
+**Example**: You plan to have three General Purpose and two Business Critical Managed Instances. That means you need 5 + 3 * 2 + 2 * 4 = 19 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
 
 ## Create a new virtual network for Managed Instances 
 

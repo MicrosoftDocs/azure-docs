@@ -1,25 +1,29 @@
 ---
-title: Migrate classic policies in the Azure portal | Microsoft Docs
+title: What is a policy migration in Azure Active Directory conditional access? | Microsoft Docs
 description: Learn what you need to know to migrate classic policies in the Azure portal.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+#Customer intent: As a IT admin, I need to understand what a policy migration is in conditional access so that I can get rid of my classic policies.
+
 ---
-# Migrate classic policies in the Azure portal 
+
+# What is a policy migration in Azure Active Directory conditional access? 
 
 
 [Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how conditional access works.
@@ -80,11 +84,11 @@ With conditional access in the Azure portal, you can manage all your policies in
 
 See:
 
-- [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
+- [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
 
 - [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) to get some guidance on deploying conditional access in your organization.
 
-- [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) to familiarize yourself with the user interface in the Azure portal.
+- [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
 
 
  
@@ -165,6 +169,6 @@ In a new policy, you need to select the [device platforms](active-directory-cond
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to know how to configure a conditional access policy, see [GRequire MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
-ms.author: tdykstra
+ms.author: glenga
 ---
 
 # App settings reference for Azure Functions
@@ -151,8 +151,8 @@ Default is "6.5.0".
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [See global settings in the host.json file](functions-host-json.md)
+[See global settings in the host.json file](functions-host-json.md)
+
+[See other app settings for App Service apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

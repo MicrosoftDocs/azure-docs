@@ -10,10 +10,10 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
 ---
 
@@ -64,12 +64,16 @@ For an overview of the contents of the service project, see [Getting started wit
 
 Now that you have an application, run, deploy, and debug it by taking the following steps.
 
-1. In Visual Studio, select F5 to deploy the application for debugging.
+1. In Visual Studio, select **F5** to deploy the application for debugging.  Click **Yes** if presented with a message box asking to grant 'ServiceFabricAllowedUsers' group read and execute permissions to your Visual Studio project directory.
 
     >[!NOTE]
     >The first time you run and deploy the application locally, Visual Studio creates a local cluster for debugging. This might take some time. The cluster creation status is displayed in the Visual Studio output window.
-
-    When the cluster is ready, you get a notification from the local cluster system tray manager application that's included with the SDK.
+    
+     When the cluster is ready, you get a notification from the local cluster system tray manager application that's included with the SDK.
+     
+    >[!NOTE]
+    >This exercise reqires a 5 Node (vs. 1 Node) cluster. You can verify this as follows:
+    >Start the Service Fabric Explorer tool by right-clicking the **Service Fabric Local Cluster Manager** system tray application and then click **Switch Cluster Mode**. Click **5 Node** if 1 Node is currently selected.
     
     ![Local cluster system tray notification][4]
 
@@ -103,7 +107,7 @@ Now that you have an application, run, deploy, and debug it by taking the follow
 
     ![Breakpoint in stateful service RunAsync method][7]
 
-7. Start the Service Fabric Explorer tool by right-clicking the **Local Cluster Manager** system tray application and then selecting **Manage Local Cluster**.
+7. Start the Service Fabric Explorer tool by right-clicking the **Service Fabric Local Cluster Manager** system tray application and then selecting **Manage Local Cluster**.
 
     ![Start Service Fabric Explorer from the local cluster manager][systray-launch-sfx]
 
@@ -113,7 +117,7 @@ Now that you have an application, run, deploy, and debug it by taking the follow
 
     ![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
-    Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another.
+    Momentarily, you should see your breakpoint hit in Visual Studio as the computation you were doing on one node seamlessly fails over to another. Press **F5** to continue.
 
 9. Next, return to the Diagnostic Events Viewer and observe the messages. The counter has continued incrementing, even though the events are actually coming from a different node.
 

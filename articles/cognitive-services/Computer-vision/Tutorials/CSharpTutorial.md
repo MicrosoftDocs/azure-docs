@@ -19,7 +19,7 @@ Explore a basic Windows application that uses Computer Vision API to perform opt
 
 #### Platform requirements
 
-The below example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+The below example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/downloads/).
 
 #### Subscribe to Computer Vision API and get a subscription key 
 

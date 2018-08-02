@@ -2,8 +2,8 @@
 title: Quickstart - Direct web traffic with Azure Application Gateway - Azure PowerShell | Microsoft Docs
 description: Learn how use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
+ms.author: victorh
 ms.custom: mvc
 ---
 

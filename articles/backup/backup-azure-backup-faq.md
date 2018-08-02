@@ -1,23 +1,14 @@
-
 ---
-title: Azure Backup FAQ | Microsoft Docs
+title: Azure Backup FAQ
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backup and disaster recovery; backup service
-
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/11/2018
-ms.author: markgal;arunak;trinadhk;sogup;
-
+ms.topic: conceptual
+ms.date: 8/1/2018
+ms.author: markgal
 ---
 # Questions about the Azure Backup service
 This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -36,8 +27,11 @@ You can register upto 1000 Azure Virtual machines per vault. If you are using MA
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
-### Can I “migrate” my backup data or vault between subscriptions? <br/>
-No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
+### Can I migrate my vault between subscriptions? <br/>
+No. The vault is created at a subscription level, and can't be reassigned to another subscription.
+
+### Can I migrate backup data to another vault? <br/>
+No. Backup data stored in a vault can't be moved to a different vault.
 
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults still supported? <br/>
 Backup vaults have been converted to Recovery Services vaults. If you did not convert the Backup vault to a Recovery Services vault, then the Backup vault was converted to a Recovery Services vault for you. 
@@ -65,12 +59,19 @@ Yes.
 ### Can I Register my DPM Server to multiple vaults? <br/>
 No. A DPM or MABS server can be registered to only one vault.
 
-### Which version of System Center Data Protection Manager is supported? <br/>
-We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.
+### Which version of System Center Data Protection Manager is supported?
 
-### I have installed Azure Backup agent to protect my files and folders. Can I now install System Center DPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure? <br/>
-To use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.
+We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). 
+- For System Center DPM 2012 R2, [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) is the latest update.
+- For System Center DPM 2016, [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593) is the latest update.
 
+### I have installed Azure Backup agent to protect my files and folders. Can I install System Center DPM to protect on-premises application/VM workloads to Azure?
+
+Yes. However, to use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.
+
+### Can I use DPM to back up apps in Azure Stack?
+
+No. Though you can use Azure Backup to protect Azure Stack, Azure Backup does not currently support using DPM to back up apps in Azure Stack.
 
 ## How Azure Backup works
 ### If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>

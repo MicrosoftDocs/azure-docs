@@ -4,7 +4,7 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

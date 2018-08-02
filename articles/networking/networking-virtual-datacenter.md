@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure Virtual Datacenter: A Network Perspective | Microsoft Docs"
+title: Azure Virtual Datacenter - A Network Perspective  
 description: Learn how to build your virtual data center in Azure
 services: networking
 author: tracsman
@@ -14,7 +14,7 @@ ms.date: 04/3/2018
 ms.author: jonor
 ---
 
-# Microsoft Azure Virtual Datacenter: A Network Perspective
+# Azure Virtual Datacenter: A Network Perspective
 **Microsoft Azure**: Move faster, Save money, Integrate on-premises apps and data
 
 ## Overview
@@ -189,7 +189,7 @@ Infrastructure components contain the following functionality:
 -   [**UDR**][UDR]. Traffic in a Virtual Network is routed by default based on the system routing table. A User Define Route is a custom routing table that network administrators can associate to one or more subnets to overwrite the behavior of the system routing table and define a communication path within a virtual network. The presence of UDRs guarantees that egress traffic from the spoke transit through specific custom VMs and/or Network Virtual Appliances and load balancers present in the hub and in the spokes.
 -   [**NSG**][NSG]. A Network Security Group is a list of security rules that act as traffic filtering on IP Sources, IP Destination, Protocols, IP Source Ports, and IP Destination ports. The NSG can be applied to a subnet, a Virtual NIC card associated with an Azure VM, or both. The NSGs are essential to implement a correct flow control in the hub and in the spokes. The level of security afforded by the NSG is a function of which ports you open, and for what purpose. Customers should apply additional per-VM filters with host-based firewalls such as IPtables or the Windows Firewall.
 -   [**DNS**][DNS]. The name resolution of resources in the VNets of a vDC is provided through DNS. Azure provides DNS services for both [Public][DNS] and [Private][PrivateDNS] name resolution. Private zones provide name resolution both within a virtual network and across virtual networks. You can have private zones not only span across virtual networks in the same region, but also across regions and subscriptions. For public resolution, Azure DNS provides a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
--   [**Subscription][SubMgmt] and [Resource Group Management][RGMgmt]**. A subscription defines a natural boundary to create multiple groups of resources in Azure. Resources in a subscription are assembled together in logical containers named Resource Groups. The Resource Group represents a logical group to organize the resources of a vDC.
+-   [**Subscription**][SubMgmt] and [**Resource Group Management**][RGMgmt]. A subscription defines a natural boundary to create multiple groups of resources in Azure. Resources in a subscription are assembled together in logical containers named Resource Groups. The Resource Group represents a logical group to organize the resources of a vDC.
 -   [**RBAC**][RBAC]. Through RBAC, it is possible to map organizational role along with rights to access specific Azure resources, allowing you to restrict users to only a certain subset of actions. With RBAC, you can grant access by assigning the appropriate role to users, groups, and applications within the relevant scope. The scope of a role assignment can be an Azure subscription, a resource group, or a single resource. RBAC allows inheritance of permissions. A role assigned at a parent scope also grants access to the children contained within it. Using RBAC, you can segregate duties and grant only the amount of access to users that they need to perform their jobs. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL DBs within the same subscription.
 -   [**VNet Peering**][VNetPeering]. The fundamental feature used to create the infrastructure of a vDC is VNet Peering, a mechanism that connects two virtual networks (VNets) in the same region through the Azure data center network, or using the Azure world-wide backbone across regions.
 

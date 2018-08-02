@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
 
 ---
@@ -44,7 +44,7 @@ Before Azure accepts a P2S VPN connection, the user has to be authenticated firs
 
 When using the native Azure certificate authentication, a client certificate that is present on the device is used to authenticate the connecting user. Client certificates are generated from a trusted root certificate and then installed on each client computer. You can use a root certificate that was generated using an Enterprise solution, or you can generate a self-signed certificate.
 
-The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure. 
+The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection. The root certificate is required for the validation and must be uploaded to Azure.
 
 ### Authenticate using Active Directory (AD) Domain Server
 
@@ -56,9 +56,13 @@ The RADIUS server can also integrate with AD certificate services. This lets you
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
 
-### Configuration requirements for client devices
+## What are the client configuration requirements?
+
+>[!NOTE]
+>For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>
 
 Users use the native VPN clients on Windows and Mac devices for P2S. Azure provides a VPN client configuration zip file that contains settings required by these native clients to connect to Azure.
 
@@ -68,10 +72,10 @@ Users use the native VPN clients on Windows and Mac devices for P2S. Azure provi
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
 >[!NOTE]
->For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
+## <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 

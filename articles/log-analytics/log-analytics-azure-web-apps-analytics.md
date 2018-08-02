@@ -3,7 +3,7 @@ title: View Azure Web Apps analytic data | Microsoft Docs
 description: You can use the Azure Web Apps Analytics solution to gain insights about your Azure Web Apps by collecting different metrics across all your Azure Web App resources.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/26/2018
 ms.author: magoedte
-
+ms.component: na
 ---
 
 # View analytic data for metrics across all your Azure Web App resources
@@ -22,7 +22,7 @@ ms.author: magoedte
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> The Azure Web Apps Analytics solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Azure Web Apps Analytics can not be added to any new workspaces.
+> The Azure Web Apps Analytics solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Azure Web Apps Analytics can not be added to any new workspaces.  To monitor your web application, we recommend you use [Application Insights](../application-insights/app-insights-overview.md). 
 
 The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
 
@@ -53,8 +53,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 Perform the following steps to configure the Azure Web Apps Analytics solution for your workspaces.
 
-1. Enable the Azure Web Apps Analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. [Enable Azure resource metrics logging to OMS using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Enable Azure resource metrics logging to Log Analytics using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 The Azure Web Apps Analytics solution collects two set of metrics from Azure:
 
@@ -74,10 +73,6 @@ The Azure Web Apps Analytics solution collects two set of metrics from Azure:
   - Memory Percentage
 
 App Service Plan metrics are only collected if you are using a dedicated service plan. This doesn't apply to free or shared App Service plans.
-
-If you add the solution using the OMS portal, you'll see the following tile. You need to [enable Azure resource metrics logging to OMS using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Performing Assessment notification](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 After you configure the solution, data should start flowing to your workspace within 15 minutes.
 

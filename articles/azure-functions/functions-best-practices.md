@@ -116,7 +116,8 @@ Settings in the hosts file apply across all functions within the app, within a *
 Other host configuration options can be found [in the host configuration document](functions-host-json.md).
 
 ## Next steps
+
 For more information, see the following resources:
 
-Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
-* [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [How to manage connections in Azure Functions](manage-connections.md)
+* [Azure App Service best practices](../app-service/app-service-best-practices.md)

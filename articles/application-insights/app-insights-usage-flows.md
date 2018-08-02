@@ -3,15 +3,16 @@ title: Analyze user navigation patterns with User Flows in Azure Application Ins
 description: Analyze how users navigate between the pages and features of your web app.
 services: application-insights
 documentationcenter: ''
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
-ms.author: mbullwin; daviste
+ms.reviewer: daviste
+ms.author: mbullwin
 ---
 
 # Analyze user navigation patterns with User Flows in Application Insights

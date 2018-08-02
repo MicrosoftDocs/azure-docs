@@ -8,6 +8,7 @@ ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
 ms.service: automation
+ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
 ---

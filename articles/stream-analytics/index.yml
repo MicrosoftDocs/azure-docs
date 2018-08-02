@@ -17,10 +17,10 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://sec.ch9.ms/sessions/connect/T157.png
+      src: ./media/index/streaming-analytics-thumbnail.png
       width: 250  
-    title: Real-time analytics on IoT Edge with Azure Stream Analytics. (8:51)
-    href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-real-time-analytics-on-iot-edge-with-azure-stream-analytics/
+    title: Streaming Analytics on Microsoft Azure. (8:48)
+    href: https://channel9.msdn.com/Events/Connect/2016/161
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -38,6 +38,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
       href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
+    - image:
+       src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: http://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

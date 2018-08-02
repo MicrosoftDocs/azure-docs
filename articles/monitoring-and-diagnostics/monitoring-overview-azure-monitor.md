@@ -1,22 +1,14 @@
 ---
-title: Azure Monitor Overview | Microsoft Docs
-description:  Azure Monitor collects stats for use in alerts, webhooks, autoscale, and automation. Article also list other Microsoft monitoring options.
+title: Azure Monitor Overview
+description: Azure Monitor collects stats for use in alerts, webhooks, autoscale, and automation. Article also list other Microsoft monitoring options.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-
+ms.component: ""
 ---
 
 # Overview of Azure Monitor
@@ -106,7 +98,7 @@ Examples include:
 
 ### Store and Archive
 Some monitoring data is already stored and available in Azure Monitor for a set amount of time. 
-- Metrics are stored for 30 days. 
+- Metrics are stored for 90 days. 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 

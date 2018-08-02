@@ -4,7 +4,7 @@ description: Quickly get an Oracle Database 12c database up and running in your 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 

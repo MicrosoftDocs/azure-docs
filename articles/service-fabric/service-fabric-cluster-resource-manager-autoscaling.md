@@ -5,16 +5,16 @@ services: service-fabric
 documentationcenter: .net
 author: radicmilos
 manager: 
-editor: ''
+editor: nipuzovi
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
-ms.author: miradic,nipuzovi
+ms.author: miradic
 
 
 ---
@@ -132,6 +132,9 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 * _Scale Increment_ determines how many partitions will be added or removed when mechanism is triggered.
 * _Maximum Partition Count_ defines the upper limit for scaling. If number of partitions of the service reaches this limit, then the service will not be scaled out, regardless of the load. It is possible to omit this limit by specifying value of -1, and in that case the service will be scaled out as much as possible (the limit is the actual capacity of the cluster).
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of partitions of the service reaches this limit, then service will not be scaled in regardless of the load.
+
+> [!WARNING] 
+> When AddRemoveIncrementalNamedParitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale up operation, new partitions will be empty, and in case of scale down operation, **partition will be deleted together with all the data that it contains**.
 
 ## Setting auto scaling policy
 

@@ -3,19 +3,21 @@ title: Azure AD Node.js web API getting started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: craigshoemaker
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: cshoe
+ms.author: celested
 ms.custom: aaddev
 ---
+
 # Azure AD Node.js web API getting started
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
@@ -59,7 +61,7 @@ Enter the following command in the cloud shell:
 az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
 ```
 
-The [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) for the `create` command include:
+The [arguments](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) for the `create` command include:
 
 | Argument  | Description |
 |---------|---------|

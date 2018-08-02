@@ -8,7 +8,8 @@ ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: rosh, v-gedod
+ms.author: rosh
+ms.reviewer: v-gedod
 ---
 
 # Tutorial: Single-page News Search app

@@ -3,21 +3,33 @@
   topicHref: /azure/index
   items:
   - name: Active Directory
-    tocHref: /azure/active-directory/
-    topicHref: /azure/active-directory/
+    tocHref: /azure/event-hubs/
+    topicHref: /azure/active-directory/index
     items:
-    - name: Connect
-      tocHref: /azure/active-directory/connect/
-      topicHref: /azure/active-directory/connect/
-    - name: Connect Health
-      tocHref: /azure/active-directory/connect-health/
-      topicHref: /azure/active-directory/connect-health/
-    - name: Develop
-      tocHref: /azure/active-directory/develop/
-      topicHref: /azure/active-directory/develop/
-    - name: Privileged Identity Management
-      tocHref: /azure/active-directory/privileged-identity-management/
-      topicHref: /azure/active-directory/privileged-identity-management/
     - name: Managed Service Identity
-      tocHref: /azure/active-directory/managed-service-identity/
-      topicHref: /azure/active-directory/managed-service-identity/
+      tocHref: /azure/event-hubs/
+      topicHref: /azure/active-directory/managed-service-identity/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/service-bus-messaging/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Managed Service Identity
+      tocHref: /azure/service-bus-messaging/
+      topicHref: /azure/active-directory/managed-service-identity/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory       
+    tocHref: /azure/app-service/
+    topicHref: /azure/active-directory/index
+    items:
+    - name: Managed Service Identity
+      tocHref: /azure/app-service/
+      topicHref: /azure/active-directory/managed-service-identity/index

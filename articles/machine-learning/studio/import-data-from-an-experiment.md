@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

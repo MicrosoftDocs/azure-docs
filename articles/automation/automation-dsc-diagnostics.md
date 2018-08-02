@@ -3,10 +3,11 @@ title: Forward Azure Automation DSC reporting data to Log Analytics
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
+ms.date: 06/12/2018
+ms.topic: conceptual
 manager: carmonm
 ---
 # Forward Azure Automation DSC reporting data to Log Analytics
@@ -88,14 +89,14 @@ You can also narrow the query by the operation name. For example:
 
 One of our top customer requests is for the ability to send an email or a text when something goes wrong with a DSC configuration.   
 
-To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
+To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **+ New Alert Rule** button to create and configure the alert rule.
 
 1. From the Log Analytics Overview page, click **Log Search**.
 1. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
-1. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Create an alert rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### Find failed DSC resources across all nodes
 

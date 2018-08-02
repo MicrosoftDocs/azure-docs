@@ -29,7 +29,7 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (R Server on HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Secondary headnode |
@@ -134,7 +134,19 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
 
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+You can also enable Kerberos Authentication on each domain joined node (e.g. head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncommnet and change `KerberosAuthentication` to `yes`
+
+```bash
+sudo service sshd restart
+```
+
+At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
 
 For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 

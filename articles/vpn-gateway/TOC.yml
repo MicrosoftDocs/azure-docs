@@ -1,5 +1,5 @@
 - name: VPN Gateway Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About VPN Gateway
@@ -8,6 +8,8 @@
   items:
   - name: Create and manage a VPN gateway
     href: vpn-gateway-tutorial-create-gateway-powershell.md
+  - name: Create and manage S2S VPN connections
+    href: vpn-gateway-tutorial-vpnconnection-powershell.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -28,7 +30,7 @@
     href: vpn-gateway-highlyavailable.md
   - name: About Point-to-Site connections
     href: point-to-site-about.md
-  - name: About Point-to-Site routing
+  - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
 - name: How-to guides
   items:
@@ -104,6 +106,8 @@
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
+  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+    href: create-zone-redundant-vnet-gateway.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway

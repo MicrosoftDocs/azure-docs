@@ -1,17 +1,14 @@
 ---
 title: Provision a simulated X.509 device to Azure IoT Hub using C# | Microsoft Docs
 description: Azure Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service 
-services: iot-dps 
-keywords: 
-author: bryanla
-ms.author: v-jamebr;bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/18
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
 ---
 
@@ -38,6 +35,14 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     ```
 
 ## Create a self-signed X.509 device certificate and individual enrollment entry
+
+In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
+
+* Self-signed certificates are for testing only, and should not to be used in production.
+* The default expiration date for a self-signed certificate is 1 year.
+
+You will use sample code from the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
+
 
 1. In a command prompt, change directories to the project directory for the X.509 device provisioning sample.
 
@@ -111,4 +116,4 @@ If you plan to continue working on and exploring the device client sample, do no
 In this Quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-node.md)
+> [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-csharp.md)

@@ -3,7 +3,7 @@ title: Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

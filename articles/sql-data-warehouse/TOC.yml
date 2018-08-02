@@ -6,6 +6,16 @@
     href: sql-data-warehouse-overview-what-is.md
   - name: Cheat sheet
     href: cheat-sheet.md
+- name: Release Notes
+  items:
+    - name: July 2018 
+      href: release-notes-july-2018.md
+    - name: June 2018 
+      href: release-notes-june-2018.md
+    - name: May 2018
+      href: release-notes-may-2018.md
+    - name: April 2018
+      href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -43,8 +53,6 @@
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Backup and restore
       href: backup-and-restore.md
-    - name: Auditing
-      href: sql-data-warehouse-auditing-overview.md
     - name: Capacity limits
       href: sql-data-warehouse-service-capacity-limits.md
     - name: Maintenance
@@ -55,8 +63,24 @@
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manage-security.md
+    - name: Access control
+      href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Firewall rules
+      href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json      
+    - name: Firewall virtual network rules
+      href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Authentication
-      href: sql-data-warehouse-authentication.md
+      href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Azure AD
+      href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Logins and users
+      href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Multi-factor auth
+      href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Auditing
+      href: sql-data-warehouse-auditing-overview.md
+    - name: Column-level security
+      href: column-level-security.md
   - name: Migrate to SQL Data Warehouse
     items:
     - name: Overview
@@ -87,8 +111,12 @@
       href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Monitor
-    href: sql-data-warehouse-manage-monitor.md
+  - name: Manageability & Monitoring
+    items:
+    - name: Monitor 
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Recommendations 
+      href: sql-data-warehouse-concept-recommendations.md
   - name: Develop data warehouses
     items:
     - name: Overview
@@ -173,6 +201,12 @@
       href: sql-data-warehouse-restore-database-rest-api.md
   - name: Security
     items:
+    - name: Configure Azure AD auth
+      href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Conditional access
+      href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Virtual network rules by PowerShell
+      href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Enable encryption - portal
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL

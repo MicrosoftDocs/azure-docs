@@ -3,10 +3,9 @@ title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
 services: storage
 author: roygara
-manager: jeconnoc
+
 
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
@@ -125,7 +124,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
-The sample code takes a local file and uploads it to Azure. The file is stored as as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
+The sample code takes a local file and uploads it to Azure. The file is stored as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");

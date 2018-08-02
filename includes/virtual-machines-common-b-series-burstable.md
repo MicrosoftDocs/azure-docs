@@ -54,7 +54,8 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.   
 	
-
+### Q: Why is my remaining credit are set to 0 after a redepoy or a stop/start?
+**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240 mins.
 
 	
 

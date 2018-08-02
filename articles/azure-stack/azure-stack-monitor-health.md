@@ -28,6 +28,17 @@ Azure Stack includes infrastructure monitoring capabilities that enable you to v
  ## Understand health in Azure Stack
 
  Health and alerts are managed by the Health resource provider. Azure Stack infrastructure components register with the Health resource provider during Azure Stack deployment and configuration. This registration enables the display of health and alerts for each component. Health in Azure Stack is a simple concept. If alerts for a registered instance of a component exist, the health state of that component reflects the worst active alert severity; warning, or critical.
+
+## Alert severity definition
+
+In Azure Stack alerts are raised with only two severities: **warning** and **critical**.
+
+**Warning**  
+An operator can address the warning alert in a scheduled manner. The alert typically does not impact user workloads.
+
+**Critical**  
+An operator should address the critical alert with urgency. These are issues that currently impact or will soon impact Azure Stack users. 
+
  
  ## View and manage component health state
  

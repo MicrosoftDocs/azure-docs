@@ -3,9 +3,9 @@ title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Learn how to code asynchronous refresh by using REST API.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -93,7 +93,7 @@ Specifying parameters is not required. The default is applied.
 
 |Name  |Type  |Description  |Default  |
 |---------|---------|---------|---------|
-|Type     |  Enum       |  The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, add, and defragment.       |   automatic      |
+|Type     |  Enum       |  The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
 |CommitMode     |  Enum       |  Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
 |MaxParallelism     |   Int      |  This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) or using other methods.       | 10        |
 |RetryCount    |    Int     |   Indicates the number of times the operation will retry before failing.      |     0    |

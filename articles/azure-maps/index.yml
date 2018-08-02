@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Maps Documentation
+metadata:
+  document_id: 
+  title: Azure Maps Documentation | Microsoft Docs
+  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
+  author: philmea
+  manager: 
+  ms.service: azure-maps
+  services: azure-maps
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: philmea
+abstract:
+  description: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with fresh mapping data necessary to provide geographic context to web and mobile applications. This service is an Azure One API compliant set of REST APIs, accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Launch a map search app using Azure Maps.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/sql-database/media/index/portal.svg
+      text: Launch demo map app
+      href: /azure/azure-maps/quick-demo-map-app
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Build a geospatial web application to search for points of interest and route to locations using Azure Maps.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-maps/tutorial-search-location">Search for points of interest</a>
+    - html: <a href="/azure/azure-maps/tutorial-route-location">Route to a point of interest</a>
+    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes by mode of travel</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: JavaScript
+      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Map control</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Render service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Maps account management</a></p>

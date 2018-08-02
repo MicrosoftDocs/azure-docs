@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
@@ -8,8 +8,9 @@ manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: 
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
@@ -54,7 +55,7 @@ All Linux distributions supported by Azure IaaS can be used with MSI via the IMD
 Note: The MSI VM Extension only supports the following Linux distributions:
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -79,11 +80,11 @@ Where:
 
 When Managed Service Identity is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
 
-![MSI automation script export error](../media/msi-known-issues/automation-script-export-error.png)
+![MSI automation script export error](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 The Managed Service Identity VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable Managed Service Identity on the resource. These sections can be added manually by following the examples in [Configure a VM Managed Service Identity by using a template](qs-configure-template-windows-vm.md).
 
-When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+When the schema export functionality becomes available for the MSI VM extension, it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### Configuration blade does not appear in the Azure portal
 
@@ -115,15 +116,16 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## Known issues with User Assigned MSI *(Preview)*
+## Known issues with User Assigned Identities
 
-- The only way to remove all user assigned MSIs is by enabling the system assigned MSI. 
+- User Assigned Identity assignments are only avaialble for VM and VMSS. IMPORTANT: User Assigned Identity assignments will change in the upcoming months.
+- Duplicate User Assigned Identities on the same VM/VMSS, will cause the VM/VMSS to fail. This includes identities that are added with different casing. e.g. MyUserAssignedIdentity and myuserassignedidentity. 
 - Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
-- Adding a 'non-existent' MSI will cause the VM to fail. *Note: The fix to fail assign-identity if MSI doesn't exist, is being rolled-out*
-- Azure Storage tutorial is only available in Central US EUAP at the moment. 
-- Creating a user assigned MSI with special characters (i.e. underscore) in the name, is not supported.
-- When adding a second user assigned identity, the clientID might not be available to requests tokens for it. As a mitigation, restart the MSI VM extension with the following two bash commands:
+- Adding a 'non-existent' user assigned identity will cause the VM to fail. 
+- Creating a user assigned identity with special characters (i.e. underscore) in the name, is not supported.
+- User assigned identity names are restricted to 24 characters for end to end scenario. User Assigned identities with names longer than 24 characters will fail to be assigned.
+- If using the managed identity virtual machine extension, the supported limit is 32 user assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
+- When adding a second user assigned identity, the clientID might not be available to requests tokens for the VM extension. As a mitigation, restart the MSI VM extension with the following two bash commands:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- The VMAgent on Windows does not currently support User Assigned MSI. 
-- When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSI as enabled. To enable the system assigned MSI, use an Azure Resource Manager template, an Azure CLI, or an SDK.
+- When a VM has a user assigned identity but no system assigned identity, the portal UI will show MSI as disabled. To enable the system assigned identity, use an Azure Resource Manager template, an Azure CLI, or an SDK.

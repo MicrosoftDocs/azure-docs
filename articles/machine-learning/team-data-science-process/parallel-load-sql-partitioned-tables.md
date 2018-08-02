@@ -3,18 +3,19 @@ title: Build and optimize tables for fast parallel import of data into a SQL Ser
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables
@@ -165,7 +166,7 @@ The following PowerShell script is an example of parallel data loading using BCP
 
 ## Create indexes to optimize joins and query performance
 * If you extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.
-* [Create indexes](https://technet.microsoft.com/library/ms188783.aspx) (clustered or non-clustered) targeting the same filegroup for each partition, for for example:
+* [Create indexes](https://technet.microsoft.com/library/ms188783.aspx) (clustered or non-clustered) targeting the same filegroup for each partition, for example:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)

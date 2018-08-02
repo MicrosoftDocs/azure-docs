@@ -3,16 +3,12 @@ title: Azure Cosmos DB indexing policies | Microsoft Docs
 description: Understand how indexing works in Azure Cosmos DB. Learn how to configure and change the indexing policy for automatic indexing and greater performance.
 keywords: how indexing works, automatic indexing, indexing database
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
 
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
 
@@ -76,9 +72,9 @@ Azure Cosmos DB supports three indexing modes that you can configure via the ind
 
 Consistent indexing supports consistent queries at the cost of a possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level.” Consistent indexing mode is designed for “write quickly, query immediately” workloads.
 
-**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests. The Lazy indexing mode might be suitable for "ingest now, query later" workloads that require document ingestion. Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at any given time. 
+**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests.  Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at  given time. 
 
-The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Because of this, most Azure Cosmos DB accounts should use the Consistent indexing mode.
+The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Most Azure Cosmos DB accounts should use the Consistent indexing mode.
 
 **None**: A collection that has a None index mode has no index associated with it. This is commonly used if Azure Cosmos DB is used as a key-value storage, and documents are accessed only by their ID property. 
 
@@ -144,6 +140,7 @@ Here are the common patterns for specifying index paths:
 
 The following example configures a specific path with Range index and a custom precision value of 20 bytes:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +161,74 @@ The following example configures a specific path with Range index and a custom p
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+When a path is added for indexing, both numbers and strings within those paths are indexed. So even though you define indexing for strings only, Azure Cosmos DB adds default definition for numbers as well. In other words, Azure Cosmos DB has the ability for path exclusion from indexing policy, but not type exclusion from a specific path. Following is an example, note that only one index is specified for both paths (Path =  "/*" and Path =  "/\"attr1\"/?") but the Number datatype is also added to the result.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Result of index creation:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### Index data types, kinds, and precisions
 You have multiple options when you configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
@@ -227,11 +291,11 @@ The following example shows how to increase the precision for Range indexes in a
 
 Similarly, you can completely exclude paths from indexing. The next example shows how to exclude an entire section of the documents (a *subtree*) from indexing by using the \* wildcard operator.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 
@@ -307,7 +371,7 @@ You can drop the index for a collection by moving to the None indexing mode. Thi
 **Drop the index for a collection**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 

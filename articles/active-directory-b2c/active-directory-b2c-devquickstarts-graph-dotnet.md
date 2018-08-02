@@ -1,19 +1,18 @@
 ---
-title: 'Use the Graph API - Azure AD B2C | Microsoft Docs'
+title: Use the Graph API in Azure Active Directory B2C | Microsoft Docs
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure AD B2C: Use the Azure AD Graph API
 
 >[!NOTE]

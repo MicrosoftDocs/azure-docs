@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
 
@@ -167,13 +167,18 @@ Other examples:
     | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
     | top 5 by duration
 
+    // Between specific day/time range
+    requests
+    | where timestamp > datetime(2018-05-17T17:06:19.892Z) and timestamp <= datetime(2018-05-18T17:06:19.892Z)
+    | where duration > 0
+
 ```
 
 [Dates and times reference](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## [Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): select, rename, and compute columns
-Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) to pick out just the columns you want:
+Use [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) to pick out just the columns you want:
 
 ```AIQL
 
