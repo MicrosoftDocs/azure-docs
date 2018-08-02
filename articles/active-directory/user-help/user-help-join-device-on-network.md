@@ -51,7 +51,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 Your device is now joined to your organization's network.
 
 ## To make sure you're joined
-You can make sure that you're joined by looking at your Windows Settings.
+You can make sure that you're joined by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
 
@@ -85,38 +85,26 @@ If you've had your device for a while and it's already been set up, you can foll
 
 6. On your mobile device, approve your device so it can access your account. 
 
-    ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-mobile.png)
+    ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
 
 7. On the  **Make sure this is your organization** screen, review the information to make sure it's right, and then select **Join**.
 
-    ![Make sure this is your organization](./media/user-help-join-device-on-network/11.png)
+    ![Make sure this is your organization verification screen](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
 
+8. On the **You're all set** screen, click **Done**.
 
-8. On the **You're all set** dialog, click **Done**.
+    ![You're all set screen](./media/user-help-join-device-on-network/join-device-setup-finish.png)
 
-    ![You're all set](./media/user-help-join-device-on-network/12.png)
+## To make sure you're joined
+You can make sure that you're joined by looking at your settings.
 
-## Make sure you're joined
+1. Open **Settings**, and then select **Accounts**.
 
-To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
+    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-![Connected](./media/user-help-join-device-on-network/13.png)
+2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
 
-Alternatively, you can run the following command: `dsregcmd /status`  
-On a successfully joined device, **AzureAdJoined** is **Yes**.
-
-![Connected](./media/user-help-join-device-on-network/14.png)
-
-You can also review device settings on the Azure AD portal.
-
-![Connected](./media/user-help-join-device-on-network/15.png)
-
-For more information, see [locate devices](../devices/device-management-azure-portal.md#locate-devices).
-
+    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-verify.png)
 
 ## Next steps
 
-For more information, see: 
-
-- The [introduction to device management in Azure Active Directory](../devices/overview.md)
-- [Managing devices using the Azure portal](../devices/device-management-azure-portal.md)
