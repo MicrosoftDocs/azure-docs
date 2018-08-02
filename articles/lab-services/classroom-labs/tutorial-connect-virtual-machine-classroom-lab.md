@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/30/2018
 ms.author: spelluru
 
 ---
@@ -44,4 +44,9 @@ In this tutorial, you do the following actions:
 3. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
 
 ## Next steps
-In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor. 
+In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor.
+
+As a lab owner, you want to view who is registered with your lab and track the usage of VMs. Advance to the next tutorial to learn how to do so:
+
+> [!div class="nextstepaction"]
+> [Track usage of a lab](tutorial-track-usage.md) 

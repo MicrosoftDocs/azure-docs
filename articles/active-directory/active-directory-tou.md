@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
 
 ---
@@ -134,6 +134,42 @@ Users can review and see the Terms of use that they have accepted by using the f
 
 1. From there, you can review the Terms of use you have accepted. 
 
+## Edit Terms of use details
+You can edit some details of Terms of use, but you can't modify an existing document. The following procedure describes how to edit the details.
+
+1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Select the Terms of use you want to edit.
+
+1. Click **Edit terms**.
+
+1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
+
+    ![Add TOU](media/active-directory-tou/edit-tou.png)
+
+1. Click **Save** to save your changes.
+
+    Once you save your changes, users will have to reaccept the new terms.
+
+## Add a Terms of use language
+The following procedure describes how to add a Terms of use language.
+
+1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Select the Terms of use you want to edit.
+
+1. In the the details pane, click the **Languages** tab.
+
+    ![Add TOU](media/active-directory-tou/languages-tou.png)
+
+1. Click **Add language**.
+
+1. In the Add terms of use language pane, upload your localized PDF and select the language.
+
+    ![Add TOU](media/active-directory-tou/language-add-tou.png)
+
+1. Click **Add** to add the language.
+
 ## Delete Terms of use
 You can delete old Terms of use using the following procedure.
 
@@ -171,8 +207,11 @@ A: The user counts in the Terms of use report and who accepted/declined are stor
 **Q: Why do I see a different number of consents in the Terms of use report vs. the Azure AD audit logs?**</br>
 A: The Terms of use report is stored for the lifetime of that Terms of use, while the Azure AD audit logs are stored for 30 days. Also, the Terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the Terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
 
-**Q: If I change the Terms of use terms, does it require users to accept again?**</br>
-A: Yes, an administrator can change the Terms of use terms and it requires users to reaccept the new terms.
+**Q: If I edit the details for a Terms of use, does it require users to accept again?**</br>
+A: Yes, if an administrator edits the details for a Terms of use, it requires users to reaccept the new terms.
+
+**Q: Can I update an existing Terms of use document?**</br>
+A: Currently, you can't update an existing Terms of use document. To change a Terms of use document, you will have to create a new Terms of use instance.
 
 **Q: If hyperlinks are in the Terms of use PDF document, will end users be able to click them?**</br>
 A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.

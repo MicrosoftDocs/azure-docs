@@ -13,6 +13,15 @@ metadata:
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/iot-edge-thumbnail.png
+      width: 250  
+    title: Creating the intelligent edge with Azure IoT Edge (6:59)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
+    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -42,4 +51,5 @@ sections:
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filter data with a C# module</a>
     - html: <a href="/azure/iot-edge/tutorial-python-module">Filter data with a Python module</a>
     - html: <a href="/azure/iot-edge/tutorial-node-module">Filter data with a Node.js module</a>
+    - html: <a href="/azure/iot-edge/tutorial-c-module">Filter data with a C module</a>
     - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Store data at the edge with SQL Server</a>

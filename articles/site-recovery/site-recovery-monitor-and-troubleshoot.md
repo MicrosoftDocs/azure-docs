@@ -99,7 +99,7 @@ The **Infrastructure view** shows the infrastructure components involved in repl
     **Azure VM replication between Azure regions** | Failed over/fail back | No   
     **VMware replication to Azure** | Replication enabled/initial replication in progress | Yes     
     **VMware replication to Azure** | Failed over/failed back | No      
-    **Hyper-V replication to to Azure** | Failed over/failed back | No
+    **Hyper-V replication to Azure** | Failed over/failed back | No
 
 - To see the infrastructure view for a single replicating machine, in the vault menu, click **Replicated items**, and select a server.  
 
