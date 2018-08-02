@@ -176,7 +176,7 @@
         href: howto-mfa-nps-extension-errors.md
   - name: Troubleshoot
     items:
-    - name: Roll back converged registration
+    - name: Disable converged registration
       href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: Troubleshoot SSPR
       href: active-directory-passwords-troubleshoot.md
