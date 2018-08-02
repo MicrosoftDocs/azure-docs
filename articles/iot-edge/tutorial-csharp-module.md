@@ -295,7 +295,7 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 To delete only the IoT hub, execute the following command by using your hub name and resource group name:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
