@@ -27,10 +27,6 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/logo_NET.svg
-      text: .NET
-      href: /azure/key-vault/quick-create-net
-    - image: 
         src: media/index/cli.svg
       text: Azure CLI
       href: /azure/key-vault/quick-create-cli
@@ -42,6 +38,15 @@ sections:
         src: media/index/portal.svg
       text: Azure Portal
       href: /azure/key-vault/quick-create-portal
+    - image: 
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /azure/key-vault/quick-create-net
+    - image: 
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/key-vault/quick-create-node
+    
 - title: Step-by-Step Tutorials
   items:
   - type: list

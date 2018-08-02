@@ -71,7 +71,7 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Manage event delivery
+  - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md

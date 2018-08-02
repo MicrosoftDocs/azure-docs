@@ -3,8 +3,8 @@ title: Become a Publisher in the storefronts on the marketplace | Azure
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: 
@@ -101,8 +101,8 @@ Once you have completed the [Dev Center](https://developer.microsoft.com/en-us/s
 
 
 ## Next steps
-* Learn about the marketplace storefronts: AppSource and Azure Marketplace
-*	Determine your offer for the marketplace
+* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*	[Determine the listing type for your solution](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

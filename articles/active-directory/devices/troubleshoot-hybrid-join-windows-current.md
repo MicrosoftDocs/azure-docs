@@ -25,15 +25,15 @@ This article is applicable to the following clients:
 -	Windows 10
 -	Windows Server 2016
 
-For other Windows clients, see [Troubleshooting hybrid Azure Active Directory joined down-level devices](device-management-troubleshoot-hybrid-join-windows-legacy.md).
+For other Windows clients, see [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md).
 
-This article assumes that you have [configured hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md) to support the following scenarios:
+This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
 - Device-based conditional access
 
-- [Enterprise roaming of settings](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
 
-- [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
 
 This document provides troubleshooting guidance on how to resolve potential issues. 
@@ -152,4 +152,4 @@ If the values are **NO**, it could be due:
 
 ## Next steps
 
-For questions, see the [device management FAQ](device-management-faq.md) 
+For questions, see the [device management FAQ](faq.md) 
