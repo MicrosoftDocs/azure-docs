@@ -117,15 +117,8 @@ Add the prebuilt number entity back to the application.
     ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Train the app](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
 
@@ -239,6 +232,10 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
 Yes, create the regular expression with origin and destination roles and use it in a pattern.
 
 The locations in this example, such as `a-1234`, follow a specific format of one or two letters with a dash then a series of 4 or 5 numerals. This data can be described as a regular expression entity with a role for each location. Roles are available for patterns. You can create patterns based on these utterances, then create a regular expression for the location format and add it to the patterns. <!-- Go to this tutorial to see how that is done -->
+
+## Patterns with roles
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
 
 ## What has this LUIS app accomplished?
 This app, with just a few intents and a hierarchical entity, identified a natural language query intention and returned the extracted data. 
