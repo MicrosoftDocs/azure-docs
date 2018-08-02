@@ -14,7 +14,6 @@ ms.date: 08/02/2018
 ms.author: danlep
 
 ---
-
 # Use Azure Batch CLI templates and file transfer
 
 Using an Azure Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
