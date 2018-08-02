@@ -275,7 +275,7 @@ So now you have verified that the firewall rules are working:
 
 ## Clean up resources
 
-When no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
 
 
 ## Next steps
