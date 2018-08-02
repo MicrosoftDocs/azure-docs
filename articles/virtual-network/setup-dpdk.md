@@ -92,22 +92,7 @@ zypper  \
   --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-### SLES 12SP3
-
-####
-
-#### Default kernel
-
-```bash
-zypper \
-  --no-gpg-checks \
-  --non-interactive \
-  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
-```
-
-### SLES 12SP3
-
-**Default kernel**
+**Default kernel
 
 ```bash
 zypper \
@@ -118,10 +103,12 @@ zypper \
 
 ## Setup virtual machine environment (once)
 
-1. [Download the latest DPDK](<https://dpdk.org/download>). Version 18.02 or higher is required for Azure.
+1. [Download the latest DPDK](https://core.dpdk.org/download). Version 18.02 or higher is required for Azure.
 2. Install the *libnuma-dev* package with `sudo apt-get install libnuma-dev`.
-3. Once you've downloaded and uncompressed the file, change into the directory, and edit the *config/common_base* file. Add the following line to the file: `CONFIG_RTE_LIBRTE_MLX4_PMD=y`.
-4. Compile the DPDK with `make install T=x86_64-native-linuxapp-gcc DESTDIR=<output folder>`.
+3. First build the default config with `make config T=x86_64-native-linuxapp-gcc`.
+4. Enable Mellanox PMDs in the generated config with `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
+5. Compile with `make`.
+6. Install with `make install DESTDIR=<output folder>`.
 
 # Configure runtime environment
 
@@ -152,6 +139,10 @@ Run the following commands once, after rebooting:
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, load *mlx4_ib* with 'modprobe -a mlx4_ib'.
 
+## Failsafe PMD
+
+DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it will not receive **all** packets destined to the VM, since some packets will show up over the synthetic interface. Running over the failsafe PMD guarantees that the application receives all packets destined to it and also ensures the application will continue to run in DPDK mode,  even if the VF is revoked when the host is being serviced. For more information on failsafe PMD, please refer to [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
+
 ## Run testpmd
 
 Use `sudo` before the *testpmd* command to run in root mode.
@@ -162,7 +153,7 @@ Use `sudo` before the *testpmd* command to run in root mode.
 
    ```bash
    testpmd -w <pci address from previous step> \
-     --vdev="net_vdev_netvsc0,iface=eth1,force=1" \
+     --vdev="net_vdev_netvsc0,iface=eth1" \
      -i \
      --port-topology=chained
     ```
@@ -172,12 +163,12 @@ Use `sudo` before the *testpmd* command to run in root mode.
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
-   --vdev="net_vdev_netvsc0,iface=eth1,force=1" \
-   --vdev="net_vdev_netvsc1,iface=eth2,force=1" \
+   --vdev="net_vdev_netvsc0,iface=eth1" \
+   --vdev="net_vdev_netvsc1,iface=eth2" \
    -i
    ```
 
-   If running with more than 2 NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>,force=1`.
+   If running with more than 2 NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
 3.  Once started, run `show port info all` to check port information. You should see one or two DPDK ports that are net_failsafe (not *net_mlx4*).
 4.  Use `start <port> /stop <port>` to start traffic.
@@ -195,7 +186,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>,force=1” \
+     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
@@ -210,7 +201,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>,force=1” \
+     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>” \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
@@ -230,7 +221,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>,force=1” \
+     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>” \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
@@ -246,8 +237,8 @@ The following commands periodically print the packets per second statistics:
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>,force=1” \
-     --vdev=” net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>,force=1” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
+     --vdev=” net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      –eth-peer=<recv port id>,<peer MAC address> \
