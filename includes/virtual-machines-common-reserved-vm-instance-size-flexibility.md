@@ -7,14 +7,17 @@ ms.date: 08-03-2018
 ---
 # Virtual machine size flexibility with Reserved VM Instances
 
-The reserved virtual machine instance you buy can apply to the VMs sizes in the same size series that are described in this article. For example, if you buy a reservation for a Standard_B8ms sized VM, listed in the B-series high memory table, the reservation discount can apply to the four sizes listed in that same table: Standard_B1ms, Standard_B2ms, Standard_B4ms, and Standard_B8ms. But that reservation discount doesn't apply to VMs sizes listed in different tables, like the B-series Standard_B1s or Standard_B2s sizes.
+With a reserved virtual machine instance optimized for instance size flexibility, the reservation you buy can apply to the virtual machines (VMs) sizes in the same size series. For example, if you buy a reservation for a VM size listed in the DSv2-series table, like Standard_DS5_v2, the reservation discount can apply to the five sizes listed in that same table: Standard_DS1_v2, Standard_DS2_v2, Standard_DS3_v2, Standard_DS4_v2, and Standard_DS5_v2. But that reservation discount doesn't apply to VMs sizes listed in different tables, like what's in the DSv2-series high memory table: Standard_DS11_v2, Standard_DS12_v2, etc.
 
-The number of VMs the reservation discount applies to within the size series depends on the VM size you pick when you buy a reserved instance. It also depends on the sizes of the VMs that you have running. The ratio column listed in the following tables compares the relative footprint for each VM size in that group. For example, if you buy a reserved VM instance with the size Standard_B8ms, the ratio or relative footprint compared to the other sizes in that series is 16. Then you run:
+Within the size series group, the number of VMs the reservation discount applies to depends on the VM size you pick when you buy a reserved instance. It also depends on the sizes of the VMs that you have running. The ratio column listed in the following tables compares the relative footprint for each VM size in that group. Use the ratio value to calculate how the reservation discount applies to the VMs you have running. Here are some examples using the sizes and ratios in the DSv2-series table:
 
-- two Standard_B2ms where the ratio = 4 for each, and
-- one Standard_B4ms where the ratio = 8
+ You buy a reserved VM instance with the size Standard_DS4_v2 where the ratio or relative footprint compared to the other sizes in that series is 8.
 
-The ratios for those three VMs adds up to the reservation footprint you bought: 4+4+8 = 16. You get the reservation discount on those three VMs. If you run an additional VM that is Standard_B1ms size where the ratio = 1, the reservation discount doesn't apply to that VM.  
+- Scenario 1: Run eight Standard_DS1_v2 sized VMs with a ratio of 1. Your reservation discount applies to all eight of those VMs.
+- Scenario 2: Run two Standard_DS2_v2 sized VMs with a ratio of 2 each. Also run a Standard_DS3_v2 sized VM with a ratio of 4. The total footprint is 2+2+4=8. So your reservation discount applies to all three of those VMs.
+- Scenario 3: Run one Standard_DS5_v2 with a ratio of 16. Your reservation discount applies to half that VM's compute cost.
+
+The following sections show what sizes are considered to be in the same size series group when you buy a reserved VM instances optimized for instance size flexibility.
 
 ## B-series
 
@@ -90,7 +93,7 @@ For more information, see [Previous generations of virtual machine sizes](../art
 |Standard_DS4_v2|8|
 |Standard_DS5_v2|16|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv2-series).
+For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv2-series).
 
 ## DSv2-series high memory
 
