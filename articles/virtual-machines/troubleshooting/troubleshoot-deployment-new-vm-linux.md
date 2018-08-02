@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: felixwu
+manager: jeconnoc
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -27,6 +27,7 @@ ms.author: cjiang
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
+
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 

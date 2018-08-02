@@ -68,3 +68,9 @@
       href: troubleshoot-deployment-new-vm-linux.md
     - name: Windows
       href: troubleshoot-deployment-new-vm-windows.md
+- name: Troubleshoot deployments
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md

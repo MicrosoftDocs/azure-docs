@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: willchen
+manager: jeconnoc
 editor: ''
 tags: top-support-issue, azure-resource-manager
 

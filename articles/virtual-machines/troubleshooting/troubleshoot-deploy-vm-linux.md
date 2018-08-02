@@ -3,7 +3,7 @@ title: Troubleshoot deploying Linux virtual machine issues in Azure | Microsoft 
 description: Troubleshoot deploying Linux virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: genlin
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
 
