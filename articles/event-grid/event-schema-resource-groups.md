@@ -32,7 +32,7 @@ Resource groups emit management events from Azure Resource Manager, such as when
 
 ## Example event
 
-The following example shows the schema of a resource created event: 
+The following example shows the schema for a **ResourceWriteSuccess** event. The same schema is used for **ResourceWriteFailure** and **ResourceWriteCancel** events with different values for `eventType`.
 
 ```json
 [{
@@ -92,7 +92,7 @@ The following example shows the schema of a resource created event:
 }]
 ```
 
-The schema for a resource deleted event is similar:
+The following example shows the schema for a **ResourceDeleteSuccess** event. The same schema is used for **ResourceDeleteFailure** and **ResourceDeleteCancel** events with different values for `eventType`.
 
 ```json
 [{
