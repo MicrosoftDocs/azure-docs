@@ -26,7 +26,7 @@ ms.custom: aaddev
 To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](./active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocols. SAML integration is not accepted for AppSource certification.
 
 ## Guides and code samples
-If you want to learn about how to integrate your application with Azure Active Directory using Open ID connect, follow our guides and code samples in the [Azure Active Directory developer's guide](./active-directory-developers-guide.md#get-started "Get Started with Azure AD for developers").
+If you want to learn about how to integrate your application with Azure Active Directory using Open ID connect, follow our guides and code samples in the [Azure Active Directory developer's guide](azure-ad-developers-guide.md#get-started "Get Started with Azure AD for developers").
 
 ## Multi-tenant applications
 
@@ -116,9 +116,9 @@ Use the following comments section to provide feedback and help us refine and sh
 <!--Reference style links -->
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]: azure-ad-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 
 <!--Image references-->

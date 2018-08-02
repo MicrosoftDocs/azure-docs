@@ -27,7 +27,7 @@ When you build applications that integrate with Azure Active Directory (Azure AD
 Here's a simplified recommendation for developers at this point in time:
 
 * If you must support personal Microsoft accounts in your application, use the v2.0 endpoint. But before you do, be sure that you understand the limitations discussed in this article.
-* If your application only needs to support Microsoft work and school accounts, don't use the v2.0 endpoint. Instead, refer to the [Azure AD developer guide](active-directory-developers-guide.md).
+* If your application only needs to support Microsoft work and school accounts, don't use the v2.0 endpoint. Instead, refer to the [Azure AD developer guide](azure-ad-developers-guide.md).
 
 The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
 
