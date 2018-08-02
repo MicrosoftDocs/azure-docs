@@ -1,55 +1,45 @@
 ---
 title: Batch process messages as a group or collection - Azure Logic Apps | Microsoft Docs
 description: Send and receive messages for batch processing in logic apps
-keywords: batch, batch process
-author: jonfancey
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 08/7/2017
-ms.author: LADocs; estfan; jonfan
+ms.date: 08/02/2018
+ms.reviewer: LADocs
+ms.suite: integration
 ---
 
-# Send, receive, and batch process messages in logic apps
+# Send, receive, and process batch messages in Azure Logic Apps
 
-To process messages together in groups, you can send data items, 
-or messages, to a *batch*, and then process those items as a batch. 
-This approach is useful when you want to make sure data items 
-are grouped in a specific way and are processed together. 
+To process messages in groups, you can send those messages to a *batch*, 
+and then process those items as a batch. This article shows how you can 
+use batching so you can make sure that data items are grouped in a 
+specific way and are processed together. To create a batching solution, 
+you'll create at least two logic apps in this order: 
 
-You can create logic apps that receive items 
-as a batch by using the **Batch** trigger. 
-You can then create logic apps that send items 
-to a batch by using the **Batch** action.
+* The ["batch receiver"](#batch-receiver) logic app, 
+which accepts and collects items into a batch. 
+This app specifies the batch name and release 
+criteria for releasing and processing items. 
 
-This topic shows how you can build a batching solution by performing these tasks: 
+* The ["batch sender"](#batch-sender) logic app, 
+which sends items to the previously created batch receiver logic app. 
 
-* [Create a logic app that receives and collects items as a batch](#batch-receiver). 
-This "batch receiver" logic app specifies the batch name and release criteria 
-to meet before the receiver logic app releases and processes items. 
+   You can also specify a unique key, such as a customer number, 
+   that *partitions* or divides the target batch into subsets 
+   based on that key. That way, the receiver app can collect 
+   all items with the same key and process them together.
 
-* [Create a logic app that sends items to a batch](#batch-sender). 
-This "batch sender" logic app specifies where to send items, 
-which must be an existing batch receiver logic app. 
-You can also specify a unique key, like a customer number, 
-to "partition", or divide, the target batch into subsets based on that key. 
-That way, all items with that key are collected and processed together. 
-
-## Requirements
+## Prerequisites
 
 To follow this example, you need these items:
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
-Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
@@ -59,17 +49,19 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 <a name="batch-receiver"></a>
 
-## Create logic apps that receive messages as a batch
+## Create batch receiver logic app
 
-Before you can send messages to a batch, you must first create a 
-"batch receiver" logic app with the **Batch** trigger. 
+Before you can send messages to a batch, 
+you must first create the "batch receiver" 
+logic app, which starts with the **Batch** trigger. 
 That way, you can select this receiver logic app 
 when you create the sender logic app. 
-For the receiver, you specify the batch name, release criteria, 
-and other settings. 
 
-Sender logic apps need know where to send items, 
+The sender logic app must know where to send items, 
 while receiver logic apps don't need to know anything about the senders.
+
+For the receiver, you specify the batch name, 
+release criteria, and other settings. 
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a logic app with this name: "BatchReceiver" 
