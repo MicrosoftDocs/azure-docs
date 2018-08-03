@@ -227,7 +227,7 @@ accepted a user-initiated action.
  "displayStatus": "OS Provisioning In progress"</br>
  }</br>
 ]</code></br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state, as the VM quickly transitions to Success unless any extensions need to be installed. Installing extensions can take time. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state. The VM quickly transitions to **Success** unless any extensions need to be installed. Installing extensions can take time. <br />
 <code> "statuses": [</br>
  {</br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
@@ -235,8 +235,8 @@ accepted a user-initiated action.
  "displayStatus": "OS Provisioning Complete"</br>
  }</br>
 ]</code></br>
-<p><b>Note</b>: OS Provisioning can transition to **Failed** if their is an OS failure or the OS fails to install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
-<p> **Succeeded**– This state represents that user-initiated actions have
+<p><b>Note</b>: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
+<p> **Succeeded** – the user-initiated actions have
 completed.</p>
 <code>
  "statuses": \[ </br>
@@ -248,8 +248,8 @@ completed.</p>
  }</br>
  \]</br>
 </code>
-<p>**Failed** – This state represents a failed operation. Refer to the error codes to get more information and possible
-resolution.</p>
+<p>**Failed** – represents a failed operation. Refer to the error codes to get more information and possible
+solutions.</p>
 <code>
  "statuses": [</br>
     {</br>
@@ -261,15 +261,10 @@ resolution.</p>
     }</br>
 </code>
 </p>
-<p> **Edge cases**: In cases where a VM was running and in a good state, a
-failed management operation will typically leave the VM running with the
-original VM model (configuration). If such a case happens, then the
-effective running VM model may be different from the latest received and
-persisted model by CRP. CRP persisted model gets returned with GetVM API. To resolve this
-issue, look at the error message (either from the last failed
-operation of the VM instance view). If the error is due to API input validation, then try to fix the inputs. If the error, is due to Azure
-internal errors a retry of the management operation should resolve the
-issue. </p>
+<p> **Edge cases**: If a VM was running and in a good state, a
+failed management operation will typically leave the VM in the **Running* state, which might be different from the latest state information received. To resolve this, look at the error message (either from the last failed
+operation or the VM instance view). If the error is becuase of API input validation, then try to fix the inputs. If the error, is due to Azure
+internal errors, retrying the management operation should resolve the issue. </p>
 </td>
 </tr>
 </table>
