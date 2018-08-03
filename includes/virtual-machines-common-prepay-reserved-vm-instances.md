@@ -10,12 +10,10 @@ You can buy Azure reserved instances in the [Azure portal](https://portal.azure.
 -	For Enterprise subscriptions, Reserved Instance purchases must be enabled in the [EA portal](https://ea.azure.com).
 -   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the reserved instances.
 
-[!IMPORTANT]
-You must use one of the methods described below to identify the correctly VM size for a reservation purchase.
-
 ## Determine the right VM size before purchase
-1. Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since these fields do not differentiate between S and Non-S versions of a VM.
-2. You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
+The Meter Sub-category and Product fields in the usage data doesn't distinguish between VM sizes that use premium storage from VM sizes that don't use premium storage, using these field to determine the VM size for reservation purchase can lead to incorrect reservation purchase and not provide you reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
+- Refer to the AdditionalInfo > ServiceType field in your usage file or usage API data. This field will provide the correct VM size when deploying VMs that can use premium storage.
+- You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
 
 ## Buy a Reserved Virtual Machine Instance
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -30,6 +28,7 @@ You must use one of the methods described below to identify the correctly VM siz
     |Scope       |The Reserved Instance’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The Reserved Instance discount is applied to VMs in this subscription. </li><li>Shared - The Reserved Instance discount is applied to VMs running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions (except dev/test subscriptions) within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
     |Location    |The Azure region that’s covered by the Reserved Instance.|    
     |VM Size     |The size of the VM instances.|
+    |Optimize for     |VM instance size flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). Capacity priority reserves datacenter capacity for your deployments. This offers additional confidence in your ability to launch the VM instances when you need them. Capacity priority is only available when the reservation scope is single subscription. |
     |Term        |One year or three years.|
     |Quantity    |The number of instances being purchased within the Reserved Instance. The quantity is the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
 5. You can view the cost of the Reserved Instance when you select **Calculate cost**.
