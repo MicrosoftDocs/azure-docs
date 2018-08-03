@@ -16,7 +16,7 @@ A query definition in Azure Search is a full specification of a request that inc
 
 ## Introduction by example
 
-Examples are useful for illustrating key concepts and capabilities. In the following example, formuated as a search request based on the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), parameters inform both the request and response. 
+Examples are useful for illustrating key concepts and capabilities. In the following example, formulated as a search request based on the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), parameters inform both the request and response. 
 
 ```
 {  
@@ -93,7 +93,7 @@ The syntax for filter expressions is a subset of the [OData filter language](htt
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
-The [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add **queryType=full** to the request, exposes the widely-adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Using this query syntax allows specialized queries:
+The [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add **queryType=full** to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Using this query syntax allows specialized queries:
 
 + [Field-scoped queries](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields)
 + [fuzzy search](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy)
