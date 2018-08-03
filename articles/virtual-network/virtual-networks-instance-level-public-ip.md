@@ -67,7 +67,7 @@ Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <St
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName  | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ```
-You want to specify a storage account as the location of new VM disk, you can use **MediaLocation** parameter:
+If you want to specify a storage account as the location of new VM disk, you can use **MediaLocation** parameter:
 
 	New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName>| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
