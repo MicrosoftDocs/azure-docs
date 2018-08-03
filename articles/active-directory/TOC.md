@@ -403,20 +403,20 @@
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
-##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
-##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
-##### [Block access when a session risk is detected](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Configure per cloud app MFA](conditional-access/app-based-mfa.md)
+##### [Require terms of use to be accepted](conditional-access/require-tou.md)
+##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
 ##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
-##### [Conditions](active-directory-conditional-access-conditions.md)
+##### [Conditions](conditional-access/conditions.md)
 ##### [Location conditions](active-directory-conditional-access-locations.md)
-##### [Controls](active-directory-conditional-access-controls.md)
+##### [Controls](conditional-access/controls.md)
 ##### [What if tool](active-directory-conditional-access-whatif.md)
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
-##### [Best practices](active-directory-conditional-access-best-practices.md)
+##### [Best practices](conditional-access/best-practices.md)
 ##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
 ##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
