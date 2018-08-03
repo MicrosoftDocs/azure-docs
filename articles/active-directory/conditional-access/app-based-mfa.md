@@ -24,9 +24,9 @@ ms.reviewer: calebb
 
 To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication (MFA). This might be, for example true, for access to your organization's email system or your HR apps. In Azure Active Directory (Azure AD), you can accomplish this goal with a conditional access policy.    
 
-This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) that requires multi-factor authentication for a selected cloud app in your environment.
+This quickstart shows how to configure an [Azure AD conditional access policy](../active-directory-conditional-access-azure-portal.md) that requires multi-factor authentication for a selected cloud app in your environment.
 
-![Create policy](./media/active-directory-conditional-access-app-based-mfa/32.png)
+![Create policy](./media/app-based-mfa/32.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -39,7 +39,7 @@ To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 ## Test your sign-in
@@ -69,7 +69,7 @@ In your policy, set:
 |Grant access | Require multi-factor authentication |
  
 
-![Create policy](./media/active-directory-conditional-access-app-based-mfa/31.png)
+![Create policy](./media/app-based-mfa/31.png)
 
  
 
@@ -80,27 +80,27 @@ In your policy, set:
 
 2. In the Azure portal, on the left navbar, click **Azure Active Directory**. 
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-app-based-mfa/02.png)
+    ![Azure Active Directory](./media/app-based-mfa/02.png)
 
 3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-app-based-mfa/03.png)
+    ![Conditional access](./media/app-based-mfa/03.png)
  
 4. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
 
-    ![Add](./media/active-directory-conditional-access-app-based-mfa/04.png)
+    ![Add](./media/app-based-mfa/04.png)
 
 5. On the **New** page, in the **Name** textbox, type **Require MFA for Azure portal access**.
 
-    ![Name](./media/active-directory-conditional-access-app-based-mfa/05.png)
+    ![Name](./media/app-based-mfa/05.png)
 
 6. In the **Assignment** section, click **Users and groups**.
 
-    ![Users and groups](./media/active-directory-conditional-access-app-based-mfa/06.png)
+    ![Users and groups](./media/app-based-mfa/06.png)
 
 7. On the **Users and groups** page, perform the following steps:
 
-    ![Users and groups](./media/active-directory-conditional-access-app-based-mfa/24.png)
+    ![Users and groups](./media/app-based-mfa/24.png)
 
     a. Click **Select users and groups**, and then select **Users and groups**.
 
@@ -112,11 +112,11 @@ In your policy, set:
 
 8. Click **Cloud apps**.
 
-    ![Cloud apps](./media/active-directory-conditional-access-app-based-mfa/08.png)
+    ![Cloud apps](./media/app-based-mfa/08.png)
 
 9. On the **Cloud apps** page, perform the following steps:
 
-    ![Select cloud apps](./media/active-directory-conditional-access-app-based-mfa/26.png)
+    ![Select cloud apps](./media/app-based-mfa/26.png)
 
     a. Click **Select apps**.
 
@@ -129,11 +129,11 @@ In your policy, set:
 
 10. In the **Access controls** section, click **Grant**.
 
-    ![Access controls](./media/active-directory-conditional-access-app-based-mfa/10.png)
+    ![Access controls](./media/app-based-mfa/10.png)
 
 11. On the **Grant** page, perform the following steps:
 
-    ![Grant](./media/active-directory-conditional-access-app-based-mfa/11.png)
+    ![Grant](./media/app-based-mfa/11.png)
 
     a. Select **Grant access**.
 
@@ -143,7 +143,7 @@ In your policy, set:
 
 12. In the **Enable policy** section, click **On**.
 
-    ![Enable policy](./media/active-directory-conditional-access-app-based-mfa/18.png)
+    ![Enable policy](./media/app-based-mfa/18.png)
 
 13. Click **Create**.
 
@@ -162,7 +162,7 @@ To initialize the what if policy evaluation tool, set:
 - **Require MFA for Azure portal access** under **Policies that will apply** 
 - **Require multi-factor authentication** as **Grant Controls**.
 
-![What if policy tool](./media/active-directory-conditional-access-app-based-mfa/23.png)
+![What if policy tool](./media/app-based-mfa/23.png)
 
 
 
@@ -170,15 +170,15 @@ To initialize the what if policy evaluation tool, set:
 
 1. On the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
  
-    ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
+    ![What If](./media/app-based-mfa/14.png)
 
 2. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
 
-    ![User](./media/active-directory-conditional-access-app-based-mfa/15.png)
+    ![User](./media/app-based-mfa/15.png)
 
 2. To select a cloud app, perform the following steps:
 
-    ![Cloud apps](./media/active-directory-conditional-access-app-based-mfa/16.png)
+    ![Cloud apps](./media/app-based-mfa/16.png)
 
     a. Click **Cloud apps**.
 
@@ -199,22 +199,22 @@ In the previous section, you have learned how to evaluate a simulated sign-in. I
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to set your account up for additional security verification.
 
-![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+![Multi-factor authentication](./media/app-based-mfa/22.png)
 
 
 ## Clean up resources
 
 When no longer needed, delete the test user and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
-    ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/33.png)
+    ![Multi-factor authentication](./media/app-based-mfa/33.png)
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Require terms of use to be accepted](./active-directory-conditional-access-tou.md)
-> [Block access when a session risk is detected](./active-directory-conditional-access-app-sign-in-risk.md)
+> [Require terms of use to be accepted](require-tou.md)
+> [Block access when a session risk is detected](app-sign-in-risk.md)
