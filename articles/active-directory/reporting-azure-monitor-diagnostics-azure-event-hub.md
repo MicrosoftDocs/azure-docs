@@ -51,7 +51,7 @@ To use this feature, you need:
 5. Select the **Stream to an event hub** check box, and then select **Event Hub/Configure**.
 
 6. Select the Azure subscription and Event Hubs namespace that you want to route the logs to.  
-    The subscription and Event Hubs namespace must both be associated with the Active Directory tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub is created in the namespace with the default name **insights-logs-audit**.
+    The subscription and Event Hubs namespace must both be associated with the Azure AD tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub is created in the namespace with the default name **insights-logs-audit**.
 
 7. Select **OK** to exit the event hub configuration.
 
@@ -71,18 +71,18 @@ To use this feature, you need:
 
 After data is displayed in the event hub, you can access and read the data in two ways:
 
-* **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Tools with Azure Monitor integration include, but are not limited to:
+* **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
     * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md).
     
-    * **IBM QRadar**: The device-specific module (DSM) and Azure Event Hub Protocol are available for download at [IBM support](http://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
+    * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](http://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
-    * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Collect logs for Azure audit from an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). 
+    * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Collect logs for Azure activity logs from an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). 
 
-* **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Get started receiving messages with the Event Processor Host in .NET Standard](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 
 
 ## Next steps
 
-* [Integrate Azure AD logs with Splunk by using Azure Monitor diagnostics](reporting-azure-monitor-diagnostics-splunk-integration.md)
-* [Interpret audit logs schema in Azure Monitor diagnostics](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure Monitor diagnostics](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+* [Interpret audit logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
