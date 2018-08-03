@@ -171,12 +171,13 @@
 #### [Plan Azure AD join](devices/azureadjoin-plan.md)
 #### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
 #### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
 #### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Concepts
-### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
-### [FAQs](devices/faq.md)
+#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
+#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
