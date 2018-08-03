@@ -260,14 +260,16 @@
     href: https://azure.microsoft.com/roadmap/?tag=azure-search
   - name: Demo sites
     items:
-    - name: JFK demo
+    - name: Financial files demo
+      href: http://wolterskluwereap.azurewebsites.net/
+    - name: JFK files demo
       href: http://aka.ms/jfkfiles
     - name: Job listings app
       href: http://aka.ms/azjobsdemo
-    - name: Live demo apps
-      href: https://searchsamples.azurewebsites.net/
-    - name: Search Analyzer Demo
+    - name: Search Analyzer demo
       href: http://alice.unearth.ai/
+    - name: Search use cases
+      href: https://searchsamples.azurewebsites.net/
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
