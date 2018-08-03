@@ -118,7 +118,7 @@ In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https:/
 
 ### Set up the Kubernetes cluster
 
-Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample cloned earlier or manually. In this section, you see how to do both.
+You can set up a blue/green deployment in AKS manually, or with a setup script provided in the sample cloned earlier. In this section, you see how to do both.
 
 #### Set up the Kubernetes cluster via the sample setup script
 1. Edit the **deploy/aks/setup/setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
@@ -128,7 +128,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     - **&lt;your-location>**
     - **&lt;your-dns-name-suffix>**
 
-    ![The setup.sh script contains several placeholders that can be modified for your environment.](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+    ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Run the setup script.
 
@@ -143,9 +143,9 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
-1. Change directory to the **deploy/aks/setup**  directory. 
+1. Change the directory to the **deploy/aks/setup** directory. 
 
-1. Run the following **kubectl** commands to set up the services for the public endpoint and the two test endpoints.
+1. Run the following **kubectl** commands to set up the services for the public endpoint, and the two test endpoints.
 
     ```bash
     kubectl apply -f  service-green.yml
@@ -153,12 +153,11 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Update the DNS name for the public and test endpoints. When a Kubernetes cluster is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
-    is created with the naming patter of **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
+1. Update the DNS name for the public and test endpoints. When you create a Kubernetes cluster, you also create an [additional resource group](https://github.com/Azure/AKS/issues/3), with the naming pattern of **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
 
-    Locate the public ip's in the resource group
+    Locate the public IPs in the resource group.
 
-    ![Public IP in the resource group](./media/jenkins-aks-blue-green-deployment/publicip.png)
+    ![Screenshot of the public IPs in the resource group](./media/jenkins-aks-blue-green-deployment/publicip.png)
 
     For each of the services, find the external IP address by running the following command:
     
@@ -180,17 +179,17 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
-    The DNS name needs to be unique in your subscription. `<your-dns-name-suffix>` can be used to ensure the uniqueness.
+    The DNS name needs to be unique in your subscription. To ensure the uniqueness, you can use `<your-dns-name-suffix>`.
 
-### Create Azure Container Registry
+### Create an Azure Container Registry
 
-1. Run the `az acr create` command to create an Azure Container Registry. After the Azure Container Registry creation, use `login server` as the Docker registry URL in the next section.
+1. Run the `az acr create` command to create an Azure Container Registry. In the next section, you can then use `login server` as the Docker registry URL.
 
     ```bash
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
-1. Run the `az acr credential` command to show your Azure Container Registry credentials. Note the Docker registry username and password as they are used in the next section.
+1. Run the `az acr credential` command to show your Container Registry credentials. Note the Docker registry username and password, as you need them in the next section.
 
     ```bash
     az acr credential show -n <your-registry-name>
@@ -198,7 +197,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 
 ## Prepare the Jenkins server
 
-In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, as explained in the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master), it is advised to use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. 
+In this section, you see how to prepare the Jenkins server to run a build, which is fine for testing. However, you should use an [Azure VM agent](https://plugins.jenkins.io/azure-vm-agents) or [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) to spin up an agent in Azure to run your builds. For more information, see the Jenkins article on the [security implications of building on master](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
 
 1. Deploy a [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
 
@@ -208,7 +207,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
    sudo apt-get install git maven 
    ```
    
-1. [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce). Ensure the user `jenkins` has permission to run the `docker` commands.
+1. [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce). Ensure that the user `jenkins` has permission to run the `docker` commands.
 
 1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
@@ -223,17 +222,17 @@ In this section, you see how to prepare the Jenkins server to run a build, which
 1. Install the plugins in Jenkins by performing the following steps within the Jenkins dashboard:
 
     1. Select **Manage Jenkins > Manage Plugins > Available**.
-    1. Search for and install the Azure Container Service Plugin.
+    1. Search for and install the Azure Container Service plug-in.
 
-1. You need to add credentials that will be used to manage resources in Azure. If you don’t already have the plugin, install the **Azure Credential** plugin.
+1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plugin.
 
-1. Add your Azure Service Principal credential as type/kind **Microsoft Azure Service Principal**.
+1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 
-1. Add your Azure Docker Registry username and password (as obtained in the section, **Create Azure Container Registry**) as type/kind **Username with password**.
+1. Add your Azure Docker registry username and password (as obtained in the section, **Create Azure Container Registry**) as the type **Username with password**.
 
 ## Edit the Jenkinsfile
 
-1. In your own repo, navigate to `/deploy/aks/` and open `Jenkinsfile`
+1. In your own repo, go to `/deploy/aks/`, and open `Jenkinsfile`.
 
 2. Update the file as follows:
 
@@ -249,7 +248,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
     def dockerRegistry = '<your-acr-name>.azurecr.io'
     ```
     
-    And update ACR credential ID:
+    Update the Container Registry credential ID:
     
     ```groovy
     def dockerCredentialId = '<your-acr-credential-id>'
@@ -258,34 +257,34 @@ In this section, you see how to prepare the Jenkins server to run a build, which
 ## Create the job
 1. Add a new job in type **Pipeline**.
 
-1. Select **Pipeline > Definition > Pipeline script from SCM**.
+1. Select **Pipeline** > **Definition** > **Pipeline script from SCM**.
 
-1. Enter the SCM repo url with your &lt;your-forked-repo>
+1. Enter the SCM repo URL with your &lt;your-forked-repo>.
 
 1. Enter the script path as `deploy/aks/Jenkinsfile`.
 
 ## Run the job
 
-1. Verify that you can run your project successfully in your local environment. [Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it)
+1. Verify that you can run your project successfully in your local environment. Here's how: [Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
-1. Run the Jenkins job. When running the Jenkins job the first time, Jenkins will deploy the todo app to the Blue environment, which is the default inactive environment. 
+1. Run the Jenkins job. The first time you run the job, Jenkins deploys the todo app to the blue environment, which is the default inactive environment. 
 
-1. To verify that the job ran, browse to the urls:
+1. To verify that the job ran, go to these URLs:
     - Public end point: `http://aks-todoapp<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
     - Blue end point - `http://aks-todoapp-blue<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
     - Green end point - `http://aks-todoapp-green<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
 
-The public and the Blue test end points have the same update while the Green end point shows the default tomcat image. 
+The public and the blue test end points have the same update, while the green end point shows the default tomcat image. 
 
-If you run the build more than once, it cycles through Blue and Green deployments. In other words, if the current environment is Blue, the job will deploy/test to the Green environment and then update the application public endpoint to route traffic to the Green environment if all is good with testing.
+If you run the build more than once, it cycles through blue and green deployments. In other words, if the current environment is blue, the job deploys and tests to the green environment. Then, if tests are good, the job updates the application public endpoint to route traffic to the green environment.
 
 ## Additional information
 
-For more on zero-downtime deployment, check out this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
+For more on zero-downtime deployment, see this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
 ## Clean up resources
 
-When no longer needed, delete the Azure resources you created in this tutorial.
+When you no longer need the resources you created in this tutorial, you can delete them.
 
 ```bash
 az group delete -y --no-wait -n <your-resource-group-name>
@@ -297,7 +296,7 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 
 ## Next steps
 
-In this tutorial, you learned how to deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern. To learn more about the Azure Jenkins provider, see the Jenkins on Azure site.
+In this tutorial, you learned how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern. To learn more about the Azure Jenkins provider, see the Jenkins on Azure site.
 
 > [!div class="nextstepaction"]
 > [Jenkins on Azure](/azure/jenkins/)
