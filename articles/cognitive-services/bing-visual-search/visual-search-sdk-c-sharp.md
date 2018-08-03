@@ -26,6 +26,7 @@ Code scenarios are documented under the following headings:
 * [Number of tags, number of actions, and first actionType](#num-tags-actions)
 
 ## Prerequisites
+
 * Visual Studio 2017. If necessary, you can download free community version from here: https://www.visualstudio.com/vs/community/.
 * A Cognitive Services API key is required to authenticate SDK calls. Sign up for a [free trial key](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). The trial key is good for seven days with one call per second. For production scenario, [buy access key](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). See also [pricing information](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 * The ability to run .NET core SDK, .net core 1.1 apps. You can get CORE, Framework, and Runtime from here: https://www.microsoft.com/net/download/.
@@ -39,64 +40,69 @@ Installing the [NuGet Web Search SDK package](https://www.nuget.org/packages/Mic
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-<a name="client"></a> 
+<a name="client"></a>
+
 ## Visual Search client
 To create an instance of the `VisualSearchAPI` client, add using directives:
-```
+
+```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
-
 ```
+
 Then, instantiate the client:
-```
+
+```csharp
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-
 ```
+
 Use the client to search images:
-```
+
+```csharp
  System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
  // The knowledgeRequest parameter is not required if an image binary is passed in the request body
  var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
+```
 
-```
 Parse the results of the previous query:
-```
-    // Visual Search results
-    if (visualSearchResults.Image?.ImageInsightsToken != null)
+
+```csharp
+// Visual Search results
+if (visualSearchResults.Image?.ImageInsightsToken != null)
+{
+    Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+}
+else
+{
+    Console.WriteLine("Couldn't find image insights token!");
+}
+
+// List of tags
+if (visualSearchResults.Tags.Count > 0)
+{
+    var firstTagResult = visualSearchResults.Tags.First();
+    Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
+
+    // List of actions in first tag
+    if (firstTagResult.Actions.Count > 0)
     {
-        Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+        var firstActionResult = firstTagResult.Actions.First();
+        Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+        Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
     }
     else
     {
-        Console.WriteLine("Couldn't find image insights token!");
+        Console.WriteLine("Couldn't find tag actions!");
     }
-
-    // List of tags
-    if (visualSearchResults.Tags.Count > 0)
-    {
-        var firstTagResult = visualSearchResults.Tags.First();
-        Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-        // List of actions in first tag
-        if (firstTagResult.Actions.Count > 0)
-        {
-            var firstActionResult = firstTagResult.Actions.First();
-            Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-            Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-        }
-        else
-        {
-            Console.WriteLine("Couldn't find tag actions!");
-        }
-
 ```
 
 <a name="complete"></a> 
+
 ## Complete console application
 
 The following console application executes the previously defined query and parses the results:
-```
+
+```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
 using System;
@@ -187,311 +193,318 @@ namespace VisualSrchSDK
         }
     }
 }
-
 ```
 
 The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `VisualSrchSDK` class.
 
 <a name="binary-crop"></a>
+
 ## Image binary post with cropArea
 
 The following code sends an image binary in the body of the post request, along with a cropArea object.  Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
 
-```
-        public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
+```csharp
+public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
+{
+    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+    try
+    {
+        using (FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open))
         {
-            var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+            // The ImageInfo struct contains a crop area specifying a region to crop in the uploaded image
+            CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
+            ImageInfo ImageInfo = new ImageInfo(cropArea: CropArea);
+            VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
 
-            try
+            // The knowledgeRequest here holds additional information about the image, which is passed in in binary form
+            var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: VisualSearchRequest).Result;
+            Console.WriteLine("\r\nVisual search request with binary of image with knowledgeRequest of CropArea");
+
+            if (visualSearchResults == null)
             {
-                using (FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open))
-                {
-                    // The ImageInfo struct contains a crop area specifying a region to crop in the uploaded image
-                    CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
-                    ImageInfo ImageInfo = new ImageInfo(cropArea: CropArea);
-                    VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
-
-                    // The knowledgeRequest here holds additional information about the image, which is passed in in binary form
-                    var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: VisualSearchRequest).Result;
-                    Console.WriteLine("\r\nVisual search request with binary of image with knowledgeRequest of CropArea");
-
-                    if (visualSearchResults == null)
-                    {
-                        Console.WriteLine("No visual search result data.");
-                    }
-                    else
-                    {
-                        // Visual Search results
-                        if (visualSearchResults.Image?.ImageInsightsToken != null)
-                        {
-                            Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image insights token!");
-                        }
-
-                        // List of tags
-                        if (visualSearchResults.Tags.Count > 0)
-                        {
-                            var firstTagResult = visualSearchResults.Tags.First();
-                            Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                            // List of actions in first tag
-                            if (firstTagResult.Actions.Count > 0)
-                            {
-                                var firstActionResult = firstTagResult.Actions.First();
-                                Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                                Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Couldn't find tag actions!");
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image tags!");
-                        }
-                    }
-                }
+                Console.WriteLine("No visual search result data.");
             }
-
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-<a name="knowledge-req"></a>
-## KnowledgeRequest parameter
-
-The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter.  Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
-```
-        public static void VisualSearchUrlWithFilters(string subscriptionKey)
-        {
-            var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
-            {
-                // The image can be specified via URL, in the ImageInfo object
-                var ImageUrl = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80";
-                ImageInfo ImageInfo = new ImageInfo(url: ImageUrl);
-
-                // Optional filters inside the knowledgeRequest will restrict similar products and images to certain domains
-                Filters Filters = new Filters(site: "www.bing.com");
-                KnowledgeRequest KnowledgeRequest = new KnowledgeRequest(filters: Filters);
-
-                // An image binary is not necessary here, as the image is specified via URL
-                VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo, knowledgeRequest: KnowledgeRequest);
-                var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
-                Console.WriteLine("\r\nVisual search request with url of image and knowledgeRequest based on filters");
-
-                if (visualSearchResults == null)
+                // Visual Search results
+                if (visualSearchResults.Image?.ImageInsightsToken != null)
                 {
-                    Console.WriteLine("No visual search result data.");
+                    Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
                 }
                 else
                 {
-                    // Visual Search results
-                    if (visualSearchResults.Image?.ImageInsightsToken != null)
+                    Console.WriteLine("Couldn't find image insights token!");
+                }
+
+                // List of tags
+                if (visualSearchResults.Tags.Count > 0)
+                {
+                    var firstTagResult = visualSearchResults.Tags.First();
+                    Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
+
+                    // List of actions in first tag
+                    if (firstTagResult.Actions.Count > 0)
                     {
-                        Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+                        var firstActionResult = firstTagResult.Actions.First();
+                        Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+                        Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
                     }
                     else
                     {
-                        Console.WriteLine("Couldn't find image insights token!");
+                        Console.WriteLine("Couldn't find tag actions!");
                     }
 
-                    // List of tags
-                    if (visualSearchResults.Tags.Count > 0)
-                    {
-                        var firstTagResult = visualSearchResults.Tags.First();
-                        Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                        // List of actions in first tag
-                        if (firstTagResult.Actions.Count > 0)
-                        {
-                            var firstActionResult = firstTagResult.Actions.First();
-                            Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                            Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image tags!");
-                    }
+                }
+                else
+                {
+                    Console.WriteLine("Couldn't find image tags!");
                 }
             }
+        }
+    }
 
-            catch (Exception ex)
+    catch (Exception ex)
+    {
+        Console.WriteLine("Encountered exception. " + ex.Message);
+    }
+}
+```
+
+<a name="knowledge-req"></a>
+
+## KnowledgeRequest parameter
+
+The following code sends an image url in the `knowledgeRequest` parameter, along with a \"site:www.bing.com\" filter.  Then it prints the `imageInsightsToken`, the number of tags, the number of actions, and the first actionType.
+
+```csharp
+public static void VisualSearchUrlWithFilters(string subscriptionKey)
+{
+    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+    try
+    {
+        // The image can be specified via URL, in the ImageInfo object
+        var ImageUrl = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80";
+        ImageInfo ImageInfo = new ImageInfo(url: ImageUrl);
+
+        // Optional filters inside the knowledgeRequest will restrict similar products and images to certain domains
+        Filters Filters = new Filters(site: "www.bing.com");
+        KnowledgeRequest KnowledgeRequest = new KnowledgeRequest(filters: Filters);
+
+        // An image binary is not necessary here, as the image is specified via URL
+        VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo, knowledgeRequest: KnowledgeRequest);
+        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
+        Console.WriteLine("\r\nVisual search request with url of image and knowledgeRequest based on filters");
+
+        if (visualSearchResults == null)
+        {
+            Console.WriteLine("No visual search result data.");
+        }
+        else
+        {
+            // Visual Search results
+            if (visualSearchResults.Image?.ImageInsightsToken != null)
             {
-                Console.WriteLine("Encountered exception. " + ex.Message);
+                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find image insights token!");
+            }
+
+            // List of tags
+            if (visualSearchResults.Tags.Count > 0)
+            {
+                var firstTagResult = visualSearchResults.Tags.First();
+                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
+
+                // List of actions in first tag
+                if (firstTagResult.Actions.Count > 0)
+                {
+                    var firstActionResult = firstTagResult.Actions.First();
+                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
+                }
+                else
+                {
+                    Console.WriteLine("Couldn't find tag actions!");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find image tags!");
             }
         }
+    }
 
+    catch (Exception ex)
+    {
+        Console.WriteLine("Encountered exception. " + ex.Message);
+    }
+}
 ```
+
 <a name="tags-actions"></a>
+
 ## Tags, actions, and actionType
 
 The following code sends an image insights token in the knowledgeRequest parameter, along with a cropArea object.  Then it prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
 
-```
-        public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
+```csharp
+public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
+{
+    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+    try
+    {
+        // The image can be specified via an insights token, in the ImageInfo object
+        var ImageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+
+        // An optional crop area can be passed in to define a region of interest in the image
+        CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
+        ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: ImageInsightsToken, cropArea: CropArea);
+
+        // An image binary is not necessary here, as the image is specified via insights token
+        VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
+        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
+        Console.WriteLine("\r\nVisual search request with ImageInsightsToken and knowledgeRequest based on imageInfo of cropArea");
+
+        if (visualSearchResults == null)
         {
-            var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
+            Console.WriteLine("No visual search result data.");
+        }
+        else
+        {
+            // Visual Search results
+            if (visualSearchResults.Image?.ImageInsightsToken != null)
             {
-                // The image can be specified via an insights token, in the ImageInfo object
-                var ImageInsightsToken = "bcid_113F29C079F18F385732D8046EC80145*ccid_oV/QcH95*mid_687689FAFA449B35BC11A1AE6CEAB6F9A9B53708*thid_R.113F29C079F18F385732D8046EC80145";
+                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find image insights token!");
+            }
 
-                // An optional crop area can be passed in to define a region of interest in the image
-                CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
-                ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: ImageInsightsToken, cropArea: CropArea);
+            // List of tags
+            if (visualSearchResults.Tags.Count > 0)
+            {
+                var firstTagResult = visualSearchResults.Tags.First();
+                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
 
-                // An image binary is not necessary here, as the image is specified via insights token
-                VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
-                var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
-                Console.WriteLine("\r\nVisual search request with ImageInsightsToken and knowledgeRequest based on imageInfo of cropArea");
-
-                if (visualSearchResults == null)
+                // List of actions in first tag
+                if (firstTagResult.Actions.Count > 0)
                 {
-                    Console.WriteLine("No visual search result data.");
+                    var firstActionResult = firstTagResult.Actions.First();
+                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
                 }
                 else
                 {
-                    // Visual Search results
-                    if (visualSearchResults.Image?.ImageInsightsToken != null)
-                    {
-                        Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image insights token!");
-                    }
-
-                    // List of tags
-                    if (visualSearchResults.Tags.Count > 0)
-                    {
-                        var firstTagResult = visualSearchResults.Tags.First();
-                        Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                        // List of actions in first tag
-                        if (firstTagResult.Actions.Count > 0)
-                        {
-                            var firstActionResult = firstTagResult.Actions.First();
-                            Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                            Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image tags!");
-                    }
+                    Console.WriteLine("Couldn't find tag actions!");
                 }
-            }
 
-            catch (Exception ex)
+            }
+            else
             {
-                Console.WriteLine("Encountered exception. " + ex.Message);
+                Console.WriteLine("Couldn't find image tags!");
             }
         }
+    }
+
+    catch (Exception ex)
+    {
+        Console.WriteLine("Encountered exception. " + ex.Message);
+    }
+}
 ```
+
 <a name="num-tags-actions"></a>
+
 ## Number of tags, number of actions, and first actionType
+
 The following code sends an image url in the knowledgeRequest parameter, along with a crop area.  Then prints the imageInsightsToken, the number of tags, the number of actions, and the first actionType.
-```
-        public static void VisualSearchUrlWithJson(string subscriptionKey)
+
+```csharp
+public static void VisualSearchUrlWithJson(string subscriptionKey)
+{
+    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+
+    try
+    {
+
+        //The visual search request can be passed in as a JSON string
+        //The image is specified via URL in the ImageInfo object, along with a crop area as shown below:
+        
+        //     "imageInfo": {
+        //         "url": "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80",
+        //     "cropArea": {
+        //           "top": 0.1,
+        //           "bottom": 0.5,
+        //           "left": 0.1,
+        //           "right": 0.9
+        //         }
+        //     },
+        //     "knowledgeRequest": {
+        //        "filters": {
+        //            "site": "www.bing.com"
+        //        }              
+        //     }
+
+        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"www.bing.com\"}}}";
+
+        // An image binary is not necessary here, as the image is specified by URL in JSON text
+        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequestJSON).Result;
+        Console.WriteLine("\r\nVisual search request with image url specified by JSON text");
+
+        if (visualSearchResults == null)
         {
-            var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
+            Console.WriteLine("No visual search result data.");
+        }
+        else
+        {
+            // Visual Search results
+            if (visualSearchResults.Image?.ImageInsightsToken != null)
             {
+                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
+            }
+            else
+            {
+                Console.WriteLine("Couldn't find image insights token!");
+            }
 
-                //The visual search request can be passed in as a JSON string
-                //The image is specified via URL in the ImageInfo object, along with a crop area as shown below:
-                
-                //     "imageInfo": {
-                //         "url": "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80",
-                //     "cropArea": {
-                //           "top": 0.1,
-                //           "bottom": 0.5,
-                //           "left": 0.1,
-                //           "right": 0.9
-                //         }
-                //     },
-                //     "knowledgeRequest": {
-                //        "filters": {
-                //            "site": "www.bing.com"
-                //        }              
-                //     }
+            // List of tags
+            if (visualSearchResults.Tags.Count > 0)
+            {
+                var firstTagResult = visualSearchResults.Tags.First();
+                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
 
-                var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"www.bing.com\"}}}";
-
-                // An image binary is not necessary here, as the image is specified by URL in JSON text
-                var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequestJSON).Result;
-                Console.WriteLine("\r\nVisual search request with image url specified by JSON text");
-
-                if (visualSearchResults == null)
+                // List of actions in first tag
+                if (firstTagResult.Actions.Count > 0)
                 {
-                    Console.WriteLine("No visual search result data.");
+                    var firstActionResult = firstTagResult.Actions.First();
+                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
                 }
                 else
                 {
-                    // Visual Search results
-                    if (visualSearchResults.Image?.ImageInsightsToken != null)
-                    {
-                        Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image insights token!");
-                    }
-
-                    // List of tags
-                    if (visualSearchResults.Tags.Count > 0)
-                    {
-                        var firstTagResult = visualSearchResults.Tags.First();
-                        Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                        // List of actions in first tag
-                        if (firstTagResult.Actions.Count > 0)
-                        {
-                            var firstActionResult = firstTagResult.Actions.First();
-                            Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                            Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find image tags!");
-                    }
+                    Console.WriteLine("Couldn't find tag actions!");
                 }
-            }
 
-            catch (Exception ex)
+            }
+            else
             {
-                Console.WriteLine("Encountered exception. " + ex.Message);
+                Console.WriteLine("Couldn't find image tags!");
             }
         }
+    }
+
+    catch (Exception ex)
+    {
+        Console.WriteLine("Encountered exception. " + ex.Message);
+    }
+}
 ```
 
 ## Next steps

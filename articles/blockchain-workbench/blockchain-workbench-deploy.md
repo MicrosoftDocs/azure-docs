@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -208,9 +208,13 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
 8.  Click **OK** to finish the Azure AD Parameters configuration section.
 
-9.  Complete the **Network size and performance** settings.
+9.  In **Network Settings and Performance**, choose if you want to create a new blockchain network or use an existing proof-of-authority blockchain network.
 
-    ![Network and performance settings](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    For **Create new**:
+
+    The *create new* option creates a set of Ethereum Proof-of Authority (PoA) nodes within a single member’s subscription. 
+
+    ![Network settings and performance](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Setting | Description  |
     |---------|--------------|
@@ -218,7 +222,23 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
     | Virtual machine size | Choose the preferred VM size for your blockchain network. |
 
-10. Select **OK** to finish the network size and performance section.
+    For **Use existing**:
+
+    The *use existing* option allows you to specify an Ethereum Proof-of-Authority (PoA) blockchain network. Endpoints have the following requirements.
+
+    * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
+    * The endpoint must be publicly accessible over the network.
+    * The PoA blockchain network should be configured to have gas price set to zero (Note: Blockchain Workbench accounts are not funded. If funds are required, the transactions fail).
+
+    ![Network settings and performance](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Setting | Description  |
+    |---------|--------------|
+    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http:// and ends with a port number. For example, `http://contoso-chain.onmicrosoft.com:8545` |
+    | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
+    | Virtual machine size | Choose the preferred VM size for your blockchain network. |
+
+10. Select **OK** to finish network settings and performance.
 
 11. Complete the **Azure Monitor** settings.
 

@@ -3,15 +3,15 @@ title: Tutorial using pattern roles to improve LUIS predictions - Azure | Micros
 titleSuffix: Cognitive Services
 description: In this tutorial, use pattern roles for contextually related entities to improve LUIS predictions.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 07/20/2018
-ms.author: v-geberr;
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 

@@ -72,7 +72,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry.
 
-Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az-acr-list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -174,4 +174,4 @@ Advance to the next tutorial to learn about upgrading Kubernetes to a new versio
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login

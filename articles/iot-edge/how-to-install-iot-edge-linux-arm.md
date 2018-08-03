@@ -97,6 +97,10 @@ The edge device can be configured manually using a [device connection string][ln
      registration_id: "{registration_id}"
    ```
 
+Save and close the file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
 After entering the provisioning information in the configuration, restart the daemon:
 
 ```cmd/sh

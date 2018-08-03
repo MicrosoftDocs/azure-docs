@@ -2,14 +2,14 @@
 title: Review endpoint utterances to use active learning in Language Understanding (LUIS) - Azure| Microsoft Docs
 description: Use the active learning feature named 'Review endpoint utterances' to improve performance predictions faster. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 # Enable active learning by reviewing endpoint utterances
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. 
