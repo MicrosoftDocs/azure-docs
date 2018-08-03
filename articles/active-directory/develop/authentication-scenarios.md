@@ -41,7 +41,7 @@ If you are unfamiliar with basic concepts of authentication in Azure AD, read th
 
 Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application. This scenario is described in greater detail in the [Web browser to web application](#web-browser-to-web-application) section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works. Consider the following diagram for this scenario:
 
-![Overview of sign-on to web application](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
+![Overview of sign-on to web application](./media/authentication-scenarios/basics_of_auth_in_aad.png)
 
 With the diagram above in mind, here’s what you need to know about its various components:
 
@@ -111,7 +111,7 @@ Each scenario listed in this document includes a subsection that describes its p
 
 Each of the scenarios described here can be developed using various languages and platforms. They are all backed by complete code samples available in the [Code Samples guide](active-directory-code-samples.md), or directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory). In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
-![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
+![Application Types and scenarios](./media/authentication-scenarios/application_types_and_scenarios.png)
 
 These are the five primary application scenarios supported by Azure AD:
 
@@ -127,7 +127,7 @@ This section describes an application that authenticates a user in a web browser
 
 #### Diagram
 
-![Authentication flow for browser to web application](./media/active-directory-authentication-scenarios/web_browser_to_web_api.png)
+![Authentication flow for browser to web application](./media/authentication-scenarios/web_browser_to_web_api.png)
 
 #### Description of protocol flow
 
@@ -157,7 +157,7 @@ In this scenario, when the user signs in, the JavaScript front end uses [Active 
 
 #### Diagram
 
-![Single Page Application diagram](./media/active-directory-authentication-scenarios/single_page_app.png)
+![Single Page Application diagram](./media/authentication-scenarios/single_page_app.png)
 
 #### Description of protocol flow
 
@@ -196,7 +196,7 @@ This section describes a native application that calls a web API on behalf of a 
 
 #### Diagram
 
-![Native Application to Web API Diagram](./media/active-directory-authentication-scenarios/native_app_to_web_api.png)
+![Native Application to Web API Diagram](./media/authentication-scenarios/native_app_to_web_api.png)
 
 #### Description of protocol flow
 
@@ -235,7 +235,7 @@ This section describes a web application that needs to get resources from a web 
 
 #### Diagram
 
-![Web Application to Web API diagram](./media/active-directory-authentication-scenarios/web_app_to_web_api.png)
+![Web Application to Web API diagram](./media/authentication-scenarios/web_app_to_web_api.png)
 
 #### Description of protocol flow
 
@@ -288,7 +288,7 @@ For the scenario when a server application needs to call a web API, it’s helpf
 
 #### Diagram
 
-![Daemon or Server Application to Web API diagram](./media/active-directory-authentication-scenarios/daemon_server_app_to_web_api.png)
+![Daemon or Server Application to Web API diagram](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
 #### Description of protocol flow
 

@@ -68,10 +68,12 @@ Audit logs for this new experience exist under the Authentication Methods catego
 ## Known issues
 
 **Default MFA method is set to phone call when user registers phone using text message**
-   * Some users may notice that their default MFA method is set to phone call after they register their phone number using text message. Users can resolve this issue by changing their default method by following these instructions. 
+
+   * Some users may notice that their default MFA method is set to phone call after they register their phone number using text message. Users can resolve this issue by changing their default method by following the instructions found in the article [Manage your security info (preview)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **User unable to access the new registration experience after admin disables their default method**
-   * Some users may not be able to access the new registration experience if their previously registered default MFA method has been disabled by their administrator. Here is an example scenario: 
+
+   * Some users may not be able to access the new registration experience if their previously registered default MFA method has been disabled by their administrator. Here is an example scenario:
       1. User previously registered their phone number and set their default method to phone call.
       2. Admin disables phone call as an MFA method for the tenant.
       3. User is prompted to register during sign-in because they need to register an additional method to meet the tenant SSPR policy.

@@ -130,9 +130,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 8. **Cache document URIs for lower read latency**
 
-    Cache document URIs whenever possible for the best read performance.
+    Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resourceid when you create the resource. Resourceid based lookups are faster than name based lookups, so caching these values improves the performance. 
+
    <a id="tune-page-size"></a>
-9. **Tune the page size for queries/read feeds for better performance**
+1. **Tune the page size for queries/read feeds for better performance**
 
     When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
