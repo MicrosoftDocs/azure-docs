@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Stack syslog forwarding
 description: Learn how to integrate Azure Stack with monitoring solutions by using syslog forwarding
 services: azure-stack
