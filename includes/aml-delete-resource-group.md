@@ -8,7 +8,7 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 02/28/2018
+ms.date: 07/28/2018
 ---
 
 If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:
@@ -23,4 +23,6 @@ If you're not going to continue to use this app, delete all resources created by
 2. From the list of resource groups, select the resource group you created, and then click **Delete resource group**.
 
 3. Type the name of the resource group to delete, and then click **Delete**.
+
+   If you get the error "Can not delete resource before nested resources are deleted", you must delete any nested resources first. [Refer to this troubleshooting section](../articles/machine-learning/services/known-issues-and-troubleshooting-guide#cant-delete-experimentation-account) for details. 
 
