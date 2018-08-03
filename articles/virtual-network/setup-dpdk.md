@@ -1,6 +1,6 @@
 ---
 title: DPDK in an Azure Linux VM | Microsoft Docs
-description: Learn how to setup the DPDK in a Linux virtual machine.
+description: Learn how to setup DPDK in a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -17,15 +17,15 @@ ms.date: 07/27/2018
 ms.author: labattul
 
 ---
-# Setup the DPDK in a Linux virtual machine
+# Setup DPDK in a Linux virtual machine
 
-The Data Plane Development Kit (DPDK) on Azure offers a faster user space packet processing framework for performance intensive applications that bypass the virtual machine’s kernel network stack.
+Data Plane Development Kit (DPDK) on Azure offers a faster user space packet processing framework for performance intensive applications that bypass the virtual machine’s kernel network stack.
 
-Typical packet processing using the kernel network stack is interrupt driven. Each time the network interface receives incoming packets, there is a kernel interrupt to process the packet and context switch from kernel space to user space. The DPDK eliminates context switching and the interrupt driven method in favor of a user space implementation using poll mode drivers for fast packet processing.
+Typical packet processing using the kernel network stack is interrupt driven. Each time the network interface receives incoming packets, there is a kernel interrupt to process the packet and context switch from kernel space to user space. DPDK eliminates context switching and the interrupt driven method in favor of a user space implementation using poll mode drivers for fast packet processing.
 
-The DPDK consists of set of user space libraries providing access to lower-level resources such as hardware, logical cores, memory management, and poll mode drivers for network interface cards.
+DPDK consists of set of user space libraries providing access to lower-level resources such as hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
-The DPDK can run in Azure virtual machines, supporting multiple operating system distributions. The DPDK provides a key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVA) such as a virtual router, firewall, VPN, load balancer, evolved packet core, and denial-of-service (DDoS) applications.
+DPDK can run in Azure virtual machines, supporting multiple operating system distributions. DPDK provides a key performance differentiation in driving network function virtualization implementations, in the form of network virtual appliances (NVA) such as a virtual router, firewall, VPN, load balancer, evolved packet core, and denial-of-service (DDoS) applications.
 
 ## Benefit
 
@@ -50,7 +50,7 @@ Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/m
 
 ## Region support
 
-All Azure regions support the DPDK.
+All Azure regions support DPDK.
 
 ## Prerequisites
 
@@ -128,14 +128,14 @@ Run the following commands once, after rebooting:
    *  Check hugepages are reserved with `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > There is a way to modify the grub file so that huge pages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instruction is at the bottom of the page. When running in an Azure Linux virtual machine, modify files under /etc/config/grub.d instead, to reserve hugepages across reboots.
+     > There is a way to modify the grub file so that huge pages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for DPDK. The instruction is at the bottom of the page. When running in an Azure Linux virtual machine, modify files under /etc/config/grub.d instead, to reserve hugepages across reboots.
 
 2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address.
 
 3. PCI addresses
 
    * Find out which PCI address to use for *VF* with `ethtool -i <vf interface name>`.
-   * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If the DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to kill the DPDK application, or to stop or start the virtual machine.
+   * Ensure that testpmd doesn’t accidentally take over the VF pci device for *eth0*, if *eth0* has accelerated networking enabled. If DPDK application has accidentally taken over the management network interface and causes loss of your SSH connection, use the serial console to kill DPDK application, or to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, load *mlx4_ib* with 'modprobe -a mlx4_ib'.
 
