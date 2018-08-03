@@ -175,8 +175,6 @@
         href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - reserved instances
-      href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
     - name: Common CLI tasks
@@ -228,6 +226,14 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Manage costs
+    items:
+    - name: Prepay for VMs - reserved instances
+      href: prepay-reserved-vm-instances.md
+    - name: What are reserved instances?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Find and use images
