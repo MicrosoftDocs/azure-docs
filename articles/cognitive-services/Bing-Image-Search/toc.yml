@@ -4,35 +4,33 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: Quickstarts
+- name: REST API Quickstarts
+  expanded: true
   items:
-    - name: REST API Quickstarts
-      expanded: true
-      items:
-      - name: C#
-        href: quickstarts/csharp.md
-      - name: Java
-        href: quickstarts/java.md
-      - name: Node.js
-        href: quickstarts/nodejs.md
-      - name: PHP
-        href: quickstarts/php.md
-      - name: Python
-        href: quickstarts/python.md
-      - name: Ruby
-        href: quickstarts/ruby.md
-    - name: SDK Quickstarts
-      items:
-      - name: SDK samples overview 
-        href: sdk.md
-      - name: Image search SDK C# quickstart
-        href: image-search-sdk-quickstart.md
-      - name: Image search SDK Node.js quickstart
-        href: image-search-sdk-node-quickstart.md
-      - name: Image Search SDK Python quickstart
-        href: image-sdk-python-quickstart.md
-      - name: Image Search SDK Java quickstart
-        href: image-sdk-java-quickstart.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Image search SDK C# quickstart
+    href: image-search-sdk-quickstart.md
+  - name: Image search SDK Node.js quickstart
+    href: image-search-sdk-node-quickstart.md
+  - name: Image Search SDK Python quickstart
+    href: image-sdk-python-quickstart.md
+  - name: Image Search SDK Java quickstart
+    href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page web app

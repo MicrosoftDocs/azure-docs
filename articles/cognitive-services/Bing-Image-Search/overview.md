@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: scottwhi
-#Customer intent: As a developer, I want to integrate Bing's image search capabilities into my app, so that I can provide relevant, high-quality images to my users.
+#Customer intent: As a developer, I want to integrate Bing's image search capabilities into my app, so that I can provide relevant, engaging images to my users.
 ---
 
 # What is Bing Image Search?
 
-The Bing Image Search API enables you to develop intelligent apps that leverage Bing's cognitive image service. By sending user search queries with the API, you can provide relevant image-specific results, similar to [Bing Images](https://www.bing.com/images).    
+The Bing Image Search API enables you to develop intelligent apps that leverage Bing's cognitive image service. By sending user search queries with the API, you can get relevant image-specific results similar to [Bing Images](https://www.bing.com/images).    
 
 > [NOTE]
 > The Bing Image Search API provides image-only search results. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) and [News Search API](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search) for other types of web content. 
@@ -24,7 +24,7 @@ The Bing Image Search API enables you to develop intelligent apps that leverage 
 
 After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if a user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
-If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in realtime. The API returns suggested query strings based on partial search terms and Azure cognitive services. 
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure cognitive services.
 
 ## Getting images
 
@@ -39,10 +39,10 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-All requests must be made from a server, and not from a client.
-
 > [!IMPORTANT]
-> If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
+> * All requests must be made from a server, and not from a client.
+> * If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
+> * Images must be displayed in the order provided in the response.
 
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
@@ -50,7 +50,7 @@ To get images from a specific domain, use the [site:](http://msdn.microsoft.com/
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-The response contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Azure cognitive services determined to be relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the following information about the image: the URL, its size, its dimensions,its encoding format, a URL to a thumbnail of the image, and the thumbnail's dimensions.
+The response contains an [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) answer that contains a list of images that Azure cognitive services determined to be relevant to the query. Each [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in the list includes the following information about the image: the URL, its size, its dimensions, its encoding format, a URL to a thumbnail of the image, and the thumbnail's dimensions.
 
 ```json
 {
@@ -79,9 +79,13 @@ The response contains an [Images](https://docs.microsoft.com/rest/api/cognitives
 },
 ```
 
-You could display a collage of all the image thumbnails or you could display a subset of the thumbnails. If you display a subset, provide the user the option to view the remaining images. You must display the images in the order provided in the response.
+## Displaying thumbnails
 
-You can also expand the thumbnail as the user hovers the cursor over it. Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md).
+The information in the response can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide a option to view the remaining images. 
+
+You can also resize and expand thumbnails, such as when a user's cursor hovers above it. Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image. 
+
+For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md).
 
 <!-- Removing image until we can replace it with a sanatized version.
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
@@ -113,7 +117,7 @@ To get insights about the image, such as web pages that include the image or peo
 To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 > [!NOTE]
-> Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site` if you are aware of the content on the site.
+> Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you are aware of the content on the domain.
 
 The following example shows how to get small images from ContosoSailing.com that Bing has discovered in the past week.  
 
@@ -128,7 +132,7 @@ Host: api.cognitive.microsoft.com
 
 ## Pivoting the query
 
-If Bing can segment the original search query, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object will contain the `pivotSuggestions` field. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These can be displayed as optional query terms to the user. 
+If Bing can segment the original search query, the returned [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) object will contain `pivotSuggestions` which can be displayed as optional search terms to the user. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface* and provide suggested pivots for each. These can be displayed as optional query terms to the user.
 
 The following example shows the pivot suggestions for *Microsoft Surface*:  
 
