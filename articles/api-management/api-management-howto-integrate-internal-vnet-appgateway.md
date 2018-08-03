@@ -75,6 +75,9 @@ In the first setup example all your APIs are managed only from within your Virtu
 
 In this guide we will also expose the **developer portal** to external audiences through the Application Gateway. It requires additional steps to create developer portal's listener, probe, settings and rules. All details are provided in respective steps.
 
+> [!WARNING]
+> In the described setup of the developer portal being accessed through Application Gateway, you may experience problems with the AAD and Facebook authentication.
+
 ## Create a resource group for Resource Manager
 
 ### Step 1
