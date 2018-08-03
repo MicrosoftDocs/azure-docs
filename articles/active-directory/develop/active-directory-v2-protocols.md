@@ -45,7 +45,7 @@ Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.mi
 * A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 * A few other scenario-specific values.
 
-For more details, learn how to [register an app](active-directory-v2-app-registration.md).
+For more details, learn how to [register an app](quickstart-v2-register-an-app.md).
 
 ## Endpoints
 Once registered, the app communicates with Azure AD by sending requests to the v2.0 endpoint:

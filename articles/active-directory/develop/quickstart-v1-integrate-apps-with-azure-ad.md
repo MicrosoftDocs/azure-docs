@@ -36,7 +36,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, and click **New application registration**.
 
-   ![Register a new application](./media/active-directory-integrating-applications/add-app-registration.png)
+   ![Register a new application](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration.png)
 
 4. When the **Create** page appears, enter your application's registration information: 
 
@@ -47,7 +47,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
   - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application. 
   - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
-   ![Register a new application - create](./media/active-directory-integrating-applications/add-app-registration-create.png)
+   ![Register a new application - create](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
    If you'd like specific examples for web applications or native applications, check out our [quickstarts](azure-ad-developers-guide.md#get-started).
 
@@ -77,23 +77,23 @@ The following steps show you how the consent experience works for both the appli
 
 1. Assume you have a web client application that needs to request specific permissions to access a resource/API. You'll learn how to do this configuration in the next section, but essentially the Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
    
-  ![Permissions to other applications](./media/active-directory-integrating-applications/requiredpermissions.png)
+  ![Permissions to other applications](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
     
 2. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. First the application needs to obtain an authorization code from Azure AD’s `/authorize` endpoint. The authorization code can then be used to acquire a new access and refresh token.
 
 3. If the user is not already authenticated, Azure AD's `/authorize` endpoint prompts for sign-in.
    
-  ![User or administrator sign in to Azure AD](./media/active-directory-integrating-applications/usersignin.png)
+  ![User or administrator sign in to Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 4. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the Delegated Permissions in the Azure portal.
    
-  ![User consent experience](./media/active-directory-integrating-applications/consent.png)
+  ![User consent experience](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
 
-  ![Grant permissions for explicit admin consent](./media/active-directory-integrating-applications/grantpermissions.png)
+  ![Grant permissions for explicit admin consent](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
   > Granting explicit consent using the **Grant Permissions** button is currently required for single page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested. 
@@ -115,7 +115,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 2. If your account gives you access to more than one, click your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, then find/click the application you want to configure.
 
-   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
+   ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. To add a secret key for your web application's credentials:
   - Click the **Keys** section on the **Settings** page. 
@@ -123,7 +123,7 @@ Additionally, before a client can access a web API exposed by a resource applica
   - Select either a one or two year duration.
   - Click **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
 
-  ![Update an application's registration - keys](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
+  ![Update an application's registration - keys](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
 
 5. To add permission(s) to access resource APIs from your client
   - Click the **Required Permissions** section on the **Settings** page. 
@@ -132,9 +132,9 @@ Additionally, before a client can access a web API exposed by a resource applica
   - Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Click the resource you are interested in, then click **Select**.
   - You're taken to the **Enable Access** page. Select the Application Permissions and/or Delegated Permissions your application needs when accessing the API.
    
-  ![Update an application's registration - permissions api](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-api.png)
+  ![Update an application's registration - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Update an application's registration - permissions perms](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms.png)
+  ![Update an application's registration - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. When finished, click the **Select** button on **Enable Access** page, then the  **Done** button on the **Add API access** page. You are returned to the **Required permissions** page, where the new resource is added to the list of APIs.
 
@@ -156,7 +156,7 @@ The following section shows you how to expose access scopes, by modifying the re
 
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, then find/click the application you want to configure.
 
-   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
+   ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. Switch to the **Edit manifest** page, by clicking **Manifest** from the application's registration page. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can click **Download** and edit locally, then use **Upload** to reapply it to your application.
 
@@ -182,18 +182,18 @@ The following section shows you how to expose access scopes, by modifying the re
 
 6. When finished, click **Save**. Now your web API is configured for use by other applications in your directory. 
 
-  ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
+  ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 #### Verify the web API is exposed to other applications in your tenant
 1. Go back to your Azure AD tenant, click **App registrations** again, then find/click the client application you want to configure.
 
-   ![Update an application's registration](./media/active-directory-integrating-applications/update-app-registration.png)
+   ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 2. Repeat step 5 as you did in [Configure a client application to access web APIs](#configure-a-client-application-to-access-web-apis). When you get to the **Select an API** step, search for your resource by entering its application name in the search field, and click **Select**. 
 
 3. On the **Enable Access** page you should see the new scope, available for client permission requests.
 
-  ![New permissions are shown](./media/active-directory-integrating-applications/update-app-registration-settings-permissions-perms-newscopes.png)
+  ![New permissions are shown](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 #### More on the application manifest
 
