@@ -326,14 +326,11 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
    }
    ```
  
+For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). For standalone clusters, see [Customize cluster settings for standalone clusters](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
 
 ## Next steps
-* See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-* [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-* For additional reverse proxy configuration options, refer ApplicationGateway/Http section in [Customize Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
+* [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+* For reverse proxy configuration options, see [ApplicationGateway/Http section in Customize Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
