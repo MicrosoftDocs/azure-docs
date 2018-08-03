@@ -34,7 +34,7 @@
       - name: Virtual machine  
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: SQL Database 
-        href: ../sql-database/sql-database-reserved-vcores.md?toc=/azure/billing/TOC.json
+        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       href: billing-understand-vm-reservation-charges.md
     - name: Software costs not included
