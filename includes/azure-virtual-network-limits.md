@@ -34,7 +34,7 @@
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits.
+> We recently increased all default limits to their maximum limits. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. If you have has these limits increased by support in the past and do not see updated limits as below, you can [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resource | Default limit | 
 | --- | --- |
@@ -42,7 +42,7 @@ The following limits apply only for networking resources managed through Azure R
 | Subnets per virtual network |3000 |
 | Virtual network peerings per Virtual Network |100 |
 | DNS Servers per virtual network |25 |
-| Private IP Addresses per virtual network |16384 |
+| Private IP Addresses per virtual network |65536 |
 | Private IP Addresses per network interface |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |
 | Network Interfaces (NIC) |24000 |
@@ -56,12 +56,13 @@ The following limits apply only for networking resources managed through Azure R
 | User defined route tables |200 |
 | User defined routes per route table |400 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |
+
+#### <a name="publicip-address"></a>Public IP address limits
+
+| Resource | Default limit | Maximum Limit |
 | Public IP addresses - dynamic |(Basic) 200 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
-
-
-**These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
