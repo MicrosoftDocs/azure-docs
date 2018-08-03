@@ -58,7 +58,7 @@ The Service Fabric system services (for example, the Cluster Manager service or 
 * The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default durability tier is Bronze. See [The durability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) for more details.  
 * The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default reliability tier is Silver. See [The reliability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) for more details.  
 
-From the Azure Resource Manager template, the primary node type is configured with the `isPrimary` attribute under the [node type definition](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+From the Azure Resource Manager template, the primary node type is configured with the `isPrimary` attribute under the [node type definition](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### Non-primary node type
 
