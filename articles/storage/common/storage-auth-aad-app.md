@@ -32,7 +32,7 @@ The first step in using Azure AD to authorize access to storage resources is reg
 
 When you register your application, you supply information about your application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
 
-To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
+To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. The value does not need to be a real endpoint.
 
 ![Screen shot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -40,7 +40,7 @@ After you've registered your application, you'll see the application ID (or clie
 
 ![Screen shot showing the client ID](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md). 
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
 
 ## Grant your registered app permissions to Azure Storage
 
