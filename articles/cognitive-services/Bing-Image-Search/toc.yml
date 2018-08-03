@@ -4,7 +4,7 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: Overviews
+- name: Quickstarts
   items:
   - name: Quickstart: Send queries to Bing Image Search using the REST API
     expanded: true
