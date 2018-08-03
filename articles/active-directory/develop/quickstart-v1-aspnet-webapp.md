@@ -4,11 +4,12 @@ description: Implementing Microsoft Sign-In on an ASP.NET solution with a tradit
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -26,7 +27,7 @@ This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET
 At the end of this guide, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory.
 
 > [!NOTE]
-> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](../active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](./active-directory-aspnetwebapp.md) as well as [this document](../active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
+> This guided setup helps you to enable sign-ins from work and school accounts in your ASP.NET application. If you are interested to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2 endpoint](active-directory-v2-compare.md). See [this ASP.NET guided setup for the v2 endpoint](tutorial-v2-asp-webapp.md) as well as [this document](active-directory-v2-limitations.md) explaining the current limitations of the v2 endpoint.
 <br/><br/>
 
 <!--separator-->
@@ -35,7 +36,7 @@ At the end of this guide, your application will accept sign ins of work and scho
 
 ## How this guide works
 
-![How this guide works](media/active-directory-aspnetwebapp-v1/aspnet-intro.png)
+![How this guide works](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 
@@ -98,11 +99,11 @@ The following steps are used to create an OWIN middleware *Startup Class* to con
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Replace Startup class with the following code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
     
 <!--start-collapse-->
 > [!NOTE]
@@ -123,11 +124,11 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 4.	Name it `HomeController` and click *Add*
 5.	Add *OWIN* namespaces to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
     
 ## Create the app's home page to sign in users via a sign-in button
 
@@ -137,11 +138,11 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 2.	Name it `Index`.
 3.	Add the following HTML, which includes the sign-in button, to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
+    [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
 > [!NOTE]
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-aspnetwebapp-v1/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## Display user's claims by adding a controller
@@ -153,7 +154,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 4.	Name it `ClaimsController`
 5.	Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-    [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -168,7 +169,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
 
-    [!code-html[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
+    [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Claims/Index.cshtml "Index.cshtml")]
     
 <!--end-use-->
 
@@ -185,7 +186,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     ```
 2. In Solution Explorer, select the project and look at the <i>Properties</i> window (if you don’t see a Properties window, press F4)
 3. Change SSL Enabled to <code>True</code>
-4. Copy the project's SSL URL to the clipboard:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
+4. Copy the project's SSL URL to the clipboard:<br/><br/>![Project properties](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. In <code>web.config</code>, replace <code>Enter_the_Redirect_URL_here</code> with the SSL URL of your project 
 
 ### Register your application in the Azure Portal, then add its information to *web.config*
@@ -200,7 +201,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you just registered
 
 > [!TIP]
-> If your account is configured to access to multiple directories, make sure you have selected the right directory for the organization you want the application to be registered by clicking on your account name in the top right in the Azure Portal, and then verifying the selected directory as indicated:<br/>![Selecting the right directory](media/active-directory-aspnetwebapp-v1/tenantselector.png)
+> If your account is configured to access to multiple directories, make sure you have selected the right directory for the organization you want the application to be registered by clicking on your account name in the top right in the Azure Portal, and then verifying the selected directory as indicated:<br/>![Selecting the right directory](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## Configure sign-in options
 
@@ -214,7 +215,7 @@ Follow the following steps if you want to accept sign ins of work and school acc
 2. Under `All Settings` select `Properties`
 3. Change `Multi-tenanted` property to `Yes` and click `Save`
 
-For more information about this setting and the concept of multi-tenant applications, see [this article](../active-directory-devhowto-multi-tenant-overview.md "Multi-tenant overview").
+For more information about this setting and the concept of multi-tenant applications, see [this article](active-directory-devhowto-multi-tenant-overview.md "Multi-tenant overview").
 
 ### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
@@ -234,7 +235,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
 2.	Change `SSL Enabled` to `True`
-3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](media/active-directory-aspnetwebapp-v1/vsprojectproperties.png)<br />
+3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](./media/quickstart-v1-aspnet-webapp/vsprojectproperties.png)<br />
 4.	Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
 
 ```xml
@@ -252,9 +253,9 @@ Press `F5` to run your project in Visual Studio. The browser opens and directs y
 
 When you're ready to test, use a work account (Azure Active Directory) to sign in. 
 
-![Sign in with Microsoft browser window](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin.png)
+![Sign in with Microsoft browser window](./media/quickstart-v1-aspnet-webapp/aspnetbrowsersignin.png)
 
-![Sign in with Microsoft browser window](media/active-directory-aspnetwebapp-v1/aspnetbrowsersignin2.png)
+![Sign in with Microsoft browser window](./media/quickstart-v1-aspnet-webapp/aspnetbrowsersignin2.png)
 
 #### Expected results
 After sign-in, the user is redirected to the home page of your web site, which is the HTTPS URL specified in your application's registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
