@@ -6,17 +6,17 @@ If you don't need the "why" below, you can get started trying things out [here](
 
 With the existing approach to environment acoustics design, you place, align, and realign (and then maybe repeat that a few times) a ton of reverb zones. Sigh.
 
-![Design View](Images/reverbZonesAltSPace2.png)
+![Design View](media/reverbZonesAltSPace2.png)
 
 
 Then you painstakingly tweak two dozen cryptic parameters to get each zone to sound “just right”. Rinse and repeat for each zone in your scene, and then redo that as many times as the level designers iterate. Drat.
 
-![Design View](Images/TooManyReverbParameters.png)
+![Design View](media/TooManyReverbParameters.png)
 
 
 Then you may have to create and align some box colliders to turn reverb zones off and on, usually to prevent bleed from one reverb zone to another. Ouch.
 
-![Design View](Images/NeedBoxcolliderstoo.png)
+![Design View](media/NeedBoxcolliderstoo.png)
 
 And if that wasn't enough, now it would be time to engage the developer team to code up some raytracing logic to get the right occlusion/obstruction filtering across the various wall/ceiling/floor materials in the scene. Tricky.
 
@@ -27,7 +27,7 @@ At least that is what this Designer Preview proposes. We hope to learn from earl
 
 **We hope you will try it out and let us know what you think**
 
-![Design View](Images/GearsWithVoxels.jpg)
+![Design View](media/GearsWithVoxels.jpg)
 
 
 # Here are some more details
@@ -42,7 +42,7 @@ The system relies on an offline compute of the virtual world. This allows it to 
 The system relies on a large offline compute. This compute is hosted in Azure, and requires an Azure Batch subscription. The workflow is broken up into three parts: [Design](#design), [Bake](#bake), and [Runtime](#runtime).
 ### Design
 In order to analyze a scene, we must first mark up the scene with metadata to help the compute process know what to do. This happens in the Unity editor, and produces a file that gets uploaded to Azure. This file contains information suchas a voxel map of your scene, quantized locations inside the scene to perform sound wave physics simulation from (known as probe points), materials of each surface in the scene, and so on. The Unity plugin has tools that help in this metadata generation process, as well as connecting to your Azure account.  
-![Design View](Images/TritonDebugView.png)  
+![Design View](media/TritonDebugView.png)  
 ### Bake
 Once the metadata file has been generated, it is uploaded to Azure to perform the offline analysis. We refer to this process as the Bake process. Depending on scene complexity and simulation parameter configuration, these bakes can take anywhere from a few minutes to many hours on even the fastest machines. This is why Azure Batch is leveraged to perform this compute. By using Azure Batch, anyone with an internet connection can take advantage of this system without needing to purchase and maintain ultra high-end machines on premises.
 ### Runtime

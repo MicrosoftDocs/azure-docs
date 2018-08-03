@@ -1,20 +1,12 @@
-- name: Speaker Recognition Documentation
-- name: Overview
-  items: 
-  - name: Learn about Speaker Recognition
-    href: Home.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
-    items: 
-    - name: SDKs
-      items:
-      - name: Android
-        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android
-      - name: Windows
-        href: https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows
-- name: Resources
+- name: Acoustics Documentation
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    - name: Home
+     href: index.md
+    - name: Getting Started
+     href: GettingStarted.md
+    - name: Create Azure Batch Account
+     href: CreateAzureAccount.md
+    - name: Bake Walkthru
+     href: BakeUIWalkthrough.md
+    - name: Sample Walkthru
+     href: SampleWalkthrough.md

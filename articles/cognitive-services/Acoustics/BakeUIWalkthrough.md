@@ -39,11 +39,11 @@ After creating your Unity NavMesh (if applicable), open the Acoustics tool windo
 
 If you have nothing selected in your scene it will look like this:
 
-![Objects Tab No Selection](Images/ObjectsTabNoSelectionDetail.png)
+![Objects Tab No Selection](media/ObjectsTabNoSelectionDetail.png)
 
 If you have something selected in your scene or hierarchy window, it will look like this:
 
-![Objects Tab No Selection](Images/ObjectsTabWithSelectionDetail.png)
+![Objects Tab No Selection](media/ObjectsTabWithSelectionDetail.png)
 
 The various parts of the tab page are:
 1. The tab selection buttons (Objects tab selected). Use this to walk through the various steps of doing an acoustics bake, from left to right.
@@ -65,7 +65,7 @@ Only Mesh Renderers and Terrains can be marked. All other object types (includin
 
 If some objects are marked and some are not, the appropriate checkbox will show a "mixed" value as seen here:
 
-![Mixed Value Checkbox](Images/MixedObjectSelectionDetail.png)
+![Mixed Value Checkbox](media/MixedObjectSelectionDetail.png)
     
 Clicking the checkbox will force all objects to be marked, and clicking again will unmark all the objects.
 
@@ -86,7 +86,7 @@ If you are not using a Unity NavMesh and are instead marking your own meshes for
 # Materials Tab
 Once your objects are marked, click the "Materials" button to go to the Materials Tab:
 
-![Materials Tab Detail](Images/MaterialsTabDetail.png)
+![Materials Tab Detail](media/MaterialsTabDetail.png)
 
 1. The Materials Tab button, used to bring up this page.
 2. A brief description of what you need to do using this page.
@@ -102,7 +102,7 @@ of a given material in a room is inversely related to its absorption coefficient
 The absorption coefficient cannot be changed unless the selected material is "Custom".
 8. For a material assigned to "Custom", the slider is no longer disabled and you can choose the absorption coefficient using the slider or by typing in a value.
 
-![Reverb Time Graph](Images/ReverbTimeGraph.png)
+![Reverb Time Graph](media/ReverbTimeGraph.png)
 
 ### Guidelines for assigning materials (or absorption values)
 This tab uses the name of your material to try and assign the initial acoustics value. For example, if your scene material name is LivingRoom_WoodTable, the initial acoustic material assigned to it will be "wood".
@@ -123,7 +123,7 @@ with different names in the scene.
 # Probes Tab
 After assigning the materials, proceed to the Probes Tab:
 
-![Probes Tab Detail](Images/ProbesTabDetail.png)
+![Probes Tab Detail](media/ProbesTabDetail.png)
 
 1. The Probes Tab button used to bring up this page
 2. A brief description of what you need to do using this page
@@ -152,7 +152,7 @@ will typically be quickly visible in the preview so you can correct it.
 ## Gizmos
 By default, both the Probes and Voxels gizmos are turned on. These will show you the voxels and probe point locations that were calculated. They can be enabled or disabled using the Gizmos menu:
 
-![Gizmos Menu](Images/GizmosMenu.png)
+![Gizmos Menu](media/GizmosMenu.png)
 
 ### Voxels
 Voxels are shown in the scene window as green cubes around geometry. Voxels that contain only air are not shown. There is a large green box around your entire scene that denotes the complete voxel volume that will be used in the simulation.
@@ -160,7 +160,7 @@ Move around your scene and verify that everything that should be geometry has vo
 
 If you compare the voxels created with Coarse resolution vs Fine resolution, you will see that the coarse voxels are twice as big.
 
-![Voxel Preview](Images/VoxelCubesPreview.png)
+![Voxel Preview](media/VoxelCubesPreview.png)
 
 ### Probe Points
 Probe points are synonymous with listening locations. When doing a bake, the acoustics for a sound source anywhere in the scene is calculated for each of these probe points. If the player is not directly at a probe point
@@ -169,7 +169,7 @@ location, the data from the probe points nearest to the player are used to inter
 Therefore it is important to ensure that probe points exist anywhere the player is expected to travel in the scene, and that small areas and doorways are adequately represented. 
 Future versions will allow the ability to edit/add/delete probe points, but for now they cannot be edited. Use them instead to verify the correctness of your geometry marking and of the navigation hint data.
 
-![Probes Preview](Images/ProbesPreview.png)
+![Probes Preview](media/ProbesPreview.png)
 
 ### Coarse vs Fine Resolution
 The only difference between the Coarse and Fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as Coarse.
@@ -184,13 +184,13 @@ You can see if this is happening by viewing the voxels (_Example coming..._).
 the doorway using the Fine setting. The blue line is the doorway as defined by the geometry, while the red line is the effective acoustic portal defined by the voxel size. How this intrusion
 plays out in a given situation depends completely on how the voxels line up with the geometry of the portal.
 
-![Course Doorway](Images/CoarseVoxelDoorway.png)
-![Fine Doorway](Images/FineVoxelDoorway.png)
+![Course Doorway](media/CoarseVoxelDoorway.png)
+![Fine Doorway](media/FineVoxelDoorway.png)
 
 # Bake Tab
 Once you are happy with the preview data, then use the Bake Tab to submit your bake to the cloud:
 
-![Bake Tab Detail](Images/BakeTabDetails.png)
+![Bake Tab Detail](media/BakeTabDetails.png)
 
 1. The Bake Tab button used to bring up this page.
 2. A brief description of what to do on this page.
