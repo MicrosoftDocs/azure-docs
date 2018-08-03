@@ -104,7 +104,10 @@ You can make sure that you're joined by looking at your settings.
 
 2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
 
-    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-verify.png)
+    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
 ## Next steps
+After you join your device to your organization's network, you should be able to access all of your allowed resources with your work or school account information.
+
+- If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md)
 
