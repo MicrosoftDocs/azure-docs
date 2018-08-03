@@ -8,12 +8,12 @@ ms.author: coborn
 ms.date: 8/2/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: brenda.lee
-manager: Valeria.Melechko
+ms.reviewer: brendal
+manager: vamelech
 ---
 # Ethereum Proof-of-Authority Consortium
-## Overview
-[This solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it significantly easier to
+
+[This solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to
 deploy, configure, and govern a multi-member consortium
 Proof-of-Authority Ethereum network with minimal Azure and Ethereum
 knowledge.
@@ -178,7 +178,7 @@ Each consortium member deployment includes:
 
 -   VM Scale Sets (VMSS) for running the PoA validators
 
--   Azure Load Balancer for distributing RPC, peering, and Goverance
+-   Azure Load Balancer for distributing RPC, peering, and Governance
     DApp requests
 
 -   Azure Key Vault for securing the validator identities
@@ -236,7 +236,7 @@ network.
     administered through on-chain voting by select administrators.
 
 -   **Validator Delegation -** Authorities can manage their validator
-    nodes that are setup in each PoA deployment.
+    nodes that are set up in each PoA deployment.
 
 -   **Auditable Change History -** Each change is recorded on the
     blockchain providing transparency and auditability.
@@ -362,7 +362,7 @@ A sample deployment is shown below:
 #### Azure Monitor
 
 The Azure Monitor blade allows you to configure an Azure Monitor
-resource for you network. Azure Monitor will collect and surface useful
+resource for your network. Azure Monitor will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
 
@@ -514,7 +514,7 @@ point of failure.
 
 After the new member deploys, the existing member must complete the
 bi-directional connection by setting up a VNet Gateway connection to the
-new member. To achieve this the existing member will need:
+new member. To achieve this existing member will need:
 
 1.  The VNet Gateway ResourceId of the connecting member (see deployment
     output)
@@ -663,9 +663,7 @@ Use Traffic Manager to:
     Azure location with lowest network latency.
 
 If you decide to create a Traffic Manager profile, you can use the DNS
-name of the profile to access your network. It can also be used by
-additional joining members to access your network's [Data
-API](#data-api) endpoint using a load balanced and robost method. Once
+name of the profile to access your network. Once
 other consortium members have been added to the network, the Traffic
 Manager can also be used to load balance across their deployed
 validators.
@@ -943,7 +941,7 @@ the section Programmatically Interacting with a Smart Contract.
 We lock down the SSH port for security reasons. Follow [this guide to
 enable the SSH port](#_Accessing_Nodes_via).
 
-### How do I setup an audit member or transaction nodes?
+### How do I set up an audit member or transaction nodes?
 
 Transaction nodes are a set of Parity clients that are peered with the
 network but are not participating in consensus. These nodes can still be
@@ -961,6 +959,10 @@ value. Click on the settings icon (3-bars), Settings, Reset Account. The
 transaction history will be cleared and now you can resubmit the
 transaction.
 
-### Are Public IP deployments compatible with Private newtork deployments?
+### Are Public IP deployments compatible with Private network deployments?
 
 No, peering requires two-way communication so the entire network must either be public or private.
+
+## Next steps
+
+Get started by using the [Ethereum Proof-of-Authority Consortium](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) solution.
