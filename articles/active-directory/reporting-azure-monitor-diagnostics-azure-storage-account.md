@@ -20,40 +20,58 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Tutorial: Archive Azure Active Directory logs to an Azure storage account (preview)
+# Tutorial: Archive Azure AD logs to an Azure storage account (preview)
 
-In this tutorial, you will learn how to set up Azure Monitor diagnostic settings to route Azure Active Directory logs to an Azure storage account.
+In this tutorial, you learn how to set up Azure Monitor diagnostics settings to route Azure Active Directory (Azure AD) logs to an Azure storage account.
 
 ## Prerequisites 
 
-You need:
+To use this feature, you need:
 
 * An Azure subscription with an Azure storage account. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* An Azure Active Directory tenant.
-* A user, who is a global administrator or security administrator for that tenant.
+* An Azure AD tenant.
+* A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
 
 ## Archive logs to an Azure storage account
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Click on **Azure Active Directory** -> **Activity** -> **Audit logs**. 
-3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have a maximum of three settings. 
-    ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png "Export settings")
 
-4. Add a friendly name for the setting to remind you of its purpose. For example, "Send to Azure storage account". 
-5. Check the **Archive to a storage account** checkbox and click **Storage account** to choose the Azure storage account. 
-6. Select an Azure subscription and storage account that you want to route the logs to, and click **OK** to close out of the configuration.
-7. Check the **AuditLogs** checkbox to send audit logs to the storage account. 
-8. Check the **SignInLogs** checkbox to send sign-in logs to the storage account.
-9. Use the slider to set retention on your log data. By default, this value is "0" and logs will be retained in the storage account indefinitely. Else, you can set a value and events older than the number of days selected will be automatically cleaned up.
-10. Click **Save** to save the setting.
-    ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
+2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
 
-11. After about 15 minutues, verify that the logs are pushed into your storage account. Go to the Azure portal, click **Storage accounts**, choose the storage account you used earlier and click **Blobs**. 
-12. For **Audit logs**, click **insights-log-audit**. For **Sign-in logs**, click **insights-logs-signin**.
-    ![Storage account](./media/reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png "Storage account")
+3. Select **Export Settings**. 
+
+4. In the **Diagnostics settings** pane, do either of the following:
+    * To change existing settings, select **Edit setting**.
+    * To add new settings, select **Add diagnostics setting**.  
+      You can have up to three settings. 
+
+    ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png)
+
+5. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
+
+6. Select the **Archive to a storage account** check box, and then select **Storage account**. 
+
+7. Select the Azure subscription and storage account that you want to route the logs to.
+ 
+8. Select **OK** to exit the configuration.
+
+9. Do either or both of the following:
+    * To send audit logs to the storage account, select the **AuditLogs** check box. 
+    * To send sign-in logs to the storage account, select the **SignInLogs** check box.
+
+10. Use the slider to set the retention of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
+
+11. Select **Save** to save the setting.
+
+    ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png)
+
+12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. 
+
+13. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
+    ![Storage account](./media/reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png)
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 * [Frequently asked questions and known issues](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
