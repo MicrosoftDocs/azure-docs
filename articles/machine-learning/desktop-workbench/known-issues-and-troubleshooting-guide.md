@@ -2,8 +2,8 @@
 title: Known Issues and Troubleshooting Guide | Microsoft Docs
 description: List of known issues and a guide to help troubleshoot 
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -68,12 +68,12 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 ## Known service limits
 - Max allowed project folder size: 25 MB.
     >[!NOTE]
-    >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](../desktop-workbench/how-to-read-write-files.md).
+    >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - Max allowed experiment execution time: seven days
 
 - Max size of tracked file in `outputs` folder after a run: 512 MB
-  - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](../desktop-workbench/how-to-read-write-files.md).
+  - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - SSH keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is currently supported.
 
@@ -88,7 +88,7 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 ## Can't update Workbench
 When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
 
-![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+![update image](../service/media/known-issues-and-troubleshooting-guide/update.png)
 
 If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
 

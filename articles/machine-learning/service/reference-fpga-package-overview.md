@@ -23,7 +23,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You must create an Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) document. 
+1. You must create an Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) document. 
 
 1. The package must be installed. 
 

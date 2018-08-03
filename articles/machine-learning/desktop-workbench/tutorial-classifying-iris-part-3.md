@@ -12,9 +12,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
+
+ROBOTS: NOINDEX
 ---
 
+
 # Tutorial 3: Classify Iris: Deploy a model
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (preview) is an integrated, end-to-end data science and advanced analytics solution for professional data scientists. Data scientists can use it to prepare data, develop experiments, and deploy models at cloud scale.
 
 This tutorial is **part three of a three-part series**. In this part of the tutorial, you use Machine Learning (preview) to:
@@ -33,7 +39,7 @@ This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/
 
 To complete this tutorial, you need:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](../service/quickstart-installation.md)
+- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
 - The classification model from [Tutorial part 2](tutorial-classifying-iris-part-2.md)
 - A Docker engine installed and running locally
 

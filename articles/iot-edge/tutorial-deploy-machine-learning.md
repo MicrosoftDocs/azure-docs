@@ -44,7 +44,7 @@ Cloud resources:
 
 Development resources:
 
-* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
+* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Model Management for Azure ML. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
 
 ### Disable process identification

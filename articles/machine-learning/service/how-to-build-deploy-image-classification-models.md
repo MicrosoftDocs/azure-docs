@@ -13,7 +13,7 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** (AMLPCV) to train, test, and deploy an image classification model. 
+In this article, learn how to use Azure Machine Learning Package for Computer Vision (AMLPCV) to train, test, and deploy an image classification model. For an overview of this package and its detailed reference documentation, [see here](https://aka.ms/aml-packages/vision).
 
 A large number of problems in the computer vision domain can be solved using image classification. These problems include building models that answer questions such as:
 + _Is an OBJECT present in the image? For example, "dog", "car", "ship", and so on_
@@ -29,9 +29,7 @@ When building and deploying this model with AMLPCV, you go through the following
 7. Web service Deployment
 8. Web service Load Testing
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
-
-Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
+[CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
 ## Prerequisites
 
@@ -42,7 +40,7 @@ Consult the [package reference documentation](https://aka.ms/aml-packages/vision
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) article. 
 
 1. The Azure Machine Learning Package for Computer Vision must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/vision).
 
@@ -169,7 +167,7 @@ display(annotation_ui.ui)
 
 ## Augment images
 
-The [`augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
+The [`augmentation` module](https://docs.microsoft.com/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
 
 If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
 

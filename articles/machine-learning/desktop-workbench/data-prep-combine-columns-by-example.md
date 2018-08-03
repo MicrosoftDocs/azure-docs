@@ -12,9 +12,15 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Combine columns by example transformation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 This transformation allows user to add a new column by combining values from multiple columns. User can specify a separator or provide examples of combined values to perform this transform. When the user provides examples of combination, the transformation is handled by the same **By-Example** engine that is used in the **Derive Column by Example** transform.
 
 ## How to perform this transformation

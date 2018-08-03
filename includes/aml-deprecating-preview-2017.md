@@ -1,0 +1,2 @@
+>[!Note]
+>**This article is deprecated.** Support for earlier versions of this service will end incrementally. [View the support timeline](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Start using the latest version with this [quickstart](../articles/machine-learning/service/index.yml).

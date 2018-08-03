@@ -1,0 +1,216 @@
+---
+title: Deploy web services to an Azure Container Instance | Azure Machine Learning
+description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning Services.
+services: machine-learning
+ms.service: machine-learning
+ms.component: core
+ms.topic: conceptual
+ms.author: raymondl
+author: raymondlaghaeian
+ms.reviewer: sgilley
+ms.date: 09/27/2018
+---
+
+# How to deploy web services to an Azure Container Instance
+
+You can deploy your trained model as a web service API on either [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI) or  [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS).
+
+In this article, you'll learn how to deploy on ACI.  ACI is cheaper than AKS and setup can be done in a few minutes with just a 4-6 lines of code. ACI is the perfect option for testing deployments.
+
+When you're ready to use your models and web services for high-scale, production usage, [deploy them to AKS](how-to-deploy-to-aks.md) instead.
+
+## Prerequisites
+
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- An Azure Machine Learning Workspace, a local project directory and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md).
+
+- A model to deploy.  Learn how to create one in the [Train and deploy model on Azure Machine Learning with MNIST dataset and TensorFlow tutorial](tutorial-train-models-with-aml.md).  
+
+While the [tutorial](tutorial-deploy-models-with-aml.md) shows deployment, this article shows a more advanced approach that gives you more control over model versions and Docker image versions.  
+
+## Install libraries and initialize your workspace
+
+```python
+import azureml.core
+# Check core SDK version number
+print("SDK version:", azureml.core.VERSION)
+
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+```
+
+## Register a model
+To register the model, you need the file `best_model.pkl` to be in the current directory. This call registers that file as a model called `best_model.pkl` in the workspace.
+
+
+```python
+import getpass
+username = getpass.getuser()
+
+from azureml.core.model import Model
+model_name = username + "best_model.pkl"
+model = Model.register(model_path = "best_model.pkl",
+                       model_name = model_name,
+                       tags = ["diabetes", "regression", username],
+                       description = "Ridge regression model to predict diabetes",
+                       workspace = ws)
+```    
+
+## Create Docker image
+
+At a minimum, you must include a model file and an entry script to load and call the model for scoring. Include any additional dependencies in a .yml file.
+
+The parameter in the `get_model_path` call is referring to a model registered under the workspace. It is NOT referencing the local file.
+
+
+```python
+score_file = '''import pickle
+import json
+import numpy
+from sklearn.externals import joblib
+from sklearn.linear_model import Ridge
+from azureml.core.model import Model
+
+def init():
+    global model
+    model_path = Model.get_model_path("'''+model_name+'''")
+    model = joblib.load(model_path)
+
+# note you can pass in multiple rows for scoring
+def run(raw_data):
+    try:
+        data = json.loads(raw_data)['data']
+        data = numpy.array(data)
+        result = model.predict(data)
+    except Exception as e:
+        result = str(e)
+    return json.dumps({'result': result.tolist()})'''
+
+%store score_file > ./score.py
+```
+
+```python
+!cat ./score.py
+```
+
+    import pickle
+    import json
+    import numpy
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    #from azureml.assets.persistence.persistence import get_model_path
+    from azureml.core.model import Model
+    
+    def init():
+        global model
+        model_path = Model.get_model_path("raymondl_diabetes_best_model.pkl")
+        model = joblib.load(model_path)
+    
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+        except Exception as e:
+            result = str(e)
+        return json.dumps({'result': result.tolist()})
+    
+
+```python
+%%writefile ./myenv.yml
+name: myenv
+channels:
+  - defaults
+dependencies:
+  - pip:
+    - numpy
+    - scikit-learn
+    # Required packages for AzureML execution, history, and data preparation.
+    - --extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+    - azureml-core
+```    
+
+The following command could take a few minutes. You can add optional tags and a description to your image. An image can contain one or more models.
+
+
+```python
+from azureml.core.image import Image
+image = Image.create(name = username + "image1",
+                     # this is the model object 
+                     models = [model],
+                     runtime = "python",
+                     execution_script = "score.py",
+                     conda_file = "myenv.yml",
+                     tags = ["diabetes","regression",username],
+                     description = "Image with ridge regression model",
+                     workspace = ws)
+```
+    
+
+```python
+image.wait_for_creation(show_output = True)
+```    
+
+## Deploy image on ACI
+
+The service creation can take few minutes.
+
+
+```python
+from azureml.core.webservice import AciWebservice
+
+aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1, 
+                                               memory_gb = 1, 
+                                               tags = ['regression','diabetes',username], 
+                                               description = 'Predict diabetes using regression model')
+```
+
+
+```python
+from azureml.core.webservice import Webservice
+
+aci_service_name = 'my-aci-service-1'
+aci_service = Webservice.deploy_from_image(deployment_config = aciconfig,
+                                           image = image,
+                                           name = aci_service_name,
+                                           workspace = ws)
+aci_service.wait_for_deployment(True)
+print(aci_service.state)
+```    
+
+## Test web service
+
+Call the web service with some dummy input data to get a prediction.
+
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = aci_service.run(input_data = test_sample)
+print(prediction)
+```
+
+    {"result": [5215.198131579869, 3726.995485938573]}
+    
+
+## Delete the service to clean up
+
+If you're not going to use this web service, delete it so you don't incur any charges.
+
+```python
+aci_service.delete()
+```
+
+## Next steps
+
+You can try to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) when you are ready for a larger scale deployment. 

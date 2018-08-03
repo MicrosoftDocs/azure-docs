@@ -10,8 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
+
+ROBOTS: NOINDEX
 ---
 # Export or delete your experimentation or model management data in Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 In Azure Machine Learning, you can export or delete your account data related to experimentation or model management with the authenticated REST API. This article tells you how.
 

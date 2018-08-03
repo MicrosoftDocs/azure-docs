@@ -47,7 +47,7 @@ The sample code in this article uses a scikit-learn pipeline.
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) article. 
 
 1. The Azure Machine Learning Package for Text Analytics must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/text).
 
