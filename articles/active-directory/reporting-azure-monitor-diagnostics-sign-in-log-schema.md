@@ -20,9 +20,9 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Interpret the Azure Active Directory sign-in logs schema in Azure Monitor (preview)
+# Interpret the Azure AD sign-in logs schema in Azure Monitor (preview)
 
-This article describes the Azure AD sign-in log schema in Azure Monitor. Most of the information related to sign-ins is provided under the *Properties* attribute of the records object.
+This article describes the Azure Active Directory (Azure AD) sign-in log schema in Azure Monitor. Most of the information that's related to sign-ins is provided under the *Properties* attribute of the `records` object.
 
 ```json
 { 
@@ -144,26 +144,29 @@ This article describes the Azure AD sign-in log schema in Azure Monitor. Most of
         } 
     } 
 ```
+
+## Field descriptions
+
 | Field name | Description |
 |------------|-------------|
-| Time | Date and time in UTC |
+| Time | The date and time, in UTC. |
 | ResourceId | This value is unmapped, and you can safely ignore this field.  |
-| OperationName | For sign-ins, this value is always *Sign-in activity* |
-| OperationVersion | The REST API version requested by the client |
-| Category | For sign-ins, this is always *SignIn* | 
-| TenantId | Tenant Guid associated with the logs |
-| ResultType | The result of the sign-in operation, can be *Success* or *Failure* | 
-| ResultSignature | Contains the error code, if any, for the sign-in operation |
-| ResultDescription | Provides the error description for the sign-in operation |
+| OperationName | For sign-ins, this value is always *Sign-in activity*. |
+| OperationVersion | The REST API version that's requested by the client. |
+| Category | For sign-ins, this value is always *SignIn*. | 
+| TenantId | The tenant GUID that's associated with the logs. |
+| ResultType | The result of the sign-in operation can be *Success* or *Failure*. | 
+| ResultSignature | Contains the error code, if any, for the sign-in operation. |
+| ResultDescription | Provides the error description for the sign-in operation. |
 | DurationMs |  This value is unmapped, and you can safely ignore this field.|
-| CallerIpAddress | IP address of the client who made the request | 
-| CorrelationId | Optional Guid passed by the client. This value can help correlate client-side operations with server-side operations and is useful when tracing logs that span across services. |
-| Identity | Identity from the token that was presented when making the request. Can be a user account, system account, or service principal. |
-| Level | Provides the type of message. For audit, it's always *Informational* |
-| Location | Provides the location of the sign-in activity |
-| Properties | Lists all the properties associated with sign-ins. For more information, read the [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the attribute names as in the sign-in resource, for readability.
+| CallerIpAddress | The IP address of the client that made the request. | 
+| CorrelationId | The optional GUID that's passed by the client. This value can help correlate client-side operations with server-side operations, and it's useful when you're tracking logs that span services. |
+| Identity | The identity from the token that was presented when you made the request. It can be a user account, system account, or service principal. |
+| Level | Provides the type of message. For audit, it's always *Informational*. |
+| Location | Provides the location of the sign-in activity. |
+| Properties | Lists all the properties that are associated with sign-ins. For more information, see [Microsoft Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the same attribute names as the sign-in resource, for readability.
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Read more about Azure Diagnostic Logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Interpret audit logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Read more about Azure diagnostic logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
