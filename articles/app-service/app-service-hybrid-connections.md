@@ -114,7 +114,9 @@ Select the Hybrid Connection to see details. You can see all the information tha
 
 There is a limit on the number of Hybrid Connection endpoints that can be used in an App Service plan. Each Hybrid Connection used, however, can be used across any number of apps in that plan. For example, a single Hybrid Connection that is used in five separate apps in an App Service plan counts as one Hybrid Connection.
 
-There is an additional cost to using Hybrid Connections. For details, see [Service Bus pricing][sbpricing].
+### Pricing ###
+
+In addition to there being an App Service plan SKU requirement, there is an additional cost to using Hybrid Connections. There is a charge for each listener used by a Hybrid Connection. The listener is the Hybrid Connection Manager. If you had 5 Hybrid Connections that were supported by 2 Hybrid Connection Managers, that would be 10 listeners. For more details, see [Service Bus pricing][sbpricing].
 
 ## Hybrid Connection Manager ##
 
@@ -147,11 +149,9 @@ You can now see the Hybrid Connections you added. You can also select the config
 
 To support the Hybrid Connections it is configured with, HCM requires:
 
-- TCP access to Azure over ports 80 and 443.
+- TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace.
-
-HCM supports both new Hybrid Connections and BizTalk Hybrid Connections.
 
 > [!NOTE]
 > Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of that, HCM is not supported on anything earlier than Windows Server 2012.
@@ -159,15 +159,59 @@ HCM supports both new Hybrid Connections and BizTalk Hybrid Connections.
 
 ### Redundancy ###
 
-Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connection can be supported by multiple HCMs. The default behavior is to route traffic across the configured HCMs for any given endpoint. If you want high availability on your Hybrid Connections from your network, run multiple HCMs on separate machines. 
+Each HCM can support multiple Hybrid Connections. Also, any given Hybrid Connection can be supported by multiple HCMs. The default behavior is to route traffic across the configured HCMs for any given endpoint. If you want high availability on your Hybrid Connections from your network, run multiple HCMs on separate machines. The load distribution algorithm used by the Relay service to distribute traffic to the HCMs is random assignment. 
 
 ### Manually add a Hybrid Connection ###
 
 To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see this in the properties for a Hybrid Connection in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
-## Adding a Hybrid Connection to your app programmatically ##
+![Manually add a Hybrid Connection][11]
 
+## Adding a Hybrid Connection to your app via programmatically ##
 
+The APIs noted below can be used directly to manage the Hybrid Connections connected to your web apps. 
+
+    /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
+
+The JSON object associated with a Hybrid Connection looks like:
+
+    {
+      "name": "[hybrid connection name]",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "[location]",
+      "properties": {
+        "serviceBusNamespace": "[namespace name]",
+        "relayName": "[hybrid connection name]",
+        "relayArmUri": "/subscriptions/[subscription id]/resourceGroups/[resource group name]/providers/Microsoft.Relay/namespaces/[namespace name]/hybridconnections/[hybrid connection name]",
+        "hostName": "[endpoint host name]",
+        "port": [port],
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "[send key]"
+      }
+    }
+
+One way to use this information is with the armclient which you can get from the [ARMClient][armclient] github project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
+Create a JSON file per the above schema like:
+
+    {
+      "name": "relay-demo-hc",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "North Central US",
+      "properties": {
+        "serviceBusNamespace": "demo-relay",
+        "relayName": "relay-demo-hc",
+        "relayArmUri": "/subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myrelay-rg/providers/Microsoft.Relay/namespaces/demo-relay/hybridconnections/relay-demo-hc",
+        "hostName": "my-wkstn.home",
+        "port": 1433,
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "Th9is3is8a82lot93of3774stu887ff122235="
+      }
+    }
+
+To do this you need the send key and relay resource ID. If you saved your information with the filename hctest.json then to attach your Hybrid Connection to your app, issue the command: 
+
+    armclient login
+    armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## Troubleshooting ##
 
@@ -189,9 +233,11 @@ In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) c
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
+[11]: ./media/app-service-hybrid-connections/hybridconn-hcmmanual.png
 
 <!--Links-->
 [HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: http://portal.azure.com/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[armclient]: https://github.com/projectkudu/ARMClient/
