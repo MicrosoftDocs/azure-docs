@@ -31,6 +31,14 @@ On a Data Science Virtual Machine, connect and open the command prompt. Type `az
 
 On all other systems, you would have to install the CLIs.
 
+>[!NOTE]
+> In a Jupyter notebook on a Linux DSVM, you can access the Azure CLI and Azure ML CLI with the command format below.  **This is for a Jupyter notebook on a Linux DSVM, specifically**.  These commands access the current Python kernel in the notebook (e.g. the conda `py35` environment)
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>```
+
 ### Installing (or updating) on Windows
 
 Install Python from https://www.python.org/. Ensure that you have selected to install pip.

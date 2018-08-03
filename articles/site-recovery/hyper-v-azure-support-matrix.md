@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
 ---
 
@@ -44,7 +44,12 @@ VM configuration | VMs that replicate to Azure must meet [Azure requirements](#f
 Guest operating system | Any guest OS supported by Azure.<br/><br/> Windows Server 2016 Nano Server isn't supported.
 
 
+## VM/Disk management
 
+**Action** | **Details**
+--- | ---
+Resize disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then reenable replication for the VM.
+Add disk on replicated Hyper-V VM | Not supported. Disable replication, make the change, and then reenable replication for the VM.
 
 ## Hyper-V network configuration
 
@@ -104,7 +109,8 @@ RDM | NA | NA
 Disk >1 TB | Yes, up to 4,095 GB | Yes, up to 4,095 GB
 Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supported: Gen 1/Gen 2
 Disk: 4K logical and 512 bytes physical sector | Yes |  Yes
-Volume with striped disk >1 TB<br/><br/> Logical volume management (LVM) | Yes | Yes
+Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
+Volume with striped disk >1 TB | Yes | Yes
 Storage Spaces | Yes | Yes
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes

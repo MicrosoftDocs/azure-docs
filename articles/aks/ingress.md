@@ -120,7 +120,7 @@ To create the issuer, use the `kubectl create -f cluster-issuer.yaml` command.
 ```
 $ kubectl create -f cluster-issuer.yaml
 
-clusterissuer.certmanager.k8s.io/letsencrypt-prod created
+clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
 ## Create a certificate object

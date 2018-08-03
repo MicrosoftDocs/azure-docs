@@ -67,7 +67,9 @@ This section shows you how to add a condition to monitor the Fan motor error eve
 
 ### Add an action
 
-This section shows you how to add an action to a rule. This shows how to add the email action, but you can also [add a Microsoft Flow action](howto-add-microsoft-flow.md) to your rule to kick off a workflow in Microsoft Flow when the rule is triggered.
+Tis example shows you how to add an action to a rule. This shows how to add the email action, but you can also add other actions:
+-  [Microsoft Flow action](howto-add-microsoft-flow.md) to kick off a workflow in Microsoft Flow when a rule is triggered
+- [Webhook action](howto-create-webhooks.md) to notify other services when a rule is triggered
 
 > [!NOTE]
 > Only 1 action can be associated to a single rule at this time.
