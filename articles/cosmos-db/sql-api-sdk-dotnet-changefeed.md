@@ -39,6 +39,9 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.0.5"/>2.0.5
+* Fixed a race condition during hadnling split that may lead to acquiring and immediately losing lease for split partition causing contention.
+
 ### <a name="2.0.4"/>2.0.4
 * GA SDK
 
