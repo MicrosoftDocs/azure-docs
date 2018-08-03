@@ -6,7 +6,7 @@
       href: overview.md
 - name: Quickstarts
   items:
-  - name: Quickstart: Send queries to Bing Image Search using the REST API
+  - name: Quickstart: Send search queries using the REST API
     expanded: true
     items:
     - name: Quickstart: C#
