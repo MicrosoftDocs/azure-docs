@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to configure  Managed Service Identity on an Azure VM by using a template
 description: Step-by-step instructions for configuring a Managed Service Identity on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
