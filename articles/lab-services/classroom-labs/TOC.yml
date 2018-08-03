@@ -14,6 +14,8 @@
     href: tutorial-setup-classroom-lab.md 
   - name: 3. Access a classroom lab
     href: tutorial-connect-virtual-machine-classroom-lab.md      
+  - name: 4. Track usage of a classroom lab
+    href: tutorial-track-usage.md
 - name: How-to guides
   items:
   - name: Manage lab accounts

@@ -64,7 +64,7 @@ If you are developing a Web application that includes a backend, and consuming a
 <!--Image references-->
 
 <!--Reference style links in use-->
-[AAD-Developers-Guide]: active-directory-developers-guide.md
+[AAD-Developers-Guide]:azure-ad-developers-guide.md
 [ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
 [ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16

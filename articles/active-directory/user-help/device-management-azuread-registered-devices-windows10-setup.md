@@ -24,7 +24,7 @@ If you want to enable the **Bring Your Own Device (BYOD)** scenario, you can acc
 
 ## Before you begin
 
-To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../device-management-azure-portal.md#configure-device-settings).
+To register a Windows 10 device, the device registration service must be configured to enable you to register devices. Additionally, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](../devices/device-management-azure-portal.md#configure-device-settings).
 
 ## What you should know
 

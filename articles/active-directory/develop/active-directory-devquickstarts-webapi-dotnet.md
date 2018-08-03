@@ -37,16 +37,17 @@ To build the To Do List API, you first need to:
 2. Set up the app to use the OWIN authentication pipeline.
 3. Configure a client application to call the web API.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](quickstart-create-new-tenant.md).
 
 ## Step 1: Register an application with Azure AD
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
+2. Choose your Azure AD tenant by clicking on your account in the top right corner of the page, followed by clicking on the **Switch Directory** navigation and then select the appropriate tenant.
+ * Skip this step, if you've only one Azure AD tenant under your account or if you've already selected the appropriate Azure AD tenant.
 
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+3. In the left hand navigation pane, click on **Azure Active Directory**.
 
 4. Click **App registrations**, and then select **Add**.
 
