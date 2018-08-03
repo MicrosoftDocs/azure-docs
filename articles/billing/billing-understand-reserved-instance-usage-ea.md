@@ -23,7 +23,7 @@ Use the **ReservationId** from [Reservations page](https://portal.azure.com/?mic
 
 If you bought the reserved instance in a Pay-As-You-Go billing context, see [Understand reserved instance usage for your Pay-As-You-Go subscription.](billing-understand-reserved-instance-usage.md)
 
-## Reserved instance application for virtual machines
+## Usage for reserved virtual machines instances
 
 For the following sections, assume that you are running a Standard_D1_v2 Windows VM in the east US region and your reserved instance information looks like the following table:
 
