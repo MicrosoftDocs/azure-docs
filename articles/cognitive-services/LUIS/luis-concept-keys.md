@@ -7,7 +7,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 08/02/2018
 ms.author: diberry
 ---
 
@@ -30,15 +30,15 @@ To find the authoring Key, log in to [LUIS](luis-reference-regions.md#luis-websi
 
 ![authoring Key](./media/luis-concept-keys/programatic-key.png)
 
-When you want to make **production endpoint queries**, create an Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+When you want to make **production endpoint queries**, create the Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 ## Endpoint key
- When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app..
+ When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app.
 
-When the LUIS subscription process is finished, [add the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app on the **Publish** page. 
+When the LUIS subscription process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
 
 The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
