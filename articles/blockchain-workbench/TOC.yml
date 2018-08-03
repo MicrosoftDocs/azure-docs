@@ -63,7 +63,9 @@
     href: https://feedback.azure.com/forums/586780-blockchain
   - name: Solution templates
     items:
-    - name: Ethereum proof-of-work consortium
+    - name: Ethereum Proof-of-Authority Consortium
+      href: ethereum-poa-deployment-guide.md
+    - name: Ethereum Proof-of-Work Consortium
       href: ethereum-deployment-guide.md
-    - name: Hyperledger Fabric consortium
+    - name: Hyperledger Fabric Consortium
       href: hyperledger-fabric-single-member-blockchain.md
