@@ -138,7 +138,7 @@ different partner. The delegated operation workflow works as follows:
     **Operator**
 
 3.  **Operator** deploys and configures the PoA validator nodes using
-    our ARM solution
+    our Azure Resource Manager solution
 
 4.  **Operator** provides the RPC and management endpoint to
     **Consortium Member**
@@ -176,7 +176,7 @@ to start with the public IP model first.
 
 Each consortium member deployment includes:
 
--   VM Scale Sets (VMSS) for running the PoA validators
+-   Virtual M Scale Sets (VMSS) for running the PoA validators
 
 -   Azure Load Balancer for distributing RPC, peering, and Governance
     DApp requests
@@ -609,11 +609,11 @@ ParityLog_CL
 ### SSH access
 
 For security reasons, the SSH port access is denied by a network group
-security rule by default. To access the VMSS instances in the PoA
+security rule by default. To access the virtual machine scale set instances in the PoA
 network, you will need to change this rule to \"Allow\"
 
 1.  Start in the Overview section of the deployed resource group from
-    Azure Portal.
+    Azure portal.
 
 ![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
@@ -671,7 +671,7 @@ validators.
 #### Creating a Traffic Manager profile
 
 Search for and select \"Traffic Manager profile\" after clicking the
-\"Create a resource\" button in the Azure Portal.
+\"Create a resource\" button in the Azure portal.
 
 ![search for azure traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
 
