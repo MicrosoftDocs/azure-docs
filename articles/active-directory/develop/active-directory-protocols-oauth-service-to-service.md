@@ -34,7 +34,7 @@ The following diagram explains how the client credentials grant flow works in Az
 4. Data from the secured resource is returned to the client application.
 
 ## Register the Services in Azure AD
-Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md).
+Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see [Integrating applications with Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## Request an Access Token
 To request an access token, use an HTTP POST to the tenant-specific Azure AD endpoint.

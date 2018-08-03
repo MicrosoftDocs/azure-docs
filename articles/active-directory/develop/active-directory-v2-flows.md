@@ -35,7 +35,7 @@ You must register each app that uses the v2.0 endpoint in the [Microsoft Applica
 * A **Redirect URI** that you can use to direct responses back to your app
 * A few other scenario-specific values
 
-For details, learn how to [register an app](active-directory-v2-app-registration.md).
+For details, learn how to [register an app](quickstart-v2-register-an-app.md).
 
 After the app is registered, the app communicates with Azure AD by sending requests to the Azure AD v2.0 endpoint. We provide open-source frameworks and libraries that handle the details of these requests. You also have the option to implement the authentication logic yourself by creating requests to these endpoints:
 
