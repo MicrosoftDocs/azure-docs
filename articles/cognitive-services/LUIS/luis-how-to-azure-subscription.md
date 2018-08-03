@@ -35,8 +35,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and [assign the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). You need the name of the LUIS subscription from step 3.
 
 ## Change LUIS pricing tier
 
