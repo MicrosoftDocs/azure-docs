@@ -50,10 +50,10 @@ In this section, you create a storage account that will be used as the default s
 This section uses an Azure PowerShell script to create the storage account and copy over the required files within the storage account. The Azure PowerShell sample script in this section performs the following tasks:
 
 1. Logs in to Azure.
-2. Creates an Azure resource group.
-3. Creates an Azure Storage account.
-4. Creates a Blob container in the storage account
-5. Copies the sample HiveQL script (**hivescript.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
+1. Creates an Azure resource group.
+1. Creates an Azure Storage account.
+1. Creates a Blob container in the storage account
+1. Copies the sample HiveQL script (**hivescript.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
 
 **To create a storage account and copy the files using Azure PowerShell:**
@@ -137,12 +137,12 @@ Write-host "`nScript completed" -ForegroundColor Green
 **To verify the storage account creation**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Select **Resource groups** on the left pane.
-3. Double-click the resource group name you created in your PowerShell script. Use the filter if you have too many resource groups listed.
-4. On the **Resources** tile, you see one resource listed unless you share the resource group with other projects. That resource is the storage account with the name you specified earlier. Select the storage account name.
-5. Select the **Blobs** tiles.
-6. Select the **adfgetstarted** container. You see a folder called **hivescripts**.
-7. Open the folder and make sure it contains the sample script file, **hivescript.hql**.
+1. Select **Resource groups** on the left pane.
+1. Double-click the resource group name you created in your PowerShell script. Use the filter if you have too many resource groups listed.
+1. On the **Resources** tile, you see one resource listed unless you share the resource group with other projects. That resource is the storage account with the name you specified earlier. Select the storage account name.
+1. Select the **Blobs** tiles.
+1. Select the **adfgetstarted** container. You see a folder called **hivescripts**.
+1. Open the folder and make sure it contains the sample script file, **hivescript.hql**.
 
 ## Understand the Azure Data Factory activity
 
@@ -157,22 +157,22 @@ In this article, you configure the Hive activity to create an on-demand HDInsigh
 
 1. An HDInsight Hadoop cluster is automatically created for you just-in-time to process the slice. 
 
-2. The input data is processed by running a HiveQL script on the cluster. In this tutorial, the HiveQL script associated with the hive activity performs the following actions:
+1. The input data is processed by running a HiveQL script on the cluster. In this tutorial, the HiveQL script associated with the hive activity performs the following actions:
 
     * Uses the existing table (*hivesampletable*) to create another table **HiveSampleOut**.
     * Populates the **HiveSampleOut** table with only specific columns from the original *hivesampletable*.
 
-3. The HDInsight Hadoop cluster is deleted after the processing is complete and the cluster is idle for the configured amount of time (timeToLive setting). If the next data slice is available for processing with in this timeToLive idle time, the same cluster is used to process the slice.  
+1. The HDInsight Hadoop cluster is deleted after the processing is complete and the cluster is idle for the configured amount of time (timeToLive setting). If the next data slice is available for processing with in this timeToLive idle time, the same cluster is used to process the slice.  
 
 ## Create a data factory
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Data Factory**.
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Data Factory**.
 
     ![Azure Data Factory on the portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory on the portal")
 
-2. Enter or select the values as shown in the following screenshot:
+1. Enter or select the values as shown in the following screenshot:
 
     ![Create Azure Data Factory using Azure portal](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Create Azure Data Factory using Azure portal")
 
@@ -187,15 +187,15 @@ In this article, you configure the Hive activity to create an on-demand HDInsigh
     |**Location**     | The location is automatically set to the location you specified while creating the resource group earlier. For this tutorial, the location is set to **East US 2**. |
     
 
-3. Select **Pin to dashboard**, and then select **Create**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. Creating a data factory might take anywhere between 2 to 4 minutes.
+1. Select **Pin to dashboard**, and then select **Create**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. Creating a data factory might take anywhere between 2 to 4 minutes.
 
     ![Template deployment progress](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "Template deployment progress") 
  
-4. Once the data factory is created, the portal shows the overview for the data factory.
+1. Once the data factory is created, the portal shows the overview for the data factory.
 
     ![Azure Data Factory overview](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory overview")
 
-5. Select **Author & Monitor** to launch the Azure Data Factory authoring and monitoring portal.
+1. Select **Author & Monitor** to launch the Azure Data Factory authoring and monitoring portal.
 
 ## Create linked services
 
@@ -210,15 +210,15 @@ In this section, you author two linked services within your data factory.
 
     ![Create an Azure Data Factory linked service](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "Create an Azure Data Factory linked service")
 
-2. Select **Connections** from the bottom-left corner of the window and then select **+New**.
+1. Select **Connections** from the bottom-left corner of the window and then select **+New**.
 
     ![Create connections in Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-create-new-connection.png "Create connections in Azure Data Factory")
 
-3. In the **New Linked Service** dialog box, select **Azure Blob Storage** and then select **Continue**.
+1. In the **New Linked Service** dialog box, select **Azure Blob Storage** and then select **Continue**.
 
     ![Create Azure Storage linked service for Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Create Azure Storage linked service for Data Factory")
 
-4. Provide a name for the storage linked service, select the Azure Storage account you created as part of the PowerShell script, and then select **Finish**.
+1. Provide a name for the storage linked service, select the Azure Storage account you created as part of the PowerShell script, and then select **Finish**.
 
     ![Provide name for Azure Storage linked service](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Provide name for Azure Storage linked service")
 
@@ -226,11 +226,11 @@ In this section, you author two linked services within your data factory.
 
 1. Select the **+ New** button again to create another linked service.
 
-2. In the **New Linked Service** window, select **Compute** > **Azure HDInsight**, and then select **Continue**.
+1. In the **New Linked Service** window, select **Compute** > **Azure HDInsight**, and then select **Continue**.
 
     ![Create HDInsight linked service for Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Create HDInsight linked service for Azure Data Factory")
 
-3. In the **New Linked Service** window, provide the required values.
+1. In the **New Linked Service** window, provide the required values.
 
     ![Provide values for HDInsight linked service](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "Provide values for HDInsight linked service")
 
@@ -258,15 +258,15 @@ In this section, you author two linked services within your data factory.
 
     ![Create a pipeline in Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Create a pipeline in Azure Data Factory")
 
-2. In the **Activities** toolbox, expand **HDInsight**, and drag the **Hive** activity to the pipeline designer surface. In the **General** tab, provide a name for the activity.
+1. In the **Activities** toolbox, expand **HDInsight**, and drag the **Hive** activity to the pipeline designer surface. In the **General** tab, provide a name for the activity.
 
     ![Add activities to Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Add activities to Data Factory pipeline")
 
-3. Make sure you have the Hive activity selected, select the **HDI Cluster** tab, and from the **HDInsight Linked Service** drop-down, select the linked service you created earlier for HDInsight.
+1. Make sure you have the Hive activity selected, select the **HDI Cluster** tab, and from the **HDInsight Linked Service** drop-down, select the linked service you created earlier for HDInsight.
 
     ![Provide HDInsight cluster details for the pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Provide HDInsight cluster details for the pipeline")
 
-4. Select the **Script** tab and complete the following steps:
+1. Select the **Script** tab and complete the following steps:
 
     a. For **Script Linked Service**, select **HDIStorageLinkedService**. This value is the storage linked service you created earlier.
 
@@ -278,11 +278,11 @@ In this section, you author two linked services within your data factory.
 
     ![Provide parameters for the Hive script](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Provide parameters for the Hive script")
 
-5. Select **Validate** to validate the pipeline. Select the **>>** (right arrow) button to close the validation window.
+1. Select **Validate** to validate the pipeline. Select the **>>** (right arrow) button to close the validation window.
 
     ![Validate the Azure Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "Validate the Azure Data Factory pipeline")
 
-5. Finally, select **Publish All** to publish the artifacts to Azure Data Factory.
+1. Finally, select **Publish All** to publish the artifacts to Azure Data Factory.
 
     ![Publish the Azure Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-publish-pipeline.png "Publish the Azure Data Factory pipeline")
 
@@ -292,7 +292,7 @@ In this section, you author two linked services within your data factory.
 
     ![Trigger the Azure Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Trigger the Azure Data Factory pipeline")
 
-2. Select **Finish** in the pop-up side bar.
+1. Select **Finish** in the pop-up side bar.
 
 ## Monitor a pipeline
 
@@ -300,9 +300,9 @@ In this section, you author two linked services within your data factory.
 
     ![Monitor the Azure Data Factory pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline.png "Monitor the Azure Data Factory pipeline")
 
-2. Select **Refresh** to refresh the status.
+1. Select **Refresh** to refresh the status.
 
-3. You can also select the **View Activity Runs** icon to see the activity run associated with the pipeline. In the screenshot below, you see only one activity run since there is only one activity in the pipeline you created. To switch back to the previous view, select **Pipelines** towards the top of the page.
+1. You can also select the **View Activity Runs** icon to see the activity run associated with the pipeline. In the screenshot below, you see only one activity run since there is only one activity in the pipeline you created. To switch back to the previous view, select **Pipelines** towards the top of the page.
 
     ![Monitor the Azure Data Factory pipeline activity](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "Monitor the Azure Data Factory pipeline activity")
 
@@ -329,14 +329,14 @@ Alternatively, you can delete the entire resource group that you created for thi
 ### Delete the resource group
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Select **Resource groups** on the left pane.
-3. Select the resource group name you created in your PowerShell script. Use the filter if you have too many resource groups listed. It opens the resource group.
-4. On the **Resources** tile, you shall have the default storage account and the data factory listed unless you share the resource group with other projects.
-5. Select **Delete resource group**. Doing so deletes the storage account and the data stored in the storage account.
+1. Select **Resource groups** on the left pane.
+1. Select the resource group name you created in your PowerShell script. Use the filter if you have too many resource groups listed. It opens the resource group.
+1. On the **Resources** tile, you shall have the default storage account and the data factory listed unless you share the resource group with other projects.
+1. Select **Delete resource group**. Doing so deletes the storage account and the data stored in the storage account.
 
     ![Delete resource group](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Delete resource group")
 
-6. Enter the resource group name to confirm deletion, and then select **Delete**.
+1. Enter the resource group name to confirm deletion, and then select **Delete**.
 
 
 ## Next steps
