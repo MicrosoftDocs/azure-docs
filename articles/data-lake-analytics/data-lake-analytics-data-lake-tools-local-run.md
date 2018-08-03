@@ -65,7 +65,7 @@ A U-SQL project is required for a local run. The U-SQL project’s working direc
 
 ## Local runs with a Local-project account
 
-A **Local-project** account is a project-isolated local compute account for each project with an isolated local data root folder. Every active U-SQL project that opens in Microsoft SQL Server Management Studio Solution Explorer has a corresponding `(Local-project: <project name>)` account. The accounts are listed in both SQL Server Explorer and the U-SQL script editor margin.  
+A **Local-project** account is a project-isolated local compute account for each project with an isolated local data root folder. Every active U-SQL project that opens in Solution Explorer in Visual Studio has a corresponding `(Local-project: <project name>)` account. The accounts are listed in both Server Explorer in Visual Studio and the U-SQL script editor margin.  
 
 The **Local-project** account provides a clean and isolated development environment. A **Local-machine** account has a shared local data root folder that stores metadata and input and output data for all local jobs. But a **Local-project** account creates a temporary local data root folder under a U-SQL project working directory every time a U-SQL script is run. This temporary data root folder is cleaned when a rebuild or rerun happens. 
 
