@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD and agree with Azure AD application Gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery from [here](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](active-directory-authentication-scenarios.md).
+*   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](authentication-scenarios.md).
 
     ![TimeLine of listing OpenID Connect application into the gallery](./media/active-directory-app-gallery-listing/openid.png)
 
