@@ -58,7 +58,7 @@ For more information about application permissions, go to [Microsoft Graph](http
 To use application permissions in your app, do the steps we discuss in the next sections.
 
 #### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](quickstart-v2-register-an-app.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
 2. Locate the **Microsoft Graph Permissions** section, and then add the **application permissions** that your app requires.
 3. **Save** the app registration.
 

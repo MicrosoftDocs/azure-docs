@@ -200,7 +200,7 @@ In the examples, you can learn how to:
 * Manage an advanced policy
 
 ### Prerequisites
-In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](active-directory-howto-tenant.md) before you proceed with these examples.  
+In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](develop/quickstart-create-new-tenant.md) before you proceed with these examples.  
 
 To get started, do the following steps:
 
