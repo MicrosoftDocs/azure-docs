@@ -165,7 +165,7 @@
 #### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
 #### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
 #### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
-#### [Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
+#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
 
 ### How-to-guides
 #### [Plan Azure AD Join](devices/azureadjoin-plan.md)
@@ -175,8 +175,8 @@
 #### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Concepts
+### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
 ### [FAQs](devices/faq.md)
-### [Using the Azure portal](devices/device-management-azure-portal.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
