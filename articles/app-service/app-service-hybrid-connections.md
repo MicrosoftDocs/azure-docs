@@ -53,13 +53,13 @@ There are a number of benefits to the Hybrid Connections capability, including:
 
 ### Things you cannot do with Hybrid Connections ###
 
-There are a few things you cannot do with Hybrid Connections, including:
+Things you cannot do with Hybrid Connections include:
 
-- Mounting a drive.
-- Using UDP.
-- Accessing TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
-- Supporting LDAP, because it sometimes requires UDP.
-- Supporting Active Directory, because you cannot domain join an App Service worker.
+- Mount a drive.
+- Use UDP.
+- Access TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
+- Support LDAP, because it can require UDP.
+- Support Active Directory, because you cannot domain join an App Service worker.
 
 ## Add and Create Hybrid Connections in your app ##
 
@@ -122,7 +122,7 @@ In addition to there being an App Service plan SKU requirement, there is an addi
 
 The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download HCM, from your app in the [Azure portal][portal], select **Networking** > **Configure your Hybrid Connection endpoints**.  
 
-This tool runs on Windows Server 2012 and later. When installed, HCM runs as a service that connects to Service Bus Relay, based on the configured endpoints. The connections from HCM are outbound to Azure over port 443.    
+This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.  
 
 After installing HCM, you can run HybridConnectionManagerUi.exe to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10, you can also just search for *Hybrid Connection Manager UI* in your search box.  
 
