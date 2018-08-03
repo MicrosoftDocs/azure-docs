@@ -6,15 +6,15 @@
     href: key-vault-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Key Vault - CLI
+  - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md
-  - name: Create a Key Vault - PowerShell
+  - name: Set and retrieve a secret - PowerShell
     href: quick-create-powershell.md
-  - name: Create a Key Vault - Portal
+  - name: Set and retrieve a secret - Portal
     href: quick-create-portal.md
-  - name: Read from a Key Vault - .NET
+  - name: Set and retrieve a secret - .NET
     href: quick-create-net.md
-  - name: Read from a Key Vault - Node.js
+  - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
 - name: Tutorials
   items:
@@ -82,6 +82,8 @@
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
   - name: Python
     href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
   - name: Develop
     items:
     - name: Developer quick start video
@@ -143,3 +145,5 @@
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault

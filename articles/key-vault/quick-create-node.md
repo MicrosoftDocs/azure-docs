@@ -1,6 +1,6 @@
 ---
-title: Configure an Azure web application to read a secret from Key vault tutorial | Microsoft Docs
-description: Tutorial Configure an Node.js application to read a secret from Key vault
+title: Configure an Azure web application to set and retrieve a secret from Key vault tutorial | Microsoft Docs
+description: Tutorial Configure an Node.js application to set and retrieve a secret from Key vault
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -15,7 +15,7 @@ ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 
-# QuickStart: How to set and read a secret from Key Vault in a Node Web App 
+# Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 
 This QuickStart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
 
@@ -46,7 +46,7 @@ az login
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Please select a Resource Group name and fill in the placeholder.
 The following example creates a resource group named *<YourResourceGroupName>* in the *eastus* location.

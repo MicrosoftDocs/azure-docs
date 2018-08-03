@@ -18,8 +18,8 @@ ms.date: 07/25/2018
 ms.author: aljo
 
 ---
-# Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
+# Customize Service Fabric cluster settings
+This article describes how to customize the various fabric settings for your Service Fabric cluster. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template. For standalone clusters, you customize settings by updating the ClusterConfig.json file and performing a configuration upgrade on your cluster. 
 
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
@@ -32,14 +32,14 @@ This document tells you how to customize the various fabric settings and the fab
 - **NotAllowed** – These settings cannot be modified. Changing these settings requires that the cluster be destroyed and a new cluster created. 
 
 ## Customize cluster settings using Resource Manager templates
-The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
+The steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.
 
 1. Go to https://resources.azure.com
 2. Navigate to your subscription by expanding **subscriptions** -> **\<Your Subscription>** -> **resourceGroups** -> **\<Your Resource Group>** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Your Cluster Name>**
 3. In the top right corner, select **Read/Write.**
 4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -50,6 +50,36 @@ The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *D
         ]
       }
 ```
+
+You can also customize cluster settings in one of the following ways with Azure Resource Manager:
+
+- Use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) to export and update the Resource Manger template.
+- Use [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) to export and update the Resource Manager template.
+- Use the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) to export and update the Resource Manager template.
+- Use the Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) and [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) commands to modify the setting directly.
+- Use the Azure CLI [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) commands to modify the setting directly.
+
+## Customize cluster settings for standalone clusters
+Standalone clusters are configured through the ClusterConfig.json file. To learn more, see [Configuration settings for a standalone Windows cluster](./service-fabric-cluster-manifest.md).
+
+You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in ClusterConfig.json. 
+
+For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under the `fabricSettings` element:
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+After you've modified the settings in your ClusterConfig.json file, follow the directions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
+
 
 The following is a list of Fabric settings that you can customize, organized by section.
 

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/01/2018
 ms.author: raynew
 
 ---
@@ -107,7 +107,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS.
-Volume manager | LVM2.
+Volume manager | LVM2. LVM is supported for data disks only. Azure VMs have only a single OS disk.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
