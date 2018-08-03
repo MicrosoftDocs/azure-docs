@@ -19,7 +19,7 @@ ms.reviewer: jairoc
 Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources.
 
 ## What happens when you join your device
-While you're joining your Windows 10 device to your organization's network, the following will happen:
+While you're joining your Windows 10 device to your organization's network, the following actions will happen:
 
 - Windows joins your device to your organization's network.
 
@@ -36,7 +36,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
 2. On the **Sign in with Microsoft** screen, type your work or school email address.
 
-    ![Sign-in screen with email address](./media/user-help-join-device-on-network/join-device-oobe-signin.png)
+    ![Sign in screen with email address](./media/user-help-join-device-on-network/join-device-oobe-signin.png)
 
 3. On the **Enter your password** screen, type your password.
 
@@ -46,7 +46,7 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
     ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
-5. Complete the OOBE process, including setting your privacy settings and setting up Windows Hello (if required).
+5. Complete the OOBE process, including setting your privacy settings and setting up Windows Hello (if necessary).
 
 Your device is now joined to your organization's network.
 
@@ -107,7 +107,7 @@ You can make sure that you're joined by looking at your settings.
     ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
 ## Next steps
-After you join your device to your organization's network, you should be able to access all of your allowed resources with your work or school account information.
+After you join your device to your organization's network, you should be able to access all of your resources using your work or school account information.
 
-- If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md)
+- If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
