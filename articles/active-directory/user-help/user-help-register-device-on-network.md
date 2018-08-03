@@ -55,60 +55,22 @@ Follow these steps to register your personal device on your network.
 
 
 
-**To register your Windows 10 device:**
 
-1. In the **Start** menu, click **Settings**.
+## To make sure you're registered
+You can make sure that you're registered by looking at your settings.
 
-    ![Settings](./media/user-help-register-device-on-network/01.png)
+1. Open **Settings**, and then select **Accounts**.
 
-2. Click **Accounts**.
+    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/register-device-settings-accounts.png)
 
-    ![Accounts](./media/user-help-register-device-on-network/02.png)
+2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
 
-
-3. Click **Access work or school**.
-
-    ![Access work or school](./media/user-help-register-device-on-network/03.png)
-
-4. On the **Access work or school** dialog, click **Connect**.
-
-    ![Connect](./media/user-help-register-device-on-network/04.png)
-
-
-5. On the  **Set up a work or school account** dialog, enter your account name (for example, someone@example.com), and then click **Next**.
-
-    ![Connect](./media/user-help-register-device-on-network/06.png)
-
-
-6. On the  **Enter password** dialog, enter your password, and then click **Next**.
-
-    ![Connect](./media/user-help-register-device-on-network/05.png)
-
-
-7. On the **You're all set** dialog, click **Done**.
-
-    ![Connect](./media/user-help-register-device-on-network/07.png)
-
-## Make sure you're registered
-
-To verify whether a device is joined to an Azure AD, you can review the **Access work or school** dialog on your device.
-
-![Register](./media/user-help-register-device-on-network/08.png)
-
-Alternatively, you can review device settings on the Azure AD portal.
-
-![Register](./media/user-help-register-device-on-network/09.png)
-
-
-
-
+    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
 ## Next steps
+After you register your personal device to your organization's network, you should be able to access most of your resources.
 
-- For more information, see the [introduction to device management in Azure Active Directory](../device-management-introduction.md)
-
-- For more information about managing devices in the Azure AD portal, see the [managing devices using the Azure portal ](../device-management-azure-portal.md).
-
+- If your organization wants you to join your work device, see [Join your work device to your organization's network](user-help-join-device-on-network.md).
 
 
 
