@@ -47,10 +47,6 @@
   items:
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?service=search
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
-  - name: Azure PowerShell
-    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
 - name: Concepts
   items:
   - name: Cognitive search (Preview)
@@ -179,7 +175,7 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Query fundamentals
+    - name: Fundamentals
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md
@@ -219,6 +215,10 @@
       href: search-traffic-analytics.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
   - name: .NET
     href: /dotnet/api/?term=microsoft.azure.search
   - name: .NET (Management)
