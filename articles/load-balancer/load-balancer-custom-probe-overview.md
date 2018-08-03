@@ -158,6 +158,7 @@ Basic Load Balancer exposes health probe status per backend pool via Log Analyti
 ## Limitations
 
 -  HTTPS probes do not support mutual authentication with a client certificate.
+-  HTTPS probes can be configured via REST, template, and Azure CLI 2.0.
 
 ## Next steps
 
