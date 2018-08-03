@@ -18,30 +18,32 @@ ms.author: v-jamebr
 
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
-Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. This article shows you how to set up reverse proxy in your cluster.
+Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. To learn more, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). This article shows you how to set up and configure reverse proxy in your cluster. 
 
 ## Enable reverse proxy using Azure portal
 
 Azure portal provides an option to enable reverse proxy when you create a new Service Fabric cluster. You can't upgrade an existing cluster to use reverse proxy through the portal. 
 
-To configure reverse proxy when you create a cluster using Azure portal, do the following:
+To configure reverse proxy when you [create a cluster using Azure portal](./service-fabric-cluster-creation-via-portal.md), make sure you do the following:
 
- - In **Step 2: Cluster Configuration**, under **Node type configuration**, select **Enable reverse proxy**.
+1. In **Step 2: Cluster Configuration**, under **Node type configuration**, select **Enable reverse proxy**.
 
    ![Enable reverse proxy on portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
- - (Optional) To configure secure reverse proxy, you need to configure an SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
+2. (Optional) To configure secure reverse proxy, you need to configure an SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
 
    ![Configure secure reverse proxy on portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
-If you choose not to configure the reverse proxy with a certificate when you create the cluster, you can do so later through the Resource Manager template for the cluster's resource group. To learn more, see [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates).
+   If you choose not to configure the reverse proxy with a certificate when you create the cluster, you can do so later through the Resource Manager template for the cluster's resource group. To learn more, see [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates).
 
 ## Enable reverse proxy via Azure Resource Manager templates
 
-For clusters on Azure, you can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric. You can enable reverse proxy when you create the cluster or update the cluster at a later time. 
+For clusters on Azure, you can use the Azure Resource Manager template to enable the reverse proxy in Service Fabric. You can enable reverse proxy when you create the cluster or enable it by updating the cluster at a later time. 
 
-You can find Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and templates to configure secure reverse proxy with a certificate and handling certificate rollover.
+For a new cluster, you can [create a custom Resource Manager template](service-fabric-cluster-creation-via-arm.md) or you can use a sample template. 
 
-First, you need a Resource Manager template for the cluster that you want to deploy. For a new cluster, you can either use the sample templates or create a custom Resource Manager template. For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+You can find sample Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and the templates to use to configure secure reverse proxy with a certificate and to handle certificate rollover.
+
+For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
 
 After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
@@ -158,7 +160,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
 
 ## Enable reverse proxy on standalone clusters
 
-You enable reverse proxy for standalone clusters through the ClusterConfig.json file. You can enable reverse proxy at cluster creation or by upgrading the configuration for an existing cluster. To learn more about the settings available in ClusterConfig.json files, see [Standalone cluster settings](./service-fabric-cluster-manifest.md).
+For standalone clusters, you enable reverse proxy in the ClusterConfig.json file. You can enable reverse proxy at cluster creation or by upgrading the configuration for an existing cluster. To learn more about the settings available in ClusterConfig.json files, see [Standalone cluster settings](./service-fabric-cluster-manifest.md).
 
 The following steps show you the settings to use to enable reverse proxy and, optionally, to secure the reverse proxy with an X.509 certificate. 
 
@@ -199,7 +201,7 @@ The following steps show you the settings to use to enable reverse proxy and, op
               ...
           }
       ```
-   - For a production, the **ReverseProxyCertificateCommonNames** setting is recommended:
+   - For a production environment, the **ReverseProxyCertificateCommonNames** setting is recommended:
 
       ```json
           "properties": {
