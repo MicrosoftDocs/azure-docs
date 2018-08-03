@@ -39,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-All requests must be made from a server. You may not make calls from a client.
+All requests must be made from a server, and not from a client.
 
 > [!IMPORTANT]
 > If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
