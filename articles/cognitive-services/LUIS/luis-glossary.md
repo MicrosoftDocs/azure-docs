@@ -162,7 +162,7 @@ Speech priming allows your speech service to be primed with your LUIS model.
 
 ## <a name="spelling-correction"></a>Spelling correction
 
-Enable [Bing spell checker](luis-how-to-manage-keys.md#enable-bing-spell-checker) to correct misspelled words in the utterances before prediction. 
+Enable [Bing spell checker](luis-how-to-manage-keys.md) to correct misspelled words in the utterances before prediction. 
 
 ## <a name="starter-key"></a>Starter key
 
