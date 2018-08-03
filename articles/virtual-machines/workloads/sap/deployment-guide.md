@@ -922,50 +922,51 @@ To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
 
 1. Install using Azure CLI 1.0
 
-  1. Install Azure CLI 1.0, as described in [Install the Azure CLI 1.0][azure-cli].
-  1. Sign in with your Azure account:
+   1. Install Azure CLI 1.0, as described in [Install the Azure CLI 1.0][azure-cli].
+   1. Sign in with your Azure account:
 
-  ```
-  azure login
-  ```
+      ```
+      azure login
+      ```
 
-  1. Switch to Azure Resource Manager mode:
+   1. Switch to Azure Resource Manager mode:
 
-  ```
-  azure config mode arm
-  ```
+      ```
+      azure config mode arm
+      ```
 
-  1. Enable Azure Enhanced Monitoring:
+   1. Enable Azure Enhanced Monitoring:
 
-  ```
-  azure vm enable-aem <resource-group-name> <vm-name>
-  ```
+      ```
+      azure vm enable-aem <resource-group-name> <vm-name>
+      ```
 
 1. Install using Azure CLI 2.0
 
-  1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
-  1. Sign in with your Azure account:
+   1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
+   1. Sign in with your Azure account:
 
-  ```
-  az login
-  ```
+      ```
+      az login
+      ```
+
+   1. Install Azure CLI AEM Extension
   
-  1. Install Azure CLI AEM Extension
+      ```
+      az extension add --name aem
+      ```
   
-  ```
-  az extension add --name aem
-  ```
+   1. Install the extension with
   
-  1. Install the extension with
-  
-  ```
-  az vm aem set -g <resource-group-name> -n <vm name>
-  ```
+      ```
+      az vm aem set -g <resource-group-name> -n <vm name>
+      ```
 
 1. Verify that the Azure Enhanced Monitoring Extension is active on the Azure Linux VM. Check whether the file \\var\\lib\\AzureEnhancedMonitor\\PerfCounters exists. If it exists, at a command prompt, run this command to display information collected by the Azure Enhanced Monitor:
-```
-cat /var/lib/AzureEnhancedMonitor/PerfCounters
-```
+
+   ```
+   cat /var/lib/AzureEnhancedMonitor/PerfCounters
+   ```
 
 The output looks like this:
 ```
