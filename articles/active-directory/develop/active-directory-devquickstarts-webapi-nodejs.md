@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 This article demonstrates how to secure a [Restify](http://restify.com/) API endpoint with [Passport](http://passportjs.org/) using the [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module to handle communication with Azure Active Directory (AAD). 
 
-The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and retaining authentication tokens are not implemented here and are the responsibility of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+The scope of this tutorial covers the concerns regarding securing API endpoints. The concerns of signing in and retaining authentication tokens are not implemented here and are the responsibility of a client application. For details surrounding a client implementation, review [Node.js web app sign-in and sign-out with Azure AD](quickstart-v1-openid-connect-code.md).
 
 The full code sample associated with this article is available on [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -73,7 +73,7 @@ Before you can connect to Azure Active Directory, you need the following informa
 
 | Name  | Description | Variable Name in Config File |
 | ------------- | ------------- | ------------- |
-| Tenant Name  | [Tenant name](active-directory-howto-tenant.md) you want to use for authentication | `tenantName`  |
+| Tenant Name  | [Tenant name](quickstart-create-new-tenant.md) you want to use for authentication | `tenantName`  |
 | Client ID  | Client ID is the OAuth term used for the AAD _Application ID_. |  `clientID`  |
 
 From the registration response in the Azure Cloud Shell, copy the `appId` value and create a new file named `config.js`. Next, add in the following code and replace your values with the bracketed tokens:
@@ -241,4 +241,4 @@ Now that you have created a secure API, you can implement a client that is able 
 As stated in the introduction, you must implement a client counterpart to connect to the server that handles signing in, signing out and managing tokens. For code-based examples, you may refer to the client applications in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) and [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). For a step-by-step tutorial refer to the following article:
 
 > [!div class="nextstepaction"]
-> [Node.js web app sign-in and sign-out with Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md)
+> [Node.js web app sign-in and sign-out with Azure AD](quickstart-v1-openid-connect-code.md)
