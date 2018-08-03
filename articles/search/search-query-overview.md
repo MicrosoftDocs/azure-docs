@@ -12,11 +12,11 @@ ms.date: 08/03/2018
 ---
 # Query fundamentals in Azure Search
 
-A query composition in Azure Search is a full specification of a request: search criteria, plus parameters for directing query execution and shaping results. A request specifies which fields to include, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+Query composition in Azure Search is a full specification of a request: match criteria, plus parameters for directing query execution and shaping the response. A request specifies which fields to include, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
 ## Introduction by example
 
-Examples are useful for illustrating key concepts and capabilities. The following example, formulated as a search request using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), parameters inform both the request and response. 
+Examples are useful for illustrating key concepts. The following example, formulated as a search request using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), informs both the request and response. In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. 
 
 ```
 {  
@@ -31,22 +31,22 @@ Examples are useful for illustrating key concepts and capabilities. The followin
 ```
 As a representative query, this example demonstrates several important aspects of query definition, from parser inputs, to shaping the result set. Query execution is always against one index, authenticated using an api-key provided in the request. 
 
-To run this example yourself, use [Search explorer and the real estate demo index](search-get-started-portal.md) in the portal. You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
+To run this query, use [Search explorer and the real estate demo index](search-get-started-portal.md). You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
 
 **Searching the index**
 
-+ Query parser is a choice, set through **queryType**. Most developers use the default [simple parser](search-query-simple-examples.md) for full text search, but [full Lucene](search-query-lucene-examples.md) parsing is required for specialized query forms such as fuzzy search or regular expressions.
-+ Match criteria on documents in the index is set through the **search** parameter.
-+ Scope can be the entire index, or specific fields as determined through **searchFields**.
++ Query parser is a choice, set through `queryType`. Most developers use the default [simple parser](search-query-simple-examples.md) for full text search, but [full Lucene](search-query-lucene-examples.md) parsing is required for specialized query forms such as fuzzy search or regular expressions.
++ Match criteria on documents in the index is set through the `search` parameter.
++ Scope can be the entire index, or specific fields as determined through `searchFields`.
 
 **Structuring the response**
 
 Other parameters in the example pertain to the results of query:
 
-+ **count** is the number of documents matching the query.
-+ **select** limits the fields returned in the response.
-+ **top** limits the rows or documents returned in the response. The default is 50; the example reduces that to 10.
-+ **orderby** sorts the results by a field.
++ `count` is the number of documents matching the query.
++ `select` limits the fields returned in the response.
++ `top` limits the rows or documents returned in the response. The default is 50; the example reduces that to 10.
++ `orderby` sorts the results by a field.
 
 **Enabling operations through index attributes**
 
@@ -59,7 +59,7 @@ Allowed operations on a per-field basis are just one way that index definition i
 + [Suggester constructs](https://docs.microsoft.com/rest/api/searchservice/suggesters) that enable autocomplete and auto-suggestion
 + [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) that add logic to ranking search results
 
-Above capabilities are exercised during query execution, but are generally implemented in your code as attributes on the field rather than as parameters on the query.
+The above capabilities are exercised during query execution, but are generally implemented in your code as attributes on the field rather than as parameters on the query.
 
 <a name="types-of-queries"></a>
 
@@ -84,14 +84,14 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
-The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
+The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries, you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
 
 
 ## Choose a syntax: simple or full
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
-The [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add **queryType=full** to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Using this query syntax allows specialized queries:
+The [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Using this query syntax allows specialized queries:
 
 + [Field-scoped queries](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields)
 + [fuzzy search](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy)
@@ -114,23 +114,12 @@ When submitting search requests to Azure Search, there are a number of parameter
 Required elements on a query request include the following components:
 
 + Service endpoint and index documents collection, expressed here as a URL `https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`.
-+ API version (REST only), expressed as **api-version=**
-+ query or admin api-key, expressed as **api-key=**
-+ query string expressed as **search=**, which can be unspecified if you want to perform an empty search. You can also send just a filter expression as **$filter=**.
-+ **queryType=**, either simple or full, which can be omitted if you want to use the default simple syntax.
++ API version (REST only), expressed as `api-version`
++ query or admin api-key, expressed as `api-key`
++ query string expressed as `search`, which can be unspecified if you want to perform an empty search. You can also send just a filter expression as `$filter`.
++ `queryType`, either simple or full, which can be omitted if you want to use the default simple syntax.
 
 All other search parameters are optional.
-
-## APIs and tools for testing
-
-The following table lists the APIs and tool-based approaches for submitting queries.
-
-| Methodology | Description |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Search Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
-| [Fiddler, Postman, or other HTTP testing tool](search-fiddler.md) | Explains how to set up a request header and body for sending queries to Azure Search.  |
-| [Search explorer in Azure portal](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
 
 ## Manage search results 
 
@@ -164,6 +153,17 @@ If you want Azure Search to return your results ordered by a value other than th
 
 ### Hit highlighting
 In Azure Search, emphasizing the exact portion of search results that match the search query is made easy by using the `highlight`, `highlightPreTag`, and `highlightPostTag` parameters. You can specify which *searchable* fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Search returns.
+
+## APIs and tools for testing
+
+The following table lists the APIs and tool-based approaches for submitting queries.
+
+| Methodology | Description |
+|-------------|-------------|
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Search Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
+| [Fiddler, Postman, or other HTTP testing tool](search-fiddler.md) | Explains how to set up a request header and body for sending queries to Azure Search.  |
+| [Search explorer in Azure portal](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
 
 ## See also
 
