@@ -11,7 +11,7 @@ manager: timlt
 ---
 
 # How to view the Azure Maps API usage
-This article shows you how to view the API usage metrics for your Azure Maps account in the [portal](portal.azure.com). The metrics are shown in a convenient graph format along your prefered time duration. 
+This article shows you how to view the API usage metrics for your Azure Maps account in the [portal](https://portal.azure.com). The metrics are shown in a convenient graph format along your prefered time duration. 
 
 ## View metric snapshot 
 
@@ -24,7 +24,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## Navigate to your Azure Maps account 
 
-1. Login to your Azure subscription in the [portal](portal.azure.com). 
+1. Login to your Azure subscription in the [portal](https://portal.azure.com). 
 
 2. Click the **All resources** menu item on the left hand side and navigate to your *Azure Maps Account*.
 
