@@ -33,11 +33,11 @@ The Azure AD Authentication Library (ADAL) Android library gives your app the ab
 * Call the Microsoft Graph
 * Sign out the user
 
-To get started, you'll need an Azure AD tenant where you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+To get started, you'll need an Azure AD tenant where you can create users and register an application. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
 
 ## Scenario: Sign in users and call the Microsoft Graph
 
-![Topology](./media/active-directory-android-topology.png)
+![Topology](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 This app can be used for all Azure AD accounts. It supports both single and multi-organizational scenarios (discussed in steps). It demonstrates how a developer can build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph. During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app. The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
