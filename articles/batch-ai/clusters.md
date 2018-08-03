@@ -26,19 +26,19 @@ A cluster in Batch AI contains the compute resources for running jobs. All nodes
 
 ### 1. Prerequisites
 
-Clusters exist under a Batch AI resource called workspaces. Before provisioning any cluster, you must have a Batch AI workspace set up. You can use the [az batchai workspace create](https://docs.microsoft.com/en-us/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command to set up a workspace. For more information about workspaces and other Batch AI concepts, see the following [article](resource-concepts.md).
+Clusters exist under a Batch AI resource called workspaces. Before provisioning any cluster, you must have a Batch AI workspace set up. You can use the [az batchai workspace create](https://docs.microsoft.com/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command to set up a workspace. For more information about workspaces and other Batch AI concepts, see the following [article](resource-concepts.md).
 
 ### 2. Determining the cluster configurations
 
 When planning to provision a cluster, you must first determine the exact compute requirements. Batch AI offers lots of flexible configuration options in order to allow you to create a cluster tailored towards your needs. The following list goes over the majors options, which should be considered when provisioning a cluster:
 
-* **VM Size** - Batch AI allows you to choose any VM size that is available in your region for the nodes on the cluster. Each cluster can only contain one type of VM, so if your tasks require multiple types of VMs, you will need to provision a new cluster for each type of compute requirement. The following [article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) shows the different type of GPU-Enabled VM options that are available in Azure.
+* **VM Size** - Batch AI allows you to choose any VM size that is available in your region for the nodes on the cluster. Each cluster can only contain one type of VM, so if your tasks require multiple types of VMs, you will need to provision a new cluster for each type of compute requirement. The following [article](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) shows the different type of GPU-Enabled VM options that are available in Azure.
   
 * **Priority** - Batch AI offers dedicated and low-priority VM options for a cluster. The low-priority option allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of jobs being pre-empted by higher priority tasks. Jobs that run for longer than 24 hours on a low-priority VM will also be automatically pre-empted. If budget is a concern, consider using low-priority for short experimentation jobs and switch to a dedicated priority when it is time to run longer jobs.
 
 * **Target** - Batch AI offers both a manual and auto scaling option for the number of nodes in the cluster. The manual option gives users more control of when to scale a cluster up and down, giving you full control of managing your own compute costs. The auto scaling option ensures that the cluster always downscales when not being utilized in order to minimize your compute costs. If the manual option is selected, the initial target must be defined during cluster creation. The target is the number of nodes that will be allocated immediately after creation. If the auto scaling option is selected, the maximum and minimum number of target nodes must be defined during cluster creation. The target can range from 0 to the maximum quota that you have in your subscription. A target of 0 will allow you keep your VM provisioning without being charged for any compute costs. If you request a higher target than your quota limit, then the provisioning will fail. To view more information about quota limits, see the following [article](quota-limits.md).
 
-* **VM Image** - Batch AI allows the VMs in the cluster to be provisioned with the default OS or with a preconfigured Azure Image, such as a [Data Science Virtual Machine](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/). See the following [article](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage) for more information on finding the right image for your needs.
+* **VM Image** - Batch AI allows the VMs in the cluster to be provisioned with the default OS or with a preconfigured Azure Image, such as a [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/). See the following [article](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage) for more information on finding the right image for your needs.
 
 * **Storage** - Batch AI provides an auto storage feature as an option, which can be enabled when creating a cluster. This option will automatically create a File Share and Blob Container under a new storage account. These storages will be mounted to each of the nodes in the cluster during execution time allowing the files to be accessed from a local path. The storage account names, file share name, blob container name, and mount paths all have default values, which can also be customized using additional parameters during cluster creation. If no storage options are defined, then you will need to create the storages separately and define them when submitting jobs. This option is useful if your cluster is managed at the organization level, but your storage is managed at the user level. For more information on how to upload files to the storage and access them during execution time, see the following [article](use-azure-storage.md).
 
@@ -50,7 +50,7 @@ When planning to provision a cluster, you must first determine the exact compute
 
 ### 3. Provisioning the cluster
 
-Once you have decided on the options to use on the cluster, then you can follow the [az batchai cluster create](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) documentation to create the exact command, which will give you the configurations that you need. 
+Once you have decided on the options to use on the cluster, then you can follow the [az batchai cluster create](https://docs.microsoft.com/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) documentation to create the exact command, which will give you the configurations that you need. 
 
 At the most basic configuration, the following command will provision a Standard_NC6 cluster with one node and SSH access. By default, this cluster will contain dedicated priority VMs running the latest default Ubuntu 16.04-LTS image.
 
@@ -98,7 +98,7 @@ az batchai cluster create \
 ```
 ### 4. Monitoring the cluster
 
-The [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show), [az batchai cluster list](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-list), [az batchai cluster node list](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster/node?view=azure-cli-latest#az-batchai-cluster-node-list) commands can be used to monitor various information for each of the clusters.
+The [az batchai cluster show](https://docs.microsoft.com/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show), [az batchai cluster list](https://docs.microsoft.com/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-list), [az batchai cluster node list](https://docs.microsoft.com/cli/azure/batchai/cluster/node?view=azure-cli-latest#az-batchai-cluster-node-list) commands can be used to monitor various information for each of the clusters.
 
 The following command can be used to list all of the existing clusters in a workspace.
 
@@ -164,7 +164,7 @@ ssh myusername@40.68.xxx.xxx -p 50000
 
 ### 5. Submitting jobs to the cluster
 
-After provisioning the cluster, jobs can then be submitted to run on the nodes. See the [az batchai job](https://docs.microsoft.com/en-us/cli/azure/batchai/job?view=azure-cli-latest) command for different ways to prepare, submit, and monitor jobs using the Azure CLI. 
+After provisioning the cluster, jobs can then be submitted to run on the nodes. See the [az batchai job](https://docs.microsoft.com/cli/azure/batchai/job?view=azure-cli-latest) command for different ways to prepare, submit, and monitor jobs using the Azure CLI. 
 
 ### 6. Downscaling cluster for later use
 
@@ -179,7 +179,7 @@ az batchai cluster resize \
 
 ### 7. Deleting the cluster
 
-Once you are finished using the cluster, you can use the [az batchai cluster delete](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-delete) command in order to do so.
+Once you are finished using the cluster, you can use the [az batchai cluster delete](https://docs.microsoft.com/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-delete) command in order to do so.
 
 ```azurecli-interactive
 az batchai cluster delete \
