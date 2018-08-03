@@ -1,10 +1,22 @@
+---
+title: Acoustics bake process | Microsoft Docs
+description: Use advanced acoustics and spatialization in your Unity title
+services: cognitive-services
+author: kegodin
+manager: noelc
+ms.service: cognitive-services
+ms.component: acoustics
+ms.topic: article
+ms.date: 08/03/2018
+ms.author: kegodin
+---
 # Unity Bake UI
 This is a detailed guide for using the Acoustics tool window to do an Acoustics bake. For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](AcousticsIntro.md).
 
 ## Importing the plugin
 Import the Acoustics plugin package to your project by following the instructions on the [Getting Started](GettingStarted.md) page. Then open the Acoustics UI by choosing Window > Acoustics from the Unity menu:
 
-![Open Acoustics Window](Images/WindowAcoustics.png)
+![Open Acoustics Window](media/WindowAcoustics.png)
 # Principles
 The Acoustics tool window is designed to make it easy for you to quickly provide all the information the acoustics engine needs to calculate the acoustics data for your scene. There are 5 steps you will follow:
 1. Decide how you will provide a navigation mesh, and run through the Unity navigation workflow if necessary

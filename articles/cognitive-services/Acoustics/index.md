@@ -1,3 +1,16 @@
+---
+title: Introduction to acoustics | Microsoft Docs
+description: Use advanced acoustics and spatialization in your Unity title
+services: cognitive-services
+author: kegodin
+manager: noelc
+ms.service: cognitive-services
+ms.component: acoustics
+ms.topic: article
+ms.date: 08/03/2018
+ms.author: kegodin
+---
+
 # Introduction to acoustics
 If you don't need the "why" below, you can get started trying things out [here](GettingStarted.md).
 

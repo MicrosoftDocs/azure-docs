@@ -1,3 +1,16 @@
+---
+title: Getting started with acoustics | Microsoft Docs
+description: Use advanced acoustics and spatialization in your Unity title
+services: cognitive-services
+author: kegodin
+manager: noelc
+ms.service: cognitive-services
+ms.component: acoustics
+ms.topic: article
+ms.date: 08/03/2018
+ms.author: kegodin
+---
+
 # Getting Started With Acoustics in Unity
 This is a step-by-step guide in getting started with the Acoustics toolkit inside a blank Unity project. For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md).
 
