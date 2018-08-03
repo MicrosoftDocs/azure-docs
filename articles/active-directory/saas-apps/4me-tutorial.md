@@ -160,7 +160,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. In a different web browser window, login to 4me as an Administrator.
 
-10. On the top left, click on **Settings** logo and then navigate to left side of menu click **Single Sign-On**.
+10. On the top left, click on **Settings** logo and on the left side bar click **Single Sign-On**.
 
     ![4me settings](./media/4me-tutorial/tutorial_4me_settings.png)
 
