@@ -181,8 +181,14 @@ Upload the certificates with private keys for the domains. In this example, we w
 ```powershell
 $gatewayHostname = "api.contoso.net"
 $portalHostname = "portal.contoso.net"
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath <full path to api.contoso.net .pfx file> -PfxPassword <password for certificate file> -PassThru
-$certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath <full path to portal portal.contoso.net .pfx file> -PfxPassword <password for certificate file> -PassThru
+$gatewayCertCerPath = <full path to api.contoso.net .cer file>
+$gatewayCertPfxPath = <full path to api.contoso.net .pfx file>
+$portalCertPfxPath = <full path to portal.contoso.net .pfx file>
+$gatewayCertPfxPassword = <password for api.contoso.net pfx certificate>
+$portalCertPfxPassword = <password for portal.contoso.net pfx certificate>
+
+$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
+$certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
 ```
 
 ### Step 2
@@ -238,10 +244,10 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 Configure the certificates for the Application Gateway, which will be used to decrypt and re-encrypt the traffic passing through.
 
 ```powershell
-$certPwd = ConvertTo-SecureString <password for the gateway certificate file> -AsPlainText -Force
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path to api.contoso.net .pfx file> -Password $certPwd
-$certPortalPwd = ConvertTo-SecureString <password for the portal certificate file> -AsPlainText -Force
-$certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -CertificateFile <full path to portal.contoso.net .pfx file> -Password $certPortalPwd
+$certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
+$certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
+$certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 
 ### Step 5
@@ -271,7 +277,7 @@ $apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalpro
 Upload the certificate to be used on the SSL-enabled backend pool resources. This is the same certificate which you provided in Step 4 above.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to api.contoso.net .cer file>
+$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
 ```
 
 ### Step 8
