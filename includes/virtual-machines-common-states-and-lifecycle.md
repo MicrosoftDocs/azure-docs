@@ -160,7 +160,9 @@ A provisioning state is the status of a user-initiated (control plane) operation
 
 
 Here are the **Operation states**. These are transitional states after the platform has
-accepted a user-initiated action.
+accepted a user-initiated action:
+
+<br>
 
 <table>
 <tbody>
