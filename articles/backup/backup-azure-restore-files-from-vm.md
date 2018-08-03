@@ -23,7 +23,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 
 To restore files or folders from the recovery point, go to the virtual machine and choose the desired recovery point.
 
-1. Sign into the [Azure portal](http://portal.Azure.com) and in the left-hand menu, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard.
+1. Sign in to the [Azure portal](http://portal.Azure.com) and in the left pane, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard.
 
 2. In the virtual machine's menu, click **Backup** to open the Backup dashboard.
 
@@ -45,7 +45,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     To run the executable or script as an administrator, it is suggested you save the download to your computer.
 
-6. The executable or script is password protected, and requires a password. In the **File Recovery** menu, click the copy button to load the password into memory.
+6. The executable or script is password protected and requires a password. In the **File Recovery** menu, click the copy button to load the password into memory.
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
