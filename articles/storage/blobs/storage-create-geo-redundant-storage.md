@@ -42,12 +42,12 @@ To complete this tutorial:
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
-# [Java] (#tab/java)
+# [Java V7 SDK ] (#tab/java-v7)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# [V10 Java] (#tab/java-future)
+# [V10 Java SDK] (#tab/java-v10)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# [Java] (#tab/java)
+# [Java V7 SDK ] (#tab/java-v7)
 [Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
 ```bash
@@ -145,13 +145,20 @@ To run the application on a terminal or command prompt, go to the **circuitbreak
 In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` file is used to download an image from the storage account using the [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) method. 
 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
- 
+
 Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
 
-# [Java] (#tab/java)
+# [Java V7 SDK ] (#tab/java-v7)
+
 You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
 
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
+
+# [V10 Java SDK] (#tab/java-v10)
+
+You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
+
+The Storage object retry function is set to use a fixed retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. On retry it will utilize the secondary pipeline which we specify in our **RequestRetryOptions**.
 
 ---
 
@@ -250,7 +257,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# [Java] (#tab/java)
+# [Java V7 SDK ] (#tab/java-v7)
 
 With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
@@ -264,6 +271,22 @@ With Java, defining callback handlers is unnecessary if the **LocationMode** pro
 ```
 ---
 
+# [Java V10 SDK] (#tab/java-v10)
+
+With the Java V10 SDK, defining callback handlers remains unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
+
+```java
+    HttpPipeline secondLine = StorageURL.createPipeline(creds, new PipelineOptions());
+
+    RequestRetryOptions myRequestOptions = new RequestRetryOptions(RetryPolicyType.FIXED, 100, 100, null, null, secondLine.toString());
+
+    PipelineOptions myPipelineOptions = new PipelineOptions();
+
+    myPipelineOptions.requestRetryOptions = myRequestOptions;
+
+    // We are using a pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
+    final ServiceURL serviceURL = new ServiceURL(new URL("http://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myPipelineOptions);
+```
 
 ## Next steps
 
