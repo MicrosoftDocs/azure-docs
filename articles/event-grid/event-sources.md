@@ -50,7 +50,7 @@ Subscribe to Event Hubs events to respond to Capture file events.
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created and deleted events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
 
 |Title  |Description  |
 |---------|---------|
