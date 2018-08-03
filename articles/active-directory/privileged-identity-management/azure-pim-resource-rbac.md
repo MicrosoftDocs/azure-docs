@@ -55,7 +55,7 @@ My roles contain a list of your active and eligible role assignments for Azure A
 
 ## Activate roles
 
-Activating roles for Azure Resources introduces a new experience that allows eligible role members to schedule activation for a future date/time and select a specific activation duration within the maximum (configured by administrators). Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Activating roles for Azure Resources introduces a new experience that allows eligible role members to schedule activation for a future date/time and select a specific activation duration within the maximum (configured by administrators). Learn about [activating Azure AD roles here](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -152,7 +152,7 @@ Select Review from the action bar to view existing access reviews and select Add
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Learn more about access reviews](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Learn more about access reviews](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Reviews are only supported for Subscription resource types at this time.
@@ -193,5 +193,5 @@ Select My roles from the left navigation menu and choose the appropriate role to
 ## Next steps
 
 - [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
-- Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Learn about [activating Azure AD roles here](pim-how-to-activate-role.md)
 - [PIM approval workflows](azure-ad-pim-approval-workflow.md)

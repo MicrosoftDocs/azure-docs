@@ -204,7 +204,7 @@ The workflow is divided into two parts:
         examplesRoot=examples
         oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
         hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive1.hql
+        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
         oozie.use.system.libpath=true
         user.name=[domainuser]
         jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
@@ -227,7 +227,7 @@ The 2 hive scripts for hive server 1 and hive server 2 can be created as followi
 -	Hive Server 1 file:
 1.	Use the following statement to create and edit a file for hive server 1 action:
     ```bash
-    nano countrowshive1.xml
+    nano countrowshive1.hql
     ```
 
 2.	Create the script
@@ -245,7 +245,7 @@ The 2 hive scripts for hive server 1 and hive server 2 can be created as followi
 -	Hive Server 2 file:
 1.	Use the following statement to create and edit a field for hive server 2 action:
     ```bash
-    nano countrowshive2.xml
+    nano countrowshive2.hql
     ```
 
 2.	Create the script

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -62,7 +62,7 @@ The following information provides additional security guidance:
 
 * All Azure Stack storage is encrypted using BitLocker, so any SQL instance on Azure Stack will use encrypted blob storage.
 * The SQL Resource Provider fully supports TLS 1.2. Ensure that any SQL Server that is managed through the SQL RP is configured for TLS 1.2 _only_ and the RP will default to that. All supported versions of SQL Server support TLS 1.2, see [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Use SQL Server Configuration Manager to set the **ForceEncryption** option to ensure all communications to the SQL server are always encrypted. See [To configure the server to force encrypted connections](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Use SQL Server Configuration Manager to set the **ForceEncryption** option to ensure all communications to the SQL server are always encrypted. See [To configure the server to force encrypted connections](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
 * Ensure any client application is also communicating over an encrypted connection.
 * The RP is configured to trust the certificates used by the SQL Server instances.
 
@@ -96,17 +96,14 @@ To add a standalone hosting server that's already set up, follow these steps:
    * To use an existing SKU, choose an available SKU and then select **Create**.
    * To create a SKU, select **+ Create new SKU**. In **Create SKU**, enter the required information, and then select **OK**.
 
-     > [!IMPORTANT]
-     > Special characters, including spaces and periods, aren't supported in **Name** field. Use the examples in the following screen capture to enter values for the **Family**, **Tier**, and **Edition** fields.
-
      ![Create a SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## Provide high availability using SQL Always On Availability Groups
 
 Configuring SQL Always On instances requires additional steps and requires three VMs (or physical machines.) This article assumes that you already have a solid understanding of Always On availability groups. For more information, see the following articles:
 
-* [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > The SQL adapter resource provider _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On Availability Groups. This adapter configuration requires new SQL features such as automatic seeding.
@@ -115,16 +112,18 @@ Configuring SQL Always On instances requires additional steps and requires three
 
 You must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
 
-To enable automatic seeding on all instances, edit and then run the following SQL command for each instance:
+To enable automatic seeding on all instances, edit and then run the following SQL command on the primary replica for each secondary instance:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-On the secondary instances, edit and then run the following SQL command for each instance:
+Note that the availability group must be enclosed in square brackets.
+
+On the secondary nodes, run the following SQL command:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -152,7 +151,7 @@ Use these commands to set the contained database authentication server option fo
 
    Under **SQL Hosting Servers**, you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-3. Fill out the form with the connection details for your SQL Server instance. Make sure that you use the FQDN address of the Always On Listener (and optional port number.) Provide the information for the account you configured with sysadmin privileges.
+3. Fill out the form with the connection details for your SQL Server instance. Make sure that you use the FQDN address of the Always On Listener (and optional port number and instance name). Provide the information for the account you configured with sysadmin privileges.
 
 4. Check the Always On Availability Group box to enable support for SQL Always On Availability Group instances.
 

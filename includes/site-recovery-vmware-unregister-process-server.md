@@ -22,4 +22,5 @@ The steps to unregister a process server differs depending on its connection sta
 4. The above command will provide the list of process server(s) (can be more than one, in case of duplicate entries) with serial number(S.No), IP address (IP), name of the VM on which process server is deployed (Name), Heart beat of the VM (Heartbeat) as shown below.
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
 5. Now, enter the serial number of the process server you wish to un-register.
-6. This will purge the details of the process server from the system.
+6. This will purge the details of the process server from the system and will display the message: **Successfully unregistered server-name> (server-IP-address)**
+

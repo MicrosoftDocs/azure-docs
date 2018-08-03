@@ -12,15 +12,15 @@ ms.custom: include file
 
 | Category | Data store |
 |:--- |:--- |
-| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Azure Blob storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |
+| &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
+| &nbsp; |[Azure Table storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill (Preview)](../articles/data-factory/connector-drill.md) |

@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 07/10/2018
 ms.author: snehaa
 ---
 
@@ -89,13 +89,19 @@ The data collected by the collector appliance is stored in the Azure location th
 
 For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an OMS workspace created in user’s subscription. This data is deleted when you delete the OMS workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### Is the data encrypted at rest and while in transit?
+
+Yes, the collected data is encrypted both at rest and while in transit. The metadata collected by the appliance is securely sent to the Azure Migrate service over internet via https. The collected metadata is stored in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) and in [Azure blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription and is encrypted at rest.
+
+The data collected by the dependency agents is also encrypted in transit (secure https channel) and is stored in a Log Analytics workspace in the user’s subscription. It is also encrypted at rest.
+
 ### How does the collector communicate with the vCenter Server and the Azure Migrate service?
 
 The collector appliance connects to the vCenter Server (port 443) using the credentials provided by the user in the appliance. It queries the vCenter Server using VMware PowerCLI to collect metadata about the VMs managed by vCenter Server. It collects both configuration data about VMs (cores, memory, disks, NIC etc.) as well as performance history of each VM for the last one month from vCenter Server. The collected metadata is then sent to the Azure Migrate service (over internet via https) for assessment. [Learn more](concepts-collector.md)
 
-### Can I connect to multiple vCenter servers?
+### Can I connect the same collector appliance to multiple vCenter servers?
 
-You need a connector appliance set up for each server.
+Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discoveries one after another.
 
 ### Is the .OVA template used by Site Recovery integrated with the .OVA used by Azure Migrate?
 
@@ -104,12 +110,6 @@ Currently there is no integration. The .OVA template in Site Recovery is used to
 ### I changed my machine size. Can I rerun the assessment?
 
 If you change the settings on a VM you want to assess, trigger discover again using the collector appliance. In the appliance, use the **Start collection again** option to do this. After the collection is done, select the **Recalculate** option for the assessment in the portal, to get updated assessment results.
-
-### Is the data encrypted at rest and while in transit?
-
-Yes, the collected data is encrypted both at rest and while in transit. The metadata collected by the appliance is securely sent to the Azure Migrate service over internet via https. The collected metadata is stored in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) and in [Azure blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription and is encrypted at rest.
-
-The data collected by the dependency agents is also encrypted in transit (secure https channel) and is stored in a Log Analytics workspace in the user’s subscription. It is also encrypted at rest.
 
 ### How can I discover a multi-tenant environment in Azure Migrate?
 

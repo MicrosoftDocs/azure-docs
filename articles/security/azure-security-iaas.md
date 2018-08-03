@@ -75,7 +75,7 @@ Document all other known alternative approaches to granting the privilege and wh
 
 Just-in-time administration prevents the unnecessary existence of accounts with elevated rights during periods when those rights are not needed. Accounts have elevated rights for a limited time so that administrators can do their jobs. Then, those rights are removed at the end of a shift or when a task is completed.
 
-You can use [Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization. It also brings just-in-time administration to Azure AD by introducing the concept of eligible admins. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
+You can use [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) to manage, monitor, and control access in your organization. It helps you remain aware of the actions that individuals take in your organization. It also brings just-in-time administration to Azure AD by introducing the concept of eligible admins. These are individuals who have accounts with the potential to be granted admin rights. These types of users can go through an activation process and be granted admin rights for a limited time.
 
 ## Use DevTest Labs
 

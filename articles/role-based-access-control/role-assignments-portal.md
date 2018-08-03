@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -84,7 +84,9 @@ When managing access, you want to know who has access, what are their permission
 
    ![Azure Active Directory user Azure resources](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   On the Azure resources blade, you can see the role assignments for the selected user. This list only includes role assignments for resources that you have permission to read. For example, if the user also has role assignments in a different subscription that you cannot read, those role assignments will not appear in the list.
+   On the Azure resources blade, you can see the role assignments for the selected user and selected subscription. This list includes only role assignments for resources that you have permission to read. For example, if the user also has role assignments that you cannot read, those role assignments will not appear in the list.
+
+1. If you have multiple subscriptions, you can choose the **Subscription** drop-down list to see the role assignments in a different subscription.
 
 ## Grant access
 
@@ -157,14 +159,6 @@ In RBAC, to remove access, you remove a role assignment.
 1. In the remove role assignment message that appears, choose **Yes**.
 
 Inherited role assignments cannot be removed. If you need to remove an inherited role assignment, you must do it at the scope where the role assignment was created. In the **Scope** column, next to **Inherited** there is a link that takes you to the resources where this role was assigned. Go to the scope listed there to remove the role assignment.
-
-## Other tools to manage access
-
-You can assign roles and manage access with Azure RBAC commands in tools other than the Azure portal. For more information, see the following links:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## Next steps
 

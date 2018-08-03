@@ -203,7 +203,7 @@ Select the **Update Deployments** tab to view the list of existing update deploy
 
 ## Create or edit an update deployment
 
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table:
+To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
 
 | Property | Description |
 | --- | --- |

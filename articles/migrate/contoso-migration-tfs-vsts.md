@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/12/2018
 ms.author: raynew
 
 ---
@@ -29,6 +29,8 @@ This document is the eleventh in a series of articles that show how the fictitio
 [Article 9: Refactor an app to an Azure Web App and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
 [Article 10: Refactor a Linux app to Azure App Service and Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. | Available
 Article 11: Refactor a TFS deployment in VSTS | Migrate the dev app TFS to VSTS in Azure | This article
+[Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
+[Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | Available
 
 
 ## Business drivers
@@ -236,7 +238,7 @@ Before they start, Contoso schedules downtime with the dev team, to take the col
 2. **Generate a backup**: The next step of the migration process is to generate a backup that can be imported into VSTS. Data-tier Application Component Packages (DACPAC), is a SQL Server feature that allows database changes to be packaged into a single file, and deployed to other instances of SQL. It can also be restored directly to VSTS, and is therefore used as the packaging method for getting collection data into the cloud. Contoso will use the SqlPackage.exe tool to generate the DACPAC. This tool is included in SQL Server Data Tools.
 3. **Upload to storage**: AFter the DACPAC is created, they upload it to Azure Storage. After it's uploaded, they get a shared access signature (SAS), to allow the TFS Migration Tool access to the storage.
 4. **Fill out the import**: Contoso can then fill out missing fields in the import file, including the DACPAC setting. To start with they'll specify that they want to do a **DryRun** import, to check that everything's working properly before the full migration.
-5. **Do a dry run**: Dry run imports help test collection migration. Dry runs have limited life, and are deleted before a a production migration runs. They're deleted automatically after a set period of time. A note about when the dry run will be deleted is included in the success email received after the import finishes. Take note and plan accordingly.
+5. **Do a dry run**: Dry run imports help test collection migration. Dry runs have limited life, and are deleted before a production migration runs. They're deleted automatically after a set period of time. A note about when the dry run will be deleted is included in the success email received after the import finishes. Take note and plan accordingly.
 6. **Complete the production migration**: With the Dry Run migration completed, Contoso does the final migration by updating the import.json, and running import again.
 
 

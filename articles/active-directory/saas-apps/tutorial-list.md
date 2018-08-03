@@ -105,7 +105,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [Blackboard Learn - Shibboleth](blackboard-learn-shibboleth-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans - User Provisioning](bluejeans-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Bomgar Remote Support](bomgarremotesupport-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|[Bonusly - User Provisioning](bonusly-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)| [Box - User Provisioning](box-userprovisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
@@ -174,7 +174,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](dome9arc-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [Dropbox for Business - User Provisioning](dropboxforbusiness-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [Dropbox for Business - User Provisioning](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Dynamic Signal](dynamicsignal-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|
@@ -326,7 +326,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate - User Provisioning](linkedinelevate-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - User Provisioning](linkedinlearning-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - User Provisioning](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

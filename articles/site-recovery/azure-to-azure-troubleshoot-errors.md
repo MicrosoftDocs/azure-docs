@@ -172,6 +172,13 @@ If the problem persists, contact support.
 
 ## Unable to see the Azure VM for selection in "enable replication"
 
+ **Cause 1:  Resource group and source Virtual machine are in different location** <br>
+Azure Site Recovery currently mandated that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection.
+
+**Cause 2: Resource group is not part of selected subscription** <br>
+You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
+
+ **Cause 3: Stale Configuration** <br>
 If you don't see the VM you want to enable for replication, it might be because of a stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
@@ -180,6 +187,11 @@ If you don't see the VM you want to enable for replication, it might be because 
 ### Fix the problem
 
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
+
+## Unable to select Virtual machine for protection 
+ **Cause 1:  Virtual machine has some extension installed in a failed or unresponsive state** <br>
+ Go to Virtual machines > Setting > Extensions and check if there are any extensions in a failed state. Uninstall the failed extension and retry protecting the virtual machine.<br>
+ **Cause 2:  [VM's provisioning state is not valid](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## VM's provisioning state is not valid (error code 150019)
 
@@ -195,6 +207,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 - If **provisioningState** is **Failed**, contact support with details to troubleshoot.
 - If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
+
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)

@@ -2,13 +2,13 @@
 title: Understand LUIS best practices - Azure | Microsoft Docs
 description: Learn the LUIS best practices to get the best results.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
+ms.author: diberry
 ---
 # Best practices
 Use the app authoring process to build your LUIS app. 
@@ -71,7 +71,7 @@ Do not apply these practices before your app has received endpoint requests beca
 This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
-Use [active learning](label-suggested-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](luis-how-to-review-endoint-utt.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 ## Do monitor the performance of your app
 Monitor the prediction accuracy using a test set. 

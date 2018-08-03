@@ -1,4 +1,4 @@
-﻿---
+---
 title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
@@ -228,7 +228,7 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
@@ -241,7 +241,7 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
+[msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

@@ -6,6 +6,7 @@ author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
+ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -197,7 +198,7 @@ To assign users in the Azure AD portal, browse to the SaaS app’s page, and the
 
 !["Add Assignment" pane](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-To verify access, users should see the SaaS app in their [access panel](../active-directory-saas-access-panel-introduction.md) when they sign in. They can find the access panel at http://myapps.microsoft.com. In this example, a user has been successfully assigned access to both Salesforce and ServiceNow.
+To verify access, users should see the SaaS app in their [access panel](../user-help/active-directory-saas-access-panel-introduction.md) when they sign in. They can find the access panel at http://myapps.microsoft.com. In this example, a user has been successfully assigned access to both Salesforce and ServiceNow.
 
 ![Example access panel with Salesforce and ServiceNow apps](media/migrate-adfs-apps-to-azure/migrate8.png)
 

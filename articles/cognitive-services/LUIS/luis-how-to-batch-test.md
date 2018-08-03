@@ -2,13 +2,13 @@
 title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Batch testing
@@ -96,7 +96,7 @@ The two sections of the chart in green did match the expected prediction.
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).

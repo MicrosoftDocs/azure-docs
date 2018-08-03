@@ -58,4 +58,4 @@ If you're no longer interested in the review, you can delete it. Select **Delete
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)

@@ -28,6 +28,8 @@
     href: visual-search-sdk-python.md
 - name: Tutorials
   items:
+  - name: Image upload web app
+    href: tutorial-visual-search-image-upload.md
   - name: Single-page Web app
     href: tutorial-bing-visual-search-single-page-app.md
   - name: Single-page Web app (source code)

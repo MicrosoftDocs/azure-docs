@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
 
 ---
@@ -65,19 +65,25 @@ Manage your connected subscriptions:
 ## Register application
 Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, log in to the portal.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, sign in to the portal.
 
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-To log in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
+To sign in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 The following example shows how to register the app by using Azure CLI.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 The results include the AppId, which you need when authenticating as the application.
 
@@ -98,7 +104,7 @@ The request fails because the user has not logged in yet, but you can retrieve t
 ## Get user + app access token
 Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
-This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/active-directory-developers-guide.md).
+This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### Auth request (OAuth 2.0)
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:

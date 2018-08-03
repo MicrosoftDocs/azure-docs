@@ -79,7 +79,7 @@ The parameters that the task uses are described here:
 > 
 
 ## Download data from Azure blob storage
-To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Upload Task](https://msdn.microsoft.com/library/mt146779.aspx).
+To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Download Task](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## More advanced SSIS-Azure scenarios
 The SSIS feature pack allows for more complex flows to be handled by packaging tasks together. For example, the blob data could feed directly into an HDInsight cluster, whose output could be downloaded back to a blob and then to on-premises storage. SSIS can run Hive and Pig jobs on an HDInsight cluster using additional SSIS connectors:
