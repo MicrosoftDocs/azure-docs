@@ -492,6 +492,46 @@ Following are the steps for generating SAS URL by using Azure CLI
 
 1.	Repeat these steps for each VHD in the SKU.
 
+**Azure CLI 2.0 script**
+
+Replace RESOURCEGROUP, STORAGENAME, CONTAINERNAME, VHDNAME by correct values in the following script and it will output a valid URL with a SAS token valid for 30 days (start date is set 2 days before current date).
+
+```bash
+#!/bin/bash
+
+#This script outputs URL of a given VHD in a given container. You need to be
+# You need to have AZ CLI 2.0 and be logged into your subscription
+
+set -eu
+
+resourceGroup="RESOURCEGROUP"
+storageName="STORAGENAME"
+containerName="CONTAINERNAME"
+vhdName="VHDNAME"
+
+starttime=$(date -u -d '-2 days' +%Y-%m-%dT%H:%M:%SZ)
+expiretime=$(date -u -d '30 days' +%Y-%m-%dT%H:%M:%SZ)
+
+connection=$(az storage account show-connection-string \
+                --resource-group $resourceGroup \
+                --name $storageName \
+                --query connectionString)
+
+token=$(az storage container generate-sas \
+           --name $containerName \
+           --start $starttime \
+           --expiry $expiretime \
+           --permissions rl \
+           --output tsv \
+           --connection-string $connection)
+
+url=$(az storage blob url \
+          --container-name $containerName \
+          --name $vhdName \
+          --output tsv \
+          --connection-string $connection)
+echo $url?$token
+```
 
 ### 5.3 Provide information about the VM image and request certification in the Publishing Portal
 After you have created your offer and SKU, you should enter the image details associated with that SKU:
