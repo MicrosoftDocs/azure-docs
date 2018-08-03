@@ -29,34 +29,55 @@ We use Eclipse as an Integrated Development Environment (IDE).
 
 ## Create and configure your project
 
-1. Start Eclipse, and create an empty workspace:
+1. Start Eclipse.
+
+1. In the Eclipse Launcher, enter the name of a new directory into the **Workspace** field.
+   Then click **Launch**.
 
    ![Create Eclipse workspace](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. Create a new Java project in the empty workspace.
+1. After a while, the main window of the Eclipse IDE shows up.
+   If there is a Welcome screen in it, close it.
 
-   ![Creating a new project step 1](media/sdk/qs-java-jre-02-create-new-java-project.png)
+1. Select **File** \> **New** \> **Project**.
 
-1. Convert the Java project to use the Maven build system.
+1. In the **New Project** wizard that appears select **Java Project**, and click **Next**.
 
-   ![Creating a new project step 2](media/sdk/qs-java-jre-03-convert-java-project-to-maven.png)
+   ![Select a wizard](media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. Double-click the file `pom.xml` to edit it.
-   Switch to the XML tab.
+1. In the next window, enter **quickstart** as a project name and choose **JavaSE-1.8** (or up) as execution environment.
+   Click **Finish**.
 
-1. Inside the repository section (create one if none is present), add a reference to the Maven repository for the Speech SDK:
+   ![Select a wizard](media/sdk/qs-java-jre-03-create-java-project.png)
+
+1. If a window titled **Open Associated Perspective?** pops up, select **Open Perspective**.
+
+1. In the **Package explorer**, right-click the **quickstart** project, and select **Configure** \> **Convert to Maven Project**.
+
+   ![Convert to Maven project](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
+
+1. In the window that pops up, enter **com.microsoft.cognitiveservices.speech.samples** as **Group Id** and **quickstart** as **Artifact Id**.
+   Select **Finish**.
+
+   ![Configure Maven POM](media/sdk/qs-java-jre-05-configure-maven-pom.png)
+
+1. Edit the **pom.xml** file.
+
+1. Under the top-level project node, create a repositories section with a reference to the Maven repository for the Speech SDK:
 
    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-1. Inside the dependencies section (create one if none is present), add the Speech SDK version 0.6.0 as a dependency:
+1. Also, add a dependencies section with the Speech SDK version 0.6.0 as a dependency:
 
    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
 ## Add the sample code
 
-1. Start by creating a new empty class named "Main" into your Java project.
+1. Select **File** \> **New** \> **Class** to add a new empty class to your Java project.
 
-   ![Creating a Main](media/sdk/qs-java-jre-06-create-main-java.png)
+1. In the window **New Java Class** enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
+
+   ![Creating a Main class](media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following:
 
@@ -73,7 +94,7 @@ We use Eclipse as an Integrated Development Environment (IDE).
 Press F11, or select **Run** \> **Debug**.
 The next 15 speech input from your microphone will be recognized and logged in the console window.
 
-![Console output after successful recognition](media/sdk/qs-java-jre-08-whats-the-weather-like.png)
+![Console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
 [!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-jre` folder.
