@@ -21,37 +21,31 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Common parameters include values such as environment variables and user credentials required by all tests in Validation as a Service (VaaS). You define these values at the workflow level. You save the values when you create or modify a workflow. At schedule time, the workflow loads the values for the test.
+Common parameters include values such as environment variables and user credentials required by all tests in Validation as a Service (VaaS). These values are defined at the workflow level when you create or modify a workflow. When scheduling tests, these values are passed as parameters to each test under the workflow.
 
 ## Environment parameters
 
-Environment parameters describe the Azure Stack environment under test. These values must be provided by generating and uploading your stamp configuration file `&lt;link&gt;. [How to get the stamp info link].`
+Environment parameters describe the Azure Stack environment under test. These values must be provided by generating and uploading an Azure Stack stamp information file for the specific instance you are testing.
 
-| Parameter name | Required | Type | Description |
-|----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
-| Azure Stack build | Required |  | Build number of the Azure Stack deployment (for example, 1.0.170330.9) |
-| OEM version | Yes |  | Version number of the OEM package used during Azure Stack deployment. |
-| OEM signature | Yes |  | Signature of the OEM package used during Azure Stack deployment. |
-| AAD tenant ID | Required |  | Azure Active Directory tenant GUID specified during Azure Stack deployment.|
-| Region | Required |  | Azure Stack deployment region. |
-| Tenant Resource Manager endpoint | Required |  | Endpoint for tenant Azure Resource Manager operations (for example, https://management.<ExternalFqdn>) |
-| Admin Resource Manager endpoint | Yes |  | Endpoint for Tenant Azure Resource Manager operations (for example, https://adminmanagement.<ExternalFqdn>) |
-| External FQDN | Yes |  | External fully qualified domain name used as the suffix for endpoints. (for example, local.azurestack.external or redmond.contoso.com). |
-| Number of nodes | Yes |  | Number of nodes on the deployment. |
+> [!NOTE]
+> Environment parameters cannot be modified after creating a workflow.
+
+### Generate the stamp information file
+
+1. Log in to DVM machine or any machine that has access to the Azure Stack environment.
+2. Execute the following commands in an elevated PowerShell window:
+    ```PowerShell
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    ConvertTo-Json $params > stampinfoproperties.json
+    ```
 
 ## Test parameters
 
-Common test parameters include sensitive information that can't stored in configuration files, and must be manually provided.
+Common test parameters include sensitive information that can't stored in configuration files. These must be manually provided.
 
-| Parameter name | Required | Type | Description |
-|--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tenant username | Required |  | Azure Active Directory Tenant Admin that was either provisioned already or needs to be provisioned by the Service Admin in the AAD Directory. For details on provisioning tenant account, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). This value is used by the test to perform tenant level operations such as deploying templates to provision resources (VMs, storage accounts etc.) and execute workloads. This value is used by the test to perform tenant level operations such as deploying templates to provision resources (VMs, storage accounts etc.) and execute workloads. |
-| Tenant password | Required |  | Password for the tenant user. |
-| Service Administrator username | Required: Solution Validation, Package Validation<br>Not required: Test Pass |  | Azure Active Directory Admin of the AAD Directory Tenant specified during Azure Stack deployment. |
-| Service Administrator password | Required: Solution Validation, Package Validation<br>Not required: Test Pass |  | Password for the Service Administrator user. |
-| Cloud Administrator username | Required |  | Azure Stack domain administrator account (for example, contoso\cloudadmin). Search for User Role="CloudAdmin" in the configuration file and select the value in the UserName tag in the configuration file. |
-| Cloud Administrator password | Required |  | Password for the Cloud Administrator user. |
-| Diagnostics Connection String | Required |  | A SAS URI to an Azure Storage Account to which diagnostics logs will be copied during test execution. Instructions for generating the SAS URI are located [Set up a blob storage account](azure-stack-vaas-set-up-account.md). |
-
-## Next steps
-- 
+Parameter    | Description
+-------------|-----------------
+Tenant Administrator User                            | Azure Active Directory Tenant Administrator that was provisioned by the service administrator in the AAD directory. This user performs tenant-level operations such as deploying templates to provision resources (VMs, storage accounts, etc.) and executing workloads. For details on provisioning the tenant account, see [Add a new Azure Stack tenant](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-new-user-aad).
+Service Administrator User             | Azure Active Directory Administrator of the AAD Directory Tenant specified during Azure Stack deployment. Search for `AADTenant` in the stamp information file and select the value in the `UniqueName` tag <TODO where are tags?>.
+Cloud Administrator User               | Azure Stack domain administrator account (e.g., `contoso\cloudadmin`). Search for `User Role="CloudAdmin"` in the stamp information file and select the value in the `UserName` tag.
+Diagnostics Connection String          | A SAS URI to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URI, see [Set up a blob storage account](azure-stack-vaas-set-up-account.md) <TODO move this>. |
