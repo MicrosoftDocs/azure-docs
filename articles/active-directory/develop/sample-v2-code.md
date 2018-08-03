@@ -30,7 +30,7 @@ You can use Microsoft Azure Active Directory (Azure AD) to:
 This article briefly describes and provides you with links to samples for the Azure AD V2 endpoint. These samples show you how it's done, along with code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and set up. Comments within the code are there to help you understand the critical sections.
 
 > [!NOTE]
-> If you are interested in V1 samples, see [Azure AD code samples (V1 endpoint)](active-directory-code-samples.md).
+> If you are interested in V1 samples, see [Azure AD code samples (V1 endpoint)](sample-v1-code.md).
 
 To understand the basic scenario for each sample type, see [App types for the Azure Active Directory v2.0 endpoint](active-directory-v2-flows.md).
 

@@ -31,7 +31,7 @@ OpenID Connect is our recommendation if you are building a web application that 
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
-![OpenId Connect Authentication Flow](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
+![OpenId Connect Authentication Flow](./media/v1-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
 ## OpenID Connect metadata document
 
@@ -58,7 +58,7 @@ The metadata is a simple JavaScript Object Notation (JSON) document. See the fol
 ```
 
 ## Send the sign-in request
-When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-protocols-oauth-code.md), with a few important distinctions:
+When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](v1-protocols-oauth-code.md), with a few important distinctions:
 
 * The request must include the scope `openid` in the `scope` parameter.
 * The `response_type` parameter must include `id_token`.
@@ -150,7 +150,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, read [Supported Token and Claim Types](active-directory-token-and-claims.md).
+Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, read [Supported Token and Claim Types](v1-id-and-access-tokens.md).
 
 ## Send a sign-out request
 When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user. You must also redirect the user to the `end_session_endpoint` for sign-out. If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Azure AD endpoint.
@@ -176,7 +176,7 @@ When you redirect the user to the `end_session_endpoint`, Azure AD clears the us
 4. Click on **Settings**, then **Properties** and find the **Logout URL** text box. 
 
 ## Token Acquisition
-Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously acquiring an `authorization_code` that can be used to get `access_tokens` using the [OAuth Authorization Code Flow](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously acquiring an `authorization_code` that can be used to get `access_tokens` using the [OAuth Authorization Code Flow](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## Get Access Tokens
 To acquire access tokens, you need to modify the sign-in request from above:
@@ -232,4 +232,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of the possible error codes and their recommended client action, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth protocol documentation](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth protocol documentation](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).

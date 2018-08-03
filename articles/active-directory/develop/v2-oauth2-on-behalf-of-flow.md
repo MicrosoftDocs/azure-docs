@@ -29,14 +29,14 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 
 
 > [!IMPORTANT]
-> The [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow - SPAs must pass their (implicit flow) access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
+> The [implicit grant](v2-oauth2-implicit-grant-flow.md) cannot be used for the On-Behalf-Of flow - SPAs must pass their (implicit flow) access token to a middle-tier confidential client to perform OBO flows.  See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.  
 
 ## Protocol diagram
-Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
+Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v2-oauth2-auth-code-flow.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
 
-![OAuth2.0 On-Behalf-Of Flow](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of Flow](./media/v2-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. The client application makes a request to API A with the token A (with an `aud` claim of API A).
@@ -182,5 +182,5 @@ If a client uses the implicit flow to get an id_token, and that client also has 
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
-* [OAuth 2.0 client credentials grant in Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
-* [OAuth 2.0 in Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)
+* [OAuth 2.0 client credentials grant in Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 in Azure AD v2.0](v2-oauth2-auth-code-flow.md)

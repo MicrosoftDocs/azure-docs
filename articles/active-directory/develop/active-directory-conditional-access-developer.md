@@ -29,7 +29,7 @@ For more information on the full capabilities of conditional access, see [Condit
 
 For developers building apps for Azure AD, this article shows how you can use conditional access and you'll also learn about the impact of accessing resources that you don't have control over that may have conditional access policies applied. The article also explores the implications of conditional access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
-Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
+Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
 
 ## How does conditional access impact an app?
 
@@ -219,4 +219,4 @@ To try out this scenario, see our [JS SPA On-behalf-of code sample](https://gith
 * To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * For more Azure AD code samples, see [Github repo of code samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * For more info on the ADAL SDK's and access the reference documentation, see [library guide](active-directory-authentication-libraries.md).
-* To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](active-directory-devhowto-multi-tenant-overview.md).
+* To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).

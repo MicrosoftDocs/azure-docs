@@ -26,7 +26,7 @@ The OAuth 2.0 Client Credentials Grant Flow permits a web service (*confidential
 ## Client credentials grant flow diagram
 The following diagram explains how the client credentials grant flow works in Azure Active Directory (Azure AD).
 
-![OAuth2.0 Client Credentials Grant Flow](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
+![OAuth2.0 Client Credentials Grant Flow](./media/v1-oauth2-client-creds-grant-flow/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
 1. The client application authenticates to the Azure AD token issuance endpoint and requests an access token.
 2. The Azure AD token issuance endpoint issues the access token.
@@ -119,6 +119,6 @@ The following example shows a success response to a request for an access token 
 ```
 
 ## See also
-* [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
+* [OAuth 2.0 in Azure AD](v1-protocols-oauth-code.md)
 * [Sample in C# of the service to service call with a shared secret](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 and [Sample in C# of the service to service call with a certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

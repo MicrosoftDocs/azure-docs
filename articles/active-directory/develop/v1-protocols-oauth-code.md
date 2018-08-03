@@ -29,7 +29,7 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 ## OAuth 2.0 authorization flow
 At a high level, the entire authorization flow for an application looks a bit like this:
 
-![OAuth Auth Code Flow](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
+![OAuth Auth Code Flow](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Request an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 authorization endpoint for your tenant by selecting **App registrations > Endpoints** in the Azure portal.
@@ -201,7 +201,7 @@ The JWT token in the value of the `id_token` parameter can be decoded into the f
 }.
 ```
 
-For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](active-directory-token-and-claims.md)
+For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](v1-id-and-access-tokens.md)
 
 The `id_token` parameter includes the following claim types:
 

@@ -33,7 +33,7 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 ## Protocol diagram
 At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
 
-![OAuth Auth Code Flow](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
 
 ## Request an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user:
@@ -138,7 +138,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Try executing this request in Postman! (Don't forget to replace the `code`)
-> [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 > 
 > 
 
@@ -171,8 +171,8 @@ A successful token response will look like:
 | token_type    | Indicates the token type value. The only type that Azure AD supports is Bearer                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | How long the access token is valid (in seconds).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | The scopes that the access_token is valid for.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires. Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `offline_access` scope was requested.                                               |
-| id_token      | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| refresh_token | An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires. Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more detail, refer to the [v2.0 token reference](v2-id-and-access-tokens.md). <br> **Note:** Only provided if `offline_access` scope was requested.                                               |
+| id_token      | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 #### Error response
 Error responses will look like:
 
@@ -215,7 +215,7 @@ Now that you've successfully acquired an `access_token`, you can use the token i
 
 > [!TIP]
 > Execute this request in Postman! (Replace the `Authorization` header first)
-> [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 > 
 > 
 
@@ -245,7 +245,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Try executing this request in Postman! (Don't forget to replace the `refresh_token`)
-> [![Run in Postman](./media/active-directory-v2-protocols-oauth-code/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
 > 
 > 
 
@@ -279,7 +279,7 @@ A successful token response will look like:
 | expires_in    | How long the access token is valid (in seconds).                                                                                                                                                                                                                                                                                                                                                                                                        |
 | scope         | The scopes that the access_token is valid for.                                                                                                                                                                                                                                                                                                                                                                                                          |
 | refresh_token | A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible. <br> **Note:** Only provided if `offline_access` scope was requested.                                                                                                                                                                                                |
-| id_token      | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| id_token      | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 
 #### Error response
 
