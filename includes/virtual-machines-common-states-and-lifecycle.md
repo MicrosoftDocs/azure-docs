@@ -275,9 +275,11 @@ issue. </p>
 </table>
 
 
-## VM Instance View
-Virtual Machine Instance View API provides VM running-state information. [Here] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/instanceview) is the API documentation.
+## VM instance view
 
-Azure Resources explorer provides a simple UX to view VM running state: [Resource Explorer] (https://resources.azure.com/)
+The instance view API provides VM running-state information. For more information, see the [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API documentation.
 
-Provisioning states are visible on VM properties and Instance View whereas Power States are available in Instance View of VM. 
+Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer] (https://resources.azure.com/).
+
+Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM. 
+
