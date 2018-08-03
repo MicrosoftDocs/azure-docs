@@ -263,7 +263,7 @@ Here's an example of a multi-party deployment flow:
 
 This process requires an Azure subscription that can support deploying
 several virtual machines scale sets and managed disks. If necessary,
-[create a free Azure account](https://azure.microsoft.com/en-us/free/)
+[create a free Azure account](https://azure.microsoft.com/free/)
 to begin.
 
 Once a subscription is secured, go to Azure portal. Select '+',
@@ -615,19 +615,19 @@ network, you will need to change this rule to \"Allow\"
 1.  Start in the Overview section of the deployed resource group from
     Azure portal.
 
-![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
+    ![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
 2.  Select the Network Security Group
 
-![ssh nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
+    ![ssh nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
 
 3.  Select the \"allow-ssh\" rule
 
-![ssh-allow](./media/ethereum-poa-deployment-guide/ssh-allow.png)
+    ![ssh-allow](./media/ethereum-poa-deployment-guide/ssh-allow.png)
 
 4.  Change \"Action\" to Allow
 
-![ssh enable allow](./media/ethereum-poa-deployment-guide/ssh-enable-allow.png)
+    ![ssh enable allow](./media/ethereum-poa-deployment-guide/ssh-enable-allow.png)
 
 5.  Click \"Save\" (Changes may take a few minutes to apply)
 
@@ -824,9 +824,11 @@ following structure:
 ## Development
 
 ### Programmatically interacting with a smart contract
-**WARNING: Never send your Ethereum private key over the network! Ensure that
-each transaction is signed locally first and the signed transaction is
-sent over the network.**
+
+> [!WARNING]
+> Never send your Ethereum private key over the network! Ensure that
+> each transaction is signed locally first and the signed transaction is
+> sent over the network.
 
 In the following example, we use *ethereumjs-wallet* to generate an
 Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send
