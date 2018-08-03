@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
@@ -107,15 +107,8 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
     Because the entity is not a machine-learned entity, the label is applied to the utterances and displayed in the LUIS website as soon as it is created.
 
 ## Train the LUIS app
-A regular expression entity does not require training but the new intent and utterances do require training. 
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Image of training button](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Image of success notification bar](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish the app to get the endpoint URL
 
@@ -234,7 +227,8 @@ Your chatbot now has enough information to determine the primary action, `FindFo
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the form numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **My apps** from the top left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
