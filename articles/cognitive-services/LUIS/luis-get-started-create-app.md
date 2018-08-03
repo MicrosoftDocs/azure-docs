@@ -86,6 +86,8 @@ In this example, "Turn off the lights" is correctly identified as the top scorin
 
 Click **Test** again to collapse the test pane. 
 
+<a name="publish-your-app"></a>
+
 ## Publish the app to get the endpoint URL
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
