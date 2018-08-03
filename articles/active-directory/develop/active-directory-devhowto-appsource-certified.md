@@ -114,8 +114,8 @@ We highly recommend you ask your questions on Stack Overflow first and browse ex
 Use the following comments section to provide feedback and help us refine and shape our content.
 
 <!--Reference style links -->
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
