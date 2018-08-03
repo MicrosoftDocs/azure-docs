@@ -7,39 +7,54 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/03/2018
 
 ---
 # Query fundamentals in Azure Search
 
-A query definition in Azure Search is a full specification of a request that includes these parts: service URL endpoint, target index, api-key used to authenticate the request, api-version, and a query string. 
+A query definition in Azure Search is a full specification of a request that includes search criteria, plus parameters for directing query execution and shaping the results. You can specify which fields to include, which fields to return in the response, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
-Query string composition consists of parameters as defined in [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Most important is the **search=** parameter, which could be undefined (`search=*`) but more likely consists of terms, phrases, and operators similar to the following example:
+## Introduction by example
 
-```
-"search": "seattle townhouse +\"lake\""
-```
-
-Other parameters are used to direct query processing or enhance the response. Examples of how parameters are used include scoping search to specific fields, setting a search mode to modulate the precision-to-recall bias, and adding a count so that you can keep track of results. 
+Examples are useful for illustrating key concepts and capabilities. In the following example, formuated as a search request based on the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), parameters inform both the request and response. 
 
 ```
 {  
-    "search": "seattle townhouse* +\"lake\"",  
-    "searchFields": "description, city",  
-    "searchMode": "all",
-    "count": "true", 
     "queryType": "simple" 
+    "search": "seattle townhouse* +\"lake\"", 
+    "searchFields": "description, city",  
+    "count": "true", 
+    "select": "listingID, street, status, daysOnMarket, description",
+    "top": "10",
+    "orderby": "listingID"
  } 
 ```
+As a representative query, this example demonstrates several important aspects of query definition, from parser inputs, to shaping the result set. Query execution is always against one index, authenticated using an api-key provided in the request. 
 
-Although query definition is fundamental, your index schema is equally important in how it specifies allowable operations on a field-by-field basis. During index development, attributes on fields determine allowed operations. For example, to qualify for full text search and inclusion in search results, a field must be marked as both *searchable* and *retrievable*.
+> [!Tip]
+> You can use [Search explorer and the real estate demo index](/search-get-started-portal.md) in the portal to run the request. Paste this query string into the explorer search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
+>
 
-At query time, execution is always against one index, authenticated using an api-key provided in the request. You cannot join indexes or create custom or temporary data structures as a query target.  
+**Searching the index**
 
-Query results are streamed as JSON documents in the REST API, although if you use .NET APIs, serialization is built in. You can shape results by setting parameters on the query, selecting specific fields for the result
++ Query parser choice, set through **queryType**. Most developers use the default simple parser for full text search, but full Lucene parsing is required for specialized query forms such as fuzzy search or regular expressions.
++ Matching criteria on documents in the index is set through **search**.
++ You can scope a query to specific fields in the index iby setting **searchFields**.
 
-To summarize, the substance of the query request specifies scope and operations: which fields to include in search, which fields to include in the result set, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+**Structuring the response**
 
+Other parameters shape the result set returned by the search engine:
+
++ **count** is the number of documents matching the query.
++ **select** limits the fields returned in the response.
++ **top** limits the rows or documents returned in the response. The default is 50; the example reduces that to 10.
++ **orderby** sorts the results by a field.
+
+**Enabling operations through index attributes**
+
+While not shown here, a critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field determine whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"orderby": "listingID"` only works if the listingID field is marked as *sortable* in the index schema. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+In the remaining sections, we take a closer look at query building blocks.
 <a name="types-of-queries"></a>
 
 ## Types of queries: search and filter
@@ -86,6 +101,8 @@ Boolean operators are mostly the same in both syntax, with additional formats in
 
 ## Required and optional elements
 
+Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target. 
+
 When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the [full-text search experience](search-lucene-query-architecture.md).
 
 Required elements on a query request include the following components:
@@ -109,7 +126,9 @@ The following table lists the APIs and tool-based approaches for submitting quer
 | [Fiddler, Postman, or other HTTP testing tool](search-fiddler.md) | Explains how to set up a request header and body for sending queries to Azure Search.  |
 | [Search explorer in Azure portal](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
 
-## Manage search results
+## Manage search results 
+
+Query results are streamed as JSON documents in the REST API, although if you use .NET APIs, serialization is built in. You can shape results by setting parameters on the query, selecting specific fields for the result
 
 Parameters on the query can be used to structure the result set in the following ways:
 
