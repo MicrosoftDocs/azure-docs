@@ -58,7 +58,7 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 Automatic tuning options available in Azure SQL Database are:
  1. **CREATE INDEX** - identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved.
- 2. **DROP INDEX** - identifies redundant and duplicate indexes, and indexes that were not used for a very long period of time. Please note that this option is not compatible with applications using partition switching and index hints.
+ 2. **DROP INDEX** - identifies redundant and duplicate indexes, and indexes, except for unique indexes, that were not used for a very long period of time. Please note that this option is not compatible with applications using partition switching and index hints.
  3. **FORCE LAST GOOD PLAN** - identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan.
 
 Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database and shows them in Azure portal. Find more information about identification of indexes that should be changed at [Find index recommendations in Azure portal](sql-database-advisor-portal.md). You can either manually apply recommendations using the portal or you can let Azure SQL Database to automatically apply recommendations, monitor workload after the change, and verify that the recommendation improved the performance of your workload. 
