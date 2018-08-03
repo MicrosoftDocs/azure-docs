@@ -65,8 +65,6 @@
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
-  - name: Customer data requests
-    href: iot-hub-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Toolkit
