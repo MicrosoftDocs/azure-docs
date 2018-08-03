@@ -16,7 +16,7 @@ Query composition in Azure Search is a full specification of a request: match cr
 
 ## Introduction by example
 
-Examples are useful for illustrating key concepts. The following example, formulated as a search request using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), informs both the request and response. In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. 
+Examples are useful for illustrating key concepts. The following example, formulated using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), informs both the request and response. In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. 
 
 ```
 {  
@@ -36,8 +36,8 @@ To run this query, use [Search explorer and the real estate demo index](search-g
 **Searching the index**
 
 + Query parser is a choice, set through `queryType`. Most developers use the default [simple parser](search-query-simple-examples.md) for full text search, but [full Lucene](search-query-lucene-examples.md) parsing is required for specialized query forms such as fuzzy search or regular expressions.
-+ Match criteria on documents in the index is set through the `search` parameter.
-+ Scope can be the entire index, or specific fields as determined through `searchFields`.
++ Match criteria on documents in the index is set through the `search` parameter. Search could be undefined, as in `search=*`, but more likely consists of terms, phrases, and operators similar what appears in the example.
++ Scope can be the entire index, or specific fields as shown in `searchFields`.
 
 **Structuring the response**
 
