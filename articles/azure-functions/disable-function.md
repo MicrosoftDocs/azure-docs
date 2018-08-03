@@ -55,17 +55,9 @@ or
 
 In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
 
-You can edit the file in the Azure portal or use one of the switches in the Azure portal:
+You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
 
-* The **Function State** switch on the function's **Manage** tab.
-
-  ![Function state switch](media/disable-function/function-state-switch.png)
-
-* The **Status** switch on the page that lists functions in a function app.
-
-  ![Function status switches](media/disable-function/function-status-switches.png)
-
-These portal switches work by changing the *function.json* file.
+![Function state switch](media/disable-function/function-state-switch.png)
 
 ## Functions 1.x - C# class libraries
 
@@ -128,46 +120,7 @@ The portal switches work by creating and deleting the `AzureWebJobs.<functionnam
 
 ## Functions 2.x - C# class libraries
 
-In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can use a `Disable` attribute to prevent a function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-The attribute without a constructor parameter requires that you recompile and redeploy the project to change the function's disabled state. A more flexible way to use the attribute is to include a constructor parameter that refers to a Boolean app setting, as shown in the following example:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable("MY_TIMER_DISABLED")]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-This method lets you enable and disable the function by changing the app setting, without recompiling or redeploying. Changing an app setting causes the function app to restart, so the disabled state change is recognized immediately.
-
-> [!IMPORTANT]
-> The `Disabled` attribute is the only way to disable a class library function. The generated *function.json* file for a class library function is not meant to be edited directly. If you edit that file, whatever you do to the `disabled` property will have no effect.
->
-> The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
->
-> Also, note that the portal may indicate the function is disabled when it isn't.
+In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
 
 ## Next steps
 
