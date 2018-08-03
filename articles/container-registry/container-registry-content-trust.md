@@ -12,11 +12,20 @@ ms.author: marsma
 ---
 # Content trust in Azure Container Registry
 
-Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article will get you started.
+Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article gets you started.
 
 ## How content trust works
 
+As an image publisher, content trust allows you to **sign** the images you push to your registry. Consumers of your images (people or systems pulling images from your registry) can then specify that *only* signed images can be pulled. When an image consumer pulls a signed image, their Docker client then verifies the integrity of the image.
+
+In this model, consumers are assured that the signed images in your registry were indeed published by you, and that they've not been modified since being published.
+
+> [!TIP]
+> This section contains a very high-level overview of Docker's content trust model. For a more in-depth discussion of Docker's content trust implementation, see [Content trust in Docker][docker-content-trust].
+
 ## Use content trust
+
+Although Azure Container Registry supports content trust out of the box, it's actually the Docker clients pushing and pulling images that perform the signing and validation. Because content trust is disabled by default in the Docker client, your first step is enable it. Once content trust is enabled, you can both sign the images you push to your Azure container registry, and pull only signed images from a registry.
 
 ### Enable trusted image push
 
