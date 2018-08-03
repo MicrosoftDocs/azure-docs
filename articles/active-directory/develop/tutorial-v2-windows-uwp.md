@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,7 +17,6 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev 
-
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -30,7 +30,7 @@ At the end of this guide, your application calls a protected API by using person
 
 ### How this guide works
 
-![How this guide works graph](media/active-directory-mobileanddesktopapp-windowsuniversalplatform-introduction/uwp-intro.png)
+![How this guide works graph](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
 This guide creates a sample UWP application that queries Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Microsoft Authentication Library (MSAL) handles token acquisitions and renewals.
 
@@ -60,7 +60,7 @@ This guide creates an application that displays a button that queries Graph API,
 4. Name the app, and select **OK**.
 5. If prompted, select any version for **Target** and **Minimum** versions, and select **OK**.
 
-    >![Minimum and Target versions](media/active-directory-uwp-v2.md/vs-minimum-target.png)
+    >![Minimum and Target versions](./media/tutorial-v2-windows-uwp/vs-minimum-target.png)
 
 ## Add Microsoft Authentication Library to your project
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
@@ -327,20 +327,20 @@ To enable Windows Integrated Authentication when it's used with a federated Azur
 
 To test your application, select F5 to run your project in Visual Studio. Your main window appears:
 
-![Application's user interface](media/active-directory-uwp-v2.md/testapp-ui.png)
+![Application's user interface](./media/tutorial-v2-windows-uwp/testapp-ui.png)
 
 When you're ready to test, select **Call Microsoft Graph API**. Then use a Microsoft Azure Active Directory organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. If it's your first time, you see a window asking the user to sign in:
 
-![Sign-in page](media/active-directory-uwp-v2.md/sign-in-page.png)
+![Sign-in page](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
 ### Consent
 The first time you sign in to your application, you're presented with a consent screen similar to the following. Select **Yes** to explicitly consent to access:
 
-![Access consent screen](media/active-directory-uwp-v2.md/consentscreen.png)
+![Access consent screen](./media/tutorial-v2-windows-uwp/consentscreen.png)
 ### Expected results
 You see user profile information returned by the Microsoft Graph API call on the **API Call Results** screen:
 
-![API Call Results screen](media/active-directory-uwp-v2.md/uwp-results-screen.PNG)
+![API Call Results screen](./media/tutorial-v2-windows-uwp/uwp-results-screen.PNG)
 
 You also see basic information about the token acquired via `AcquireTokenAsync` or `AcquireTokenSilentAsync` in the **Token Info** box:
 
