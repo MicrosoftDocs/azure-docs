@@ -61,7 +61,7 @@
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
 - name: Ethereum Proof-of-Authority Consortium
-  href: ethereum-poa-deployment-guide.md
+  href: ethereum-poa-deployment.md
 - name: Solution templates
   items:
   - name: Ethereum Proof-of-Work Consortium
