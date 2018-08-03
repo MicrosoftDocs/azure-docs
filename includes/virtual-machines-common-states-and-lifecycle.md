@@ -18,20 +18,20 @@ The power state represents the last known state of a VM.
 
 ![VM power state diagram](./media/virtual-machines-common-states-and-lifecycle/vm-power-states.png)
 
-
+<br>
 
 <table>
+<tr>
 <th>
-<td>
-<p><b>State</b></p>
-</td>
-<td>
-<p><b>Description</b></p>
-</td>
-<td>
-<p><b>Billing</b></p>
-</td>
+State
 </th>
+<th>
+Description
+</th>
+<th>
+Billing
+</th>
+</tr>
 <tr>
 <td>
 <p><b>Starting</b></p>
@@ -110,7 +110,7 @@ The power state represents the last known state of a VM.
 <p><b>Deallocating</b></p>
 </td>
 <td>
-<p>Transitional state. WHen completed, the VM will show as **Deallocated**.</p>
+<p>Transitional state. When completed, the VM will show as **Deallocated**.</p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/deallocating",</br>
@@ -155,7 +155,7 @@ A provisioning state is the status of a user-initiated (control plane) operation
 
 - **Delete** – VM deletion.
 
-- **Deallocate** – is where a VM is stopped and removed from the host. Deallocating a VM results into Update of the VM model hence resulting into provisioning states related to updating.
+- **Deallocate** – is where a VM is stopped and removed from the host. Deallocating a VM is considered an update, so it will display provisioning states related to updating.
 
 
 
@@ -236,36 +236,41 @@ accepted a user-initiated action.
  }</br>
 ]</code></br>
 <p><b>Note</b>: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
-<p> **Succeeded** – the user-initiated actions have
-completed.</p>
-<code>
- "statuses": \[ </br>
- {</br>
-     "code": "ProvisioningState/succeeded",</br>
-     "level": "Info",</br>
-     "displayStatus": "Provisioning succeeded",</br>
-     "time": "time"</br>
- }</br>
- \]</br>
-</code>
-<p>**Failed** – represents a failed operation. Refer to the error codes to get more information and possible
-solutions.</p>
-<code>
- "statuses": [</br>
-    {</br>
-      "code": "ProvisioningState/failed/InternalOperationError",</br>
-      "level": "Error",</br>
-      "displayStatus": "Provisioning failed",</br>
-      "message": "Operation abandoned due to internal error. Please try again later.",</br>
-      "time": "time"</br>
-    }</br>
-</code>
-</p>
-<p> **Edge cases**: If a VM was running and in a good state, a
-failed management operation will typically leave the VM in the **Running* state, which might be different from the latest state information received. To resolve this, look at the error message (either from the last failed operation or the VM instance view). If the error is because of API input validation, then try to fix the inputs. If the error, is due to Azure internal errors, retrying the management operation should resolve the issue. </p>
 </td>
 </tr>
 </table>
+
+
+Once the operation is complete, the VM will transition into one of the following states:
+
+- **Succeeded** – the user-initiated actions have completed.
+
+	```
+ "statuses": \[ 
+ {
+     "code": "ProvisioningState/succeeded",
+     "level": "Info",
+     "displayStatus": "Provisioning succeeded",
+     "time": "time"
+ }
+ \]
+	```
+
+ 
+
+- **Failed** – represents a failed operation. Refer to the error codes to get more information and possible solutions.
+
+	```
+ "statuses": [
+    {
+      "code": "ProvisioningState/failed/InternalOperationError",
+      "level": "Error",
+      "displayStatus": "Provisioning failed",
+      "message": "Operation abandoned due to internal error. Please try again later.",
+      "time": "time"
+    }
+	```
+
 
 
 ## VM instance view
