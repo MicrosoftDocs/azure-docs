@@ -33,7 +33,7 @@ Learn how to [get your own Azure AD B2C directory, application, and policies](#u
 
 The implicit sign-in flow looks something like the following figure. Each step is described in detail later in the article.
 
-![OpenID Connect swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![OpenID Connect swimlanes](../develop/media/v2-oauth2-implicit-grant-flow/convergence_scenarios_implicit.png)
 
 ## Send authentication requests
 When your web app needs to authenticate the user and execute a policy, it directs the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user takes action, depending on the policy. The user gets an ID token from the Azure AD endpoint.

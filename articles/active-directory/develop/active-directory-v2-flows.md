@@ -21,14 +21,14 @@ ms.custom: aaddev
 ---
 
 # App types for the Azure Active Directory v2.0 endpoint
+
 The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
 
 ## The basics
+
 You must register each app that uses the v2.0 endpoint in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com). The app registration process collects and assigns these values for your app:
 
 * An **Application ID** that uniquely identifies your app
@@ -46,6 +46,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 <!-- TODO: Need a page for libraries to link to -->
 
 ## Web apps
+
 For web apps (.NET, PHP, Java, Ruby, Python, Node) that the user accesses through a browser, you can use [OpenID Connect](active-directory-v2-protocols.md) for user sign-in. In OpenID Connect, the web app receives an ID token. An ID token is a security token that verifies the user's identity and provides information about the user in the form of claims:
 
 ```
@@ -65,7 +66,7 @@ You can learn about all the types of tokens and claims that are available to an 
 
 In web server apps, the sign-in authentication flow takes these high-level steps:
 
-![Web app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![Web app authentication flow](../media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
@@ -101,14 +102,14 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 
 In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
-![Native app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![Native app authentication flow](../media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
 
 ## Single-page apps (JavaScript)
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
 
 In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 
-![Implicit authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Implicit authentication flow](../media/v2-oauth2-implicit-grant-flow/convergence_scenarios_implicit.png)
 
 To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
