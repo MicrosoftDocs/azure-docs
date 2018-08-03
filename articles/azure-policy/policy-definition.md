@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 08/03/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -305,7 +305,10 @@ The list of aliases is always growing. To discover what aliases are currently su
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
 
-  # Get Azure Policy aliases for a specific Namespace
+  # List namespaces
+  az provider list --query [*].namespace
+
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
   az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 

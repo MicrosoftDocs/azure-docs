@@ -60,7 +60,7 @@ LUIS provides [prebuilt entities](luis-prebuilt-entities.md) for common types li
 
 ![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
 
-See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting regular expression entities from the endpoint JSON query response. 
+See [Data Extraction](luis-concept-data-extraction.md#prebuilt-entity-data) to learn more about extracting Prebuilt entity from the endpoint JSON query response. 
 
 ### List entity 
 A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app, you might choose to create a list entity to represent airport names.
