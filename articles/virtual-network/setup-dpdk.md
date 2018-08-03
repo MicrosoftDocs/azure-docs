@@ -46,7 +46,7 @@ The following distributions from the Azure Gallery are supported:
 
 **Custom kernel support**
 
-Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed, or contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com), for further information. 
+Refer to [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) for any Linux kernel version not listed, or for further information, contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
 
 ## Region support
 
@@ -83,7 +83,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
 
 ### SLES 15
 
-**Azure kernel
+**Azure kernel**
 
 ```bash
 zypper  \
@@ -92,7 +92,7 @@ zypper  \
   --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-**Default kernel
+**Default kernel**
 
 ```bash
 zypper \
@@ -141,7 +141,7 @@ Run the following commands once, after rebooting:
 
 ## Failsafe PMD
 
-DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it will not receive **all** packets destined to the VM, since some packets will show up over the synthetic interface. Running over the failsafe PMD guarantees that the application receives all packets destined to it and also ensures the application will continue to run in DPDK mode,  even if the VF is revoked when the host is being serviced. For more information on failsafe PMD, please refer to [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
+DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it will not receive **all** packets destined to the VM, since some packets will show up over the synthetic interface. Running over the failsafe PMD guarantees that the application receives all packets destined to it and also ensures the application will continue to run in DPDK mode,  even if the VF is revoked when the host is being serviced. For more information on failsafe PMD, refer to [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## Run testpmd
 
