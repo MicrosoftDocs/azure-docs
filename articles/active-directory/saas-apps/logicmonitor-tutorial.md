@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
 
 ---
@@ -130,27 +130,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the menu on the top, click **Settings**.
    
-   ![Settings](./media/logicmonitor-tutorial/ic790052.png "Settings")
+    ![Settings](./media/logicmonitor-tutorial/ic790052.png "Settings")
 
 1. In the navigation bat on the left side, click **Single Sign On**
    
-   ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
+    ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
 
 1. In the **Single Sign-on (SSO) settings** section, perform the following steps:
    
-   ![Single Sign-On Settings](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")
+    ![Single Sign-On Settings](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")
    
-   a. Select **Enable Single Sign-on**.
+    a. Select **Enable Single Sign-on**.
 
-   b. As **Default Role Assignment**, select **readonly**.
+    b. As **Default Role Assignment**, select **readonly**.
    
-   c. Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.
+    c. Open the downloaded metadata file in notepad, and then paste content of the file into the **Identity Provider Metadata** textbox.
    
-   d. Click **Save Changes**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Click **Save Changes**.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -185,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a LogicMonitor test user
 
-For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
+For Azure AD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
 
 **To configure user provisioning, perform the following steps:**
 
@@ -193,19 +189,19 @@ For AAD users to be able to sign in, they must be provisioned to the LogicMonito
 
 1. In the menu on the top, click **Settings**, and then click **Roles and Users**.
    
-   ![Roles and Users](./media/logicmonitor-tutorial/ic790056.png "Roles and Users")
+    ![Roles and Users](./media/logicmonitor-tutorial/ic790056.png "Roles and Users")
 
 1. Click **Add**.
 
 1. In the **Add an account** section, perform the following steps:
    
-   ![Add an account](./media/logicmonitor-tutorial/ic790057.png "Add an account")
+    ![Add an account](./media/logicmonitor-tutorial/ic790057.png "Add an account")
    
-   a. Type the **Username**, **Email**, **Password**, and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
+    a. Type the **Username**, **Email**, **Password**, and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
    
-   b. Select **Roles**, **View Permissions**, and the **Status**.
+    b. Select **Roles**, **View Permissions**, and the **Status**.
    
-   c. Click **Submit**.
+    c. Click **Submit**.
 
 >[!NOTE]
 >You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts. 
@@ -245,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
  
 When you click the LogicMonitor tile in the Access Panel, you should get automatically signed-on to your LogicMonitor application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
