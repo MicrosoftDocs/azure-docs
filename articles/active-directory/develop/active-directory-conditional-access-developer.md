@@ -29,7 +29,7 @@ For more information on the full capabilities of conditional access, see [Condit
 
 For developers building apps for Azure AD, this article shows how you can use conditional access and you'll also learn about the impact of accessing resources that you don't have control over that may have conditional access policies applied. The article also explores the implications of conditional access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
-Knowledge of [single](active-directory-integrating-applications.md) and [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
+Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
 
 ## How does conditional access impact an app?
 
@@ -45,7 +45,7 @@ Specifically, the following scenarios require code to handle conditional access 
 * Single page apps using ADAL.js
 * Web Apps calling a resource
 
-Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](../active-directory-conditional-access-app-based-mfa.md).
+Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](../conditional-access/app-based-mfa.md).
 
 Depending on the scenario, an enterprise customer can apply and remove conditional access policies at any time. In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling. 
 
