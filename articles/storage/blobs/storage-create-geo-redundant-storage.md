@@ -47,7 +47,7 @@ To complete this tutorial:
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# [V10 Java SDK] (#tab/java-v10)
+# [Java V10 SDK] (#tab/java-v10)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -103,11 +103,21 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 ```
 
 # [Java V7 SDK ] (#tab/java-v7)
+
 [Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 ```
+
+# [Java V10 SDK] (#tab/java-v10)
+
+[Download the sample project](LINKHERE) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
+
+```bash
+git clone LINKHERE
+```
+
 ---
 
 
@@ -154,7 +164,7 @@ You can run the application by opening a terminal or command prompt scoped to th
 
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
-# [V10 Java SDK] (#tab/java-v10)
+# [Java V10 SDK] (#tab/java-v10)
 
 You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
 
