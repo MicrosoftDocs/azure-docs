@@ -58,7 +58,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
 
     The port is identified by the parameter name, reverseProxyEndpointPort.
 
@@ -80,7 +80,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md).
+3. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -104,7 +104,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
     ```
 
 ### Supporting a reverse proxy certificate that's different from the cluster certificate
- If the reverse proxy certificate is different from the certificate that secures the cluster, then the previously specified certificate should be installed on the virtual machine and added to the access control list (ACL) so that Service Fabric can access it. This can be done in the **virtualMachineScaleSets** [Resource type section](../resource-group-authoring-templates.md). For installation, add the certificate to the osProfile. The extension section of the template can update the certificate in the ACL.
+ If the reverse proxy certificate is different from the certificate that secures the cluster, then the previously specified certificate should be installed on the virtual machine and added to the access control list (ACL) so that Service Fabric can access it. This can be done in the [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [Resource type section](../resource-group-authoring-templates.md). For installation, add the certificate to the osProfile. The extension section of the template can update the certificate in the ACL.
 
   ```json
   {
@@ -232,7 +232,7 @@ After you've modified your ClusterConfig.json file to enable reverse proxy, foll
 
 ## Expose reverse proxy on a public port through Azure Load Balancer
 
-To address the reverse proxy from outside an Azure cluster, set up Azure Load Balancer rules and an Azure Health Probe for the reverse proxy port. These steps can be performed using the Azure Portal or the Resource Manager template at any time after you have created the cluster. 
+To address the reverse proxy from outside an Azure cluster, set up Azure Load Balancer rules and an Azure Health Probe for the reverse proxy port. These steps can be performed using the Azure portal or the Resource Manager template at any time after you have created the cluster. 
 
 > [!WARNING]
 > When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
@@ -249,7 +249,7 @@ If you want to expose reverse proxy publicly for a standalone cluster, the manne
 ### Expose the reverse proxy using Azure portal 
 
 1. On the Azure portal, click the resource group for your cluster, then click the load balancer for your cluster.
-2. To add a health Probe for the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Health probes**. Then click **Add** at the top of the Health probes window and enter details for the reverse proxy port, then click **OK**. By defaunlt, the reverse proxy port is 19081, unless you changed it when you created the cluster.
+2. To add a health Probe for the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Health probes**. Then click **Add** at the top of the Health probes window and enter details for the reverse proxy port, then click **OK**. By default, the reverse proxy port is 19081, unless you changed it when you created the cluster.
 
    ![Configure reverse proxy health probe](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
 3. To add a Load Balancer rule to expose the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Load balancing rules**. Then click **Add** at the top of the Load balancing rules window and enter details for the reverse proxy port. Make sure you set the **Port** value to the port you want the reverse proxy exposed on, the **Backend port** value to the port you set when you enabled reverse proxy, and the **Health probe** value to the health probe you configured in the previous step. Set other fields as appropriate and click **OK**.
@@ -258,7 +258,7 @@ If you want to expose reverse proxy publicly for a standalone cluster, the manne
 
 ### Expose the reverse proxy via Resource Manager templates
 
-The following JSON references the same template that is used in [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates). Refer to that section for information about how to create a Resource Manager template or export a template for an existing cluster.  
+The following JSON references the same template that is used in [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates). Refer to that section of the document for information about how to create a Resource Manager template or export a template for an existing cluster.  The changes are made to the [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) [Resource type section](../resource-group-authoring-templates.md).
 
     ```json
     {
