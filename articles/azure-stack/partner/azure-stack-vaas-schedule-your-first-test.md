@@ -1,6 +1,6 @@
 ---
-title: Use the validation as a service for Azure Stack portal to schedule your first test | Microsoft Docs
-description: Use the validation as a service for Azure Stack portal to schedule your first test.
+title: Use the Validation as a Service for Azure Stack portal to schedule your first test | Microsoft Docs
+description: Use the Validation as a Service for Azure Stack portal to schedule your first test.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -18,25 +18,25 @@ ms.reviewer: johnhas
 # Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Use the validation as a service portal to schedule your first test
+# Quickstart: Use the Validation as a Service portal to schedule your first test
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Learn how to schedule your first test with the validation as a service (VaaS) portal to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
+Learn how to schedule your first test with the Validation as a Service (VaaS) portal to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
 
-In this quickstart you will do add your solution and run tests.
+In this quickstart, you will create a Test Pass workflow and run tests.
 
 ## Prerequisites
 
 Before you follow this quickstart, you will need to have:
- - A validation as a service account. For instructions, see [Set up your validation as a service account](azure-stack-vaas-set-up-account.md).  
+ - A Validation as a Service account. For instructions, see [Set up your Validation as a Service account](azure-stack-vaas-set-up-account.md).
 - The local agent installed on your system. For instructions, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
 
 ## Add a new solution
 
-1. Sign in to the [validation portal](https://azurestackvalidation.com).
+1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
 
-    ![Sign into the validation portal](media/vaas_portalsignin.png)  
+    ![Sign into the VaaS portal](media/vaas_portalsignin.png)
 
 2. Select **New solution**.
 3. Enter a name for the solution, and select **Save**.
@@ -95,5 +95,4 @@ Add the following common test parameters:
 
 ## Next steps
 
-- [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)  
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

@@ -1,6 +1,6 @@
 ---
 title: Validate a new Azure Stack solution | Microsoft Docs
-description: Learn how to validate a new Azure Stack solution with validation as a service.
+description: Learn how to validate a new Azure Stack solution with Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -95,5 +95,4 @@ Add the following common test parameters:
 
 ## Next steps
 
-- [Reschedule or cancel a test](azure-stack-vaas-monitor-test.md#reschedule-a-test)
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

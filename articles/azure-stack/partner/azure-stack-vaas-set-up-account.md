@@ -1,6 +1,6 @@
 ---
-title: Set up your Azure Stack validation as a service account | Microsoft Docs
-description: Learn how to set up your validation as a service account.
+title: Set up your Azure Stack Validation as a Service account | Microsoft Docs
+description: Learn how to set up your Validation as a Service account.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,17 +17,17 @@ ms.reviewer: johnhas
 
 ---
 
-# Set up your validation as a service account
+# Set up your Validation as a Service account
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Validation as a service (VaaS) is an Azure service that is made available to Microsoft Azure Stack partners who have a co-engineering agreement with Microsoft to design, develop, validate, sell, deploy, and support Azure Stack solutions in the market.
+Validation as a Service (VaaS) is an Azure service that is made available to Microsoft Azure Stack partners who have a co-engineering agreement with Microsoft to design, develop, validate, sell, deploy, and support Azure Stack solutions in the market.
 
-Learn how to get your system ready for validation as service. Set up the Azure Active Directory instance and perform other required tasks for getting ready to use VaaS. 
+Learn how to get your system ready for Validation as a Service. Set up the Azure Active Directory instance and perform other required tasks for getting ready to use VaaS.
 
 The tasks include:
 
-- Create an Azure Storage blob to store logs
+- Create an Azure Storage Account to store logs
 - Deploy the local agent
 - Download test image virtual machines on the Azure Stack instance to be tested
 
@@ -35,8 +35,8 @@ The tasks include:
 
 1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com) or use an existing tenant.
 
-    It is recommended to create a tenant specifically for use with VaaS with a descriptive name, such as, ContosoVaaS@onmicrosoft.com. The Role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.  
-    
+    It is recommended to create a tenant specifically for use with VaaS with a descriptive name, such as, ContosoVaaS@onmicrosoft.com. The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
+
     More information, see [Manage your Azure AD directory](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
 
     > [!Note]  
@@ -53,7 +53,7 @@ The tasks include:
 
 ## Set up your tenant
 
-Set up your tenant in the **Azure Stack Validation Service** application. 
+Set up your tenant in the **Azure Stack Validation Service** application.
 
 1. Send the following information about the tenant to Microsoft at vaashelp@microsoft.com.
 
@@ -63,7 +63,7 @@ Set up your tenant in the **Azure Stack Validation Service** application.
     | Azure AD Tenant Directory Name | Azure AD Tenant Directory name being registered. |
     | Azure AD Tenant Directory Id | Azure AD Tenant Directory GUID associated with the directory.<br> For information on how to find your Azure AD Tenant Directory ID can be found, see "[Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)." |
 
-    
+
 
 2. The Azure Stack team provides confirmation that your tenant can use the VaaS portal.
 
@@ -84,13 +84,13 @@ To assign a user role:
 4. Select **Users and groups**. The **Azure Stack Validation Service - Users and group** blade lists the users with permission to use the application.
 5. Select **+ Add user** to add an assignment.
 
-## Create an Azure storage blob to store logs
+## Create an Azure Storage Account to store logs
 
 VaaS creates diagnostic logs when running the validation tests. You need a location an Azure blob service SAS URL to store your logs. The storage account may also be used to the store the OEM customization packages.
 
-These steps walk through how to set up and generate a storage-as-a-service (SAS) URI for an Azure storage account, and where to specify the storage account in the VaaS portal when starting tests in the portal.
+These steps walk through how to set up and generate a shared access signature (SAS) URI for an Azure Storage Account, and where to specify the storage account in the VaaS portal when starting tests in the portal.
 
-### Create an Azure storage account
+### Create an Azure Storage Account
 
 1. To create a storage account, follow the instructions, [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
 
@@ -102,11 +102,11 @@ These steps walk through how to set up and generate a storage-as-a-service (SAS)
 
 2. On the blade under **Settings**, select **Shared access signature**.
 
-3. Check only **Blob** from **Allowed Services options** (uncheck the remaining).
+3. Check only **Blob** from **Allowed Services options**. Uncheck the remaining options.
 
 4. Check **Service**, **Container, and **Object** from **Allowed resource types**.
 
-5. Check **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions** (uncheck the remaining).
+5. Check **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions**. Uncheck the remaining options.
 
 6. Set **Start time** to the current time, and **End time** to three months from the current time.
 
@@ -118,4 +118,3 @@ These steps walk through how to set up and generate a storage-as-a-service (SAS)
 ## Next steps
 
 - Use the VaaS local agent to check your hardware. For instruction, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).

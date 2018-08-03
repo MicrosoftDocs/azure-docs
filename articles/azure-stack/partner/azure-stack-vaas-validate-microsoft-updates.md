@@ -1,6 +1,6 @@
 ---
-title: Validate software updates from Microsoft in Azure Stack validation as a service | Microsoft Docs
-description: Learn how to validate software updates from Microsoft with validation as a service.
+title: Validate software updates from Microsoft in Azure Stack Validation as a Service | Microsoft Docs
+description: Learn how to validate software updates from Microsoft with Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -39,7 +39,7 @@ Microsoft will periodically release updates to the Azure Stack software. These u
 
 6. The deployment configuration file must then be customized with the correct environment parameters file, see [Environment parameters](azure-stack-vaas-parameters.md#environment-parameters) for additional details.
 
-    > [!Note]   
+    > [!Note]
     > The deployment configuration file can be further customized by adding common test parameters. For more information, see [Workflow common parameters for Azure Stack validation as a service](azure-stack-vaas-parameters.md)
 
 7. The user name and password for the tenant user, service admin, and cloud admin must be entered manually.
@@ -53,8 +53,8 @@ Microsoft will periodically release updates to the Azure Stack software. These u
 
 The solution workflow runs for approximately 24 hours. Add a link to or instruction on scheduling the tests. Clear in the tool.
 
-Find more information on monitoring the progress of a validation run, see [Monitor a test ](azure-stack-vaas-monitor-test.md).
+To monitor the progress of a validation run, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

@@ -1,6 +1,6 @@
 ---
-title: An overview of validation as a service for Azure Stack | Microsoft Docs
-description: An overview of Azure Stack validation as a service known issues.
+title: An overview of Validation as a Service for Azure Stack | Microsoft Docs
+description: An overview of Azure Stack Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs

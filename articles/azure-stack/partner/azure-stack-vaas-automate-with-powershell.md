@@ -1,6 +1,6 @@
 ---
-title: Automate Azure Stack validation with PowerShell | Microsoft Docs
-description: You can automate Azure Stack validation with PowerShell.
+title: Automate Azure Stack Validation with PowerShell | Microsoft Docs
+description: You can automate Azure Stack Validation with PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,9 +17,9 @@ ms.reviewer: johnhas
 
 ---
 
-# Automate Azure Stack validation with PowerShell 
+# Automate Azure Stack Validation with PowerShell
 
-Validation as a service (VaaS) provides the ability to automate the launching of tests using the **LaunchVaaSTests.ps1** script.
+Validation as a Service (VaaS) provides the ability to automate the launching of tests using the **LaunchVaaSTests.ps1** script.
 
 You can use PowerShell for the following workflow:
 
@@ -64,7 +64,7 @@ This script encompasses the four elements of a workflow:
 
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserld | Your VaaS user ID. | 
+    | VaaSUserld | Your VaaS user ID. |
     | VaaSUserPassword | Your VaaS password. |
     | ServiceAdminUser | Your Azure Stack service admin account.  |
     | ServiceAdminPassword | Your Azure Stack service password.  |
@@ -72,9 +72,8 @@ This script encompasses the four elements of a workflow:
     | TenantAdminPassword | The password for the primary tenant.  |
     | FunctionalCategory| Integration, Functional, or. Reliability. If you use multiple values, separate each value by a comma.  |
 
-4. Review the results of your test. For information about reading your test results, see [Monitor tests](azure-stack-vaas-monitor-test.md).
+4. Review the results of your test. For information about reading your test results, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
 ## Next steps
-
  - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
  - To learn more about PowerShell on Azure Stack, see the [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Reference.

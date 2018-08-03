@@ -1,6 +1,6 @@
 ---
-title: Azure Stack validation as a service update for 1803. | Microsoft Docs
-description:  This article contains the release notes for the validation as a service update for 1803 for Azure Stack.
+title: Azure Stack Validation as a Service update for 1803. | Microsoft Docs
+description:  This article contains the release notes for the Validation as a Service update for 1803 for Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs

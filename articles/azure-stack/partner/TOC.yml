@@ -35,7 +35,7 @@
     href: azure-stack-vaas-automate-with-powershell.md
 - name: Concepts
   items:
-  - name: Monitor a test
+  - name: Monitor and manage tests in the VaaS portal
     href: azure-stack-vaas-monitor-test.md
   - name: Validation configuration file
     href: azure-stack-vaas-parameters.md

@@ -1,6 +1,6 @@
 ---
-title: Validate original equipment manufacturer (OEM) packages  in Azure Stack validation as a service | Microsoft Docs
-description: Learn how to check original equipment manufacturer (OEM) packages with validation as a service.
+title: Validate original equipment manufacturer (OEM) packages in Azure Stack Validation as a Service | Microsoft Docs
+description: Learn how to check original equipment manufacturer (OEM) packages with Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -51,4 +51,4 @@ All tests finish within 24 hours with result of **succeeded**. If any of the tes
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

@@ -1,6 +1,6 @@
 ---
-title: Test parameters for validation as a service Azure Stack | Microsoft Docs
-description: Reference topic about the configuration file and test pass parameters for validation as a service Azure Stack.
+title: Test parameters for Validation as a Service Azure Stack | Microsoft Docs
+description: Reference topic about the configuration file and test pass parameters for Validation as a Service Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,7 +17,7 @@ ms.reviewer: johnhas
 
 ---
 
-# Test parameters for validation as a service Azure Stack
+# Test parameters for Validation as a Service Azure Stack
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 

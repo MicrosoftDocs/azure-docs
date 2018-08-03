@@ -1,6 +1,6 @@
 ---
-title: Azure Stack validation as a service known issues. | Microsoft Docs
-description: Azure Stack validation as a service known issues.
+title: Azure Stack Validation as a Service known issues. | Microsoft Docs
+description: Azure Stack Validation as a Service known issues.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,11 +17,11 @@ ms.reviewer: johnhas
 
 ---
 
-# Known issues for validation as a service
+# Known issues for Validation as a Service
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-These are the known issues for the Azure Stack validation as a service.
+These are the known issues for the Azure Stack Validation as a Service.
 
 ## Next steps
 

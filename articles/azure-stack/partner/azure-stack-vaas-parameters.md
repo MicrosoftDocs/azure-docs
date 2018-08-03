@@ -1,6 +1,6 @@
 ---
-title: Workflow common parameters in Azure Stack validation as a service| Microsoft Docs
-description: Workflow common parameters for Azure Stack validation as a service
+title: Workflow common parameters in Azure Stack Validation as a Service| Microsoft Docs
+description: Workflow common parameters for Azure Stack Validation as a Service
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,11 +17,11 @@ ms.reviewer: johnhas
 
 ---
 
-# Workflow common parameters for Azure Stack validation as a service
+# Workflow common parameters for Azure Stack Validation as a Service
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Common parameters include values such as environment variables and user credentials required by all tests in validation as a service (VaaS). You define these values at the workflow level. You save the values when you create or modify a workflow. At schedule time, the workflow loads the values for the test. 
+Common parameters include values such as environment variables and user credentials required by all tests in Validation as a Service (VaaS). You define these values at the workflow level. You save the values when you create or modify a workflow. At schedule time, the workflow loads the values for the test.
 
 ## Environment parameters
 
@@ -53,7 +53,5 @@ Common test parameters include sensitive information that can't stored in config
 | Cloud Administrator password | Required |  | Password for the Cloud Administrator user. |
 | Diagnostics Connection String | Required |  | A SAS URI to an Azure Storage Account to which diagnostics logs will be copied during test execution. Instructions for generating the SAS URI are located [Set up a blob storage account](azure-stack-vaas-set-up-account.md). |
 
-
 ## Next steps
-
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- 

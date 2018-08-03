@@ -1,6 +1,6 @@
 ---
-title: Deploy the local agent and test image virtual machines in Azure Stack validation as a service | Microsoft Docs
-description: Deploy the local agent and test image virtual machines for Azure Stack validation as a service.
+title: Deploy the local agent and test image virtual machines in Azure Stack Validation as a Service | Microsoft Docs
+description: Deploy the local agent and test image virtual machines for Azure Stack Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -21,7 +21,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Learn how to use the validation as a service (VaaS) local agent to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
+Learn how to use the Validation as a Service (VaaS) local agent to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
 
 > [!Note]  
 > You must make sure that the machine, where the local agent is running, doesn't lose access to the Internet. The machine must only be accessible to users who are authorized to use Azure Stack VaaS.
@@ -78,15 +78,15 @@ Azure Stack is the system under test. The machine should not be part of Azure St
     | aadServiceAdminUser | The global admin user for your Azure AD tenant. For example it may be, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | The password for the global admin user. |
     | AadTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
-    | ExternalFqdn | You can get the fully qualified domain name from the configuration file. For instruction, see [Test parameters for validation as a service Azure Stack](azure-stack-vaas-parameters-test.md). |
+    | ExternalFqdn | You can get the fully qualified domain name from the configuration file. For instruction, see [Test parameters for Validation as a Service Azure Stack](azure-stack-vaas-parameters-test.md). |
     | Region | The region of your Azure AD tenant. |
 
-The command downloads a public image repository (PIR) image (OS VHD) and copy from an Azure blob storage to your Azure Stack storage. 
+The command downloads a public image repository (PIR) image (OS VHD) and copy from an Azure blob storage to your Azure Stack storage.
 
 ![Download prerequisites](media/installingprereqs.png)
 
 > [!Note]  
-> If you're experiencing slow network speed when downloading these images, download them separately to a local share and specify the parameter **-LocalPackagePath** *FileShareOrLocalPath*. You can find more guidance on your PIR download in the section [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) of [Troubleshoot validation as a service](azure-stack-vaas-troubleshoot.md).
+> If you're experiencing slow network speed when downloading these images, download them separately to a local share and specify the parameter **-LocalPackagePath** *FileShareOrLocalPath*. You can find more guidance on your PIR download in the section [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) of [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md).
 
 ## Fault injection
 
@@ -135,4 +135,4 @@ An agent is uniquely identified by its name. By default, it uses the fully quali
 
 - [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)  
 - If you have slow or intermittent Internet connectivity, you can download the PIR image. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- To learn more about [Azure Stack Validation as a Service](https://docs.microsoft.com/azure/azure-stack/partner).

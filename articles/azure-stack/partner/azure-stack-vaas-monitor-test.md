@@ -1,6 +1,6 @@
 ---
-title: Monitor a test with Azure Stack validation as a service | Microsoft Docs
-description: Monitor a test Azure Stack validation as a service known issues.
+title: Monitor and manage tests in the VaaS portal | Microsoft Docs
+description: Monitor and manage tests in the VaaS portal.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,7 +17,7 @@ ms.reviewer: johnhas
 
 ---
 
-# Monitor a test with Azure Stack validation as a service
+# Monitor and manage tests in the VaaS portal
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,13 +35,13 @@ The execution of a test can be monitored by viewing the **Operations** page for 
 
 5. Select **View Operations**
 
-![Alt text](media\image4.png)
+![View operations](media/image4.png)
 
 For tests that have finished running, logs can be downloaded from the test summary page by clicking on **Download logs** in a test's context menu **[...]**. Azure Stack partners can use these logs to debug issues for failed tests.
 
 ## Open the test pass summary
 
-1. Open the portal. 
+1. Open the portal.
 2. Select the name of an existing solution that contains previously run or scheduled tests.
 
     ![Manage test passes](media/managetestpasses.png)
@@ -127,4 +127,4 @@ You can select and drag a column into the header to create a group on the column
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)

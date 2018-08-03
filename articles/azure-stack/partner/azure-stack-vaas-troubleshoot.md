@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Stack validation as a service | Microsoft Docs
-description: Troubleshoot validation as a service for Azure Stack.
+title: Troubleshoot Azure Stack Validation as a Service | Microsoft Docs
+description: Troubleshoot Validation as a Service for Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,7 +17,7 @@ ms.reviewer: johnhas
 
 ---
 
-# Troubleshoot validation as a service
+# Troubleshoot Validation as a Service
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -76,4 +76,4 @@ You can use **Get-HashFile** cmdlet to get the hash value for the downloaded pub
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- 
