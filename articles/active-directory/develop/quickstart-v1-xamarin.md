@@ -35,7 +35,7 @@ For Xamarin apps that need to access protected resources, Azure AD provides the 
 
 ## Before you get started
 * Download the [skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), or download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Each download is a Visual Studio 2013 solution.
-* You also need an Azure AD tenant in which to create users and register the app. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+* You also need an Azure AD tenant in which to create users and register the app. If you don't already have a tenant, [learn how to get one](quickstart-create-new-tenant.md).
 
 When you are ready, follow the procedures in the next four sections.
 

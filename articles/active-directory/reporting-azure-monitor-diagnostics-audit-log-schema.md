@@ -20,9 +20,9 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Interpret the Azure Active Directory audit logs schema in Azure Monitor (preview)
+# Interpret the Azure AD audit logs schema in Azure Monitor (preview)
 
-This article describes the Azure AD audit log schema in Azure Monitor. Each individual log entry is stored as text, formatted as a JSON blob, as shown in the below two examples. 
+This article describes the Azure Active Directory (Azure AD) audit log schema in Azure Monitor. Each individual log entry is stored as text and formatted as a JSON blob, as shown in the following two examples: 
 
 ```json
 { 
@@ -98,36 +98,39 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 } 
 ```
 
+## Field and property descriptions
+
 | Field name | Description |
 |------------|-------------|
-| time       | Date and time (UTC) |
-| operationName | Name of the operation |
-| operationVersion | REST API version requested by the client |
-| category | Currently, *Audit* is the only value supported |
-| tenantId | Tenant Guid associated with the logs |
-| resultType | Result of the operation, can be *Success* or *Failure* |
-| resultSignature |  This is unmapped, and you can safely ignore this field. | 
-| resultDescription | Additional description of the result, where available | 
-| durationMs |  This is unmapped, and you can safely ignore this field. |
-| callerIpAddress | IP address of the client that made the request | 
-| correlationId | Optional Guid passed by the client. This can help correlate client-side operations with server-side operations and is useful when tracing logs that span across services. |
-| identity | Identity from the token that was presented when making the request. Can be a user account, system account or service principal. |
-| level | Type of message. For audit logs, this is always *Informational* |
-| location | Location of the datacenter |
-| properties | Lists the supported properties related to an audit log. For more information see the below table. | 
+| time       | The date and time (UTC). |
+| operationName | The name of the operation. |
+| operationVersion | The REST API version that's requested by the client. |
+| category | Currently, *Audit* is the only supported value. |
+| tenantId | The tenant GUID that's associated with the logs. |
+| resultType | The result of the operation. The result can be *Success* or *Failure*. |
+| resultSignature |  This field is unmapped, and you can safely ignore it. | 
+| resultDescription | An additional description of the result, where available. | 
+| durationMs |  This field is unmapped, and you can safely ignore it. |
+| callerIpAddress | The IP address of the client that made the request. | 
+| correlationId | An optional GUID that's passed by the client. It can help correlate client-side operations with server-side operations and it's useful when you're tracking logs that span services. |
+| identity | The identity from the token that was presented when you made the request. The identity can be a user account, system account, or service principal. |
+| level | The message type. For audit logs, the level is always *Informational*. |
+| location | The location of the datacenter. |
+| properties | Lists the supported properties that are related to an audit log. For more information, see the next table. | 
 
+<br>
 
 | Property name | Description |
 |---------------|-------------|
-| AuditEventCategory | Type of audit event. Can be *User Management*, *Application Management* etc.|
-| Identity Type | *Application* or *User* |
-| Operation Type | Can be *Add*, *Update*, *Delete* or *Other* |
-| Target Resource Type | Specifies the target resource type that the operation was performed on. Can be *Application*, *User*, *Role*, *Policy* | 
-| Target Resource Name | Name of the target resource. For example, this may be an application name, a role name, a user principal name or a service principal name |
-| additionalTargets | Lists any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties* | 
+| AuditEventCategory | The type of audit event. It can be *User Management*, *Application Management*, or another type.|
+| Identity Type | The type can be *Application* or *User*. |
+| Operation Type | The type can be *Add*, *Update*, *Delete*. or *Other*. |
+| Target Resource Type | Specifies the target resource type that the operation was performed on. The type can be *Application*, *User*, *Role*, *Policy* | 
+| Target Resource Name | The name of the target resource. It can be an application name, a role name, a user principal name, or a service principal name. |
+| additionalTargets | Lists any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties*. | 
 
 ## Next steps
 
-* [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Read more about Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Interpret sign-in logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Read more about Azure diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Frequently asked questions and known issues](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

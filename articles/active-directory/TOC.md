@@ -156,22 +156,27 @@
 
 ## Manage devices
 ### [Overview](devices/overview.md)
-### [Using the Azure portal](devices/device-management-azure-portal.md)
-### [Plan Azure AD Join](devices/azureadjoin-plan.md)
-### [FAQs](devices/faq.md)
-### Tasks
-#### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
-#### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
-#### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+
+### Quickstarts
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
-#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
-### Troubleshoot
-#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Tutorials
+#### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
+#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
+
+### How-to-guides
+#### [Plan Azure AD join](devices/azureadjoin-plan.md)
+#### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+#### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Concepts
+### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
+### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
+## [Azure AD deployment plans](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
