@@ -24,15 +24,15 @@ Examples are useful for illustrating key concepts and capabilities. In the follo
     "search": "seattle townhouse* +\"lake\"", 
     "searchFields": "description, city",  
     "count": "true", 
-    "select": "listingID, street, status, daysOnMarket, description",
+    "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
-    "orderby": "listingID"
+    "orderby": "listingId"
  } 
 ```
 As a representative query, this example demonstrates several important aspects of query definition, from parser inputs, to shaping the result set. Query execution is always against one index, authenticated using an api-key provided in the request. 
 
 > [!Tip]
-> You can use [Search explorer and the real estate demo index](/search-get-started-portal.md) in the portal to run the request. Paste this query string into the explorer search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
+> You can use [Search explorer and the real estate demo index](search-get-started-portal.md) in the portal to run the request. Paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
 >
 
 **Searching the index**
@@ -52,14 +52,22 @@ Other parameters shape the result set returned by the search engine:
 
 **Enabling operations through index attributes**
 
-While not shown here, a critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field determine whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"orderby": "listingID"` only works if the listingID field is marked as *sortable* in the index schema. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+While not shown here, a critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field determine whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"orderby": "listingId"` only works if the listingId field is marked as *sortable* in the index schema. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-In the remaining sections, we take a closer look at query building blocks.
+Index design and query design are tightly coupled in Azure Search. Allowed operations on a per-field basis, already mentioned, are just one way that index definition informs query execution. Other capabilities also enabled in the index include the following:
+
++ [Synonyms](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations)
++ [Text (linguistic) analysis](https://docs.microsoft.com//rest/api/searchservice/language-support) and [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
++ [Suggester constructs](https://docs.microsoft.com/rest/api/searchservice/suggesters) that enable autocomplete and auto-suggestion
++ [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) that add logic to ranking search results
+
+All of the above capabilities are exercised during query execution, but are implemented in your code as attributes on the field. 
+
 <a name="types-of-queries"></a>
 
 ## Types of queries: search and filter
 
-Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. 
+In the introductory example, the search parameter was identified as the means by which search criteria is passed to the engine. In practice, there are two main types of query: `search` and `filter`. 
 
 + `search` queries scan for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The examples in the introduction use the `search` parameter.
 
