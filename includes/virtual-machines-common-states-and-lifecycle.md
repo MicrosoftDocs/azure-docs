@@ -55,7 +55,7 @@ The power state represents the last known state of a VM.
 <p><b>Running</b></p>
 </td>
 <td>
-<p>Running state for a VM</p>
+<p>Normal working state for a VM</p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/running",</br>
@@ -73,7 +73,7 @@ The power state represents the last known state of a VM.
 <p><b>Stopping</b></p>
 </td>
 <td>
-<p>**Stopping** is a transitional state. When completed, it will show as **Stopped**.</p>
+<p>This is a transitional state. When completed, it will show as **Stopped**.</p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/stopping",</br>
@@ -91,8 +91,8 @@ The power state represents the last known state of a VM.
 <p><b>Stopped</b></p>
 </td>
 <td>
-<p>Stopped state is observed when a VM has been shut down from the guest OS or client PowerOff APIs.</p>
-<p>VM in a stopped state is not removed from the host as compared to deallocated state. </p>
+<p>The VM has been shut down from within the guest OS or using the PowerOff APIs.</p>
+<p>Hardware is still allocated to the VM and it remains on the host. </p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/stopped",</br>
@@ -110,7 +110,7 @@ The power state represents the last known state of a VM.
 <p><b>Deallocating</b></p>
 </td>
 <td>
-<p>Deallocating is a transitional state of a VM when user performs a deallocate action.</p>
+<p>Transitional state. WHen completed, the VM will show as **Deallocated**.</p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/deallocating",</br>
@@ -128,7 +128,7 @@ The power state represents the last known state of a VM.
 <p><b>Deallocated</b></p>
 </td>
 <td>
-<p>Deallocated status is observed when CRP has successfully stopped and removed the VM from the host. </p>
+<p>The VM has been stopped successfully and removed from the host. </p>
 <code>"statuses": [</br>
  {</br>
  "code": "PowerState/deallocated",</br>
@@ -147,9 +147,7 @@ The power state represents the last known state of a VM.
 
 ## Provisioning states
 
-A provisioning state is the status of a user-initiated (control plane) operation on the VM. These states are independent of the power state of a VM.
-
-**User Initiated actions**
+A provisioning state is the status of a user-initiated (control plane) operation on the VM. These states are separate from the power state of a VM.
 
 - **Create** – VM creation.
 
@@ -159,8 +157,10 @@ A provisioning state is the status of a user-initiated (control plane) operation
 
 - **Deallocate** – is where a VM is stopped and removed from the host. Deallocating a VM results into Update of the VM model hence resulting into provisioning states related to updating.
 
-- **Operation states** – transitional states after the platform has
-accepted the request for user-initiated action.
+
+
+Here are the **Operation states**. These are transitional states after the platform has
+accepted a user-initiated action.
 
 <table>
 <tbody>
@@ -219,7 +219,7 @@ accepted the request for user-initiated action.
 </td>
 <td width="366">
 <p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed</p>
-<p><b>1. </b><b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
+<p>1. <b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
 <code> "statuses": [</br>
  {</br>
  "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
@@ -227,7 +227,7 @@ accepted the request for user-initiated action.
  "displayStatus": "OS Provisioning In progress"</br>
  }</br>
 ]</code></br>
-<p><b>2. </b><b>OSProvisioningComplete</b> &ndash; Short-lived state, as it quickly transitions to Success unless VM has to install any extensions. Installation of extensions takes time and provides a window to observe this state. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state, as the VM quickly transitions to Success unless any extensions need to be installed. Installing extensions can take time. <br />
 <code> "statuses": [</br>
  {</br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
@@ -235,15 +235,9 @@ accepted the request for user-initiated action.
  "displayStatus": "OS Provisioning Complete"</br>
  }</br>
 ]</code></br>
-<p><b>Note</b>: OS Provisioning can transition to Failed if OS fails or if OS fails to install in time. At this time, customers will be billed for the deployed VM on the infrastructure.</p>
-</td>
-</tr>
-</tbody>
-</table>
-
-**Succeeded**– This state represents that user-initiated actions have
-completed.
-</p>
+<p><b>Note</b>: OS Provisioning can transition to **Failed** if their is an OS failure or the OS fails to install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
+<p> **Succeeded**– This state represents that user-initiated actions have
+completed.</p>
 <code>
  "statuses": \[ </br>
  {</br>
@@ -254,10 +248,8 @@ completed.
  }</br>
  \]</br>
 </code>
-</p>
-**Failed** – This state represents a failed operation. Refer to the error codes to get more information and possible
-resolution.
-</p>
+<p>**Failed** – This state represents a failed operation. Refer to the error codes to get more information and possible
+resolution.</p>
 <code>
  "statuses": [</br>
     {</br>
@@ -269,7 +261,7 @@ resolution.
     }</br>
 </code>
 </p>
-**Edge cases**: In cases where a VM was running and in a good state, a
+<p> **Edge cases**: In cases where a VM was running and in a good state, a
 failed management operation will typically leave the VM running with the
 original VM model (configuration). If such a case happens, then the
 effective running VM model may be different from the latest received and
@@ -277,7 +269,11 @@ persisted model by CRP. CRP persisted model gets returned with GetVM API. To res
 issue, look at the error message (either from the last failed
 operation of the VM instance view). If the error is due to API input validation, then try to fix the inputs. If the error, is due to Azure
 internal errors a retry of the management operation should resolve the
-issue.
+issue. </p>
+</td>
+</tr>
+</table>
+
 
 ## VM Instance View
 Virtual Machine Instance View API provides VM running-state information. [Here] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/instanceview) is the API documentation.
