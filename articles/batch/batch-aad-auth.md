@@ -70,7 +70,7 @@ After you've registered your application, you'll see the application ID:
 
 ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).
+For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## Get the tenant ID for your Active Directory
 

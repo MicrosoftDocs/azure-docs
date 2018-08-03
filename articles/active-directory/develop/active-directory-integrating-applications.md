@@ -69,7 +69,7 @@ For example, if a web client application needs to read calendar information abou
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.
 
-For more information about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](active-directory-protocols-oauth-code.md) and [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md). For information about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+For more information about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](active-directory-protocols-oauth-code.md) and [Authentication Scenarios for Azure AD](authentication-scenarios.md). For information about getting authorized access to Office 365 via Microsoft Graph, see [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### Example of the consent experience
 
@@ -89,7 +89,7 @@ The following steps show you how the consent experience works for both the appli
    
   ![User consent experience](./media/active-directory-integrating-applications/consent.png)
 
-5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
+5. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see the [web Application to web API section in Authentication Scenarios for Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
 6. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. From the **Settings** page for your application, click **Required Permissions** and click on the **Grant Permissions** button. 
 
@@ -311,7 +311,7 @@ A subset of the applications that appear under the "All apps" filter (excluding 
 In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access and can remove it through the Azure portal or use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## Next steps
-- For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+- For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
 - See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
 - For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
