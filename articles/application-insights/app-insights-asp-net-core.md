@@ -37,7 +37,7 @@ This article walks you through the steps of creating a sample ASP.NET Core [Razo
 
    ![Screenshot of Visual Studio new project wizard](./media/app-insights-asp-net-core/002-asp-net-core-web-application.png)
 
-4. Select **.Net Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
+4. Select **.NET Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
 
     ![Screenshot of Visual Studio new project template selection](./media/app-insights-asp-net-core/003-web-application.png)
 
