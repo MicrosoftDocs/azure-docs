@@ -47,27 +47,27 @@ To use this feature, you need:
 
     ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png)
 
-4. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
+5. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
 
-5. Select the **Archive to a storage account** check box, and then select **Storage account**. 
+6. Select the **Archive to a storage account** check box, and then select **Storage account**. 
 
-6. Select the Azure subscription and storage account that you want to route the logs to.
+7. Select the Azure subscription and storage account that you want to route the logs to.
  
-8. To exit the configuration, select **OK**.
+8. Select **OK** to exit the configuration.
 
-8. Do either or both of the following:
+9. Do either or both of the following:
     * To send audit logs to the storage account, select the **AuditLogs** check box. 
     * To send sign-in logs to the storage account, select the **SignInLogs** check box.
 
-9. Use the slider to set the retention of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
+10. Use the slider to set the retention of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
 
-10. Select **Save** to save the setting.
+11. Select **Save** to save the setting.
 
     ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png)
 
-11. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. 
+12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. 
 
-12. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
+13. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
     ![Storage account](./media/reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png)
 
 ## Next steps
