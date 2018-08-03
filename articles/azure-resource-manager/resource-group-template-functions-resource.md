@@ -100,7 +100,7 @@ Specify the resource by using either the resource name or the [resourceId functi
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account. To get that token, it passes an object to listAccountSas function.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account. To get that token, it passes an object to listAccountSas function. This example is intended to show how you use the list functions. Typically, you would use the SAS token in a resource value rather than return it as an output value. Output values are stored in the deployment history and aren't secure. You must specify an expiry time in the future for the deployment to succeed.
 
 ```json
 {
@@ -120,7 +120,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
                 "signedServices": "b",
                 "signedResourceType": "c",
                 "signedPermission": "r",
-                "signedExpiry": "2018-09-01",
+                "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
             }
     },
