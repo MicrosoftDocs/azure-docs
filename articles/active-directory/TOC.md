@@ -477,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
+## [Azure AD deployment plans](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
