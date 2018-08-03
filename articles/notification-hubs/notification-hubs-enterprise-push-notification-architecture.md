@@ -36,23 +36,23 @@ The key piece in this architectural diagram is Azure Service Bus, which provides
 1. Backend systems (LoB/Legacy systems)
    * Creates Service Bus Topic
    * Sends Message
-2. Mobile backend
+1. Mobile backend
    * Creates Service Subscription
    * Receives Message (from Backend system)
    * Sends notification to clients (via Azure Notification Hub)
-3. Mobile Application
+1. Mobile Application
    * Receives and display notification
 
 ### Benefits:
 1. The decoupling between the receiver (mobile app/service via Notification Hub) and sender (backend systems) enables additional backend systems being integrated with minimal change.
-2. It also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.  
+1. It also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.  
 
 ## Sample:
 ### Prerequisites
 Complete the following tutorials to familiarize with the concepts as well as common creation & configuration steps:
 
 1. [Service Bus Pub/Sub programming] - This tutorial explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send & receive messages from them.
-2. [Notification Hubs - Windows Universal tutorial] - This tutorial explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.
+1. [Notification Hubs - Windows Universal tutorial] - This tutorial explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.
 
 ### Sample code
 The full sample code is available at [Notification Hub Samples]. It is split into three components:
@@ -120,7 +120,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
                 System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
             }
         }
-2. **ReceiveAndSendNotification**
+1. **ReceiveAndSendNotification**
    
     a. This project uses the *WindowsAzure.ServiceBus* and *Microsoft.Web.WebJobs.Publish* NuGet packages and is based on [Service Bus Pub/Sub programming].
    
@@ -213,7 +213,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
     g. Configure the job to be "Run Continuously" so that when you log in to the [Azure portal] you should see something like the following:
    
     ![][4]
-3. **EnterprisePushMobileApp**
+1. **EnterprisePushMobileApp**
    
     a. This application is a Windows Store application, which receives toast notifications from the WebJob running as part of your Mobile backend and display it. This code is based on [Notification Hubs - Windows Universal tutorial].  
    
@@ -239,11 +239,11 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 ### Running sample:
 1. Ensure that your WebJob is running successfully and scheduled to run continuously.
-2. Run the **EnterprisePushMobileApp, which starts the Windows Store app.
-3. Run the **EnterprisePushBackendSystem** console application, which simulates the LoB backend and starts sending messages and you should see toast notifications appearing like the following image:
+1. Run the **EnterprisePushMobileApp, which starts the Windows Store app.
+1. Run the **EnterprisePushBackendSystem** console application, which simulates the LoB backend and starts sending messages and you should see toast notifications appearing like the following image:
    
     ![][5]
-4. The messages were originally sent to Service Bus topics, which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure portal] for your Web Job:
+1. The messages were originally sent to Service Bus topics, which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure portal] for your Web Job:
    
     ![][6]
 
