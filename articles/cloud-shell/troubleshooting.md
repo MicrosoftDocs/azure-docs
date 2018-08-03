@@ -39,9 +39,14 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD subscriptions are not able to create Azure resources.
 
 ### Terminal output - Error: Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect.
-
 - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell infrastructure.
 - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
+
+### Set your Cloud Shell connection to support using TLS 1.2
+ - **Details**: To define the version of TLS for your connection to Cloud Shell, you must set browser specific settings.
+ - **Resolution**: Navigate to the security settings of your browser and select the checkbox next to "Use TLS 1.2".
+
+## Bash troubleshooting
 
 ### Cannot run the docker daemon
 
