@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: diberry
 ---
 # LUIS boundaries
