@@ -64,7 +64,7 @@ Standalone clusters are configured through the ClusterConfig.json file. To learn
 
 You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in ClusterConfig.json. 
 
-For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under the `fabricSettings` element:
+For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
 
 ```json
       {

@@ -587,7 +587,7 @@ Use the comments section that follows, to provide feedback and help us refine an
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
