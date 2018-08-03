@@ -15316,6 +15316,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-v2-app-registration.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-howto-tenant.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-create-new-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-ios.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-android.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-dotnet.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-xamarin.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-xamarin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-openid-connect-code",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
