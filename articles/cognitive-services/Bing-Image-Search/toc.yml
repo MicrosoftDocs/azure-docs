@@ -21,7 +21,7 @@
       href: quickstarts/python.md
     - name: "Quickstart: Ruby"
       href: quickstarts/ruby.md
-  - name: "Quickstart: Request specific and trending images using the SDK"
+  - name: "Quickstart: Request and filter images using the SDK"
     items:
     - name: SDK samples overview 
       href: sdk.md
