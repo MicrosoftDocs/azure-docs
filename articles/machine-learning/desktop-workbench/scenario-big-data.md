@@ -51,7 +51,7 @@ The prerequisites to run this example are as follows:
 * Windows 10 (the instructions in this example are generally the same for macOS systems).
 * A Data Science Virtual Machine (DSVM) for Linux (Ubuntu), preferably in East US region where the data locates. You can provision an Ubuntu DSVM by following [these instructions](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). You can also see [this quickstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). We recommend using a virtual machine with at least 8 cores and 32 GB of memory. 
 
-Follow the [instruction](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
+Follow the [instruction](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) to enable password-less sudoer access on the VM for AML Workbench.  You can choose to use [SSH key-based authentication for creating and using the VM in AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In this example, we use password to access the VM.  Save the following table with the DSVM info for later steps:
 
  Field name| Value |  
  |------------|------|
