@@ -255,7 +255,7 @@
 - name: Resources
   items:
   - name: Azure Community Support
-    href: https://azure.microsoft.com/en-us/support/community/?product=search
+    href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?tag=azure-search
   - name: Demo sites
