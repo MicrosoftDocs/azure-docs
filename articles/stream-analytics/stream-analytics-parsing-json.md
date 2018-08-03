@@ -11,7 +11,7 @@ ms.date: 08/03/2018
 ---
 # Parse JSON and Avro data in Azure Stream Analytics
 
-Azure Stream Analytics supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro may contain complex types such as nested objects (records) and arrays. 
+Azure Stream Analytics supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can contain complex types such as nested objects (records) and arrays. 
   
 ## Array data types  
 Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples assume the input events have a property named "arrayField" that is  an array datatype.
@@ -51,8 +51,11 @@ Record data types are used to represent JSON and Avro arrays when corresponding 
 ```json  
 {  
     "DeviceId" : "12345",  
-    "Location" : {"Lat": 47, "Long": 122 },  
-  
+    "Location" : 
+    {
+        "Lat": 47,
+        "Long": 122 
+    },  
     "SensorReadings" :  
     {  
         "Temperature" : 80,  
@@ -64,7 +67,7 @@ Record data types are used to represent JSON and Avro arrays when corresponding 
 ```  
   
 ## Examples  
-Utilize dot notation to access nested fields. For example, this query selects the reported lat/long coordinates of the device:  
+Use dot notation (.) to access nested fields. For example, this query selects the Lat and Long coordinates under the Location property in the preceding JSON data: 
   
 ```SQL  
 SELECT  
@@ -96,7 +99,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value  
 ```  
   
-To convert record fields into separate events use the [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator together with the [GetRecordProperties](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordproperties-azure-stream-analytics) function. For example, to convert a sample stream into a stream of events with individual sensor readings, this query could be used:  
+To convert record fields into separate events, use the [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator together with the [GetRecordProperties](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordproperties-azure-stream-analytics) function. For example, to convert a sample stream into a stream of events with individual sensor readings, this query could be used:  
   
 ```SQL  
 SELECT   
