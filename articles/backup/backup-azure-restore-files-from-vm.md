@@ -56,7 +56,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
     If you run the script on a computer with restricted access, ensure there is access to:
 
     - download.microsoft.com
-    - Recovery Service URLs
+    - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
         - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
         - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China)
         - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
