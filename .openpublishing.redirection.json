@@ -15276,37 +15276,37 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-aspnet-webapp",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-ios.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-ios.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-ios",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-android.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-android.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-android",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-windesktop.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-windesktop.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-uwp-v2.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-uwp-v2.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-uwp",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-aspnetwebapp.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-asp-webapp",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/guidedsetups/active-directory-javascriptspa.md",
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
             "redirect_document_id": false
         },
