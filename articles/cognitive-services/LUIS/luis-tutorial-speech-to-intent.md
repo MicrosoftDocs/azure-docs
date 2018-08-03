@@ -43,19 +43,20 @@ After importing the app, select **Entities**, then **Manage prebuilt entities**.
 ## Train and publish the app
 1. In the top, right navigation bar, select the **Train** button to train the LUIS app.
 
-2. Select **Publish** to go to the publish page. 
+2. Select **Manage** in the top right bar, then select **Keys and endpoints** in the left navigation. 
 
-3. At the bottom of the **Publish** page, add the LUIS key created in the [Create LUIS endpoint key](#create-luis-endpoint-key) section.
+3. On the **Keys and endpoints** page, assign the LUIS key created in the [Create LUIS endpoint key](#create-luis-endpoint-key) section.
 
-4. Publish the LUIS app by selecting the **Publish** button to the right of the Publish slot. 
-
-  On the **Publish** page, collect the app ID, publish region, and subscription ID of the LUIS key created in the  [Create LUIS endpoint key](#create-luis-endpoint-key) section. You need to modify the code to use these values later in this article. 
+  On this page, collect the app ID, publish region, and subscription ID of the LUIS key created in the  [Create LUIS endpoint key](#create-luis-endpoint-key) section. You need to modify the code to use these values later in this article. 
 
   These values are all included in the endpoint URL at the bottom of the **Publish** page for the key you created. 
   
   Do **not** use the free starter key for this exercise. Only a **Language Understanding** key created in the Azure portal will work for this exercise. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+
+
+4. Publish the LUIS app by selecting the **Publish** button in the top right bar. 
 
 ## Audio device
 This article uses the audio device on your computer. That can be a headset with microphone or a built-in audio device. Check the audio input levels to see if you should speak louder than you normally would to have your speech detected by the audio device. 
