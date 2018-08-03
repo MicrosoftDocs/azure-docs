@@ -45,7 +45,7 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
     > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
     >
 
-    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). To learn more using Service Fabric reverse proxy from services running in a container, see [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). To learn more about using Service Fabric reverse proxy from services running in a container, see [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### Known limitations when debugging containers in Service Fabric
 
