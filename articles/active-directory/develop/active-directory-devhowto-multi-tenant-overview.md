@@ -177,7 +177,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
@@ -198,7 +198,7 @@ In this article, you learned how to build an application that can sign in a user
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes

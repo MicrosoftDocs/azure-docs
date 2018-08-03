@@ -1147,7 +1147,7 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
             "redirect_document_id": true
         },
         {
@@ -5507,8 +5507,8 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-tutorial",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-linkedinlearning-tutorial.md",
@@ -7927,7 +7927,7 @@
         },
         {
             "source_path": "articles/guidance/guidance-ra-app-service.md",
-            "redirect_url": "/azure/architecture/reference-architectures/managed-web-app",
+            "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "redirect_document_id": false
         },
         {
@@ -10947,7 +10947,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-single-databases-tsql.md",
-            "redirect_url": "https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database",
+            "redirect_url": "/sql/t-sql/statements/alter-database-transact-sql",
             "redirect_document_id": false
         },
         {
@@ -15276,6 +15276,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-v1-aspnet-webapp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-ios.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-android.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-windesktop.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-uwp-v2.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-uwp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-asp-webapp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-authentication-scenarios.md",
+            "redirect_url": "/azure/active-directory/develop/authentication-scenarios",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
@@ -15402,7 +15442,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-key-vault-setup-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
             "redirect_document_id": false
         },
         {
@@ -15417,7 +15457,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.experimental.md",
-            "redirect_url": "/azure/virtual-machines/linux/mac-create-ssh-keys.experimental",
+            "redirect_url": "/azure/virtual-machines/linux/mac-create-ssh-keys",
             "redirect_document_id": false
         },
         {
@@ -18942,7 +18982,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-transact-sql.md",
-            "redirect_url": "/sql/t-sql/statements/alter-database-azure-sql-database",
+            "redirect_url": "/sql/t-sql/statements/alter-database-transact-sql",
             "redirect_document_id": true
         },
         {
@@ -19387,12 +19427,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
-            "redirect_url": "/azure/active-directory/device-management-azuread-joined-devices-setup",
+            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-azureadjoin-user-upgrade.md",
-            "redirect_url": "/azure/active-directory/device-management-azuread-registered-devices-windows10-setup",
+            "redirect_url": "/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup",
             "redirect_document_id": false
         },
         {
@@ -22132,7 +22172,7 @@
         },
         {
             "source_path": "articles/cognitive-services/Translator/speech-overview.md",
-            "redirect_url": "https://docs.microsofttranslator.com/speech-translate.html",
+            "redirect_url": "/azure/cognitive-services/speech-service/speech-translation",
             "redirect_document_id": false
         },
         {
@@ -25992,7 +26032,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
-            "redirect_url": "/azure/active-directory/manage-apps/active-directory/migrate-adfs-apps-to-azure",
+            "redirect_url": "/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure",
             "redirect_document_id": true
         },
         {
@@ -26257,17 +26297,17 @@
         },
         {
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot",
             "redirect_document_id": false
         },
         {
@@ -26481,34 +26521,34 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/find-region-csharp.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-csharp",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/find-region-csharp.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-csharp",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/china/china-get-started-service-availability.md",
-        "redirect_url": "https://www.azure.cn/home/features/products-by-region",
-        "redirect_document_id": true
+            "source_path": "articles/china/china-get-started-service-availability.md",
+            "redirect_url": "https://www.azure.cn/home/features/products-by-region",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/powerbi-embedded/create-capacity.md",
