@@ -26481,34 +26481,34 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/traffic-manager.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-traffic-manager",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/find-region-csharp.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-csharp",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/find-region-csharp.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-csharp",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/find-region-nodejs.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-find-region-nodejs",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/migration-v1-to-v2.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/interactive-test.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+            "redirect_document_id": true
         },
         {
-        "source_path": "articles/china/china-get-started-service-availability.md",
-        "redirect_url": "https://www.azure.cn/home/features/products-by-region",
-        "redirect_document_id": true
+            "source_path": "articles/china/china-get-started-service-availability.md",
+            "redirect_url": "https://www.azure.cn/home/features/products-by-region",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/powerbi-embedded/create-capacity.md",
