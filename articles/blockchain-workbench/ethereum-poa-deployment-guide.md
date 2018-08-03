@@ -11,17 +11,17 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ---
-# Ethereum Proof-of-Authority Consortium
+# Ethereum proof-of-authority consortium
 
 [This solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to
 deploy, configure, and govern a multi-member consortium
-Proof-of-Authority Ethereum network with minimal Azure and Ethereum
+Proof-of-authority Ethereum network with minimal Azure and Ethereum
 knowledge.
 
 With a handful of user inputs and a single-click deployment through the
 Azure portal, each member can provision a network footprint, using
 Microsoft Azure Compute, networking, and storage services across the
-globe. Each member\'s network footprint consists of a set of
+globe. Each member's network footprint consists of a set of
 load-balanced validator nodes with which an application or user can
 interact to submit Ethereum transactions.
 
@@ -41,24 +41,24 @@ interact to submit Ethereum transactions.
 -   **Validator** - A machine associated with an Ethereum account that
     participates in consensus on behalf of an Admin.
 
-### Proof-of-Authority
+### Proof-of-authority
 
 For those of you who are new to the blockchain community, the release of
 this solution is a great opportunity to learn about the technology in an
-easy and configurable manner on Azure. Proof-of-Work is a
+easy and configurable manner on Azure. Proof-of-work is a
 Sybil-resistance mechanism that leverages computation costs to
 self-regulate the network and allow fair participation. This works great
 in anonymous, open blockchain networks where competition for
 cryptocurrency promotes security on the network. However, in
 private/consortium networks the underlying Ether has no value. An
-alternative protocol, Proof-of-Authority, is more suitable for
+alternative protocol, proof-of-authority, is more suitable for
 permissioned networks where all consensus participants are known and
-reputable. Without the need for mining, Proof-of-Authority is more
+reputable. Without the need for mining, Proof-of-authority is more
 efficient while still retaining Byzantine fault tolerance.
 
-### Consortium Governance
+### Consortium governance
 
-Since Proof-of-Authority relies upon a permissioned list of network
+Since proof-of-authority relies upon a permissioned list of network
 authorities to keep the network healthy, it's important to provide a
 fair mechanism to make modifications to this permission list. Each
 deployment comes with a set of smart-contracts and portal for on-chain
@@ -67,9 +67,9 @@ majority vote by consortium members, the change is enacted. This allows
 new consensus participants to be added or compromised participants to be
 removed in a transparent way that encourages an honest network.
 
-### Admin Account
+### Admin account
 
-During the deployment of the Proof-of-Authority nodes, you will be asked
+During the deployment of the proof-of-authority nodes, you will be asked
 for an Admin Ethereum address. You may use several different mechanisms
 to generate and secure this Ethereum account. Once this address is added
 as an authority on the network, you can use this account to participate
@@ -79,9 +79,9 @@ of this deployment. Since only the public Ethereum address is used, each
 admin has the flexibility to secure their private keys in a way that
 complies with their desired security model.
 
-### Validator Node
+### Validator node
 
-In the Proof-of-Authority protocol, validator nodes take the place of
+In the proof-of-authority protocol, validator nodes take the place of
 traditional miner nodes. Each validator has a unique Ethereum identity
 that gets added to a smart-contract permission list. Once a validator is
 on this list, it can participate in the block creation process. To learn
@@ -95,7 +95,7 @@ prohibited from using more validators than the first member on the
 network (if the first member deploys three validators, each member can
 only have up to three validators).
 
-### Identity Store
+### Identity store
 
 Since each member will have multiple validator nodes running
 simultaneously and each node must have a permissioned identity, it's
@@ -104,22 +104,22 @@ identity on the network. To facilitate this, we've built an Identity
 Store that gets deployed in each member's subscription which securely
 holds the generated Ethereum identities. Upon deployment the
 orchestration container will generate an Ethereum private key for each
-validator and store it in Azure Key Vault. Before the Parity node starts
+validator and store it in Azure Key Vault. Before the parity node starts
 up, it first acquires a lease on an unused identity to ensure the
 identity isn't picked up by another node. The identity is provided to
 the client which gives it the authority to start creating blocks. If the
 hosting VM experiences an outage, the identity lease will be released,
 allowing a replacement node to resume its identity in the future.
 
-### Bootnode Registrar
+### Bootnode registrar
 
 To enable the ease of connectivity, each member will host a set of
-connection information at the [Data API endpoint](#data-api). This data
+connection information at the [data API endpoint](#data-api). This data
 includes a list of bootnodes which are provided as peering nodes for the
-joining member. As part of this Data API, we keep this bootnode list
+joining member. As part of this data API, we keep this bootnode list
 up-to-date
 
-### Bring Your Own Operator
+### Bring your own operator
 
 Often a consortium member will want to participate in network governance
 but don't want to operate and maintain their infrastructure. Unlike
@@ -156,23 +156,23 @@ statistics. For application developers, this provides visibility into
 the underlying blockchain to track block generation statistics. Network
 operators can use Azure Monitor to quickly detect and prevent network
 outages through infrastructure statistics and queryable logs. See
-[Service Monitoring](#service-monitoring) for more details.
+[Service monitoring](#service-monitoring) for more details.
 
-### Deployment Architecture
+### Deployment architecture
 
 #### Description
 
 This solution can deploy a single or multi-region based multi-member
 Ethereum consortium network. By default, the RPC and peering endpoints
-are accessible over Public IP to enable simplified connectivity across
+are accessible over public IP to enable simplified connectivity across
 subscriptions and clouds. We recommend leveraging [Parity's
 permissioning contracts](https://wiki.parity.io/Permissioning) for
 application level access-controls. We also support networks deployed
-behind VPNs, which leverage VNet Gateways for cross-subscription
+behind VPNs, which leverage VNet gateways for cross-subscription
 connectivity. These deployments are more complex, so it is recommended
-to start with the Public IP model first.
+to start with the public IP model first.
 
-#### Consortium Member Overview
+#### Consortium member overview
 
 Each consortium member deployment includes:
 
@@ -222,9 +222,9 @@ each deployment. The container images consist of:
 
 ## Governance DApp
 
-At the heart of Proof-of-Authority is decentralized governance. The
-governance DApp is a set of pre-deployed Smart Contracts and a Web
-Application that are used to govern the authorities on the network.
+At the heart of proof-of-authority is decentralized governance. The
+governance DApp is a set of pre-deployed smart contracts and a web
+application that are used to govern the authorities on the network.
 Authorities are broken up into Admin identities and Validator nodes.
 Admins have the power to delegate consensus participation to a set of
 Validator nodes. Admins also may vote other admins into or out of the
@@ -276,7 +276,7 @@ Ethereum settings, Azure Monitor.
 
 #### Basics
 
-Under the 'Basics' blade, specify values for standard parameters for any
+Under **Basics**, specify values for standard parameters for any
 deployment, such as subscription, resource group and basic virtual
 machine properties.
 
@@ -428,7 +428,7 @@ resource group.
 
 4.  Select *Outputs*
 
-### Growing the Consortium
+### Growing the consortium
 
 To expand your consortium, you must first connect the physical network.
 Using the Public IP-based deployment this first step is seamless. If
@@ -436,11 +436,11 @@ deploying behind a VPN, see the section [Connecting VNet
 Gateway](#connecting-vnet-gateways) to perform the network connection as
 part of [Step 2](#step-2-new-admin-deployment).
 
-#### Step 1: Add the new Admin
+#### Step 1: Add the new admin
 
-1.  Collect the new Admin's public Ethereum address.
+1.  Collect the new admin's public Ethereum address.
 
-2.  Navigate to the Governance DApp and create a new Admin with the
+2.  Navigate to the Governance DApp and create a new admin with the
     Ethereum address and an appropriate alias
 
 3.  Notify the other existing members of the new request so that they
@@ -450,7 +450,7 @@ part of [Step 2](#step-2-new-admin-deployment).
 
 ![adding admin](./media/ethereum-poa-deployment-guide/adding-admin.png)
 
-#### Step 2: New Admin Deployment
+#### Step 2: New admin deployment
 
 1.  Share the following information with the joining member. This
     information can be found in your post-deployment email or in the
@@ -481,9 +481,9 @@ part of [Step 2](#step-2-new-admin-deployment).
     -  If the rest of the network is behind a VPN, select *Private
         VNet* under the advanced section
 
-#### Step 3: Delegate Validators
+#### Step 3: Delegate validators
 
-The new Admin will need to authorize the validators to participate on
+The new admin will need to authorize the validators to participate on
 their behalf. This cannot be done automatically since only the member
 controls their keys.\*
 
@@ -491,7 +491,7 @@ _\*The first member's nodes on the network can automatically be added
 because we can precompile their validator nodes into the genesis block
 on the network._
 
-The new Admin must perform the following steps:
+The new admin must perform the following steps:
 
 1.  Open the Governance DApp deployed as part of *their* deployment
 
@@ -501,22 +501,22 @@ The new Admin must perform the following steps:
 
 ![adding validators](./media/ethereum-poa-deployment-guide/adding-validators.png)
 
-#### Connecting VNet Gateways
+#### Connecting VNet gateways
 
 In the case of a private network, the different members are connected
-via VNet Gateway connections. Before a member can join the network and
+via VNet gateway connections. Before a member can join the network and
 see transaction traffic, an existing member must perform a final
-configuration on their VPN Gateway to accept the connection. This means
+configuration on their VPN gateway to accept the connection. This means
 that the Ethereum nodes of the joining member will not run until a
 connection is established. It is recommended to create redundant network
 connections (mesh) into the consortium to reduce chances of a single
 point of failure.
 
 After the new member deploys, the existing member must complete the
-bi-directional connection by setting up a VNet Gateway connection to the
+bi-directional connection by setting up a VNet gateway connection to the
 new member. To achieve this existing member will need:
 
-1.  The VNet Gateway ResourceId of the connecting member (see deployment
+1.  The VNet gateway ResourceId of the connecting member (see deployment
     output)
 
 2.  The shared connection key
@@ -558,7 +558,7 @@ $MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGrou
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### Service Monitoring
+### Service monitoring
 
 You can locate your Azure Monitor portal either by following the link in
 the deployment email or locating the parameter in the deployment output
@@ -579,7 +579,7 @@ statistics.
 
 ![network stats](./media/ethereum-poa-deployment-guide/network-stats.png)
 
-#### Sample Log Analytics Queries
+#### Sample Log Analytics queries
 
 Behind these dashboards is a set of queryable raw logs. You can use
 these raw logs to customize the dashboards, investigate failures, or
@@ -606,13 +606,13 @@ ParityLog_CL
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
-### SSH Access
+### SSH access
 
-For Security reasons, the SSH port access is denied by a Network Group
-Security rule by default. To access the VMSS instances in the PoA
+For security reasons, the SSH port access is denied by a network group
+security rule by default. To access the VMSS instances in the PoA
 network, you will need to change this rule to \"Allow\"
 
-1.  Start in the Overview\" section of the deployed resource group from
+1.  Start in the Overview section of the deployed resource group from
     Azure Portal.
 
 ![ssh overview](./media/ethereum-poa-deployment-guide/ssh-overview.png)
@@ -637,7 +637,7 @@ The SSH command to run to access the first validator node is listed in
 the template deployment output parameter as,
 'SSH\_TO\_FIRST\_VL\_NODE\_REGION1' (for the sample deployment: ssh - p
 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). To get to
-additional transaction nodes, increment the port number by one (e.g. the
+additional transaction nodes, increment the port number by one (For example, the
 first transaction node is on port 4000).
 
 If you deployed to more than one region, change the above command to the
@@ -646,7 +646,7 @@ DNS name or IP address of the other regions, find the resource with the
 naming convention \*\*\*\*\*-lbpip-reg\#, and view its DNS name and IP
 address properties.
 
-### Azure Traffic Manager Load Balancing
+### Azure Traffic Manager load balancing
 
 Azure Traffic Manager can help reduce downtime and improve
 responsiveness of the PoA network by routing incoming traffic across
@@ -668,7 +668,7 @@ other consortium members have been added to the network, the Traffic
 Manager can also be used to load balance across their deployed
 validators.
 
-#### Creating a Traffic Manager Profile
+#### Creating a Traffic Manager profile
 
 Search for and select \"Traffic Manager profile\" after clicking the
 \"Create a resource\" button in the Azure Portal.
@@ -823,7 +823,7 @@ following structure:
 ```
 ## Development
 
-### Programmatically Interacting with a Smart Contract
+### Programmatically interacting with a smart contract
 **WARNING: Never send your Ethereum private key over the network! Ensure that
 each transaction is signed locally first and the signed transaction is
 sent over the network.**
@@ -904,13 +904,13 @@ var privateKey = account.getPrivateKey();
  });
 ```
 
-### Debug a Smart Contract (Truffle Develop)
+### Debug a smart contract (Truffle Develop)
 
 Truffle has a local develop network that is available for debugging
 smart contract. You can find the full tutorial
 [here](http://truffleframework.com/tutorials/debugging-a-smart-contract).
 
-### WebAssembly (WASM) Support
+### WebAssembly (WASM) support
 
 WebAssembly support is already enabled for you on newly deployed PoA
 networks. It allows for smart-contract development in any language that
