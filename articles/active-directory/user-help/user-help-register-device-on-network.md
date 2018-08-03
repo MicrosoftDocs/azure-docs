@@ -27,7 +27,7 @@ While you're registering your device on your organization's network, the followi
 
 - You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's necessary. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
 
-- You'll go through the sign-in process, using the username and password for your personal, non-organizational account.
+- You'll go through the sign-in process, using the username and password for your personal Microsoft account.
 
 ## To register your device
 
@@ -37,35 +37,30 @@ Follow these steps to register your personal device on your network.
 
     ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and then select **Connect**.
+2. Select **Email & accounts**, and then select **Join a Microsoft account**.
 
-    ![Access work or school and Connect links](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
+    ![Email & accounts and Add a Microsoft account links](./media/user-help-register-device-on-network/register-device-email-and-accounts.png)
 
-3. 
+3. On the **Add your Microsoft account** screen, type in your email address for your personal Microsoft account.
 
+    ![Add your Microsoft account screen, with email](./media/user-help-register-device-on-network/register-device-add-accounts.png)
 
+4. On the **Enter password** screen, type the password for your personal Microsoft account, and then select **Sign in**.
 
+    ![Enter password screen](./media/user-help-register-device-on-network/register-device-enter-password.png)
 
-
-
-
-
-
-
-
-
-
+5. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
 
 ## To make sure you're registered
 You can make sure that you're registered by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
 
-    ![Accounts on the Settings screen](./media/user-help-join-device-on-network/register-device-settings-accounts.png)
+    ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *<your_organization>* Azure AD**.
+2. Select **Email & accounts**, and make sure you see your personal Microsoft account.
 
-    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-setup-verify.png)
+    ![Access work or school screen with connected contoso account](./media/user-help-register-device-on-network/register-device-verify-account.png)
 
 ## Next steps
 After you register your personal device to your organization's network, you should be able to access most of your resources.
