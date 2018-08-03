@@ -67,7 +67,7 @@ When you upload your manifest file, you might get the following message:
 
 - **Errors exist**. If your package contains errors, the Seller Dashboard reports those errors and you have to resolve them before you can submit your add-in. 
 
-For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/apps-package). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Use the Seller Dashboard to submit your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/office-store-guidance).
+For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/apps/apps-package). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Use the Seller Dashboard to submit your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/office-store-guidance).
 
 ## See also
 
