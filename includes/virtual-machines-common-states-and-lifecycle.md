@@ -218,7 +218,7 @@ accepted a user-initiated action.
 <p><b>OS provisioning states</b></p>
 </td>
 <td width="366">
-<p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed</p>
+<p>If a VM is created with an OS image and not with a specialized image, then following sub-states can be observed:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
 <code> "statuses": [</br>
  {</br>
@@ -262,9 +262,7 @@ solutions.</p>
 </code>
 </p>
 <p> **Edge cases**: If a VM was running and in a good state, a
-failed management operation will typically leave the VM in the **Running* state, which might be different from the latest state information received. To resolve this, look at the error message (either from the last failed
-operation or the VM instance view). If the error is becuase of API input validation, then try to fix the inputs. If the error, is due to Azure
-internal errors, retrying the management operation should resolve the issue. </p>
+failed management operation will typically leave the VM in the **Running* state, which might be different from the latest state information received. To resolve this, look at the error message (either from the last failed operation or the VM instance view). If the error is because of API input validation, then try to fix the inputs. If the error, is due to Azure internal errors, retrying the management operation should resolve the issue. </p>
 </td>
 </tr>
 </table>
