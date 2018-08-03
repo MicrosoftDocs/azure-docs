@@ -48,6 +48,6 @@ Explore in-depth information about the Azure AD v2.0 endpoint platform:
 * [The Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](active-directory-developers-guide.md). The Azure AD v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
+> If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](azure-ad-developers-guide.md). The Azure AD v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
