@@ -37,7 +37,7 @@ To build the To Do List API, you first need to:
 2. Set up the app to use the OWIN authentication pipeline.
 3. Configure a client application to call the web API.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](quickstart-create-new-tenant.md).
 
 ## Step 1: Register an application with Azure AD
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
