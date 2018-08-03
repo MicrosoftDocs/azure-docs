@@ -156,7 +156,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
     }
   ```
 > [!NOTE]
-> When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-4.
+> When you use certificates that are different from the cluster certificate to enable the reverse proxy on an existing cluster, install the reverse proxy certificate and update the ACL on the cluster before you enable the reverse proxy. Complete the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) deployment by using the settings mentioned previously before you start a deployment to enable the reverse proxy in steps 1-3.
 
 ## Enable reverse proxy on standalone clusters
 
@@ -326,13 +326,12 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
            ],
            ...
    }
-   ```
- 
+   ``` 
+
 For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). For standalone clusters, see [Customize cluster settings for standalone clusters](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+
+Several fabric settings are used to help establish secure communication between reverse proxy and services. For detailed information about these setttings, see [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## Next steps
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * For reverse proxy configuration options, see [ApplicationGateway/Http section in Customize Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
-
-[0]: ./media/service-fabric-reverseproxy/external-communication.png
-[1]: ./media/service-fabric-reverseproxy/internal-communication.png

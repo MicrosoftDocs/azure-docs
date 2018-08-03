@@ -142,6 +142,16 @@ The reverse proxy thus needs a way to distinguish between these two cases. To ma
 
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the reverse proxy will not attempt to resolve the service address again.
 
+## Special handling for services running in containers
+
+For services running inside containers, you can use the environment variable, `Fabric_NodeIPOrFQDN` to construct the [reverse proxy URL](#uri-format-for-addressing-services-by-using-the-reverse-proxy) as in the following code:
+
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+For the local cluster, `Fabric_NodeIPOrFQDN` is set to "localhost" by default. Start the local cluster with the `-UseMachineName` parameter to make sure containers can reach reverse proxy running on the node. For more information, see [Configure your developer environment to debug containers](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)

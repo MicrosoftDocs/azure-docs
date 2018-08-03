@@ -20,10 +20,8 @@ ms.author: kavyako
 
 This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. To learn more about reverse proxy, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. Rest of this article assumes this is the case.
-Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric. 
-
-Fabric settings that control the way that reverse proxy handles secure connection with services are set in the [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) section. For azure clusters, the **fabricSettings** collection is located in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md) of the Resource Manager template. For standalone clusters, the **fabricSettings** collection is located in the cluster properties section in the [ClusterConfig.json file](./service-fabric-cluster-manifest.md). [Customize Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) contains details about how to modify fabric settings for both Azure clusters and standalone clusters.
+Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. This article assumes this is the case.
+Refer to [Setup reverse proxy in Azure Service Fabric](service-fabric-reverseproxy-setup.md) to configure the reverse proxy in Service Fabric.
 
 ## Secure connection establishment between the reverse proxy and services 
 
