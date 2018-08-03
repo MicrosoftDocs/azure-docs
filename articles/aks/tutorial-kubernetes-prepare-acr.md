@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Prepare ACR
 description: AKS tutorial - Prepare ACR
 services: container-service
@@ -168,11 +168,11 @@ Advance to the next tutorial to learn about deploying a Kubernetes cluster in Az
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
 [az-acr-list]: /cli/azure/acr#list
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
-[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
+[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az-acr-list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
