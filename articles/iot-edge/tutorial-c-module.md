@@ -47,18 +47,26 @@ Development resources:
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Azure Container Registry**.
-2. Give your registry a name, choose a subscription, choose a resource group, and set the SKU to **Basic**. 
-3. Select **Create**.
-4. Once your container registry is created, navigate to it and select **Access keys**. 
-5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
+The following Azure CLI command creates a registry in a resource group called **IoTEdgeResources**. Replace **{acr_name}** with a unique name for your registry. 
+
+   ```azurecli-interactive
+   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
+   ```
+
+Retrieve the credentials for your registry. 
+
+   ```azurecli-interactive
+   az acr credential show --name {acr_name}
+   ```
+
+Copy the values for **Username** and one of the passwords. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
@@ -292,32 +300,26 @@ You can see the full container image address with tag in the VS Code integrated 
  
 ## Clean up resources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
 If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
 
 Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
 
 > [!IMPORTANT]
-> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+> Deleting Azure resource groups is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
 To delete only the IoT Hub execute the following command using your hub name and resource group name:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
 To delete the entire resource group by name:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
-
-2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
-
-3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
-
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 
 
