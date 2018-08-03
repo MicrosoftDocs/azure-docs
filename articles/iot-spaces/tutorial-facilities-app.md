@@ -52,7 +52,7 @@ Because tutorials are intended to help new customers use the product or service 
 
 ## Sign in to <service/product/tool name>
 
-Sign in to the [<service> portal](url).
+<!-- Sign in to the [<service> portal](url). --->
 <!---If you need to sign in to the portal to do the tutorial, this H2 and link are required.--->
 
 ## Procedure 1
