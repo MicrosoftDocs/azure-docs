@@ -18,7 +18,7 @@
 - name: Quickstart
   items:
     - name: Schedule your first test pass
-      href: azure-stack-vaas-schedule-your-first-test.md
+      href: azure-stack-vaas-schedule-test-pass.md
 - name: Tutorial
   items:
   - name: Set up your account with Azure Stack Validation

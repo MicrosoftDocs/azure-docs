@@ -28,7 +28,7 @@ sections:
     - image: 
         src: media/i_account-management.svg
       text: Use the Validation as a Service portal to schedule your first test
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Step-by-step tutorials
   items:
   - type: paragraph
