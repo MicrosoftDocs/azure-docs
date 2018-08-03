@@ -55,7 +55,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Install and automatically provision
 
-1. Follow the steps in [Create an provision a simulated TPM Edge device on Windows][lnk-dps] to set up the Device Provisioning Service and retrieve its **Scope ID**, then simulate a TPM device and retrieve its **Registration ID**. 
+1. Follow the steps in [Create and provision a simulated TPM Edge device on Windows][lnk-dps] to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT Hub, then continue with the installation.  
 
 2. On your IoT Edge device, run PowerShell as an administrator. 
 
