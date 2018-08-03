@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 
@@ -23,11 +23,11 @@ While you're joining your Windows 10 device to your organization's network, the 
 
 - Windows joins your device to your organization's network.
 
-- You might be asked to set up two-step verification through either [multi-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your organization has set up.
+- You might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md), depending on what your organization has set up.
 
-- You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's required. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
+- You'll be automatically enrolled in mobile device management, such as Microsoft Intune, if it's necessary. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/en-us/intune-user-help/enroll-your-device-in-intune-all).
 
-- You'll go through the sign-in process, using either automatic sign-in (if your organization manages your device) or by using your work or school account user name and password (if you manage your own device).
+- You'll go through the sign-in process, using automatic sign-in with your organizational account.
 
 ## To join a brand-new Windows 10 device
 If your device is brand-new and hasn't been set up yet, you can go through the Windows Out of Box Experience (OOBE) process to join your device to the network.
