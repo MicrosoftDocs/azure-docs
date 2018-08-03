@@ -33,6 +33,8 @@
     href: migrate-to-new-api.md
   - name: Store input/output files
     href: use-azure-storage.md
+  - name: Working with clusters
+    href: clusters.md
 - name: Reference
   items:
   - name: Azure CLI
