@@ -14,7 +14,7 @@ ms.date: 08/03/2018
 Azure Stream Analytics supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro may contain complex types such as nested objects (records) and arrays. 
   
 ## Array data types  
-Array data types are an ordered collection of values. Some typical operations on array values are detailed below. Note that these examples assume the input events have "arrayField" property of array type.
+Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples assume the input events have a property named "arrayField" that is  an array datatype.
 
 These examples use the functions [GetArrayElement](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelement-azure-stream-analytics), [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics), [GetArrayLength](https://msdn.microsoft.com/azure/stream-analytics/reference/getarraylength-azure-stream-analytics), and the [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator.
 
@@ -35,7 +35,7 @@ SELECT
 FROM input  
 ```  
   
-Select all array element as individual events. The [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator together with the [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) built-in function extract all array elements as individual events:  
+Select all array element as individual events. The [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator together with the [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) built-in function extracts all array elements as individual events:  
   
 ```SQL  
 SELECT   
@@ -46,7 +46,7 @@ CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
 ```  
   
 ## Record data types  
-Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. All examples assume a sample sensor which is reading input events in JSON format. Here is example of a single event:  
+Record data types are used to represent JSON and Avro arrays when corresponding formats are used in the input data streams. These examples demonstrate a sample sensor, which is reading input events in JSON format. Here is example of a single event:
   
 ```json  
 {  
