@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Front | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Front.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Front from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Front from the gallery
 To configure the integration of Front into Azure AD, you need to add Front from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Front into Azure AD, you need to add Front from 
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Front**, select **Front** from result panel then click **Add** button to add the application.
+1. In the search box, type **Front**, select **Front** from result panel then click **Add** button to add the application.
 
 	![Front in the results list](./media/front-tutorial/tutorial_front_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Front, assign the value of the **user name** in Azure AD as the value of the 
 To configure and test Azure AD single sign-on with Front, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Front test user](#create-a-front-test-user)** - to have a counterpart of Britta Simon in Front that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Front test user](#create-a-front-test-user)** - to have a counterpart of Britta Simon in Front that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/front-tutorial/tutorial_front_samlbase.png)
 
-3. On the **Front Domain and URLs** section, perform the following steps:
+1. On the **Front Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/front-tutorial/tutorial_front_url1.png)
 
@@ -114,41 +114,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/front-tutorial/tutorial_front_certificate.png) 
 
-5. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/front-tutorial/tutorial_general_400.png)
 	
-6. On the **Front Configuration** section, click **Configure Front** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+1. On the **Front Configuration** section, click **Configure Front** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/front-tutorial/tutorial_front_configure.png) 
 
-7. Sign-on to your Front tenant as an administrator.
+1. Sign-on to your Front tenant as an administrator.
 
-8. Go to **Settings (cog icon at the bottom of the left sidebar) > Preferences**.
+1. Go to **Settings (cog icon at the bottom of the left sidebar) > Preferences**.
    
     ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_000.png)
 
-9. Click **Single Sign On** link.
+1. Click **Single Sign On** link.
    
     ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_001.png)
 
-10. Select **SAML** in the drop-down list of **Single Sign On**.
+1. Select **SAML** in the drop-down list of **Single Sign On**.
    
     ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_002.png)
 
-11. In the **Entry Point** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
+1. In the **Entry Point** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
     
     ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_003.png)
 
-12. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Signing certificate** textbox.
+1. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Signing certificate** textbox.
     
     ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_004.png)
 
-13. On the **Service provider settings** section, perform the following steps:
+1. On the **Service provider settings** section, perform the following steps:
 
 	![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_005.png)
 
@@ -156,7 +156,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Copy the value of **ACS URL** and paste it into the **Reply URL** textbox in **Front Domain and URLs** section in Azure portal.
 	
-14. Click **Save** button.
+1. Click **Save** button.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -174,15 +174,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/front-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/front-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/front-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/front-tutorial/create_aaduser_04.png)
 
@@ -210,23 +210,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Front**.
+1. In the applications list, select **Front**.
 
 	![The Front link in the Applications list](./media/front-tutorial/tutorial_front_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

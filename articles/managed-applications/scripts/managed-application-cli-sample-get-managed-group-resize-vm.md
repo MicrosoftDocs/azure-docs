@@ -35,9 +35,9 @@ This script uses the following commands to deploy the managed application. Each 
 
 | Command | Notes |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | List managed applications. Provide query values to focus the results. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | List resources. Provide a resource group and query values to focus the result. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Update a virtual machine's size. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | List managed applications. Provide query values to focus the results. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | List resources. Provide a resource group and query values to focus the result. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Update a virtual machine's size. |
 
 
 ## Next steps
