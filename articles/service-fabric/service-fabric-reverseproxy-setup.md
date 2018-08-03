@@ -35,19 +35,6 @@ To configure reverse proxy when you create a cluster using Azure portal, do the 
 
 If you choose not to configure the reverse proxy with a certificate when you create the cluster, you can do so later through the Resource Manager template for the cluster's resource group. To learn more, see [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates).
 
-### Make the reverse proxy public
-To address the reverse proxy from outside the Azure cluster, set up Azure Load Balancer rules for the reverse proxy port. These steps can be performed at any time after you have created the cluster.
-
-1. On the Azure portal, click the resource group for your cluster, then click the load balancer for your cluster.
-2. To add a health Probe for the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Health probes**. Then click **Add** at the top of the Health probes window and enter details for the reverse proxy port, then click **OK**. By defaunlt, the reverse proxy port is 19081, unless you changed it when you created the cluster.
-
-   ![Configure reverse proxy health probe](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. To add a Load Balancer rule to expose the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Load balancing rules**. Then click **Add** at the top of the Load balancing rules window and enter details for the reverse proxy port. Make sure you set the **Port** value to the port you want the reverse proxy exposed on, the **Backend port** value to the port you set when you enabled reverse proxy, and the **Health probe** value to the health probe you configured in the previous step. Set other fields as appropriate and click **OK**.
-
-   ![Configure load balancer rule for reverse proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
-
-
-
 ## Enable reverse proxy via Azure Resource Manager templates
 
 For clusters on Azure, you can use the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to enable the reverse proxy in Service Fabric. You can enable reverse proxy when you create the cluster or update the cluster at a later time. 
@@ -91,51 +78,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. (Optional) To address the reverse proxy from outside the Azure cluster, set up the Azure Load Balancer rules for the port that you specified in step 1.
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md).
+3. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -280,9 +223,84 @@ The following steps show you the settings to use to enable reverse proxy and, op
           }
       ```
 
-   To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.nd).
+   To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.md).
 
 After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to push the changes to your cluster.
+
+
+## Expose reverse proxy on a public port through Azure Load Balancer
+
+To address the reverse proxy from outside an Azure cluster, set up Azure Load Balancer rules and an Azure Health Probe for the reverse proxy port. These steps can be performed using the Azure Portal or the Resource Manager template at any time after you have created the cluster. 
+
+> [!WARNING]
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
+>
+> * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
+> * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
+> * A service meant to be internal may return private or sensitive information not intended to be exposed to services outside the cluster, thus exposing this sensitive information to a malicious user. 
+>
+> Make sure you fully understand and mitigate the potential security ramifications for your cluster and the apps running on it, before you make the reverse proxy port public. 
+>
+
+If you want to expose reverse proxy publicly for a standalone cluster, the manner in which you do so will depend on the system hosting the cluster and is beyond the scope of this article. The preceding warning about exposing reverse proxy publicly, however, still applies.
+
+### Expose the reverse proxy using Azure portal 
+
+1. On the Azure portal, click the resource group for your cluster, then click the load balancer for your cluster.
+2. To add a health Probe for the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Health probes**. Then click **Add** at the top of the Health probes window and enter details for the reverse proxy port, then click **OK**. By defaunlt, the reverse proxy port is 19081, unless you changed it when you created the cluster.
+
+   ![Configure reverse proxy health probe](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
+3. To add a Load Balancer rule to expose the reverse proxy port, in the left pane of the load balancer window, under **SETTINGS**, click **Load balancing rules**. Then click **Add** at the top of the Load balancing rules window and enter details for the reverse proxy port. Make sure you set the **Port** value to the port you want the reverse proxy exposed on, the **Backend port** value to the port you set when you enabled reverse proxy, and the **Health probe** value to the health probe you configured in the previous step. Set other fields as appropriate and click **OK**.
+
+   ![Configure load balancer rule for reverse proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
+
+### Expose the reverse proxy via Resource Manager templates
+
+The following JSON references the same template that is used in [Enable reverse proxy via Azure Resource Manager templates](#enable-reverse-proxy-via-azure-resource-manager-templates). Refer to that section for information about how to create a Resource Manager template or export a template for an existing cluster.  
+
+    ```json
+    {
+        "apiVersion": "[variables('lbApiVersion')]",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        ...
+        "loadBalancingRules": [
+            ...
+            {
+                "name": "LBSFReverseProxyRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID0')]"
+                    },
+                    "backendPort": "[parameters('SFReverseProxyPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig0')]"
+                    },
+                    "frontendPort": "[parameters('SFReverseProxyPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            ...
+            {
+                "name": "SFReverseProxyProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port":     "[parameters('SFReverseProxyPort')]",
+                    "protocol": "tcp"
+                }
+            }  
+        ]
+    }
+    ```
+
 
 ## Customize reverse proxy behavior using fabric settings
 
@@ -308,8 +326,6 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
    }
    ```
  
-
-
 
 ## Next steps
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
