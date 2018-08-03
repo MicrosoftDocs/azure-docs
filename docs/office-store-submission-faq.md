@@ -60,7 +60,9 @@ If you make updates to the web service for your add-in, you do not have to resub
 
 The following is the update process for Office Add-ins:
 
-- You submit your revised add-in and add-in manifest to AppSource via the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in AppSource.
+- You submit your revised add-in and add-in manifest to AppSource via the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in AppSource. 
+
+Important: The Release date field controls the date on which your add-in will be made available after it passes validation.  If your submission is an update and you set this field to a date in the future, your existing add-in will be unpublished until the release date you specified.
 
 - You can choose to continue to offer the previous version of your add-in in AppSource, or you can unpublish the previous version via the Seller Dashboard. For details, see [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md).
 
