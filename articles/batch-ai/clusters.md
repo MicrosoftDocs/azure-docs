@@ -72,6 +72,7 @@ az batchai cluster create \
     --workspace <WORKSPACE> \
     --resource-group <RESOURCE GROUP> \
     --vm-size Standard_NC6 \
+    --vm-priority lowpriority \
     --max 4 \
     --min 0 \
     --use-auto-storage 
