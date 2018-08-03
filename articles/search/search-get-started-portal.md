@@ -13,14 +13,14 @@ ms.author: heidist
 ---
 # Tutorial: Use built-in tools for Azure Search indexing and queries
 
-In an Azure Search service page in the Azure portal, you can use built-in tools for concept testing and a hands-on experience with minimal ramp up. Portal tools do not offer full parity with .NET and REST APIs, but for quick proof-of-concept testing, the wizards and editors provide an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
+For a quick review and ramp up on Azure Search concepts, you can use the built-in tools provided in the Azure Search service page in the Azure portal. These tools may not offer the full functionality of the .NET and REST APIs. But the wizards and editors offer a code-free introduction to Azure Search, enabling you to write interesting queries against a sample data set right away.
 
 > [!div class="checklist"]
 > * Start with public sample data and auto-generate an Azure Search index using the **Import data** wizard. 
 > * View index schema and attributes for any index published to Azure Search.
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 
-Portal tools do not support the full range of Azure Search capabilities. If the tools are too limiting, consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for making REST API calls](search-fiddler.md).
+If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for making REST API calls](search-fiddler.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [Create an Azure Search service](search-create-service-portal.md) or find an existing service under your current subscription. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Login to the [Azure portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
    * In the Jumpbar, click **All services** on the left navigation pane.
@@ -37,19 +37,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ### Check for space
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object. 
 
-> [!TIP] 
-> Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count. 
+> [!TIP]
+> Tiles on the service dashboard show how many indexes, indexers, and data sources you already have. The Indexer tile shows success and failure indicators. Click the tile to view the indexer count.
 >
 > ![Tiles for indexers and datasources][1]
 >
 
 ## <a name="create-index"></a> Create an index and load data
-Search queries iterate over an [*index*](search-what-is-an-index.md) containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
+Search queries iterate over an [*index*](search-what-is-an-index.md) that contains searchable data, metadata, and additional constructs that optimize certain search behaviors.
 
-To keep this task portal-based, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the **Import data** wizard. An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. In code, you can create and manage indexers as independent resources. In the portal indexers are exposed through the **Import data** wizard. 
+For this tutorial, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the **Import data** wizard. An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. These indexers are visible in the portal through the **Import data** wizard. Later on, you can programmatically create and manage indexers as independent resources.
 
 #### Step 1: Start the Import data wizard
-1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
+1. From the Azure Search service dashboard, click **Import data** on the command bar to start the wizard. This wizard helps you create and populate a search index.
    
     ![Import data command][2]
 
@@ -61,12 +61,16 @@ To keep this task portal-based, we use a built-in sample dataset that can be cra
 
 #### Skip Cognitive skills
 
-**Import data** includes an optional cognitive skills step that adds AI algorithms to indexing. This feature is not covered in this tutorial so you should skip ahead to **Customize target index**. If you are curious about the new cognitive search preview feature in Azure Search, try either the [cognitive search quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+**Import data** provides an optional cognitive skills step that enables you to add custom AI algorithms to indexing. Skip this step for now, and move on to **Customize target index**.
+
+> [!TIP]
+> You can try the new cognitive search preview feature for Azure Search from [cognitive search quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md)..
 
    ![Skip cognitive skill step][11]
 
 #### Step 2: Define the index
-Creating an index is typically manual and code-based, but the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name, and a fields collection, with one field marked as the document key to uniquely identify each document.
+
+Typically, index creation is a manual exercise done using code. For this tutorial, the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used. 
 
@@ -81,30 +85,33 @@ By default, the wizard scans the data source for unique identifiers as the basis
 Click **OK** to create the index.
 
 #### Step 3: Define the indexer
-Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer. 
+
+Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer.
 
 This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **OK**.  
 
   ![realestate indexer][8]
 
 ## Check progress
+
 To monitor data import, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
    ![Indexer progress message][4]
 
 ## View the index
 
-Tiles in the service dashboard provide both summary information as well as access to detailed information. For example, in the **Indexes** tile, you should see a list of existing indexes, including the *realestate-us-sample* index that you just created in the previous step.
+Tiles in the service dashboard provide both summary information as well as access to detailed information. The **Indexes** tile lists the existing indexes, including the *realestate-us-sample* index that you just created in the previous step.
 
 Click the *realestate-us-sample* index now to view the portal options for its definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original. 
 
    ![sample index definition][10]
 
-Other constructs, such as scoring profiles and CORS options, can be added at any time. 
+Other constructs, such as scoring profiles and CORS options, can be added at any time.
 
-To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted.
+To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. Similarly, skip the Analyzer and Suggester check boxes for now.
 
 ## <a name="query-index"></a> Query the index
+
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings. 
 
 > [!TIP]
@@ -126,7 +133,7 @@ Moving forward, you should now have a search index that's ready to query using t
     > 
 
 
-#### Example (string): `search=seattle`
+### Example (string): `search=seattle`
 
 + The **search** parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
@@ -134,11 +141,11 @@ Moving forward, you should now have a search index that's ready to query using t
 
 + Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
-#### Example (parameterized): `search=seattle&$count=true&$top=100`
+### Example (parameterized): `search=seattle&$count=true&$top=100`
 
 + The **&** symbol is used to append search parameters, which can be specified in any order. 
 
-+  The **$count=true** parameter returns a count for the sum of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
++  The **$count=true** parameter returns the total count all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
 
 + The **$top=100** returns the highest ranked 100 documents out of the total. By default, Azure Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
 
@@ -146,7 +153,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
 Filters are included in search requests when you append the **$filter** parameter. 
 
-#### Example (filtered): `search=seattle&$filter=beds gt 3`
+### Example (filtered): `search=seattle&$filter=beds gt 3`
 
 + The **$filter** parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. 
 
@@ -156,7 +163,7 @@ Filters are included in search requests when you append the **$filter** paramete
 
 Facet filters are included in search requests. You can use the facet parameter to return an aggregated count of documents that match a facet value you provide. 
 
-#### Example (faceted with scope reduction): `search=*&facet=city&$top=2`
+### Example (faceted with scope reduction): `search=*&facet=city&$top=2`
 
 + **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
 
@@ -164,7 +171,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
-#### Example (facet on numeric values): `search=seattle&facet=beds`**
+### Example (facet on numeric values): `search=seattle&facet=beds`**
 
 + This query is facet for beds, on a text search for *Seattle*. The term *beds* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). 
 
@@ -174,11 +181,11 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. 
 
-#### Example (highlighter): `search=granite countertops&highlight=description`
+### Example (highlighter): `search=granite countertops&highlight=description`
 
 + In this example, the formatted phrase *granite countertops* is easier to spot in the description field.
 
-#### Example (linguistic analysis): `search=mice&highlight=description`
+### Example (linguistic analysis): `search=mice&highlight=description`
 
 + Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. 
 
@@ -188,11 +195,11 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
-#### Example (misspelled term, unhandled): `search=samamish`
+### Example (misspelled term, unhandled): `search=samamish`
 
 To handle misspellings, you can use fuzzy search. Fuzzy search is enabled when you use the full Lucene query syntax, which occurs when you do two things: set **queryType=full** on the query, and append the **~** to the search string. 
 
-#### Example (misspelled term, handled): `search=samamish~&queryType=full`
+### Example (misspelled term, handled): `search=samamish~&queryType=full`
 
 This example now returns documents that include matches on "Sammamish".
 
@@ -206,7 +213,7 @@ For more information about query scenarios enabled by the full query parser, see
 
 Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-#### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
+### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
 
 The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. 
 
@@ -216,7 +223,7 @@ Geospatial search is useful if your search application has a "find near me" feat
 
 This tutorial demonstrates the basic steps for using the **Import data** wizard and **Search explorer** in the Azure portal.
 
-As the driving force behind the Import data wizard, you learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](ttps://docs.microsoft.com/rest/api/searchservice/update-index). 
+As the driving force behind the Import data wizard, you learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
 You learned query syntax through hands-on examples demonstrating key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
 
@@ -232,7 +239,6 @@ For additional tools-based exploration of Azure Search, consider using a REST te
 
 > [!div class="nextstepaction"]
 > [Web testing tools for calling the Azure Search REST APIs](search-fiddler.md)
-
 
 <!--Image references-->
 [1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
