@@ -99,7 +99,7 @@ The custom chef subdirectory has three directories: **site-cookbooks** (for cook
 | --------- | ------------------------------------------------------------------------------------------------------------- |
 | name      | Name of the project. Words must be separated by dashes, e.g. order-66-2018                                    |
 | label     | Name of the project. Long name (with spaces) of the cluster for display purposes.                             |
-| type      | Two options: scheduler or application. Determines the type of project and generates the appropriate template. |
+| type      | Three options: scheduler, application, <blank>. Determines the type of project and generates the appropriate template. Default: application |
 | version   | Format: x.x.x                                                                                                 |
 
 ## Lockers
