@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -32,16 +32,21 @@ For more information, see [Azure Active Directory Identity Protection](active-di
 This article shows how to enable Azure Active Directory Identity Protection.
 
 ## Steps to enable Azure Active Directory Identity Protection
-1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as global administrator. 
+
+1. Sign-on to your [Azure portal](https://ms.portal.azure.com/) as global administrator. 
+
 2. In the Azure portal, click **Marketplace**.
    
     ![Create](./media/active-directory-identityprotection-enable/01.png "Create")
-3. In the applications list, click **Security + Identity**.
+
+3. In the applications list, click **Identity**.
    
-    ![Create](./media/active-directory-identityprotection-enable/02.png "Create")
+    ![Create](./media/active-directory-identityprotection-enable/05.png "Create")
+
 4. Click **Azure AD Identity Protection**.
    
-    ![Create](./media/active-directory-identityprotection-enable/03.png "Create")
+    ![Create](./media/active-directory-identityprotection-enable/06.png "Create")
+
 5. On the **Azure AD Identity Protection** blade, click **Create**.
    
     ![Create](./media/active-directory-identityprotection-enable/04.png "Create")

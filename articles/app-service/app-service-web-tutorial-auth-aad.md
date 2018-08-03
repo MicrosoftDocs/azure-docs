@@ -336,7 +336,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01

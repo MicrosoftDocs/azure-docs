@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
 
 ---
@@ -29,6 +29,8 @@ Azure Key Vault is a tool for securely storing and accessing secrets. A secret i
 Below are some key terms:
 - **Tenant** - A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization
 - **Vault Owner** - can create a Key Vault gaining full access and control over it. The vault owner can also set up auditing to log who accesses secrets & keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, etc.
+- **Resource** - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
+- **Resource group** - A container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See Resource groups.
 - **Vault Consumer** - can perform actions on the assets inside the Key Vault when the vault owner grants him/her access which depend on the permissions granted.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** is the Azure AD service for a given tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure Tenant ID** - This is a unique way to identify an Azure Active Directory within a Azure Subscription. 

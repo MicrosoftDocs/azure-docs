@@ -122,7 +122,7 @@ az group deployment create \
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az_group_deployment_validate). 
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
 
 ```azurecli
 az group deployment validate \

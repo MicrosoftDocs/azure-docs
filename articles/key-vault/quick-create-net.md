@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Configure an Azure web application to read a secret from Key vault | Microsoft Docs
-description: Quickstart showing how to configure an ASP.Net core application to read a secret from Key vault
+title: Azure Quickstart - Configure an Azure web application to set and retrieve a secret from Key vault | Microsoft Docs
+description: Quickstart showing how to configure an ASP.Net core application to set and retrieve a secret from Key vault
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -13,7 +13,7 @@ ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 
-# Quickstart: Set and read a secret from Key Vault in a .NET Web App
+# Quickstart: Set and retrieve a secret from Azure Key Vault using a .NET Web App
 
 In this quickstart, you go over the necessary steps for getting an Azure web application to read information from Key vault using managed service identities. You learn how to:
 
@@ -53,7 +53,7 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Please select a Resource Group name and fill in the placeholder.
 The following example creates a resource group named *<YourResourceGroupName>* in the *eastus* location.

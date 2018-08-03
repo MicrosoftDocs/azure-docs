@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure functions with Azure IoT Edge | Microsoft Docs 
-description: Deploy an Azure function as a module to an edge device.
+description: In this tutorial, you deploy an Azure function as a module to an edge device.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -31,14 +31,21 @@ The Azure function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-To test the function module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the [Linux](quickstart-linux.md) or [Windows](quickstart.md) quickstart.
+An Azure IoT Edge device:
 
-You must have the following prerequisites on your development machine: 
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+
+Cloud resources:
+
+* A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+
+Development resources:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [The .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/) on your development machine. 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  

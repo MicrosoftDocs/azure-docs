@@ -211,6 +211,8 @@
       href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
     - name: Configure PTR for SMTP Banner Check
       href: create-ptr-for-smtp-service.md
+    - name: Troubleshooting checklist for virtual appliances
+      href: virtual-network-troubleshoot-nva.md
   - name: Classic
     items:
     - name: Create and manage a virtual network

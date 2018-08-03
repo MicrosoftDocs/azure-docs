@@ -76,7 +76,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az-acr-list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
