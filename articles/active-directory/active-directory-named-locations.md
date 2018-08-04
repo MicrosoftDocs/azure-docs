@@ -24,7 +24,7 @@ With named locations, you can label trusted IP address ranges in your organizati
 
 - The detection of [risk events](active-directory-reporting-risk-events.md) to reduce the number of reported false positives.  
 
-- [Location-based conditional access](active-directory-conditional-access-locations.md).
+- [Location-based conditional access](conditional-access/location-condition.md).
 
 
 This article explains, how you can configure named locations in your environment.
@@ -93,7 +93,7 @@ For more information, see:
 
 - [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Location conditions in Azure Active Directory conditional access](active-directory-conditional-access-locations.md)
+- [Location conditions in Azure Active Directory conditional access](conditional-access/location-condition.md)
 
 - [Azure Active Directory risk events](active-directory-reporting-risk-events.md).
 

@@ -22,7 +22,7 @@ ms.reviewer: nigu
 ---
 # What is baseline protection? - preview  
 
-In the last year, identity attacks have increased by 300%. To protect your environment from the ever-increasing attacks, Azure Active Directory (Azure AD) introduces a new feature called baseline protection. Baseline protection is a set of predefined [conditional access policies](active-directory-conditional-access-azure-portal.md). The goal of these policies is to ensure that you have at least the baseline level of security enabled in all editions of Azure AD. 
+In the last year, identity attacks have increased by 300%. To protect your environment from the ever-increasing attacks, Azure Active Directory (Azure AD) introduces a new feature called baseline protection. Baseline protection is a set of predefined [conditional access policies](../active-directory-conditional-access-azure-portal.md). The goal of these policies is to ensure that you have at least the baseline level of security enabled in all editions of Azure AD. 
 
 This article provides you with an overview of baseline protection in Azure Active Directory.
 
@@ -47,7 +47,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 
@@ -84,7 +84,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](./managed-service-identity/overview.md) or [service principals with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-service-identity/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 

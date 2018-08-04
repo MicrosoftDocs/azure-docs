@@ -24,7 +24,7 @@ ms.reviewer: calebb
 ---
 # What is the location condition in Azure Active Directory conditional access? 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a conditional access policy enables you to tie access controls settings to the network locations of your users.
+With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a conditional access policy enables you to tie access controls settings to the network locations of your users.
 
 This article provides you with the information you need to configure the location condition. 
 
@@ -58,7 +58,7 @@ A named location has the following components:
 
 - **IP ranges** - One or more IP address ranges in CIDR format.
 
-- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations-1).
+- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations-1).
 
 - **Country / Regions** - This option enables you to select one or more country or region to define a named location. 
 
@@ -75,13 +75,13 @@ The number of named locations you can configure is constrained by the size of th
 
 ## Trusted IPs
 
-You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [trusted IPs](authentication/howto-mfa-mfasettings.md#trusted-ips).  
+You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 If you have trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.   
 
 ### Skipping multi-factor authentication
 
-On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using conditional access](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using conditional access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 After checking this option, including the named location **MFA Trusted IPS** will apply to any policies with this selected.
 
