@@ -150,11 +150,12 @@ Select this trigger: **Batch messages**
 
 ## Create batch sender
 
-Now you can create one or more logic apps that send messages to 
-the batch receiver logic app. In each batch sender, you specify 
-the batch receiver logic app and batch name, message content, 
-and any other settings. You can optionally provide a unique partition
-key to divide the batch into subsets to collect messages with that key.
+Now create one or more logic apps that send messages 
+to the batch receiver logic app. In each batch sender, 
+you specify the batch receiver logic app and batch name, 
+message content, and any other settings. You can 
+optionally provide a unique partitionkey to divide 
+the batch into subsets to collect messages with that key.
 While batch receivers don't need to know anything about batch senders, 
 the batch senders must know where to send messages. 
 
@@ -163,7 +164,7 @@ the batch senders must know where to send messages.
    1. In the search box, enter "recurrence" as your filter. 
    Select this trigger: **Recurrence - Schedule**
 
-      ![Add the "Schedule-Recurrence" trigger](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
+      ![Add the "Recurrence - Schedule" trigger](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
    2. Set the frequency and interval to run the sender logic app every minute.
 
@@ -203,10 +204,13 @@ the batch senders must know where to send messages.
    For this example, add this expression, which inserts the current 
    date and time into the message content that you send to the batch:
 
-   1. When the dynamic content list appears, choose **Expression**. 
-   2. Enter the expression **utcnow()**, and choose **OK**. 
+   1. Click inside the **Message Content** box. 
 
-      ![In "Message Content", choose "Expression". Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+   2. When the dynamic content list appears, choose **Expression**. 
+
+   3. Enter the expression **utcnow()**, and choose **OK**. 
+
+      ![In "Message Content", choose "Expression", enter "utcnow()", and choose "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
 4. Now set up a partition for the batch. In the "BatchReceiver" action, 
 choose **Show advanced options** and set these properties:
@@ -222,9 +226,10 @@ choose **Show advanced options** and set these properties:
    between one and five. Leave the **Message Id** box empty.
    
    1. Click inside the **Partition Name** box. 
-   When the dynamic content list appears, choose **Expression**.
+
+   2. When the dynamic content list appears, choose **Expression**.
    
-   2. Enter this expression: **rand(1,6)**
+   3. Enter this expression: **rand(1,6)**
 
       ![Set up a partition for your target batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
 
