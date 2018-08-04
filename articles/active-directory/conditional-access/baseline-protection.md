@@ -73,8 +73,6 @@ While baseline policies are in preview, they are by default not activated. You n
 
 6. Click **Save**. 
  
-
-
   
  
 
