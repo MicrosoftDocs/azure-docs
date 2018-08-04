@@ -208,7 +208,7 @@ the batch senders must know where to send messages.
 
    2. When the dynamic content list appears, choose **Expression**. 
 
-   3. Enter the expression **utcnow()**, and choose **OK**. 
+   3. Enter the expression `utcnow()`, and then choose **OK**. 
 
       ![In "Message Content", choose "Expression", enter "utcnow()", and choose "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -225,13 +225,14 @@ choose **Show advanced options** and set these properties:
    add an expression that generates a random number 
    between one and five. Leave the **Message Id** box empty.
    
-   1. Click inside the **Partition Name** box. 
+   1. Click inside the **Partition Name** box 
+   so that the dynamic content list appears. 
 
-   2. When the dynamic content list appears, choose **Expression**.
+   2. In the dynamic content list, choose **Expression**.
    
-   3. Enter this expression: **rand(1,6)**
+   3. Enter the expression `rand(1,6)`, and then choose **OK**.
 
-      ![Set up a partition for your target batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
+      ![Set up a partition for your target batch](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 
       This **rand** function generates a number between one and five. 
       So you are dividing this batch into five numbered partitions, 
@@ -239,7 +240,7 @@ choose **Show advanced options** and set these properties:
 
 5. Save your logic app. Your sender logic app now looks similar to this example:
 
-   ![Save your sender logic app](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
+   ![Save your sender logic app](./media/logic-apps-batch-process-send-receive-messages/batch-sender-finished.png)
 
 ## Test your logic apps
 
