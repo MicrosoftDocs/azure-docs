@@ -45,14 +45,14 @@ With named locations, you can create logical groupings of IP address ranges, cou
 
 You can access your named locations in the **Manage** section of the conditional access page.
 
-![Locations](./media/active-directory-conditional-access-locations/02.png)
+![Locations](./media/location-condition/02.png)
 
  
 
 
 A named location has the following components:
 
-![Locations](./media/active-directory-conditional-access-locations/42.png)
+![Locations](./media/location-condition/42.png)
 
 - **Name** - The display name of a named location.
 
@@ -103,7 +103,7 @@ When you configure the location condition, you have the option to distinguish be
 - All trusted locations
 - Selected locations
 
-![Locations](./media/active-directory-conditional-access-locations/01.png)
+![Locations](./media/location-condition/01.png)
 
 ### Any location
 
@@ -164,6 +164,6 @@ API and PowerShell is not yet supported for named locations, or for conditional 
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 

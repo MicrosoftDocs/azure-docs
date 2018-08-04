@@ -61,7 +61,7 @@ You can find the **what if** tool on the **[Conditional access - Policies](https
 
 To start the tool, in the toolbar on top of the list of policies, click **What if**.
 
-![What if](./media/active-directory-conditional-access-whatif/01.png)
+![What if](./media/what-if-tool/01.png)
 
 Before you can run an evaluation, you must configure the settings.
 
@@ -69,7 +69,7 @@ Before you can run an evaluation, you must configure the settings.
 
 This section provides you with information about the settings of simulation run.
 
-![What if](./media/active-directory-conditional-access-whatif/02.png)
+![What if](./media/what-if-tool/02.png)
 
 
 ### User
@@ -107,7 +107,7 @@ This setting mimics the [sign-in risk condition](conditional-access/conditions.m
 
 You start an evaluation by clicking **What if**. The evaluation result provides you with a report that consists of: 
 
-![What if](./media/active-directory-conditional-access-whatif/03.png)
+![What if](./media/what-if-tool/03.png)
 
 - An indicator whether classic policies exist in your environment
 - Policies that apply to your user
@@ -124,8 +124,8 @@ On the list of policies that don't apply to your user, you can and also find the
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
 
-- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md)  
+- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](../active-directory-conditional-access-migration.md)  

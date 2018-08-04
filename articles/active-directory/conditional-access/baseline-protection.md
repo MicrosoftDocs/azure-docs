@@ -45,7 +45,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 - Security administrator  
 
 
-![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
+![Azure Active Directory](./media/baseline-protection/01.png)
 
 This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
@@ -61,11 +61,11 @@ While baseline policies are in preview, they are by default not activated. You n
 
 2. In the **Azure portal**, on the left navbar, click **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
+    ![Azure Active Directory](./media/baseline-protection/02.png)
 
 3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/05.png)
+    ![Conditional access](./media/baseline-protection/05.png)
 
 4. In the list of policies, click a policy that starts with **Baseline policy:**. 
 
@@ -93,6 +93,6 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
