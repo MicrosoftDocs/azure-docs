@@ -572,7 +572,7 @@
           href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Metric Alerts
           href: ../application-insights/app-insights-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-          - name: Use action groups with alerts
+      - name: Use action groups with alerts
         items:
         - name: Learn about the webhook schema
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=%2fazure%2fazure-monitor%2ftoc.json
