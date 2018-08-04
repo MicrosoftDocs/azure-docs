@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: iainfou
 ---
 
@@ -33,7 +33,7 @@ Yes, autoscaling is available via the [Kubernetes autoscaler][auto-scaler] as of
 
 ## Does AKS support Kubernetes role-based access control (RBAC)?
 
-Yes, RBAC can be enabled when deploying an AKS cluster from the Azure CLI or Azure Resource Manager template. This functionality will soon come to the Azure portal.
+Yes, RBAC can be enabled when [deploying an AKS cluster from the Azure CLI or Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/aks/aad-integration). This functionality will soon come to the Azure portal.
 
 ## What Kubernetes admission controllers does AKS support? Can this be configured?
 
@@ -55,6 +55,10 @@ It is not currently possible to modify the list of admission controllers in AKS.
 ## Can I deploy AKS into my existing virtual network?
 
 Yes, you can deploy an AKS cluster into an existing virtual network using the [advanced networking feature](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+
+## Can I restrict the Kubernetes API server to only be accessible within my virtual network?
+
+Not at this time. The Kubernetes API server is exposed as a public fully-qualified domain name (FQDN). You should control access to your cluster using [Kubernetes role-based access control (RBAC) and Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## Is Azure Key Vault integrated with AKS?
 

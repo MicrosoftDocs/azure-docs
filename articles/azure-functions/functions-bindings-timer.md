@@ -205,7 +205,7 @@ The `IsPastDue` property is `true` when the current function invocation is later
 
 ## CRON expressions 
 
-A CRON expression for the Azure Functions timer trigger includes six fields: 
+Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret CRON expressions. A CRON expression includes six fields:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +219,12 @@ Each field can have one of the following types of values:
 |A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
 |An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
 
-To specify months or days you can use three-letter abbreviations instead of numeric values. For example, use Jan for January, or Sun for Sunday.
+To specify months or days you can use numeric values, names, or abbreviations of names:
+
+* For days, the numeric values are 0 to 6 where 0 starts with Sunday.
+* Names are in English. For example: `Monday`, `January`.
+* Names are case-insensitive.
+* Names can be abbreviated. Three letters is the recommended abbreviation length.  For example: `Mon`, `Jan`. 
 
 ### CRON examples
 
@@ -227,13 +232,13 @@ Here are some examples of CRON expressions you can use for the timer trigger in 
 
 |Example|When triggered  |
 |---------|---------|
-|"0 */5 * * * *"|once every five minutes|
-|"0 0 * * * *"|once at the top of every hour|
-|"0 0 */2 * * *"|once every two hours|
-|"0 0 9-17 * * *"|once every hour from 9 AM to 5 PM|
-|"0 30 9 * * *"|at 9:30 AM every day|
-|"0 30 9 * * 1-5"|at 9:30 AM every weekday|
-
+|`"0 */5 * * * *"`|once every five minutes|
+|`"0 0 * * * *"`|once at the top of every hour|
+|`"0 0 */2 * * *"`|once every two hours|
+|`"0 0 9-17 * * *"`|once every hour from 9 AM to 5 PM|
+|`"0 30 9 * * *"`|at 9:30 AM every day|
+|`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
+|`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
 >[!NOTE]   
 >You can find CRON expression examples online, but many of them omit the `{second}` field. If you copy from one of them, add the missing `{second}` field. Usually you'll want a zero in that field, not an asterisk.
 
@@ -246,13 +251,13 @@ The default time zone used with the CRON expressions is Coordinated Universal Ti
 For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ```	
 
 Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following CRON expression: 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ```	
 
 ## TimeSpan

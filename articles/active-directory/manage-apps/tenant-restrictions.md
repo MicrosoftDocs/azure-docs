@@ -93,7 +93,7 @@ An example user is on the Contoso network, but is trying to access the Fabrikam 
 
 While configuration of Tenant Restrictions is done on the corporate proxy infrastructure, admins can access the Tenant Restrictions reports in the Azure portal directly. To view the reports, go to the Azure Active Directory Overview page, then look under ‘Other capabilities’.
 
-The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID.
+The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
 ![Use the Azure portal to view restricted sign-in attempts](./media/tenant-restrictions/portal-report.png)
 

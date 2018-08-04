@@ -1,10 +1,9 @@
 ---
-title: About Speech to Text | Microsoft Docs
+title: About Speech to Text
 description: An overview of the capabilities of Speech to Text API.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

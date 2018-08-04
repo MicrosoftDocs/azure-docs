@@ -145,7 +145,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## Expand the DSVM OS disk
-The Ubuntu DSVM comes with a 50GB OS disk and 100GB data disk. Docker stores its images on the data disk, as more space is available there. When used as compute target for Azure ML, this disk can be used up by Docker engine pulling down Docker images and building conda layers on top of it. You might need to expand the disk disk to a larger size (such as 200 GB) to avoid the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
+The Ubuntu DSVM comes with a 50GB OS disk and 100GB data disk. Docker stores its images on the data disk, as more space is available there. When used as compute target for Azure ML, this disk can be used up by Docker engine pulling down Docker images and building conda layers on top of it. You might need to expand the disk to a larger size (such as 200 GB) to avoid the "disk full" error while you are in the middle of an execution. Reference [How to expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md) to learn how to do this easily from azure-cli. 
 
 ## Create an Apache Spark for Azure HDInsight cluster in Azure portal
 

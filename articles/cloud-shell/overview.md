@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
@@ -21,7 +21,7 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 It provides the flexibility of choosing the shell experience that best suits the way you work.
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
-Try from shell.azure.com using this button.
+Try from shell.azure.com by clicking below.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
@@ -44,7 +44,12 @@ Linux users can use Bash in Cloud Shell, while Windows users can use PowerShell 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
-View the full [tooling list.](features.md#tools)
+View the full [list of tools installed in Cloud Shell.](features.md#tools)
+
+### Integrated Cloud Shell editor
+Cloud Shell offers an integrated graphical text editor based on the open-source Monaco Editor. Simply create and edit configuration files by running `code .` for seamless deployment through Azure CLI 2.0 or Azure PowerShell.
+
+[Learn more about the Cloud Shell editor](using-cloud-shell-editor.md).
 
 ### Multiple access points
 Cloud Shell is a flexible tool that can be used from:

@@ -2,14 +2,14 @@
 title: Tutorial to create a LUIS app to get location data - Azure | Microsoft Docs 
 description: In this tutorial, learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/04/2018
-ms.author: v-geberr
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 
 --- 

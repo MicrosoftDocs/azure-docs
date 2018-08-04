@@ -1,10 +1,9 @@
 ---
-title: Sample for Translation | Microsoft Docs
+title: Sample for Translation
 titleSuffix: "Microsoft Cognitive Services"
 description: Here is a sample for speech translation.
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech

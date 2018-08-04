@@ -1,21 +1,13 @@
 ---
-title: Deploy to Azure App Service by using the Jenkins plugin | Microsoft Docs
+title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-
-ms.assetid: 
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
 ---
 
 # Deploy to Azure App Service by using the Jenkins plugin 
@@ -226,6 +218,10 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 
 3. Go to http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Replace &lt;x> and &lt;y> with any numbers to get the sum of x + y.
     
+## Troubleshooting
+
+If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkins JIRA](https://issues.jenkins-ci.org/) for the specific component.
+
 ## Next steps
 
 In this tutorial, you used the Azure App Service Jenkins plugin to deploy to Azure.

@@ -214,7 +214,7 @@ To promote your offer or app, use the following table to access more benefits an
 | Become IP Co-Sell Ready | You may be eligible for the IP Co-Sell Ready program, which allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to Microsoft sellers in the seller solution catalog. Microsoft sellers are rewarded for collaborating and winning with you.<br /> For more information about Co-Sell readiness, including eligibility requirements, visit [Promote Your Business](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# Azure Partner Revenue Attribution
+## Azure Partner Customer Usage Attribution
 
 As a software partner for Azure your solutions either require Azure components or is deployed directly on Azure infrastructure.  Today, when an partner solution is deployed by the customer and uses Azure resources provisioned by the customer, it is difficult for the partner to gain visibility to the status of those deployments and difficult to get optics into impact to Azure growth for alignment with the Microsoft sales teams and credit for Microsoft partner programs.   
 
@@ -294,8 +294,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >This has to be done for each client, there is no global static configuration (You may choose to do a client factory to be sure every client is doing it. 
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## Registering a GUID: 
 
 How to tag a deployment using the Azure PowerShell or the Azure CLI:
 If you deploy resources via AzurePowerShell you can append your GUID by using the following method:
@@ -402,11 +400,14 @@ When deploying our software Microsoft will be able identify the installation of 
 
 For assistance, please follow the below steps:
  1. Visit the support page located at [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.**
-
-For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
+ 2.	For issues with usage association - select Problem type: **Marketplace Onboarding** and Category: **Other** and then click **Start Request.** 
+>[!Note]
+>For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem type: **Marketplace Onboarding** and Category: **Access Problem** and then click **Start Request.**
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page.  
+ 
+
+
  
 >[!Important] 
 >Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**.

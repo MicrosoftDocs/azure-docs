@@ -1,10 +1,9 @@
 ---
-title: Sample for Intent Recognition | Microsoft Docs
+title: Sample for Intent Recognition
 titleSuffix: "Microsoft Cognitive Services"
 description: Here is a sample for intent recognition.
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech
@@ -50,7 +49,7 @@ The code snippet below shows how to recognize intent from microphone input in a 
 ## Intent recognition from a file, using events
 
 The code snippet shows how to recognize intent in the default language (`en-US`) in a continuous way. This code allows access to additional information, like intermediate results. 
-Input is taken from from an audio file, the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
+Input is taken from an audio file, the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
 
 [!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

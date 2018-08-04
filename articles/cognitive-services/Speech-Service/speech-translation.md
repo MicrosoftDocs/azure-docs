@@ -1,10 +1,9 @@
 ---
-title: About Speech Translation | Microsoft Docs
+title: About Speech Translation
 description: An overview of the capabilities of Speech Translation
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

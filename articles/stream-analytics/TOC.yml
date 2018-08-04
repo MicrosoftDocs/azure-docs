@@ -157,8 +157,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: http://blogs.msdn.com/b/streamanalytics/
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Feedback forum
     href: http://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Forum
@@ -172,7 +170,7 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing

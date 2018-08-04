@@ -3,7 +3,7 @@ title: CLI Example - Create a DNS zone and record for a domain name - Azure | Mi
 description: This Azure CLI script example shows how to create a DNS zone and record for a domain name
 services: load-balancer
 documentationcenter: traffic-manager
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: tysonn
 tags: 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Azure CLI script example: Create a DNS zone and record

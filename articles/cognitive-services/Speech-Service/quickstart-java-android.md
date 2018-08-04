@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in Java on Android using the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in Java on Android using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in Java on Android using the Cognitive Services Speech SDK
 services: cognitive-services
 author: fmegen
-manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: Speech

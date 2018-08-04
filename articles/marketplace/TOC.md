@@ -16,7 +16,7 @@
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure Apps: Solution Templates](./marketplace-solution-templates.md)
 #### [Azure Apps: Managed Applications](./marketplace-managed-apps.md)
-#### [SaaS app publishing guide](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [SaaS App](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
 #### [Consulting Service](./consulting-services.md)  
 #### [AppSource Apps](./appsource-offer-publishing-guide.md)

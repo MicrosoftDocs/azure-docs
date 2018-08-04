@@ -2,14 +2,14 @@
 title: Tutorial creating a composite entity to extract complex data - Azure | Microsoft Docs 
 description: Learn how to create a composite entity in your LUIS app to extract different types of entity data. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund 
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
+ms.author: diberry
 --- 
 
 # Tutorial: 6. Add Composite entity 

@@ -1,9 +1,8 @@
 ---
-title: Speech service regions | Microsoft Docs
+title: Speech service regions
 description: Reference for regions of the Speech service.
 services: cognitive-services
 author: mahilleb-msft
-manager: wolmfa61
 
 ms.service: cognitive-services
 ms.technology: speech

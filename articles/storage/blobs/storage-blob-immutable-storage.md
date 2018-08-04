@@ -1,33 +1,32 @@
 ---
-title: Immutable Storage feature of Azure Blob storage (Preview) | Microsoft Docs
-description: Azure Storage now offers WORM support for Blob object storage that allows you to store data in a non-erasable, non-modifiable state for a user-specified interval of time. This feature enables organizations in many regulated industries, particularly broker-dealer organizations to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+title: Immutable storage for Azure Blob storage (Preview) | Microsoft Docs
+description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a user-specified interval of time. WORM support for Azure Blob storage enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 services: storage
 author: sangsinh
-manager: twooley
 
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
+ms.component: blobs
 ---
-# Immutable Storage feature of Azure Blob storage (Preview)
+# Store business-critical data in Azure Blob storage (Preview)
 
-The Immutable Storage feature for Azure Blobs feature allows users to store business-critical data in Azure blob storage in a WORM (Write Once Read Many) state. This state makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted for the duration of the retention interval.
+Immutable storage for Azure Blob (object) storage enables users to store business-critical data in Azure blob storage in a WORM (Write Once, Read Many) state. This state makes it non-erasable, and non-modifiable for a user-specified interval of time. Blobs can be created and read, but not modified or deleted, for the duration of the retention interval.
 
 ## Overview
 
-The Immutable Storage feature enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
+Immutable storage enables organizations in many regulated industries, particularly broker-dealer organizations, to store data in a manner compliant with SEC 17a-4(f) and other regulations.
 
 Typical applications include:
 
-- **Regulatory compliance**: The Immutable Storage for Azure Blobs feature is designed to help financial institutions and related industries address SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc.
+- **Regulatory compliance**: Immutable storage for Azure Blob storage is designed to help financial institutions and related industries address SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc.
 
-- **Secure document retention**: Users receive maximum data protection as the Blob storage service ensures that data cannot be modified or deleted by any user including those with account administrative privileges.
+- **Secure document retention**: Users receive maximum data protection as Blob storage ensures that data cannot be modified or deleted by any user including those with account administrative privileges.
 
-- **Legal hold**: The Immutable Storage for Azure blobs enables users to store sensitive information critical to a litigation or criminal investigation etc. in a tamper-proof state for the desired duration.
+- **Legal hold**: Immutable storage for Azure Blob storage enables users to store sensitive information critical to a litigation or criminal investigation etc. in a tamper-proof state for the desired duration.
 
-The immutable storage feature enables:
+Immutable storage enables:
 
 - **Time-based retention policy support:** Users set policies to store data for a specified interval of time.
 
@@ -39,11 +38,11 @@ The immutable storage feature enables:
 
 - **Audit Logging support:** Each container contains an audit log showing up to five time-based retention commands for locked time-based retention policies with a maximum of three logs for retention interval extensions.  For time-based retention, the log contains the user ID, command type, timestamps, and the retention interval. For legal holds, the log contains the user ID, command type, timestamps, and the legal hold tags. This log is retained for the life time of the container per the SEC 17a-4(f) regulatory guidelines. A more comprehensive log of all the control plane activities can be found in the [Azure Activity log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). It is the user’s responsibility to store those logs persistently as may be required for regulatory or other purposes.
 
- The feature is enabled in all Azure public regions.
+Immutable storage is enabled in all Azure public regions.
 
 ## How it works
 
-The Immutable Storage for Azure Blobs supports two types of WORM or immutable policies: time-based retention and legal holds. See the [Getting Started](#Getting-started) section for details on how to create these immutable policies.
+Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. See the [Getting Started](#Getting-started) section for details on how to create these immutable policies.
 When a time-based retention policy or legal hold is applied on a container, all existing blobs will move to the immutable (write and delete protected) state. All new blobs uploaded to the container will also move to the immutable state.
 
 > [!IMPORTANT]
@@ -75,7 +74,7 @@ Refer to [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageser
 
 > [!NOTE]
 > The first Put Blob, and the Put Block List and Put Block operations necessary to create a blob are allowed in the first two scenarios from the above table all subsequent operations are disallowed.
-> The Immutable Storage feature is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Immutable storage is only available in GPv2 and blob storage accounts and must be created through the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## Pricing
 
@@ -90,7 +89,7 @@ The following restrictions apply during public preview:
 
 ## Getting started
 
-Azure Immutable Storage for Azure Blobs is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Azure Immutable Storage for Azure Blob storage is supported on the most recent releases of [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### Azure portal
 
@@ -128,7 +127,7 @@ Azure Immutable Storage for Azure Blobs is supported on the most recent releases
 
 Install the [CLI extension](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  with `az extension add -n storage-preview`
 
-If you already have the extension installed, use the following command to enable the Immutable Storage feature: `az extension update -n storage-preview`
+If you already have the extension installed, use the following command to enable Immutable storage: `az extension update -n storage-preview`
 
 The feature is included in the following command groups (run “-h” on them to see the commands):
 `az storage container immutability-policy`  and `az storage container legal-hold`.
@@ -147,7 +146,7 @@ A sample PowerShell code illustrating the feature usage is provided below.
 
 ## Client libraries
 
-The Immutable Storage for Azure blobs feature is supported in the following client library releases
+Immutable storage for Azure Blob storage is supported in the following client library releases
 
 - [.net Client Library (version 7.2.0-preview and higher](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [node.js Client Library (version 4.0.0 and higher)](https://www.npmjs.com/package/azure-arm-storage)
@@ -167,11 +166,11 @@ The Immutable Storage for Azure blobs feature is supported in the following clie
 
 **Does the feature apply to only block blobs, or page and append blobs as well?**
 
-The Immutable Storage feature for blobs can be used with any blob type.  Note however, that it is recommended that the feature be mostly used for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside of a WORM container, then copied in.  Once copied into a WORM container, no further  *appends* to an append blob or changes to a page blob are allowed.
+Immutable storage for blobs can be used with any blob type.  Note however, that it is recommended that the feature be mostly used for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside of a WORM container, then copied in.  Once copied into a WORM container, no further  *appends* to an append blob or changes to a page blob are allowed.
 
 **Do I need to always create a new storage account to use this feature?**
 
-You can use the Immutable Storage feature with any existing GPv2 accounts or on new storage accounts if the account type is GPv2. This feature is only available with blob storage.
+You can use Immutable storage with any existing GPv2 accounts or on new storage accounts if the account type is GPv2. This feature is only available with blob storage.
 
 **What happens if I try to delete a container with a *locked* time-based retention policy or legal hold?**
 
@@ -183,7 +182,7 @@ The storage account deletion will fail if there is at least one WORM container w
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 
-Yes, you can use the Set Blob Tier command to move data across the blob tiers while keeping the data in the immutable state. The Immutable Storage feature is supported on hot, cool, and cold blob tiers.
+Yes, you can use the Set Blob Tier command to move data across the blob tiers while keeping the data in the immutable state. Immutable storage is supported on hot, cool, and cold blob tiers.
 
 **What happens if I fail to pay and my retention interval has not expired?**
 
@@ -195,7 +194,7 @@ Yes, when a time-based retention policy is first created, it will be in an *unlo
 
 **Is the feature available in national and government clouds?**
 
-The Immutable Storage feature is currently available only in Azure public regions. Email azurestoragefeedback@microsoft.com regarding interest in a specific national cloud.
+Immutable storage is currently available only in Azure public regions. Email azurestoragefeedback@microsoft.com regarding interest in a specific national cloud.
 
 ## Sample code
 

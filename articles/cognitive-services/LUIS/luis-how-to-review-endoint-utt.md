@@ -2,13 +2,13 @@
 title: Label suggested utterances with LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) to label suggested utterances and help boost active machine learning.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Review endpoint utterances
@@ -74,4 +74,4 @@ To delete several utterances, select each item and select on the trash bin to th
 
 ## Next steps
 
-To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](interactive-test.md).
+To test how performance improves after you label suggested utterances, you can access the test console by selecting **Test** in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](luis-interactive-test.md).

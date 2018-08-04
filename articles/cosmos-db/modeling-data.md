@@ -277,7 +277,7 @@ Switching things around a bit would result in a model that still represents the 
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a a reference to the publisher on each book document.
+In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a reference to the publisher on each book document.
 
 ### How do I model many:many relationships?
 In a relational database *many:many* relationships are often modeled with join tables, which just join records from other tables together. 

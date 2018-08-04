@@ -3,13 +3,13 @@ title: LUIS Prebuilt entities reference - Azure | Microsoft Docs
 titleSuffix: Azure
 description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Entities per culture

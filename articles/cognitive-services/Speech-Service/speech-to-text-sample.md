@@ -1,10 +1,9 @@
 ---
-title: Sample for Speech-to-Text | Microsoft Docs
+title: Sample for Speech-to-Text
 titleSuffix: "Microsoft Cognitive Services"
 description: Here is a sample for speech-to-text.
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.technology: Speech

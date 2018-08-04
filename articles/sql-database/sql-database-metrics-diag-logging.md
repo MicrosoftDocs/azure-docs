@@ -456,6 +456,27 @@ Learn more about [database wait statistics](https://docs.microsoft.com/sql/relat
 |blocked_process_filtered_s|Blocked process report XML.|
 |duration_d|Duration of the lock in microseconds.|
 
+### Deadlocks dataset
+
+|Property|Description|
+|---|---|
+|TenantId|Your tenant ID.|
+|SourceSystem|Always: Azure|
+|TimeGenerated [UTC] |Time stamp when the log was recorded.|
+|Type|Always: AzureDiagnostics|
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL|
+|Category|Name of the category. Always: Deadlocks|
+|OperationName|Name of the operation. Always: DeadlockEvent|
+|Resource|Name of the resource.|
+|ResourceType|Name of the resource type. Always: SERVERS/DATABASES|
+|SubscriptionId|Subscription GUID that the database belongs to.|
+|ResourceGroup|Name of the resource group that the database belongs to.|
+|LogicalServerName_s|Name of the server that the database belongs to.|
+|ElasticPoolName_s|Name of the elastic pool that the database belongs to, if any.|
+|DatabaseName_s|Name of the database. |
+|ResourceId|Resource URI.|
+|deadlock_xml_s|Deadlock report XML.|
+
 ### Intelligent Insights dataset
 Learn more about the [Intelligent Insights log format](sql-database-intelligent-insights-use-diagnostics-log.md).
 
