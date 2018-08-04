@@ -49,14 +49,8 @@
       href: massively-parallel-processing-mpp-architecture.md
     - name: Data warehouse units
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Backup and restore
-      href: backup-and-restore.md
     - name: Capacity limits
       href: sql-data-warehouse-service-capacity-limits.md
-    - name: Maintenance
-      href: service-maintenance.md
     - name: FAQ
       href: sql-data-warehouse-overview-faq.md
   - name: Security
@@ -91,30 +85,30 @@
       href: sql-data-warehouse-migrate-code.md
     - name: Migrate data
       href: sql-data-warehouse-migrate-data.md
-  - name: Load & move data
+  - name: Data loading
     items:
     - name: Overview
       href: design-elt-data-loading.md
     - name: Best practices
       href: guidance-for-loading-data.md
-  - name: Integrate
-    items:
-    - name: Overview
-      href: sql-data-warehouse-overview-integrate.md
-    - name: SQL Database elastic query
-      href: how-to-use-elastic-query-with-sql-data-warehouse.md
-  - name: Query performance
+    - name: Columnstore compression
+      href: sql-data-warehouse-memory-optimizations-for-columnstore-	compression.md
+  - name: Workload Management
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
-    - name: Columnstore compression
-      href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Manageability & Monitoring
     items:
-    - name: Monitor 
+    - name: Query Activity & Resource Utilization  
       href: sql-data-warehouse-manage-monitor.md
+    - name: Data protection
+      href: backup-and-restore.md
+    - name: Scale-out, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Maintenance
+      href: service-maintenance.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
   - name: Develop data warehouses
@@ -173,6 +167,12 @@
         href: sql-data-warehouse-develop-views.md
   - name: Troubleshoot
     href: sql-data-warehouse-troubleshoot.md
+  - name: Integrate
+    items:
+    - name: Overview
+      href: sql-data-warehouse-overview-integrate.md
+    - name: SQL Database elastic query
+      href: how-to-use-elastic-query-with-sql-data-warehouse.md
 - name: How-to guides
   items:
   - name: Connect & query
