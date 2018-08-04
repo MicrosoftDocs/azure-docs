@@ -92,7 +92,7 @@
     - name: Best practices
       href: guidance-for-loading-data.md
     - name: Columnstore compression
-      href: sql-data-warehouse-memory-optimizations-for-columnstore-	compression.md
+      href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Workload Management
     items:
     - name: Resource classes & workload management
