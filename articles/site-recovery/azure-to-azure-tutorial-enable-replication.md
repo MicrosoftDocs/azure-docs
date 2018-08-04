@@ -112,7 +112,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   for disaster recovery administrators who can enable and manage disaster recovery for applications
   or entire organizations.
 
-- **Site Recovery Operator** - This role has permissions to execute and manager Failover and
+- **Site Recovery Operator** - This role has permissions to execute and manage Failover and
   Failback operations. A user with this role can't enable or disable replication, create or delete
   vaults, register new infrastructure, or assign access rights to other users. This role is best
   suited for a disaster recovery operator who can fail over virtual machines or applications when

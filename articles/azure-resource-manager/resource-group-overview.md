@@ -282,6 +282,7 @@ For information about using these languages with your resources, see:
 * For a more thorough walkthrough of creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 * To understand the functions you can use in a template, see [Template functions](resource-group-template-functions.md)
 * For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* For information on migration of resources from Classic to ARM, see [Migrate from Classic to Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
 Here's a video demonstration of this overview:
 

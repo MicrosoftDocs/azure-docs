@@ -271,7 +271,7 @@ Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/stream
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
         ```
         
-        * The operation has no body:
+    * The operation has no body:
         
 4. Note one of the paths you want to use for streaming, you will use it in the next section. In this case, the following paths were returned:
     
@@ -310,8 +310,15 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     > [!NOTE]
     > If a player is hosted on an https site, make sure to update the URL to "https".
 
-2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net"
-3. A path that you got in the previous section.  
+2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net".
+
+    To get the hostname you can use the following GET operation:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. A path that you got in the previous (List paths) section.  
 
 As a result, the following HLS URL was built
 

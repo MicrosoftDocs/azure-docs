@@ -31,10 +31,10 @@ The following diagram explains how the client credentials grant flow works in Az
 1. The client application authenticates to the Azure AD token issuance endpoint and requests an access token.
 2. The Azure AD token issuance endpoint issues the access token.
 3. The access token is used to authenticate to the secured resource.
-4. Data from the secured resource is returned to the web application.
+4. Data from the secured resource is returned to the client application.
 
 ## Register the Services in Azure AD
-Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md).
+Register both the calling service and the receiving service in Azure Active Directory (Azure AD). For detailed instructions, see [Integrating applications with Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## Request an Access Token
 To request an access token, use an HTTP POST to the tenant-specific Azure AD endpoint.
@@ -53,7 +53,7 @@ When using a shared secret, a service-to-service access token request contains t
 | --- | --- | --- |
 | grant_type |required |Specifies the requested grant type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
 | client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Azure Active Directory**, click **App registrations**, click the application. The client_id is the *Application ID* |
-| client_secret |required |Enter a key registered for the calling web service or daemon application in Azure AD. To create a key, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the application, click **Settings**, click **Keys**, and add a Key.|
+| client_secret |required |Enter a key registered for the calling web service or daemon application in Azure AD. To create a key, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the application, click **Settings**, click **Keys**, and add a Key.  URL-encode this secret when providing it. |
 | resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the service application, and then click **Settings** and **Properties**. |
 
 #### Example

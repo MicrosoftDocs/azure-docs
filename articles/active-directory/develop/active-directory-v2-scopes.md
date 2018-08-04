@@ -115,7 +115,7 @@ When an administrator grants these permissions via the admin consent endpoint, c
 If you follow these steps, your app can gather permissions for all users in a tenant, including admin-restricted scopes. To see a code sample that implements the steps, see the [admin-restricted scopes sample](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](active-directory-v2-app-registration.md) if you haven't already.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or [create an app](quickstart-v2-register-an-app.md) if you haven't already.
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. Make sure you **Save** the app registration.
 

@@ -138,7 +138,7 @@ With Azure Application insights, you can easily monitor your application's perfo
 1. Enter a **Name** for the alert.
 
 1. Select the drop-down for **Source Alter on**.  Choose your **App Service resource.**
-
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. The default alert is for a **server response time greater than 1 second**.  Select the **Metric** drop-down to examine the various alert metrics.  You can easily configure a variety of alerts to improve the monitoring capabilities of your app.
 
 1. Select the check-box for **Notify via Email owners, contributors, and readers**.  Optionally, you can perform additional actions when an alert fires by executing an Azure logic app.

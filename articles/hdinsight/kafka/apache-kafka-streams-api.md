@@ -222,7 +222,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 2. To send records to the `test` topic, use the following command to start the producer application:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Once the producer completes, use the following command to view the information stored in the `wordcounts` topic:

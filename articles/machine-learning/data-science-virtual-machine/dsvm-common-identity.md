@@ -58,12 +58,12 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    h. Securely distribute the generated password to the new user so that the user can sign in.
 
-2. Create an Azure AD DS instance. Follow the instructions in the article [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (tasks 1 to 5). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described in task 4 of the article. 
+1. Create an Azure AD DS instance. Follow the instructions in the article [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (tasks 1 to 5). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described in task 4 of the article. 
 
-3. Create a separate DSVM subnet in the virtual network created in task 2 of the preceding step.
-4. Create one or more Data Science VM instances in the DSVM subnet. 
-5. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to Active Directory. 
-6. Mount an Azure Files share to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file-level permissions, you'll need NFS running on one or more VMs.)
+1. Create a separate DSVM subnet in the virtual network created in task 2 of the preceding step.
+1. Create one or more Data Science VM instances in the DSVM subnet. 
+1. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to Active Directory. 
+1. Mount an Azure Files share to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file-level permissions, you'll need NFS running on one or more VMs.)
 
    a. [Create an Azure Files share](../../storage/files/storage-how-to-create-file-share.md).
     
@@ -72,8 +72,8 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-7. Assume that you mounted your Azure Files share in /data/workspace, for example. Now create directories for each of your users in the share: /data/workspace/user1, /data/workspace/user2, and so on. Create a `notebooks` directory in each user's workspace. 
-8. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`.   
+1. Assume that you mounted your Azure Files share in /data/workspace, for example. Now create directories for each of your users in the share: /data/workspace/user1, /data/workspace/user2, and so on. Create a `notebooks` directory in each user's workspace. 
+1. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`.   
 
 Now, you have the users in your Active Directory instance hosted in Azure. By using the Active Directory credentials, users can log in to any DSVM (SSH or JupyterHub) that's joined to Azure AD DS. Because the user workspace is on an Azure Files share, users have access to their notebooks and other work from any DSVM when they're using JupyterHub. 
 

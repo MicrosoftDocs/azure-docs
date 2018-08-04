@@ -7,7 +7,7 @@ author: dineshm
 manager: twooley
 
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018

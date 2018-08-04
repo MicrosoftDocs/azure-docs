@@ -139,7 +139,7 @@ contains **CloudBlobDirectory** and **CloudBlockBlob** objects representing the 
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
+Optionally, you can set the **UseFlatBlobListing** parameter of the **ListBlobs** method to
 **true**. This results in every blob being returned as a **CloudBlockBlob**, regardless of directory. Here is the call to **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
