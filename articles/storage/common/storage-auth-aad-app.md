@@ -1,14 +1,13 @@
 ---
 title: Authenticate with Azure Active Directory to access blob and queue data from your applications (Preview) | Microsoft Docs
-description: Use Azure Active Directory to authenticate from within an application and then authorize requests to Azure Storage resources (Preview).  
+description: Use Azure Active Directory to authenticate from within an application and then authorize requests to Azure Storage resources (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Authenticate with Azure Active Directory from an Azure Storage application (Preview)

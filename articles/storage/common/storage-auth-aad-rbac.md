@@ -3,12 +3,11 @@ title: Use RBAC to manage access rights to Azure Storage containers and queues (
 description: Use role-based access control (RBA) to assign roles for access to Azure Storage data to users, groups, application service principals, or managed service identities. Azure Storage supports built-in and custom roles for access rights to containers and queues.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Manage access rights to Azure Storage data with RBAC (Preview)

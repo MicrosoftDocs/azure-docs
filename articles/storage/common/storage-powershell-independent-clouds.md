@@ -1,19 +1,13 @@
-﻿---
+---
 title: Managing Storage in the Azure independent clouds Using Azure PowerShell | Microsoft Docs
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
+ms.component: common
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
