@@ -288,12 +288,6 @@
           href: ../application-insights/app-insights-sharepoint.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: More platforms
           href: ../application-insights/app-insights-platforms.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Alerts
-        items:
-        - name: Availability
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Metric Alerts
-          href: ../application-insights/app-insights-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Smart Detection
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         items:
@@ -572,7 +566,13 @@
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Configure alerts on service notifications
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Use action groups with alerts
+      - name: Use application alerts
+        items:
+        - name: Availability
+          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Metric Alerts
+          href: ../application-insights/app-insights-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+          - name: Use action groups with alerts
         items:
         - name: Learn about the webhook schema
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=%2fazure%2fazure-monitor%2ftoc.json
