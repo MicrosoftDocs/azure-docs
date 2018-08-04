@@ -60,6 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 #### <a name="publicip-address"></a>Public IP address limits
 
 | Resource | Default limit | Maximum Limit |
+| --- | --- | --- |
 | Public IP addresses - dynamic |(Basic) 200 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
