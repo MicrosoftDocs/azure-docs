@@ -19,19 +19,27 @@ ms.author: bwren
 
 # Azure Monitor overview
 
-Azure Monitor helps you collect and analyze data to determine the performance, health, and availability of your Azure applications and the resources that they depend on. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud environment in addition to monitoring critical on-premises resources in order to provide a hybrid monitoring solution. 
+Azure Monitor maximizes the availability and performance of your Azure applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud environment. It helps you understand how your applications are performing and proactively identifies issues affecting your application and the resources they depend on. Azure Monitor can also monitor critical on-premises resources in order to provide a hybrid monitoring solution. 
 
-> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM&t=2s]
+> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## Overview
+Azure Monitor collects telemetry from monitored resources and stores metrics in the Azure Monitor Metrics Store and logs in Log Analytics. The data from these two stores is used by Azure Monitor 
+
 At the center of Azure Monitor are monitoring stores that hold metric and log data. Telemetry is collected from Azure resources and used by Azure Monitor for various functions such as analysis, alerting, and streaming to external systems.
 
 
 ![Azure Monitor overview](media/overview/overview.png)
 
 
-## Data collection with minimal configuration
-You can think of monitoring data in tiers ranging from your application, any operating and services it relies on, down to the Azure platform itself. Azure Monitor collects data from each of these tiers into a common data platform where metrics and logs are available for analysis, alerting, and visualization. 
+## What data does Azure Monitor collect?
+You can think of monitoring data in tiers ranging from your application, any operating and services it relies on, down to the Azure platform itself. Azure Monitor collects data from each of the following tiers:
+
+- **Application monitoring data**: Data about the performance and functionality of the code you have written and are running on Azure.
+- **Guest OS monitoring data**: Data about the operating system on which your application is running. 
+- **Azure resource monitoring data**: Data about the operation of an Azure resource.
+- **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
+- **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
 As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) record when resources are created or have their configuration changed. [Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md) tell you how the resource is performing and the resources that it's consuming. Some of this data will be displayed on the overview page for the resource, and you can analyze data together for multiple resources using tools such as [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md).
 
@@ -71,7 +79,7 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![Service Map](../monitoring/media/monitoring-data-collection/service-map.png)
 
 ### Monitoring solutions
-[Monitoring solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data and use the same tools for analysis and visualization. Management solutions are available from Microsoft and partners to provide monitoring for various Azure and third-party services.
+[Monitoring solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data and use the same tools for analysis and visualization. Monitoring solutions are available from Microsoft and partners to provide monitoring for various Azure and third-party services.
 
 ![Monitoring solutions](../monitoring/media/monitoring-solutions/overview.png)
 
@@ -79,20 +87,20 @@ Monitoring data is only useful if it can increase your visibility into the opera
 
 
 ## Visualizing monitoring data
-Visualizations such as charts and tables are effective tools for summarizing data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and leverages other Azure services for publishing it to different audiences.
-
-### Dashboards
-[Azure dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data into a single pane in the [Azure portal](https://portal.azure.com). You can then share the dashboard with other Azure users. Views throughout Azure Monitor can be added to an Azure dashboard in addition to the output of any log search or chart in the Metrics Explorer. For example, you can create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log search in Log Analytics.
-
-![Dashboard](media/overview/dashboard.png)
+Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and leverages other Azure services for publishing it to different audiences.
 
 ### Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present data from log searches.  Each view includes a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements throughout Azure Monitor, views can be added to Azure dashboards.
+[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md) visually present data from log searches.  Each view includes a single tile that drills down to a combination of visualizations such as bar and line charts in addition to lists summarizing critical data.  Monitoring solutions include views that summarize data for a particular application, and you can create your own views to present data from any Log Analytics log search. Like other elements in Azure Monitor, views can be added to Azure dashboards.
 
 ![Log Analytics View](media/overview/view.png)
 
+### Dashboards
+[Azure dashboards](../azure-portal/azure-portal-dashboards.md) allow you to combine different kinds of data into a single pane in the [Azure portal](https://portal.azure.com). You can then share the dashboard with other Azure users. Views throughout Azure Monitor can be added to an Azure dashboard in addition to the output of any log search or chart in the Metrics Explorer. For example, you could create a dashboard that combines tiles that show a graph of metrics, a table of activity logs, a usage chart from Application Insights, and the output of a log search in Log Analytics.
+
+![Dashboard](media/overview/dashboard.png)
+
 ### Power BI
-Power BI is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)
