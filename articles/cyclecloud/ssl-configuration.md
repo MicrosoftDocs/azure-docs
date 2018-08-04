@@ -39,6 +39,16 @@ If you do not have a certificate from a Certificate Authority (CA) such as VeriS
 > [!WARNING]
 > The Azure CycleCloud self-signed certificate has a shortened shelf life. When it expires, browsers will re-issue the warning about the SSL certificates being untrusted. Users will have to explicitly accept them to view the web console.
 
+## Working with Let's Encrypt
+
+CycleCloud supports certificates from [Let's Encrypt](https://letsencrypt.org/). To use Let's Encrypt with CycleCloud, you must:
+
+* enable SSL on port 443
+* ensure CycleCloud is publicly reachable over port 443 with an external domain name
+
+You can enable Let's Encrypt support with the "SSL" option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
+
+
 ## Working With CA-Generated Certificates
 
 Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To start the process, first run:

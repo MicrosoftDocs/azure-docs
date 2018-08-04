@@ -34,13 +34,25 @@ To install CycleCloud, you must have administrator rights. In addition, your sys
 
 ## SSH Key
 
-The default SSH key used in CycleCloud is `~/.ssh/cyclecloud.pem`. If this does not already exist, it will be automatically generated upon startup (or restart) of CycleCloud. 
+The default SSH key used in CycleCloud is `~/.ssh/cyclecloud.pem`. If this does not already exist, it will be automatically generated upon startup (or restart) of CycleCloud.
 
 ## Installation
 
-To begin the installation, unpack the CycleCloud installation to a temporary working directory.
+Download the [Azure CycleCloud install file](https://www.microsoft.com/en-us/download/details.aspx?id=57182) from the Microsoft Download Center. To begin the installation, unpack the CycleCloud installation to a temporary working directory.
 
-From the local directory, run `install.sh` to begin the installation process. The default install location is /opt/cycle_server.
+For the .rpm install file:
+
+```CMD
+rpm -i <filename>
+```
+
+For the .deb install file:
+
+```CMD
+dpkg -i <filename>
+```
+
+Once unpacked, run `install.sh` to begin the installation process. The default install location is /opt/cycle_server.
 
 The install.sh script supports several options for customization:
 
@@ -65,10 +77,10 @@ Do not install CycleCloud on a shared drive, or any drive in which non-admin use
 
 ## Upgrading CycleCloud
 
-To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. The upgrade script is `$CS_HOME/util/upgrade.sh` and takes the path to the install bundle as an argument. For example:
+To upgrade an existing CycleCloud installation, use:
 
 ``` script
-/opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
+rpm -Uvh cyclecloud.rpm
 ```
 
 To upgrade the CycleCloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
@@ -118,13 +130,7 @@ Step 1: Welcome
 
 Enter a Site Name, your CycleComputing Account ID, and Password, then click **Next**.
 
-Step 2: License Agreement
-
-![License Agreement](~/images/setup-step2.png)
-
-Accept the license agreement and click **Next**.
-
-Step 3: Administrator Account
+Step 2: Administrator Account
 
 ![Administrator Account setup](~/images/setup-step3.png)
 
