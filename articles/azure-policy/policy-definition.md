@@ -215,19 +215,6 @@ The following fields are supported:
   - Example: `tags.[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
-### Alternative Accessors
-
-**Field** is the primary accessor used in policy rules. It directly inspects the resource that is being evaluated. However, policy supports one other accessor, **source**.
-
-```json
-"source": "action",
-"equals": "Microsoft.Compute/virtualMachines/write"
-```
-
-**Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
-
-When policy is evaluating existing resources in the background, it sets **action** to a `/write` authorization action on the resource's type.
-
 ### Effect
 
 Policy supports the following types of effect:
