@@ -63,7 +63,7 @@ The following limits apply only for networking resources managed through Azure R
 | --- | --- | --- |
 | Public IP addresses - dynamic |(Basic) 200 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
-| Public IP addresses - static |(Standard) 20 |contact support |
+| Public IP addresses - static |(Standard) 200 |contact support |
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
