@@ -124,6 +124,12 @@
   items:
   - name: Plan and prepare
     items:
+    - name: Pricing
+      items:
+      - name: Application pricing and data volume
+        href: ../application-insights/app-insights-pricing.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Enterprise plan details
+        href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Manage access
       items:
       - name: Roles permissions and security
@@ -134,11 +140,6 @@
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: IP addresses
         href: ../application-insights/app-insights-ip-addresses.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Application pricing and data volume
-      href: ../application-insights/app-insights-pricing.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      items:
-      - name: Enterprise plan details
-        href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Monitor applications
       items:
       - name: Deep diagnostics for web apps and services
@@ -205,7 +206,7 @@
     items:
     - name: Configure applications
       items:
-      - name: Monitor Azure
+      - name: Azure apps
         items:
         - name: Azure web apps
           href: ../application-insights/app-insights-azure-web-apps.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -221,7 +222,7 @@
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Previews
           href: ../application-insights/app-insights-previews.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Monitor ASP.NET apps
+      - name: ASP.NET apps
         items:
         - name: Web apps
           href: ../application-insights/app-insights-asp-net.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -256,7 +257,7 @@
           href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Snapshot Debugger
           href: ../application-insights/app-insights-snapshot-debugger.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Monitor Java apps
+      - name: Java apps
         items:
         - name: Web apps
           href: ../application-insights/app-insights-java-get-started.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -272,17 +273,17 @@
           href: ../application-insights/app-insights-java-agent.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Filter telemetry
           href: ../application-insights/app-insights-java-filter-telemetry.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Monitor Node.js apps
+      - name: Node.js apps
         items:
         - name: Node.js
           href: ../application-insights/app-insights-nodejs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Monitor web pages
+      - name: Web pages
         items:
         - name: JavaScript
           href: ../application-insights/app-insights-javascript.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Monitor Azure Functions
         href: ../azure-functions/functions-monitoring.md?toc=%2fazure%2fapplication-insights%2ftoc.json 
-      - name: Monitor other platforms
+      - name: Other platforms
         items:
         - name: SharePoint sites
           href: ../application-insights/app-insights-sharepoint.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -345,19 +346,25 @@
       - name: Custom fields
         href: ../log-analytics/log-analytics-custom-fields.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Azure resources
-      href: ../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Azure PaaS resources
-      href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Diagnostic or log data from Azure storage
-      href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Data collector API
-      href: ../log-analytics/log-analytics-data-collector-api.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Application data
-      href: ../application-insights/app-insights-analytics-import.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Configuration Manager
-      href: ../log-analytics/log-analytics-sccm.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Application Performance Monitoring using SCOM
-      href: ../application-insights/app-insights-scom.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      items:
+      - name: Service logs and metrics
+        href: ../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Diagnostic or log data from Azure storage
+        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Azure PaaS resources
+        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Collect custom data
+      items:
+      - name: Data collector API
+        href: ../log-analytics/log-analytics-data-collector-api.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Application data
+        href: ../application-insights/app-insights-analytics-import.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: System Center
+      items:
+      - name: Configuration Manager
+        href: ../log-analytics/log-analytics-sccm.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Application Performance Monitoring using SCOM
+        href: ../application-insights/app-insights-scom.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Route data
       items:
       - name: Archive activity log
@@ -413,92 +420,6 @@
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Log Search API
         href: https://dev.loganalytics.io/
-    - name: Monitor applications
-      items:
-      - name: Application Insights portal
-        items:
-        - name: Search
-          href: ../application-insights/app-insights-diagnostic-search.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Metrics
-          href: ../application-insights/app-insights-metrics-explorer.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Live stream
-          href: ../application-insights/app-insights-live-stream.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Application Map
-          href: ../application-insights/app-insights-app-map.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Transaction diagnostics
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: HockeyApp data
-          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Visual Studio
-        items:
-        - name: F5 insights
-          href: ../application-insights/app-insights-visual-studio.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Trends
-          href: ../application-insights/app-insights-visual-studio-trends.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: CodeLens
-          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Usage
-        items:
-        - name: Overview
-          href: ../application-insights/app-insights-usage-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Send user context
-          href: ../application-insights/app-insights-usage-send-user-context.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Users, Sessions, Events
-          href: ../application-insights/app-insights-usage-segmentation.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Funnels
-          href: ../application-insights/usage-funnels.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Cohorts
-          href: ../application-insights/app-insights-usage-cohorts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Impact
-          href: ../application-insights/app-insights-usage-impact.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Retention
-          href: ../application-insights/app-insights-usage-retention.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: User Flows
-          href: ../application-insights/app-insights-usage-flows.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Workbooks
-          href: ../application-insights/app-insights-usage-workbooks.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name:  Monitor containers
-      items:
-      - name: Monitoring Containers overview
-        href: ../monitoring/monitoring-container-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: AKS container health
-        href: ../monitoring/monitoring-container-health.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Docker and Windows Container monitoring
-        href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Monitor Docker applications
-        href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Monitor databases
-      items:
-      - name: Azure SQL
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Monitor virtual machines
-      items:
-      - name: Agent Health
-        href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: VMWare Analytics
-        href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Service Map
-        items:
-        - name: Use
-          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Configure
-          href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Integration with Operations Manager
-          href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-    - name: Monitor Azure resources
-      items:
-      - name: AD Health Assessment
-        href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: AD Replication Status
-        href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Office 365
-        href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Surface Hub
-        href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Key Vault Analytics
-        href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Service Fabric Analytics
-        href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Visualize
     items:
     - name: Dashboards
@@ -610,6 +531,96 @@
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Configure alerts on service notifications
         href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+  - name: Insights
+    items:
+    - name: Monitor applications
+      items:
+      - name: Application Insights portal
+        items:
+        - name: Search
+          href: ../application-insights/app-insights-diagnostic-search.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Metrics
+          href: ../application-insights/app-insights-metrics-explorer.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Live stream
+          href: ../application-insights/app-insights-live-stream.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Application Map
+          href: ../application-insights/app-insights-app-map.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Transaction diagnostics
+          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: HockeyApp data
+          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Visual Studio
+        items:
+        - name: F5 insights
+          href: ../application-insights/app-insights-visual-studio.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Trends
+          href: ../application-insights/app-insights-visual-studio-trends.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: CodeLens
+          href: ../application-insights/app-insights-visual-studio-codelens.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Usage
+        items:
+        - name: Overview
+          href: ../application-insights/app-insights-usage-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Send user context
+          href: ../application-insights/app-insights-usage-send-user-context.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Users, Sessions, Events
+          href: ../application-insights/app-insights-usage-segmentation.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Funnels
+          href: ../application-insights/usage-funnels.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Cohorts
+          href: ../application-insights/app-insights-usage-cohorts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Impact
+          href: ../application-insights/app-insights-usage-impact.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Retention
+          href: ../application-insights/app-insights-usage-retention.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: User Flows
+          href: ../application-insights/app-insights-usage-flows.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Workbooks
+          href: ../application-insights/app-insights-usage-workbooks.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name:  Monitor containers
+      items:
+      - name: Monitoring Containers overview
+        href: ../monitoring/monitoring-container-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: AKS container health
+        href: ../monitoring/monitoring-container-health.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Docker and Windows Container monitoring
+        href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Monitor Docker applications
+        href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Monitor databases
+      items:
+      - name: Azure SQL
+        href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Monitor virtual machines
+      items:
+      - name: Agent Health
+        href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: VMWare Analytics
+        href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Service Map
+        items:
+        - name: Use
+          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Configure
+          href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Integration with Operations Manager
+          href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+    - name: Monitor Azure resources
+      items:
+      - name: AD Health Assessment
+        href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: AD Replication Status
+        href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Office 365
+        href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Surface Hub
+        href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Key Vault Analytics
+        href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+      - name: Service Fabric Analytics
+        href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+
+
   - name: Automate 
     items:
     - name: Walkthrough using REST API
