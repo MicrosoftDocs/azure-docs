@@ -13,20 +13,20 @@ ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: ergreenl
 
 ---
 # Suspended domains
-When Azure AD Domain Services is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
+When Azure Active Directory Domain Services (Azure AD DS) is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. This article explains why managed domains are suspended, and how to remediate a suspended domain.
 
 
 ## States your managed domain can be in
 
 ![Suspended domain timeline](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
 
-The preceding graphic outlines the possible states an Azure AD Domain Services managed domain can be in.
+The preceding graphic outlines the possible states an Azure AD DS managed domain can be in.
 
 ### "Running" state
 A managed domain that is configured correctly and operating regularly is in the **Running** state.
@@ -62,7 +62,7 @@ In some cases (for example, if you have an invalid network configuration), the d
 ### The "Suspended" state
 A managed domain is put in the **Suspended** state for the following reasons:
 
-* One or more critical alerts haven't been resolved in 15 days. Critical alerts can be caused by a misconfiguration that blocks access to resources that are needed by Azure AD Domain Services.
+* One or more critical alerts haven't been resolved in 15 days. Critical alerts can be caused by a misconfiguration that blocks access to resources that are needed by Azure AD DS.
     * For example, the alert [AADDS104: Network Error](active-directory-ds-troubleshoot-nsg.md) has been unresolved for more than 15 days in the managed domain.
 * There's a billing issue with your Azure subscription or your Azure subscription has expired.
 
@@ -70,7 +70,7 @@ Managed domains are suspended when Microsoft is unable to manage, monitor, patch
 
 **What to expect**
 * Domain controllers for your managed domain are de-provisioned and aren't reachable within the virtual network.
-* Secure LDAP access to the managed domain over the Internet (if it's enabled) stops working.
+* Secure LDAP access to the managed domain over the internet (if it's enabled) stops working.
 * You notice failures in authenticating to the managed domain, logging on to domain-joined virtual machines, or connecting over LDAP/LDAPS.
 * Backups for your managed domain are no longer taken.
 * Synchronization with Azure AD stops.
@@ -86,18 +86,18 @@ A managed domain that stays in the "Suspended" state for 15 days is **Deleted**.
 
 **What to expect**
 * All resources and backups for the managed domain are deleted.
-* You can't restore the managed domain, and need to create a new managed domain to use Azure AD Domain Services.
+* You can't restore the managed domain, and need to create a new managed domain to use Azure AD DS.
 * After it's deleted, you aren't billed for the managed domain.
 
 
 ## How do you know if your managed domain is suspended?
-You see an [alert](active-directory-ds-troubleshoot-alerts.md) on the Azure AD Domain Services Health page in the Azure portal that declares that the domain is suspended. The state of the domain also shows "Suspended".
+You see an [alert](active-directory-ds-troubleshoot-alerts.md) on the Azure AD DS Health page in the Azure portal that declares that the domain is suspended. The state of the domain also shows "Suspended".
 
 
 ## Restore a suspended domain
 To restore a domain that's in the "Suspended" state, take the following steps:
 
-1. Go to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
+1. Go to the [Azure Active Directory Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
 2. Select the managed domain.
 3. In the left panel, select **Health**.
 4. Select the alert. The alert ID will be either AADDS503 or AADDS504, depending on the cause of suspension.
@@ -108,7 +108,7 @@ Your managed domain can only be restored to the date of the last backup. The dat
 
 ## Next steps
 - [Resolve alerts for your managed domain](active-directory-ds-troubleshoot-alerts.md)
-- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
+- [Read more about Azure Active Directory Domain Services](active-directory-ds-overview.md)
 - [Contact the product team](active-directory-ds-contact-us.md)
 
 ## Contact us

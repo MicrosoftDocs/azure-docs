@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
@@ -43,6 +43,8 @@ The following items are known limitations for the Public Preview:
 - [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
+
+Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
 
 ## Support for Azure geos
 
@@ -144,7 +146,7 @@ To configure permissions:
 
     ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step starts a search for Azure virtual machines.
+    The **Backup Goal** menu displays two steps: **Discover DBs in VMs** and **Configure Backup**. The **Discover DBs in VMs** step start a search for Azure virtual machines.
 
     ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -254,7 +256,7 @@ When you use the **Discover DBs** tool, Azure Backup executes the following oper
 
     ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
-## Configure backup for SQL Server databases 
+## Configure backup for SQL Server databases
 
 Azure Backup provides management services to protect your SQL Server databases and manage backup jobs. The management and monitoring functions depend on your Recovery Services vault. 
 
@@ -313,6 +315,9 @@ To configure protection for a SQL database:
 
 8. In the **Choose backup policy** drop-down list box, choose a backup policy, and then select **OK**. For information on how to create a backup policy, see [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > During Preview, you can't edit Backup policies. If you want a different policy than what's available in the list, you must create that policy. For information on creating a new backup policy, see the section, [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Choose a backup policy from the list](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     On the **Backup policy** menu, in the **Choose backup policy** drop-down list box, you can: 
@@ -337,25 +342,32 @@ To configure protection for a SQL database:
 
 A backup policy defines a matrix of when backups are taken and how long they're retained. Use Azure Backup to schedule three types of backup for SQL databases:
 
-* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
+* Full backup: A full database backup backs up the entire database. A full backup contains all of the data in a specific database, or a set of filegroups or files, and enough logs to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
 * Differential backup: A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that's changed since the full backup. At most, you can trigger one differential backup per day. You can't configure a full backup and a differential backup on the same day.
 * Transaction log backup: A log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
 
-The policy's created at the Recovery Services vault level. Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault. When you create a backup policy, the daily full backup is the default. You can add a differential backup, but only if you configure full backups to occur weekly. The following procedure explains how to create a backup policy for a SQL Server instance in an Azure virtual machine.
+The policy's created at the Recovery Services vault level. Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault. When you create a backup policy, the daily full backup is the default. You can add a differential backup, but only if you configure full backups to occur weekly. The following procedure explains how to create a backup policy for a SQL Server instance in an Azure virtual machine. 
 
+> [!NOTE]
+> In Preview, you can't edit a Backup policy. Instead, you must create a new policy with the desired details.  
+ 
 To create a backup policy:
 
-1. On the **Backup policy** menu, in the **Choose backup policy** drop-down list box, select **Create New**.
+1. In the Recovery Services vault that protects the SQL database, click **Backup policies**, and then click **Add**. 
 
-   ![Create a new backup policy](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Open the create new backup policy dialog](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    The **Backup policy** menu shows the fields that are necessary for a new SQL Server backup policy.
+   The **Add** menu appears.
 
-   ![New backup policy fields](./media/backup-azure-sql-database/blank-new-policy.png)
+2. In the **Add** menu, click **SQL Server in Azure VM**.
 
-2. In the **Policy name** box, enter a name.
+   ![Choose a policy type for the new backup policy](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. A full backup is mandatory. Accept the default values for the full backup, or select **Full Backup** to edit the policy.
+   Selecting SQL Server in Azure VM defines the policy type, and opens the Backup policy menu. The **Backup policy** menu shows the fields that are necessary for a new SQL Server backup policy.
+
+3. In **Policy name**, enter a name for the new policy.
+
+4. A Full backup is mandatory; you can't turn off the **Full Backup** option. Click **Full Backup** to view and edit the policy. Even if you don't change the Backup policy, you should view the policy details.
 
     ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -367,13 +379,13 @@ To create a backup policy:
 
    ![Weekly interval setting](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. By default, all **Retention Range** options are selected: daily, weekly, monthly, and yearly. Deselect any undesired retention range limits. Set the intervals to use. In the **Full Backup policy** menu, select **OK** to accept the settings.
+5. By default, all **Retention Range** options are selected: daily, weekly, monthly, and yearly. Deselect any undesired retention range limits. Set the intervals to use. In the **Full Backup policy** menu, select **OK** to accept the settings.
 
    ![Retention range interval settings](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day. The backup for a specific day is tagged and retained based on the weekly retention range and your weekly retention setting. The monthly and yearly retention ranges behave in a similar way.
 
-5. To add a differential backup policy, select **Differential Backup**. The **Differential Backup policy** menu opens. 
+6. To add a differential backup policy, select **Differential Backup**. The **Differential Backup policy** menu opens. 
 
    ![Open the differential backup policy menu](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -387,30 +399,32 @@ To create a backup policy:
 
     Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-6. To add a transactional log backup policy, select **Log Backup**. The **Log Backup** menu opens.
+7. To add a transactional log backup policy, select **Log Backup**. The **Log Backup** menu opens.
 
     In the **Log Backup** menu, select **Enable**, and then set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
    ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**. Compression is disabled by default.
+8. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**. Compression is disabled by default.
 
     On the back end, Azure Backup uses SQL native backup compression.
 
-8. After you complete the edits to the backup policy, select **OK**. 
+9. After you complete the edits to the backup policy, select **OK**. 
 
    ![Accept the new backup policy](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## Restore a SQL database
-
 Azure Backup provides functionality to restore individual databases to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential and the chain of log backups that are required to restore your data based on your restore times.
 
 You can also select a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
- > [!Note]
- > Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
->
 
-To restore a database:
+### Pre-requisite before triggering a restore
+
+1. You can restore the database to an instance of a SQL Server in the same Azure region. The destination server must be registered to the same Recovery Services vault as the source.  
+2. To restore a TDE encrypted database to another SQL Server, please first restore the certificate to the destination server by following steps documented [here](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Before you trigger a restore of the "master" database, start the SQL Server instance in single-user mode with startup option `-m AzureWorkloadBackup`. The argument to the `-m` option is the name of the client. Only this client is allowed to open the connection. For all system databases (model, master, msdb), stop the SQL Agent service before you trigger the restore. Close any applications that might try to steal a connection to any of these databases.
+
+### Steps to restore a database:
 
 1. Open the Recovery Services vault that's registered with the SQL virtual machine.
 

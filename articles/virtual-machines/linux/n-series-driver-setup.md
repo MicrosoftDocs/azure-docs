@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 07/30/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -222,7 +222,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Reboot the VM and proceed to verify the installation.
 
@@ -286,7 +286,7 @@ To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each 
 8. Add the following to `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Reboot the VM and proceed to verify the installation.
 

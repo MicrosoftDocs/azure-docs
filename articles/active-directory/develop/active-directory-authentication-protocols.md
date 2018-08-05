@@ -34,6 +34,6 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 * [SAML Protocol Reference](active-directory-saml-protocol-reference.md) - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.
 
 ## See Also
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
 
 [Active Directory Code Samples](active-directory-code-samples.md)

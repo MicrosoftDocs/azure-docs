@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 

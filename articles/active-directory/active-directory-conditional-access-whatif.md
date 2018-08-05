@@ -87,10 +87,10 @@ The IP address is a single IPv4 address to mimic the [location condition](active
 
 ### Device platforms
 
-This setting mimics the [device platforms condition](active-directory-conditional-access-conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
+This setting mimics the [device platforms condition](conditional-access/conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
 ### Client apps
 
-This setting mimics the [client apps condition](active-directory-conditional-access-conditions.md#client-apps).
+This setting mimics the [client apps condition](conditional-access/conditions.md#client-apps).
 By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. You can narrow this setting down by selecting:
 
 - **Browser** to evaluate all policies having at least **Browser** selected. 
@@ -100,7 +100,7 @@ By default, this setting causes an evaluation of all policies having **Browser**
 
 ### Sign-in risk
 
-This setting mimics the [sign-in risk condition](active-directory-conditional-access-conditions.md#sign-in-risk).   
+This setting mimics the [sign-in risk condition](conditional-access/conditions.md#sign-in-risk).   
 
 
 ## Evaluation 
@@ -116,7 +116,7 @@ You start an evaluation by clicking **What if**. The evaluation result provides 
 
 If [classic policies](active-directory-conditional-access-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
-On the list of policies that apply to your selected user, you can also find a list of [grant controls](active-directory-conditional-access-controls.md#grant-controls) and [session](active-directory-conditional-access-controls.md#session-controls) controls your user must satisfy.
+On the list of policies that apply to your selected user, you can also find a list of [grant controls](conditional-access/controls.md#grant-controls) and [session](conditional-access/controls.md#session-controls) controls your user must satisfy.
 
 On the list of policies that don't apply to your user, you can and also find the reasons why these policies don't apply. For each listed policy, the reason represents the first condition that was not satisfied. A possible reason for a policy that is not applied is a disabled policy because they are not further evaluated.   
 
@@ -124,8 +124,8 @@ On the list of policies that don't apply to your user, you can and also find the
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
 
 - if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md)  
