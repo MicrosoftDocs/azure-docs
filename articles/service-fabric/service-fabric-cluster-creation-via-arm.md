@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
 
 ---
@@ -338,6 +338,9 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> For national clouds (Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
+
 You can find your TenantId by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
 
 ClusterName is used to prefix the Azure AD applications that are created by the script. It does not need to match the actual cluster name exactly. It is intended only to make it easier to map Azure AD artifacts to the Service Fabric cluster that they're being used with.
@@ -367,6 +370,9 @@ The script prints the JSON required by the Azure Resource Manager template when 
 This section is for users who want to custom author a Service Fabric cluster resource manager template. once you have a template, you can still go back and use the PowerShell or CLI modules to deploy it. 
 
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
+
+> [!NOTE]
+> For national clouds (Azure Government, Azure China, Azure Germany), you should also add the following `fabricSettings` to your ARM template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
 
 ### Create the Resource Manager template
 This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your computer and open both files in your favorite text editor.
@@ -585,17 +591,17 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 
 ## Encrypting the disks attached to your windows cluster node/virtual machine instances
 
-For encrypting the disks (OS drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-windows.md). 
-Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows to provide volume encryption for the OS volume. 
-The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
-The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+For encrypting the disks (OS drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Windows virtual machine disks](service-fabric-enable-azure-disk-encryption-windows.md). 
+Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows to provide volume encryption for the OS volume. 
+The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
 
 ## Encrypting the disks attached to your Linux cluster node/virtual machine instances
 
 For encrypting the disks (Data drive and other managed disks) attached to your nodes, we leverage the Azure Disk Encryption. Azure Disk Encryption is a new capability that helps you [encrypt your Linux virtual machine disks](service-fabric-enable-azure-disk-encryption-linux.md). 
-Azure Disk Encryption leverages the industry standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the data disks. 
-The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
-The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
+Azure Disk Encryption leverages the industry standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the data disks. 
+The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. 
+The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage. 
 
 
 ## Create the cluster using Azure resource template 
@@ -718,4 +724,3 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-
