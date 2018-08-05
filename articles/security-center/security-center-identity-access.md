@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
@@ -71,7 +71,7 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 
   ![Recommendation's window][3]
 
-2. Select a subscription in the list for additional detail.
+1. Select a subscription in the list for additional detail.
 
 ### Subscriptions section
 Under **Subscriptions**, there is a list of subscriptions. The first column lists the subscriptions. The second column shows the total number of recommendations for each subscription. The third column shows the severities of the issues.
@@ -88,7 +88,7 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
   ![Recommendations for select subscription][5]
 
-2. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
+1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
   ![Description of recommendation][6]
 
@@ -96,7 +96,7 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
   ![Passed assessments][7]
 
-3. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
+1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
   ![Passed assessments][8]
 

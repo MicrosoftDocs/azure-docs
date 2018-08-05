@@ -6,7 +6,7 @@ author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/01/2018
 manager: craigg
 ms.author: carlrab
 
@@ -43,6 +43,9 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 | Maximum DTUs | 5 | 3000 | 4000 | |
 ||||||
 
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+
 ## Elastic pool eDTU, storage, and pooled database limits
 
 | | **Basic** | **Standard** | **Premium** | 
@@ -56,6 +59,9 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, USGov Iowa, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ## Next steps
 
