@@ -337,7 +337,9 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 ```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
->Note: For national clouds (Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
+
+> [!NOTE]
+> For national clouds (Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
 
 You can find your TenantId by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
 
@@ -369,7 +371,8 @@ This section is for users who want to custom author a Service Fabric cluster res
 
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
 
->Note: For national clouds (Azure Government, Azure China, Azure Germany), you should also add the following `fabricSettings` to your ARM template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
+> [!NOTE]
+> For national clouds (Azure Government, Azure China, Azure Germany), you should also add the following `fabricSettings` to your ARM template: `AADLoginEndpoint`, `AADTokenEndpointFormat` and `AADCertEndpointFormat`.
 
 ### Create the Resource Manager template
 This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your computer and open both files in your favorite text editor.
