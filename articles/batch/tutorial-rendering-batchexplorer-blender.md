@@ -62,7 +62,7 @@ Create a storage account container for the demo scene output files:
 
 ## Create a pool of VMs for rendering
 
-Create a Batch pool using rendering Azure Marketplace VM image which contains the Blender application:
+Create a Batch pool using rendering Azure Marketplace VM image that contains the Blender application:
 
 * Select the 'Gallery' menu-item from the main menu on the left-hand side.
 * Select the 'Blender' item for the list of application items.
@@ -100,7 +100,7 @@ Create a rendering job to render some frames using the pool that was created:
 * Select the file icon for the 'Blend file' and select 'classroom.blend'
 * Leave 'Frame start' as '1' and set 'Frame end' to '5'
 * Set 'Outputs' to 'fgrp-render-output'
-* Select the green button to create the job; a job will be created with 5 tasks, one for each frame
+* Select the green button to create the job; a job will be created with five tasks, one for each frame
 
 ![Job template for Blender](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
@@ -118,7 +118,7 @@ The rendered images will take several minutes to produce depending on the VM siz
 
 ## View the rendering output
 
-When frames have finished rendering those tasks will be shown as completed:
+When frames have finished rendering, those tasks will be shown as completed:
 ![Tasks completing](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
 The rendered image is written to the VM first and can be viewed by selecting the 'wd' folder:
@@ -127,7 +127,7 @@ The rendered image is written to the VM first and can be viewed by selecting the
 The job template also specifies that the output frame and log files are written back to the Azure Storage account file group specified when the job was created.  The 'Data' UI can be used to view the output files and logs; it can be also used to download the files:
 ![Rendered image in storage file group](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
-When all tasks have completed the job will be marked as being completed:
+When all tasks have completed, the job will be marked as being completed:
 ![Job and all tasks completed](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
 ## Clean up resources
@@ -142,4 +142,4 @@ When all tasks have completed the job will be marked as being completed:
 ## Next steps
 * In the ‘Gallery’ section, explore the rendering applications available via Batch Explorer.
 * For each application there are several templates available, which will expand over time.  For example, for Blender templates exist that split up a single image into tiles, so parts of an image can be rendered in parallel.
-* For a comprehensive description of rendering capabilities, see the set of articles [here](https://docs.microsoft.com/azure/batch/).
+* For a comprehensive description of rendering capabilities, see the set of articles [here](https://docs.microsoft.com/azure/batch/batch-rendering-service).
