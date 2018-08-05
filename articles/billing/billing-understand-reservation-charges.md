@@ -34,13 +34,8 @@ For the rest of these examples, assume that the SQL Database reserved capacity y
 - Scenario 2: You run two SQL Databases with 8 cores each for an hour. The 16 core reservation discount is applied to compute usage for both the 8 cores SQL Databases.
 - Scenario 3: You run one 16 core SQL Database from 1pm to 1:30pm. You run another 16 core SQL Database from 1:30 to 2pm. Both are covered the by the reservation discount.
 - Scenario 4: You run one 16 core SQL Database from 1pm to 1:45pm. You run another 16 core SQL Database from 1:30 to 2pm. You are charged the pay-as-you-go price for the 15 minute overlap. The reservation discount applies to the compute usage for the rest of the time.
- 
 
-
-If you 
 To understand and view the application of your Azure reserved instances in billing usage reports, see [Understand reserved instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
-
-
 
 ## Next steps
 
