@@ -36,7 +36,11 @@
       - name: SQL Database 
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
-      href: billing-understand-vm-reservation-charges.md
+      items:
+      - name: Reserved VM Instances
+        href: billing-understand-vm-reservation-charges.md
+      - name: SQL Database reserved capacity
+        href: billing-understand-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
     - name: Usage for Pay-As-You-Go

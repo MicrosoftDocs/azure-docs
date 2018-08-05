@@ -19,6 +19,8 @@ ms.author: yashar
 
 After you buy an Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your virtual machines.
 
+For SQL Database reserved capacity, see [Understand Azure Reserved Instances discount](billing-understand-reservation-charges.md).
+
 The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you're charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reserved instance |
@@ -52,6 +54,7 @@ To learn more about reserved instances, see the following articles:
 
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)

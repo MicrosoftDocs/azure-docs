@@ -17,7 +17,9 @@ ms.author: yashar
 ---
 # Understand how the reserved instance discount is applied to SQL Databases
 
-After you buy an Azure SQL Database reserved capacity, the reserved instance discount is automatically applied to SQL Databases that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+
+For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md).
 
 ## Application of reserved instance discount to SQL Databases
 
@@ -46,11 +48,12 @@ To learn more about reserved instances, see the following articles:
 
 - [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reserved instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with reserved VM instances](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 
