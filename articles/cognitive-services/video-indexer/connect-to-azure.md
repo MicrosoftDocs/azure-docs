@@ -14,7 +14,7 @@ ms.author: juliako
 ---
 # Create a Video Indexer account connected to Azure
 
-When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is connected to your Azure subscription and a Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 
+When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges. 
 
 This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. 
 
@@ -39,6 +39,12 @@ This article shows how to create a Video Indexer account that's linked to an Azu
     *  Be a member in your Azure subscription with either an Owner role, or both Contributor and User Access Administrator roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
 
         ![access control](./media/create-account/access-control-iam.png)
+
+    * Register the EventGrid provider using the Azure portal.
+
+        In the Azure portal, go to Subscriptions->[subscription]->ResourceProviders->Microsoft.EventGrid. If not in Registered state, click **Register**. A couple of minutes later it would be in "Registered" state.
+
+        ![EventGrid](./media/create-account/access-control-iam.png)
 
 ## Connect to Azure
 
