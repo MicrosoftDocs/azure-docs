@@ -63,13 +63,15 @@ We use Eclipse as an Integrated Development Environment (IDE).
 
 1. Edit the **pom.xml** file.
 
-1. Under the top-level project node, create a repositories section with a reference to the Maven repository for the Speech SDK:
+  * At the end of the file, before the closing tag `</project>`, create a repositories section with a reference to the Maven repository for the Speech SDK:
 
-   [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-1. Also, add a dependencies section with the Speech SDK version 0.6.0 as a dependency:
+  * Also, add afterwards a dependencies section with the Speech SDK version 0.6.0 as a dependency:
 
-   [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+
+  * Save the changes.
 
 ## Add the sample code
 
@@ -92,7 +94,7 @@ We use Eclipse as an Integrated Development Environment (IDE).
 ## Build and run the sample
 
 Press F11, or select **Run** \> **Debug**.
-The next 15 speech input from your microphone will be recognized and logged in the console window.
+The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
 ![Console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
