@@ -73,7 +73,9 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](azure-stack-delegated-provider.md).
 
-- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption. 
+- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption.
+
+- <!-- TBD | IS, ASDK -->  **Azure Stack Capacity Planner usability improvements .**The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputing S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
 
 ### Fixed issues
 
@@ -143,8 +145,6 @@ The following are post-installation known issues for this build version.
 
 ### Portal
 - <!--2760466 – IS  ASDK --> When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
-
-- <!-- TBD - IS --> When you use the admin portal to add a new scale unit node, the first node has **00** added to the end of the node name automatically, and appears as *Prefix-Node00*. To avoid this behavior, use the *New-AzsScaleUnitNodeObject* and *Add-AzsScaleUnitNode* [PowerShell cmdlets to add additional nodes](azure-stack-add-scale-node.md#use-powershell).
 
 - <!-- TBD - IS ASDK --> The two administrative subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
