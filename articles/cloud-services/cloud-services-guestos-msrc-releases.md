@@ -712,7 +712,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4284826]: http://support.microsoft.com/kb/4284826
 [4284855]: http://support.microsoft.com/kb/4284855
 [4284815]: http://support.microsoft.com/kb/4284815
-
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867
