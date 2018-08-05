@@ -236,9 +236,6 @@ The following are post-installation known issues for this build version.
 
 - <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
-
-
 > [!NOTE]  
 > <!-- TBD - IS --> After you update to this version of Azure Stack, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially. For example, if you use version 1804, first apply version 1805, and then update to 1807.  
 >  
