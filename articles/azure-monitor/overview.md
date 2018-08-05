@@ -48,16 +48,18 @@ Extend the data you're collecting into the actual operation of the resources by 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md) to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. 
 
 
-## Monitoring platform and data analysis
+## Monitoring data platform
 All data collected by Azure Monitor fits into one of two fundamental types, metrics or logs. Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Logs may contain numeric values like metrics but typically contain text data with detailed descriptions.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in Azure Monitor's [Metric Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. .
+
+![Metrics](media/overview/metrics.png)
 
 Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](http://docs.loganalytics.io) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Search portal](../log-analytics/log-analytics-log-search-portals.md) and then either directly analyze the data using these tools or save queries for use with visualizations, alerts, or export to other tools such as Power BI or Excel.
 
 The Log Analytics query language is suitable for simple log searches but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials) that are available.  Particular guidance is provided to users who are already familiar with [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) and [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
 
-![Metrics and logs](media/overview/metrics-logs.png)
+![Logs](media/overview/logs.png)
 
 
 ## Insights
@@ -131,8 +133,10 @@ Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming pl
 ### Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service that allows you to automate tasks and business processes using workflows that integrate with different systems and services. Activities that read and write data in the Azure Monitor stores allow you to build workflows integrating with a variety of other systems.
 
+![Logic App](../log-analytics/media/log-analytics-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+
 ### API
-You can build custom solutions using multiple APIs to provide access to data and features in Azure Monitor. 
+Multiple APIs are available to read and write metrics and logs in Azure Monitor. You can also configure and retrieve alerts. This provides you with essentially unlimited possibilities to build custom solutions that integrate with Azure Monitor.
 
 ## Next steps
 Learn more about:

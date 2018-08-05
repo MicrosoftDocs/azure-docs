@@ -115,7 +115,7 @@
   - name: Monitor hybrid environments
     href: ../log-analytics/log-analytics-concept-hybrid.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Partner integrations
-    href: ../monitoring-and-diagnostics/monitoring-partners.md
+    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Features for service providers
     href: ../log-analytics/log-analytics-service-providers.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: FAQ
