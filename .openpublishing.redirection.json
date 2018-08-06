@@ -26824,7 +26824,7 @@
         },
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-migration-mfa.md",
-            "redirect_url": "/azure/active-directory/conditional-access/policy-migration",
+            "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
             "redirect_document_id": true
         }
     ]
