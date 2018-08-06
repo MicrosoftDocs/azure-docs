@@ -26906,6 +26906,21 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
             "redirect_url": "/azure/active-directory/conditional-access/what-if-tool",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-faqs.md",
+            "redirect_url": "/azure/active-directory/conditional-access/faqs",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-migration.md",
+            "redirect_url": "/azure/active-directory/conditional-access/policy-migration",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-migration-mfa.md",
+            "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
+            "redirect_document_id": true
         }
     ]
 }

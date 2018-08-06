@@ -145,7 +145,7 @@ Consider migrating the policies you have not created in the Azure portal because
 - The Azure classic portal has been retired.   
 
 
-For more information, see [Migrate classic policies in the Azure portal](../active-directory-conditional-access-migration.md).
+For more information, see [Migrate classic policies in the Azure portal](policy-migration.md).
 
 
 ## Next steps
