@@ -1,6 +1,6 @@
 - name: Azure
   tocHref: /azure/
-  topicHref: /azure/index
+  topicHref: /azure/cyclecloud/index
   items:
   - name: Azure CycleCloud
     tocHref: /cyclecloud/
