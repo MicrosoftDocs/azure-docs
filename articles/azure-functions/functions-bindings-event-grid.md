@@ -429,7 +429,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-You'll use the https://{subdomain}.ngrok.io URL for your Event Grid subscription.
+You'll use the `https://{subdomain}.ngrok.io` URL for your Event Grid subscription.
 
 ### Run the Event Grid trigger function
 

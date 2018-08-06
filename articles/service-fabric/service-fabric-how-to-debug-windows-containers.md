@@ -33,13 +33,13 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 1. Make sure the Docker for Window service is running before proceeding with the next step.
 
 1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name. These steps are also necessary if you want to address services through the reverse proxy.
-    a. Open PowerShell as administrator
-    b. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    c. Run the script `DevClusterSetup.ps1` with the parameter `-UseMachineName`
+    1. Open PowerShell as administrator
+    2. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Run the script `DevClusterSetup.ps1` with the parameter `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
