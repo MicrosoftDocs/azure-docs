@@ -359,7 +359,7 @@ After you have restored the disks, use these steps to create and configure the v
   PS C:\> $properties = $details.properties
   PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
   PS C:\> $containerName = $properties["Config Blob Container Name"]
-  PS C:\> $blobName = $properties["Config Blob Name"]
+  PS C:\> $configBlobName = $properties["Config Blob Name"]
   ```
 
 2. Set the Azure storage context and restore the JSON configuration file.
@@ -367,7 +367,7 @@ After you have restored the disks, use these steps to create and configure the v
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
     PS C:\> $destination_path = "C:\vmconfig.json"
-    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
