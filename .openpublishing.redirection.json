@@ -26708,43 +26708,43 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/create-capacity.md",
+            "source_path": "articles/power-bi-embedded/create-capacity.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/get-started.md",
+            "source_path": "articles/power-bi-embedded/get-started.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/pause-start.md",
+            "source_path": "articles/power-bi-embedded/pause-start.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/scale-capacity.md",
+            "source_path": "articles/power-bi-embedded/scale-capacity.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/what-is-power-bi-embedded.md",
+            "source_path": "articles/power-bi-embedded/what-is-power-bi-embedded.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/migrate-from-power-bi-workspace-collections.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded",
+            "source_path": "articles/power-bi-embedded/migrate-from-power-bi-workspace-collections.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/power-bi-embedded/migrate-tool.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-tool",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/migrate-code-snippets.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "source_path": "articles/power-bi-embedded/migrate-code-snippets.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-code-snippets",
             "redirect_document_id": true
         },
         {
