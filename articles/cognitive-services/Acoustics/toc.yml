@@ -1,0 +1,12 @@
+- name: Acoustics Documentation
+  items:
+    - name: Home
+     href: index.md
+    - name: Getting Started
+     href: GettingStarted.md
+    - name: Create Azure Batch Account
+     href: CreateAzureAccount.md
+    - name: Bake Walkthru
+     href: BakeUIWalkthrough.md
+    - name: Sample Walkthru
+     href: SampleWalkthrough.md
