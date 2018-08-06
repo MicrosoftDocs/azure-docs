@@ -14,7 +14,7 @@ metadata:
   ms.date: 07/12/2018
   ms.author: curtand
 abstract:
-  description: User management is the basis of identity management in Azure Active Directory. Some users need SaaS app access, and some users need permissions for Azure AD management tasks. If you're in a large organization, you can assign licenses to groups instead of individually, or delegate permissions to distribute the work of Azure AD management. To accomplish your top tasks more quickly and at scale, you should understand the relationships between users and their groups, administrator roles, and licenses. 
+  description: User management is the basis of identity management in Azure Active Directory. To accomplish your top tasks more quickly and at scale, you should understand the relationships between users and their groups, administrator roles, and licenses. If you're in a large organization, you can assign licenses to groups instead of individually, or delegate permissions to distribute the work of Azure AD management. 
 sections:
 - title: 5-Minute quickstarts
   items:
@@ -23,6 +23,9 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory.md">Add users to Azure AD</a>
+    - html: <a href="/azure/active-directory/fundamentals/get-started-azure-ad.md">Assign licenses to users</a>    
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a>
     - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Set Office 365 groups to expire in Azure Active Directory</a>
     - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Add naming policy for Office 365 groups in Azure Active Directory</a>
 
