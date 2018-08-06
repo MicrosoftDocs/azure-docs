@@ -84,11 +84,11 @@ With conditional access in the Azure portal, you can manage all your policies in
 
 See:
 
-- [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
+- [What is conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
 
-- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md) to get some guidance on deploying conditional access in your organization.
+- [Best practices for conditional access in Azure Active Directory](best-practices.md) to get some guidance on deploying conditional access in your organization.
 
-- [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
+- [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
 
 
  
@@ -132,7 +132,7 @@ If you have a new policy that has **Exchange Active Sync** as client apps condit
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[App-based](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) only. 
+[App-based](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](../active-directory-conditional-access-technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) only. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -155,9 +155,9 @@ In this case, you can consolidate your classic policies into one new policy that
 
 ### Device platforms
 
-Classic policies with [app-based controls](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) are pre-configured with iOS and Android as the [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+Classic policies with [app-based controls](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) are pre-configured with iOS and Android as the [device platform condition](../active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-In a new policy, you need to select the [device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) you want to support individually.
+In a new policy, you need to select the [device platforms](../active-directory-conditional-access-technical-reference.md#device-platform-condition) you want to support individually.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 
@@ -169,6 +169,6 @@ In a new policy, you need to select the [device platforms](active-directory-cond
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [GRequire MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 

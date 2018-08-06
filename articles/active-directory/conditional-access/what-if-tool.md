@@ -31,7 +31,7 @@ This article explains how you can use this tool to test your conditional access 
 
 ## What it is
 
-The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](../active-directory-conditional-access-migration.md#classic-policies) if they exist.    
+The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
 
 The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
 
@@ -114,7 +114,7 @@ You start an evaluation by clicking **What if**. The evaluation result provides 
 - Policies that don't apply to your user
 
 
-If [classic policies](../active-directory-conditional-access-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
+If [classic policies](policy-migration.md#classic-policies) exist for the selected cloud apps, an indicator is presented to you. By clicking the indicator, you are redirected to the classic policies page. On the classic policies page, you can migrate a classic policy or just disable it. You can return to your evaluation result by closing this page.
 
 On the list of policies that apply to your selected user, you can also find a list of [grant controls](controls.md#grant-controls) and [session](controls.md#session-controls) controls your user must satisfy.
 
@@ -128,4 +128,4 @@ On the list of policies that don't apply to your user, you can and also find the
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
 
-- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](../active-directory-conditional-access-migration.md)  
+- if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](policy-migration.md)  
