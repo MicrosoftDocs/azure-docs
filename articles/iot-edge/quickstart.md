@@ -258,7 +258,6 @@ You are ready to continue on to any of the other tutorials to learn how Azure Io
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
