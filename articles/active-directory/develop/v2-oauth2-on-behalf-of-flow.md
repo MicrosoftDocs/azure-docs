@@ -68,7 +68,7 @@ When using a shared secret, a service-to-service access token request contains t
 | client_id |required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | client_secret |required | The Application secret that you generated for your app in the Application Registration Portal. |
 | assertion |required | The value of the token used in the request. |
-| scope |required | A space separated list of scopes for the token request. For more information, see [scopes](active-directory-v2-scopes.md).|
+| scope |required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md).|
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 
 #### Example
@@ -100,7 +100,7 @@ A service-to-service access token request with a certificate contains the follow
 | client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | assertion |required | The value of the token used in the request. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
-| scope |required | A space separated list of scopes for the token request. For more information, see [scopes](active-directory-v2-scopes.md).|
+| scope |required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md).|
 
 Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
 
