@@ -62,15 +62,14 @@ $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"
 
 Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
 
-#Create a new virtual machine configuration object. 
+#Create a new VM configuration object
 
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ```
-If you want to specify a storage account as the location of new VM disk, you can use **MediaLocation** parameter:
-
+If you want to specify another storage account as the location of new VM disk, you can use **MediaLocation** parameter:
 
 ```powershell
 	New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
