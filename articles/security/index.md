@@ -2,8 +2,8 @@
 title: Azure Security Documentation | Microsoft Docs
 description: Security is integrated into every aspect of the Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: 
 ms.service: security
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
+ms.author: angrobe
 ---
 # Azure Security Documentation
 

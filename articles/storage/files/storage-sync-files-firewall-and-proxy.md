@@ -2,19 +2,12 @@
 title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
 description: Azure File Sync on-premises network configuration
 services: storage
-documentationcenter: ''
 author: fauhse
-manager: aungoo
-editor: tamram
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: fauhse
+ms.component: files
 ---
 
 # Azure File Sync proxy and firewall settings

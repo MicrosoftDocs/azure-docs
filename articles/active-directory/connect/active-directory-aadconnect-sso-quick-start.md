@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -52,9 +52,12 @@ Enable Seamless SSO through [Azure AD Connect](active-directory-aadconnect.md).
 
 If you're doing a fresh installation of Azure AD Connect, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, select the **Enable single sign on** option.
 
+>[!NOTE]
+> The option will be available for selection only if the Sign On method is **Password Hash Synchronization** or **Pass-through Authentication**.
+
 ![Azure AD Connect: User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
 
-If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**.
+If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**. If you are using Azure AD Connect versions 1.1.880.0 or above, the **Enable single sign on** option will be selected by default. If you are using older versions of Azure AD Connect, select the **Enable single sign on** option.
 
 ![Azure AD Connect: Change the user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

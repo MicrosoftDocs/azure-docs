@@ -43,7 +43,7 @@ When you create a key vault in an Azure subscription, it is automatically associ
 * **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access. There are two ways to grant access to users: one way is to grant access to users so they can access key vault from any application and the other way is to grant a user access to key vault only when they use a specific application (referred to as compound identity). 
 * **app-only access** - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
 
-In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/develop/authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
+In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/develop/authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/develop/v1-protocols-oauth-code.md). 
 
 The resource name for which the application requests a token is different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table in a later section, depending on the Azure environment.
 
@@ -219,7 +219,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-* [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+* [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/develop/v1-protocols-oauth-code.md)
   
   This article describes complete OAuth 2.0 flow for authenticating with Azure Active Directory.
 * [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -234,7 +234,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Link to Key access control reference documentation.
-* [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) key vault access policy using PowerShell
+* [Set](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) and [Remove](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) key vault access policy using PowerShell
   
   Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
 

@@ -81,4 +81,4 @@ In this scenario, a developer has a web application running on a server that nee
 
 - [The Azure Active Directory developer's guide](azure-ad-developers-guide.md)
 - [Authentication scenarios for Azure Active directory](authentication-scenarios.md)
-- [Azure Active Directory code samples](active-directory-code-samples.md)
+- [Azure Active Directory code samples](sample-v1-code.md)
