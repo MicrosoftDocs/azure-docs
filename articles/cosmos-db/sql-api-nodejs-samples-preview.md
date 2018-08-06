@@ -27,7 +27,7 @@ ms.author: deborahc
 > 
 > 
 
-Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-cosmos-js/tree/master/samples) GitHub repository. This article provides:
+Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmos-js](https://github.com/Azure/azure-cosmos-js/tree/master/samples) GitHub repository. This article provides:
 
 * Links to the tasks in each of the Node.js example project files.
 * Links to the related API reference content.
@@ -40,7 +40,7 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-You also need the [Node.js SDK](sql-api-sdk-node-preview.md).
+You also need the [JavaScript SDK](sql-api-sdk-node-preview.md).
    
    > [!NOTE]
    > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to [Containers.create](https://docs.microsoft.com/en-us/javascript/api/%40azure/cosmos/containers?view=azure-node-latest#create). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the container being created.

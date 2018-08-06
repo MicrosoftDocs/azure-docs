@@ -42,7 +42,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Samples**</td><td>[Node.js code samples](sql-api-nodejs-samples-preview.md)</td></tr>
 
-<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](sql-api-nodejs-get-started-preview.md)</td></tr>
+<tr><td>**Get started tutorial**</td><td>[Get started with the JavaScript SDK](sql-api-nodejs-get-started-preview.md)</td></tr>
 
 <tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application-preview.md)</td></tr>
 
@@ -57,7 +57,7 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="2.0.0-3"/>2.0.0-3</a>
-* RC1 of Version 2.0.0 of the Node SDK for public preview.
+* RC1 of Version 2.0.0 of the JavaScript SDK for public preview.
 * New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
 * Support for [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
 * SDK converted to TypeScript.

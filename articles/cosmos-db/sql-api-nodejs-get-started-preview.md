@@ -15,7 +15,7 @@ ms.date: 07/30/2018
 ms.author: dech
 
 ---
-# Node.js tutorial: Create a Node.js console application with Azure Cosmos DB SQL API and Node SDK 2.0 (preview)
+# Node.js tutorial: Create a Node.js console application with Azure Cosmos DB SQL API and JavaScript SDK 2.0 (preview)
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -25,7 +25,7 @@ ms.author: dech
 > * [Java](sql-api-java-get-started.md)
 
 
-Welcome to the Node.js tutorial for the Azure Cosmos DB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
+Welcome to the Node.js tutorial for the Azure Cosmos DB JavaScript SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
 We'll cover:
 
@@ -166,7 +166,7 @@ config.items = {
     }
 };
 ```
-Note, if you are familiar with the previous version of the Node SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the Node SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
+Note, if you are familiar with the previous version of the JavaScript SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the JavaScript SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 ```nodejs

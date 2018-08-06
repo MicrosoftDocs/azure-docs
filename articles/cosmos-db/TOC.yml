@@ -164,6 +164,8 @@ items:
           href: sql-api-dotnet-samples.md
         - name: Node.js samples
           href: sql-api-nodejs-samples.md
+        - name: Node.js samples - V2 Preview
+          href: sql-api-nodejs-samples-preview.md
         - name: Python samples
           href: sql-api-python-samples.md
         - name: Java samples
