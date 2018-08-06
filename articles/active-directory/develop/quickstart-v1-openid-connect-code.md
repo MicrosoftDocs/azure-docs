@@ -410,6 +410,6 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics. You might want to try:
 
-[Secure a Web API with Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+[Secure a Web API with Azure AD](quickstart-v1-nodejs-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

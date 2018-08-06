@@ -1,14 +1,13 @@
 ---
 title: Run Azure CLI or PowerShell commands under an Azure AD identity to access Azure Storage (Preview) | Microsoft Docs
-description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage containers and queues and their data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the role assigned to the Azure AD identity. 
+description: Azure CLI and PowerShell support logging in with an Azure AD identity to run commands on Azure Storage containers and queues and their data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the role assigned to the Azure AD identity.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
