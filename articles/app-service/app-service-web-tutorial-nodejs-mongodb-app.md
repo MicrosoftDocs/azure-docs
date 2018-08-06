@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 05/04/2017
+ms.date: 08/03/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -36,8 +36,6 @@ What you'll learn:
 > * Update the data model and redeploy the app
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -121,64 +119,25 @@ In this step, you create a MongoDB database in Azure. When your app is deployed 
 
 For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB supports MongoDB client connections.
 
-### Create a resource group
-
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
-
 ### Create a Cosmos DB account
 
-In the Cloud Shell, create a Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) command.
+Using the [Try Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/) experience, click the Create button to create a free MongoDB database on Azure.
 
-In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
+![MEAN.js connects successfully to MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/create-free-mongo-database.png)
 
-```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
-```
+![MEAN.js connects successfully to MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/create-free-mongo-database-crop.png)
 
-The *--kind MongoDB* parameter enables MongoDB client connections.
-
-When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
-
-```json
-{
-  "consistencyPolicy":
-  {
-    "defaultConsistencyLevel": "Session",
-    "maxIntervalInSeconds": 5,
-    "maxStalenessPrefix": 100
-  },
-  "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
-  "failoverPolicies": 
-  ...
-  < Output truncated for readability >
-}
-```
+Once the account is created, your web browser displays the Azure portal.
 
 ## Connect app to production MongoDB
 
-In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string.
 
 ### Retrieve the database key
 
-To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) command to retrieve the primary key.
+To connect to the Azure Cosmos DB database, you need the database key that is provided in the Azure portal
 
-```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
-```
-
-The Azure CLI shows information similar to the following example:
-
-```json
-{
-  "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
-  "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
-  "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
-  "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
-}
-```
-
-Copy the value of `primaryMasterKey`. You need this information in the next step.
+In the left-hand menu on the Azure Cosmos DB account blade, click **Connection String**, and ensure you're on the **Read-write Keys** tab. Use the copy buttons on the right side of the screen to copy the **Primary Connection String** as you'll need this in the next step.
 
 <a name="devconfig"></a>
 ### Configure the connection string in your Node.js application
@@ -190,7 +149,7 @@ Copy the following code into it. Be sure to replace the two *\<cosmosdb_name>* p
 ```javascript
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false'
+    uri: '<primary_master_key>'
   }
 };
 ```
