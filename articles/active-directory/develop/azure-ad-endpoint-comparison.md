@@ -44,7 +44,7 @@ To register an app that works with the v2.0 endpoint, you must use the Microsoft
 
 If you've used Azure AD, you've probably registered several different apps for a single project. For example, if you built both a website and an iOS app, you had to register them separately, using two different Application Ids. The Azure AD app registration portal forced you to make this distinction during registration:
 
-![Old Application Registration UI](../../media/active-directory-v2-flows/old_app_registration.PNG)
+![Old Application Registration UI](./media/azure-ad-endpoint-comparison/old_app_registration.PNG)
 
 Similarly, if you had a website and a backend web api, you might have registered each as a separate app in Azure AD. Or if you had an iOS app and an Android app, you also might have registered two different apps. Registering each component of an application led to some unexpected behaviors for developers and their customers:
 
@@ -87,7 +87,7 @@ where the **scope** parameter indicates which resource and permissions the app i
 
 Apps registered in Azure AD previously needed to specify their required OAuth 2.0 permissions in the Azure portal, at app creation time:
 
-![Permissions Registration UI](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
+![Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.PNG)
 
 The permissions an app required were configured **statically**. While this allowed configuration of the app to exist in the Azure portal and kept the code nice and simple, it presents a few issues for developers:
 
@@ -104,7 +104,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory. If the user has consented to those permissions in the past for this particular app, they will enter their credentials and be signed into the app. If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions. To learn more, you can read up on [permissions, consent, and scopes](active-directory-v2-scopes.md).
+The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory. If the user has consented to those permissions in the past for this particular app, they will enter their credentials and be signed into the app. If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions. To learn more, you can read up on [permissions, consent, and scopes](v2-permissions-and-consent.md).
 
 Allowing an app to request permissions dynamically through the `scope` parameter gives you full control over your user's experience. If you wish, you can choose to frontload your consent experience and ask for all permissions in one initial authorization request. Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
 
@@ -128,7 +128,7 @@ The `email` scope allows your app access to the user’s primary email address t
 
 The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
 
-This allows you to code your app in a minimal-disclosure fashion – you can only ask the user for the set of information that your app requires to do its job. For more information on these scopes, see [the v2.0 scope reference](active-directory-v2-scopes.md).
+This allows you to code your app in a minimal-disclosure fashion – you can only ask the user for the set of information that your app requires to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
 
 ## Token Claims
 
