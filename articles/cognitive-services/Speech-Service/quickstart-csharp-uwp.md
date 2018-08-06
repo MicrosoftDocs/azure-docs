@@ -56,7 +56,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "Install Nuget package")
 
-1. Accept the license in the dialog that appears.
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-uwp-06-nuget-license.png "Accept the license")
 

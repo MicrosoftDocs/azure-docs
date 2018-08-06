@@ -45,13 +45,13 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "Install Nuget package")
 
-1. Accept the license in the dialog that appears.
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Accept the license")
 
 ## Add the sample code
 
-1. Open `Program.cs` in your Visual Studio project and replace all the code in this file with the following.
+1. Open `Program.cs` and replace all the code in it with the following.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -63,7 +63,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
 ## Build and run the sample
 
-1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors now.
+1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors now:
 
     ![Successful build](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
 
