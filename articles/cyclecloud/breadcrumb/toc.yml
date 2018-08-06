@@ -1,7 +1,3 @@
 - name: Azure
-  tocHref: /azure/
-  topicHref: /azure/cyclecloud/index
-  items:
-  - name: Azure CycleCloud
-    tocHref: /cyclecloud/
-    topicHref: /cyclecloud/
+  tocHref: /azure/cyclecloud/
+  topicHref: /azure/cyclecloud/
