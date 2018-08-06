@@ -42,7 +42,7 @@ To test SAML-based single sign-on between AAD and a target application:
 4.	To open the SAML-based single sign-on testing experience, in the **Domain and URLs** section click **Test SAML Setting**. If the Test SAML Setting button is greyed out, you need to fill out and save the required attributes first.
 5.	In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
 
-    ![Test SAML page](media/active-directory-saml-debugging/testing.png)
+    ![Test SAML page](./media/howto-v1-debug-saml-sso-issues/testing.png)
 
 
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
@@ -54,7 +54,7 @@ If you have an error on the company sign-in page or the application's page, use 
 
 When you try to sign in you might see an error on your company sign-in page. 
 
-![Sign-in error](media/active-directory-saml-debugging/error.png)
+![Sign-in error](./media/howto-v1-debug-saml-sso-issues/error.png)
 
 To debug this error, you need the error message and the SAML request. The My Apps Secure Sign-in Extension automatically gathers this information and displays resolution guidance on Azure AD. 
 
@@ -90,8 +90,8 @@ To resolve the error:
 3. Notice these elements in the SAML response token:
     - User unique identifier of NameID value and format
     - Claims issued in the token
-    - Certificate used to sign the token. For information on how to review the SAML response, see [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md).
-4. For more information on the SAML response, see [Single Sign-on SAML protocol](active-directory-single-sign-on-protocol-reference.md).
+    - Certificate used to sign the token. For information on how to review the SAML response, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
+4. For more information on the SAML response, see [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md).
 5. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../application-sign-in-problem-application-error.md) for guidance on resolving the problem. 
 6. If you are still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.
 

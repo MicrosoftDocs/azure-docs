@@ -174,7 +174,7 @@ In this article, you learned how to build an application that can sign in a user
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
-[AAD-App-Branding]: ./active-directory-branding-guidelines.md
+[AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md

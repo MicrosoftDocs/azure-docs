@@ -26,7 +26,7 @@ Enterprise developers and software-as-a-service (SaaS) providers can develop com
 
 This article shows you how to add, update, or remove an application's registration in Azure AD. You learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.
 
-To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md); to learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md).
+To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md); to learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](howto-add-branding-in-azure-ad-apps.md).
 
 ## Adding an application
 Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
@@ -312,7 +312,7 @@ In order to remove a multi-tenant application’s access to your directory (afte
 
 ## Next steps
 - For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
-- See the [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md) for tips on visual guidance for your app.
+- See the [Branding Guidelines for Integrated Apps](howto-add-branding-in-azure-ad-apps.md) for tips on visual guidance for your app.
 - For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
 - See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure AD developer concepts.

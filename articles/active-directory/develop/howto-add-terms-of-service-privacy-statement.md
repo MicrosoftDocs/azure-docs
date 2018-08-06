@@ -33,7 +33,7 @@ You are responsible for creating the terms of service and privacy statement docu
 
 The following examples show the user consent experience when the terms of service and privacy statement are configured and when these links are not configured.
 
-![Screenshots with and without a privacy statement and terms of service provided](./media/active-directory-integrating-applications/user-consent-exp-privacy-statement-terms-service.png)
+![Screenshots with and without a privacy statement and terms of service provided](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 
 ## Formatting links to the terms of service and privacy statement documents
 
@@ -64,7 +64,7 @@ Follow these steps if you registered your app in the Azure portal.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 5. Save your changes.
 
-![App properties section with terms of service and privacy statement URLs](./media/active-directory-integrating-applications/azure-portal-terms-service-privacy-statement-urls.png)
+![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>If you registered your app in the Application Registration Portal
 Follow these steps if you registered your app in the Application Registration Portal or Dev Center.
@@ -74,7 +74,7 @@ Follow these steps if you registered your app in the Application Registration Po
 3. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 4. Save your changes.
 
-![App profile section with terms of service and privacy statement URLs](./media/active-directory-integrating-applications/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+![App profile section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
 If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
