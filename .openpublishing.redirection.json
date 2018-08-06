@@ -10171,6 +10171,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/search-video-demo-tutorial-list.md",
+            "redirect_url": "https://azure.microsoft.com/resources/videos/index/?services=search",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/search-get-started-management-api.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/searchmanagement/",
             "redirect_document_id": false
@@ -11603,6 +11608,11 @@
         {
             "source_path": "articles/traffic-manager/traffic-manager-configure-routing-method.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-configure-priority-routing-method",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/traffic-manager/traffic-manager-create-profile.md",
+            "redirect_url": "/azure/traffic-manager/quickstart-create-traffic-manager-profile",
             "redirect_document_id": false
         },
         {
@@ -21815,6 +21825,113 @@
             "redirect_url": "https://cloudpartner.azure.com",
             "redirect_document_id": false
         },
+         {
+	    "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-portals.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/index.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-getting-started.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
+            "redirect_url": "/azure/marketplace/",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
             "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
@@ -26591,43 +26708,43 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/create-capacity.md",
+            "source_path": "articles/power-bi-embedded/create-capacity.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/get-started.md",
+            "source_path": "articles/power-bi-embedded/get-started.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/pause-start.md",
+            "source_path": "articles/power-bi-embedded/pause-start.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/scale-capacity.md",
+            "source_path": "articles/power-bi-embedded/scale-capacity.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/what-is-power-bi-embedded.md",
+            "source_path": "articles/power-bi-embedded/what-is-power-bi-embedded.md",
             "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/migrate-from-power-bi-workspace-collections.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded",
+            "source_path": "articles/power-bi-embedded/migrate-from-power-bi-workspace-collections.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/power-bi-embedded/migrate-tool.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-tool",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/powerbi-embedded/migrate-code-snippets.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "source_path": "articles/power-bi-embedded/migrate-code-snippets.md",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-code-snippets",
             "redirect_document_id": true
         },
         {
@@ -26678,6 +26795,21 @@
 		{
             "source_path": "articles/active-directory/device-management-azuread-joined-devices-frx.md",
             "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
+            "redirect_url": "/azure/active-directory/conditional-access/baseline-protection",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-locations.md",
+            "redirect_url": "/azure/active-directory/conditional-access/location-condition",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
+            "redirect_url": "/azure/active-directory/conditional-access/what-if-tool",
             "redirect_document_id": true
         }
     ]
