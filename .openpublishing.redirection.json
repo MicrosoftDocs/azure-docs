@@ -10171,6 +10171,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/search/search-video-demo-tutorial-list.md",
+            "redirect_url": "https://azure.microsoft.com/resources/videos/index/?services=search",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/search/search-get-started-management-api.md",
             "redirect_url": "https://docs.microsoft.com/rest/api/searchmanagement/",
             "redirect_document_id": false
