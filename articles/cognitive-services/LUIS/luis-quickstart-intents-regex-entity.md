@@ -14,27 +14,28 @@ ms.author: diberry
 --- 
 
 # Tutorial: 3. Add regular expression entity
-In this tutorial, create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+In this tutorial, create an app that demonstrates how to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand regular expression entities 
-> * Use a LUIS app for a Human Resources (HR) domain with FindForm intent
-> * Add regular expression entity to extract Form number from utterance
-> * Train, and publish app
+> * Add FindForm intent
+> * Add regular expression entity 
+> * Train app
+> * Publish app
 > * Query endpoint of app to see LUIS JSON response
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you do not have the Human Resources app from the [prebuilt entities](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
+If you do not have the Human Resources app from the [previous](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 
 ## Purpose of the regular expression entity
-The purpose of an entity is to get important data contained in the utterance. The app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
+The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out formatted Human Resources (HR) Form numbers from an utterance. It is not machine-learned. 
 
 Simple example utterances include:
 
@@ -52,12 +53,12 @@ HRF-456098 date?
 HRF-456098 title?
 ```
  
-The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf -` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
+The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
 
 HRF stands for human resources form.
 
 ### Tokenization with hyphens
-LUIS tokenizes the utterance when the utterance is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
+LUIS tokenizes the utterance when it is added to an intent. The tokenization for these utterances adds spaces before and after the hyphen, `Where is HRF - 123456?`  The regular expression is applied to the utterance in its raw form, before it is tokenized. Because it is applied to the _raw_ form, the regular expression doesn't have to deal with word boundaries. 
 
 
 ## Add FindForm intent
@@ -96,7 +97,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 2. Select **Create new entity** button on the Entities Page. 
 
-3. In the pop-up dialog, enter the new entity name `HRF-number`, select **RegEx** as the entity type, enter `hrf-[0-9]{6}` as the Regex, and then select **Done**.
+3. In the pop-up dialog, enter the new entity name `HRF-number`, select **RegEx** as the entity type, enter `hrf-[0-9]{6}` as the **Regex** value, and then select **Done**.
 
     ![Screenshot of pop-up dialog setting new entity properties](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
