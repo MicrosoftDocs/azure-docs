@@ -5,16 +5,16 @@ services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: ???
+ms.topic: conceptual
 ---
 
 # Rendering using Azure
 
-Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes just single images are created from the scene files, but it is very common for multiple images to be modelled and rendered, so they can be combined in an animation.
+Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes single images are created from the scene files, but it is common for multiple images to be modeled and rendered, so they can be combined in an animation.
 
 The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry but is also used in many other areas such as advertising, retail, oil and gas, and manufacturing.
 
-The process of rendering is very computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can leverage Azure and Azure Batch to run many renders in parallel.
+The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can leverage Azure and Azure Batch to run many renders in parallel.
 
 ## Why use Azure for rendering?
 
@@ -22,7 +22,7 @@ For many reasons, rendering is a workload perfectly suited for Azure and Azure B
 
 * Rendering jobs can be split into many pieces that can be run in parallel using multiple VMs:
   * Animations consist of many frames and each frame can be rendered in parallel.  The more VMs available to process each frame, the faster all the frames and the animation can be produced.
-  * Some rendering software allows single frames to be broken up into multiple pieces, such as tiles or slices.  Each piece can be rendered separately then combined into the final image when all pieces have finished.  The more VMs that are available, the faster a frame can be rendered.
+  * Some rendering software allows single frames to be broken up into multiple pieces, such as tiles or slices.  Each piece can be rendered separately, then combined into the final image when all pieces have finished.  The more VMs that are available, the faster a frame can be rendered.
 * Rendering projects can leverage huge scale:
   * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames.  A huge amount of compute is required to render high-quality animations in a reasonable amount of time.  In some cases, over 100,000 cores have been leveraged to render thousands of frames in parallel.
 * Rendering projects are project-based and require varying amounts of compute:
@@ -34,8 +34,8 @@ For many reasons, rendering is a workload perfectly suited for Azure and Azure B
   * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or to use certain features. 
 * Low-priority VMs reduce costs:
   * Low-priority VMs are available for a large discount compared to regular on-demand VMs and are suitable for some job types.
-  * Low-priority VMs can be allocated by Azure Batch, with Batch providing a lot of flexibility on how they are used to cater for a broad set of requirements.  Batch pools can consist of both dedicated and low-priority VMs, with it being possible to change the mix of VM types at any time.
-* If only VMs are required, then VMSS allows low-priority VMs to be configured.
+  * Low-priority VMs can be allocated by Azure Batch, with Batch providing flexibility on how they are used to cater for a broad set of requirements.  Batch pools can consist of both dedicated and low-priority VMs, with it being possible to change the mix of VM types at any time.
+* If only VMs are required, then virtual machine scale set allows low-priority VMs to be configured.
 
 ## Options for rendering on Azure
 
@@ -48,7 +48,7 @@ The most common case is for there to be an existing on-premises render farm bein
 The render management software either has Azure support built-in or we make available plug-ins that add Azure support.  See the article on <Azure render manager integration> for more information on the supported render managers and functionality enabled.
 
 ### Custom rendering workflow
-The requirement may simply be for VMs to extend an existing render farm with a job scheduling capability.
+The requirement may be for VMs to extend an existing render farm with a job scheduling capability.
 
 * Virtual Machine Scale Sets can be used to allocate multiple VMs and optionally leverage low-priority VMs.
 * Azure Batch pools can allocate larger numbers of VMs, allow low-priority VMs to be used and dynamically auto-scaled with full-priced on-demand VM, and provides pay-for-use licensing for popular rendering applications.
@@ -68,7 +68,7 @@ Azure Batch is used for many workloads, but the following capabilities are avail
 * Pay-per-use licensing for rendering applications:
   * You can choose to pay for the applications by the minute, in addition to paying for the compute VMs.  This avoids having to buy licenses and potentially configure a license server for the applications.  Paying for use also means that it is possible to cater for varying and unexpected load as there is not a fixed number of licenses.
   * It is also possible to use the pre-installed applications with your own licenses and not use the pay-per-use licensing.
-* Plug-in’s for client design and modelling applications:
+* Plug-in’s for client design and modeling applications:
   * Plug-in’s allow end-users to utilize Azure Batch directly from client application, such as Autodesk Maya, enabling them to create pools, submit jobs and leverage more compute capacity to perform faster renders.
 * Render manager integration:
   * Azure Batch is integrated into render management applications or plug-ins are available to provide the Azure Batch integration.
@@ -81,10 +81,10 @@ There are several ways to use Azure Batch, all of which also apply to Azure Batc
   * The Azure command line or PowerShell can be used to script Batch use.
   * In particular, the Batch CLI template support makes it much easier to create pools and submit jobs.
 * UIs:
-  * Batch Explorer is a cross-platform client tool that also allows Batch accounts to be managed and monitored, but provides some richer capabilities compared to the Azure Portal UI.  A set of pool and job templates are provided that are tailored for each supported application and can be used to easily create pools and to submit jobs.
-  * The Azure Portal can be used to manage and monitor Azure Batch.
+  * Batch Explorer is a cross-platform client tool that also allows Batch accounts to be managed and monitored, but provides some richer capabilities compared to the Azure portal UI.  A set of pool and job templates are provided that are tailored for each supported application and can be used to easily create pools and to submit jobs.
+  * The Azure portal can be used to manage and monitor Azure Batch.
 * Client application plug-in’s:
-  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modelling applications.  The plug-ins mainly invoke the Batch Labs application with contextual information about the current 3D model.
+  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Labs application with contextual information about the current 3D model.
   * The following plug-ins are available:
     * [Azure Batch for Maya](https://github.com/Azure/azure-batch-maya)
     * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)

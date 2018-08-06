@@ -5,7 +5,7 @@ services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: ???
+ms.topic: conceptual
 ---
 
 # Using Azure Batch rendering
@@ -19,10 +19,10 @@ There are several ways to use Azure Batch rendering:
   * In particular, the [Batch CLI template support](https://docs.microsoft.com/en-us/azure/batch/batch-cli-templates) makes it much easier to create pools and submit jobs.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) is a cross-platform client tool that also allows Batch accounts to be managed and monitored.
-  * For each of the rendering applications, a number of pool and job templates are provided that can be used to easily create pools and to submit jobs.  A set of templates are listed in the application UI, with the template files being accessed from GitHub.
+  * For each of the rendering applications, a number of pool and job templates are provided that can be used to easily create pools and to submit jobs.  A set of templates is listed in the application UI, with the template files being accessed from GitHub.
   * Custom templates can be authored from scratch or the supplied templates from GitHub can be copied and modified.
 * Client application plug-in’s:
-  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modelling applications.  The plug-ins mainly invoke the Batch Labs application with contextual information about the current 3D model.
+  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Labs application with contextual information about the current 3D model.
 
 The best way to try Azure Batch rendering and simplest way for end-users, who are not developers and not Azure experts, is to use the Batch Explorer application, either directly or invoked from a client application plug-in.
 
@@ -41,7 +41,7 @@ A comprehensive set of templates is available for use with Batch Explorer that m
 
 Templates are provided that cater for all the applications present on the Marketplace rendering VM images.  For each application multiple templates exist, including pool templates to cater for CPU and GPU pools, Windows and Linux pools; job templates include full frame or tiled Blender rendering and V-Ray distributed rendering.
 
-The set of supplied templates will be expanded over time to cater for other Batch capabilities, such as pool auto-scaling.  It is also possible for custom templates to be produced, from scratch or by modifying the supplied templates.
+The set of supplied templates will be expanded over time to cater for other Batch capabilities, such as pool auto-scaling.  It's also possible for custom templates to be produced, from scratch or by modifying the supplied templates.
 
 * Custom templates can be used by selecting the ‘Local templates’ item in the ‘Gallery’ section of Batch Explorer.
 
@@ -51,7 +51,7 @@ The ‘Data’ section in Batch Explorer allows files to be copied between a loc
 
 ## Client application plug-ins
 
-Plug-ins are available for some of the client applications.  The plug-ins allow pools and jobs to be create directly from the application or invoke Batch Explorer.
+Plug-ins are available for some of the client applications.  The plug-ins allow pools and jobs to be created directly from the application or invoke Batch Explorer.
 
 * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)

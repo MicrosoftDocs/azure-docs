@@ -5,28 +5,28 @@ services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: ???
+ms.topic: conceptual
 ---
 
 # Pre-installed rendering applications
 
-It is possible to use any rendering applications with Azure Batch, but Azure Marketplace VM images are available with common applications pre-installed.
+It's possible to use any rendering applications with Azure Batch, but Azure Marketplace VM images are available with common applications pre-installed.
 
-Where applicable, pay-per-use licensing is available for the pre-installed rendering applications.  When a Batch pool is created, the required applications can be specified and both the cost of VM and application will be billed per minute.  Application prices are listed on the Azure Batch pricing page.
+Where applicable, pay-per-use licensing is available for the pre-installed rendering applications. When a Batch pool is created, the required applications can be specified and both the cost of VM and applications will be billed per minute. Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
-On CentOS 7 rendering nodes:
+For CentOS 7 rendering nodes:
 
 * Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
-* Autodesk Maya I/O 2018 Update 2 cut 201711281015
+* Autodesk Maya I/O 2018 Update 2 (cut 201711281015)
 * Autodesk Arnold for Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
 * Autodesk Arnold for Maya 2018 (Arnold version 5.0.1.4) MtoA-2.1.0.3-2018
 * Chaos Group V-Ray for Maya 2017 (version 3.60.04) 
 * Chaos Group V-Ray for Maya 2018 (version 3.60.04) 
 * Blender (2.68)
 
-On Windows Server 2016 rendering nodes:
+For Windows Server 2016 rendering nodes:
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459) 
 * Autodesk Maya I/O 2018 Update 2 (version 18.2.0.6476) 
