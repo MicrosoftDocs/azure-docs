@@ -219,8 +219,8 @@ If you no longer want a node to be managed by Azure Automation DSC, you can unre
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, click **All resources** and then the name of your Automation account.
-3. On the **Automation account** page, click **DSC Nodes**.
-4. On the **DSC Nodes** page, click on the name of the node you want to unregister.
+3. On the **Automation account** page, click **State configuration (DSC)** and then click the **Nodes** tab.git 
+4. On the **Nodes** tab, click on the name of the node you want to unregister.
 5. On the page for that node, click **Unregister**.
 
     ![Screenshot of the Node page highlighting the Unregister button](./media/automation-dsc-getting-started/UnregisterNode.png)
