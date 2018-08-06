@@ -26791,6 +26791,21 @@
             "source_path": "articles/active-directory/device-management-azuread-joined-devices-frx.md",
             "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
+            "redirect_url": "/azure/active-directory/conditional-access/baseline-protection",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-locations.md",
+            "redirect_url": "/azure/active-directory/conditional-access/location-condition",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
+            "redirect_url": "/azure/active-directory/conditional-access/what-if-tool",
+            "redirect_document_id": true
         }
     ]
 }

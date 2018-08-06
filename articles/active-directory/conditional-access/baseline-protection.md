@@ -20,9 +20,9 @@ ms.author: markvi
 ms.reviewer: nigu
 
 ---
-# What is baseline protection? - preview  
+# What is baseline protection (preview)?  
 
-In the last year, identity attacks have increased by 300%. To protect your environment from the ever-increasing attacks, Azure Active Directory (Azure AD) introduces a new feature called baseline protection. Baseline protection is a set of predefined [conditional access policies](active-directory-conditional-access-azure-portal.md). The goal of these policies is to ensure that you have at least the baseline level of security enabled in all editions of Azure AD. 
+In the last year, identity attacks have increased by 300%. To protect your environment from the ever-increasing attacks, Azure Active Directory (Azure AD) introduces a new feature called baseline protection. Baseline protection is a set of predefined [conditional access policies](../active-directory-conditional-access-azure-portal.md). The goal of these policies is to ensure that you have at least the baseline level of security enabled in all editions of Azure AD. 
 
 This article provides you with an overview of baseline protection in Azure Active Directory.
 
@@ -45,9 +45,9 @@ Users with access to privileged accounts have unrestricted access to your enviro
 - Security administrator  
 
 
-![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
+![Azure Active Directory](./media/baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 
@@ -61,11 +61,11 @@ While baseline policies are in preview, they are by default not activated. You n
 
 2. In the **Azure portal**, on the left navbar, click **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
+    ![Azure Active Directory](./media/baseline-protection/02.png)
 
 3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/05.png)
+    ![Conditional access](./media/baseline-protection/05.png)
 
 4. In the list of policies, click a policy that starts with **Baseline policy:**. 
 
@@ -73,8 +73,6 @@ While baseline policies are in preview, they are by default not activated. You n
 
 6. Click **Save**. 
  
-
-
   
  
 
@@ -84,7 +82,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](./managed-service-identity/overview.md) or [service principals with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [Managed Service Identity (MSI)](../managed-service-identity/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 
@@ -93,6 +91,6 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
