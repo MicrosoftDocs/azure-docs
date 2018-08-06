@@ -95,7 +95,8 @@ Authenticate with your credentials.
 Select the desired subscription.
 
 ```powershell
-Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmSubscription
+$subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure subscription
+Get-AzureRmSubscription -Subscriptionid $subscriptionId | Select-AzureRmSubscription
 ```
 
 ### Step 3
@@ -103,8 +104,8 @@ Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmS
 Create a resource group (skip this step if you're using an existing resource group).
 
 ```powershell
-$resGroupName = "apim-appGw-RG"
-$location = "West US"
+$resGroupName = "apim-appGw-RG" # resource group name
+$location = "West US"           # Azure region
 New-AzureRmResourceGroup -Name $resGroupName -Location $location
 ```
 
@@ -164,9 +165,9 @@ $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location $location
 Create an API Management service inside the Virtual Network.
 
 ```powershell
-$apimServiceName = "ContosoApi"
-$apimOrganization = "Contoso"
-$apimAdminEmail = "admin@contoso.com"
+$apimServiceName = "ContosoApi"       # API Management service instance name
+$apimOrganization = "Contoso"         # organization name
+$apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzureRmApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
@@ -179,13 +180,13 @@ After the above command succeeds refer to [DNS Configuration required to access 
 Upload the certificates with private keys for the domains. In this example, we will use `api.contoso.net` and `portal.contoso.net`.  
 
 ```powershell
-$gatewayHostname = "api.contoso.net"
-$portalHostname = "portal.contoso.net"
-$gatewayCertCerPath = <full path to api.contoso.net .cer file>
-$gatewayCertPfxPath = <full path to api.contoso.net .pfx file>
-$portalCertPfxPath = <full path to portal.contoso.net .pfx file>
-$gatewayCertPfxPassword = <password for api.contoso.net pfx certificate>
-$portalCertPfxPassword = <password for portal.contoso.net pfx certificate>
+$gatewayHostname = "api.contoso.net"                 # API gateway host
+$portalHostname = "portal.contoso.net"               # API developer portal host
+$gatewayCertCerPath = "C:\Users\Contoso\gateway.cer" # full path to api.contoso.net .cer file
+$gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx" # full path to api.contoso.net .pfx file
+$portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.contoso.net .pfx file
+$gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
+$portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
 
 $certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
 $certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
