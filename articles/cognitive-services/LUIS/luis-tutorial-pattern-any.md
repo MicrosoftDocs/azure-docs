@@ -104,7 +104,9 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 4. If you removed the keyPhrase entity, add it back to the app. 
 
-5. Train the app.
+## Train the LUIS app
+
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
