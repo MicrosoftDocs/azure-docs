@@ -286,7 +286,7 @@ In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/document
 
 Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
 
-- One master node and up to four worker node, the **/hana/shared** volume would need to be 2TB of size. 
+- One master node and up to four worker node, the **/hana/shared** volume would need to be 2 TB of size. 
 - One master node and five and eight worker nodes, the size of **/hana/shared** should be 4 TB. 
 - One master node and 9 to 12 worker nodes, a size of 6 TB for **/hana/shared** would be required. 
 - One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8 TB in size.
@@ -344,7 +344,7 @@ As your Azure VM infrastructure is deployed, and all other preparations are done
 - Install the SAP HANA master node according to SAP's documentation
 - **After the installation, you need to change the global.ini file and add the parameter 'basepath_shared = no' to the global.ini**. This parameter will enable SAP HANA to run in scale-out without 'shared' **/hana/data** and **/hana/log** volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - After changing the global.ini parameter, restart the SAP HANA instance
-- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, e.g. the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Following this setup routine, the scale-out configuration you installed is going to use non-shared disks for running **/hana/data** and **/hana/log**. Whereas the **/hana/shared** volume will be placed on the highly available NFS share.
 
@@ -353,8 +353,7 @@ Following this setup routine, the scale-out configuration you installed is going
 
 In addition to the SAP HANA certifications on Azure M-series VMs SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
 (see SAP HANA Dynamic Tiering documentation linsk further down). While there is no difference in installing the product or 
-operating it e.g. via SAP HANA Cockpit inside an Azure Virtual Machine there are a few important items which are mandatory for
-official support on Azure. These key points are described below. Throughout the article the abbreviation "DT 2.0" will be used
+operating it, for example, via SAP HANA Cockpit inside an Azure Virtual Machine, there are a few important items, which are mandatory for official support on Azure. These key points are described below. Throughout the article, the abbreviation "DT 2.0" will be used
 instead of the full name Dynamic Tiering 2.0.
 
 SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use cases right now are native HANA applications.
