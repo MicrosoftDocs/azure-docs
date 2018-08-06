@@ -195,3 +195,5 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 [Enable self service password reset for your organization](quickstart-sspr.md)
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
+
+[End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)

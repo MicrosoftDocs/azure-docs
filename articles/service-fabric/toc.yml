@@ -187,6 +187,8 @@
         href: service-fabric-dnsservice.md
       - name: Reverse proxy
         href: service-fabric-reverseproxy.md
+      - name: Set up and configure reverse proxy 
+        href: service-fabric-reverseproxy-setup.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics

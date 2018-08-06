@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding BetterWorks from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding BetterWorks from the gallery
 To configure the integration of BetterWorks into Azure AD, you need to add BetterWorks from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of BetterWorks into Azure AD, you need to add Bette
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
 
-4. In the search box, type **BetterWorks**.
+1. In the search box, type **BetterWorks**.
 
 	![Creating an Azure AD test user](./media/betterworks-tutorial/tutorial_betterworks_search.png)
 
-5. In the results panel, select **BetterWorks**, and then click **Add** button to add the application.
+1. In the results panel, select **BetterWorks**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/betterworks-tutorial/tutorial_betterworks_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In BetterWorks, assign the value of the **user name** in Azure AD as the value o
 To configure and test Azure AD single sign-on with BetterWorks, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a BetterWorks test user](#creating-a-betterworks-test-user)** - to have a counterpart of Britta Simon in BetterWorks that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a BetterWorks test user](#creating-a-betterworks-test-user)** - to have a counterpart of Britta Simon in BetterWorks that is linked to the Azure AD representation of user.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_samlbase.png)
 
-3. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**:
+1. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**:
 
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_url.png)
 
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.betterworks.com/saml2/acs/`
 
-4. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
+1. On the **BetterWorks Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
 	
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_url1.png)
 
@@ -124,15 +124,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These are not real values. Update these values with the Reply URL, Identifier and actual Sign On URL. Contact [BetterWorks support team](mailto:support@betterworks.com) to get these values.
  
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_certificate.png)  
 
-5. BetterWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**Attribute**" tab of the application. The following screenshot shows an example for this. 
+1. BetterWorks application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**Attribute**" tab of the application. The following screenshot shows an example for this. 
 
     ![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_attribute.png)
 
-6. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
+1. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
  
    | Attribute Name | Attribute Value |
    | -------------- |  ------------ |
@@ -150,11 +150,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
    d. Click **Ok**.
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **BetterWorks** side, you need to send the downloaded **Metadata XML** to [BetterWorks support team](mailto:support@betterworks.com).
+1. To configure single sign-on on **BetterWorks** side, you need to send the downloaded **Metadata XML** to [BetterWorks support team](mailto:support@betterworks.com).
 
 
 > [!TIP]
@@ -172,15 +172,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_01.png) 
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+1. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_02.png) 
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+1. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/betterworks-tutorial/create_aaduser_04.png) 
 
@@ -208,23 +208,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **BetterWorks**.
+1. In the applications list, select **BetterWorks**.
 
 	![Configure Single Sign-On](./media/betterworks-tutorial/tutorial_betterworks_app.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 

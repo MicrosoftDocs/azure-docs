@@ -98,7 +98,7 @@ To learn about [samples](https://github.com/microsoftgraph/msgraph-community-sam
 
 ## See also
 
-[Azure Active Directory developer's guide](active-directory-developers-guide.md)
+[Azure Active Directory developer's guide](azure-ad-developers-guide.md)
 
 [Azure AD Graph API conceptual and reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 

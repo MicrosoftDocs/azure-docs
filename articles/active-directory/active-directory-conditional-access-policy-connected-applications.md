@@ -58,11 +58,11 @@ In simple terms, managed devices are devices that are under *some sort* of organ
 
 To get a device registered with Azure AD, you have three options:
 
-- **[Azure AD registered devices](device-management-introduction.md#azure-ad-registered-devices)** - to get a personal device registered with Azure AD
+- **[Azure AD registered devices](devices/overview.md#azure-ad-registered-devices)** - to get a personal device registered with Azure AD
 
-- **[Azure AD joined devices](device-management-introduction.md#azure-ad-joined-devices)** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
+- **[Azure AD joined devices](devices/overview.md#azure-ad-joined-devices)** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
 
-- **[Hybrid Azure AD joined devices](device-management-introduction.md#hybrid-azure-ad-joined-devices)** - to get a Windows 10 device that is joined to an on-premises AD registered with Azure AD.
+- **[Hybrid Azure AD joined devices](devices/overview.md#hybrid-azure-ad-joined-devices)** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
 
 To become a managed device, a registered device must be either a **Hybrid Azure AD joined device** or a **device that has been marked as compliant**.  
 
@@ -75,7 +75,7 @@ In your conditional access policy, you can select **Require Hybrid Azure AD join
 
 ![Device-based conditions](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-This setting only applies to Windows 10 devices that are joined to an on-premises AD. You can only register these devices with Azure AD using a Hybrid Azure AD join, which is an [automated process](device-management-hybrid-azuread-joined-devices-setup.md) to get a Windows 10 device registered. 
+This setting only applies to Windows 10 or down-level devices such as Windows 7 or Windows 8 that are joined to an on-premises AD. You can only register these devices with Azure AD using a Hybrid Azure AD join, which is an [automated process](device-management-hybrid-azuread-joined-devices-setup.md) to get a Windows 10 device registered. 
 
 ![Device-based conditions](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 
@@ -109,5 +109,5 @@ For a device that is marked as compliant, you can assume that:
 
 ## Next steps
 
-Before configuring a device-based conditional access policy in your environment, you should take a look at the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md).
+Before configuring a device-based conditional access policy in your environment, you should take a look at the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md).
 
