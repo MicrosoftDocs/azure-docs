@@ -4,7 +4,6 @@ description: The ABFS Hadoop Filesystem driver
 services: storage
 keywords: 
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
