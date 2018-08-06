@@ -19,7 +19,7 @@ There are four parts to the Azure CycleCloud QuickStart:
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
 
-Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
+Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order. As most HPC environments run on Linux, this quickstart assumes basic Linux familiarity.
 
 ## QuickStart 1: Install and Setup Azure CycleCloud
 
@@ -37,12 +37,12 @@ For the purposes of this quickstart, much of the setup has been done via the ARM
 
 For this quickstart, you will need:
 
-1. An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with your Azure subscription.
-3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory.
-4. An SSH keypair.
+1. An active Azure subscription.
+  * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. A Shell session in a terminal.
+  * If you are using a Windows machine, we encourage you to use the [browser-based Bash shell](https://shell.azure.com). Alternatively, you can install and use the Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 
 ### Service Principal
 
