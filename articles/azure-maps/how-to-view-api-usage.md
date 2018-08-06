@@ -24,15 +24,15 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## View detailed metrics
 
-1. Login to your Azure subscription in the [portal](https://portal.azure.com). 
+1. Sign in to your Azure subscription in the [portal](https://portal.azure.com). 
 
-2. Click the **All resources** menu item on the left hand side and navigate to your *Azure Maps Account*.
+2. Click the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
 3. Once your Maps account is open, click on the **Metrics** menu on the left.
 
 4. On the **Metrics** pane, choose between one of the following:
-    a. **Availability** which shows the *Average* of API availability over a period of time, or 
-    b. **Usage** which shows how the usage *Count* for your account. 
+    a. **Availability**, which shows the *Average* of API availability over a period of time, or 
+    b. **Usage**, which shows how the usage *Count* for your account. 
 
     ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
@@ -53,7 +53,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## Next steps
 
-Now that you have learned how to track your Azure Maps usage, you may proceed to learn more advanced features such as:
+Now that you have learned how to track your Azure Maps usage, you may proceed to learn more advanced features, such as:
 
 * [Vehicle consumption](consumption-model.md), or
 * [Extend GeoJSON](extend-geojson.md)
