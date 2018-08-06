@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: jeedes
 
 ---
@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Qlik Sense Enterprise Domain and URLs single sign-on information](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Qlik Sense Fully Qualifed Hostname>:4443//azure/hub`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
     | |
@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-    `https://<Qlik Sense Fully Qualifed Hostname>:4443//samlauthn/`
+    `https://<Qlik Sense Fully Qualifed Hostname>:4443/samlauthn/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL, Which are explained later in this tutorial or contact [Qlik Sense Enterprise Client support team](https://www.qlik.com/us/services/support) to get these values.
