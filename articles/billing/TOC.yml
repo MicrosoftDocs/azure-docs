@@ -25,11 +25,11 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Save with reserved instances
+  - name: Save with Azure reservations
     items:
-    - name: What are reserved instances?
+    - name: What are Azure reservations?
       href: billing-save-compute-costs-reservations.md
-    - name: Buy a reserved instance 
+    - name: Buy a reservation 
       items:
       - name: Virtual machine  
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
@@ -43,7 +43,7 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Manage reserved instances
+    - name: Manage Azure reservations
       href: billing-manage-reserved-vm-instance.md
 - name: Manage account
   items:
