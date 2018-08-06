@@ -20,21 +20,22 @@ In this tutorial, you learn how to:
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand composite entities 
-> * Add composite entity to extract data
-> * Train, and publish app
+> * Add composite entity 
+> * Train app
+> * Publish app
 > * Query endpoint of app to see LUIS JSON response
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you don't have the Human Resources app from the [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [previous](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version.  
+If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version.  
 
 ## Composite entity is a logical grouping 
-The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain more types of entities. 
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
 
- Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
+Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
 
 In this app, the employee name is defined in the **Employee** list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. 
 
@@ -49,7 +50,7 @@ Example utterances in the **MoveEmployee** intent include:
  
 The move request should include at least the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
 
-The extracted data from the endpoint should contain this information and return it at in a `RequestEmployeeMove` composite entity. 
+The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity. 
 
 ## Create composite entity
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
@@ -71,17 +72,23 @@ The extracted data from the endpoint should contain this information and return 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select **Create new composite** on in the pop-up menu. 
+6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select enter. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
 
+    Notice that the prebuilt entity, number, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
+
     ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Select the magnifying glass on the toolbar to remove the filter. 
 
+9. Remove the word `tomorrow` from the filter so you can see all the example utterances again. 
+
 ## Label example utterances with composite entity
+
+
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
@@ -272,23 +279,19 @@ The extracted data from the endpoint should contain this information and return 
             }
           ]
         }
-      ],
-      "sentimentAnalysis": {
-        "label": "neutral",
-        "score": 0.5
-      }
+      ]
     }
     ```
 
   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
 ## What has this LUIS app accomplished?
-This app identified a natural language query intention and returned the extracted data as a named group. 
+This app identified a natural language query intention and returned the extracted data as a composite group. 
 
-Your chatbot now has enough information to determine the primary action and the related details in the utterance. 
+Your chat bot now has enough information to determine the primary action and the related details found in the utterance. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. 
 
 ## Clean up resources
 
