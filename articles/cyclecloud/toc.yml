@@ -21,11 +21,9 @@
   - name: Auto Scale
     href: autoscale.md
   - name: Cluster Templates
-    items:
-      - name: Cluster Templates
-        href: cluster-templates.md
-      - name: Environments
-        href: environments.md
+    href: cluster-templates.md
+  - name: Environments
+    href: environments.md
   - name: Projects
     href: projects.md
   - name: Storage
