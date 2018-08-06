@@ -9,7 +9,7 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
 ---
 # Azure CLI samples for Event Grid
@@ -25,5 +25,5 @@ The following table includes links to Azure CLI samples for Event Grid.
 | [Subscribe to resource group](scripts/event-grid-cli-resource-group.md)| Subscribes to events for a resource group. |
 | [Subscribe to resource group and filter for a resource](scripts/event-grid-cli-resource-group-filter.md)| Subscribes to events for a resource group and filters events for a resource. |
 |**Event Grid topics**||
-| [Create custom topic](scripts/event-grid-cli-create-custom-topic.md) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk.  |
+| [Create custom topic](scripts/event-grid-cli-create-custom-topic.md) | Creates an Event Grid custom topic, and returns the endpoint and key.  |
 | | |
