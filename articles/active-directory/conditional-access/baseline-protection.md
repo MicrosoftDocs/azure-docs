@@ -20,7 +20,7 @@ ms.author: markvi
 ms.reviewer: nigu
 
 ---
-# What is baseline protection? - preview  
+# What is baseline protection (preview)?  
 
 In the last year, identity attacks have increased by 300%. To protect your environment from the ever-increasing attacks, Azure Active Directory (Azure AD) introduces a new feature called baseline protection. Baseline protection is a set of predefined [conditional access policies](../active-directory-conditional-access-azure-portal.md). The goal of these policies is to ensure that you have at least the baseline level of security enabled in all editions of Azure AD. 
 
