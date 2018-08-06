@@ -26729,17 +26729,17 @@
         },
         {
             "source_path": "articles/power-bi-embedded/migrate-from-power-bi-workspace-collections.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-from-powerbi-embedded",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/power-bi-embedded/migrate-tool.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-tool",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-tool",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/power-bi-embedded/migrate-code-snippets.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/power-bi/developer/migrate-code-snippets",
+            "redirect_url": "https://docs.microsoft.com/power-bi/developer/migrate-code-snippets",
             "redirect_document_id": true
         },
         {
