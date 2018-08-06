@@ -240,6 +240,7 @@ Policy supports the following types of effect:
 
 For **append**, you must provide the following details:
 
+
 ```json
 "effect": "append",
 "details": [{
@@ -264,6 +265,8 @@ The list of aliases is always growing. To discover what aliases are currently su
 - Azure PowerShell
 
   ```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
 $azContext = Get-AzureRmContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
