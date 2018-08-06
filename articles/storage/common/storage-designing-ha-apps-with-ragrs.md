@@ -23,7 +23,9 @@ A common feature of cloud-based infrastructures like Azure Storage is that they 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS is the same thing as GRS except that you have read access to the secondary copy. For more information about the different Azure Storage redundancy options, see [Azure Storage replication](https://docs.microsoft.com/azure/storage/storage-redundancy). The replication article also shows the pairings of the primary and secondary regions.
+This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS offers geo-redundant storage with read access to the secondary copy.
+
+For information about which primary regions are paired with which secondary regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
 
