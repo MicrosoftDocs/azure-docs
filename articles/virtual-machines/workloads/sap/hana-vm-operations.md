@@ -78,14 +78,14 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities. Because the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
-- Enable read/write volume on **/hana/log** of a 250MB/sec at minimum with 1MB I/O sizes
-- Enable read activity of at least 400MB/sec for **/hana/data** for 16MB and 64MB I/O sizes
-- Enable write activity of at least 250MB/sec for **/hana/data** with 16MB and 64MB I/O sizes
+- Enable read/write volume on **/hana/log** of a 250 MB/sec at minimum with 1 MB I/O sizes
+- Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
+- Enable write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
 Given that low storage latency is critical for DBMS systems, even as those DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
 
-- 64KB or 128KB for **/hana/data**
-- 32KB for **/hana/log**
+- 64 KB or 128 KB for **/hana/data**
+- 32 KB for **/hana/log**
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.
