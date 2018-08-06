@@ -12,48 +12,41 @@ ms.author: kegodin
 ---
 
 # Getting Started With Acoustics in Unity
-This is a step-by-step guide in getting started with the Acoustics toolkit inside a blank Unity project. For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md).
+For more information about what Microsoft Acoustics is, check out the [Introduction to Microsoft Acoustics](index.md).
 
 ## Supported platforms
 * Unity 2018+ for bakes, using .NET 4.x scripting runtime version
-* Unity 5.2+ for runtime, using 48kHz sample rate, "Best Performance" DSP buffer size
+* Unity 5.2+ for runtime, using 48-kHz sample rate, "Best Performance" DSP buffer size
 * Windows 64-bit Unity Editor
 * Windows desktop, UWP, and Android targets
 * Azure Batch subscription required for bakes
 
 ## Importing the plugin
-To get started with the runtime, import the UnityPackage to your project. 
+Import the UnityPackage to your project. 
 * In Unity, go to Assets > Import Package > Custom Package... 
- 
 ![Import Package](media/ImportPackage.png)  
-
 * Choose MicrosoftAcoustics.unitypackage
 
-## Calculating the Acoustics for your scene
-The first step in creating the runtime acoustics for your project is to calculate the acoustic properties of each scene. This calculation process is called doing an acoustics "bake". 
-To do an acoustics bake you need to tell the acoustics simulation engine what elements of your scene are relevant acoustically, and you also need a navigation mesh so the bake doesn't
-have to take extra time to compute the acoustics for areas the player will never go.
-The following will get you started with doing a basic acoustics bake for your project. For a complete detailed walkthrough, please read the [Bake UI Walkthrough](BakeUIWalkthrough.md) page.
+## Calculating the acoustics for your scene
+The first step in creating the runtime acoustics for your project is to [calculate the acoustic properties of each scene](BakeUIWalkthrough.md).
+
 ### Enable the plugin
-The Bake portion of the Acoustics toolkit only works with .NET 4.x scripting runtime version. Change this in the player settings. Unity will need to restart after changing this.
+The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings, then Unity will need to restart.
+![Player Settings](media/PlayerSettings.png) ![.NET 4.5](media/Net45.png)
 
-![Player Settings](media/PlayerSettings.png) ![.NET 4.5](media/Net45.png)  
 ### Create a Navigation Mesh
-Use the standard Unity workflow to create a navigation mesh for your project. A walkthrough for how to do this can be found here: [Create a Unity Navigation Mesh](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html)
-### Mark your scene objects for acoustics
-In Unity, go to Window > Acoustics. This will bring up the Acoustics window.
+Use the standard [Unity workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) to create a navigation mesh for your project.
 
+### Mark your scene objects for acoustics
+Bring up the acoustics window using Window > Acoustics in Unity.
 ![Open Acoustics Window](media/WindowAcoustics.png)
 
-Make sure you have nothing selected in the Unity hierarchy window, and then in the Acoustics window's Object tab click the "Acoustics Geometry" checkbox to mark all meshes and terrains in your scene as relevant for the acoustics.
-If you're using the Demo project, you will also need to un-mark the cube containing the sound source by selecting it and un-checking the "Acoustics Geometry" checkbox. This is how you un-mark objects that should not be participating in the acoustics
-(such as collision meshes, for example). Ignore the Navigation checkbox for now, since we are using a Unity Navigation Mesh.
+De-select any selected items in the Unity hierarchy window, then in the acoustics Object tab click "Acoustics Geometry" to mark all meshes and terrains in your scene as acoustics geometry.
 
+To unmark meshes or terrain for acoustics, select it and uncheck the "Acoustics Geometry" checkbox.
 ![Bake Geometry](media/BakeObjectsTabGeometry.png)
 
-On the Materials tab assign the materials used in your scene to something that looks reasonable in the dropdown in the Acoustics column. Try not to have anything assigned to "Default". 
-Having the settings on the page be correct is important for your acoustics to work properly, so come back to this and refine it when you do the [full walkthrough](BakeUIWalkthrough.md).
-
+On the Materials tab, assign the acoustic materials to materials used in your scene. The 'Default' material has absorption equivalent to concrete.
 ![Materials Tab](media/MaterialsTab.png)
 
 ### Preview the probes
@@ -91,7 +84,7 @@ Sometimes, the results of the bake sound great for one category of sounds, but a
 * **Decay Time Scale** - This value adjusts the decay time in a multiplicative fashion. For example, if the acoustics table query results in a decay time of 750 milliseconds, but this value is set to 1.5, the resulting decay time is 1.125 seconds.
 * **Enable Acoustics** - This checkbox controls whether this sound source uses the results of the acoustics table query or not. When this checkbox is checked, all acoustic parameters from the lookup table will be applied. When this checkbox is unchecked, the source will still be spatialized, but no acoustics lookup query is performed. The result is through-the-wall directionality, with no obstruction/occlusion effects, and no dynamic change in reverb.  
 
-If a global adjustment of the parameters is desired, it would be tedious to change all parameters on each individual source. Instead, go the the Audio Mixer, click on the channel strip with the Microsoft Acoustics Mixer, and adjust the parameters on the Microsoft Acoustics Mixer effect. This will update the Reverb Power and Decay Time for all spatialized sources in the scene.  
+If a global adjustment of the parameters is desired, it would be tedious to change all parameters on each individual source. Instead, go to the Audio Mixer, click on the channel strip with the Microsoft Acoustics Mixer, and adjust the parameters on the Microsoft Acoustics Mixer effect. This will update the Reverb Power and Decay Time for all spatialized sources in the scene.  
 ![Mixer Customization](media/MixerParameters.png)  
 
 ## Viewing bake information at runtime
@@ -100,4 +93,4 @@ Just like you can view voxels and probe points at design time, you can also view
 If you do find that the visual components in the game have a transform applied to them, apply the same transform to the GameObject hosting the Acoustics Manager. Use the voxel grid to make sure everything lines up, otherwise your audio sources will not sound correct as you navigate through the scene.
 
 ## Deploying to Android
-To use Microsoft Acoustics on Android, simply change your build target to Android. Note that certain versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+To use Microsoft Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).

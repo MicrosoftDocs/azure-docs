@@ -1,7 +1,6 @@
 - name: Acoustics Documentation
+  href: index.md
   items:
-  - name: Home
-    href: index.md
   - name: Getting Started
     href: GettingStarted.md
   - name: Create Azure Batch Account
