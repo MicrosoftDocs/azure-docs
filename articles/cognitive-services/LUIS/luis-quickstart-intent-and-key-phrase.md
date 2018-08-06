@@ -8,7 +8,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 08/06/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand key subject matter in a user's utterances. 
 
