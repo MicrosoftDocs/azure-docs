@@ -45,9 +45,13 @@ For this quickstart, you will need:
 
 ### Open a Terminal Window
 
-[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell@2x.png "Launch Cloud Shell")](https://shell.azure.com)
+Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
 
-If this is your first time using Cloud Shell, select **Bash** as the type. If you are prompted to create storage,
+```azurecli-interactive
+whoami
+```
+
+Select **Bash** as the shell type. If you are prompted to create storage, the default option is fine.
 
 ### Service Principal
 
@@ -66,6 +70,8 @@ The output will display a series of information. You will need to save the `appi
 "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
+
+
 
 ### SSH KeyPair
 
