@@ -28,7 +28,7 @@ This topic explains how to configure Azure AD app-based conditional access.
 
 ## Overview
 
-With [Azure AD conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
+With [Azure AD conditional access](overview.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
 
 You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
 
@@ -40,10 +40,10 @@ In the conditional access terminology, these client apps are known as **approved
 ![Conditional access](./media/app-based-conditional-access/05.png)
 
 
-For a list of approved client apps, see [approved client app requirement](conditional-access/technical-reference.md#approved-client-app-requirement).
+For a list of approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
 
 
-You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](conditional-access/require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
+You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
 
  
 
@@ -52,14 +52,14 @@ You can combine app-based conditional access policies with other policies such a
 
 This topic assumes that you are familiar with:
 
-- The [approved client app requirement](conditional-access/technical-reference.md#approved-client-app-requirement) technical reference.
+- The [approved client app requirement](technical-reference.md#approved-client-app-requirement) technical reference.
 
 
-- The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- The basic concepts of [conditional access in Azure Active Directory](overview.md).
 
-- How to [configure a conditional access policy](conditional-access/app-based-mfa.md).
+- How to [configure a conditional access policy](app-based-mfa.md).
 
-- The [migration of conditional access policies](conditional-access/best-practices.md#policy-migration).
+- The [migration of conditional access policies](best-practices.md#policy-migration).
  
 
 ## Prerequisites

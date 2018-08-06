@@ -44,13 +44,13 @@ Following are some common access concerns that conditional access can help you w
 
 
 
-- **[Sign-in risk](conditional-access/conditions.md#sign-in-risk)**: Azure AD Identity Protection detects sign-in risks. How do you restrict access if a detected sign-in risk indicates a bad actor? What if you would like to get stronger evidence that a sign-in was  performed by the legitimate user? What if your doubts are strong enough to even block specific users from accessing an app? By configuring 
+- **[Sign-in risk](conditions.md#sign-in-risk)**: Azure AD Identity Protection detects sign-in risks. How do you restrict access if a detected sign-in risk indicates a bad actor? What if you would like to get stronger evidence that a sign-in was  performed by the legitimate user? What if your doubts are strong enough to even block specific users from accessing an app? By configuring 
 
-- **[Network location](conditional-access/location-condition.md)**: Azure AD is accessible from anywhere. What if an access attempt is performed from a network location that is not under the control of your IT department? Using a username and password combination might be good enough as proof of identity for access attempts to your resources from your corporate network. What if you demand a stronger proof of identity for access attempts that are initiated from other unexpected countries or regions of the world? What if you even want to block access attempts from certain locations?  
+- **[Network location](location-condition.md)**: Azure AD is accessible from anywhere. What if an access attempt is performed from a network location that is not under the control of your IT department? Using a username and password combination might be good enough as proof of identity for access attempts to your resources from your corporate network. What if you demand a stronger proof of identity for access attempts that are initiated from other unexpected countries or regions of the world? What if you even want to block access attempts from certain locations?  
 
-- **[Device management](conditional-access/conditions.md#device-platforms)**: In Azure AD, users can access cloud apps from a broad range of devices including mobile and also personal devices. What if you demand that access attempts should only be performed using devices that are managed by your IT department? What if you even want to block certain device types from accessing cloud apps in your environment? 
+- **[Device management](conditions.md#device-platforms)**: In Azure AD, users can access cloud apps from a broad range of devices including mobile and also personal devices. What if you demand that access attempts should only be performed using devices that are managed by your IT department? What if you even want to block certain device types from accessing cloud apps in your environment? 
 
-- **[Client application](conditional-access/conditions.md#client-apps)**: Today, you can access many cloud apps using different app types such as web-based apps, mobile apps, or desktop apps. What if an access attempt is performed using a client app type that causes known issues? What if you require a device that is managed by your IT department for certain app types? 
+- **[Client application](conditions.md#client-apps)**: Today, you can access many cloud apps using different app types such as web-based apps, mobile apps, or desktop apps. What if an access attempt is performed using a client app type that causes known issues? What if you require a device that is managed by your IT department for certain app types? 
 
 These questions and the related answers represent common access scenarios for Azure AD conditional access. 
 Conditional access is a capability of Azure Active Directory that enables you to handle access scenarios using a policy-based approach.
@@ -62,16 +62,16 @@ A conditional access policy is a definition of an access scenario using the foll
 
 ![Control](./media/overview/10.png)
 
-**Then do this** defines the response of your policy. It is important to note that the objective of a conditional access policy is not to grant access to a cloud app. In Azure AD, granting access to cloud apps is subject of user assignments. With a conditional access policy, you control how authorized users (users that have been granted access to a cloud app) can access cloud apps under specific conditions. In your response, you enforce additional requirements such as multi-factor authentication, a managed device, and others. In the context of Azure AD conditional access, the requirements your policy enforces are called access controls. In the most restrictive form, your policy can block access. For more information, see [Access controls in Azure Active Directory conditional access](conditional-access/controls.md).
+**Then do this** defines the response of your policy. It is important to note that the objective of a conditional access policy is not to grant access to a cloud app. In Azure AD, granting access to cloud apps is subject of user assignments. With a conditional access policy, you control how authorized users (users that have been granted access to a cloud app) can access cloud apps under specific conditions. In your response, you enforce additional requirements such as multi-factor authentication, a managed device, and others. In the context of Azure AD conditional access, the requirements your policy enforces are called access controls. In the most restrictive form, your policy can block access. For more information, see [Access controls in Azure Active Directory conditional access](controls.md).
      
 
 **When this happens** defines the reason for triggering your policy. This reason is characterized by a group of conditions that have been satisfied. In Azure AD conditional access, the two assignment conditions play a special role:
 
-- **[Users](conditional-access/conditions.md#users-and-groups)**: The users performing an access attempt (**Who**). 
+- **[Users](conditions.md#users-and-groups)**: The users performing an access attempt (**Who**). 
 
-- **[Cloud apps](conditional-access/conditions.md#cloud-apps)**: The targets of an access attempt (**What**).    
+- **[Cloud apps](conditions.md#cloud-apps)**: The targets of an access attempt (**What**).    
 
-These two conditions are mandatory in a conditional access policy. In addition to the two mandatory conditions, you can also include additional conditions that describe how the access attempt is performed. Common examples are using mobile devices or locations that are outside your corporate network. For more information, see [Conditions in Azure Active Directory conditional access](conditional-access/conditions.md).   
+These two conditions are mandatory in a conditional access policy. In addition to the two mandatory conditions, you can also include additional conditions that describe how the access attempt is performed. Common examples are using mobile devices or locations that are outside your corporate network. For more information, see [Conditions in Azure Active Directory conditional access](conditions.md).   
 
 The combination of conditions with your access controls represents a conditional access policy. 
 
