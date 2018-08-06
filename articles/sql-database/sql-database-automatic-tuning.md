@@ -2,13 +2,14 @@
 title: Azure SQL Database - automatic tuning | Microsoft Docs
 description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
 services: sql-database
-author: jovanpop-msft
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: jovanpop
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Automatic tuning in Azure SQL Database

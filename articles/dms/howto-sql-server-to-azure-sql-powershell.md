@@ -10,7 +10,7 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/05/2018
 ---
 
 # Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
@@ -27,7 +27,7 @@ In this article, you learn how to:
 To complete these steps, you need:
 
 - [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
-- TCP/IP protocol is disabled by default with SQL Server Express installation. Enable it by following the [instructions in this article](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the [instructions in this article](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
