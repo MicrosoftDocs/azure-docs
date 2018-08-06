@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
 
-In this quickstart, you will create a new cluster using PBS Pro as a scheduler, and LAMMPS
+In this quickstart, you will create a new cluster using the Grid Engine template.
 
 ## Select a Cluster Type
 
