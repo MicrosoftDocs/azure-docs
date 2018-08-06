@@ -15186,6 +15186,26 @@
             "redirect_document_id": false
         },
 		{
+            "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-recovery-disks.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-portal.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-recovery-disks-portal.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-windows",
+            "redirect_document_id": false
+        },
+		{
             "source_path": "articles/virtual-machines/linux/troubleshoot-device-names-problems.md",
             "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems",
             "redirect_document_id": false

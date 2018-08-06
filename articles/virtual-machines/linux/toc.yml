@@ -467,14 +467,6 @@
         href: detailed-troubleshoot-ssh-connection.md
     - name: Understand system reboot
       href: understand-vm-reboot.md
-    - name: Device names are changed
-      href: troubleshoot-device-names-problems.md
-    - name: VM recovery access
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
     - name: Attached VHDs
       items:
       - name: Unexpected reboots of VMs with attached VHDs  

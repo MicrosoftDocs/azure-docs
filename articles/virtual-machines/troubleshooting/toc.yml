@@ -76,3 +76,17 @@
     href: troubleshoot-deploy-vm-windows.md
 - name: Device names are changed
   href: troubleshoot-device-names-problems.md
+- name: VM recovery access
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-linux.md

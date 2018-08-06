@@ -376,12 +376,6 @@
       href: reset-rdp.md
     - name: Understand a system reboot
       href: understand-vm-reboot.md
-    - name: VM recovery access
-      items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
     - name: Use nested virtualization 
       href: troubleshoot-vm-by-use-nested-virtualization.md
     - name: Troubleshoot attached VHDs
