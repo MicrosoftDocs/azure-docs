@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
 
-In this quickstart, you will create a new cluster using the Grid Engine template.
+In this quickstart, you will create a new cluster using the Grid Engine template, and create an alert for the cluster to notify you if it exceeds a monthly budget.
 
 ## Select a Cluster Type
 
