@@ -9,29 +9,27 @@
   - name: "Quickstart: Send search queries using the REST API"
     expanded: true
     items:
-    - name: "Quickstart: C#"
+    - name: "C#"
       href: "quickstarts/csharp.md"
-    - name: "Quickstart: Java"
+    - name: "Java"
       href: quickstarts/java.md
-    - name: "Quickstart: Node.js"
+    - name: "Node.js"
       href: quickstarts/nodejs.md
-    - name: "Quickstart: PHP"
+    - name: "PHP"
       href: quickstarts/php.md
-    - name: "Quickstart: Python"
+    - name: "Python"
       href: quickstarts/python.md
-    - name: "Quickstart: Ruby"
+    - name: "Ruby"
       href: quickstarts/ruby.md
   - name: "Quickstart: Request and filter images using the SDK"
     items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: "Quickstart: C#"
+    - name: "C#"
       href: image-search-sdk-quickstart.md
-    - name: "Quickstart: Node.js"
+    - name: "Node.js"
       href: image-search-sdk-node-quickstart.md
-    - name: "Quickstart: Python"
+    - name: "Python"
       href: image-sdk-python-quickstart.md
-    - name: "Quickstart: Java"
+    - name: "Java"
       href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:

@@ -26594,6 +26594,11 @@
             "source_path": "articles/active-directory/device-management-azuread-joined-devices-frx.md",
             "redirect_url": "/azure/active-directory/devices/azuread-joined-devices-frx",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Image-Search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart",
+            "redirect_document_id": true
         }
     ]
 }
