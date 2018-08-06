@@ -220,7 +220,7 @@ Remove the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   UnInstall-SecurityDaemon -Verbose -Force
+   Uninstall-SecurityDaemon
    ```
 
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.

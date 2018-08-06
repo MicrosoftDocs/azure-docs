@@ -4,7 +4,7 @@ description: Use a simulated device on your Windows machine to test automatic de
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/04/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

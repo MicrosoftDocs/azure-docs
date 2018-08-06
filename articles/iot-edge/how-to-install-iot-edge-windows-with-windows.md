@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 08/06/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Windows to use with Windows containers
@@ -29,16 +29,16 @@ Azure IoT Edge with Windows containers can be used with:
 >[!NOTE]
 >For container engine installation on Windows IoT Core, follow steps from [provision an IoT Core device article][lnk-iot-core] and then continue with instructions below.
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
+Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (for example, Docker). You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. 
 
-Ensure Docker for Windows is [configured to use Windows containers][lnk-docker-config].
+Configure Docker for Windows [to use Windows containers][lnk-docker-config].
 
 ## Install the Azure IoT Edge Security Daemon
 
 >[!NOTE]
 >Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE directory). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
-A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have a lot of devices to provision. Depending on your provisioning choice, choose the appropriate installation script. 
+A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to provision. Depending on your provisioning choice, choose the appropriate installation script. 
 
 ### Install and manually provision
 
@@ -53,11 +53,14 @@ A single IoT Edge device can be provisioned manually using a device connections 
    Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
-4. When prompted for a **DeviceConnectionString**, provide the connection string that you retrieved from IoT Hub. 
+4. When prompted for a **DeviceConnectionString**, provide the connection string that you retrieved from IoT Hub. Do not include quotes around the connection string. 
 
 ### Install and automatically provision
 
-1. Follow the steps in [Create an provision a simulated TPM Edge device on Windows][lnk-dps] to set up the Device Provisioning Service and retrieve its **Scope ID**, then simulate a TPM device and retrieve its **Registration ID**. 
+1. Follow the steps in [Create and provision a simulated TPM Edge device on Windows][lnk-dps] to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT Hub, continue with the installation.  
+
+   >[!TIP]
+   >Keep the window that's running the TPM simulator open during your installation and testing. 
 
 2. On your IoT Edge device, run PowerShell as an administrator. 
 
@@ -71,8 +74,6 @@ A single IoT Edge device can be provisioned manually using a device connections 
 4. When prompted, provide the **ScopeID** and **RegistrationID** for your provisioning service and device. 
 
 ## Verify successful installation
-
-If you used the **manual configuration** steps in the previous section, the IoT Edge runtime should be successfully provisioned and running on your device. If you used the **automatic configuration** steps, then you need to complete some additional steps so that the runtime can register your device with your IoT hub on your behalf. For next steps, see [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
 You can check the status of the IoT Edge service by: 
 
@@ -102,7 +103,9 @@ iotedge list
 
 ## Next steps
 
-If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
+Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules][lnk-modules].
+
+If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
 
 
 <!-- Images -->
@@ -117,4 +120,4 @@ If you are having problems with the Edge runtime installing properly, checkout t
 [lnk-trouble]: troubleshoot.md
 [lnk-docker-for-windows]: https://www.docker.com/docker-windows
 [lnk-iot-core]: how-to-install-iot-core.md
-
+[lnk-modules]: how-to-deploy-modules-portal.md
