@@ -3,12 +3,11 @@ title: Azure Storage Service Encryption using customer-managed keys in Azure Key
 description: Use the Azure Storage Service Encryption feature to encrypt Azure Blob storage and Azure Files on the service side when storing the data, and decrypt it when retrieving the data using customer-managed keys.
 services: storage
 author: lakasa
-manager: jeconnoc
-
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
+ms.component: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
