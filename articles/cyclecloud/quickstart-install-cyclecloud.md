@@ -40,9 +40,14 @@ For this quickstart, you will need:
 1. An active Azure subscription.
   * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 2. A Shell session in a terminal.
-  * If you are using a Windows machine, we encourage you to use the [browser-based Bash shell](https://shell.azure.com). Alternatively, you can install and use the Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+  * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
+  * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
+### Open a Terminal Window
+
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell@2x.png "Launch Cloud Shell")](https://shell.azure.com)
+
+If this is your first time using Cloud Shell, select **Bash** as the type. If you are prompted to create storage,
 
 ### Service Principal
 
