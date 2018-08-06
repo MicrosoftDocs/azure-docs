@@ -19,7 +19,7 @@ There are four parts to the Azure CycleCloud QuickStart:
 3. Submit jobs to observe the cluster autoscale up and down automatically
 4. Clean up resources
 
-Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order.
+Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order. As most HPC environments run on Linux, this quickstart assumes basic Linux familiarity.
 
 ## QuickStart 1: Install and Setup Azure CycleCloud
 
@@ -37,12 +37,24 @@ For the purposes of this quickstart, much of the setup has been done via the ARM
 
 For this quickstart, you will need:
 
-1. An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. The [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with your Azure subscription.
-3. A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory.
-4. An SSH keypair.
+1. An active Azure subscription.
+  * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. A Shell session in a terminal.
+  * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
+  * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+### Open a Terminal Window
+
+Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
+
+```azurecli-interactive
+Click the "Try It" button to open Cloud Shell
+```
+
+> [!NOTE]
+> The "Try It" button opens a Cloud Shell in your current browser window. It does not enter the command for you. You will need to click the "Copy" button to save to your clipboard, then paste the command into your Shell.
+
+Select **Bash** as the shell type. If you are prompted to create storage, the default option is fine.
 
 ### Service Principal
 
@@ -64,13 +76,19 @@ The output will display a series of information. You will need to save the `appi
 
 ### SSH KeyPair
 
-An SSH key is needed to log into the CycleCloud VM and clusters. Specify a public SSH key to use with all clusters, as well as the application server.
+An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
 
-On Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a ssh keypair. You will need to do the following:
+```azurecli-interactive
+ssh-keygen -f ~/.ssh/id_rsa  -N "" -b 4096
+```
 
-  1. **Save Public Key**
-  2. **Save Private Key**
-  3. **Conversions - Export Open SSH Key**
+Retrieve the SSH public key with:
+
+```azurecli-interactive
+cat ~/.ssh/id_rsa.pub
+```
+
+The output will begin with ssh-rsa followed by a long string of characters. Copy and save this key now.
 
 On Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
 
@@ -95,12 +113,16 @@ The deployment process runs an installation script as a custom script extension,
 To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
 
 ```azurecli-interactive
-az network public-ip list -g AzureCycleCloud | grep fqdn
+az network public-ip show -g ${RESOURCE-GROUP} -n cycle-ip --query dnsSettings.fqdn
 ```
 
 Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser. The Azure CycleCloud End User License Agreement will be displayed - click to accept it.
 
-You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above.
+Create a Site Name for your installation. You can use any name here:
+
+![CycleCloud Welcome screen](~/images/cc-first-login.png)
+
+You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
 
 ![CycleCloud Create New User screen](~/images/create-new-user.png)
 

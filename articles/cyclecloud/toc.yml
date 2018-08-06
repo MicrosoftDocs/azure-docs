@@ -17,17 +17,13 @@
 - name: Concepts
   items:
   - name: Clusters and Nodes
-    items:
-    - name: Clusters and Nodes
-      href: clusters.md
-    - name: Auto Scale
-      href: autoscale.md
+    href: clusters.md
+  - name: Auto Scale
+    href: autoscale.md
   - name: Cluster Templates
-    items:
-      - name: Cluster Templates
-        href: cluster-templates.md
-      - name: Environments
-        href: environments.md
+    href: cluster-templates.md
+  - name: Environments
+    href: environments.md
   - name: Projects
     href: projects.md
   - name: Storage
@@ -136,13 +132,15 @@
     href: https://github.com/CycleCloudCommunity
   - name: Azure Community Forums
     href: https://social.msdn.microsoft.com/Forums/en-US/home
+  - name: Azure CycleCloud Feedback
+    href: https://feedback.azure.com/forums/914491--azure-cyclecloud
+  - name: Release Notes
+    items:
+    - name: Current Release
+      href: release-notes.md
+    - name: v7.5.0
+      href: ~/release-notes/7-5-0.md
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy
     href: data-policy.md
-- name: Release Notes
-  items:
-  - name: Current Release
-    href: release-notes.md
-  - name: v7.5.0
-    href: ~/release-notes/7-5-0.md

@@ -16,32 +16,19 @@ If you've completed QuickStarts 1 and 2, you've installed, set up, and configure
 
 ## Master Node
 
-To run jobs on the standard Grid Engine cluster, you must log onto the cluster's **Master** node, where the Grid Engine job queue resides. There are two ways to connect to that VM:
+To run jobs on the standard Grid Engine cluster, you must log onto the cluster's **Master** node, where the Grid Engine job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
-1.	Connect using the CycleCloud CLI, which is installed on the CycleCloud VM, or
-2.	SSH using the private key `cyclecloud.pem`, which is specified during the cluster creation
+![CycleCloud Master Node Connect Button](~/images/cluster-connect-button.png)
 
-For this quickstart, you will use the first method to connect to your cluster Master's node.
+The pop-up window shows the connection string you would use to connect to the cluster:
 
-## Connect to the CycleCloud VM
+![CycleCloud Master Node Connection Screen](~/images/connect-to-master-node.png)
 
-SSH into the CycleCloud VM with the `cycleadmin` user and the SSH key created in QuickStart 1:
+Copy the appropriate string and use your SSH client or to connect to the master node. You can also use Cloud Shell for this:
 
 ```azurecli-interactive
-$ ssh -i ${SSH PRIVATE KEY} cycleadmin@${CycleCloudFQDN}
+Copy the "ssh cyclecloud@" string from the window and enter it in Cloud Shell
 ```
-
-## Connect to the Master Node
-
-Connecting to the Grid Engine master node uses both the GUI and the CLI.
-
-From within the GUI, click on **connect** to get the connection information. You will get a connection string similar to the following, but with your cluster name:
-
-``` CLI
-[cycleadmin@cycleserver ~]$ cyclecloud connect master -c cc-intro-training
-```
-
-Execute the `cyclecloud connect` command using the CycleCloud CLI which is installed on the CycleCloudVM.
 
 You're now logged into the Grid Engine master node.
 
