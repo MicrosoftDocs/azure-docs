@@ -8,7 +8,8 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: vvasic 
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Enable automatic tuning
