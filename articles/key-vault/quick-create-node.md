@@ -17,11 +17,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 
-<<<<<<< HEAD
-This quickstart shows how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs)
-=======
-This QuickStart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
->>>>>>> upstream/master
+This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs)
 
 > [!div class="checklist"]
 > * Create a Key Vault.
