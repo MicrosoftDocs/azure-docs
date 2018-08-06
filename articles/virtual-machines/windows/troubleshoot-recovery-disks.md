@@ -23,6 +23,8 @@ If your Windows virtual machine (VM) in Azure encounters a boot or disk error, y
 
 
 ## Recovery process overview
+Now we can use Azure PowerShell to change the OS disk for a VM. So we do not have to delete and recreate the VM.
+
 The troubleshooting process is as follows:
 
 1. Stop the affected VM.
@@ -39,53 +41,6 @@ Connect-AzureRmAccount
 ```
 
 In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
-
-
-## Determine boot issues
-You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
-
-```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
-    -Name myVM -Windows -LocalPath C:\Users\ops\
-```
-
-Review the screenshot to determine why the VM is failing to boot. Note any specific error messages or error codes provided.
-
-
-## View existing virtual hard disk details
-Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD).
-
-The following example gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
-
-```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-```
-
-Look for `Vhd URI` within the `StorageProfile` section from the output of the preceding command. The following truncated example output shows the `Vhd URI` towards the end of the code block:
-
-```powershell
-RequestId                     : 8a134642-2f01-4e08-bb12-d89b5b81a0a0
-StatusCode                    : OK
-ResourceGroupName             : myResourceGroup
-Id                            : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
-Name                          : myVM
-Type                          : Microsoft.Compute/virtualMachines
-...
-StorageProfile                :
-  ImageReference              :
-    Publisher                 : MicrosoftWindowsServer
-    Offer                     : WindowsServer
-    Sku                       : 2016-Datacenter
-    Version                   : latest
-  OsDisk                      :
-    OsType                    : Windows
-    Name                      : myVM
-    Vhd                       :
-      Uri                     : https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    Caching                   : ReadWrite
-    CreateOption              : FromImage
-```
-
 
 ## Stop the VM
 
@@ -113,11 +68,17 @@ $vm = get-azurermvm `
 -ResourceGroupName $resourceGroupName `
 -Name $vmName
 
-#Create the snapshot from the OS disk
+#Create the snapshot configuration for the OS disk
 $snapshot =  New-AzureRmSnapshotConfig `
 -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
 -Location $location `
 -CreateOption copy
+
+#Take the snapshot
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
 
 A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In the next step, we will create a disk from this snapshot.
@@ -127,11 +88,15 @@ A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In
 This script creates a managed disk from a snapshot named `mysnapshot`.  
 
 ```powershell
-#Provide the subscription Id
+#Set the context to the subscription Id where Managed Disk will be created
+#You can skip this step if the subscription is already selected
+
 $subscriptionId = 'yourSubscriptionId'
 
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
 #Provide the name of your resource group
-$resourceGroupName ='yourResourceGroupName'
+$resourceGroupName ='myResourceGroup'
 
 #Provide the name of the snapshot that will be used to create Managed Disks
 $snapshotName = 'mySnapshot' 
@@ -143,16 +108,13 @@ $diskName = 'NewOSDisk'
 $diskSize = '128'
 
 #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'PremiumLRS'
+$storageType = 'StandardLRS'
 
 #Provide the Azure region (e.g. westus) where Managed Disks will be located.
 #This location should be same as the snapshot location
 #Get all the Azure location using command below:
 #Get-AzureRmLocation
 $location = 'eastus'
-
-#Set the context to the subscription Id where Managed Disk will be created
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 $snapshot = Get-AzureRmSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
  
@@ -271,6 +233,16 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
+## Determine boot issues
+You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
+
+```powershell
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
+    -Name myVM -Windows -LocalPath C:\Users\ops\
+```
+
+Review the screenshot to determine why the VM is failing to boot. Note any specific error messages or error codes provided.
+
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
