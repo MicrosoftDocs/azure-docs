@@ -11606,6 +11606,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/traffic-manager/traffic-manager-create-profile.md",
+            "redirect_url": "/azure/traffic-manager/quickstart-create-traffic-manager-profile",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/traffic-manager/traffic-manager-endpoints.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-endpoints",
             "redirect_document_id": false
