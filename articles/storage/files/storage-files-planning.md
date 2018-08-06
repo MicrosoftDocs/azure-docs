@@ -3,12 +3,11 @@ title: Planning for an Azure Files deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
 author: wmgries
-manager: aungoo
-
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Planning for an Azure Files deployment

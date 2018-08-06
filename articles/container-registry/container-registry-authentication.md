@@ -32,7 +32,7 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 ## Service principal
 
-You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
+You can assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
 The available roles are:
 
