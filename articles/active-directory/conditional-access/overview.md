@@ -25,7 +25,7 @@ ms.reviewer: calebb
 
 Security is a top concern for organizations using the cloud. A key aspect of cloud security is identity and access when it comes to managing your cloud resources. In a mobile-first, cloud-first world, users can access your organization's resources using a variety of devices and apps from anywhere. As a result of this, just focusing on who can access a resource is not sufficient anymore. To master the balance between security and productivity, you also need to factor how a resource is accessed into an access control decision. With Azure AD conditional access, you can address this requirement. Conditional access is a capability of Azure Active Directory. With conditional access, you can implement automated access control decisions for accessing your cloud apps that are based on conditions. 
 
-![Control](./media/active-directory-conditional-access-azure-portal/81.png)
+![Control](./media/overview/81.png)
 
 This article provides you with a conceptual overview of conditional access in Azure AD.
 
@@ -60,7 +60,7 @@ Conditional access is a capability of Azure Active Directory that enables you to
 
 A conditional access policy is a definition of an access scenario using the following pattern:
 
-![Control](./media/active-directory-conditional-access-azure-portal/10.png)
+![Control](./media/overview/10.png)
 
 **Then do this** defines the response of your policy. It is important to note that the objective of a conditional access policy is not to grant access to a cloud app. In Azure AD, granting access to cloud apps is subject of user assignments. With a conditional access policy, you control how authorized users (users that have been granted access to a cloud app) can access cloud apps under specific conditions. In your response, you enforce additional requirements such as multi-factor authentication, a managed device, and others. In the context of Azure AD conditional access, the requirements your policy enforces are called access controls. In the most restrictive form, your policy can block access. For more information, see [Access controls in Azure Active Directory conditional access](conditional-access/controls.md).
      
@@ -75,7 +75,7 @@ These two conditions are mandatory in a conditional access policy. In addition t
 
 The combination of conditions with your access controls represents a conditional access policy. 
 
-![Control](./media/active-directory-conditional-access-azure-portal/51.png)
+![Control](./media/overview/51.png)
 
 With Azure AD conditional access, you can control how authorized users can access your cloud apps. The objective of a conditional access policy is to enforce additional access controls on an access attempt to a cloud app that is driven by how an access attempt is performed.
 
@@ -90,12 +90,12 @@ Using conditional access requires an Azure AD Premium license. To find the right
 ## Next steps
 
 - If you want to know more about:
-    - Conditions, see [Conditions in Azure Active Directory conditional access](conditional-access/conditions.md).
+    - Conditions, see [Conditions in Azure Active Directory conditional access](conditions.md).
 
-    - Access controls, see [Access controls in Azure Active Directory conditional access](conditional-access/controls.md).
+    - Access controls, see [Access controls in Azure Active Directory conditional access](controls.md).
 
-- If you want to get some experience with configuring conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
+- If you want to get some experience with configuring conditional access policies, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
 
 - If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)
