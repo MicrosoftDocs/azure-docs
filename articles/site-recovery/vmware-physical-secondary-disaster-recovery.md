@@ -22,7 +22,7 @@ The Azure Site Recovery scenario for replication between on-premises VMware or p
 
 -	From August 2018, the scenario can’t be configured in the Recovery Services vault, and the  InMage Scout software can’t be downloaded from the vault. Existing deployments will be supported. 
 -	From December 31 2020, the scenario won’t be supported.
-- Existing partners can on-board new customers on ASR Scout untill End-of-support date.
+- Existing partners can onboard new customers on ASR Scout until End-of-support date.
 
 During 2018 and 2019, two updates will be released: 
 
