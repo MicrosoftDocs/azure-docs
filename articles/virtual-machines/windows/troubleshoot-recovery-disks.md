@@ -32,7 +32,8 @@ The troubleshooting process is as follows:
 3. Create a disk from the OS disk snapshot.
 4. Attach the disk as a data disk to a troubleshoot VM.
 5. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the copied OS disk.
-6. Change the OS disk for the affected VM.
+6. Unmount and detach disk from troubleshoot VM.
+7. Change the OS disk for the affected VM.
 
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
 
