@@ -230,7 +230,6 @@ When policy is evaluating existing resources in the background, it sets **action
 
 ### Effect
 
-
 Policy supports the following types of effect:
 
 - **Deny**: generates an event in the audit log and fails the request
