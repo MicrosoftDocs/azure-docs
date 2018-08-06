@@ -458,7 +458,7 @@ In both of the previous cases, user authentication stays the same. It takes plac
 This document discussed content protection using 3 DRMs and access control via token authentication, its design, and its implementation by using Azure, Azure Media Services, and Azure Media Player.
 
 * A reference design was presented that contains all the necessary components in a DRM subsystem.
-* A reference implementation was presented on Azure, AzureMedia Services, and Azure Media Player.
+* A reference implementation was presented on Azure, Azure Media Services, and Azure Media Player.
 * Some topics directly involved in the design and implementation were also discussed.
 
 ## Next steps
