@@ -15461,6 +15461,66 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-permissions.md",
+            "redirect_url": "/azure/active-directory/develop/v1-permissions-and-consent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-scopes.md",
+            "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-conditional-access-developer.md",
+            "redirect_url": "/azure/active-directory/develop/conditional-access-dev-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-compare.md",
+            "redirect_url": "/azure/active-directory/develop/azure-ad-endpoint-comparison",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-single-sign-on-protocol-reference.md",
+            "redirect_url": "/azure/active-directory/develop/single-sign-on-saml-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-single-sign-out-protocol-reference.md",
+            "redirect_url": "/azure/active-directory/develop/single-sign-out-saml-protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-federation-metadata.md",
+            "redirect_url": "/azure/active-directory/develop/azure-ad-federation-metadata",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-branding-guidelines.md",
+            "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-app-terms-service-privacy-statement.md",
+            "redirect_url": "/azure/active-directory/develop/howto-add-terms-of-service-privacy-statement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-sso-android.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-sso-ios.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
@@ -26906,6 +26966,39 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
             "redirect_url": "/azure/active-directory/conditional-access/what-if-tool",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-faqs.md",
+            "redirect_url": "/azure/active-directory/conditional-access/faqs",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-migration.md",
+            "redirect_url": "/azure/active-directory/conditional-access/policy-migration",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-migration-mfa.md",
+            "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-technical-reference.md",
+            "redirect_url": "/azure/active-directory/conditional-access/technical-reference",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-untrusted-networks.md",
+            "redirect_url": "/azure/active-directory/conditional-access/untrusted-networks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",
+            "redirect_url": "/azure/active-directory/conditional-access/require-managed-devices",
+            "redirect_document_id": true
         }
+
+
+
     ]
 }
