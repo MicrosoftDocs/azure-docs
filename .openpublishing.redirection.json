@@ -15501,7 +15501,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/develop/active-directory-app-terms-service-privacy-statement..md",
+            "source_path": "articles/active-directory/develop/active-directory-app-terms-service-privacy-statement.md",
             "redirect_url": "/azure/active-directory/develop/howto-add-terms-of-service-privacy-statement",
             "redirect_document_id": false
         },
