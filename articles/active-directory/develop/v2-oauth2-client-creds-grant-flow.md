@@ -28,7 +28,7 @@ You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/
 >
 >
 
-In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
+In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
 ## Protocol diagram
 The entire client credentials flow looks similar to the next diagram. We describe each of the steps later in this article.
