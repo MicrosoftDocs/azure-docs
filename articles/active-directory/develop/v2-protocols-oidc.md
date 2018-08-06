@@ -33,7 +33,7 @@ OpenID Connect is an authentication protocol built on OAuth 2.0 that you can use
 
 The most basic sign-in flow has the steps shown in the next diagram. Each step is described in detail in this article.
 
-![OpenID Connect protocol: Sign-in](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![OpenID Connect protocol: Sign-in](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 ## Fetch the OpenID Connect metadata document
 
@@ -75,14 +75,14 @@ Typically, you would use this metadata document to configure an OpenID Connect l
 
 ## Send the sign-in request
 
-When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md), with these important distinctions:
+When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md), with these important distinctions:
 
 * The request must include the `openid` scope in the `scope` parameter.
 * The `response_type` parameter must include `id_token`.
 * The request must include the `nonce` parameter.
 
 > [!IMPORTANT]
-> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](active-directory-v2-protocols-implicit.md)** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
+> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](v2-oauth2-implicit-grant-flow.md)** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
 
 For example:
 
@@ -135,7 +135,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md). |
+| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md). |
 | state |If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
@@ -173,7 +173,7 @@ The following table describes error codes that can be returned in the `error` pa
 
 Receiving an ID token is not sufficient to authenticate the user. You must also validate the ID token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](active-directory-v2-tokens.md#validating-tokens) and [important information about signing key rollover](active-directory-v2-tokens.md#validating-tokens), see the [v2.0 tokens reference](active-directory-v2-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
+You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](v2-id-and-access-tokens.md#validating-tokens) and [important information about signing key rollover](v2-id-and-access-tokens.md#validating-tokens), see the [v2.0 tokens reference](v2-id-and-access-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
 You also might want to validate additional claims, depending on your scenario. Some common validations include:
@@ -182,7 +182,7 @@ You also might want to validate additional claims, depending on your scenario. S
 * Ensure that the user has required authorization or privileges.
 * Ensure that a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md).
+For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md).
 
 After you have validated the ID token, you can begin a session with the user. Use the claims in the ID token to get information about the user in your app. You can use this information for display, records, authorizations, and so on.
 
@@ -211,7 +211,7 @@ Many web apps need to not only sign the user in, but also to access a web servic
 
 The full OpenID Connect sign-in and token acquisition flow looks similar to the next diagram. We describe each step in detail in the next sections of the article.
 
-![OpenID Connect  protocol: Token acquisition](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect  protocol: Token acquisition](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:
@@ -253,7 +253,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](active-directory-v2-tokens.md). |
+| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](v2-id-and-access-tokens.md). |
 | code |The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. An authorization code is very short-lived. Typically, an authorization code expires in about 10 minutes. |
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -276,4 +276,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in [OAuth protocol documentation](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in [OAuth protocol documentation](v2-oauth2-auth-code-flow.md#request-an-access-token).

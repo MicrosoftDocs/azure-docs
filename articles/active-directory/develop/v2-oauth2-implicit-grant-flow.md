@@ -41,13 +41,13 @@ However, if you would prefer not to use a library in your single page app and se
 ## Protocol diagram
 The entire implicit sign-in flow looks something like this - each of the steps are described in detail below.
 
-![OpenId Connect Swimlanes](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![OpenId Connect Swimlanes](./media/v2-oauth2-implicit-grant-flow/convergence_scenarios_implicit.png)
 
 ## Send the sign-in request
-To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
+To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
 > [!IMPORTANT]
-> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](active-directory-v2-protocols-implicit.md)** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
+> In order to succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](v2-oauth2-implicit-grant-flow.md)** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
 
 ```
 // Line breaks for legibility only
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Included if `response_type` includes `token`. Will always be `Bearer`. |
 | expires_in |Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
 | scope |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. |
-| id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user. More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md). |
+| id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user. More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](v2-id-and-access-tokens.md). |
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 #### Error response
@@ -126,7 +126,7 @@ error=access_denied
 ## Validate the id_token
 Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [v2.0 token reference](active-directory-v2-tokens.md) for more information, including [Validating Tokens](active-directory-v2-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](active-directory-v2-tokens.md#validating-tokens). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
+You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [v2.0 token reference](v2-id-and-access-tokens.md) for more information, including [Validating Tokens](v2-id-and-access-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](v2-id-and-access-tokens.md#validating-tokens). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
@@ -135,7 +135,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 * Ensuring the user has proper authorization/privileges
 * Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information on the claims in an id_token, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md).
+For more information on the claims in an id_token, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md).
 
 Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc.
 
@@ -227,7 +227,7 @@ Once you receive an access_token, make sure to validate the signature of the tok
 * **issuer** claim, to verify that the token was issued to your app by the v2.0 endpoint
 * **not before** and **expiration time** claims, to verify that the token has not expired
 
-For more information about the claims present in the access token, see the [v2.0 endpoint token reference](active-directory-v2-tokens.md)
+For more information about the claims present in the access token, see the [v2.0 endpoint token reference](v2-id-and-access-tokens.md)
 
 ## Refreshing tokens
 The implicit grant does not provide refresh tokens. Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically. To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior. If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.

@@ -176,7 +176,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Access-Panel]:  https://myapps.microsoft.com
 [AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
-[AAD-App-SP-Objects]: ./active-directory-application-objects.md
+[AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
@@ -197,7 +197,7 @@ In this article, you learned how to build an application that can sign in a user
 
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
-[AAD-App-SP-Objects]: ./active-directory-application-objects.md
+[AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
@@ -207,7 +207,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
-[AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
+[AAD-Tokens-Claims]:v1-id-and-access-tokens.md
 [AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

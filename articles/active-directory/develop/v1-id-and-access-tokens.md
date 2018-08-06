@@ -24,14 +24,14 @@ ms.custom: aaddev
 Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token. 
 
 ## Types of tokens
-Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens. It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token. Each of these tokens is represented as a "bearer token".
+Azure AD supports the [OAuth 2.0 authorization protocol](v1-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens. It also supports authentication and sign-in via [OpenID Connect](v1-protocols-openid-connect-code.md), which introduces a third type of token, the id_token. Each of these tokens is represented as a "bearer token".
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though authentication with Azure AD is required in order to receive a bearer token, steps must be taken to secure the token, to prevent interception by an unintended party. Because bearer tokens do not have a built-in mechanism to prevent unauthorized parties from using them, they must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used to acquire the token and gain unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs. A JWT is a compact, URL-safe means of transferring information between two parties. The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token. The claims in JWTs are JSON objects encoded and serialized for transmission. Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. There are several tools available for doing so, such as [jwt.ms](https://jwt.ms/). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
-Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-protocols-openid-connect-code.md). They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app. You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
+Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](v1-protocols-openid-connect-code.md). They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app. You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
 
 Id_tokens are signed, but not encrypted at this time. When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity. The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
@@ -82,7 +82,7 @@ If your app only *uses* access tokens to get access to APIs, you can (and should
 When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
 If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens). 
-For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](quickstart-v1-dotnet-webapi.md).
 
 ## Refresh tokens
 

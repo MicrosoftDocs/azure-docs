@@ -33,7 +33,7 @@ In the more typical *three-legged OAuth*, a client application is granted permis
 ## Protocol diagram
 The entire client credentials flow looks similar to the next diagram. We describe each of the steps later in this article.
 
-![Client credentials flow](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
+![Client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence_scenarios_client_creds.png)
 
 ## Get direct authorization
 An app typically receives direct authorization to access a resource in one of two ways: through an access control list (ACL) at the resource, or through application permission assignment in Azure Active Directory (Azure AD). These two methods are the most common in Azure AD, and we recommend them for clients and resources that perform the client credentials flow. A resource can choose to authorize its clients in other ways, however. Each resource server can choose the method that makes the most sense for its application.

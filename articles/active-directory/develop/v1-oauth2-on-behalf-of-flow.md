@@ -24,14 +24,14 @@ ms.custom: aaddev
 The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
 > [!IMPORTANT]
-> Public clients that use the [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) cannot use the OBO flow. These clients must pass their access token to a middle-tier confidential client to perform OBO flows. For more info about which clients can perform OBO calls, see [Client limitations](#client-limitations).
+> Public clients that use the [OAuth 2.0 implicit grant](v1-oauth2-implicit-grant-flow.md) cannot use the OBO flow. These clients must pass their access token to a middle-tier confidential client to perform OBO flows. For more info about which clients can perform OBO calls, see [Client limitations](#client-limitations).
 
 ## On-Behalf-Of flow diagram
-Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
+Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
 
-![OAuth2.0 On-Behalf-Of Flow](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. The client application makes a request to API A with the token A.
@@ -203,5 +203,5 @@ Public clients with wildcard reply URLs cannot use an `id_token` for OBO flows. 
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
-* [Service to service auth using OAuth 2.0 client credentials grant in Azure AD](active-directory-protocols-oauth-service-to-service.md)
-* [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
+* [Service to service auth using OAuth 2.0 client credentials grant in Azure AD](v1-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 in Azure AD](v1-protocols-oauth-code.md)
