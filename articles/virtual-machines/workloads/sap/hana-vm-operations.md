@@ -386,7 +386,7 @@ M64-32ms, E32sv3
 
 See VM type description [here](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
-Given the basic idea of DT 2.0 which is about offloading "warm" data in order to save costs it makes sense to use corresponding
+Given the basic idea of DT 2.0, which is about offloading "warm" data in order to save costs it makes sense to use corresponding
 VM sizes. There is no strict rule though regarding the possible combinations. It depends on the specific customer workload.
 
 Recommended configurations would be :
@@ -404,18 +404,18 @@ All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M
 
 ### Azure networking and SAP HANA DT 2.0
 
-Installing DT 2.0 on a dedicated VM requires network throughput between the DT 2.0 VM and the SAP HANA VM of 10Gb minimum. 
+Installing DT 2.0 on a dedicated VM requires network throughput between the DT 2.0 VM and the SAP HANA VM of 10 Gb minimum. 
 Therefore it's mandatory to place all VMs within the same Azure Vnet and enable Azure accelerated networking.
 
 See additional information about Azure accelerated networking [here](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
 
 ### VM Storage for SAP HANA DT 2.0
 
-According to DT 2.0 best practice guidance the disk IO throughput should be minimum 50MB/sec per physical core. Looking at the spec for the two 
-Azure VM types which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM :
+According to DT 2.0 best practice guidance, the disk IO throughput should be minimum 50 MB/sec per physical core. Looking at the spec for the two 
+Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM :
 
-- E32sv3    :   768MB/sec ( uncached ) which means a ratio of 48MB/sec per physical core
-- M64-32ms  :  1000MB/sec ( uncached ) which means a ratio of 62.5MB/sec per physical core
+- E32sv3    :   768 MB/sec ( uncached ) which means a ratio of 48 MB/sec per physical core
+- M64-32ms  :  1000 MB/sec ( uncached ) which means a ratio of 62.5 MB/sec per physical core
 
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
@@ -424,10 +424,10 @@ per VM. A single Azure disk cannot provide the throughput to reach the max VM li
 - Details about creating software raid via mdadm can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Details about configuring LVM to create a striped volume for max throughput can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 
-Depending on size requirements there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
+Depending on size requirements, there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
 for every DT 2.0 VM type to achieve the upper VM throughput limit. The E32sv3 VM should be considered as an entry level for smaller workloads. In case it
-should turn out that it's not fast enough it might be necessary to re-size the VM to M64-32ms.
-As the M64-32ms VM has a lot of memory the IO load might not reach the limit especially for read intensive workloads. Therefore less disks in the stripe set
+should turn out that it's not fast enough it might be necessary to resize the VM to M64-32ms.
+As the M64-32ms VM has much memory, the IO load might not reach the limit especially for read intensive workloads. Therefore less disks in the stripe set
 might be sufficient depending on the customer specific workload. But to be on the safe side the disk configurations below were chosen to guarantee the
 maximum throughput :
 
@@ -438,10 +438,10 @@ maximum throughput :
 | E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
 
 
-Especially in case the workload is mainly read-intense it could boost IO performance to turn on Azure host cache "read-only" as usually recommended for the 
+Especially in case the workload is read-intense it could boost IO performance to turn on Azure host cache "read-only" as recommended for the 
 data volumes of database software. Whereas for the transaction log Azure host disk cache must be "none". 
 
-Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. This again can be accomplished by different
+Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
 Azure disk types depending on cost and throughput requirements. Also for the log volume high throughput is preferred and in case of M64-32ms it is 
 strongly recommended to turn Write Accelerator on (which is mandatory for SAP HANA). This provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about WA can be
