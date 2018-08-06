@@ -410,11 +410,11 @@
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
-##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
+##### [Baseline Protection](conditional-access/baseline-protection.md)
 ##### [Conditions](conditional-access/conditions.md)
-##### [Location conditions](active-directory-conditional-access-locations.md)
+##### [Location conditions](conditional-access/location-condition.md)
 ##### [Controls](conditional-access/controls.md)
-##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [What if tool](conditional-access/what-if-tool.md)
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)

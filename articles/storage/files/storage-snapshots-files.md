@@ -2,20 +2,12 @@
 title: Overview of share snapshots for Azure Files | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-
+ms.component: files
 ---
 
 # Overview of share snapshots for Azure Files 
