@@ -361,14 +361,14 @@ SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use cases
 
 ### Overview
 
-The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements which
+The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements, which
 has to be followed to comply with the official certification :
 
-- DT 2.0 has to be installed on a dedicated Azure VM and NOT on the VM where SAP HANA runs
-- SAP HANA and DT 2.0 VMs have to be deployed within the same Azure Vnet
-- The SAP HANA and DT 2.0 VMs have to be deployed with Azure accelerated networking enabled
-- Storage for the DT 2.0 VMs has to be Azure Premium Storage
-- Multiple Azure disks have to be attached to the DT 2.0 VM
+- DT 2.0 must be installed on a dedicated Azure VM. It may not run on the same VM where SAP HANA runs
+- SAP HANA and DT 2.0 VMs must be deployed within the same Azure Vnet
+- The SAP HANA and DT 2.0 VMs must be deployed with Azure accelerated networking enabled
+- Storage type for the DT 2.0 VMs must be Azure Premium Storage
+- Multiple Azure disks must be attached to the DT 2.0 VM
 - It's required to create a software raid / striped volume ( either via lvm or mdadm ) using striping across the Azure disks
 
 More details will be explained in the following sections.
