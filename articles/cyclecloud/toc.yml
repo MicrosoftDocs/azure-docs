@@ -17,11 +17,9 @@
 - name: Concepts
   items:
   - name: Clusters and Nodes
-    items:
-    - name: Clusters and Nodes
-      href: clusters.md
-    - name: Auto Scale
-      href: autoscale.md
+    href: clusters.md
+  - name: Auto Scale
+    href: autoscale.md
   - name: Cluster Templates
     items:
       - name: Cluster Templates
