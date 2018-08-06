@@ -89,7 +89,7 @@ The `scope` parameter is a space-separated list of scopes that the app is reques
 
 After the user enters their credentials, the v2.0 endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint asks the user to grant the requested permissions.
 
-![Work account consent](../../media/active-directory-v2-flows/work_account_consent.png)
+![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
 When the user approves the permission, the consent is recorded so that the user doesn't have to consent again on subsequent account sign-ins.
 
