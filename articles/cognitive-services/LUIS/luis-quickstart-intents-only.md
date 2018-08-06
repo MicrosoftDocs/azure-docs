@@ -31,7 +31,7 @@ This app is the simplest type of LUIS app because it doesn't extract data from t
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Purpose of the app
-This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. Later in the quickstart, a third intent, `ApplyForJob`, is added. 
+This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the context of this app. Later in the quickstart, a third intent, `ApplyForJob`, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent my be tricky as they both are about a new job.
 
 ## Create a new app
 1. Log in to the [LUIS](luis-reference-regions.md#luis-website) website. Make sure to log in to the [region](luis-reference-regions.md#publishing-regions) where you need the LUIS endpoints published.
@@ -45,6 +45,8 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
     ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+
+    [![](media/luis-quickstart-intents-only/list-of-intents-1.png "Screenshot of LUIS Intents list")](media/luis-quickstart-intents-only/list-of-intents-1.png#lightbox)
 
 ## Create GetJobInformation intention
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in your company.
