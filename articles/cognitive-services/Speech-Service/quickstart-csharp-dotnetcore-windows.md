@@ -63,7 +63,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
 ## Build and run the sample
 
-1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors now:
+1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors now.
 
     ![Successful build](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
 
