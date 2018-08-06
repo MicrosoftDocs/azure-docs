@@ -3,14 +3,15 @@ title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
 description: Bing Search SDK for applications that search the web.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.assetid: 
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 1/19/2018
-ms.author: v-gedod
+ms.author: aahi
+ROBOTS: NOINDEX
 ---
 # Bing Search SDK
 The Bing Image Search API samples include senarios that:
