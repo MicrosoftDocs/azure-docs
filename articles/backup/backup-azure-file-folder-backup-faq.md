@@ -7,8 +7,8 @@ manager: shreeshd
 keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
 ---
 
 # Questions about the Azure Backup agent
