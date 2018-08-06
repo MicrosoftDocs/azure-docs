@@ -7,27 +7,28 @@ author: jonfancey
 ms.author: jonfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/07/2018
 ms.reviewer: LADocs
 ms.suite: integration
 ---
 
 # Send, receive, and process batch messages in Azure Logic Apps
 
-To process messages in groups, you can send those messages to a *batch*, 
-and then process those items as a batch. This article shows how you can 
-use batching so you can make sure that data items are grouped in a 
-specific way and are processed together. To create a batching solution, 
-you'll create at least two logic apps in this order: 
+To group messages and process them together in a specific way, 
+you can create a logic app that holds messages as a *batch* 
+until your specified criteria are met and a logic app that 
+sends messages in batches. Batching can help reduce how 
+often your logic app processes messages. This article shows 
+how to create batching solution by creating these two logic 
+apps following the specified order: 
 
 * The ["batch receiver"](#batch-receiver) logic app, 
-which accepts and collects messages into a batch. 
-The batch receiver continues collecting messages 
+which accepts and collects messages into a batch 
 until your specified criteria is met for releasing 
 and processing those messages. 
 
-* The ["batch sender"](#batch-sender) logic app, 
-which sends the messages to a previously created batch receiver. 
+* One or more ["batch sender"](#batch-sender) logic apps, 
+which send the messages to the previously created batch receiver. 
 
    You can also specify a unique key, such as a customer number, 
    that *partitions* or divides the target batch into subsets 
@@ -77,13 +78,13 @@ Select this trigger: **Batch messages**
    | Property | Description | 
    |----------|-------------|
    | **Batch Mode** | - **Inline**: <br>- **Integration Account**: |  
-   | **Batch Name** | The name for your batch. Applies only to **Inline** batch mode. |  
-   | **Release Criteria** | Applies only to **Inline** batch mode and specifies the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. You can also specify provide a start date and time. <br>- **Select all**: Use all the specified criteria. | 
+   | **Batch Name** | The name for your batch, which is "TestBatch" in this example. Applies only to **Inline** batch mode. |  
+   | **Release Criteria** | Applies only to **Inline** batch mode and specifies the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. You can also specify a start date and time. <br>- **Select all**: Use all the specified criteria. | 
    ||| 
    
-     This example selects all the criteria:
+   This example selects all the criteria:
 
-     ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
+   ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
 4. Now add one or more actions that process each batch. 
 
@@ -154,7 +155,7 @@ Now create one or more logic apps that send messages
 to the batch receiver logic app. In each batch sender, 
 you specify the batch receiver logic app and batch name, 
 message content, and any other settings. You can 
-optionally provide a unique partitionkey to divide 
+optionally provide a unique partition key to divide 
 the batch into subsets to collect messages with that key.
 While batch receivers don't need to know anything about batch senders, 
 the batch senders must know where to send messages. 
@@ -218,7 +219,7 @@ choose **Show advanced options** and set these properties:
    | Property | Description | 
    |----------|-------------| 
    | **Partition Name** | An optional unique partition key to use for dividing the target batch | 
-   | **Message Id** | An optional message identifier that is a generated globally-unique identifier (GUID) when empty | 
+   | **Message Id** | An optional message identifier that is a generated globally unique identifier (GUID) when empty | 
    ||| 
 
    For this example, in the **Partition Name** box, 
@@ -247,11 +248,12 @@ choose **Show advanced options** and set these properties:
 To test your batching solution, leave your logic apps running for a few minutes. 
 Soon, you start getting emails in groups of five, all with the same partition key.
 
-Your BatchSender logic app runs every minute, generates a random number between one and five, 
+Your batch sender logic app runs every minute, 
+generates a random number between one and five, 
 and uses this generated number as the partition key 
 for the target batch where messages are sent. 
 Each time the batch has five items with the same partition key, 
-your BatchReceiver logic app fires and sends mail for each message.
+your batch receiver logic app fires and sends mail for each message.
 
 > [!IMPORTANT]
 > When you're done testing, make sure that you disable the 
