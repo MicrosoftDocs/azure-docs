@@ -31,8 +31,9 @@ Continue to the next section if you need to customize these graphs for your part
 3. Once your Maps account is open, click on the **Metrics** menu on the left.
 
 4. On the **Metrics** pane, choose between one of the following:
-    a. **Availability**, which shows the *Average* of API availability over a period of time, or 
-    b. **Usage**, which shows how the usage *Count* for your account. 
+
+    1. **Availability**, which shows the *Average* of API availability over a period of time, or 
+    2. **Usage**, which shows how the usage *Count* for your account. 
 
     ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
@@ -44,7 +45,7 @@ Continue to the next section if you need to customize these graphs for your part
 
     ![Azure Maps Metrics Filter](media/how-to-view-api-usage/filter.png)
 
-7. You may also **Apply splitting** for your metric based on your selected metric property. This allows the graph to be split into multiple graphs, one each for each value of that property. For example, see this graph. Note the color of each graph corresponds to the property value shown at the bottom of the graph.
+7. You may also **Apply splitting** for your metric based on your selected metric property. This allows the graph to be split into multiple graphs, one each for each value of that property. For example, in the following picture, the color of each graph corresponds to the property value shown at the bottom of the graph.
 
     ![Azure Maps Metrics Splitting](media/how-to-view-api-usage/splitting.png)
  
