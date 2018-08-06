@@ -22,7 +22,7 @@ ms.reviewer: calebb
 
 ## Which applications work with conditional access policies?
 
-For information about applications that work with conditional access policies, see [Applications and browsers that use conditional access rules in Azure Active Directory](../active-directory-conditional-access-technical-reference.md).
+For information about applications that work with conditional access policies, see [Applications and browsers that use conditional access rules in Azure Active Directory](technical-reference.md).
 
 ## Are conditional access policies enforced for B2B collaboration and guest users?
 
