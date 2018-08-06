@@ -14,7 +14,7 @@
 | --- | --- | --- |
 | Backend pool size | Supports up to 1000 instances | Supports up to 100 instances |
 | Backend pool endpoints | Any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | Virtual machines in a single availability set or virtual machine scale set. |
-| [Health probe types](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Health probes](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Health probe down behavior](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP connections stay alive on instance probe down __and__ on all probes down. | TCP connections stay alive on instance probe down. All TCP connections terminate on all probes down. |
 | Availability Zones | In Basic SKU, Zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing. | n/a|
 | Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count. |
