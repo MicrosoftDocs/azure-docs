@@ -234,7 +234,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Link to Key access control reference documentation.
-* [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) key vault access policy using PowerShell
+* [Set](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) and [Remove](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) key vault access policy using PowerShell
   
   Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
 
