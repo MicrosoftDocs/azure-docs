@@ -209,7 +209,7 @@ az network nic ip-config update \
     --public-ip-addres myPublicIP
 ```
 
-To view the view public IP address of the VM, use [az vm show](/cli/azure/vm#az-vm-show) as follows::
+To view the public IP address of the VM, use [az vm show](/cli/azure/vm#az-vm-show) as follows::
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
