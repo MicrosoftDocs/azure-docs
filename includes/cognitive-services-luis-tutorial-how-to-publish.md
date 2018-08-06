@@ -28,4 +28,4 @@ You do not have to create a LUIS endpoint key in the Azure portal before you pub
 
     ![LUIS publish to endpoint](./media/cognitive-services-luis/publish-to-endpoint-success.png)
 
-4. Select the link in the green status bar to go to the **Keys and endpoints** page to see the endpoint URLs. The endpoint URLs are listed at the bottom of the page.
+4. Select the **endpoints** link in the green status bar to go to the **Keys and endpoints** page. The endpoint URLs are listed at the bottom.
