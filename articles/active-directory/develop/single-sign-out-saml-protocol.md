@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-
 
 The following diagram shows the workflow of the Azure AD single sign-out process.
 
-![Azure AD Single Sign Out Workflow](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+![Azure AD Single Sign Out Workflow](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
 The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.

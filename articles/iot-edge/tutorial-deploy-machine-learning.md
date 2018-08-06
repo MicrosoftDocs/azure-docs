@@ -183,7 +183,7 @@ If you perform these commands on a Linux device, you may need to use `sudo` for 
 
 ### View data arriving at your IoT hub
 
-You can view the device-to-cloud messages that your IoT hub receives by using the [IoT Hub explorer](https://github.com/azure/iothub-explorer) or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+You can view the device-to-cloud messages that your IoT hub receives by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 The following steps show you how to set up Visual Studio Code to monitor device-to-cloud messages that arrive at your IoT hub. 
 
