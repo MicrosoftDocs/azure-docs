@@ -64,7 +64,7 @@ Use the following comments section to provide feedback that helps refine and sha
 
 <!--article references -->
 [AAD-APP-OBJECTS]:app-objects-and-service-principals.md
-[AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
+[AAD-DEVELOPER-GLOSSARY]:azure-ad-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
