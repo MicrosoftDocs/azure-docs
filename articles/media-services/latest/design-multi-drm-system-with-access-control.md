@@ -260,7 +260,8 @@ Use the following troubleshooting information for help with implementation issue
 
     Because you add support for JWT (Azure AD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set the token to TokenType.SWT.
 
-## Additional topics for implementation
+## FAQs
+
 This section discusses some additional topics in design and implementation.
 
 ### HTTP or HTTPS?
@@ -278,7 +279,7 @@ The ASP.NET player application uses HTTPS as a best practice, so Media Player is
 
 In the reference implementation for DRM-protected contents, both the application and streaming are under HTTPS. For open contents, the player doesn't need authentication or a license, so you can use either HTTP or HTTPS.
 
-### Azure Active Directory signing key rollover
+### What is Azure Active Directory signing key rollover?
 Signing key rollover is an important point to take into consideration in your implementation. If you ignore it, the finished system eventually stops working completely, within six weeks at the most.
 
 Azure AD uses industry standards to establish trust between itself and applications that use Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, it's signed by Azure AD with a private key before it's sent back to the application. To verify that the token is valid and originated from Azure AD, the application must validate the token's signature. The application uses the public key exposed by Azure AD that is contained in the tenant's federation metadata document. This public key, and the signing key from which it derives, is the same one used for all tenants in Azure AD.
