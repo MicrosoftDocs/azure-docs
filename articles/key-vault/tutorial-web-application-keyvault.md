@@ -202,7 +202,9 @@ There are two NuGet packages that your web application needs to have installed. 
 
 >[!IMPORTANT]
 > If you get a HTTP Error 502.5 - Process Failure message
-> > then verify the name of the Key Vault specified in `Program.cs`
+> > then verify the name of the Key Vault specified in `Program.cs` and  
+> If you get an empty string value from Key Vault
+> > then verify the name of the Key Vault Secret specified in `About.cshtml.cs`
 
 ## Publish the web application to Azure
 
