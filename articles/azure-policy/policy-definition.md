@@ -230,6 +230,7 @@ When policy is evaluating existing resources in the background, it sets **action
 
 ### Effect
 
+
 Policy supports the following types of effect:
 
 - **Deny**: generates an event in the audit log and fails the request
@@ -269,6 +270,7 @@ The list of aliases is always growing. To discover what aliases are currently su
   $azContext = Get-AzureRmContext
   $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
   $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
   $authHeader = @{
     'Authorization'='Bearer ' + $token.AccessToken
   }
