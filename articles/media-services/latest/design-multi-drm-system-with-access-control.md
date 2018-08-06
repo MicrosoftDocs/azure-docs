@@ -1,5 +1,5 @@
 ---
-title: Design a multi-drm content protection system with access control using Azure Media Services | Microsoft Docs
+title: Design of a Multi-DRM Content Protection System with Access Control Using Azure Media Services | Microsoft Docs
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 08/05/2018
 ms.author: willzhan;juliako
 
 ---
-# Design a multi-drm content protection system with access control
+# Design of a multi-DRM content protection system with access control 
 
 ## Overview
 
-Designing and building a digital rights management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
+Designing and building a Digital Rights Management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and a reference implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
 
-In this discussion of DRM, we also include common encryption (CENC) with multi-DRM. A major trend in online streaming and the OTT industry is to use CENC with multi-native DRM on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
+In this discussion, by multi-DRM we include the 3 DRMs supported by Azure Media Services: Common Encryption (CENC) for PlayReady and Widevine, FairPlay as well as AES-128 clear key encryption. A major trend in online streaming and the OTT industry is to use native DRMs on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
 The benefits of CENC with multi-DRM are that it:
 
@@ -32,7 +32,7 @@ The benefits of CENC with multi-DRM are that it:
 * Reduces the cost of managing encrypted assets because only a single copy of encrypted assets is needed.
 * Eliminates DRM client licensing cost because the native DRM client is usually free on its native platform.
 
-Microsoft is an active promoter of DASH and CENC together with some major industry players. Azure Media Services provides support for DASH and CENC. For recent announcements, see the following blogs:
+Microsoft is an active promoter of DASH and CENC together with some major industry players. Azure Media Services provides support for CENC over DASH, and FairPlay over HLS. For recent announcements, see the following blogs:
 
 * [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure Media Services adds Google Widevine packaging for delivering a multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
@@ -41,24 +41,20 @@ Microsoft is an active promoter of DASH and CENC together with some major indust
 
 The goals of this article are to:
 
-* Provide a reference design of a DRM subsystem that uses CENC with multi-DRM.
-* Provide a reference implementation on an Azure/Media Services platform.
+* Provide a reference design of a DRM subsystem that uses all 3 DRMs (CENC for DASH, FairPlay for HLS and PlayReady for smooth streaming).
+* Provide a reference implementation on Azure and Azure Media Services platform.
 * Discuss some design and implementation topics.
 
-In the article, the term "multi-DRM" covers the following products:
+The following table summarizes native DRM support on different platforms and EME support in different browsers.
 
-* Microsoft PlayReady
-* Google Widevine
-* Apple FairPlay 
-
-The following table summarizes the native platform/native app and browsers supported by each DRM.
-
-| **Client platform** | **Native DRM support** | **Browser/app** | **Streaming formats** |
+| **Client platform** | **Native DRM** | **EME** |
 | --- | --- | --- | --- |
-| **Smart TVs, operator STBs, OTT STBs** |PlayReady primarily, and/or Widevine, and/or other |Linux, Opera, WebKit, other |Various formats |
-| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
-| **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
-| **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
+| **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
+| **Windows 10 ** | PlayReady | MS Edge/IE11 for PlayReady|
+| **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
+| **iOS** | FairPlay | Safari for FairPlay (since iOS 11.2) |
+| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ (El Capitan))|
+| **tvOS** | FairPlay | |
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
 
@@ -67,13 +63,9 @@ There is a tradeoff between the complexity of the service logic and the complexi
 To make your selection, keep in mind:
 
 * PlayReady is natively implemented in every Windows device, on some Android devices, and available through software SDKs on virtually any platform.
-* Widevine is natively implemented in every Android device, in Chrome, and in some other devices.
-* FairPlay is available only on iOS and Mac OS clients or through iTunes.
+* Widevine is natively implemented in every Android device, in Chrome, and in some other devices. Widevine is also supported in Firefox and Opera browsers over DASH.
+* FairPlay is available on iOS, macOS and tvOS.
 
-There are two options for a typical multi-DRM:
-
-* PlayReady and Widevine
-* PlayReady, Widevine, and FairPlay
 
 ## A reference design
 This section presents a reference design that is agnostic to the technologies used to implement it.
@@ -81,11 +73,11 @@ This section presents a reference design that is agnostic to the technologies us
 A DRM subsystem can contain the following components:
 
 * Key management
-* DRM packaging
+* DRM encryption packaging
 * DRM license delivery
-* Entitlement check
-* Authentication/authorization
-* Player
+* Entitlement check/access control
+* User authentication/authorization
+* Player app
 * Origin/content delivery network (CDN)
 
 The following diagram illustrates the high-level interaction among the components in a DRM subsystem:
@@ -152,23 +144,25 @@ The following table shows the mapping.
 | **Key management** |Not needed for reference implementation |
 | **Content management** |A C# console application |
 
-In other words, both IDP and STS are used with Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Media Services and Media Player support DASH and CENC with multi-DRM.
+In other words, both IDP and STS are provided by Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Media Services and Azure Media Player support CENC over DASH, FairPlay over HLS, PlayReady over smooth streaming, and AES-128 ecnryption for DASH, HLS and smooth.
 
 The following diagram shows the overall structure and flow with the previous technology mapping:
 
 ![CENC on Media Services](./media/design-multi-drm-system-with-access-control/media-services-cenc-subsystem-on-AMS-platform.png)
 
-To set up dynamic CENC encryption, the content management tool uses the following inputs:
+To set up DRM content protection, the content management tool uses the following inputs:
 
 * Open content
-* Content key from key generation/management
+* Content key from key management
 * License acquisition URLs
-* A list of information from Azure AD
-
+* A list of information from Azure AD, such as audience, issuer, and token claims
+ptio
 Here's the output of the content management tool:
 
-* ContentKeyAuthorizationPolicy contains the specification on how license delivery verifies a JSON Web Token (JWT) and DRM license specifications.
-* AssetDeliveryPolicy contains specifications on streaming format, DRM protection, and license acquisition URLs.
+* ContentKeyPolicy describes DRM license template for each kind of DRM;
+* ContentKeyPolicyRestriction describes the access control before a DRM license is issued
+* Streamingpolicy describes the various combinations of DRM - encryption mode - streaming protocol - container format
+* StreamingLocator describes content key/IV used for encryption, streaming URLs 
 
 Here's the flow during runtime:
 
@@ -460,10 +454,10 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
 
 ## Summary
-This document discussed CENC with multi-native DRM and access control via token authentication, its design, and its implementation by using Azure, Media Services, and Media Player.
+This document discussed content protection using 3 DRMs and access control via token authentication, its design, and its implementation by using Azure, Azure Media Services, and Azure Media Player.
 
-* A reference design was presented that contains all the necessary components in a DRM/CENC subsystem.
-* A reference implementation was presented on Azure, Media Services, and Media Player.
+* A reference design was presented that contains all the necessary components in a DRM subsystem.
+* A reference implementation was presented on Azure, AzureMedia Services, and Azure Media Player.
 * Some topics directly involved in the design and implementation were also discussed.
 
 ## Next steps
