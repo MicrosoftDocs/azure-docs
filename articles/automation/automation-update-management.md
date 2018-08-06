@@ -195,7 +195,6 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
 |Update classifications|Select all the update classifications that you need|
-|Updates to include/exclude|Enter the updates to include or exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
 |Updates to exclude|Enter the updates to exclude. For  Windows enter the KB without the 'KB' prefix. For Linux, enter the package name or use a wildcard.  |
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
@@ -260,12 +259,6 @@ The following table provides sample log searches for update records collected by
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
 To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
-
-## Inclusion behavior
-
-Update inclusion allows you to specify specific updates to apply. Patches or packages that are set to be included are installed no matter the classifications selected for the deployment.
-
-For Linux machines if a package is included but has a dependant package that was specifcally excluded, the package is not installed.
 
 ## Patching Linux machines
 
