@@ -71,11 +71,13 @@ New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageN
 ```
 If you want to specify a storage account as the location of new VM disk, you can use **MediaLocation** parameter:
 
+
+```powershell
 	New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 	 -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
-
+```
 
 ### How to retrieve ILPIP information for a VM
 To view the ILPIP information for the VM created with the previous script, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
