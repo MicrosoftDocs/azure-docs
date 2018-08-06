@@ -82,7 +82,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 
 ### Developer tool requirements
 
-* Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
+* Create a [VSTS workspace](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). The sign-up process creates a project named **MyFirstProject**.
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
