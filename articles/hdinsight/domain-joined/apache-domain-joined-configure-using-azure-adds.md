@@ -61,7 +61,7 @@ When you create a domain-joined HDInsight cluster, you must supply the following
     > [!IMPORTANT]
     > Enter the complete URL, including "ldaps://" and the port number (:636).
 
-- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by semicolon ‘;’. The group(s) must exist in the directory prior to provisioning. For more information, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal). If the group does not exist, an error occurs: "Group HiveUsers not found in the Active Directory."
+- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by semicolon ‘;’. The group(s) must exist in the directory prior to provisioning. For more information, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). If the group does not exist, an error occurs: "Group HiveUsers not found in the Active Directory."
 
 The following screenshot shows the configurations in the Azure portal:
 
