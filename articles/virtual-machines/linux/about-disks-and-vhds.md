@@ -1,9 +1,9 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Linux VMs | Microsoft Docs
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Linux virtual machines in Azure.
-services: "virtual-machines,storage"
+services: "virtual-machines-linux,storage"
 author: roygara
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
