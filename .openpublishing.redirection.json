@@ -26811,6 +26811,11 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-whatif.md",
             "redirect_url": "/azure/active-directory/conditional-access/what-if-tool",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-faqs.md",
+            "redirect_url": "/azure/active-directory/conditional-access/faqs",
+            "redirect_document_id": true
         }
     ]
 }
