@@ -434,8 +434,8 @@ maximum throughput :
 
 | VM SKU | Disk Config 1 | Disk Config 2 | Disk Config 3 | Disk Config 4 | Disk Config 5 | 
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| M64-32ms | 4 x P50 -> 16TB | 4 x P40 -> 8TB | 5 x P30 -> 5TB | 7 x P20 -> 3.5TB | 8 x P15 -> 2TB | 
-| E32sv3 | 3 x P50 -> 12TB | 3 x P40 -> 6TB | 4 x P30 -> 4TB | 5 x P20 -> 2.5TB | 6 x P15 -> 1.5TB | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
 
 
 Especially in case the workload is mainly read-intense it could boost IO performance to turn on Azure host cache "read-only" as usually recommended for the 
@@ -452,8 +452,8 @@ Here are a few examples about sizing the log volume :
 
 | data volume size and disk type | log volume and disk type config 1 | log volume and disk type config 2 |
 | --- | --- | --- |
-| 4 x P50 -> 16TB | 5 x P20 -> 2.5TB | 3 x P30 -> 3TB |
-| 6 x P15 -> 1.5TB | 4 x P6 -> 256GB | 1 x P15 -> 256GB |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
 Like for SAP HANA scale-out the /hana/shared directory has to be shared between the SAP HANA VM and the DT 2.0 VM. The same architecture as for
