@@ -86,25 +86,21 @@ The arguments definition and values are as follows:
 
 ### Continuous integration with Visual Studio Team Services
 
-You can use the command line, the Visual Studio build tools, or an MSBuild task to build a U-SQL project in Visual Studio Team Services (VSTS). To set up a build task, take the following steps:
+In addition to the command line, you can also use the Visual Studio Build or an MSBuild task to build U-SQL projects in Visual Studio Team Services (VSTS). To set up a build pipeline, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
+
+![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 1.	Add a NuGet restore task to get the solution-referenced NuGet package that includes `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
-    a. MSBuild task:
-
-       ![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
- 
-    b. NuGet restore task:
-
-       ![NuGet restore task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+    ![NuGet restore task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
 2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
+
+    ![Define CI/CD MSBuild variables for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
     /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
-
-    ![Define CI/CD MSBuild variables for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
 ### U-SQL project build output
 
@@ -325,26 +321,24 @@ The argument `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refers to the ins
 
 ### Continuous integration with Visual Studio Team Services
 
-You can use the command line, the Visual Studio build tools, or an MSBuild task to build a U-SQL database project in Visual Studio Team Services. To set up a build task, take the following steps:
-
-1.	Add NuGet restore task to get the solution-referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
-
-    a. Add a CI/CD MSBuild task for a U-SQL project.
+In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Visual Studio Team Services. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
     ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-    b. Add a CI/CD NuGet task for a U-SQL project.
+
+1.	Add NuGet restore task to get the solution-referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
     ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
 2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the VSTS build definition.
 
+   ![Define CI/CD MSBuild variables for a U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
+
     ```
     /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
 
-    ![Define CI/CD MSBuild variables for a U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
-
+ 
 ### U-SQL database project build output
 
 The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a zip file that includes all DDL statements in a single U-SQL script in a DDL folder. It includes all **.dlls** and additional files for assembly in a temp folder.
