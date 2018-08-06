@@ -532,8 +532,8 @@ Add a new code cell and paste the snippet provided below. This snippet defines a
       inputDocs.add (textContent, textContent)
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
-      if (docsWithSentiment.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+      if (docsWithLanguage.documents.isEmpty) {
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble
