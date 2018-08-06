@@ -84,7 +84,7 @@ The **Infrastructure view** shows the infrastructure components involved in repl
 - A red line with the verlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
 -  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
 
-    ![Site Recovery infrastructure view (vault)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## Tips for monitoring the infrastructure
 
