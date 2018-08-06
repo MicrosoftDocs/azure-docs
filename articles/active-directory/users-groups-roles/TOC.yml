@@ -12,8 +12,6 @@
     href: ../choose-hybrid-identity-solution.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Associate Azure subscriptions    
     href: ../fundamentals/active-directory-how-subscriptions-associated-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Understand users, groups, licensing, roles    
-    href: directory-overview-user-model.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
@@ -27,21 +25,15 @@
   - name: Add a custom domain name    
     href: ../fundamentals/add-custom-domain.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Enforce group expiration    
-    href: groups-lifecycle.md
+    href: groups-quickstart-expiration.md
   - name: Enforce group naming policy    
-    href: groups-naming-policy.md
+    href: groups-quickstart-naming-policy.md
 - name: Tutorials
   items:
-  - name: Prepare your Azure Active Directory environment    
-    href: groups-dynamic-tutorial.md
-  - name: Create and manage groups and members    
-    href: groups-dynamic-tutorial.md
   - name: Create a dynamically populated group    
     href: groups-dynamic-tutorial.md
 - name: Concepts
   items:
-  - name: Delegate Azure AD admin roles    
-    href: roles-concept-delegation.md
   - name: Group-based licensing basics    
     href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Compare member and guest user permissions    
