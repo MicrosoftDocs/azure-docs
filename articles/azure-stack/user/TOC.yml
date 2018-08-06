@@ -112,11 +112,11 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
+      - name: Configure PowerShell
+        href: azure-stack-powershell-configure-user.md
       - name: Download Azure Stack tools
         href: ../azure-stack-powershell-download.md
         maintainContext: true
-      - name: Configure PowerShell
-        href: azure-stack-powershell-configure-user.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles

@@ -178,7 +178,7 @@ Sign in to a computer where you have Internet connectivity and use the following
    Install-Module AzureStack -Repository $RepoName 
    ```
 
-## Configure PowerShell to use a proxy server
+## 6, Configure PowerShell to use a proxy server
 
 In scenarios that require a proxy server to access the Internet, you must first configure the PowerShell to use an existing proxy server.
 

@@ -26,9 +26,9 @@ ms.reviewer: Balsu.G
 This article provides you with the steps to connect to your Azure Stack instance. You must connect to manage Azure Stack resources with PowerShell. For example, you can use PowerShell to subscribe to offers, create virtual machines, and deploy Azure Resource Manager templates. in order to execute PowerShell cmdlets.
 
 To get set up:
-  - Make sure you have the requirement.
-  - Connect with Azure Active Director (Azure AD) or Active Directory Federation Services (AD FS). 
-  - Register your resource providers. 
+  - Make sure you have the requirements.
+  - Connect with Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). 
+  - Register resource providers.
   - Test your connectivity.
 
 ## Prerequisites
@@ -45,7 +45,7 @@ Make sure you replace the following script variables with values from your Azure
 - **Azure Resource Manager endpoint**  
   For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 
-## Connect with Azure Active Directory (Azure AD)
+## Connect with Azure AD
 
   ```PowerShell
   $AADTenantName = "yourdirectory.onmicrosoft.com"
@@ -65,7 +65,7 @@ Make sure you replace the following script variables with values from your Azure
     -TenantId $TenantId
    ```
 
-## Connect with Active Directory Federation Services (AD FS)
+## Connect with AD FS
 
   ```PowerShell  
   $ArmEndpoint = "https://management.local.azurestack.external"
