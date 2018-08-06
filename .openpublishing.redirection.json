@@ -9847,12 +9847,22 @@
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-evaluation-tool.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool",
+            "redirect_url": "https://partner.microsoft.com/Solutions/Cortana-intelligence",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-evaluation-tool.md",
+            "redirect_url": "https://partner.microsoft.com/Solutions/Cortana-intelligence",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/cortana-intelligence-appsource-publishing-guide.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide",
+            "redirect_url": "https://partner.microsoft.com/Solutions/Cortana-intelligence",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide.md",
+            "redirect_url": "https://partner.microsoft.com/Solutions/Cortana-intelligence",
             "redirect_document_id": false
         },
         {
