@@ -90,7 +90,7 @@ The following sections discuss common scenarios that are more complex. The core 
 
 In this scenario, learn how a web app requests access to Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through Microsoft Graph. In this example, let's assume there's a conditional access policy on Sharepoint Online.
 
-![App accessing Microsoft Graph flow diagram](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
+![App accessing Microsoft Graph flow diagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
 The app first requests authorization to Microsoft Graph which requires accessing a downstream workload without conditional access. The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph. At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a Sharepoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
 
@@ -144,7 +144,7 @@ For code samples that demonstrate how to handle the claims challenge, refer to t
 
 In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [the "on-behalf-of" flow](authentication-scenarios.md#application-types-and-scenarios) to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
 
-![App performing the on-behalf-of flow diagram](media/active-directory-conditional-access-developer/app-performing-on-behalf-of-scenario.png)
+![App performing the on-behalf-of flow diagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
 The initial token request for Web API 1 does not prompt the end user for multi-factor authentication as Web API 1 may not always hit the downstream API. Once Web API 1 tries to request a token on-behalf-of the user for Web API 2, the request fails since the user has not signed in with multi-factor authentication.
 
@@ -170,7 +170,7 @@ In this scenario, we walk through the case in which a web app accesses two servi
 
 Let's assume we have web service A and B and web service B has our conditional access policy applied. While the initial interactive auth request requires consent for both services, the conditional access policy is not required in all cases. If the app requests a token for web service B, then the policy is invoked and subsequent requests for web service A also succeeds as follows.
 
-![App accessing multiple-services flow diagram](media/active-directory-conditional-access-developer/app-accessing-multiple-services-scenario.png)
+![App accessing multiple-services flow diagram](./media/conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
 Alternatively, if the app initially requests a token for web service A, the end user does not invoke the conditional access policy. This allows the app developer to control the end user experience and not force the conditional access policy to be invoked in all cases. The tricky case is if the app subsequently requests a token for web service B. At this point, the end user needs to comply with the conditional access policy. When the app tries to `acquireToken`, it may generate the following error (illustrated in the following diagram): 
 
@@ -181,7 +181,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ``` 
 
-![App accessing multiple services requesting a new token](media/active-directory-conditional-access-developer/app-accessing-multiple-services-new-token.png)
+![App accessing multiple services requesting a new token](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
 If the app is using the ADAL library, a failure to acquire the token is always retried interactively. When this interactive request occurs, the end user has the opportunity to comply with the conditional access. This is true unless the request is a `AcquireTokenSilentAsync` or `PromptBehavior.Never` in which case the app needs to perform an interactive ```AcquireToken``` request to give the end use the opportunity to comply with the policy. 
 
@@ -197,7 +197,7 @@ In ADAL.js, there are a few functions that obtain tokens: `login()`, `acquireTok
 
 When an app needs an access token to call a Web API, it attempts an `acquireToken(…)`. If the token session is expired or we need to comply with a conditional access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
-![Single page app using ADAL flow diagram](media/active-directory-conditional-access-developer/spa-using-adal-scenario.png)
+![Single page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 Let's walk through an example with our conditional access scenario. The end user just landed on the site and doesn’t have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the conditional access policy.
 

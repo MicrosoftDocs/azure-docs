@@ -40,7 +40,7 @@ Access the local HDFS from the command line and application code instead of by u
 
 2. From source code, use the URI `hdfs://mycluster/` literally, as in the following sample application:
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;

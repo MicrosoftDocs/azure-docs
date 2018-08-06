@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Should I use the v2.0 endpoint?
 
-When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers.
+When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
 
 Here's a simplified recommendation for developers at this point in time:
 
