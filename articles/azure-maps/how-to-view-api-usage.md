@@ -3,7 +3,7 @@ title: How to view the Azure Maps API usage | Microsoft Docs
 description: Learn how to view the metrics for your Azure Maps API calls in the portal.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/03/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,7 @@ You can see some common metrics on the **Overview** page of your Maps account. I
 Continue to the next section if you need to customize these graphs for your particular analysis.
 
 
-## Navigate to your Azure Maps account 
+## View detailed metrics
 
 1. Login to your Azure subscription in the [portal](https://portal.azure.com). 
 
@@ -51,3 +51,12 @@ Continue to the next section if you need to customize these graphs for your part
 8. You may also observe multiple metrics on the same graph, simply by clicking on the **Add metric** button on top.
 
 
+## Next steps
+
+Now that you have learned how to track your Azure Maps usage, you may proceed to learn more advanced features such as:
+
+* [Vehicle consumption][consumption-model.md], or
+* [Extend GeoJSON][extend-geojson.md]
+
+Finally, read more about the APIs you are using with the:
+* [Azure Maps REST API documentation][https://docs.microsoft.com/rest/api/maps]
