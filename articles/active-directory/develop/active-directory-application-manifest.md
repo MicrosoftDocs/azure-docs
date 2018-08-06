@@ -31,7 +31,7 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Th
 |---------|---------|---------|---------|
 |appID     |  Identifier string       |""|  The unique identifier for the application that is assigned to an app by Azure AD.|
 |appRoles     |    Type of array     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|The collection of roles that an application may declare. These roles can be assigned to users, groups, or service principals.|
-|availableToOtherTenants|boolean|`true`|If this value is set to true, the application is available to other tenants. If set to false, the app is only available to the tenant it is registered in. For more information, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boolean|`true`|If this value is set to true, the application is available to other tenants. If set to false, the app is only available to the tenant it is registered in. For more information, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md). |
 |displayName     |string         |`MyRegisteredApp`         |The display name for the application. |
 |errorURL     |string         |`http://MyRegisteredAppError`         |The URL for errors encountered in an application. |
 |groupMembershipClaims     |    string     |    `1`     |   A bitmask that configures the "groups" claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of. |
@@ -63,7 +63,7 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Th
 Use the following comments section to provide feedback that helps refine and shape our content.
 
 <!--article references -->
-[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
@@ -73,7 +73,7 @@ Use the following comments section to provide feedback that helps refine and sha
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
-[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
+[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
