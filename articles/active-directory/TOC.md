@@ -418,15 +418,15 @@
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
-##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
-##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
+##### [Configure conditional access policies for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
+##### [Set up device-based conditional access](conditional-access/require-managed-devices.md)
 ##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
 ##### [Provide terms of use for users and apps](active-directory-tou.md)
 ##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
+#### [Technical reference](conditional-access/technical-reference.md)
 #### [FAQs](conditional-access/faqs.md)
 
 ### Certificate-based Authentication

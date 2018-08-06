@@ -28,7 +28,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance. 
 
-Device management is also the foundation for [device-based conditional access](../active-directory-conditional-access-policy-connected-applications.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
+Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.   
 
 This article explains how device management in Azure Active Directory works.
 
@@ -175,7 +175,7 @@ As a rule of a thumb, you should use:
 
 - To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
 
-- To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../active-directory-conditional-access-policy-connected-applications.md).
+- To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
 
 - To setup:
     - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md)

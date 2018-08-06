@@ -22,7 +22,7 @@ ms.reviewer: calebb
 ---
 # How to: Configure conditional access policies for access attempts from untrusted networks   
 
-In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. As a result of this, your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. One common requirement in this context is to control access attempts initiated from untrusted networks. This article provides you with the information you need to configure a conditional access policy that handles this requirement. 
+In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. As a result of this, your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. One common requirement in this context is to control access attempts initiated from untrusted networks. This article provides you with the information you need to configure a conditional access policy that handles this requirement. 
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ This article assumes that you are familiar with:
 
 See:
 
-- [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) - for an overview of conditional access 
+- [What is conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) - for an overview of conditional access 
 
-- [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md) - to get some experience with configuring conditional access policies. 
+- [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) - to get some experience with configuring conditional access policies. 
 
 
 ## Scenario description
@@ -57,7 +57,7 @@ With Azure AD conditional access, you can address this requirement with a single
 
 ## Considerations
 
-The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](conditional-access/location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
+The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
 
 Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
 You can configure a named location by:
@@ -71,20 +71,20 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 - Include 
 
-    ![Conditional access](./media/active-directory-conditional-access-untrusted-networks/02.png)
+    ![Conditional access](./media/untrusted-networks/02.png)
 
 - Exclude all trusted locations 
 
-    ![Conditional access](./media/active-directory-conditional-access-untrusted-networks/01.png)
+    ![Conditional access](./media/untrusted-networks/01.png)
 
 
 
 ## Implementation
 
-With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. You should always test your policy before rolling it out into production to make sure that it works as expected. Ideally, you should do your initial tests in a test tenant if possible. For more information, see [How should you deploy a new policy](conditional-access/best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. You should always test your policy before rolling it out into production to make sure that it works as expected. Ideally, you should do your initial tests in a test tenant if possible. For more information, see [How should you deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 
 ## Next steps
 
-If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
+If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)

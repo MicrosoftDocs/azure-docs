@@ -26981,6 +26981,24 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-migration-mfa.md",
             "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-technical-reference.md",
+            "redirect_url": "/azure/active-directory/conditional-access/technical-reference",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-untrusted-networks.md",
+            "redirect_url": "/azure/active-directory/conditional-access/untrusted-networks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",
+            "redirect_url": "/azure/active-directory/conditional-access/require-managed-devices",
+            "redirect_document_id": true
         }
+
+
+
     ]
 }
