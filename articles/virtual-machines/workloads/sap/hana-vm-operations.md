@@ -349,7 +349,7 @@ As your Azure VM infrastructure is deployed, and all other preparations are done
 Following this setup routine, the scale-out configuration you installed is going to use non-shared disks for running **/hana/data** and **/hana/log**. Whereas the **/hana/shared** volume will be placed on the highly available NFS share.
 
 
-# SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
+## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
 
 In addition to the SAP HANA certifications on Azure M-series VMs SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
 ( see SAP HANA Dynamic Tiering documentation linsk further down ). While there is no difference in installing the product or 
@@ -360,7 +360,7 @@ instead of the full name Dynamic Tiering 2.0.
 SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use case right now are native HANA applications.
 
 
-## Overview
+### Overview
 
 The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements which
 have to be followed to comply with the official certification :
@@ -378,7 +378,7 @@ More details will be explained in the following sections.
 
 
 
-## Dedicated Azure VM for SAP HANA DT 2.0
+### Dedicated Azure VM for SAP HANA DT 2.0
 
 On Azure IaaS DT 2.0 is only supported on a dedicated VM. It is not allowed to run DT 2.0 on the same Azure VM where the HANA
 instance is running. Initially two VM types can be used to run SAP HANA DT 2.0 :
@@ -403,14 +403,14 @@ Recommended configurations would be :
 All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs ( M64-32ms, E32sv3 ) are possible.
 
 
-## Azure networking and SAP HANA DT 2.0
+### Azure networking and SAP HANA DT 2.0
 
 Installing DT 2.0 on a dedicated VM requires network throughput between the DT 2.0 VM and the SAP HANA VM of 10Gb minimum. 
 Therefore it's mandatory to place all VMs within the same Azure Vnet and enable Azure accelerated networking.
 
 See additional information about Azure accelerated networking [here](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
 
-## VM Storage for SAP HANA DT 2.0
+### VM Storage for SAP HANA DT 2.0
 
 According to DT 2.0 best practice guidance the disk IO throughput should be minimum 50MB/sec per physical core. Looking at the spec for the two 
 Azure VM types which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM :
@@ -464,7 +464,7 @@ enough storage capacity to act as a backup server.
 
 
 
-## Links to DT 2.0 documentation 
+### Links to DT 2.0 documentation 
 
 - [SAP HANA Dynamic Tiering installation and update guide](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
 - [SAP HANA Dynamic Tiering tutorials and resources](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
