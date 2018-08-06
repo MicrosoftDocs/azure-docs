@@ -50,14 +50,11 @@ On the Materials tab, assign the acoustic materials to materials used in your sc
 ![Materials Tab](media/MaterialsTab.png)
 
 ### Preview the probes
-Go to the Probes tab and click Calculate. It will take several minutes to complete. When completed, you should see a bunch of floating spheres show up in the UI. These represent the locations where the acoustics calculations will be performed.
-If you get close enough to an object in the scene window you can also see the voxelization of the scene that will be used
-during the bake. The green voxels should line up with the objects you marked as geometry. The probe points and voxels can be turned off and on by using the Gizmos menu.
+On the Probes tab, click Calculate. When calculation is complete, you'll see floating spheres in the scene view, which denote the locations for acoustics simulation. If you get close enough to an object in the scene window, you can also see the voxelization of the scene that will be used during the bake. The green voxels should line up with the objects you marked as geometry. The probe points and voxel displays can be toggled in the Gizmos menu.
 
 ![GizmosPreview](media/BakePreviewWithGizmos.png)
-### Perform the bake in the cloud
-Go to the bake tab. Enter your Azure credentials and click Bake.
-If you do not have an Azure Batch account, see [this walkthrough for our recommended account setup](CreateAzureAccount.md).
+### Bake in the cloud
+In the Bake tab, enter your Azure credentials and click Bake. If you don't have an Azure Batch account, see [this walkthrough for our recommended account setup](CreateAzureAccount.md).
 When the bake is finished, the data file will automatically be downloaded to your AcousticsData directory.
 
 ## Using the Acoustics Runtime
@@ -67,13 +64,13 @@ When the bake is finished, the data file will automatically be downloaded to you
 * Drag and drop the Microsoft Acoustics prefab from the project panel into your scene  
 ![Acoustics Prefab](media/AcousticsPrefab.png)  
 * Click on the MicrosoftAcoustics Game Object and go to its inspector panel 
-* Specify the location of your ACE file by drag-and-dropping it into the Acoustics Manager script, or by clicking on the circle button next to the text box. The ACE file should follow the form "<scenename>.ace.bytes"  
+* Specify the location of your ACE file by drag-and-dropping it into the Acoustics Manager script, or by clicking on the circle button next to the text box. The ACE file should follow the form "<scenename>.ace.bytes".
 ![Acoustics Manager](media/AcousticsManager.png)  
 
 * Create an audio source. Click the checkbox at the bottom of the AudioSource's inspector panel that says "Spatialize." Make sure the Spatial Blend is set to full 3D  
 ![Audio Source](media/AudioSource.png)  
 * Open the Audio Mixer (Window > Audio Mixer). Make sure you have at least one Mixer, with one group. If you don't, Click the '+' button to the right of "Mixers" 
-* Right click the bottom of the channel strip in the effects section, and add the "Microsoft Acoustics Mixer" effect. Note that only one Microsoft Acoustics Mixer is supported at a time.  
+* Right-click the bottom of the channel strip in the effects section, and add the "Microsoft Acoustics Mixer" effect. Note that only one Microsoft Acoustics Mixer is supported at a time.  
 ![Audio Mixer](media/AudioMixer.png)  
 * Assign all spatialized audio sources' outputs to the group. Without this, all spatialized audio sources may be muted.
 
@@ -84,13 +81,14 @@ Sometimes, the results of the bake sound great for one category of sounds, but a
 * **Decay Time Scale** - This value adjusts the decay time in a multiplicative fashion. For example, if the acoustics table query results in a decay time of 750 milliseconds, but this value is set to 1.5, the resulting decay time is 1.125 seconds.
 * **Enable Acoustics** - This checkbox controls whether this sound source uses the results of the acoustics table query or not. When this checkbox is checked, all acoustic parameters from the lookup table will be applied. When this checkbox is unchecked, the source will still be spatialized, but no acoustics lookup query is performed. The result is through-the-wall directionality, with no obstruction/occlusion effects, and no dynamic change in reverb.  
 
-If a global adjustment of the parameters is desired, it would be tedious to change all parameters on each individual source. Instead, go to the Audio Mixer, click on the channel strip with the Microsoft Acoustics Mixer, and adjust the parameters on the Microsoft Acoustics Mixer effect. This will update the Reverb Power and Decay Time for all spatialized sources in the scene.  
+To adjust parameters for all sources, click on the channel strip in the Audio Mixer, and adjust the parameters on the Microsoft Acoustics Mixer effect.
+
 ![Mixer Customization](media/MixerParameters.png)  
 
 ## Viewing bake information at runtime
-Just like you can view voxels and probe points at design time, you can also view voxels and probe points at runtime. This can help debug issues with sound sources being stuck inside the geometry, or making sure all transforms are matched up. To toggle the voxel grid and probe points on/off, click the corresponding checkbox in the Gizmos menu.  
+Viewing voxels and probe points at runtime can help debug issues with sound sources being stuck inside the voxelized geometry. To toggle the voxel grid and probe points display, click the corresponding checkbox in the Gizmos menu.  
 ![Gizmos Menu](media/GizmosMenu.png)  
-If you do find that the visual components in the game have a transform applied to them, apply the same transform to the GameObject hosting the Acoustics Manager. Use the voxel grid to make sure everything lines up, otherwise your audio sources will not sound correct as you navigate through the scene.
+The voxel display can help determine if visual components in the game have a transform applied to them. If so, apply the same transform to the GameObject hosting the Acoustics Manager.
 
 ## Deploying to Android
 To use Microsoft Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
