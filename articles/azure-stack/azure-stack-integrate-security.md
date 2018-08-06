@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Stack datacenter integration - Security
 description: Learn how to integrate Azure Stack security with your datacenter security
 services: azure-stack
@@ -32,23 +32,23 @@ You can retrieve events collected by Azure Stack using a tool called Azure Stora
 The following procedure is an example you can use to configure Azure Storage Explorer for Azure Stack:
 
 1. Sign in to the Azure Stack administrator portal as an operator.
-2. Browse **Storage accounts** and look for **frphealthaccount**. The **frphealthaccount** account is the general storage account used to store all operating system events.
+1. Browse **Storage accounts** and look for **frphealthaccount**. The **frphealthaccount** account is the general storage account used to store all operating system events.
 
    ![Storage accounts](media/azure-stack-integrate-security/storage-accounts.png)
 
-3. Select **frphealthaccount**, then click **Access Keys**.
+1. Select **frphealthaccount**, then click **Access Keys**.
 
    ![Access keys](media/azure-stack-integrate-security/access-keys.png)
 
-4. Copy the access key to your clipboard.
-5. Open Azure Storage Explorer.
-6. On the **Edit** menu, select **Target Azure Stack**.
-7. Select **Add Account**, and then select **Use a storage account name and key**.
+1. Copy the access key to your clipboard.
+1. Open Azure Storage Explorer.
+1. On the **Edit** menu, select **Target Azure Stack**.
+1. Select **Add Account**, and then select **Use a storage account name and key**.
 
    ![Connect storage](media/azure-stack-integrate-security/connect-storage.png)
 
-8. Click **Next**.
-9. On the **Attach External Storage** page:
+1. Click **Next**.
+1. On the **Attach External Storage** page:
 
    a. Type the account name **frphealthaccount**.
 
@@ -60,8 +60,8 @@ The following procedure is an example you can use to configure Azure Storage Exp
 
    ![Attach external storage](media/azure-stack-integrate-security/attach-storage.png)
 
-10. Click **Next**, review the summary, and **Finish** the Wizard.
-11. You can now browse the individual blob containers and download the events.
+1. Click **Next**, review the summary, and **Finish** the Wizard.
+1. You can now browse the individual blob containers and download the events.
 
    ![Browse blobs](media/azure-stack-integrate-security/browse-blob.png)
 

@@ -22,12 +22,12 @@ ms.custom: aaddev
 
 # Should I use the v2.0 endpoint?
 
-When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers.
+When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
 
 Here's a simplified recommendation for developers at this point in time:
 
 * If you must support personal Microsoft accounts in your application, use the v2.0 endpoint. But before you do, be sure that you understand the limitations discussed in this article.
-* If your application only needs to support Microsoft work and school accounts, don't use the v2.0 endpoint. Instead, refer to the [Azure AD developer guide](active-directory-developers-guide.md).
+* If your application only needs to support Microsoft work and school accounts, don't use the v2.0 endpoint. Instead, refer to the [Azure AD developer guide](azure-ad-developers-guide.md).
 
 The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
 
@@ -87,7 +87,7 @@ You can add the latter two because they are subdomains of the first redirect URI
 
 Also note, you can have only 20 reply URLs for a particular application.
 
-To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
+To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](quickstart-v2-register-an-app.md).
 
 ## Restrictions on libraries and SDKs
 

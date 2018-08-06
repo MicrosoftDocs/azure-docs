@@ -29,7 +29,7 @@ This feature is used by application developers to specify which claims they want
 > [!Note]
 > This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
-For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](active-directory-token-and-claims.md). 
+For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](v1-id-and-access-tokens.md). 
 
 One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-overview.md) is smaller token sizes to ensure optimal performance by clients.  As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.  
 
@@ -244,4 +244,4 @@ In the example below, you will modify an application’s manifest to add claims 
 
 
 ## Related content
-* Learn more about the [standard claims](active-directory-token-and-claims.md) provided by Azure AD. 
+* Learn more about the [standard claims](v1-id-and-access-tokens.md) provided by Azure AD. 

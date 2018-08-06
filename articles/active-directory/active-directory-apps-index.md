@@ -37,7 +37,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 
 | Feature Area |  |
 |:---:| --- |
-| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](develop/howto-v1-debug-saml-sso-issues.md) |
 | Password-Based Single Sign-On |[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Application Proxy |[App Proxy Troubleshooting Guide](manage-apps/application-proxy-troubleshoot.md) |
 | Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Hash Synchronization](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Troubleshooting Password Writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -53,7 +53,7 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](saas-apps/tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](saas-apps/tutorial-list.md) |
 | How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
-| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](develop/howto-v1-debug-saml-sso-issues.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
@@ -139,7 +139,7 @@ If your organization is developing or maintaining line-of-business (LoB) applica
 
 | Article Guide |  |
 |:---:| --- |
-| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](active-directory-developers-guide.md) |
+| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](develop/azure-ad-developers-guide.md) |
 | How to application vendors can add their apps to the Azure AD App Gallery |[Listing your Application in the Azure Active Directory Application Gallery](active-directory-app-gallery-listing.md) |
 | How to manage access to developed applications using Azure Active Directory |[How to Enable User Assignment for Developed Applications](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Assigning Group to your App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
