@@ -451,7 +451,7 @@ found [here](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-en
 
 Here are a few examples about sizing the log volume :
 
-| data volume size and Azure disk type | log volume and Azure disk type config 1 | log volume and Azure disk type config 2 |
+| data volume size and disk type | log volume and disk type config 1 | log volume and disk type config 2 |
 | --- | --- | --- |
 | 4 x P50 -> 16TB | 5 x P20 -> 2.5TB | 3 x P30 -> 3TB |
 | 6 x P15 -> 1.5TB | 4 x P6 -> 256GB | 1 x P15 -> 256GB |
