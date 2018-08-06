@@ -221,7 +221,8 @@ The following fields are supported:
 
 ```json
 "source": "action",
-"equals": "Microsoft.Compute/virtualMachines/write"```
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
 
 **Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
@@ -263,53 +264,50 @@ The list of aliases is always growing. To discover what aliases are currently su
 - Azure PowerShell
 
   ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Authorization' = 'Bearer ' + $token.AccessToken
-}
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $authHeader = @{
+    'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-# Create a splatting variable for Invoke-RestMethod
-
-$invokeRest = @{
+  # Create a splatting variable for Invoke-RestMethod
+  $invokeRest = @{
     Uri = 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases'
     Method = 'Get'
     ContentType = 'application/json'
     Headers = $authHeader
-}
+  }
 
-# Invoke the REST API
-$response = Invoke-RestMethod @invokeRest
+  # Invoke the REST API
+  $response = Invoke-RestMethod @invokeRest
 
-# Create an List to hold discovered aliases
+  # Create an List to hold discovered aliases
+  $aliases = [System.Collections.Generic.List[pscustomobject]]::new()
 
-$aliases = [System.Collections.Generic.List[pscustomobject]]::new()
+  foreach ($ns in $response.value)
+  {
+      foreach ($rT in $ns.resourceTypes)
+      {
+          if ($rT.aliases)
+          {
+              foreach ($obj in $rT.aliases)
+              {
+                  $alias = [PSCustomObject]@{
+                      Namespace    = $ns.namespace
+                      resourceType = $rT.resourceType
+                      alias        = $obj.name
+                  }
+                  $aliases.Add($alias)
+              }
+          }
+      }
+  }
 
-foreach ($ns in $response.value)
-{
-    foreach ($rT in $ns.resourceTypes)
-    {
-        if ($rT.aliases)
-        {
-            foreach ($obj in $rT.aliases)
-            {
-                $alias = [PSCustomObject]@{
-                    Namespace       = $ns.namespace
-                    resourceType    = $rT.resourceType
-                    alias           = $obj.name
-                }
-                $aliases.Add($alias)
-            }
-        }
-    }
-}
-
-# Output the list and sort it by Namespace, resourceType and alias. You can customize with Where-Object to limit as desired.
-$aliases | Sort-Object -Property Namespace, resourceType, alias
+  # Output the list and sort it by Namespace, resourceType and alias. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias
   ```
 
 - Azure CLI
