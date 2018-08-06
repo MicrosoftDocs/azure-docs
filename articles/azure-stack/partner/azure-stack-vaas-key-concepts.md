@@ -48,8 +48,8 @@ For more information on workflow types, see [What is Validation as a Service for
 
 1. On the solutions dashboard, create a new solution or select an existing one. This refreshes and enables the workflow tiles.
 2. To create a new workflow, click on **Start** on any tile. For information specific to each workflow, see the following articles:
-    - [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
-    - [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
-    - [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
-3. To manage an existing workflow, click on **Manage** on any tile. For additional information, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
+    - Test Pass: [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
+    - Solution Validation: [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
+    - Package Validation: [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Package Validation: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+3. To manage or monitor an existing workflow, click on **Manage** on any tile. For additional information, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
