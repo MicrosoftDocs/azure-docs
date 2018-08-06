@@ -48,8 +48,11 @@ For this quickstart, you will need:
 Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
 
 ```azurecli-interactive
-Click the Try It button to open Cloud Shell
+Click the "Try It" button to open Cloud Shell
 ```
+
+> [!NOTE]
+> The "Try It" button opens a Cloud Shell in your current browser window. It does not enter the command for you. You will need to click the "Copy" button to save to your clipboard, then paste the command into your Shell.
 
 Select **Bash** as the shell type. If you are prompted to create storage, the default option is fine.
 
@@ -71,17 +74,21 @@ The output will display a series of information. You will need to save the `appi
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-
-
 ### SSH KeyPair
 
-An SSH key is needed to log into the CycleCloud VM and clusters. Specify a public SSH key to use with all clusters, as well as the application server.
+An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
 
-On Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows/puttygen#sec-Creating-a-new-key-pair-for-authentication) to create a ssh keypair. You will need to do the following:
+```azurecli-interactive
+ssh-keygen -f ~/.ssh/id_rsa  -N "" -b 4096
+```
 
-  1. **Save Public Key**
-  2. **Save Private Key**
-  3. **Conversions - Export Open SSH Key**
+Retrieve the SSH public key with:
+
+```azurecli-interactive
+cat ~/.ssh/id_rsa.pub
+```
+
+The output will begin with ssh-rsa followed by a long string of characters. Copy and save this key now.
 
 On Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
 
@@ -106,12 +113,16 @@ The deployment process runs an installation script as a custom script extension,
 To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
 
 ```azurecli-interactive
-az network public-ip list -g AzureCycleCloud | grep fqdn
+az network public-ip list --query "[?name=='cycle-ip']" | grep fqdn
 ```
 
 Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser. The Azure CycleCloud End User License Agreement will be displayed - click to accept it.
 
-You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above.
+Create a Site Name for your installation. You can use any name here:
+
+![CycleCloud Welcome screen](~/images/cc-first-login.png)
+
+You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue. 
 
 ![CycleCloud Create New User screen](~/images/create-new-user.png)
 
