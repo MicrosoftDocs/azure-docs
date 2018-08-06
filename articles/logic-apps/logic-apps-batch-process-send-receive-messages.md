@@ -171,30 +171,27 @@ the batch senders must know where to send messages.
 
       ![Set frequency and interval for recurrence trigger](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-sender-details.png)
 
-2. Add a new step for sending messages to a batch.
+2. Add a new action for sending messages to a batch.
 
    1. Under the recurrence trigger, choose **New step**.
 
-   2. In the search box, enter "batch" as your filter. 
-
-   3. Select this action: 
+   2. In the search box, enter "batch" as your filter. Select this action: 
    **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
 
-      ![Select "Send messages to batch"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+      ![Select "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
-   4. Select your batch receiver logic app that you previously created, 
-   which now appears as an action.
+   3. Select your batch receiver logic app that you previously created.
 
       ![Select "batch receiver" logic app](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver.png)
 
       > [!NOTE]
       > The list also shows any other logic apps that have batch triggers.
 
-   5. Select this action: **Batch_messages - <*your-batch-receiver*>**
+   4. Select this action: **Batch_messages - <*your-batch-receiver*>**
 
       ![Select this action: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
-3. Set the batch sender properties:
+3. Set the batch sender's properties:
 
    | Property | Description | 
    |----------|-------------| 
