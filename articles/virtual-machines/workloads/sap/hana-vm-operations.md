@@ -351,7 +351,7 @@ Following this setup routine, the scale-out configuration you installed is going
 
 ## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
 
-In addition to the SAP HANA certifications on Azure M-series VMs SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
+In addition to the SAP HANA certifications on Azure M-series VMs, SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
 (see SAP HANA Dynamic Tiering documentation linsk further down). While there is no difference in installing the product or 
 operating it, for example, via SAP HANA Cockpit inside an Azure Virtual Machine, there are a few important items, which are mandatory for official support on Azure. These key points are described below. Throughout the article, the abbreviation "DT 2.0" will be used
 instead of the full name Dynamic Tiering 2.0.
@@ -379,7 +379,7 @@ More details will be explained in the following sections.
 
 ### Dedicated Azure VM for SAP HANA DT 2.0
 
-On Azure IaaS DT 2.0 is only supported on a dedicated VM. It is not allowed to run DT 2.0 on the same Azure VM where the HANA
+On Azure IaaS, DT 2.0 is only supported on a dedicated VM. It is not allowed to run DT 2.0 on the same Azure VM where the HANA
 instance is running. Initially two VM types can be used to run SAP HANA DT 2.0 :
 
 M64-32ms, E32sv3 
@@ -456,8 +456,8 @@ Here are a few examples about sizing the log volume :
 | 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
-Like for SAP HANA scale-out the /hana/shared directory has to be shared between the SAP HANA VM and the DT 2.0 VM. The same architecture as for
-SAP HANA scale-out using dedicated VMs which act as a highly available NFS server is recommended. In order to provide a shared backup volume
+Like for SAP HANA scale-out, the /hana/shared directory has to be shared between the SAP HANA VM and the DT 2.0 VM. The same architecture as for
+SAP HANA scale-out using dedicated VMs, which act as a highly available NFS server is recommended. In order to provide a shared backup volume,
 the identical design can be used. But it is up to the customer if HA would be necessary or if it is sufficient to just use a dedicated VM with
 enough storage capacity to act as a backup server.
 
