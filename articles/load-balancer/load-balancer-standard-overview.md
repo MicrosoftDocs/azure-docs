@@ -62,11 +62,11 @@ When considering how to design your backend pool, you can design for the least n
 
 ### <a name="probes"></a>Health probes
   
-Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probes.md#httpsprobes) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
+Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probe.md#httpsprobes) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
 
-In addition, when the entire backend pool [probes down](load-balancer-custom-probes.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
+In addition, when the entire backend pool [probes down](load-balancer-custom-probe.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
 
-Review [Load Balancer health probes](load-balancer-custom-probes.md) for details.
+Review [Load Balancer health probes](load-balancer-custom-probe.md) for details.
 
 ### <a name="az"></a>Availability Zones
 
@@ -223,7 +223,7 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 ## Next steps
 
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
-- Learn about [Health Probes](load-balancer-custom-probes-overview.md).
+- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [supported multi-dimensional metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
