@@ -86,9 +86,9 @@ See:
 
 - [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
 
-- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) to get some guidance on deploying conditional access in your organization.
+- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md) to get some guidance on deploying conditional access in your organization.
 
-- [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
+- [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
 
 
  
@@ -169,6 +169,6 @@ In a new policy, you need to select the [device platforms](active-directory-cond
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [GRequire MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [GRequire MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 

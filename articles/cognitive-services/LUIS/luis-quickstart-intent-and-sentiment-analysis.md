@@ -87,11 +87,11 @@ Configure sentiment analysis on the **Publish** page.
 
     ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Select **Enable Sentiment Analysis**. Select the Production slot and the **Publish** button.
+2. Select **Enable Sentiment Analysis**. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+## Publish app to endpoint
 
-4. Publishing is complete when you see the green status bar at the top of the website confirming success.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## Query the endpoint with an utterance
 

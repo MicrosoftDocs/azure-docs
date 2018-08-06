@@ -146,6 +146,6 @@ To disable your classic policy, click **Disable** in the **Details** view.
 - For more information about the classic policy migration, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
 
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
