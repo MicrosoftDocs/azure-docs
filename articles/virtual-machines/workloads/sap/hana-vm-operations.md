@@ -352,18 +352,18 @@ Following this setup routine, the scale-out configuration you installed is going
 ## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
 
 In addition to the SAP HANA certifications on Azure M-series VMs SAP HANA Dynamic Tiering 2.0 is also supported on Microsoft Azure
-( see SAP HANA Dynamic Tiering documentation linsk further down ). While there is no difference in installing the product or 
+(see SAP HANA Dynamic Tiering documentation linsk further down). While there is no difference in installing the product or 
 operating it e.g. via SAP HANA Cockpit inside an Azure Virtual Machine there are a few important items which are mandatory for
 official support on Azure. These key points are described below. Throughout the article the abbreviation "DT 2.0" will be used
 instead of the full name Dynamic Tiering 2.0.
 
-SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use case right now are native HANA applications.
+SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use cases right now are native HANA applications.
 
 
 ### Overview
 
 The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements which
-have to be followed to comply with the official certification :
+has to be followed to comply with the official certification :
 
 - DT 2.0 has to be installed on a dedicated Azure VM and NOT on the VM where SAP HANA runs
 - SAP HANA and DT 2.0 VMs have to be deployed within the same Azure Vnet
@@ -400,7 +400,7 @@ Recommended configurations would be :
 | M64s | E32sv3 |
 
 
-All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs ( M64-32ms, E32sv3 ) are possible.
+All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M64-32ms, E32sv3) are possible.
 
 
 ### Azure networking and SAP HANA DT 2.0
@@ -418,7 +418,7 @@ Azure VM types which are supported for DT 2.0 one will see the maximum disk IO t
 - E32sv3    :   768MB/sec ( uncached ) which means a ratio of 48MB/sec per physical core
 - M64-32ms  :  1000MB/sec ( uncached ) which means a ratio of 62.5MB/sec per physical core
 
-It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid ( striping ) on OS level to achieve the max limit of disk throughput 
+It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
 - Details about available Azure disk types can be found [here](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
@@ -444,8 +444,8 @@ data volumes of database software. Whereas for the transaction log Azure host di
 
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. This again can be accomplished by different
 Azure disk types depending on cost and throughput requirements. Also for the log volume high throughput is preferred and in case of M64-32ms it is 
-strongly recommended to turn Write Accelerator on ( which is mandatory for SAP HANA ). This provides optimal disk write latency for the transaction
-log ( only available for M-series ). There are some items to consider though like the maximum number of disks per VM type. Details about WA can be
+strongly recommended to turn Write Accelerator on (which is mandatory for SAP HANA). This provides optimal disk write latency for the transaction
+log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about WA can be
 found [here](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 
