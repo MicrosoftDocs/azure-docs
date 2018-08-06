@@ -1,3 +1,10 @@
+---
+author: Rajeswari-Mamilla
+ms.service: site-recovery
+ms.topic: article
+ms.date: 08/06/2018
+ms.author: ramamill
+---
 The steps to unregister a process server differs depending on its connection status with the Configuration Server.
 
 ### Unregister a process server that is in a connected state
