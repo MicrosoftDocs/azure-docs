@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 08/09/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -30,8 +30,7 @@ This article describes the contents of the 1807 update package. This update incl
 
 ## Build reference
 
-The Azure Stack 1807 update build number is **1.1807.0.65**.  
-
+The Azure Stack 1807 update build number is **1.1807.0.74**.  
 
 ### New features
 
@@ -139,6 +138,9 @@ This update includes the following improvements for Azure Stack.
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - Link to KB  
  -->
+### Common Vulnerabilities and Exposures
+
+You can find a list of the current Common Vulnerabilities and Exposures (CVEs) at the [Microsoft Security TechCenter](https://portal.msrc.microsoft.com/security-guidance/releasenotedetail/1c26eff2-573f-e811-a96f-000d3a33c573). Each CVE may have FAQs with additional information and may include further steps to take after installing updates.
 
 ## Known issues (post-installation)
 
