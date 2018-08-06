@@ -1,7 +1,7 @@
 ---
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
+ms.topic: include
 ms.date: 08/06/2018
 ms.author: ramamill
 ---
