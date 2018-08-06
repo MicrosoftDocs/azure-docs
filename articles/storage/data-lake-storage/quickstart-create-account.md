@@ -205,7 +205,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### Clean up resources
