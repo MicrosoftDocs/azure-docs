@@ -14,7 +14,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 4. Add list entity
-In this tutorial, create an app that demonstrates how to get data that matches a predefined list of synonyms. 
+In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
