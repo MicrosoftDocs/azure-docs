@@ -1,5 +1,5 @@
 ---
-title: Design of a Multi-DRM Content Protection System with Access Control Using Azure Media Services | Microsoft Docs
+title: Design of a multi-DRM content protection system with cccess control using Azure Media Services | Microsoft Docs
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -26,16 +26,12 @@ The targeted readers for this document are engineers who work in DRM subsystems 
 
 In this discussion, by multi-DRM we include the 3 DRMs supported by Azure Media Services: Common Encryption (CENC) for PlayReady and Widevine, FairPlay as well as AES-128 clear key encryption. A major trend in online streaming and the OTT industry is to use native DRMs on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
-The benefits of CENC with multi-DRM are that it:
+The benefits of using native multi-DRM for content protection are that it:
 
 * Reduces encryption cost because a single encryption process is used to target different platforms with its native DRMs.
-* Reduces the cost of managing encrypted assets because only a single copy of encrypted assets is needed.
+* Reduces the cost of managing assets because only a single copy of asset is needed in storage.
 * Eliminates DRM client licensing cost because the native DRM client is usually free on its native platform.
 
-Microsoft is an active promoter of DASH and CENC together with some major industry players. Azure Media Services provides support for CENC over DASH, and FairPlay over HLS. For recent announcements, see the following blogs:
-
-* [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
-* [Azure Media Services adds Google Widevine packaging for delivering a multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
 ### Goals of the article
 
@@ -50,10 +46,10 @@ The following table summarizes native DRM support on different platforms and EME
 | **Client platform** | **Native DRM** | **EME** |
 | --- | --- | --- | --- |
 | **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
-| **Windows 10 ** | PlayReady | MS Edge/IE11 for PlayReady|
+| **Windows 10** | PlayReady | MS Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
 | **iOS** | FairPlay | Safari for FairPlay (since iOS 11.2) |
-| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ (El Capitan))|
+| **macOS** | FairPlay | Safari for FairPlay (since Safari 9+ on Mac OS X 10.11+ El Capitan)|
 | **tvOS** | FairPlay | |
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
@@ -136,15 +132,15 @@ The following table shows the mapping.
 | **Building block** | **Technology** |
 | --- | --- |
 | **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Identity provider (IDP)** |Azure Active Directory (Azure AD) |
-| **Security token service (STS)** |Azure AD |
-| **DRM protection workflow** |Media Services dynamic protection |
+| **Identity Provider (IDP)** |Azure Active Directory (Azure AD) |
+| **Secure Token Service (STS)** |Azure AD |
+| **DRM protection workflow** |Azure Media Services dynamic protection |
 | **DRM license delivery** |* Media Services license delivery (PlayReady, Widevine, FairPlay) <br/>* Axinom license server <br/>* Custom PlayReady license server |
-| **Origin** |Media Services streaming endpoint |
+| **Origin** |Azure Media Services streaming endpoint |
 | **Key management** |Not needed for reference implementation |
 | **Content management** |A C# console application |
 
-In other words, both IDP and STS are provided by Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Media Services and Azure Media Player support CENC over DASH, FairPlay over HLS, PlayReady over smooth streaming, and AES-128 ecnryption for DASH, HLS and smooth.
+In other words, both IDP and STS are provided by Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Azure Media Services and Azure Media Player support CENC over DASH, FairPlay over HLS, PlayReady over smooth streaming, and AES-128 ecnryption for DASH, HLS and smooth.
 
 The following diagram shows the overall structure and flow with the previous technology mapping:
 
@@ -156,13 +152,13 @@ To set up DRM content protection, the content management tool uses the following
 * Content key from key management
 * License acquisition URLs
 * A list of information from Azure AD, such as audience, issuer, and token claims
-ptio
+
 Here's the output of the content management tool:
 
-* ContentKeyPolicy describes DRM license template for each kind of DRM;
+* ContentKeyPolicy describes DRM license template for each kind of DRM used;
 * ContentKeyPolicyRestriction describes the access control before a DRM license is issued
-* Streamingpolicy describes the various combinations of DRM - encryption mode - streaming protocol - container format
-* StreamingLocator describes content key/IV used for encryption, streaming URLs 
+* Streamingpolicy describes the various combinations of DRM - encryption mode - streaming protocol - container format, for streaming
+* StreamingLocator describes content key/IV used for encryption, and streaming URLs 
 
 Here's the flow during runtime:
 
@@ -170,7 +166,7 @@ Here's the flow during runtime:
 * One of the claims contained in the JWT is a groups claim that contains the group object ID EntitledUserGroup. This claim is used to pass the entitlement check.
 * The player downloads the client manifest of CENC-protected content and identifies the following:
    * Key ID.
-   * The content is CENC protected.
+   * The content is DRM protected.
    * License acquisition URLs.
 * The player makes a license acquisition request based on the browser/DRM supported. In the license acquisition request, the key ID and the JWT are also submitted. The license delivery service verifies the JWT and the claims contained before it issues the needed license.
 
@@ -434,6 +430,11 @@ On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10,
 Widevine doesn't prevent you from making a screen capture of protected video.
 
 ![Player plug-ins for Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
+
+#### Use EME for FairPlay
+Similarly, you can test FairPlay protected content in this test player in Safari on macOS or iOS 11.2 and later.
+
+Make sure you put "FairPlay" as protectionInfo.type and put in the right URL for your Application Certificate in FPS AC Path (FairPlay Streaming Application Certificate Path).
 
 ### Unentitled users
 If a user isn't a member of the "Entitled Users" group, the user doesn't pass the entitlement check. The multi-DRM license service then refuses to issue the requested license as shown. The detailed description is "License acquire failed," which is as designed.
