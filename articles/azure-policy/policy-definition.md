@@ -221,8 +221,7 @@ The following fields are supported:
 
 ```json
 "source": "action",
-"equals": "Microsoft.Compute/virtualMachines/write"
-```
+"equals": "Microsoft.Compute/virtualMachines/write"```
 
 **Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
@@ -239,7 +238,6 @@ Policy supports the following types of effect:
 - **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
 
 For **append**, you must provide the following details:
-
 
 ```json
 "effect": "append",
