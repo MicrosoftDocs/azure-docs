@@ -31,6 +31,14 @@ By default, Service Fabric deploys and activates these services as processes. Pr
 
 If you just want to [deploy and manage containers](service-fabric-containers-overview.md), Service Fabric is a perfect choice as a container orchestrator.
 
+To jump right in and try out containers on Service Fabric, try one of the following quickstarts, tutorial, or sample:  
+
+[Quickstart: Deploy a Linux container application to Service Fabric](service-fabric-quickstart-containers-linux.md)
+[Quickstart: Deploy a Windows container application to Service Fabric](service-fabric-quickstart-containers.md)
+[Containerize an existing .NET app](service-fabric-host-app-in-a-container.md)
+[Service Fabric Container Samples](https://azure.microsoft.com/resources/samples/service-fabric-containers/)
+
+
 ## What are containers
 
 Containers solve the problem of running software reliably in different computing environments. Containers wrap an application, and all of its dependencies such as libraries and configuration files, into its own isolated 'box' that contains everything needed to run the software inside the container. Wherever the container runs, the application inside it always has everything it needs to run.
@@ -102,13 +110,6 @@ In this article, you learned about the support Service Fabric provides for runni
 
 [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md)
 [Create your first Service Fabric container application on Windows](service-fabric-get-started-containers.md)
-
-For additional information:
-
 [Learn more about Windows Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/)
-[Quickstart: Deploy a Linux container application to Service Fabric](service-fabric-quickstart-containers-linux.md)
-[Quickstart: Deploy a Windows container application to Service Fabric](service-fabric-quickstart-containers.md)
-[Containerize an existing .NET app](service-fabric-host-app-in-a-container.md)
-[Service Fabric Container Samples](https://azure.microsoft.com/resources/samples/service-fabric-containers/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
