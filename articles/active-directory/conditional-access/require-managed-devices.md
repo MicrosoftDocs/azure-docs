@@ -34,7 +34,7 @@ Requiring managed devices for cloud app access ties **Azure AD conditional acces
 
 - **[Conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of conditional access and the related terminology.
 
-- **[Introduction to device management in Azure Active Directory](../device-management/overview.md)** - This article gives you an overview of the various options you have to get devices under organizational control. 
+- **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - This article gives you an overview of the various options you have to get devices under organizational control. 
 
 
 ## Scenario description
