@@ -15192,7 +15192,7 @@
         },
 	    {
             "source_path": "articles/virtual-machines/windows/troubleshoot-recovery-disks.md",
-            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows.md",
+            "redirect_url": "/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows",
             "redirect_document_id": false
         },
 		{
