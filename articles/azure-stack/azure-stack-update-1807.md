@@ -108,7 +108,28 @@ This update includes the following improvements for Azure Stack.
 
 <!-- ### Additional releases timed with this update    -->
 
+### Common Vulnerabilities and Exposures
 
+This update contains fixes for the following Common Vulnerabilities and Exposures (CVEs).
+
+| Date | Product | Product Family | Article | Download | Details |
+|------------|-------------------------------------------------|----------------|---------|----------------------|---------------|
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8206 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8206 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8222 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8222 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8282 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8282 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8304 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8304 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8307 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8307 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8308 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8308 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8309 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8309 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8313 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8313 |
 
 ## Before you begin
 
@@ -138,9 +159,6 @@ This update includes the following improvements for Azure Stack.
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - Link to KB  
  -->
-### Common Vulnerabilities and Exposures
-
-You can find a list of the current Common Vulnerabilities and Exposures (CVEs) at the [Microsoft Security TechCenter](https://portal.msrc.microsoft.com/security-guidance/releasenotedetail/1c26eff2-573f-e811-a96f-000d3a33c573). Each CVE may have FAQs with additional information and may include further steps to take after installing updates.
 
 ## Known issues (post-installation)
 
