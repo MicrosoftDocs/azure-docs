@@ -48,7 +48,7 @@ For this quickstart, you will need:
 Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
 
 ```azurecli-interactive
-whoami
+Click the Try It button to open Cloud Shell
 ```
 
 Select **Bash** as the shell type. If you are prompted to create storage, the default option is fine.
