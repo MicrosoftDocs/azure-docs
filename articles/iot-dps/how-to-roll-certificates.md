@@ -14,7 +14,7 @@ manager: timlt
 
 During the lifecycle of your IoT solution, you will need to roll certificates. Two of the main reasons for rolling certificates would be to address a security breach, and to address certificate expirations. 
 
-Rolling certificates is a security best practice to help secure your system in case of a breach. As part of [Assume Breach Methodology](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place in addition to preventative measures. Rolling your device certificates should be included as part of these reactive security processes. The frequency with which you roll your certificates depends on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
+Rolling certificates is a security best practice to help secure your system in case of a breach. As part of [Assume Breach Methodology](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place in addition to preventative measures. Rolling your device certificates should be included as part of these reactive security processes. The frequency in which you roll your certificates will depend on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
 
 Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
 
@@ -26,13 +26,15 @@ Certificates on a device should always be stored in a safe place like a [hardwar
 
 The device certificate can be manually added to an IoT hub, or it can be automated using a Device Provisioning Service instance. In this article, we will assume a provisioning service instance is being used to support [auto-provisioning](concepts-auto-provisioning.md).
 
-For auto-provisioning, the easiest way to roll device certificates for an IoT hub is to reprovisioning the device through the Device Provisioning Service instance. During device boot-up, a device contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s [leaf certificate](concepts-security.md#end-entity-leaf-certificate) as the credential. The provisioning service then tells the device which IoT hub it is assigned to, and the device then uses its leaf certificate to authenticate and connect. 
+For auto-provisioning, the easiest way to roll device certificates in an IoT hub is to reprovisioning the device with a Device Provisioning Service instance. The provisioning service makes sure the device is registered to an IoT Hub using its current [leaf certificate](concepts-security.md#end-entity-leaf-certificate). This registration process will update the IoT Hub device registry information as needed. 
 
-Once a new leaf certificate has been rolled to the device, it will no longer be able to connect to the IoT hub because it’s attempting to use a new certificate to connect and the IoT hub only recognizes the device with the old certificate. 
+During the auto-provisioning process the device boot-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it is assigned to, and the device then uses its leaf certificate to authenticate and connect. 
 
-A possible exception to this connection failure would be a scenario where you have created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you are not rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain defined in the enrollment group. For all other scenarios, you need to update the enrollment entry for the new certificate.
+Once a new leaf certificate has been rolled to the device, it will no longer be able to connect to the IoT hub because it’s attempting to use a new certificate to connect and the IoT hub only recognizes the device with the old certificate. You must update the enrollment entry for the device to account for the device's new leaf certificate.
 
-To update an individual enrollment for the new certificate:
+One possible exception to this connection failure would be a scenario where you have created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you are not rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least blacklist the specific device certificates in the group that are considered to be breached. For more information, see [Blacklist specific devices in an enrollment group](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+
+To update an enrollment entry to account for rolled certificates, first navigate to **Manage Enrollments**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the IoT Hub Device Provisioning Service instance that contains the enrollment entry for your device.
 
@@ -40,10 +42,33 @@ To update an individual enrollment for the new certificate:
 
    ![Manage enrollments](./media/how-to-roll-certificates/manage-enrollments-portal.png)
 
-3. Click **Individual Enrollments**, and click the device entry in the list. Click **Delete current certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+
+How you handle updating the enrollment entry will depend on whether you are rolling certificates because of a security breach, or to deal with certificate expirations.
+
+
+#### Updating an individual enrollment
+
+If you are rolling certificates in response to a security breach, you should use the following approach that deletes the current certificate immediately:
+
+1. Click **Individual Enrollments**, and click the device entry in the list. 
+
+2. Click the **Delete current certificate** button and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
    ![Manage individual enrollments](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
+
+If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision:
+
+1. Click **Individual Enrollments**, and click the device entry in the list. 
+
+2. Click the **Delete current certificate** button and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+
+   ![Manage individual enrollments](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+
+
+
+
+#### Updating an enrollment group
 
 To update a group enrollment for the new certificate:
 
@@ -74,9 +99,7 @@ Once reprovisioning is complete, devices will be able to connect to IoT Hub usin
 
 ## Blacklisting certificates
 
-To blacklist a device certificate, simply click **disable** on the enrollment entry for the target device/certificate, and click **Save**.
-
-![Blacklist enrollment entry](./media/how-to-roll-certificates/blacklist-enrollment.png)
+To blacklist a device certificate, simply disable the enrollment entry for the target device/certificate. For more information, see blacklisting devices in the [Manage disenrollment](how-to-revoke-device-access-portal.md) article.
 
 Once an enrollment entry is disabled, any device(s) attempting to register with an IoT hub using the certificates configured with the entry will fail.
  
