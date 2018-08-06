@@ -44,7 +44,7 @@ In this article, you learn how to create, list and delete a user assigned identi
    - **Location**: Choose a location to deploy the user assigned managed identity,for example **West US**.
 4. Click **Create**.
 
-[Create a user assigned managed identity](../media/how-to-manage-ua-identity-portal/create-user-assigned-identity-portal.png)
+[Create a user assigned managed identity](./media/how-to-manage-ua-identity-portal/create-user-assigned-identity-portal.png)
 
 ## List user assigned identities
 
@@ -52,7 +52,7 @@ In this article, you learn how to create, list and delete a user assigned identi
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
 3. A list of the user assigned managed identities for your subscription is returned.  To see the details of the user assigned you created, click it.
 
-[List user assigned managed identity](../media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
+[List user assigned managed identity](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
 ## Delete a user assigned identity
 
@@ -60,4 +60,4 @@ In this article, you learn how to create, list and delete a user assigned identi
 2. Select the user assigned identity and click **Delete**.
 3. Under the confirmation box choose, **Yes**.
 
-[Delete user assigned managed identity](../medai/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+[Delete user assigned managed identity](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
