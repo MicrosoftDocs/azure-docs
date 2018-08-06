@@ -25,12 +25,16 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Save with Reserved VM Instances
+  - name: Save with reserved instances
     items:
     - name: What are reserved instances?
       href: billing-save-compute-costs-reservations.md
     - name: Buy a reserved instance 
-      href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      items:
+      - name: Virtual machine  
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: SQL Database 
+        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       href: billing-understand-vm-reservation-charges.md
     - name: Software costs not included
@@ -131,6 +135,9 @@
   items:
   - name: Billing Automation Scenarios
     href: billing-cost-management-automation-scenarios.md  
+    items:
+      - name: Manage costs with Azure Budgets
+        href: billing-cost-management-budget-scenario.md  
   - name: Azure Billing API overview
     href: billing-usage-rate-card-overview.md
     items:

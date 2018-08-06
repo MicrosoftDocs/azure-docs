@@ -40,7 +40,7 @@
   items:
   - name: What is Load Balancer Standard?
     href: load-balancer-standard-overview.md
-  - name: Load Balancer probes
+  - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md

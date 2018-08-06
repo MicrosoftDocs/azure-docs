@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with with Azure PowerShell | Microsoft Docs
+title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure PowerShell | Microsoft Docs
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using Azure PowerShell
 services: service-bus-messaging
 author: sethmanheim

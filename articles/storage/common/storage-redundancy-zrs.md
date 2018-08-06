@@ -13,7 +13,7 @@ ms.author: jeking
 
 # Zone-redundant storage (ZRS): Highly available Azure Storage applications
 
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 
 ## See also

@@ -97,7 +97,7 @@ For more information about Azure Active Directory service principals, see the Az
 <!-- LINKS - internal -->
 [aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [acr-intro]: ../container-registry/container-registry-intro.md
-[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md

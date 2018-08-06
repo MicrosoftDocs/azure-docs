@@ -2,13 +2,13 @@
 title: Understand your LUIS keys - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) keys to author your app and query your endpoing.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Keys in LUIS

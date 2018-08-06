@@ -203,7 +203,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Do not omit the asterisk (“*”) at the end of the $keywords variable value.
@@ -215,7 +215,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.

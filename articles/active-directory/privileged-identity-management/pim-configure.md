@@ -138,7 +138,7 @@ Role activation is customizable. In the PIM settings, you can determine the leng
 
 ## Review role activity
 
-There are two ways to track how your employees and admins are using privileged roles. The first option is using [Directory Roles audit history](pim-how-to-use-audit-log.md). The audit history logs track changes in privileged role assignments, role activation history, and and changes to settings for Azure Resource roles (Preview). 
+There are two ways to track how your employees and admins are using privileged roles. The first option is using [Directory Roles audit history](pim-how-to-use-audit-log.md). The audit history logs track changes in privileged role assignments, role activation history, and changes to settings for Azure Resource roles (Preview). 
 
 ![PIM activation history - screenshot](./media/pim-configure/PIM_ActivationHistory.png)
 

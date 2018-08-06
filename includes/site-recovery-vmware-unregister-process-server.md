@@ -19,4 +19,4 @@ The steps to unregister a process server differs depending on its connection sta
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. This will purge the details of the process server from the system.
+4. This message is issued when the process server is successfully removed: **Successfully unregistered server-name> (server-IP-address)**.
