@@ -1,20 +1,12 @@
 ---
-title: Protect web apps with Azure Application Gateway - PowerShell | Microsoft Docs
+title: Protect web apps with Azure Application Gateway - PowerShell
 description: This article provides guidance on how to configure web apps as back end hosts on an existing or new application gateway.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: 
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-
 ---
 
 # Configure App Service Web Apps with Application Gateway 
