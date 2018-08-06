@@ -71,6 +71,9 @@ When complete, click **Save** and the settings are applied.
 
 The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend servers. Based on the criteria that was defined, the application gateway checks the path specified in the probe. If the call to host:Port/path does not return an HTTP 200-399 status response, the server is taken out of rotation after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool, traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
+> [!NOTE]
+> Use the following calculation to determine how many probes to expect per interval. (Backend Servers * Rules = Probes per Interval)
+
 ## Next steps
 
 To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](application-gateway-ssl-portal.md)
