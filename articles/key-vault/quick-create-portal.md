@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Create a Key Vault Portal | Microsoft Docs
-description: Quickstart showing how to create an Azure Key Vault using the portal
+title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure portal | Microsoft Docs
+description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using the Azure portal
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -17,7 +17,7 @@ ms.date: 05/10/2018
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
-# Quickstart: Create a Key Vault using the Azure portal
+# Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure key vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
 

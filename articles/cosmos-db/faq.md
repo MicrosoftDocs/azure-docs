@@ -444,7 +444,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 
 ## Develop against the Graph API
 ### How can I apply the functionality of Graph API to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on NuGet. 
+You can use an extension library to apply the functionality of Graph API. This library is called Microsoft Azure Graphs, and it is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
 Yes, we plan to add other mechanisms for query in the future. 
