@@ -113,7 +113,7 @@ The deployment process runs an installation script as a custom script extension,
 To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
 
 ```azurecli-interactive
-az network public-ip list --query "[?name=='cycle-ip']" | grep fqdn
+az network public-ip show -g ${RESOURCE-GROUP} -n cycle-ip --query dnsSettings.fqdn
 ```
 
 Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser. The Azure CycleCloud End User License Agreement will be displayed - click to accept it.
@@ -122,7 +122,7 @@ Create a Site Name for your installation. You can use any name here:
 
 ![CycleCloud Welcome screen](~/images/cc-first-login.png)
 
-You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue. 
+You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
 
 ![CycleCloud Create New User screen](~/images/create-new-user.png)
 

@@ -12,7 +12,7 @@ ms.author: a-kiwels
 
 # Azure CycleCloud QuickStart 2: Create and Run a Simple HPC Cluster
 
-Until now, we’ve worked in the CycleCloud CLI to set up and log into CycleCloud. The steps from this point forward will be done within the GUI to familiarize you with the graphical interface of the tool.
+In this quickstart, you will create a new cluster using PBS Pro as a scheduler, and LAMMPS
 
 ## Select a Cluster Type
 
@@ -43,7 +43,7 @@ Under **Networking**, select the subnet to use for the compute infrastructure. U
 
 ### Advanced Settings
 
-Your credentials will be automatically set for you, based on the information you added to the `params-azuredeploy.json` file in the first quickstart.
+Your credentials were provided to CycleCloud when you deployed Azure CycleCloud into your subscription in the previous quickstart. They should be selected here for you.
 
 The Software options allow you to select the operating system and any custom specifications you have. The default CycleCloud cluster template has selected the appropriate options for you, and do not need to be changed at this time.
 
