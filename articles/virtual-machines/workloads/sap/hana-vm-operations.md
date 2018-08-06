@@ -434,7 +434,7 @@ maximum throughput :
 
 
 | VM SKU | Disk Config 1 | Disk Config 2 | Disk Config 3 | Disk Config 4 | Disk Config 5 | Disk Config 6 |
-| --- | --- | --- | --- | --- | --- | --- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | M64-32ms | 4 x P50 -> 16TB | 4 x P40 -> 8TB | 5 x P30 -> 5TB | 7 x P20 -> 3.5TB | 8 x P15 -> 2TB | 10 x P10 -> 1.25TB |
 | E32sv3 | 3 x P50 -> 12TB | 3 x P40 -> 6TB | 4 x P30 -> 4TB | 5 x P20 -> 2.5TB | 6 x P15 -> 1.5TB | 8 x P10 -> 1TB |
 
