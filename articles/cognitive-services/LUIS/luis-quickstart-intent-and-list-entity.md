@@ -14,29 +14,30 @@ ms.author: diberry
 --- 
 
 # Tutorial: 4. Add list entity
-In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
+In this tutorial, create an app that demonstrates how to get data that matches a predefined list of synonyms. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand list entities 
-> * Create new LUIS app for the Human Resources (HR) domain with MoveEmployee intent
 > * Add list entity to extract Employee from utterance
-> * Train, and publish app
+> * Train app
+> * Publish app
 > * Query endpoint of app to see LUIS JSON response
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [previous](luis-quickstart-intents-regex-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+If you want to keep the original Human Resources app, clone the version on the [
+Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Purpose of the list entity
-This app predicts utterances about moving an employee from one building to a different building. This app uses a list entity to extract an employee. The employee can be referred to using name, phone number, email, or U.S. federal social security number. 
+The Human Resources app needs to determine which employee is moving from one building to a different building. This app uses a list entity to extract an employee. The employee can be referred to using name, company phone extension, mobile phone number, email, or U.S. federal social security number. 
 
-A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity is used to extract the employee information. 
+A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity can extract the employee information. 
 
-The canonical name for each item is the employee number. For this domain, examples of the synonyms are: 
+The primary, _canonical_, name for each item is the employee number. For this domain, examples of the synonyms of each canonical name are: 
 
 |Synonym purpose|Synonym value|
 |--|--|
@@ -52,7 +53,7 @@ A list entity is a good choice for this type of data when:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym. 
 
-LUIS extracts the employee in such as way that a standard order to move the employee can be created by the client application.
+LUIS extracts the employee so that a standard order to move the employee can be created by the client application.
 <!--
 ## Example utterances
 Simple example utterances for a `MoveEmployee` inent:
@@ -91,8 +92,10 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
+    Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
+
 ## Create an employee list entity
-Now that the **MoveEmployee** intent has utterances, LUIS needs to understand what an employee is. 
+Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
 
 1. Select **Entities** in the left panel.
 
@@ -260,12 +263,12 @@ Now that the **MoveEmployee** intent has utterances, LUIS needs to understand wh
 Because the list entity is an exact text match, it doesn't rely on natural language processing (or machine-learning). LUIS does use natural language processing (or machine-learning) to select the correct top-scoring intent. Additionally, an utterance can be a mix of more than one entity or even more than one type of entity. Each utterance is processed for all the entities in the app, including natural language processing (or machine-learned) entities.
 
 ## What has this LUIS app accomplished?
-This app, with a list entity, extracted the correct employee. 
+This app, with a list entity, extracted the correct employee and the correct top intent. 
 
-Your chatbot now has enough information to determine the primary action, `MoveEmployee`, and which employee to move. 
+Your chat bot now has enough information to determine the primary action, `MoveEmployee`, and which employee to move. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the calling application. LUIS only determines what is the user's intention. 
 
 ## Clean up resources
 
