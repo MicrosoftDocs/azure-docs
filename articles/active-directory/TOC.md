@@ -171,12 +171,13 @@
 #### [Plan Azure AD join](devices/azureadjoin-plan.md)
 #### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
 #### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
 #### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Concepts
-### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
-### [FAQs](devices/faq.md)
+#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
+#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -409,11 +410,11 @@
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
-##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
+##### [Baseline Protection](conditional-access/baseline-protection.md)
 ##### [Conditions](conditional-access/conditions.md)
-##### [Location conditions](active-directory-conditional-access-locations.md)
+##### [Location conditions](conditional-access/location-condition.md)
 ##### [Controls](conditional-access/controls.md)
-##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [What if tool](conditional-access/what-if-tool.md)
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
