@@ -41,7 +41,7 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 ## Overview
 
 A client application can request a Managed Service Identity [app-only access token](../develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
-[service-to-service calls requiring client credentials](../develop/active-directory-protocols-oauth-service-to-service.md).
+[service-to-service calls requiring client credentials](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
