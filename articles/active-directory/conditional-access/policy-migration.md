@@ -132,7 +132,7 @@ If you have a new policy that has **Exchange Active Sync** as client apps condit
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[App-based](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](../active-directory-conditional-access-technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) only. 
+[App-based](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](../active-directory-conditional-access-technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](../active-directory-conditional-access-technical-reference.md#device-platform-condition) only. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 

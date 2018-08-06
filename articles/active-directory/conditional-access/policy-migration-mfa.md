@@ -23,7 +23,7 @@ ms.reviewer: nigu
 ---
 # Migrate a classic policy that requires multi-factor authentication in the Azure portal 
 
-This article shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app. Although it is not a prerequisite, we recommend that you read [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md) before you start migrating your classic policies.
+This article shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app. Although it is not a prerequisite, we recommend that you read [Migrate classic policies in the Azure portal](policy-migration.md) before you start migrating your classic policies.
 
 
  
@@ -143,9 +143,9 @@ To disable your classic policy, click **Disable** in the **Details** view.
 
 ## Next steps
 
-- For more information about the classic policy migration, see [Migrate classic policies in the Azure portal](active-directory-conditional-access-migration.md).
+- For more information about the classic policy migration, see [Migrate classic policies in the Azure portal](policy-migration.md).
 
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
