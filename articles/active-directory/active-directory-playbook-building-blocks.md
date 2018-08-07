@@ -449,9 +449,9 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Azure AD Management Portal: Conditional Access blade | [Azure AD Management Portal: Conditional Access](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Get started with conditional access in Azure Active Directory: Policy configuration steps](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Access application from inside corporate network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Access application from public network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Get started with conditional access in Azure Active Directory: Policy configuration steps](conditional-access/app-based-conditional-access.md#create-your-conditional-access-policy) |
+| Access application from inside corporate network | [Get started with conditional access in Azure Active Directory: Testing the policy](conditional-access/app-based-conditional-access.md#create-your-conditional-access-policy) |
+| Access application from public network | [Get started with conditional access in Azure Active Directory: Testing the policy](conditional-access/app-based-conditional-access.md#create-your-conditional-access-policy) |
 
 ### Considerations
 
