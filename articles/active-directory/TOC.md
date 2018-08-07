@@ -126,7 +126,7 @@
 #### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
 #### [Route activity logs to an Azure event hub](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-#### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+#### [Integrate activity logs with Splunk using Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 
 ### Reference
 #### [Retention](reports-monitoring/reference-reports-data-retention.md)

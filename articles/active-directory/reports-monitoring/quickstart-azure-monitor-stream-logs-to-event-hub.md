@@ -72,7 +72,7 @@ To use this feature, you need:
 After data is displayed in the event hub, you can access and read the data in two ways:
 
 * **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
-    * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](../reporting-azure-monitor-diagnostics-splunk-integration.md).
+    * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](http://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
@@ -83,6 +83,6 @@ After data is displayed in the event hub, you can access and read the data in tw
 
 ## Next steps
 
-* [Integrate Azure AD logs with Splunk by using Azure Monitor](../reporting-azure-monitor-diagnostics-splunk-integration.md)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
