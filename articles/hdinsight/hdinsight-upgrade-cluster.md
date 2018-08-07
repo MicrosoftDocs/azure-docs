@@ -2,19 +2,13 @@
 title: Upgrade HDInsight cluster to a newer version -Azure | Microsoft Docs
 description: Learn how to Upgrade HDInsight cluster to a newer version.
 services: hdinsight
-documentationcenter: ''
-author: bhanupr
-manager: asadk
-editor: bhanupr
-
+author: omidm1
+ms.author: omidm
 ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: bhanupr
-
 ---
 # Upgrade HDInsight cluster to a newer version
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. 
