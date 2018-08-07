@@ -149,7 +149,7 @@
       href: backup-and-restore.md
     - name: Scale-out, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
-    - name: Maintenance
+    - name: Maintenance schedule
       href: service-maintenance.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
