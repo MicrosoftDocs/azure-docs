@@ -64,7 +64,7 @@ Perform the following steps to automate the installation and configuration of th
 3. From the PowerShell command-line shell, navigate to the folder, which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*.
 
      > [!NOTE] 
-     > You are prompted to authenticate with Azure after you execute the script.  You **must** sign in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.  
+     > You are prompted to authenticate with Azure after you execute the script. This requires JavaScript to be enabled on your browser. As well, you **must** sign in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.  
      >  
     
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
