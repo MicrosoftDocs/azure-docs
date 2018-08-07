@@ -182,14 +182,14 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
-Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database.  For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.
+Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
-For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).  
+For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Consider rebuilding database indexes
@@ -197,7 +197,7 @@ After database data files are shrunk, indexes may become fragmented and lose the
 
 ## Next steps
 
-- For information about max database sizes, see:
+- For information about database max sizes, see:
   - [Azure SQL Database vCore-based purchasing model limits for a single database](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
   - [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
   - [Azure SQL Database vCore-based purchasing model limits for elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
