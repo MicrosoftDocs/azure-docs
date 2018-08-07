@@ -15,7 +15,7 @@ ms.date: 06/26/2018
 ms.author: omidm
 
 ---
-# Run Apache Oozie in domain-joined Azure HDInsight Hadoop clusters
+# Run Apache Oozie in domain-joined HDInsight Hadoop clusters
 Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 - Apache MapReduce
 - Apache Pig
@@ -25,7 +25,7 @@ Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is i
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
 ## Prerequisite
-- A domain-joined HDInsight Hadoop cluster. See [Configure domain-joined HDInsight clusters](./apache-domain-joined-configure-using-azure-adds.md).
+- A domain-joined Azure HDInsight Hadoop cluster. See [Configure domain-joined HDInsight clusters](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
     > For detailed instructions on using Oozie on nondomain-joined clusters, see [Use Hadoop Oozie workflows in Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
@@ -49,7 +49,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     A status response code of **200 OK** indicates successful registration. Check the username and password if an unauthorized response is received, such as 401.
 
 ## Define the workflow
-Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow.
+Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
 
 1.	Set up a domain user’s workspace:
  ```bash
@@ -193,41 +193,40 @@ nano workflow.xml
 
 ## Define the properties file for the Oozie job
 
-1.	Use the following statement to create and edit a new file for job properties:
-     ```bash
-    nano job.properties
-     ```
+1. Use the following statement to create and edit a new file for job properties:
 
-2.	 After the nano editor opens, use the following XML as the contents of the file:
+   ```bash
+   nano job.properties
+   ```
 
-    ```bash
-        nameNode=adl://home
-        jobTracker=headnodehost:8050
-        queueName=default
-        examplesRoot=examples
-        oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-        hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
-        oozie.use.system.libpath=true
-        user.name=[domainuser]
-        jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-        jdbcURL=[jdbcurlvalue]
-        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-    ```
-    
+2. After the nano editor opens, use the following XML as the contents of the file:
 
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+  
    a. Replace `domainuser` with your username for the domain.  
    b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
-   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.  
-    
+   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.      
    d. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
    This properties file needs to be present locally when running Oozie jobs.
 
 ## Create custom Hive scripts for Oozie jobs
 You can create the two Hive scripts for Hive server 1 and Hive server 2 as shown in the following sections.
-###	Hive server 1 file
+### Hive server 1 file
 1.	Create and edit a file for Hive server 1 actions:
     ```bash
     nano countrowshive1.hql
