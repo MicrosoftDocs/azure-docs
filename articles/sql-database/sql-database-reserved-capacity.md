@@ -20,7 +20,7 @@ You do not need to assign the reservation to SQL Database instances. Matching SQ
 
 You can buy Azure SQL Database reserved capacity in the [Azure portal](https://portal.azure.com). To buy SQL Database reserved capacity:
 - You must be in the Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, SQL Database reserved capacity purchases must be enabled in the [EA portal](https://ea.azure.com).
+- For Enterprise subscriptions, Azure reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
 -  For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase SQL Database reserved capacity.
 
 The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases is covered in [Frequently asked questions](#frequently-asked-questions).
@@ -29,13 +29,14 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed SQL single databases and/or elastic pools within a specific region and using the same performance tier and hardware generation. 
 
-For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database Single/Elastic Pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database Single/Elastic Pool Business Critical - Compute Gen5.
+For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool, and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool, and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database Single/Elastic Pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database Single/Elastic Pool Business Critical - Compute Gen5.
 
 ## Buy SQL Database reserved capacity
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
-4. Fill in the required fields. Existing or new single databases or elastic pools that match the attributes you select qualify to get the reserverd capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
+4. Fill in the required fields. Existing or new single databases or elastic pools that match the attributes you select qualify to get the reserved capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
 
    ![Screenshot before submitting the SQL Database reserved capacity purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 

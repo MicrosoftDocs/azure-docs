@@ -42,7 +42,9 @@ Azure customers with these subscriptions types can purchase a reservation:
 
 - Enterprise agreement subscription offer type (MS-AZR-0017P).
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P). You must have the “Owner” role on the subscription to buy a reservation. To purchase reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal. By default, this setting is enabled.
-- Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase reservations.
+- Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase Azure reservations. 
+
+An Azure reservation discount only applies to virtual machines or SQL Databases associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
 
 ## How is a reservation billed?
 
