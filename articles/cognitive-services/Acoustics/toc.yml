@@ -1,4 +1,4 @@
-- name: Acoustics Documentation
+- name: Acoustics
   href: index.md
   items:
   - name: Getting Started
@@ -9,3 +9,5 @@
     href: BakeUIWalkthrough.md
   - name: Sample Walkthru
     href: SampleWalkthrough.md
+  - name: Frequently Asked Questions
+    href: faq.md

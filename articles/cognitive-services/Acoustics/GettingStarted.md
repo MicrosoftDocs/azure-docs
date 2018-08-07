@@ -27,6 +27,8 @@ Import the UnityPackage to your project.
 ![Import Package](media/ImportPackage.png)  
 * Choose MicrosoftAcoustics.unitypackage
 
+Note that when importing this package it makes a settings change to Project Settings/Player: setting it to .NET 4.x. Unity requires a restart to pick up this settings change and will not tell you so please restart Unity after importing the package.
+
 ## Calculating the acoustics for your scene
 The first step in creating the runtime acoustics for your project is to [calculate the acoustic properties of each scene](BakeUIWalkthrough.md).
 
