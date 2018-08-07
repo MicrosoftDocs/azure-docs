@@ -3,7 +3,7 @@ title: Troubleshoot issues with Apache Spark cluster in Azure HDInsight | Micros
 description: Learn about issues related to Apache Spark clusters in Azure HDInsight and how to work around those.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Known issues for Apache Spark cluster on HDInsight

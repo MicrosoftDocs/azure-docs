@@ -183,7 +183,7 @@ Use the following comments section to provide feedback and help to refine and sh
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]: ./active-directory-application-manifest.md
+[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

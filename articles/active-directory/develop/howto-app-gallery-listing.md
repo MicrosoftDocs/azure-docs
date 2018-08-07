@@ -47,7 +47,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
 *   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](authentication-scenarios.md).
 
-    ![TimeLine of listing OpenID Connect application into the gallery](./media/active-directory-app-gallery-listing/openid.png)
+    ![TimeLine of listing OpenID Connect application into the gallery](./media/howto-app-gallery-listing/openid.png)
 
     * If you want to add your application to list in the gallery using OpenID Connect, select **OpenID Connect & OAuth 2.0** as above.
 
@@ -55,7 +55,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
 *   **SAML 2.0** or **WS-Fed**: Your application needs to have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
 
-    ![TimeLine of listing SAML 2.0 or WS-Fed application into the gallery](./media/active-directory-app-gallery-listing/saml.png)
+    ![TimeLine of listing SAML 2.0 or WS-Fed application into the gallery](./media/howto-app-gallery-listing/saml.png)
 
     * If you want to add your application to list in the gallery using **SAML 2.0** or **WS-Fed**, select **SAMl 2.0/WS-Fed** as above.
 
@@ -63,7 +63,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
 *   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/what-is-single-sign-on.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
-    ![TimeLine of listing Password SSO application into the gallery](./media/active-directory-app-gallery-listing/passwordsso.png)
+    ![TimeLine of listing Password SSO application into the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
     * If you want to add your application to list in the gallery using Password SSO, select **Password SSO** as above.
 
@@ -75,7 +75,7 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
 * Select appropriate option from the below image
 
-    ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/updateorremove.png)
+    ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/updateorremove.png)
     
     * If you want to update an existing application, select **Update existing application listing**.
 
@@ -91,21 +91,21 @@ After you sign in, the following page appears. Provide a business justification 
 
 If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-![Access Request on SharePoint portal](./media/active-directory-app-gallery-listing/accessrequest.png)
+![Access Request on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
 
 ## Timelines
     
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline.png)
+   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline.png)
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
 The timeline for the process of listing the application in the gallery with user provisioning support is 40-45 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
+   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## Escalations
 

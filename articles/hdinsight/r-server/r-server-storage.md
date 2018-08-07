@@ -3,7 +3,7 @@ title: Azure Storage solutions for ML Services on HDInsight - Azure | Microsoft 
 description: Learn about the different storage options available with ML Services on HDInsight
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Azure Storage solutions for ML Services on Azure HDInsight

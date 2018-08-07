@@ -3,7 +3,7 @@ title: Apache Storm write to Storage/Data Lake Store - Azure HDInsight | Microso
 description: Learn how to use the Apache Storm to write to the HDFS-compatible storage for HDInsight. Azure Storage or Azure Data Lake Store provide the HDFS-comptabile storage for HDInsight. This document, and the associated example, demonstrate how the HdfsBolt component can be used to write to the default storage of a Storm on HDInsight cluster.
 services: hdinsight
 documentationcenter: na
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Write to HDFS from Apache Storm on HDInsight
