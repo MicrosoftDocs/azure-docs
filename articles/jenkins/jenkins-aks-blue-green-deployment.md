@@ -83,11 +83,10 @@ In this section, you perform the following steps:
 
 - Use the Azure CLI 2.0 to create a managed Kubernetes cluster.
 - Learn how to set up a cluster, either by using the setup script or manually.
-- Create the Azure Container Registry.
+- Create the an instance of the Azure Container Registry service.
 
 > [!NOTE]	
-> AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
-](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
+> AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
 In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using the Azure CLI version 2.0.25 or later.
@@ -181,9 +180,9 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 
     The DNS name needs to be unique in your subscription. To ensure the uniqueness, you can use `<your-dns-name-suffix>`.
 
-### Create an Azure Container Registry
+### Create an instance of Container Registry
 
-1. Run the `az acr create` command to create an Azure Container Registry. In the next section, you can then use `login server` as the Docker registry URL.
+1. Run the `az acr create` command to create an instance of Container Registry. In the next section, you can then use `login server` as the Docker registry URL.
 
     ```bash
     az acr create -n <your-registry-name> -g <your-resource-group-name>
@@ -228,9 +227,9 @@ In this section, you see how to prepare the Jenkins server to run a build, which
 
 1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 
-1. Add your Azure Docker registry username and password (as obtained in the section, **Create Azure Container Registry**) as the type **Username with password**.
+1. Add your Azure Docker registry username and password (as obtained in the section, "Create an instance of Container Registry") as the type **Username with password**.
 
-## Edit the Jenkinsfile
+## Edit the Jenkins file
 
 1. In your own repo, go to `/deploy/aks/`, and open `Jenkinsfile`.
 
@@ -296,7 +295,7 @@ If you encounter any bugs with the Jenkins plugins, file an issue in the [Jenkin
 
 ## Next steps
 
-In this tutorial, you learned how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern. To learn more about the Azure Jenkins provider, see the Jenkins on Azure site.
+In this tutorial, you learned how to deploy to AKS by using Jenkins and the blue/green deployment pattern. To learn more about the Azure Jenkins provider, see the Jenkins on Azure site.
 
 > [!div class="nextstepaction"]
 > [Jenkins on Azure](/azure/jenkins/)
