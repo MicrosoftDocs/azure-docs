@@ -14,9 +14,12 @@ ms.author: marsma
 
 Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well the ensure it's not been modified after it was published (integrity). Azure Container Registry supports both by implementing Docker's [content trust][docker-content-trust] model, and this article gets you started.
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 ## How content trust works
 
-As an image publisher, content trust allows you to **sign** the images you push to your registry. Consumers of your images (people or systems pulling images from your registry) can then specify that *only* signed images can be pulled. When an image consumer pulls a signed image, their Docker client then verifies the integrity of the image. In this model, consumers are assured that the signed images in your registry were indeed published by you, and that they've not been modified since being published.
+As an image publisher, content trust allows you to **sign** the images you push to your registry. Consumers of your images (people or systems pulling images from your registry) can configure their clients to pull *only* signed images. When an image consumer pulls a signed image, their Docker client verifies the integrity of the image. In this model, consumers are assured that the signed images in your registry were indeed published by you, and that they've not been modified since being published.
 
 ### Trusted images
 
@@ -31,57 +34,66 @@ Content trust is managed through the use of a set of cryptographic signing keys.
 
 ## Enable content trust
 
-Azure Container Registry supports content trust by default, but Docker *clients* pushing and pulling images perform signing and validation. Because content trust is disabled by default in the Docker client, your first step is enable it. You can enable content trust per command, or per shell session.
+There are three steps required for working with content trust in an Azure container registry:
 
-With content trust enabled, as a publisher you can sign the images you push to your Azure container registry. As a consumer, enabling content trust limits your view of a registry to only signed images. Consumers without content trust enabled can continue to use your registry as normal, and can pull both signed and unsigned images.
+1. Enable content trust on the registry
+1. Enable content trust on clients
+1. Grant users or service principals permission to push signed images
 
-### Enable content trust for a shell session
+### Enable registry content trust
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu imperdiet diam, in fermentum justo. Mauris interdum bibendum erat, non accumsan quam dictum nec.
+Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal, and can pull both signed and unsigned images. Consumers who've enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
+
+To enable content trust for your registry, navigate to the registry in the Azure portal, then select **POLICIES** > **Content Trust (Preview)** > **Enabled**.
+
+![Enabling content trust for a registry in the Azure portal][content-trust-01-portal]
+
+### Enable client content trust
+
+As a publisher, you can sign the images you push to to the registry when you enable content trust. As a consumer, enabling content trust limits your view of a registry to signed images only. Content trust is disabled by default, but you can enable it per command or per shell session.
 
 ```bash
+# Enable content trust for shell session
 export DOCKER_CONTENT_TRUST=1
 ```
 
-### Enable content trust for a command
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu imperdiet diam, in fermentum justo. Mauris interdum bibendum erat, non accumsan quam dictum nec.
-
-```console
+```bash
+# Enable content test for single command
 docker build --disable-content-trust=false -t <username>/trusttest:testing .
 ```
 
-## Push a trusted image
-
-To push trusted images and enable image signing, you need to grant yourself or a service principle the `AcrImageSigner`, role in addition to the `Owner` and `Contributor` roles.
+### Grant image signing permissions
 
 ### Azure portal
 
-Navigate to your registry in the Azure portal, then select Access Control (IAM) > Add > > Select `AcrImageSigner` for the Role.
+Navigate to your registry in the Azure portal, then select **Access Control (IAM)** > **Add**. Select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
+
+In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service principal," and a user named "Azure User."
+
+![Enabling content trust for a registry in the Azure portal][content-trust-02-portal]
 
 ### Azure CLI
 
-First, get the resource ID of your registry with [az acr show][az-acr-show]. You use this value when you assign the roles to the user or service principle.
+Grant signing permissions to user:
 
-```azurecli
-az acr show --name myRegistry --query id --output tsv
+```bash
+# Grant signing permissions to user
+REGISTRY=myregistry
+USER=$(az account show --query user.name --output tsv)
+REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
+
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
-Then you can assign the `AcrImageSigner` role to a user
-
-```azurecli
-az role assignment create --scope resource_id --role AcrImageSigner --assignee user@example.com
-```
-
-Or a service principle identified by its application ID:
+Grant signing permissions to service principal:
 
 ```azurecli
 az role assignment create --scope resource_id --role AcrImageSigner --assignee 00000000-0000-0000-0000-000000000000
 ```
 
-To pull trusted images, the `Reader` role is sufficient for registry users. No additional roles like `AcrImageSigner` need to be granted.
+## Push a trusted image
 
-You can use both the Docker and Notary clients to interact with trusted images in Azure Container Registry. Detailed documentation can be found at [Content trust in Docker](https://docs.docker.com/engine/security/trust/content_trust/).
+To push trusted images and enable image signing, you need to grant yourself or a service principle the `AcrImageSigner`, role in addition to the `Owner` and `Contributor` roles.
 
 ## Pull a trusted image
 
@@ -92,26 +104,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu imperdiet diam, i
 The Docker documentation for content trust and
 
 <!-- IMAGES> -->
-[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
-
+[content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
+[content-trust-02-portal]: ./media/container-registry-content-trust/content-trust-02-portal.png
 
 <!-- LINKS - external -->
 [docker-content-trust]: https://docs.docker.com/engine/security/trust/content_trust
-[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
-[docker-manage-keys]: https://docs.docker.com/engine/security/trust/trust_key_mng/
-[docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr#az_acr_create
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
-[az-container-show]: /cli/azure/container#az_container_show
-[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
-[container-registry-skus]: container-registry-skus.md
-[container-registry-auth-aci]: container-registry-auth-aci.md
