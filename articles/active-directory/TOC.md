@@ -144,7 +144,7 @@
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
-#### [Audit samples](active-directory-reporting-api-audit-samples.md)
+#### [Audit samples](reports-monitoring/sample-audit-api.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)
 
