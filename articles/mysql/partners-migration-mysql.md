@@ -69,4 +69,4 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [pragmatic-works_contact]:mailto:marketing@pragmaticworks.com
 [infosys_contact]:https://www.infosys.com/contact/
 [credativ_contact]:mailto:info@credativ.com
-[pactera_contract]:mailto:shushi.gaur@pactera.com
+[pactera_contact]:mailto:shushi.gaur@pactera.com
