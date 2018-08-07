@@ -3,7 +3,7 @@ title: Use Hadoop Hive and Remote Desktop in HDInsight - Azure | Microsoft Docs
 description: Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
@@ -92,7 +92,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
      Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
 ## <a id="summary"></a>Summary
-As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:

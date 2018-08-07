@@ -1,20 +1,22 @@
 ---
-title: Best practices for using Azure Data Lake Store | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Store 
+title: Best practices for using Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store) 
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 06/27/2018
 ms.author: sachins
 
 ---
-# Best practices for using Azure Data Lake Store
+# Best practices for using Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
@@ -62,9 +64,9 @@ POSIX permissions and auditing in Data Lake Store comes with an overhead that be
 * Faster copying/replication
 * Fewer files to process when updating Data Lake Store POSIX permissions 
 
-Depending on what services and workloads are using the data, a good range to consider for file sizes is 256 MB to 1 GB, ideally not going below 100 MB or above 2 GB. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Depending on what services and workloads are using the data, a good size to consider for files is 256 MB or greater. If the file sizes cannot be batched when landing in Data Lake Store, you can have a separate compaction job that combines these files into larger ones. For more information and recommendation on file sizes and organizing the data in Data Lake Store, see [Structure your data set](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### Large file sizes and potential performance impact 
+### Large file sizes and potential performance impact
 
 Although Data Lake Store supports large files up to petabytes in size, for optimal performance and depending on the process reading the data, it might not be ideal to go above 2 GB on average. For example, when using **Distcp** to copy data between locations or different storage accounts, files are the finest level of granularity used to determine map tasks. So, if you are copying 10 files that are 1 TB each, at most 10 mappers are allocated. Also, if you have lots of files with mappers assigned, initially the mappers work in parallel to move large files. However, as the job starts to wind down only a few mappers remain allocated and you can be stuck with a single mapper assigned to a large file. Microsoft has submitted improvements to Distcp to address this issue in future Hadoop versions.  
 
@@ -110,7 +112,7 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 ### Use Azure Data Factory to schedule copy jobs 
 
-Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/v1/data-factory-copy-activity-performance.md) for more information on copying with Data Factory. 
+Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Store accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/copy-activity-performance.md) for more information on copying with Data Factory. 
 
 ### AdlCopy
 

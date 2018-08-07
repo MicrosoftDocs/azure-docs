@@ -1,23 +1,14 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Deploy an Azure IoT Central application | Microsoft Docs
+title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application to manage refigerated vending devices. View the telemetry data generated from your simulated devices.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/15/2018
-ms.topic: hero-article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
+ms.topic: quickstart
+ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+manager: peterpr
 ---
 
 # Create an Azure IoT Central application

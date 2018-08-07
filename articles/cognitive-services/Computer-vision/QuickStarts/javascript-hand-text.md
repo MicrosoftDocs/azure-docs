@@ -12,9 +12,11 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart:  Extract Handwritten Text with JavaScript
+# Quickstart: Extract handwritten text with JavaScript
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -26,7 +28,7 @@ To run the sample, do the following steps:
 
 1. Copy the following and save it to a file such as `handwriting.html`.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys.
+1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
 1. Drag-and-drop the file into your browser.
 1. Click the `Read image` button.
 
@@ -58,7 +60,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/RecognizeText";
+            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
         // Note: The request parameter changed for APIv2.
@@ -71,7 +73,7 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
 
-        // This operation requrires two REST API calls. One to submit the image
+        // This operation requires two REST API calls. One to submit the image
         // for processing, the other to retrieve the text found in the image.
         //
         // Make the first REST API call to submit the image for processing.

@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
 
@@ -93,8 +93,8 @@ The body of the request contains the data source definition, which should includ
 * **credentials**:
   
   * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
-  For MongoDB collections, add **ApiKind=MongoDB** to the connection string: 
-`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  For MongoDB collections, add **ApiKind=MongoDb** to the connection string: 
+`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **container**:
   
   * **name**: Required. Specify the id of the database collection to be indexed.

@@ -4,9 +4,6 @@ description: Extract sentiment from text in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search

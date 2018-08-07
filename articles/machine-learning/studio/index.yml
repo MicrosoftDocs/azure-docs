@@ -8,6 +8,7 @@ metadata:
   author: j-martens
   manager: cgronlun
   ms.service: machine-learning
+  ms.component: studio
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

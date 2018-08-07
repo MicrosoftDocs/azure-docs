@@ -15,8 +15,7 @@ ms.author: v-gedod
 
 The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
+The [source code for Java Bing Web Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) is available on Git Hub.
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 

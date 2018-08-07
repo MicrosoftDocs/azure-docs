@@ -1,21 +1,13 @@
 ---
-title: Create a log alert with a Resource Manager template | Microsoft Docs
-description:  Learn how to create log alert by using an Azure Resource Manager template and API.
+title: Create a log alert with a Resource Manager template
+description: Learn how to create log alert by using an Azure Resource Manager template and API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 
 # Create a log alert with a Resource Manager template
@@ -30,7 +22,7 @@ Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-view
 ### Using Azure Resource Manager Template
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
-Resource template for [Log analytics saved search](../log-analytics/log-analytics-log-searches.md) and [Log analytics alerts](../log-analytics/log-analytics-alerts.md) are available in Log Analytics section of documentation. Learn more about, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
+Resource template for Log analytics saved search and Log analytics alertsare available in Log Analytics section of documentation. To learn more see, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
 
 ### Using Resource Template via API/Powershell
 The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.

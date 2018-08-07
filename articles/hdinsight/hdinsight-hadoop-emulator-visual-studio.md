@@ -3,7 +3,7 @@ title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsi
 description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox

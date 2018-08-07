@@ -336,7 +336,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _\<back\_end\_app\_name>_ and _\<front\_end\_app\_name>_ placeholders.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -405,6 +405,10 @@ git push frontend master
 Navigate to `http://<front_end_app_name>.azurewebsites.net` again. You should now be able to create, read, update, and delete data from the back-end app, directly in the Angular.js app.
 
 Congratulations! Your client code is now accessing the back-end data on behalf of the authenticated user.
+
+## When access tokens expire
+
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## Clean up resources
 

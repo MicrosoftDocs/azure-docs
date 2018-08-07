@@ -51,8 +51,6 @@
     href: tutorial-mean-stack.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
-  - name: Deploy a Packer image and apps to a scale set
-    href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
   - name: Azure CLI
@@ -88,7 +86,9 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md       
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -140,6 +140,8 @@
       href: create-cli-complete.md
     - name: Use a template
       href: create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
   - name: Secure VMs
@@ -173,8 +175,6 @@
         href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
     - name: Common CLI tasks
@@ -188,11 +188,22 @@
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-linux.md
+        - name: Run Command
+          href: run-command.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+      items:
+        - name: Red Hat Enteprise Linux
+          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+        - name: CentOS
+          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+        - name: Ubuntu
+          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
     - name: Log in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
@@ -213,6 +224,16 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Get usage metrics with REST
+      href: metrics-vm-usage-rest.md
+  - name: Manage costs
+    items:
+    - name: Prepay for VMs - reserved instances
+      href: prepay-reserved-vm-instances.md
+    - name: What are reserved instances?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Find and use images
@@ -416,21 +437,7 @@
       - name: Use internal DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
   - name: Use VM extensions
-    items:
-    - name: VM Extension overview
-      href: extensions-features.md
-    - name: Custom Script Extension
-      href: extensions-customscript.md
-    - name: OMS Agent Extension
-      href: extensions-oms.md
-    - name: Linux Diagnostic Extension
-      href: diagnostic-extension.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
-    - name: VMAccess Extension
-      href: using-vmaccess-extension.md
-    - name: Restrict extension installation
-      href: ../extensions/extensions-rmpolicy-howto-cli.md   
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs

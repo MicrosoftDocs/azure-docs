@@ -15,8 +15,7 @@ ms.author: v-gedod
 
 The Bing News Search SDK provides the REST API functionality for news queries and parsing results. 
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
+The [source code for Java Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) is available on Git Hub.
 
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 

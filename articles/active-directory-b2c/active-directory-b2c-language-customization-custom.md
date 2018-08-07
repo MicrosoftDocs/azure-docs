@@ -1,18 +1,16 @@
 ---
-title: 'Azure Active Directory B2C:Language customization in custom policies | Microsoft Docs'
-description: Learn how to use localize content in custom policies for multiple languages
+title: Language customization in Azure Active Directory B2C custom policies | Microsoft Docs
+description: Learn how to use localize content in custom policies for multiple languages.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Language customization in custom policies

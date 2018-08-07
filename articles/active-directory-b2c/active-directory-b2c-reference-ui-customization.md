@@ -1,27 +1,26 @@
 ---
-title: 'User interface (UI) customization - Azure AD B2C | Microsoft Docs'
-description: A topic on the user interface (UI) customization features in Azure Active Directory B2C
+title: User interface (UI) customization in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the user interface (UI) customization features in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
 
 User experience is paramount in a customer facing application.  Grow your customer base by crafting user experiences with the look and feel of your brand. Azure Active Directory B2C (Azure AD B2C) lets you customize sign-up, sign-in, profile editing, and password reset pages with pixel-perfect control.
 
 > [!NOTE]
-> The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/customize-branding.md) instead.
+> The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/fundamentals/customize-branding.md) instead.
 >
-> Similarly, if a user intiates an edit profile policy *before* signing in, the user will be redirected to a page that can be customized using the [company branding feature](../active-directory/customize-branding.md).
+> Similarly, if a user intiates an edit profile policy *before* signing in, the user will be redirected to a page that can be customized using the [company branding feature](../active-directory/fundamentals/customize-branding.md).
 
 This article covers the following topics:
 
@@ -211,7 +210,7 @@ This page contains a form for local account sign-up based on an email address or
 </div>
 ```
 
-### Fragment inserted into the ""Social account sign-up page"
+### Fragment inserted into the "Social account sign-up page"
 
 This page may appear when signing up using an existing account from a social identity provider such as Facebook or Google+.  It is used when additional information must be collected from the end user using a sign-up form. This page is similar to the local account sign-up page (shown in the previous section) with the exception of the password entry fields.
 
@@ -312,7 +311,7 @@ On this page, users can verify their phone numbers (using text or voice) during 
 </div>
 ```
 
-### Fragment inserted into the ""Error page"
+### Fragment inserted into the "Error page"
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Add Azure CDN to an Azure App Service web app
 
-This tutorial shows how to add [Azure CDN](cdn-overview.md) to a [web app in Azure App Service](../app-service/app-service-web-overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
+This tutorial shows how to add [Azure Content Delivery Network (CDN)](cdn-overview.md) to a [web app in Azure App Service](../app-service/app-service-web-overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
 
 Here's the home page of the sample static HTML site that you'll work with:
 
@@ -50,6 +50,10 @@ To create the web app that you'll work with, follow the [static HTML quickstart]
 ## Log in to the Azure portal
 
 Open a browser and navigate to the [Azure portal](https://portal.azure.com).
+
+### Dynamic site acceleration optimization
+If you want to optimize your CDN endpoint for dynamic site acceleration (DSA), you should use the [CDN portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a CDN endpoint for DSA from the CDN portal, see [CDN endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). 
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. Note that for **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 ## Create a CDN profile and endpoint
 

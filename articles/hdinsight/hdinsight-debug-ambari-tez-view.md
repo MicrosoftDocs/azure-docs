@@ -3,7 +3,7 @@ title: Use Ambari Tez View with HDInsight - Azure | Microsoft Docs
 description: Learn how to use the Ambari Tez view to debug Tez jobs on HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use Ambari Views to debug Tez Jobs on HDInsight

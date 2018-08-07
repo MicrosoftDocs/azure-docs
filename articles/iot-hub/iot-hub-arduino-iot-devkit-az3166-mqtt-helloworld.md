@@ -1,21 +1,14 @@
 ---
-title: 'Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs.'
-description: Use the DevKit as a client to send messages to an MQTT server.
-services: iot-hub
-documentationcenter: ''
+title: Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs
+description: Use the DevKit as a client to send messages to an MQTT server
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-
 ---
 
 # Send messages to an MQTT server
@@ -39,7 +32,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 ## Open the project folder
 
-1. Disconnect the DevKit from your computer, if it is already connected.
+1. If the DevKit is already connect to your computer, disconnect it.
 
 2. Start VS Code.
 
@@ -59,7 +52,7 @@ Type `Ctrl+P` (macOS: `Cmd+P`) to run `task device-upload`. Once the upload is c
 ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> You may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to this [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> You may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to the [development section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## Test the project
 
@@ -80,15 +73,15 @@ The Serial Monitor displays all the messages sent by the sample sketch. The sket
 
 ## Problems and feedback
 
-If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or connect using the following channels:
+If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or connect using the following channels:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## See also
 
-* [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud]({{"/docs/getting-started/" | absolute_url }})
-* [Shake, Shake for a Tweet]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [Shake, Shake for a Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## Next steps
 

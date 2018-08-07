@@ -20,9 +20,9 @@ ms.author: apurvajo;cephalin
 
 This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
-## Step 1 - Log in to Azure
+## Step 1 - Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com
+Sign in to the Azure portal at http://portal.azure.com
 
 ## Step 2 - Place an SSL Certificate order
 
@@ -33,7 +33,7 @@ You can place an SSL Certificate order by creating a new [App Service Certificat
 Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 > [!NOTE]
-> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. 
+> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** prepend the Host name with WWW. 
 >
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**
@@ -192,13 +192,24 @@ Click **Rekey** Button to initiate the process. This process can take 1-10 minut
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
+## Renew the certificate
+
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. The certificate will renew 60 days before expiration if you have automatic renewal turned on.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+To manually renew the certificate instead, click **Manual Renew** instead.
+
+> [!NOTE]
+> The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## Why is my SSL certificate not auto-renewed?
+## Why is my certificate not auto-renewed?
 
-If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note the following: 
+If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note that: 
 
-- GoDaddy, which generates App Service certificates, requires domain verification once every three years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
-- All App Service certificates issued prior to March 31 2017 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). This is a result of change in GoDaddy policy. Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
+- GoDaddy, which generates App Service certificates, requires domain verification once every two years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
+- Because of a change in GoDaddy policy, all App Service certificates issued prior to March 1, 2018 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
 
 ## More resources
 

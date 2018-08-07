@@ -2,7 +2,7 @@
 title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
 description: Author and customize logic app definitions in JSON
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

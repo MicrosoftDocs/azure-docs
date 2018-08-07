@@ -4,7 +4,7 @@ description: Learn how to install Hue on HDInsight clusters and use tunneling to
 keywords: hue hadoop
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Install and use Hue on HDInsight Hadoop clusters

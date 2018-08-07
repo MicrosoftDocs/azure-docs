@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
 ---
 
@@ -117,6 +117,8 @@ Remember that the number of SNAT ports available does not translate directly to 
 Changing the size of your deployment might affect some of your established flows. If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 If the deployment size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+
+If a cloud service is redeployed or changed, the infrastructure may temporarily report the backend pool to be up to twice as large as actual and Azure will in turn preallocate less SNAT ports per instance than expected.  This can temporarily increase the probability of SNAT port exhaustion. Eventually the pool size will transition to actual size and Azure will automatically increase preallocated SNAT ports to the expected number as per the table above.  This behavior is by design and is not configurable.
 
 SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
 

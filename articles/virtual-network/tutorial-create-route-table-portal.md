@@ -177,7 +177,7 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Do 
     ```
 
     Though trace route is used to test routing in this tutorial, allowing ICMP through the Windows Firewall for production deployments is not recommended.
-7. You enabled IP forwarding within Azure for the VM's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva* VM:
+7. You enabled IP forwarding within Azure for the VM's network interface in [Enable IP forwarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva* VM:
 
     From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva* VM:
 

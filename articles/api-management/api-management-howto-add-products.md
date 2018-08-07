@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Create and publish a product
 > * Add an API to the product
 
-![added product](media/api-management-howto-add-products/added-product.png)
+![add product](media/api-management-howto-add-products/added-product.png)
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 ## Create and publish a product
 
 1. Click on **Products** in the menu on the left to display the **Products** page.
-2. Click **+ Product**.
+2. Click **+ Add**.
 
     ![added product](media/api-management-howto-add-products/add-product.png)
 
@@ -62,7 +62,7 @@ You can continue configuring the product after saving it by choosing the **Setti
 
 View/add subscribers to the product from the **Subscriptions** tab.
 
-Set a visibility of a product for developers or guest from the **Access control** tab.
+Set visibility of a product for developers or guest from the **Access control** tab.
 
 ## <a name="add-apis"> </a>Add APIs to a product
 
@@ -72,10 +72,12 @@ Developers must first subscribe to a product to get access to the API. When they
 
 ### Add an API to an existing product
 
-1. Select a product.
-2. Select the APIs tab.
-3. Click **+API**.
-4. Choose an API and click **Create**.
+![add product API](media/api-management-howto-add-products/add-product-api.png)
+
+1. From the **Products** tab, select a product.
+2. Navigate to the **APIs** tab.
+3. Click **+ Add**.
+4. Choose an API and click **Select**.
 
 ## Next steps
 

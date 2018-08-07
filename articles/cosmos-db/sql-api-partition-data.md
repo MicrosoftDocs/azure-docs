@@ -4,14 +4,11 @@ description: Learn about how partitioning works in Azure Cosmos DB, how to confi
 services: cosmos-db
 author: rafats
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017

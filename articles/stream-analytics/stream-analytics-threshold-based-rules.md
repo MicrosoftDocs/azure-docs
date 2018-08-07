@@ -39,7 +39,7 @@ This example reference data shows how a threshold-based rule could be represente
 - The example rule is used to represent an adjustable alert when CPU exceeds (average is greater than or equal to) the value `90` percent. The `value` field is configurable as needed.
 - Notice the rule has an **operator** field, which is dynamically interpreted in the query syntax later on `AVGGREATEROREQUAL`. 
 - The rule filters the data on a certain dimension key `2` with value `C1`. Other fields are empty string, indicating not to filter the input stream by those event fields. You could set up additional CPU rules to filter other matching fields as needed.
-- Not all columns are to be included in the output alert event. In this case, `includedDim` key number `2` is turned on `TRUE` to represent that that field number 2 of event data in the stream will be included in the qualifying output events. The other fields are not included in the alert output, but the field list can be adjusted.
+- Not all columns are to be included in the output alert event. In this case, `includedDim` key number `2` is turned on `TRUE` to represent that field number 2 of event data in the stream will be included in the qualifying output events. The other fields are not included in the alert output, but the field list can be adjusted.
 
 
 ```json

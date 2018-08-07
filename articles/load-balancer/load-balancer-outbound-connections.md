@@ -137,7 +137,7 @@ The same number of SNAT ports are preallocated for UDP and TCP respectively and 
 >[!IMPORTANT]
 >Standard SKU SNAT programming is per IP transport protocol and derived from the load balancing rule.  If only a TCP load balancing rule exists, SNAT is only available for TCP. If you have only a TCP load balancing rule and need outbound SNAT for UDP, create a UDP load balancing rule from the same frontend to the same backend pool.  This will trigger SNAT programming for UDP.  A working rule or health probe is not required.  Basic SKU SNAT always programs SNAT for both IP transport protocol, irrespective of the transport protocol specified in the load balancing rule.
 
-Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
+Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#idletimeout) happen.
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
@@ -232,9 +232,9 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Preventing outbound connectivity
-Sometimes it's undesirable for a VM to be allowed to create an outbound flow. Or there might be a requirement to manage which destinations can be reached with outbound flows, or which destinations can begin inbound flows. In this case, you can use [network security groups](../virtual-network/virtual-networks-nsg.md) to manage the destinations that the VM can reach. You can also use NSGs to manage which public destination can initiate inbound flows. 
+Sometimes it's undesirable for a VM to be allowed to create an outbound flow. Or there might be a requirement to manage which destinations can be reached with outbound flows, or which destinations can begin inbound flows. In this case, you can use [network security groups](../virtual-network/security-overview.md) to manage the destinations that the VM can reach. You can also use NSGs to manage which public destination can initiate inbound flows.
 
-When you apply an NSG to a load-balanced VM, pay attention to the [default tags](../virtual-network/virtual-networks-nsg.md#default-tags) and [default rules](../virtual-network/virtual-networks-nsg.md#default-rules). You must ensure that the VM can receive health probe requests from Azure Load Balancer. 
+When you apply an NSG to a load-balanced VM, pay attention to the [service tags](../virtual-network/security-overview.md#service-tags) and [default security rules](../virtual-network/security-overview.md#default-security-rules). You must ensure that the VM can receive health probe requests from Azure Load Balancer. 
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
 
@@ -246,5 +246,5 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 
 - Learn more about [Load Balancer](load-balancer-overview.md).
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn more about [network security groups](../virtual-network/virtual-networks-nsg.md).
+- Learn more about [network security groups](../virtual-network/security-overview.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.

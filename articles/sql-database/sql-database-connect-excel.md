@@ -4,10 +4,10 @@ description: Learn how to connect Microsoft Excel to Azure SQL database in the c
 services: sql-database
 keywords: connect excel to sql, import data to excel
 author: joseidz
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: craigg
 

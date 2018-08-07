@@ -3,18 +3,19 @@ title: Problem using self-service application access | Microsoft Docs
 description: Troubleshoot problems related to self-service application access
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
+ms.author: barbkess
+ms.reviewer: japere,asteen
 ---
 
 # Problem using self-service application access
@@ -93,4 +94,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+[Setting up Azure Active Directory for self-service group management](users-groups-roles/groups-self-service-management.md)

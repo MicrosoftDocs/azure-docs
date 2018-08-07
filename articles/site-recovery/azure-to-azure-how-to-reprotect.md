@@ -6,18 +6,12 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
 
 
 ---
 # Reprotect failed over Azure VMs to the primary region
-
-
->[!NOTE]
->
-> Site Recovery replication for Azure VMs is currently in preview.
-
 
 
 When you [fail over](site-recovery-failover.md) Azure VMs from one region to another using [Azure Site Recovery](site-recovery-overview.md), the VMs boot up in the secondary region, in an unprotected state. If fail back the VMs to the primary region, you need to do the following:

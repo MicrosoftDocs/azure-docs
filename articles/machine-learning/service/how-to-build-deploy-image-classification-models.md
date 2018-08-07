@@ -29,7 +29,7 @@ When building and deploying this model with AMLPCV, you go through the following
 7. Web service Deployment
 8. Web service Load Testing
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
 Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
 
@@ -61,12 +61,6 @@ The following example uses a dataset consisting of 63 tableware images. Each ima
 
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-## Storage context
-
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored. For more information on storage contexts, see the [StorageContext documentation](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Normally, the storage content does not need to be set explicitly. However, to avoid its 25-MB limit on the project size imposed by the Azure Machine Learning Workbench, set the outputs directory for the Azure Machine Learning Package for Computer Vision to a location outside the Azure Machine Learning project ("../../../../cvtk_output"). Be sure to remove the "cvtk_output" directory once it is no longer needed.
-
 
 ```python
 import warnings
@@ -79,29 +73,19 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
@@ -120,8 +104,8 @@ Training an image classification model for a different dataset is as easy as cha
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -177,7 +161,6 @@ If you encounter the "Widget Javascript not detected" error, run this command to
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
@@ -223,7 +206,6 @@ else:
 ## Define DNN models
 
 The following pretrained Deep Neural Network models are supported with this package: 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -403,7 +385,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -416,7 +397,6 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
@@ -429,7 +409,7 @@ Operationalization is the process of publishing models and code as web services 
 
 Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service manually or use the autoscaling functionality.
 
-**Log in with Azure CLI**
+**Sign in with Azure CLI**
 
 Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in using the following CLI command:
 <br>`az login`
@@ -440,13 +420,9 @@ Using an [Azure](https://azure.microsoft.com/) account with a valid subscription
 + To see the current model management account, use the command:
   <br>`az ml account modelmanagement show`
 
-**Create and set your deployment environment**
+**Create and set your cluster deployment environment**
 
 You only need to set your deployment environment once. If you don't have one yet, set up your deployment environment now using [these instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Follow either the local or the cluster deployment setup steps correctly based on your need.
-+ Local deployments are supported for Linux and Windows 10 machines, but not for the Windows Data Science VM or the Deep Learning VM. 
-+ Cluster environment deployments are supported for both Linux and Windows. 
 
 To see your active deployment environment, use the following CLI command:
 <br>`az ml env show`

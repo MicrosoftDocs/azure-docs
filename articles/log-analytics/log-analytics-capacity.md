@@ -3,7 +3,7 @@ title: Capacity and Performance solution in Azure Log Analytics | Microsoft Docs
 description: Use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
 
 ![Capacity and Performance symbol](./media/log-analytics-capacity/capacity-solution.png)

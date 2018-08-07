@@ -3,17 +3,17 @@ title: Language Understanding (LUIS) regions | Microsoft Docs
 titleSuffix: Azure
 description: This article contains lists of the LUIS regions for the LUIS website, Azure subscriptions, and world regions.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Regions and keys
 
-The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
+The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./luis-how-to-publish-app.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
 ## LUIS website
 There are three LUIS websites, based on region. You must author and publish in the same region. 
@@ -59,6 +59,6 @@ To publish to the Australian regions, you create LUIS apps at https://au.luis.ai
 > [!div class="nextstepaction"]
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
- [www.luis.ai]:https://www.luis.ai
- [au.luis.ai]:https://au.luis.ai
- [eu.luis.ai]:https://eu.luis.ai
+ [www.luis.ai]: https://www.luis.ai
+ [au.luis.ai]: https://au.luis.ai
+ [eu.luis.ai]: https://eu.luis.ai

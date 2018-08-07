@@ -3,7 +3,7 @@ title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive o
 description: Learn how to extract data from a raw CSV dataset, transform it using Hive on HDInsight, and then load the transformed data into Azure SQL database by using Sqoop.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 #Customer intent: As a data analyst, I need to load some data into a Hadoop cluster, transform, and then export it to an Azure SQL database
 ---
@@ -317,6 +317,7 @@ In this tutorial, you learned how to perform extract, transform, and load data o
 
 To learn more ways to work with data in HDInsight, see the following articles:
 
+* [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for Hadoop on HDInsight][hdinsight-develop-mapreduce]

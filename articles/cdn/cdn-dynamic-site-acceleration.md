@@ -29,7 +29,7 @@ Standard content delivery network (CDN) capability includes the ability to cache
 >   
 > For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
-## Configuring CDN endpoint to accelerate delivery of dynamic files
+## CDN endpoint configuration to accelerate delivery of dynamic files
 
 To configure a CDN endpoint to optimize delivery of dynamic files, you can either use the Azure portal, the REST APIs, or any of the client SDKs to do the same thing programmatically. 
 

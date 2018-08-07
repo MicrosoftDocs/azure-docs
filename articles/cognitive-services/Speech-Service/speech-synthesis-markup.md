@@ -1,10 +1,9 @@
 ---
-title: The Speech Synthesis Markup Language | Microsoft Docs
+title: The Speech Synthesis Markup Language
 description: Using the Speech Synthesis Markup language to control pronunciation and prosody in text-to-speech.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -75,4 +74,4 @@ The following examples show how to use SSML for common speech synthesis needs.
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

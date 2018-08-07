@@ -16,9 +16,10 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file 
+
 ---
 
-# Sign-in users and all the Microsoft Graph API from an Android app
+# Sign in users and call the Microsoft Graph API from an Android app
 
 This guide demonstrates how a native Android application can get an access token and call the Microsoft Graph API or other APIs that require access tokens from the Azure Active Directory v2 endpoint.
 

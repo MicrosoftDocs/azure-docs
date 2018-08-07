@@ -1,30 +1,32 @@
 ---
-title: Choose between Azure MFA cloud or server | Microsoft Docs
-description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.
+title: Azure MFA Server or Service, On-premises or in the cloud?
+description: As an Azure AD Administrator, I need to understand which version of MFA I should deploy? 
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
-# Choose the Azure Multi-Factor Authentication solution for you
-Because there are several flavors of Azure Multi-Factor Authentication (MFA), we must answer a few questions to figure out which version is the proper one to use.  Those questions are:
+# Which version of Azure MFA is right for my organization?
+
+Before you can decide where and how to deploy Multi-Factor Authentication (MFA), you need to answer three basic questions.
 
 * [What am I trying to secure](#what-am-i-trying-to-secure)
 * [Where are the users located](#where-are-the-users-located)
 * [What features do I need?](#what-features-do-i-need)
 
-The following sections provide guidance on determining each of these answers.
+Each of the following sections provides details to help you answer the preceding questions.
 
 ## What am I trying to secure?
-To determine the correct two-step verification solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or a remote access system?  By determining what we are trying to secure, we can answer the question of where Multi-Factor Authentication needs to be enabled.  
+
+To determine the correct two-step verification solution, first you must answer the question of what are you trying to secure with an additional factor of authentication. Is it an application that is in Azure? Or a remote access system? By determining what you are trying to secure, you can answer the question of where Multi-Factor Authentication needs to be enabled.
 
 | What are you trying to secure | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
@@ -35,17 +37,19 @@ To determine the correct two-step verification solution, first we must answer th
 | Remote access such as VPN, RDG | ● | ● |
 
 ## Where are the users located
-Next, looking at where our users are located helps to determine the correct solution to use, whether in the cloud or on-premises using the MFA Server.
+
+Next, determine where your organization's users are located helps to determine the correct solution to use, whether in the cloud or on-premises using the MFA Server.
 
 | User Location | MFA in the cloud | MFA Server |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD and on-premises AD using federation with AD FS |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password hash sync or pass-through authentication |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password hash sync or pass-through authentication |● | |
+| Azure AD and on-premises AD using Azure AD Connect - no password hash sync or pass-through authentication |● |● |
+| Azure AD and on-premises AD using Azure AD Connect - with password hash sync or pass-through authentication |● | |
 | On-premises Active Directory | |● |
 
 ## What features do I need?
+
 The following table compares the features that are available with Multi-Factor Authentication in the cloud and the Multi-Factor Authentication Server.
 
 | Feature | MFA in the cloud | MFA Server |
@@ -54,13 +58,12 @@ The following table compares the features that are available with Multi-Factor A
 | Mobile app verification code as a second factor | ● | ● |
 | Phone call as second factor | ● | ● |
 | One-way SMS as second factor | ● | ● |
-| Two-way SMS as second factor | | ●  (Deprecated)| 
 | Hardware Tokens as second factor | | ● |
 | App passwords for Office 365 clients that don’t support MFA | ● | |
 | Admin control over authentication methods | ● | ● |
 | PIN mode | | ● |
-| Fraud alert |● | ● |
-| MFA Reports |● | ● |
+| Fraud alert | ● | ● |
+| MFA Reports | ● | ● |
 | One-Time Bypass | | ● |
 | Custom greetings for phone calls | ● | ● |
 | Customizable caller ID for phone calls | ● | ● |

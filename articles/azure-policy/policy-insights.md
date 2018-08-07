@@ -4,7 +4,7 @@ description: This article walks you through programmatically creating and managi
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -107,15 +107,19 @@ Use the following procedure to create a policy definition.
   }
   ```
 
-2. Create the policy definition using the following call:
+2. Create the policy definition using one of the following calls:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Replace the preceding &lt;subscriptionId&gt; with the ID of your intended subscription.
+  Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId} with the ID of your [management group](../azure-resource-manager/management-groups-overview.md).
 
-For more information about the structure of the query, see [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate).
+  For more information about the structure of the query, see [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) and [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Use the following procedure to create a policy assignment and assign the policy definition at the resource group level.
 
@@ -194,99 +198,6 @@ The policy definition ID for the policy definition that you created should resem
 
 For more information about how you can manage resource policies with Azure CLI, see [Azure CLI Resource Policies](/cli/azure/policy?view=azure-cli-latest).
 
-## Identify non-compliant resources
-
-In an assignment, a resource is non-compliant if it doesn't follow policy or initiative rules. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state:
-
-| Resource state | Effect | Policy evaluation | Compliance state |
-| --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
-| New | Audit, AuditIfNotExist\* | False | Compliant |
-
-\* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE. The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers evaluation of the existence condition for the related resources.
-
-To better understand how resources are flagged as non-compliant, let's use the policy assignment example created above.
-
-For example, assume that you have a resource group – ContsoRG, with some storage accounts (highlighted in red) that are exposed to public networks.
-
-![Storage accounts exposed to public networks](media/policy-insights/resource-group01.png)
-
-In this example, you need to be wary of security risks. Now that you've created a policy assignment, it is evaluated for all storage accounts in the ContosoRG resource group. It audits the three non-compliant storage accounts, consequently changing their states to **non-compliant.**
-
-![Audited non-compliant storage accounts](media/policy-insights/resource-group03.png)
-
-Use the following procedure to identify resources in a resource group that aren't compliant with the policy assignment. In the example, the resources are storage accounts in the ContosoRG resource group.
-
-1. Get the policy assignment ID by running the following commands:
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  For more information about getting a policy assignment's ID, see [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
-
-2. Run the following command to have the resource IDs of the non-compliant resources copied into a JSON file:
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. The results should resemble the following example:
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-The results are equivalent to what you would typically see listed under **Non-compliant resources** in the [Azure portal view](assign-policy-definition.md#identify-non-compliant-resources).
-
-Currently, non-compliant resources are only identified using the Azure portal and with HTTP requests. For more information about querying policy states, see the [Policy State](/rest/api/policy-insights/policystates) API reference article.
-
-## View policy events
-
-When a resource is created or updated, a policy evaluation result is generated. Results are called _policy events_. Run the following query to view all policy events associated with the policy assignment.
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-Your results resemble the following example:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-Like policy states, you can only view policy events with HTTP requests. For more information about querying policy events, see the [Policy Events](/rest/api/policy-insights/policyevents) reference article.
-
 ## Next steps
 
 Review the following articles for more information about the commands and queries in this article.
@@ -295,3 +206,4 @@ Review the following articles for more information about the commands and querie
 - [Azure RM PowerShell Modules](/powershell/module/azurerm.resources/#policies)
 - [Azure CLI Policy Commands](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights resource provider REST API reference](/rest/api/policy-insights)
+- [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

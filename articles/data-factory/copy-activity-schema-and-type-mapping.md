@@ -11,17 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
 This article describes how Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when perform the data copy.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
-
 
 ## Column mapping
 
@@ -52,7 +48,7 @@ You can specify **columnMappings** in the **typeProperties** section of the Copy
 
 #### Explicit column mapping example
 
-In this sample, the input table has a structure and it points to a table in an on-premise SQL database.
+In this sample, the input table has a structure and it points to a table in an on-premises SQL database.
 
 ```json
 {
@@ -124,11 +120,18 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+If you were using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` to specify column mapping, it is still supported as-is.
 
 **Column mapping flow:**
 

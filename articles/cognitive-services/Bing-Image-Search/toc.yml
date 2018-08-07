@@ -4,7 +4,7 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -19,6 +19,18 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Image search SDK C# quickstart
+    href: image-search-sdk-quickstart.md
+  - name: Image search SDK Node.js quickstart
+    href: image-search-sdk-node-quickstart.md
+  - name: Image Search SDK Python quickstart
+    href: image-sdk-python-quickstart.md
+  - name: Image Search SDK Java quickstart
+    href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -53,18 +65,6 @@
   items:
   - name: Bing Image Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
-  - name: Bing Search SDK
-    items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Image search SDK C# quickstart
-      href: image-search-sdk-quickstart.md
-    - name: Image search SDK Node.js quickstart (preview)
-      href: image-search-sdk-node-quickstart.md
-    - name: Image Search SDK Python quickstart (preview)
-      href: image-sdk-python-quickstart.md
-    - name: Image Search SDK Java quickstart (preview)
-      href: image-sdk-java-quickstart.md
   - name: Bing Image Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources

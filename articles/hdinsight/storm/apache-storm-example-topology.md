@@ -3,8 +3,8 @@ title: Example Apache Storm topologies on HDInsight | Microsoft Docs
 description: A list of example Storm topologies created and tested with Apache Storm on HDInsight including basic C# and Java topologies, and working with Event Hubs.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
-manager: jhubbard
+author: jasonwhowell
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -13,8 +13,8 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: larryfr
+ms.date: 05/30/2018
+ms.author: jasonh
 
 ---
 # Example Storm topologies and components for Apache Storm on HDInsight
@@ -35,6 +35,11 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Scalability benchmarks for reading from Azure Event Hubs using Storm on HDInsight][d6c540e3] |Message throughput, Event Hubs, SQL Database |C#, Java |
 | [Use Python with Storm on HDInsight](apache-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 | [Use Kafka with Storm on HDInsight](../hdinsight-apache-storm-with-kafka.md) | Apache Storm reading and writing to Apache Kafka | Java |
+
+> [!WARNING]
+> The C# examples in this list were originally created and tested with Windows-based HDInsight, and may not work correctly with Linux-based HDInsight clusters. Linux-based clusters use Mono to run .NET code, and may have compatibility problems with the frameworks and packages used in the example.
+>
+> Linux is the only operating system used on HDInsight version 3.4 or later.
 
 ### Next Steps
 

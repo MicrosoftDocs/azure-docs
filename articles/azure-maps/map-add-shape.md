@@ -1,17 +1,13 @@
 ---
 title: Add a shape with Azure Maps | Microsoft Docs
 description: How to add a shape to a Javascript map
-services: azure-maps
-keywords: 
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: 
 ms.custom: codepen
 ---
 
@@ -56,3 +52,10 @@ In the code above, the first block of code constructs a map object. You can see 
 In the second block of code, a polygon is created. A polygon is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) of [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) with [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) as its Feature property. Use `new atlas.data.Feature(new atlas.data.Polygon())` to create a polygon and define its properties. Provide ordered coordinates of the polygon path in the polygon constructor.
 
 A polygon layer is an array of polygons. The last block of code uses [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) function of the map class to add the polygon layer to the map and define its properties. See properties of a polygon layer at [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
+
+## Next steps
+For more code examples to add to your maps, see the following articles:
+* [Add custom HTML](./map-add-custom-html.md)
+* [Show search results](./map-search-location.md)
+
+

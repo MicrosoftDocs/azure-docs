@@ -82,13 +82,16 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell page.
 2. You don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Type or copy and paste the following code that handles the authentication with your Automation Run As account:
-   
-   ```
+
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
-   <br>
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** and **Login-AzureRmAccount** are now  aliases for **Connect-AzureRMAccount**. If the **Connect-AzureRMAccount** cmdlet does not exist, you can use **Add-AzureRmAccount** or **Login-AzureRmAccount**, or you can update your modules in your Automation Account to the latest versions.
+
 4. Click **Test pane** so that you can test the runbook.
 5. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 

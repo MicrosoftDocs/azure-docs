@@ -104,7 +104,7 @@
   - name: SDKs
     items:
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator
+      href: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
     - name: Python
@@ -115,8 +115,12 @@
   items:  
   - name: FAQ
     href: FAQs.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
+  - name: Export or delete account data
+    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/559960-content-moderator
   - name: Stack Overflow
@@ -126,4 +130,4 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: On-demand webinar
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html 
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html

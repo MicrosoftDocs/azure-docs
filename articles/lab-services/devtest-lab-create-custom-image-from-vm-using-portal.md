@@ -40,7 +40,7 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 	![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. On the **Custom image** pane, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM.
+1. On the **Custom image** pane, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM. The custom image will include the OS disk and all the data disks attached to the virtual machine.
 
 	![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

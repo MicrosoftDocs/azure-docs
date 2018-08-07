@@ -19,7 +19,7 @@ ms.author: mikhegn
 ---
 # Visualize your cluster with Service Fabric Explorer
 
-Service Fabric Explorer (SFX) is an open-source tool for inspecting and managing Azure Service Fabric clusters. Service Fabric Explorer is a desktop application for Windows and Linux. Support for MacOS is coming soon.
+Service Fabric Explorer (SFX) is an open-source tool for inspecting and managing Azure Service Fabric clusters. Service Fabric Explorer is a desktop application for Windows, macOS and Linux.
 
 ## Service Fabric Explorer download
 

@@ -3,7 +3,7 @@ title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft 
 description: In this howto, you learn how to create and configure a Linux VM to use Azure Active Directory authentication for user logins
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor:
 
@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
+ms.date: 06/17/2018
+ms.author: cynthn
 ---
 
 # Log in to a Linux virtual machine in Azure using Azure Active Directory authentication (Preview)
@@ -41,9 +41,10 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 6.9 and CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 17.10 |
+| CentOS | CentOS 6.9, and CentOS 7.4 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10, and Ubuntu Server 18.04 |
 
 The following Azure regions are currently supported during the preview of this feature:
 
@@ -109,6 +110,9 @@ az role assignment create \
     --scope $vm
 ```
 
+> [!NOTE]
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the *--assignee-object-id*, not just the username for *--assignee*. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+
 For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
@@ -171,4 +175,4 @@ Share your feedback about this preview feature or report issues using it on the 
 
 ## Next steps
 
-For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/active-directory-whatis.md) and [How to get started with Azure Active Directory](../../active-directory/get-started-azure-ad.md)
+For more information on Azure Active Directory, see [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) and [How to get started with Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)

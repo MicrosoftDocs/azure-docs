@@ -32,6 +32,14 @@ In the tree view, find the code package on the *_lnxvm_0* node by expanding **No
 ## Access the logs of a dead or crashed container
 Starting in v6.2, you can also fetch the logs for a dead or crashed container using [REST APIs](/rest/api/servicefabric/sfclient-index) or [Service Fabric CLI (SFCTL)](service-fabric-cli.md) commands.
 
+### Set container retention policy
+To assist with diagnosing container startup failures, Service Fabric (version 6.1 or higher) supports retaining containers that terminated or failed to start. This policy can be set in the **ApplicationManifest.xml** file as shown in the following snippet:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+The setting **ContainersRetentionCount** specifies the number of containers to retain when they fail. If a negative value is specified, all failing containers will be retained. When the **ContainersRetentionCount** attribute is not specified, no containers will be retained. The attribute **ContainersRetentionCount** also supports Application Parameters so users can specify different values for test and production clusters. Use placement constraints to target the container service to a particular node when using this feature to prevent the container service from moving to other nodes. Any containers retained using this feature must be manually removed.
+
 ### REST
 Use the [Get Container Logs Deployed On Node](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operation to get the logs for a crashed container. Specify the name of the node that the container was running on, application name, service manifest name, and the code package name.  Specify `&Previous=true`. The response will contain the container logs for the dead container of the code package instance.
 

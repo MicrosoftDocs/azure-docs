@@ -13,11 +13,13 @@ ms.author: nolachar
 ---
 # Quickstart: Detect faces in an image using C&#35;
 
-In this quickstart, you detect faces in an image using the Face API.
+In this quickstart, you detect human faces in an image using the Face API.
+
+## Prerequisites
 
 You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
-## Face detect request
+## Detect faces in an image
 
 Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 method to detect faces in an image and return face attributes including:
@@ -35,6 +37,8 @@ To run the sample, do the following steps:
 4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
 5. Run the program.
 6. At the prompt, enter the path to an image.
+
+### Face - Detect request
 
 ```csharp
 using System;
@@ -223,7 +227,7 @@ namespace CSHttpClientSample
 }
 ```
 
-## Face detect response
+### Face - Detect response
 
 A successful response is returned in JSON, for example:
 
@@ -320,6 +324,10 @@ A successful response is returned in JSON, for example:
    }
 ]
 ```
+
+## Next steps
+
+Learn how to create a WPF Windows application that uses the Face service to detect faces in an image. The application draws a frame around each face and displays a description of the face on the status bar.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Getting Started with Face API in C#](../Tutorials/FaceAPIinCSharpTutorial.md)

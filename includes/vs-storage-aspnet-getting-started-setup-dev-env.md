@@ -22,7 +22,7 @@ This section walks through setting up the development environment. This includes
 
 2. From the context menu, select **Add** > **Connected Service**.
 
-1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**, and then select **Configure**.
+1. In the **Connected Services** dialog box, select **Cloud Storage with Azure Storage**.
 
 	![Screenshot of Connected Services dialog box](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

@@ -8,6 +8,7 @@ manager: jhubbard
 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018

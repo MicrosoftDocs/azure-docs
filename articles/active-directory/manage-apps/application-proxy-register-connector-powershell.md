@@ -11,12 +11,11 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-
 ---
 
 # Create an unattended installation script for the Azure AD Application Proxy connector
@@ -60,7 +59,9 @@ There are two methods you can use to register the connector:
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### Register the connector using a token created offline
-1. Create an offline token using the AuthenticationContext class using the values in this code snippet:
+1. Create an offline token using the AuthenticationContext class using the values in this code snippet or PowerShell cmdlets below:
+
+    **Using C#:**
 
         using System;
         using System.Diagnostics;
@@ -115,6 +116,55 @@ There are two methods you can use to register the connector:
             tenantID = authResult.TenantId;
         }
 
+    **Using PowerShell:**
+
+        # Locate AzureAD PowerShell Module
+        # Change Name of Module to AzureAD after what you have installed
+        $AADPoshPath = (Get-InstalledModule -Name AzureAD).InstalledLocation
+        # Set Location for ADAL Helper Library
+        $ADALPath = $(Get-ChildItem -Path $($AADPoshPath) -Filter Microsoft.IdentityModel.Clients.ActiveDirectory.dll -Recurse ).FullName | Select-Object -Last 1
+        
+        # Add ADAL Helper Library
+        Add-Type -Path $ADALPath
+        
+        #region constants
+        
+        # The AAD authentication endpoint uri
+        [uri]$AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/token?api-version=1.0/" 
+        
+        # The application ID of the connector in AAD
+        [string]$ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489"
+        
+        # The reply address of the connector application in AAD
+        [uri]$ConnectorRedirectAddress = "urn:ietf:wg:oauth:2.0:oob" 
+        
+        # The AppIdUri of the registration service in AAD
+        [uri]$RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp"
+        
+        #endregion
+        
+        #region GetAuthenticationToken
+        
+        # Set AuthN context
+        $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $AadAuthenticationEndpoint
+        
+        # Build platform parameters
+        $promptBehavior = [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Always
+        $platformParam = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList $promptBehavior
+        
+        # Do AuthN and get token
+        $authResult = $authContext.AcquireTokenAsync($RegistrationServiceAppIdUri.AbsoluteUri, $ConnectorAppId, $ConnectorRedirectAddress, $platformParam).Result
+        
+        # Check AuthN result
+        If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId) ) {
+        $token = $authResult.AccessToken
+        $tenantId = $authResult.TenantId
+        }
+        Else {
+        Write-Output "Authentication result, token or tenant id returned are null"
+        }
+        
+        #endregion
 
 2. Once you have the token, create a SecureString using the token:
 
@@ -127,6 +177,6 @@ There are two methods you can use to register the connector:
 ## Next steps 
 * [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
 * [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
+* [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
 

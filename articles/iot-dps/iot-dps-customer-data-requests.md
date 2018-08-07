@@ -3,9 +3,11 @@
 title: Customer data request features​
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
+services: iot-dps
 ---
 
 # Summary of customer data request features​
@@ -16,16 +18,16 @@ The Azure IoT Hub Device Provisioning Service is a REST API-based cloud service 
 
 Individual devices are assigned a registration ID and device ID by a tenant administrator. Data from and about these devices is based on these IDs. Microsoft maintains no information and has no access to data that would allow correlation of these devices to an individual.
 
-Many of the devices managed in Azure Device Provisioning Service are not personal devices, for example an office thermostat or factory robot. Customers may, however, consider some devices to be personally identifiable and at their discretion may maintain their own asset or inventory tracking methods that tie devices to individuals. Azure Device Provisioning Service manages and stores all data associated with devices as if it were personal data.
+Many of the devices managed in Device Provisioning Service are not personal devices, for example an office thermostat or factory robot. Customers may, however, consider some devices to be personally identifiable and at their discretion may maintain their own asset or inventory tracking methods that tie devices to individuals. Device Provisioning Service manages and stores all data associated with devices as if it were personal data.
 
 Tenant administrators can use either the Azure portal or the service's REST APIs to fulfill information requests by exporting or deleting data associated with a device ID or registration ID.
 
 > [!NOTE]
-> Devices that have been provisioned in Azure IoT Hub through Azure IoT Hub Device Provisioning Service have additional data stored in the Azure IoT Hub service. See the [Azure IoT Hub reference documentation](../iot-hub/iot-hub-customer-data-requests.md) in order to complete a full request for a given device.
+> Devices that have been provisioned in Azure IoT Hub through Device Provisioning Service have additional data stored in the Azure IoT Hub service. See the [Azure IoT Hub reference documentation](../iot-hub/iot-hub-customer-data-requests.md) in order to complete a full request for a given device.
 
 ## Deleting customer data
 
-The Azure IoT Hub Device Provisioning Service stores enrollments and registration records. Enrollments contain information about devices that are allowed to be provisioned, and registration records show which devices have already gone through the provisioning process.
+Device Provisioning Service stores enrollments and registration records. Enrollments contain information about devices that are allowed to be provisioned, and registration records show which devices have already gone through the provisioning process.
 
 Tenant administrators may remove enrollments from the Azure portal, and this removes any associated registration records as well.
 
@@ -39,7 +41,7 @@ It is also possible to perform delete operations for enrollments and registratio
 
 ## Exporting customer data
 
-The Azure IoT Hub Device Provisioning Service stores enrollments and registration records. Enrollments contain information about devices that are allowed to be provisioned, and registration records show which devices have already gone through the provisioning process.
+Device Provisioning Service stores enrollments and registration records. Enrollments contain information about devices that are allowed to be provisioned, and registration records show which devices have already gone through the provisioning process.
 
 Tenant administrators can view enrollments and registration records through the Azure portal and export them using copy and paste.
 
@@ -52,10 +54,10 @@ It is also possible to perform export operations for enrollments and registratio
 * To export information about devices that have already been provisioned, you can use [Registration State - Get Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
 
 > [!NOTE]
-> When you use Microsoft's enterprise services, Microsoft generates some information, known as system-generated logs. Some Azure IoT Hub Device Provisioning Service system-generated logs are not accessible or exportable by tenant administrators. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices.
+> When you use Microsoft's enterprise services, Microsoft generates some information, known as system-generated logs. Some Device Provisioning Service system-generated logs are not accessible or exportable by tenant administrators. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices.
 
 ## Links to additional documentation
 
-Full documentation for Azure IoT Hub Device Provisioning service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
+Full documentation for Device Provisioning Service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
 
 Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-data-requests.md).

@@ -37,20 +37,20 @@ After you've enabled MSI on an Azure resource, such as an [Azure VM](qs-configur
 
 3. For an Azure virtual machine, select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to Virtual Machine**, and specify the corresponding **Subscription** and **Resource Group** where the resource resides. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
 
-   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    For an Azure virtual machine scale set, select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to**. Under the search criteria area, search for  your virtual machine scale set. Select the resource, and select **Save**.
    
-   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. You are returned to the main **Access control (IAM)** page, where you see a new entry for the resource's MSI.
 
     Azure virtual machine:
 
-   ![Access control (IAM) screenshot](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Azure virtual machine scale set:
 
-    ![Access control (IAM) screenshot](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## Troubleshooting
 
