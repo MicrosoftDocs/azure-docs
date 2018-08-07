@@ -137,7 +137,7 @@
 #### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
-#### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
