@@ -1,6 +1,6 @@
 ---
-title: SCP.NET programming guide 
-description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight.
+title: SCP.NET programming guide for Storm in Azure HDInsight
+description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm running in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: raviperi
