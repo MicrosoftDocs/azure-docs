@@ -182,12 +182,7 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
-Once databases have been identified for reclaiming unused allocated space, their data files can be shrunk by modifying the following command. 
-
-> [!IMPORTANT]
-> For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
-
-Modify the following command to shrink all of the data files in the specified database:
+Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database:
 
 ```sql
 -- Shrink database data space allocated.
@@ -195,6 +190,9 @@ DBCC SHRINKDATABASE (N'db1')
 ```
 
 For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+
+> [!IMPORTANT]
+> For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
 
 > [!IMPORTANT] 
 > Consider rebuilding database indexes
