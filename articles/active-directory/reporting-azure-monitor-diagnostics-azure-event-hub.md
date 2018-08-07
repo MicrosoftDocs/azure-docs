@@ -84,5 +84,5 @@ After data is displayed in the event hub, you can access and read the data in tw
 ## Next steps
 
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
-* [Interpret audit logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](reports-monitoring/reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
