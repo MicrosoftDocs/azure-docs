@@ -86,15 +86,13 @@ using removable media.
 
 13. On **Summary**, review your settings. When you click **Create Group**, the initial data replication occurs. When the data replication finishes, on the **Status** page, the protection group status shows as **OK**. The initial backup job takes place in line with the protection group settings.
 
-Questions that need answering: How do you expand disk storage for Azure Stack short-term disk storage. What are guidelines that need to be called out explaining short-term disk storage?
-
 ## Recover file data
 
 Use Azure Backup Server console to recover data to your virtual machine.
 
 1. In the Azure Backup Server console, on the navigation bar, click **Recovery** and browse for the data you want to recover. In the results pane, select the data.
 
-2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover a recovery point.
+2. On the calendar in the recovery points section, dates in bold indicate recovery points are available. Select the date to recover.
 
 3. In the **Recoverable item** pane, select the item you want to recover.
 
