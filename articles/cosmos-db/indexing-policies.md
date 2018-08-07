@@ -320,9 +320,11 @@ In Azure Cosmos DB, you can make changes to the indexing policy of a collection 
 
 ![How indexing works – Azure Cosmos DB online index transformations](./media/indexing-policies/index-transformations.png)
 
-Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. There's no performance degradation or downtime to your apps when you make an indexing policy change.
+Index transformations are made online. This means that the documents indexed per the old policy are efficiently transformed per the new policy *without affecting the write availability or the provisioned throughput* of the collection. The consistency of read and write operations made by using the REST API, SDKs, or from within stored procedures and triggers is not affected during index transformation. 
 
-However, during the time that index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy). This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
+Changing indexing policy is an asynchronous process and the time to complete the operation depends on the number of documents, provisioned RUs, and size of documents. While re-indexing of your collection is progress, your query results may not return all matching results if they use an index that is being modified. While index transformation is progress, queries are eventually consistent regardless of the indexing mode configuration (Consistent or Lazy) and after the index transformation is complete, you will get consistent results. 
+
+However, . This also applies to queries from all interfaces: REST API, SDKs, and from within stored procedures and triggers. Just like with Lazy indexing, index transformation is performed asynchronously in the background on the replicas by using the spare resources that are available for a specific replica. 
 
 Index transformations are also made in place. Azure Cosmos DB doesn't maintain two copies of the index and swap out the old index with the new one. This means that no additional disk space is required or consumed in your collections while index transformations occur.
 

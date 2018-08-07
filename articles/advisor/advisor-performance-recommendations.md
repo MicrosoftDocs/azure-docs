@@ -49,6 +49,14 @@ Azure Advisor integrates best practices recommendations for improving your App S
 
 For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
+## Remove data skew on your SQL data warehouse table to increase query performance
+
+Data skew can cause unnecessary data movement or resource bottlenecks when running your workload. Advisor will detect distribution data skew greater than 15% and recommend that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+
+## Create or update outdated table statistics on your SQL data warehouse table to increase query performance
+
+Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan for fastest performance.
+
 ## How to access Performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
