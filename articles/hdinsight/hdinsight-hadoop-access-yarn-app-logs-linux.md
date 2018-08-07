@@ -4,7 +4,7 @@ description: Learn how to access YARN application logs on a Linux-based HDInsigh
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Access YARN application logs on Linux-based HDInsight

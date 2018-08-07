@@ -3,7 +3,7 @@ title: Use Hadoop Pig in HDInsight | Microsoft Docs
 description: Learn how to use Pig with Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use Pig with Hadoop on HDInsight

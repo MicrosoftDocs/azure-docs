@@ -3,7 +3,7 @@ title: Use Script Action to install Solr on Linux-based HDInsight - Azure | Micr
 description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Install and use Solr on HDInsight Hadoop clusters
