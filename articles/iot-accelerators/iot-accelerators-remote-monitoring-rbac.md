@@ -86,7 +86,7 @@ The following steps describe how to add a role to an application in Azure Active
 
     ![App registration](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
 
-1. Select your application and then click **Manifest**. You can see the two existing [app roles](../architecture/multitenant-identity/app-roles.md) defined for the application:
+1. Select your application and then click **Manifest**. You can see the two existing [app roles](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) defined for the application:
 
     ![View manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
 
