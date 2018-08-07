@@ -26,7 +26,7 @@ Batch AI is a managed service for training machine learning models at scale on c
 
 [Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. 
 
-An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 40 minutes to complete.
+An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 60 minutes to complete.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
@@ -67,7 +67,7 @@ The next few sections will consist of instructions for creating all the necessar
 
 ## Provision a GPU cluster
 
-The next step ise to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
+The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
 
 * **VM size** - Azure contains many options for [GPU-enabled VMs](../virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
 
@@ -75,7 +75,7 @@ The next step ise to provision a GPU cluster that can be used to run the experim
 
 * **Target** - The number of nodes that should be allocated can be defined at the creation of a cluster or an [auto-scale](/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-auto-scale) option can be selected. For this experiment, the target cluster size is manually set to 4 nodes in order to demonstrate the distributed training performance.
 
-* **VM image** - The VMs in the cluster can be provisioned with a default Ubuntu Server image or with a preconfigured Azure image, such as a [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md). For this experiment, a default Ubuntu Server image is used as it is designed to host container-based applications, such as Docker, which are used for the experiment.
+* **VM image** - The VMs in the cluster can be provisioned with a default Ubuntu Server image or with a preconfigured Azure image, such as a [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md). For this experiment, a default Ubuntu Server image is used as it is designed to host container-based applications, such as Docker.
 
 * **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto-storage option that automatically creates a file share and storage container in a designated storage account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in a central location that can be accessed by all VMs. This tutorial utilizes this auto-storage option. For those who do not wish to use auto-storage, see the following [article](use-azure-storage.md) for other Azure storage options.
 
@@ -85,7 +85,7 @@ The following [az batchai cluster create](/cli/azure/batchai/cluster?view=azure-
 az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority dedicated --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
-It also create an Azure file share and blob storage container with the names **batchaishare** and **batchaicontainer**, respectively. They are mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
+It also creates an Azure file share and blob storage container with the names **batchaishare** and **batchaicontainer**, respectively. They are mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
 
 The `--generate-ssh-keys` option generates private and public SSH keys if they don't already exist in the default key location. 
 
@@ -329,7 +329,7 @@ Going through each of the properties:
 
 * **containerSettings** - The settings on the type of container that the job should run on. This experiment uses a Docker container built with `tensorflow`.
 
-Using the configuration, create the job can using the [az batchai job create](/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create) command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point.
+Using the configuration, create the job using the [az batchai job create](/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create) command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point.
 
 ```azurecli-interactive
 az batchai job create --cluster nc6cluster --name cifar_distributed --resource-group batchai.horovod --workspace batchaidev --experiment cifar --config-file job.json --storage-account-name <STORAGE ACCOUNT NAME>
