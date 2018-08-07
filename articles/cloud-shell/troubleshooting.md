@@ -79,7 +79,7 @@ Azure Cloud Shell has the following known limitations:
 
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires an Azure file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 
-- With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
+- With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$HOME` directory is also persisted.
 - Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   - In Bash, run `env` to find your region set as `ACC_LOCATION`.
 - Azure Files supports only locally redundant storage and geo-redundant storage accounts.
