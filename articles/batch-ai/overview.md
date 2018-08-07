@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Batch AI service | Microsoft Docs
+title: Azure Batch AI service - AI training | Microsoft Docs
 description: Learn about using the managed Azure Batch AI service to train artificial intelligence (AI) and other machine learning models on clusters of GPUs and CPUs. 
 services: batch-ai
 documentationcenter: ''
@@ -13,81 +13,59 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/13/2017
-ms.author: asutton
-ms.custom: 
+ms.date: 08/01/2018
+ms.author: danlep
+#Customer intent: As a data scientist or AI researcher, I want to learn about Batch AI so that I can decide whether to try using it to train my machine learning or AI models in Azure.
 
 ---
-# What is Batch AI in Azure?
-Batch AI is a managed service that enables data scientists and AI researchers to train AI and other machine learning models on clusters of Azure virtual machines, including VMs with GPU support. You describe the requirements of your job, where to find the inputs and store the outputs, and Batch AI handles the rest.  
- 
-## Why Batch AI? 
-Developing powerful AI algorithms is a compute-intensive and iterative process. Data scientists and AI researchers are working with increasingly larger data sets. They are developing models with more layers, and doing this with more experimentation on network design on hyper-parameter tuning. Doing this efficiently requires multiple CPUs or GPUs per model, running experiments in parallel, and having shared storage for training data, logs, and model outputs.   
- 
-![Batch AI process](media/overview/batchai-context.png)
+# What is Azure Batch AI?
 
-Data scientists and AI researchers are experts in their field, yet managing infrastructure at scale can get in the way. Developing AI at scale requires many infrastructure tasks: provisioning clusters of VMs, installing software and containers, queuing work, prioritizing and scheduling jobs, handing failures, distributing data, sharing results, scaling resources to manage costs, and integrating with tools and workflows. Batch AI handles these tasks. 
- 
-## What is Batch AI? 
+Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Describe the compute resources, the jobs you want to run, where to store the model inputs and the outputs, and Batch AI takes care of the rest.
 
-Batch AI provides resource management and job scheduling specialized for AI training and testing. Key capabilities include: 
+You can use Batch AI either standalone or to perform model training as part of a larger development workflow:
 
-* Running long-running batch jobs, iterative experimentation, and interactive training 
-* Automatic or manual scaling of VM clusters using GPUs or CPUs 
-* Configuring SSH communication between VMs and for remote access 
-* Support for any Deep Learning or machine learning framework, with optimized configuration for popular toolkits such as [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/), and [Chainer](https://chainer.org/) 
-* Priority-based job queue to share clusters and take advantage of low-priority VMs and reserved instances  
-* Flexible storage options including Azure Files and a managed NFS server 
-* Mounting remote file shares into the VM and optional container 
-* Providing job status and restarting in case of VM failures 
-* Access to output logs, stdout, stderr, and models, including streaming from Azure Storage 
-* Azure [command-line interface](/cli/azure) (CLI), SDKs for [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview), and Java, monitoring in the Azure Portal, and integration with Microsoft AI tools 
+* Use Batch AI by itself to train, test, and batch score machine learning and AI models on clusters of [GPUs](../virtual-machines/linux/sizes-gpu.md) or CPUs. 
 
-The Batch AI SDK supports writing scripts or applications to manage training pipelines and integrate with tools. The SDK currently provides Python, C#, Java, and REST APIs.  
- 
+* Target a Batch AI cluster in a workflow with [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) or other [Azure AI Platform tools](https://azure.microsoft.com/overview/ai-platform/). Azure ML provides a rich experience for data preparation, experimentation, and job history. Azure ML can also package a trained model into a container, and deploy a model for inference or to IoT devices.  
 
-Batch AI uses Azure Resource Manager for control-plane operations (create, list, get, delete). Azure Active Directory is used for authentication and role-based access control.  
- 
-## How to use Batch AI 
+## Train machine learning and AI models
 
-To use Batch AI, you define and manage *clusters* and *jobs*. 
+Use Batch AI to train machine learning models as well as deep neural networks (deep learning) and other AI approaches. Batch AI has built-in support for popular open-source AI libraries and frameworks including [TensorFlow](https://github.com/tensorflow/tensorflow), [PyTorch](https://github.com/pytorch/pytorch), [Chainer](https://github.com/chainer/chainer), and [Microsoft Cognitive Toolkit (CNTK)](https://github.com/Microsoft/CNTK).
 
- 
-**Clusters**  describe your compute requirements: 
-* Azure region that you want to run in 
-* The family and size of VM to use - for example, an NC24 VM, which contains 4 NVIDIA K80 GPUs 
-* The number of VMs, or the minimum and maximum number for autoscaling 
-* The VM image - for example, Ubuntu 16.04 LTS or [Microsoft Deep Learning Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* Any remote file share volumes to mount - for example, from Azure Files or an NFS server managed by Batch AI 
-* User name and SSH key or password to configure on the VMs to enable interactive login for debugging  
- 
+After you've identified your problem area and prepared your data, work interactively with Batch AI to test model ideas. Then when you’re ready to experiment at scale, start jobs across multiple GPUs with MPI or other communication libraries, and run more experiments in parallel.
 
-**Jobs** describe: 
-* The cluster and region to use 
-* How many VMs for the job 
-* Input and output directories to be passed to the job when starting. This typically uses the shared file system mounted during cluster setup 
-* An optional container to run your software or installation script 
-* AI framework-specific configuration or the command line and parameters to start the job 
- 
+Batch AI helps you train models at scale in several ways. For example: 
 
-Get started using Batch AI with the [Azure CLI](/cli/azure) and configuration files for clusters and jobs. Use this approach to quickly create your cluster when needed and run jobs to experiment with network design or hyper-parameters.  
- 
+|  |  |
+|---------|---------|
+| **Distribute training**<br/>![Distributed training](./media/overview/distributed-training.png)  | Scale up training for a single job across many network-connected GPUs, to train larger networks with high volumes of data.|
+| **Experiment**<br/>![Experimentation](./media/overview/experimentation.png) | Scale out training with multiple jobs. Run parameter sweeps to test out new ideas, or tune hyperparameters to optimize accuracy and performance. |
+| **Execute in parallel**![Parallel execution](./media/overview/parallel-execution.png) | Train or score many models at a time, running in parallel across a fleet of servers to get the jobs done faster.|
 
-Batch AI makes it easy to work in parallel with multiple GPUs. When jobs need to scale across multiple GPUs, Batch AI sets up secure network connectivity between the VMs. When InfiniBand is used, Batch AI configures the drivers and starts MPI across the nodes in a job.  
+When you've trained a model, use Batch AI to test the model if this wasn’t part of your training script, or perform batch scoring.
 
-## Data management
-Batch AI provides flexible options for your training scripts, data, and outputs:
-  
-* Use **local disk** for early experimentation and smaller datasets. For this scenario you might want to connect to the virtual machine over SSH to edit scripts and read logs. 
+## How it works
 
-* Use **Azure Files** to share training data across multiple jobs, and store output logs and models in a single location 
+Use Batch AI SDKs, command-line scripts, or the Azure portal to manage compute resources and schedule jobs for AI training and testing: 
 
-* Set up an **NFS server** to support a larger scale of data and VMs for training. Batch AI can set up an NFS server for you as a special cluster type with disks backed in Azure Storage. 
- 
-* A **parallel file system** provides further scalability for data and parallel training. While Batch AI does not manage parallel file systems, example deployment templates are available for Lustre, Gluster, and BeeGFS.  
+* **Provision and scale clusters of VMs** - Choose the number of nodes (VMs), and select a GPU-enabled or other VM size that meets your training needs. Scale the number of nodes up or down automatically or manually so that you only use resources when needed. 
+
+* **Manage dependencies and containers** - By default, Batch AI clusters run Linux VM images that have dependencies pre-installed to run container-based training frameworks either on GPUs or CPUs. For additional configuration, bring custom images or run start-up scripts.
+
+* **Distribute data** - Choose one or several storage options to manage input data and scripts and job output: Azure Files, Azure Blob storage, or a managed NFS server. Batch AI also supports custom storage solutions including high-performance parallel file systems. Mount storage file systems to the cluster nodes and job containers using simple configuration files.
+
+* **Schedule jobs** - Submit jobs to a priority-based job queue to share cluster resources and take advantage of low-priority VMs and reserved instances.
+
+* **Handle failures** - Monitor job status and restart jobs in case of VM failures during potentially long-running jobs.
+
+* **Gather results** - Easily access output logs, Stdout, Stderr, and trained models. Configure your Batch AI jobs to push output directly to mounted storage.
+
+As an Azure service, Batch AI supports common tools such as role-based access control (RBAC) and Azure virtual networks for security.  
 
 ## Next steps
 
-* Get started creating your first Batch AI training job using the [Azure CLI](quickstart-cli.md) or [Python](quickstart-python.md).
-* Check out sample [training recipes](https://github.com/Azure/BatchAI) for different frameworks.
+* Learn more about the [Batch AI resources](resource-concepts.md) for training a machine learning or AI model.
 
+* Get started [training a sample deep learning model](quickstart-tensorflow-training-cli.md) with Batch AI.
+
+* Check out sample [training recipes](https://github.com/Azure/BatchAI/blob/master/recipes) for popular AI frameworks.
