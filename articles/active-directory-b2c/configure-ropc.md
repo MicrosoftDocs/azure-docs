@@ -60,7 +60,7 @@ Use your favorite API development application to generate an API call, and revie
 - Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?B2C_1_ROPC_Auth`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Key | Value |
 | --- | ----- |
@@ -100,7 +100,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here with the information in the following table as the body of the request:
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?B2C_1_ROPC_Auth`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Key | Value |
 | --- | ----- |
