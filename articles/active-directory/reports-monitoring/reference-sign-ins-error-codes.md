@@ -180,4 +180,4 @@ The following section provides you with a complete overview of all possible erro
 
 ## Next steps
 
-For more information, see the [Sign-in activity reports in the Azure Active Directory portal](../active-directory-reporting-activity-sign-ins.md).
+For more information, see the [Sign-in activity reports in the Azure Active Directory portal](concept-sign-ins.md).

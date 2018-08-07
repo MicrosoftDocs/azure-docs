@@ -81,7 +81,7 @@ The following table lists the latency information for risk events.
 
 If you want to know more about the activity reports in the Azure portal, see:
 
-- [Sign-in activity reports in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins.md)
+- [Sign-in activity reports in the Azure Active Directory portal](reports-monitoring/concept-sign-ins.md)
 - [Audit activity reports in the Azure Active Directory portal](active-directory-reporting-activity-audit-logs.md)
 
 If you want to know more about the security reports in the Azure portal, see:

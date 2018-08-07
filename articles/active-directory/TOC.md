@@ -111,7 +111,7 @@
 #### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
 ## [Manage reports](active-directory-reporting-azure-portal.md)
-### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
+### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
 ### [Audit activity](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)

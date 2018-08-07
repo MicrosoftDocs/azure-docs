@@ -62,7 +62,7 @@ There are two types of activity reports in Azure Active Directory:
 
 - **Audit logs** - The [audit logs activity report](active-directory-reporting-activity-audit-logs.md) provides you with access to the history of every task performed in your tenant.
 
-- **Sign-ins** -  With the [sign-ins activity report](active-directory-reporting-activity-sign-ins.md), you can determine, who has performed the tasks reported by the audit logs report.
+- **Sign-ins** -  With the [sign-ins activity report](reports-monitoring/concept-sign-ins.md), you can determine, who has performed the tasks reported by the audit logs report.
 
 
 
@@ -106,7 +106,7 @@ If you want to know more about the various report types in Azure Active Director
 - [Users flagged for risk report](active-directory-reporting-security-user-at-risk.md)
 - [Risky sign-ins report](active-directory-reporting-security-risky-sign-ins.md)
 - [Audit logs report](active-directory-reporting-activity-audit-logs.md)
-- [Sign-ins logs report](active-directory-reporting-activity-sign-ins.md)
+- [Sign-ins logs report](reports-monitoring/concept-sign-ins.md)
 
 If you want to know more about accessing the reporting data using the reporting API, see: 
 
