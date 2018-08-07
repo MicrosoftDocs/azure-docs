@@ -94,6 +94,8 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
 ## Create an employee list entity
 Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
 

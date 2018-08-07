@@ -90,6 +90,8 @@ LUIS tokenizes the utterance when it is added to an intent. The tokenization for
 
     The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled with the type of number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
 ## Create an HRF-number regular expression entity 
 Create a regular expression entity to tell LUIS what an HRF-number format is in the following steps:
 

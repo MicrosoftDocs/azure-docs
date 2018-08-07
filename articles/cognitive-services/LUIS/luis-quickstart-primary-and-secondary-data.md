@@ -14,27 +14,26 @@ ms.author: diberry
 --- 
 
 # Tutorial: 7. Add simple entity and phrase list
-In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+In this tutorial, extract machine-learned data from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand simple entities 
-> * Create new LUIS app for the Human Resources (HR) domain 
 > * Add simple entity to extract jobs from app
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response
 > * Add phrase list to boost signal of job words
-> * Train, publish app, and requery endpoint
+> * Train app
+> * Publish app
+> * Query endpoint of app to see LUIS JSON response
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you don't have the Human Resources app from the [composite entity](luis-tutorial-composite-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [previous](luis-tutorial-composite-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
+If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
 
 ## Purpose of the app
-This app demonstrates how to pull data out of an utterance. Consider the following utterances from a chatbot:
+This app demonstrates how to pull data out of an utterance. Consider the following utterances from a chat bot:
 
 |Utterance|Extractable job name|
 |:--|:--|
@@ -45,7 +44,7 @@ This app demonstrates how to pull data out of an utterance. Consider the followi
 This tutorial adds a new entity to extract the job name. 
 
 ## Purpose of the simple entity
-The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
+The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
 
 The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
 
