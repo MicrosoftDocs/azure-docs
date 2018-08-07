@@ -7,7 +7,7 @@ ms.author: jtoland
 manager: craigg
 ms.service: mysql-database
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/07/2018
 ---
 
 # Azure Database for MySQL migration partners
