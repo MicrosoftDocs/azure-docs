@@ -3,7 +3,7 @@ title: Use Apache Spark to read and write data to Azure SQL database | Microsoft
 description: Learn how to set up a connection between HDInsight Spark cluster and an Azure SQL database to read data, write data, and stream data into a SQL database
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -12,7 +12,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 
