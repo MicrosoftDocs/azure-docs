@@ -36,10 +36,10 @@ Understanding the following database storage space quantities are important for 
 
 |Database space quantity|Definition|Comments|
 |---|---|---|
-|**Data space used**|This quantity is the amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
-|**Data space allocated**|This quantity is the amount of formatted file space made available for storing database data.|The space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
-|**Data space allocated but unused**|This quantity is the amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
-|**Data max size**|This quantity is the maximum amount of data space that can be used by the database.|The amount of data space allocated cannot grow beyond the data max size.|
+|**Data space used**|Amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
+|**Data space allocated**|Amount of formatted file space made available for storing database data.|The allocated space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
+|**Data space allocated but unused**|Amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
+|**Data max size**|Maximum amount of data space that can be used by the database.|The amount of data space allocated cannot grow beyond the data max size.|
 ||||
 
 The following diagram illustrates the relationship between the types of storage space.
@@ -90,10 +90,10 @@ Understanding the following elastic pool storage space quantities are important 
 
 |Elastic pool space quantity|Definition|Comments|
 |---|---|---|
-|**Data space used**|This quantify is the summation of data space used by all databases in the elastic pool.||
-|**Data space allocated**|This quantity is the summation of data space allocated by all databases in the pool.||
-|**Data space allocated but unused**|This quantity is the difference between the amount of space allocated and space used by the elastic pool.|This quantity represents the maximum amount of space allocated for the pool that can be reclaimed by shrinking database files.|
-|**Data max size**|This quantity is the maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database files.|
+|**Data space used**|The summation of data space used by all databases in the elastic pool.||
+|**Data space allocated**|The summation of data space allocated by all databases in the pool.||
+|**Data space allocated but unused**|The difference between the amount of space allocated and space used by the elastic pool.|This quantity represents the maximum amount of space allocated for the pool that can be reclaimed by shrinking database files.|
+|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database files.|
 ||||
 
 ## Query an elastic pool for storage space information
