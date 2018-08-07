@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Introduction to acoustics
-Try out acoustics [here](GettingStarted.md).
+A new way to design dynamic acoustics. Experience smooth wave effects, true occlusion, and portaling without drawing reverb zones, tedious markup, or costly ray tracing. Try out acoustics [here](GettingStarted.md).
 
 ## Today's approach to acoustics
 Let's revisit today's common approach to acoustics. In the existing approach, you draw reverb volumes:
