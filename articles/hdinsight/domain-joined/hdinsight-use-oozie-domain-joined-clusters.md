@@ -2,18 +2,13 @@
 title: Hadoop Oozie workflows in HDInsight Domain Joined Clusters
 description: Use Hadoop Oozie in Linux-based HDInsight Domain Joined Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-
 ---
 #Run Apache Oozie in Domain Joined HDInsight Hadoop clusters
 Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:

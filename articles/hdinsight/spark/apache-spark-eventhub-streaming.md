@@ -3,7 +3,7 @@ title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in Azure 
 description: Connect Apache Spark in Azure HDInsight to Azure Event Hubs and process the streaming data.  
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to use Apache Spark in Azure HDInsight to process streaming data from Azure Event Hubs.
 ---

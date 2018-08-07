@@ -3,7 +3,7 @@ title: Get started with ML Services on HDInsight - Azure | Microsoft Docs
 description: Learn how to create an Apache Spark on HDInsight cluster that includes ML Services and submit an R script on the cluster.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Get started with ML Services on Azure HDInsight
