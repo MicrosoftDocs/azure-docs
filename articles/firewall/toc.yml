@@ -14,10 +14,10 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
--name: Concepts
+- name: Concepts
   items:
-    -name: FQDN tags
-     href: fqdn-tags.md
+    - name: FQDN tags
+      href: fqdn-tags.md
 - name: How-to guides
   items:
     - name: Sign up for public preview
