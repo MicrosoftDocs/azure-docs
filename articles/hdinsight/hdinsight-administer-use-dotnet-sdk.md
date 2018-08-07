@@ -1,17 +1,12 @@
 ---
-title: Manage Hadoop clusters in HDInsight with .NET SDK - Azure | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with .NET SDK - Azure 
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
+editor: jasonwhowell
 author: jasonwhowell
-documentationcenter: ''
 
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
