@@ -49,7 +49,7 @@ This gives the user full access to all resources including the right to delegate
 
 Only an [Owner](../role-based-access-control/built-in-roles.md#owner) can be added as a Co-administrator. Other users with roles such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) and [Reader](../role-based-access-control/built-in-roles.md#reader) cannot be added as Co-administrators.
 
-> [!TIP]
+> [!TIPS]
 > You only need to add the Owner as a Co-administrator if the user needs to manage Azure classic deployments. We recommend using RBAC for all other purposes.
 
 1. If you haven't already, add someone as an Owner following instructions from above.

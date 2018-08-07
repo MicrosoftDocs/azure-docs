@@ -19,7 +19,7 @@ ms.author: genli
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell
-If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then repair your original VM.
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect the virtual hard disk to another Windows VM to fix any errors, then repair your original VM. The steps in this article only apply to the VM that use [Managed Disk](managed-disks-overview.md).
 
 
 ## Recovery process overview
@@ -41,7 +41,7 @@ Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview
 Connect-AzureRmAccount
 ```
 
-In the following examples, replace the parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
+In the following examples, replace the parameter names with your own values. 
 
 ## Determine boot issues
 You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
@@ -138,6 +138,9 @@ Now you have a copy of the original OS disk. You can mount this disk to another 
 ## Attach the disk to another Windows VM for troubleshooting
 
 Now we attach the copy of the original OS disk to a VM as a data disk. This process allows you to correct configuration errors or review additional application or system log files in the disk. The following example attaches the disk named `newOSDisk` to the VM named `TroubleshootVM`.
+
+> [!NOTE]
+> To attach the disk, the copy of the original OS disk and the troubleshoot VM must be in the same location.
 
 ```powershell
 $rgName = "myResourceGroup"
