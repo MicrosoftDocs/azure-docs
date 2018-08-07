@@ -34,7 +34,7 @@ The SQL DB service does not automatically shrink data files to reclaim unused al
 
 Understanding the following database storage space quantities are important for managing file space.
 
-|Database space quantity|Definition|Comments|
+|Database quantity|Definition|Comments|
 |---|---|---|
 |**Data space used**|Amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
 |**Data space allocated**|Amount of formatted file space made available for storing database data.|The allocated space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
@@ -88,7 +88,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 Understanding the following elastic pool storage space quantities are important for managing file space.
 
-|Elastic pool space quantity|Definition|Comments|
+|Elastic pool quantity|Definition|Comments|
 |---|---|---|
 |**Data space used**|The summation of data space used by all databases in the elastic pool.||
 |**Data space allocated**|The summation of data space allocated by all databases in the pool.||
