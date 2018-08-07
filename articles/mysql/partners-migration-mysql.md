@@ -32,7 +32,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [3]: ./media/partner-migration-mysql/PW-logo-text-CMYK1000.png
 [4]: ./media/partner-migration-mysql/InfosysLogo.png
 [5]: ./media/partner-migration-mysql/credativ_round_logo2.png
-[6]: ./media/partner-migration-mysql/pactera_logo_small1.png
+[6]: ./media/partner-migration-mysql/pactera_logo_small2.png
 
 <!--Website links -->
 [snp_website]:https://www.snp.com//
