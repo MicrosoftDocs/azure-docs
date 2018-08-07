@@ -5,9 +5,6 @@ keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
 services: Azure HDInsight
 documentationcenter: na
 author: dharmeshkakadia
-manager: ''
-editor: ''
-
 ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
 ms.service: hdinsight
 ms.devlang: na
