@@ -19,11 +19,11 @@ ms.author: genli
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell
-If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then repair your original VM.
 
 
 ## Recovery process overview
-Now we can use Azure PowerShell to change the OS disk for a VM. So we do not have to delete and recreate the VM.
+We can now use Azure PowerShell to change the OS disk for a VM. We no longer need to delete and recreate the VM.
 
 The troubleshooting process is as follows:
 
@@ -41,7 +41,17 @@ Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview
 Connect-AzureRmAccount
 ```
 
-In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
+In the following examples, replace the parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
+
+## Determine boot issues
+You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
+
+```powershell
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
+    -Name myVM -Windows -LocalPath C:\Users\ops\
+```
+
+Review the screenshot to determine why the VM is failing to boot. Note any specific error messages or error codes provided.
 
 ## Stop the VM
 
@@ -51,12 +61,12 @@ The following example stops the VM named `myVM` from the resource group named `m
 Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
-Wait until the VM has finished deleting before you attach the virtual hard disk to another VM. The lease on the virtual hard disk that associates it with the VM needs to be released before you can attach the virtual hard disk to another VM.
+Wait until the VM has finished deleting before you process to the next step.
 
 
 ## Create a snapshot from the OS Disk of the VM
 
-The following example creates a snapshot from OS disk of the VM named `myVM`:
+The following example creates a snapshot from the OS disk of the VM named `myVM`:
 
 ```powershell
 $resourceGroupName = 'myResourceGroup' 
@@ -143,7 +153,7 @@ $vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-## Connect to the troubleshot VM and fix issues on the disk
+## Connect to the troubleshooting VM and fix issues on the attached disk
 
 1. RDP to your troubleshooting VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `TroubleshootVM` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
 
@@ -169,7 +179,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
     2        NewOSDISK                                  Healthy             Online       127 GB MBR
     ```
 
-After the copy of the orignial OS disk is mounted, you can now perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
+After the copy of the orignial OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
 
 ## Unmount and detach original virtual hard disk
 Once your errors are resolved, you unmount and detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
@@ -225,24 +235,15 @@ Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm
 Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 ```
 
-## Re-enable boot diagnostics
+## Verify and enable boot diagnostics
 
-When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. The following example enables the diagnostic extension on the VM named `myVMDeployed` in the resource group named `myResourceGroup`:
+The following example enables the diagnostic extension on the VM named `myVMDeployed` in the resource group named `myResourceGroup`:
 
 ```powershell
 $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
-## Determine boot issues
-You can view a screenshot of your VM in Azure to help troubleshoot boot issues. This screenshot can help identify why a VM fails to boot. The following example gets the screenshot from the Windows VM named `myVM` in the resource group named `myResourceGroup`:
-
-```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
-    -Name myVM -Windows -LocalPath C:\Users\ops\
-```
-
-Review the screenshot to determine why the VM is failing to boot. Note any specific error messages or error codes provided.
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
