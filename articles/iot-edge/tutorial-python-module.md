@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md).
 
    >[!Note]
-   >Python modules for Azure IoT Edge don't support Windows or ARM devices. 
+   >Python modules for Azure IoT Edge don't support Windows containers. 
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
@@ -43,6 +43,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
+
+   >[!Note]
+   >Ensure that your `bin` folder is on your path for your platform. Typically `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -70,6 +73,8 @@ Use the Python package **cookiecutter** to create a Python solution template tha
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt.
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
 
