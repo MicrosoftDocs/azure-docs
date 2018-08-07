@@ -30,39 +30,52 @@ Content trust works with the **tags** in a repository. Image repositories can co
 Content trust is managed through the use of a set of cryptographic signing keys. These keys, discussed further in [Push a trusted image](#push-a-trusted-image), are associated with a specific repository in a registry. There are several types of signing keys that Docker clients and your registry use in managing trust for the tags in a repository. When you enable content trust and integrate it into your container publishing and consumption pipeline, you must manage these keys carefully. For more details, see [Manage keys for content trust][docker-manage-keys] in the Docker documentation.
 
 > [!TIP]
-> This section contains a very high-level overview of Docker's content trust model. For an in-depth discussion of the implementation, see [Content trust in Docker][docker-content-trust].
+> This was a very high-level overview of Docker's content trust model. For an in-depth discussion of content trust, see [Content trust in Docker][docker-content-trust].
 
 ## Enable content trust
 
-There are three steps required for working with content trust in an Azure container registry:
+There are three steps required for using content trust in an Azure container registry:
 
 1. Enable content trust on the registry
 1. Enable content trust on clients
 1. Grant users or service principals permission to push signed images
 
-### Enable registry content trust
+## Enable registry content trust
 
 Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal, and can pull both signed and unsigned images. Consumers who've enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
 
-To enable content trust for your registry, navigate to the registry in the Azure portal, then select **POLICIES** > **Content Trust (Preview)** > **Enabled**.
+To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Enabled**.
 
 ![Enabling content trust for a registry in the Azure portal][content-trust-01-portal]
 
-### Enable client content trust
+## Enable client content trust
 
-As a publisher, you can sign the images you push to to the registry when you enable content trust. As a consumer, enabling content trust limits your view of a registry to signed images only. Content trust is disabled by default, but you can enable it per command or per shell session.
+To work with trusted images, both image publishers and consumers need to enable content trust in their clients. As a publisher, you can sign the images you push to a content trust-enabled registry. As a consumer, enabling content trust limits your view of a registry to signed images only. Content trust is disabled by default, but you can enable it per command or per shell session.
+
+To enable content trust for a shell session, set the `DOCKER_CONTENT_TRUST` environment variable to **1**. For example, in the Bash shell:
 
 ```bash
 # Enable content trust for shell session
 export DOCKER_CONTENT_TRUST=1
 ```
 
+If instead you'd like to enable or disable content trust for a single command, several Docker commands support the `--disable-content-trust` argument. To enable content trust for a single command:
+
 ```bash
-# Enable content test for single command
-docker build --disable-content-trust=false -t <username>/trusttest:testing .
+# Enable content trust for single command
+docker build --disable-content-trust=false -t myacr.azurecr.io/myimage:v1 .
 ```
 
-### Grant image signing permissions
+If you've enabled content trust for your shell session and want to disable it for a single command:
+
+```bash
+# Disable content trust for single command
+docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
+```
+
+## Grant image signing permissions
+
+Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Azure Active Directory
 
 ### Azure portal
 
