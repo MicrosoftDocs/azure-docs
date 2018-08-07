@@ -112,7 +112,7 @@ In the Azure portal, you can access reports about detected risk events on the **
 For more information about security reports, see:
 
 - [Users at Risk security report in the Azure Active Directory portal](../active-directory-reporting-security-user-at-risk.md)
-- [Risky Sign-ins report in the Azure Active Directory portal](../active-directory-reporting-security-risky-sign-ins.md)
+- [Risky Sign-ins report in the Azure Active Directory portal](concept-risky-sign-ins.md)
 
 
 To view the **Application Usage** report, on the **Azure Active Directory** blade, under **MANAGE**, select **Enterprise Applications**, and then select **Sign-ins**.

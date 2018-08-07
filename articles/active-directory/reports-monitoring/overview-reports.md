@@ -43,7 +43,7 @@ There are two types of security reports in Azure Active Directory:
 
 - **Users flagged for risk** - From the [users flagged for risk security report](../active-directory-reporting-security-user-at-risk.md), you get an overview of user accounts that might have been compromised.
 
-- **Risky sign-ins** - With the [risky sign-in security report](../active-directory-reporting-security-risky-sign-ins.md), you get an indicator for sign-in attempts that might have been performed by someone who is not the legitimate owner of a user account. 
+- **Risky sign-ins** - With the [risky sign-in security report](concept-risky-sign-ins.md), you get an indicator for sign-in attempts that might have been performed by someone who is not the legitimate owner of a user account. 
 
 **What Azure AD license do you need to access a security report?**  
 All editions of Azure Active Directory provide you with users flagged for risk and risky sign-ins reports.  
@@ -104,7 +104,7 @@ In addition to the user interface, Azure Active Directory reporting also provide
 If you want to know more about the various report types in Azure Active Directory, see:
 
 - [Users flagged for risk report](../active-directory-reporting-security-user-at-risk.md)
-- [Risky sign-ins report](../active-directory-reporting-security-risky-sign-ins.md)
+- [Risky sign-ins report](concept-risky-sign-ins.md)
 - [Audit logs report](concept-audit-logs.md)
 - [Sign-ins logs report](concept-sign-ins.md)
 

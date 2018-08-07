@@ -97,4 +97,4 @@ For more information, see:
 
 - [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md).
 
-- [Risky sign-ins report in the Azure Active Directory portal](active-directory-reporting-security-risky-sign-ins.md).  
+- [Risky sign-ins report in the Azure Active Directory portal](reports-monitoring/concept-risky-sign-ins.md).  
