@@ -403,7 +403,6 @@
 ## Secure your identities
 ### Conditional access
 #### [Overview](conditional-access/overview.md)
-#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
 ##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
 ##### [Require terms of use to be accepted](conditional-access/require-tou.md)
