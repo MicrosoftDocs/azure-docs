@@ -42,7 +42,7 @@ Understanding the following database storage space quantities are important for 
 |**Data max size**|Maximum amount of space that can be used by the database for storing data.|The amount of data space allocated cannot grow beyond the data max size.|
 ||||
 
-The following diagram illustrates the relationship between the types of storage space.
+The following diagram illustrates the relationship between the different types of storage space.
 
 ![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
 
