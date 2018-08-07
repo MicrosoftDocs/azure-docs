@@ -401,7 +401,7 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### [Conditional access]
+### Conditional access
 #### [Overview](conditional-access/overview.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
@@ -427,7 +427,8 @@
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Technical reference](conditional-access/technical-reference.md)
+#### [Reference](conditional-access/technical-reference.md)
+##### [Technical reference](conditional-access/technical-reference.md)
 #### [FAQs](conditional-access/faqs.md)
 
 ### Certificate-based Authentication
