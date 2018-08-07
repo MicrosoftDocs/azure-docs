@@ -404,7 +404,7 @@
 ### [Conditional access](conditional-access/overview.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
-##### [Configure per cloud app MFA](conditional-access/app-based-mfa.md)
+##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
 ##### [Require terms of use to be accepted](conditional-access/require-tou.md)
 ##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
 #### Tutorials
@@ -418,10 +418,10 @@
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
 ##### [Best practices](conditional-access/best-practices.md)
-##### [Configure conditional access policies for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
-##### [Set up device-based conditional access](conditional-access/require-managed-devices.md)
-##### [Set up app-based conditional access](conditional-access/app-based-conditional-access.md)
-##### [Provide terms of use for users and apps](active-directory-tou.md)
+##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
+##### [Require managed devices](conditional-access/require-managed-devices.md)
+##### [Require approved client apps](conditional-access/app-based-conditional-access.md)
+##### [Require terms of use for users and apps](active-directory-tou.md)
 ##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
