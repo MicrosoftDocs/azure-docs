@@ -13,9 +13,11 @@ ms.workload: na
 ms.date: 08/07/2018
 ms.author: tomfitz
 ---
-# Create resource group in Azure Resource Manager template
+# Create resource groups in Azure Resource Manager templates
 
-To create a resource group in an Azure Resource Manager template, you define a **Microsoft.Resources/resourceGroups** resource type and deploy the template to your Azure subscription. You can create the resource group and deploy resources to that resource group in the same template.
+To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. Deploy the template to your Azure subscription. You can also deploy resources to that resource group in the same template.
+
+This article uses Azure CLI to deploy the templates. Currently, PowerShell doesn't support deploying a template to a subscription.
 
 ## Create empty resource group
 
@@ -59,7 +61,7 @@ az deployment create \
 
 ## Create several resource groups
 
-Use the copy element with resource groups to create more than one resource group. 
+Use the [copy element](resource-group-create-multiple.md) with resource groups to create more than one resource group. 
 
 ```json
 {
@@ -106,7 +108,7 @@ az deployment create \
 
 ## Create resource group and deploy resource
 
-To create the resource group and deploy resources to it, use a nested template. The nested template defines the resources to deploy to the resource group. The nested template is set as dependent on the resource group to make sure the resource group exists before deploying the resources.
+To create the resource group and deploy resources to it, use a nested template. The nested template defines the resources to deploy to the resource group. Set the nested template as dependent on the resource group to make sure the resource group exists before deploying the resources.
 
 The following example creates a resource group, and deploys a storage account to the resource group.
 
