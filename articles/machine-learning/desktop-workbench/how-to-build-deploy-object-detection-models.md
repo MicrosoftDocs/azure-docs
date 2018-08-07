@@ -9,9 +9,14 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Build and deploy object detection models with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy a [Faster R-CNN](https://arxiv.org/abs/1506.01497) object detection model. 
 

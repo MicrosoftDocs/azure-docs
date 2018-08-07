@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: roastala
 author: rastala
 ms.reviewer: jmartens
-ms.date: 7/27/2018
+ms.date: 09/24/2018
 ---
 # What is the Azure Machine Learning CLI?
 

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/27/2018 
+ms.date: 09/24/2018 
 ---
 # Get support and training for Azure Machine Learning services
 

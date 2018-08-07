@@ -216,6 +216,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/reference-python-package-overview.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/reference-python-package-overview",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-forecast-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-image-classification-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-object-detection-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/machine-learning/service/how-to-build-deploy-text-classification-models.md",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/desktop-workbench/data-prep-operationalization.md",
             "redirect_url": "/azure/machine-learning/preview/data-prep-python-extensibility-overview",
             "redirect_document_id": true
@@ -478,6 +513,11 @@
         {
             "source_path": "articles/machine-learning/preview/azure-machine-learning-release-notes.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/azure-machine-learning-release-notes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/azure-machine-learning-release-notes.md",
+            "redirect_url": "/azure/machine-learning/service/azure-machine-learning-release-notes",
             "redirect_document_id": true
         },
         {
