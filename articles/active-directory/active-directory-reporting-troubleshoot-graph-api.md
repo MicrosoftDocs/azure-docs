@@ -52,11 +52,11 @@ If you see this error message while trying to access audit logs or sign-ins usin
 
 ### Error: Application missing AAD 'Read directory data' permission 
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md) to ensure your application is running with the right set of permissions. 
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 
 ### Error: Application missing MSGraph API 'Read all audit log data' permission
 
-Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md) to ensure your application is running with the right set of permissions. 
+Please follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
 
 ## Next Steps
 

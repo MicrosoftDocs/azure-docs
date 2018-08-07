@@ -143,7 +143,7 @@
 #### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
-#### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
 #### [Audit samples](reports-monitoring/sample-audit-api.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Using certificates](active-directory-reporting-api-with-certificates.md)

@@ -32,7 +32,7 @@ This involves the following steps:
 
 ## Install prerequisites
 
-1. First, make sure that you have completed the [prerequisites to access the Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md). 
+1. First, make sure that you have completed the [prerequisites to access the Azure Active Directory reporting API](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md). 
 
 2. Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)
 

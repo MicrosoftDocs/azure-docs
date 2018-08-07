@@ -40,7 +40,7 @@ To access the reporting API, even if you are planning on accessing the API using
 3. Grant permissions
 4. Gather configuration settings
 
-For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](../active-directory-reporting-api-prerequisites-azure-portal.md).
+For detailed instructions, see the [prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md).
 
 ## APIs with Graph Explorer
 
