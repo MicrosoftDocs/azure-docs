@@ -73,7 +73,7 @@
       href: guidance-for-loading-data.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Develop data warehouses
+  - name: Develop
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
@@ -81,6 +81,14 @@
       href: sql-data-warehouse-overview-workload.md
     - name: Best practices
       href: sql-data-warehouse-best-practices.md
+    - name: MPP architecture
+      href: massively-parallel-processing-mpp-architecture.md
+    - name: Data warehouse units
+      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+    - name: Capacity limits
+      href: sql-data-warehouse-service-capacity-limits.md
+    - name: FAQ
+      href: sql-data-warehouse-overview-faq.md
     - name: Tables
       items:
       - name: Overview
@@ -103,36 +111,6 @@
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporary
         href: sql-data-warehouse-tables-temporary.md
-  - name: Workload Management
-    items:
-    - name: Resource classes & workload management
-      href: resource-classes-for-workload-management.md
-    - name: Memory & concurrency limits
-      href: memory-and-concurrency-limits.md
-  - name: Manageability & Monitoring
-    items:
-    - name: Query Activity & Resource Utilization  
-      href: sql-data-warehouse-manage-monitor.md
-    - name: Data protection
-      href: backup-and-restore.md
-    - name: Scale-out, pause, resume
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Maintenance
-      href: service-maintenance.md
-    - name: Recommendations 
-      href: sql-data-warehouse-concept-recommendations.md
-    - name: Troubleshoot
-      href: sql-data-warehouse-troubleshoot.md
-  - name: Service features
-    items:
-    - name: MPP architecture
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Data warehouse units
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Capacity limits
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: FAQ
-      href: sql-data-warehouse-overview-faq.md
     - name: Queries
       items:
       - name: Dynamic SQL
@@ -157,6 +135,26 @@
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
+  - name: Workload Management
+    items:
+    - name: Resource classes & workload management
+      href: resource-classes-for-workload-management.md
+    - name: Memory & concurrency limits
+      href: memory-and-concurrency-limits.md
+  - name: Manageability & Monitoring
+    items:
+    - name: Query Activity & Resource Utilization  
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Data protection
+      href: backup-and-restore.md
+    - name: Scale-out, pause, resume
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Maintenance
+      href: service-maintenance.md
+    - name: Recommendations 
+      href: sql-data-warehouse-concept-recommendations.md
+    - name: Troubleshoot
+      href: sql-data-warehouse-troubleshoot.md
   - name: Integrate
     items:
     - name: Overview
