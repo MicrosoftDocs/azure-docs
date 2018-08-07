@@ -1,6 +1,6 @@
 ---
-title: Cognitive search for data extraction, natural language processing in Azure Search | Microsoft Docs
-description: Data extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills.
+title: Cognitive search for data extraction, natural language AI processing in Azure Search | Microsoft Docs
+description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -14,9 +14,9 @@ ms.author: heidist
 
 Cognitive search creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline. AI integration is through *cognitive skills*, enriching source documents en route to a search index. 
 
-**Natural language processing** skills include [entity recognition](cognitive-search-skill-named-entity-recognition.md), language detection, [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and sentiment detection. 
+**Natural language processing** skills include [entity recognition](cognitive-search-skill-named-entity-recognition.md), language detection, [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and sentiment detection. With these skills, unstructured text becomes structured, mapped to fields in an index, searchable and filterable.
 
-**Image processing** includes [OCR](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. 
+**Image processing** includes [OCR](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using full text search techniques.
 
 ![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
