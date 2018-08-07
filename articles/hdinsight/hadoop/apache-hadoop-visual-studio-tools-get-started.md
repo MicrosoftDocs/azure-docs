@@ -5,7 +5,7 @@ keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: HDInsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Hive queries

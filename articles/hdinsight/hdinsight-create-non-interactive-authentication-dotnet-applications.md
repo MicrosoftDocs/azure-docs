@@ -6,7 +6,7 @@ manager: jhubbard
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Create a non-interactive authentication .NET HDInsight application

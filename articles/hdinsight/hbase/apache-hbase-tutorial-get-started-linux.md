@@ -4,7 +4,7 @@ description: Follow this Apache HBase example to start using hadoop on HDInsight
 keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Get started with an Apache HBase example in HDInsight

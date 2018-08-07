@@ -4,7 +4,7 @@ description: Fix a Hive out of memory error in HDInsight. The customer scenario 
 keywords: out of memory error, OOM, Hive settings
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Fix a Hive out of memory error in Azure HDInsight

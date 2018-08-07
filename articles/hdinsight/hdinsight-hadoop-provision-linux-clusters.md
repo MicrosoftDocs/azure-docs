@@ -4,7 +4,7 @@ description: Set up Hadoop, Kafka, Spark, HBase, ML Services, or Storm clusters 
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more

@@ -6,7 +6,7 @@ manager: jhubbard
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Run MapReduce jobs using HDInsight .NET SDK

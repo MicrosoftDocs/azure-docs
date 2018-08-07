@@ -6,7 +6,7 @@ manager: jhubbard
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 
 ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
 ms.service: hdinsight
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Submit Hadoop jobs in HDInsight
