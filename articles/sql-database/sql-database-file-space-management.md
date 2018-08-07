@@ -30,16 +30,16 @@ The SQL DB service does not automatically shrink data files to reclaim unused al
 > [!NOTE]
 > Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
 
-## Understanding the types of storage space for a database
+## Understanding types of storage space for a database
 
-To manage file space, you need to understand the following terms related to database storage for both a single database and for an elastic pool.
+Understanding the following database storage space quantities are important for managing file space.
 
 |Database space quantity|Definition|Comments|
 |---|---|---|
-|**Data space used**|The amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
-|**Data space allocated**|The amount of formatted file space made available for storing database data.|The space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
-|**Data space allocated but unused**|The amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
-|**Data max size**|The maximum amount of data space that can be used by the database.|The amount of data space allocated cannot grow beyond the data max size.|
+|**Data space used**|This quantity is the amount of space used to store database data in 8 KB pages.|Generally, this space used increases (decreases) on inserts (deletes). In some cases, the space used does not change on inserts or deletes depending on the amount and pattern of data involved in the operation and any fragmentation. For example, deleting one row from every data page does not necessarily decrease the space used.|
+|**Data space allocated**|This quantity is the amount of formatted file space made available for storing database data.|The space allocated grows automatically, but never decreases after deletes. This behavior ensures that future inserts are faster since space does not need to be reformatted.|
+|**Data space allocated but unused**|This quantity is the amount of unused data file space allocated for the database.|This quantity is the difference between the amount of space allocated and space used, and represents the maximum amount of space that can be reclaimed by shrinking database files.|
+|**Data max size**|This quantity is the maximum amount of data space that can be used by the database.|The amount of data space allocated cannot grow beyond the data max size.|
 ||||
 
 The following diagram illustrates the relationship between the types of storage space.
@@ -48,7 +48,7 @@ The following diagram illustrates the relationship between the types of storage 
 
 ## Query a database for storage space information
 
-To determine if you have allocated but unused data space for an individual database that you may wish to reclaim, use the following queries:
+The following queries can be used to determine storage space quantities for a database.  
 
 ### Database data space used
 Modify the following query to return the amount of database data space used in MB.
@@ -62,8 +62,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### Database data allocated and allocated space unused
-Use the following query to return the amount of database data allocated and allocated space unused.
+### Database data space allocated and unused allocated space
+Use the following query to return the amount of database data space allocated and the space allocated unused in MB.
 
 ```sql
 -- Connect to database
@@ -75,8 +75,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### Database max size
-Modify the following query to return the database max size in bytes.
+### Database data max size
+Modify the following query to return the database data max size in bytes.
 
 ```sql
 -- Connect to database
@@ -84,17 +84,21 @@ Modify the following query to return the database max size in bytes.
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## Understanding the types of storage space for an elastic pool
+
+Understanding the following elastic pool storage space quantities are important for managing file space.
+
 |Elastic pool space quantity|Definition|Comments|
 |---|---|---|
-|**Data space used**|The amount of data space used by the elastic pool.|The data space used is the summation of data space used by all databases in the elastic pool.|
-|**Data space allocated**|The amount of data space allocated for the elastic pool.|The data space allocated is the summation of data space allocated by all databases in the pool.|
-|**Data space allocated but unused**|The amount of unused data space allocated for the elastic pool.|This quantity is the difference between the amount of space allocated and space used by the elastic pool.  It represents the maximum amount of space allocated for the pool that can be reclaimed by shrinking database files.|
-|**Data max size**|The maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database files.|
+|**Data space used**|This quantify is the summation of data space used by all databases in the elastic pool.||
+|**Data space allocated**|This quantity is the summation of data space allocated by all databases in the pool.||
+|**Data space allocated but unused**|This quantity is the difference between the amount of space allocated and space used by the elastic pool.|This quantity represents the maximum amount of space allocated for the pool that can be reclaimed by shrinking database files.|
+|**Data max size**|This quantity is the maximum amount of data space that can be used by the elastic pool for all of its databases.|The space allocated for the pool should not exceed the elastic pool max size.  If this occurs, then space allocated that is unused can be reclaimed by shrinking database files.|
 ||||
 
 ## Query an elastic pool for storage space information
 
-To determine if you have allocated but unused data space in an elastic pool and for each pooled database that you may wish to reclaim, use the following queries:
+The following queries can be used to determine storage space quantities for an elastic pool.  
 
 ### Elastic pool data space used
 Modify the following query to return the amount of elastic pool data space used in MB.
@@ -108,9 +112,9 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### Elastic pool data allocated and allocated space unused
+### Elastic pool data space allocated and unused allocated space
 
-Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused.  
+Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused in MB.  
 
 The query results for determining the space allocated for each database in the pool can be added together to the determine the elastic pool space allocated. The elastic pool space allocated should not exceed the elastic pool max size.  
 
@@ -163,9 +167,9 @@ The following screenshot is an example of the output of the script:
 
 ![elastic pool allocated space and unused allocated space example](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### Elastic pool max size
+### Elastic pool data max size
 
-Modify the following T-SQL query to return the elastic database max size in MB.
+Modify the following T-SQL query to return the elastic pool data max size in MB.
 
 ```sql
 -- Connect to master
