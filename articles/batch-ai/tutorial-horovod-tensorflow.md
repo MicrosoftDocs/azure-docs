@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Train a distributed model with Horovod 
 
-Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates how to train a distributed model by running it in parallel across multiple nodes in a Batch AI cluster. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics that will be covered include:
+Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates how to train a distributed model by running it in parallel across multiple nodes in a Batch AI cluster. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics covered include:
 
 > [!div class="checklist"]
 > * Set up a Batch AI workspace, experiment, and cluster
@@ -24,7 +24,7 @@ Batch AI is a managed service for training machine learning models at scale on c
 > * Monitor the job
 > * Retrieve the training results
 
-[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. An example object detection model is trained on the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) for this tutorial.
+[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. An example TensorFlow object detection model is trained on the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) for this tutorial.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
@@ -83,9 +83,9 @@ The following [az batchai cluster create](/cli/azure/batchai/cluster?view=azure-
 az batchai cluster create --resource-group batchai.horovod --name nc6cluster --vm-priority dedicated --workspace batchaidev --vm-size Standard_NC6 --target 4 --use-auto-storage --generate-ssh-keys
 ```
 The `--use-auto-storage` option creates a storage account in a new or existing resource group named **batchaiautostorage**.
-It also create an Azure Files share and Azure Blob Storage Container with the names **batchaishare** and **batchaicontainer** respectively. They are mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
+It also create an Azure file share and blob storage container with the names **batchaishare** and **batchaicontainer**, respectively. They are mounted on each cluster node at $AZ_BATCHAI_MOUNT_ROOT/autoafs and $AZ_BATCHAI_MOUNT_ROOT/autobfs. 
 
-The `--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys in order to be able to ssh into the cluster nodes. 
+The `--generate-ssh-keys` option generates private and public SSH keys if they don't already exist in the default key location. 
 
 Documentation for further Batch AI cluster configurations can be found in the Azure CLI documentation link above. If other experiments have common compute requirements, the same cluster can be used for jobs across the whole workspace.
 
