@@ -41,5 +41,5 @@ Wait for 15 minutes to an hour and see if the actions appear in the log. If you 
 
 
 ## Next steps
-See the [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md).
+See the [Azure Active Directory reporting FAQ](reports-monitoring/reports-faq.md).
 

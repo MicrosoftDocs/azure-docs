@@ -117,7 +117,7 @@
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
 ### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
-### [FAQ](active-directory-reporting-faq.md)
+### [FAQ](reports-monitoring/reports-faq.md)
 
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
