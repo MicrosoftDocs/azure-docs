@@ -62,7 +62,7 @@ For detailed instructions, see [Get data using the Azure AD Reporting API with c
 Get a first impression of the reporting APIs:
    
    - [Using the samples for the audit API](sample-audit-api.md) 
-   - [Using the samples for the sign-in activity report API](../active-directory-reporting-api-sign-in-activity-samples.md)
+   - [Using the samples for the sign-in activity report API](sample-sign-in-api.md)
 
 
 ## Next steps
