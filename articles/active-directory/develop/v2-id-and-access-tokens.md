@@ -21,7 +21,7 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory v2.0 tokens reference
-The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
+The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](v2-app-types.md). This reference describes the format, security characteristics, and contents of each type of token.
 
 > [!NOTE]
 > The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -82,7 +82,7 @@ Refresh tokens are security tokens that your app can use to get new access token
 
 Refresh tokens are multi-resource. A refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
-To receive a refresh in a token response, your app must request and be granted the `offline_access` scope. To learn more about the `offline_access` scope, see the [consent and scopes](active-directory-v2-scopes.md) article.
+To receive a refresh in a token response, your app must request and be granted the `offline_access` scope. To learn more about the `offline_access` scope, see the [consent and scopes](v2-permissions-and-consent.md) article.
 
 Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons - for details, see [token revocation](v1-id-and-access-tokens.md#token-revocation). The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
 

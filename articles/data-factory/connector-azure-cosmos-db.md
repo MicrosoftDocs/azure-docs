@@ -31,9 +31,9 @@ You can copy data from Azure Cosmos DB to any supported sink data store, or copy
 Specifically, this Azure Cosmos DB connector supports:
 
 - Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
-- Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc.
+- Importing/exporting JSON documents as-is, or copying data from/to tabular dataset e.g. SQL database, CSV files, etc. To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
-To copy documents as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
+Data Factory integrates with [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance writing into Cosmos DB.
 
 ## Getting started
 
@@ -162,7 +162,7 @@ To copy data to Azure Cosmos DB, set the sink type in the copy activity to **Doc
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
 | writeBehavior |Describe how to write data into Cosmos DB. Allowed values are: `insert` and `upsert`.<br/>The behavior of **upsert** is to replace the document if an document of the same id already exist; otherwise insert it. Note ADF will automatically generate an id for the document if it is not specified either in the original doc or by column mapping), which means you need to make sure your document has an "id" so that upsert work as expected. |No, default is insert |
-| writeBatchSize | Data Factory use [Cosmos DB bulk executor](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data into Cosmos DB. "writeBatchSize" controls the size of documents we provide to the library each time. You can try increase writeBatchSize to improve performance. |No |
+| writeBatchSize | Data Factory use [Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data into Cosmos DB. "writeBatchSize" controls the size of documents we provide to the library each time. You can try increase writeBatchSize to improve performance. |No, default is 10,000 |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 
 **Example:**
