@@ -3,7 +3,7 @@ title: Mirror Apache Kafka topics - Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2018
-ms.author: larryfr
+ms.author: jasonh
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
