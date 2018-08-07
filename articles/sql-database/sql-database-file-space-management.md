@@ -191,8 +191,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
-> [!IMPORTANT]
-> For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
+For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
 
 > [!IMPORTANT] 
 > Consider rebuilding database indexes
