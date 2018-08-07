@@ -123,7 +123,7 @@
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](reports-monitoring/howto-find-activity-reports.md)
 #### [Use the Azure AD Power BI Content Pack](reports-monitoring/howto-power-bi-content-pack.md)
-#### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
+#### [Remediate users flagged for risk](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
 #### [Route activity logs to an Azure event hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
 #### [Archive activity logs to an Azure storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
 #### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
