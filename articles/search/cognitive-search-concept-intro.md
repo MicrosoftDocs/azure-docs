@@ -7,27 +7,34 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md), available on all tiers in South Central US and West Europe, that adds AI to indexing workloads. Data extraction, natural language processing, and image processing during indexing finds the latent information in  unstructured or non-searchable content and makes it searchable in Azure Search.
+Cognitive search extracts latent information, semantics and text, from non-searchable content using built-in AI algorithms attached to an indexing pipeline in Azure Search. 
 
-AI integration is through *cognitive skills* that enrich source documents through sequential processes, in route to a search index. 
+AI processing is through *cognitive skills* that enrich source documents through sequential processes, en route to a search index. In practical terms, cognitive skills add value in these ways:
+
++ OCR conversions make scanned JPEGs searchable.
++ Image analysis produces searchable text from photos, such as detecting words or addresses in street signs. 
++ Entity recognition identifies people names, organizations, and addresses in unstructured text. 
++ Language detection identifies the language in which content is articulated and stores that as a field, searchable and filterable.
++ Positive-negative sentiment analysis results in a score. Using regular expressions in search, you could find all comments below a sentiment threshold. 
+
+Natural language and AI processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Search. Data is sourced as an Azure data set. 
+You can define an enrichment pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need. The architecture is extensible so if the built-in skills are not sufficient, you can create and attach [custom skills](cognitive-search-create-custom-skill-example.md) to integrate AI processing that is unique to your data. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 ![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
-Skills used during indexing can be predefined or custom:
-
-+ [Predefined skills](cognitive-search-predefined-skills.md) are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
-
-+ [Custom skills](cognitive-search-create-custom-skill-example.md) can be developed by you for any specialized processing that you  require. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
+The cognitive skills in Azure Search are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
 
 > [!NOTE]
-> Cognitive search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+> Cognitive search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced. 
 
 ## Components of cognitive search
+
+Cognitive search is a a preview feature of [Azure Search](search-what-is-azure-search.md), available on all tiers in South Central US and West Europe. 
 
 The cognitive search pipeline is based on [Azure Search *indexers*](search-indexer-overview.md) that crawl data sources and provide end-to-end index processing. Skills are now attached to indexers, intercepting and enriching documents according to the skillset you define. Once indexed, you can access content via search requests through all [query types supported by Azure Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
 
