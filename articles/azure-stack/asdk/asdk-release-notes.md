@@ -89,6 +89,8 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
 
+- <!--  TBD | ASDK -->  **Default Time zone set to UTC.** The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will revert to UTC.
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
@@ -128,6 +130,14 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Both alerts can be safely ignored and will close automatically over time.  
 
+ - <!-- TBD - IS ASDK --> You might see an alert for **Storage** component that have the following details:
+
+   - NAME: Storage service internal communication error
+   - SEVERITY: Critical
+   - COMPONENT: Storage
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+
+    The alert can be safely ignored, but you need to close the alert manually.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 

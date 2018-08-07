@@ -114,22 +114,22 @@ This update contains fixes for the following Common Vulnerabilities and Exposure
 
 | Date | Product | Product Family | Article | Download | Details |
 |------------|-------------------------------------------------|----------------|---------|----------------------|---------------|
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8206 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8206 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8222 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8222 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8282 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8282 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8304 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8304 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8307 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8307 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8308 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8308 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8309 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8309 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4338814 | Security Update | CVE-2018-8313 |
-| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | 4345418 | Alternate Cumulative | CVE-2018-8313 |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
 
 ## Before you begin
 
@@ -198,6 +198,15 @@ The following are post-installation known issues for this build version.
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
   Both alerts can be safely ignored and they'll close automatically over time.  
+
+ - <!-- TBD - IS ASDK --> You might see an alert for **Storage** component that have the following details:
+
+   - NAME: Storage service internal communication error
+   - SEVERITY: Critical
+   - COMPONENT: Storage
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+
+    The alert can be safely ignored, but you need to close the alert manually.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
