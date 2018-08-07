@@ -102,11 +102,13 @@
 ### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](users-groups-roles/groups-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Create advanced rules
-#### [Azure portal](users-groups-roles/groups-dynamic-membership.md)
+### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
-### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
+### Dynamic groups
+#### [Create a dynamic group](users-groups-roles/groups-create-rule.md)
+#### [Rule syntax and properties](users-groups-roles/groups-dynamic-membership.md)
+#### [Change group membership type](users-groups-roles/groups-change-type.md)
+#### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
 ## [Manage reports](active-directory-reporting-azure-portal.md)
 ### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
@@ -153,26 +155,29 @@
 
 
 ## Manage devices
-### [Introduction](device-management-introduction.md)
-### [Using the Azure portal](device-management-azure-portal.md)
-### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [FAQs](device-management-faq.md)
-### Tasks
-#### [How to plan your hybrid Azure Active Directory join implementation](devices/hybrid-azuread-join-plan.md)
-#### [Configure hybrid Azure Active Directory join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configure hybrid Azure Active Directory join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
-#### [How to control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+### [Overview](devices/overview.md)
 
-
-
+### Quickstarts
 #### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Set up hybrid Azure AD joined devices](devices/hybrid-azuread-join-manual-steps.md)
-#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
-### Troubleshoot
-#### [Hybrid Azure AD joined Windows 10 and Windows Server 2016 devices](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Tutorials
+#### [Configure hybrid Azure AD join for managed domains](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configure hybrid Azure AD join for federated domains](devices/hybrid-azuread-join-federated-domains.md)
+#### [Configure hybrid Azure AD join manually](devices/hybrid-azuread-join-manual-steps.md)
+#### [Configure Azure AD join during Windows 10 first-run experience](devices/azuread-joined-devices-frx.md)
+
+### How-to-guides
+#### [Plan Azure AD join](devices/azureadjoin-plan.md)
+#### [Plan your hybrid Azure AD join implementation](devices/hybrid-azuread-join-plan.md)
+#### [Control the hybrid Azure AD join of your devices](devices/hybrid-azuread-join-control.md)
+#### [Assign local admins to Azure AD joined devices](devices/assign-local-admin.md)
+#### [Troubleshoot hybrid Azure AD joined Windows current devices](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Troubleshoot hybrid Azure AD joined legacy Windows devices](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Concepts
+#### [Manage devices using the Azure portal](devices/device-management-azure-portal.md)
+#### [FAQs](devices/faq.md)
 
 ## Manage apps
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -396,33 +401,34 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### [Conditional access](active-directory-conditional-access-azure-portal.md)
-#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+### Conditional access
+#### [Overview](conditional-access/overview.md)
 #### Quickstarts
-##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
-##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
-##### [Block access when a session risk is detected](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
+##### [Require terms of use to be accepted](conditional-access/require-tou.md)
+##### [Block access when a session risk is detected](conditional-access/app-sign-in-risk.md)
 #### Tutorials
-##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
+##### [Migrate classic MFA policy](conditional-access/policy-migration-mfa.md)
 #### Concepts
-##### [Baseline Protection](active-directory-conditional-access-baseline-protection.md)
-##### [Conditions](active-directory-conditional-access-conditions.md)
-##### [Location conditions](active-directory-conditional-access-locations.md)
-##### [Controls](active-directory-conditional-access-controls.md)
-##### [What if tool](active-directory-conditional-access-whatif.md)
+##### [Baseline Protection](conditional-access/baseline-protection.md)
+##### [Conditions](conditional-access/conditions.md)
+##### [Location conditions](conditional-access/location-condition.md)
+##### [Controls](conditional-access/controls.md)
+##### [What if tool](conditional-access/what-if-tool.md)
 ##### [Understand device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
 #### How-to guides
-##### [Best practices](active-directory-conditional-access-best-practices.md)
-##### [Configure conditional access policies for access attempts from untrusted networks](active-directory-conditional-access-untrusted-networks.md)
-##### [Set up device-based conditional access](active-directory-conditional-access-policy-connected-applications.md)
-##### [Set up app-based conditional access](active-directory-conditional-access-mam.md)
-##### [Provide terms of use for users and apps](active-directory-tou.md)
-##### [Migrate classic policies](active-directory-conditional-access-migration.md)
+##### [Best practices](conditional-access/best-practices.md)
+##### [Require MFA for access attempts from untrusted networks](conditional-access/untrusted-networks.md)
+##### [Require managed devices](conditional-access/require-managed-devices.md)
+##### [Require approved client apps](conditional-access/app-based-conditional-access.md)
+##### [Require terms of use for users and apps](active-directory-tou.md)
+##### [Migrate classic policies](conditional-access/policy-migration.md)
 ##### [Set up VPN connectivity](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Set up SharePoint and Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Remediation](active-directory-conditional-access-device-remediation.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
+#### [Reference](conditional-access/technical-reference.md)
+##### [Technical reference](conditional-access/technical-reference.md)
+#### [FAQs](conditional-access/faqs.md)
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -473,6 +479,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
+## [Azure AD deployment plans](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
