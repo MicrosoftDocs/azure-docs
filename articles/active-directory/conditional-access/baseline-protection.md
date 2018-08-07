@@ -91,6 +91,6 @@ Baseline policies apply to legacy authentication flows like POP, IMAP, older Off
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
 If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 

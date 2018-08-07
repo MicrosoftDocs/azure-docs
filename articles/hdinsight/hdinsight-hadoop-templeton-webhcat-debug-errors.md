@@ -1,17 +1,12 @@
 ---
-title: Understand and resolve WebHCat errors on HDInsight - Azure | Microsoft Docs
+title: Understand and resolve WebHCat errors on HDInsight - Azure 
 description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
