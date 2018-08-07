@@ -1,21 +1,14 @@
 ---
-title: An introduction to Apache Kafka on HDInsight - Azure | Microsoft Docs
+title: An introduction to Apache Kafka on HDInsight - Azure 
 description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/11/2018
+author: jasonwhowell
 ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: overview
+ms.date: 04/11/2018
 # As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
 # What is Apache Kafka on HDInsight?
