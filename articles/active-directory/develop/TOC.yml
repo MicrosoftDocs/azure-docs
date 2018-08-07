@@ -103,9 +103,9 @@
   - name: Mobile & Desktop SSO
     items:
     - name: Enable SSO on Android
-      href: howto-v1-enable-sso-on-android.md
+      href: howto-v1-enable-sso-android.md
     - name: Enable SSO on iOS
-      href: howto-v1-enable-sso-on-ios.md
+      href: howto-v1-enable-sso-ios.md
   - name: Azure AD B2B
     href: ../active-directory-b2b-what-is-azure-ad-b2b.md
   - name: User provisioning with SCIM
@@ -116,9 +116,9 @@
     - name: Get started with AAD Graph
       href: active-directory-graph-api-quickstart.md
   - name: AppSource certification
-    href: howto-get-appsource-certified-for-azure-ad.md
+    href: howto-get-appsource-certified.md
   - name: Azure AD app gallery
-    href: howto-list-app-in-azure-ad-app-gallery.md
+    href: howto-app-gallery-listing.md
   - name: Office 365 Seller Dashboard
     href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
   - name: Working with Visual Studio
@@ -150,7 +150,7 @@
   - name: Code samples by scenario
     href: sample-v1-code.md
   - name: Glossary
-    href: azure-ad-dev-glossary.md
+    href: developer-glossary.md
   - name: Authentication protocols
     href: active-directory-authentication-protocols.md
     items:
@@ -178,7 +178,7 @@
     - name: Apps and Azure AD
       href: active-directory-how-applications-are-added.md
   - name: Application manifest
-    href: reference-azure-ad-app-manifest.md
+    href: reference-app-manifest.md
   - name: Token lifetimes
     href: ../active-directory-configurable-token-lifetimes.md
   - name: Service limits
@@ -239,7 +239,7 @@
   - name: Reference
     items:
     - name: Authentication libraries
-      href: reference-azure-ad-v2-auth-libraries.md
+      href: reference-v2-libraries.md
     - name: v2.0 code samples by scenario
       href: sample-v2-code.md
     - name: v2.0 authentication protocols
@@ -266,7 +266,7 @@
 - name: Resources
   items:
   - name: Getting help
-    href: azure-ad-dev-support-help-options.md
+    href: developer-support-help-options.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Pricing calculator

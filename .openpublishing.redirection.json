@@ -15556,6 +15556,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-android.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-ios.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-dev-glossary.md",
+            "redirect_url": "/azure/active-directory/develop/developer-glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-dev-support-help-options.md",
+            "redirect_url": "/azure/active-directory/develop/developer-support-help-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/reference-azure-ad-v2-auth-libraries.md",
+            "redirect_url": "/azure/active-directory/develop/reference-v2-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-get-appsource-certified-for-azure-ad.md",
+            "redirect_url": "/azure/active-directory/develop/howto-get-appsource-certified",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/reference-azure-ad-app-manifest.md",
+            "redirect_url": "/azure/active-directory/develop/reference-app-manifest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-list-app-in-azure-ad-app-gallery.md",
+            "redirect_url": "/azure/active-directory/develop/howto-app-gallery-listing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
