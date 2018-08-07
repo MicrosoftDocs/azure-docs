@@ -19,7 +19,7 @@ you can create a logic app that holds messages as a *batch*
 until your specified criteria are met and a logic app that 
 sends messages in batches. Batching can help reduce how 
 often your logic app processes messages. This article shows 
-how to create batching solution by creating these two logic 
+how to create a batching solution by creating these two logic 
 apps following the specified order: 
 
 * The ["batch receiver"](#batch-receiver) logic app, 
