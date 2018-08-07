@@ -13,7 +13,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 2. Add prebuilt intents and entities
-Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. 
+Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 In this tutorial, you learn how to:
 
