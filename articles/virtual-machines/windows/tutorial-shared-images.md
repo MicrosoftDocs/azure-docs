@@ -225,4 +225,70 @@ Advance to the next tutorial to learn about how highly available virtual machine
 > [Create highly available VMs](tutorial-availability-sets.md)
 
 
+-------------------
+
+Safekeeping
+
+--------------
+
+
+$vm = Get-AzureRmVM -Name Generalized -ResourceGroupName Generalized
+
+$managedImageConfig = New-AzureRmImageConfig -Location "West Central US" -SourceVirtualMachineId $vm.ID
+
+$managedImage = New-AzureRmImage -Image $managedImageConfig -ImageName myImage -ResourceGroupName Generalized
+
+$resourceGroup = New-AzureRMResourceGroup `
+   -Name myGalleryRG `
+   -Location "West Central US"
+
+$galleryConfig = New-AzureRmGalleryConfig `
+   -Location $resourceGroup.Location `
+   -Description "Shared Image Gallery for my ORG"
+
+$gallery = New-AzureRmGallery `
+   -GalleryName "myGallery" `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Gallery $galleryConfig
+
+$imageConfig = New-AzureRmGalleryImageConfig `
+   -OsType Windows `
+   -OsState Generalized `
+   -Location $gallery.Location `
+   -IdentifierPublisher "myPublisher" `
+   -IdentifierOffer "myOffer" `
+   -IdentifierSku "mySKU" 
+
+$galleryImage = New-AzureRmGalleryImage `
+   -GalleryImageName "myGalleryImage" `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -GalleryImage $imageConfig
+----
+tested
+-------
+
+$versionConfig = New-AzureRmGalleryImageVersionConfig `
+   -Location $resourceGroup.Location `
+   -Region "West Central US", "South Central US" `
+   -Source $managedImage.Id `
+   -PublishingProfileEndOfLifeDate "2020-01-01"
+
+$imageVersion = New-AzureRmGalleryImageVersion `
+   -GalleryImageName $galleryImage.Name `
+   -GalleryImageVersionName "myVersion1" `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -GalleryImageVersion $versionConfig
+
+New-AzureRmVm `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVMfromImage" `
+   -ImageName "myImage" `
+   -Location "East US" `
+   -VirtualNetworkName "myImageVnet" `
+   -SubnetName "myImageSubnet" `
+   -SecurityGroupName "myImageNSG" `
+   -PublicIpAddressName "myImagePIP" `
+   -OpenPorts 3389
 
