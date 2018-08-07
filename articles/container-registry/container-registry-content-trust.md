@@ -66,9 +66,9 @@ docker build --disable-content-trust=false -t <username>/trusttest:testing .
 
 ### Azure portal
 
-Navigate to your registry in the Azure portal, then select **Access Control (IAM)** > **Add**. Select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
+Navigate to your registry in the Azure portal, then select **Access Control (IAM)** > **Add**. Under **Add permissions**, select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
 
-In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service principal," and a user named "Azure User."
+In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service-principal," and a user named "Azure User."
 
 ![Enabling content trust for a registry in the Azure portal][content-trust-02-portal]
 
@@ -109,6 +109,7 @@ The Docker documentation for content trust and
 
 <!-- LINKS - external -->
 [docker-content-trust]: https://docs.docker.com/engine/security/trust/content_trust
+[docker-manage-keys]: https://docs.docker.com/engine/security/trust/trust_key_mng/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
