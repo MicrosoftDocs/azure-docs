@@ -15521,6 +15521,81 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
+            "redirect_url": "/azure/active-directory/develop/howto-get-appsource-certified-for-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-app-gallery-listing.md",
+            "redirect_url": "/azure/active-directory/develop/howto-list-app-in-azure-ad-app-gallery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-application-manifest.md",
+            "redirect_url": "/azure/active-directory/develop/reference-azure-ad-app-manifest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-dev-glossary.md",
+            "redirect_url": "/azure/active-directory/develop/azure-ad-dev-glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-develop-help-support.md",
+            "redirect_url": "/azure/active-directory/develop/azure-ad-dev-support-help-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-flows.md",
+            "redirect_url": "/azure/active-directory/develop/v2-app-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-libraries.md",
+            "redirect_url": "/azure/active-directory/develop/reference-azure-ad-v2-auth-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-android.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-android",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-ios.md",
+            "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-ios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-dev-glossary.md",
+            "redirect_url": "/azure/active-directory/develop/developer-glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/azure-ad-dev-support-help-options.md",
+            "redirect_url": "/azure/active-directory/develop/developer-support-help-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/reference-azure-ad-v2-auth-libraries.md",
+            "redirect_url": "/azure/active-directory/develop/reference-v2-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-get-appsource-certified-for-azure-ad.md",
+            "redirect_url": "/azure/active-directory/develop/howto-get-appsource-certified",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/reference-azure-ad-app-manifest.md",
+            "redirect_url": "/azure/active-directory/develop/reference-app-manifest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/howto-list-app-in-azure-ad-app-gallery.md",
+            "redirect_url": "/azure/active-directory/develop/howto-app-gallery-listing",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": false
@@ -26981,6 +27056,29 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-migration-mfa.md",
             "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-technical-reference.md",
+            "redirect_url": "/azure/active-directory/conditional-access/technical-reference",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-untrusted-networks.md",
+            "redirect_url": "/azure/active-directory/conditional-access/untrusted-networks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",
+            "redirect_url": "/azure/active-directory/conditional-access/require-managed-devices",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
+            "redirect_url": "/azure/active-directory/conditional-access/overview",
+            "redirect_document_id": true
         }
+
+
+
     ]
 }

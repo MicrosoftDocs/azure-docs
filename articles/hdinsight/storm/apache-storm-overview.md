@@ -3,7 +3,7 @@ title: What is Apache Storm - Azure HDInsight | Microsoft Docs
 description: 'Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.'
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # What is Apache Storm on Azure HDInsight?

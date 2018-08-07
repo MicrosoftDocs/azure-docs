@@ -3,7 +3,7 @@ title: Deploy and manage Apache Storm topologies on HDInsight | Microsoft Docs
 description: Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on HDInsight. Use Hadoop tools for Visual Studio.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
