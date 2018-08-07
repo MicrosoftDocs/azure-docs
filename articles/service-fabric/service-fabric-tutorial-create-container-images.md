@@ -63,6 +63,8 @@ Inside the **azure-vote** directory, run the following command to build the imag
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> If you are getting permission denied then follow [this](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation on how to work with docker without sudo.
 
 This command can take some time since all the necessary dependencies need to be pulled from Docker Hub. When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
 
