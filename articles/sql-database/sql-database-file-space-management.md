@@ -51,7 +51,7 @@ The following diagram illustrates the relationship between the different types o
 The following queries can be used to determine storage space quantities for a database.  
 
 ### Database data space used
-Modify the following query to return the amount of database data space used in MB.
+Modify the following query to return the amount of database data space used.  Units of the query result are in MB.
 
 ```sql
 -- Connect to master
@@ -63,7 +63,7 @@ ORDER BY end_time DESC
 ```
 
 ### Database data space allocated and unused allocated space
-Use the following query to return the amount of database data space allocated and the amount of unused space allocated in MB.
+Use the following query to return the amount of database data space allocated and the amount of unused space allocated.  Units of the query result are in MB.
 
 ```sql
 -- Connect to database
@@ -76,7 +76,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### Database data max size
-Modify the following query to return the database data max size in bytes.
+Modify the following query to return the database data max size.  Units of the query result are in bytes.
 
 ```sql
 -- Connect to database
@@ -101,7 +101,7 @@ Understanding the following elastic pool storage space quantities are important 
 The following queries can be used to determine storage space quantities for an elastic pool.  
 
 ### Elastic pool data space used
-Modify the following query to return the amount of elastic pool data space used in MB.
+Modify the following query to return the amount of elastic pool data space used.  Units of the query result are in MB.
 
 ```sql
 -- Connect to master
@@ -114,7 +114,7 @@ ORDER BY end_time DESC
 
 ### Elastic pool data space allocated and unused allocated space
 
-Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused in MB.  
+Modify the following PowerShell script to return a table listing the total space allocated and unused space allocated for each database in an elastic pool. The table orders databases from those with the greatest amount of space allocated unused to the least amount of space allocated unused.  Units of the query result are in MB.  
 
 The query results for determining the space allocated for each database in the pool can be added together to the determine the elastic pool space allocated. The elastic pool space allocated should not exceed the elastic pool max size.  
 
@@ -191,7 +191,7 @@ Modify the following command to shrink all of the data files in the specified da
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
 For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
