@@ -185,7 +185,7 @@ Select this trigger: **When a HTTP request is received**
    
    ![Add the Request trigger](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-3. Add an action for sending sending messages to a batch.
+3. Add an action for sending messages to a batch.
 
    1. Under the HTTP request action, choose **New step**.
 
