@@ -4,7 +4,7 @@ description: Use the Apache Ambari APIs for creating, managing, and monitoring H
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 editor: cgronlun
 manager: jhubbard
 
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---
