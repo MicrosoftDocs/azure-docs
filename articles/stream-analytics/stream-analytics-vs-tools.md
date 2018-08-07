@@ -29,9 +29,9 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 
 ### Open the job view
 
-1. In **Server Explorer**, select **Stream Analytics jobs** and then select **Refresh**. Your job should appear under **Stream Analytics jobs**. 
-    
-   ![Stream Analytics server explorer list](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
+1. In **Server Explorer**, select **Stream Analytics jobs** and then select **Refresh**. Your job should appear under **Stream Analytics jobs**.
+
+   <img src="./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png" alt="Stream Analytics server explorer list" width=300px>
 
 2. Expand your job node, and double-click on the **Job View** node to open a job view.
     
@@ -46,6 +46,9 @@ Azure Stream Analytics jobs can be fully managed from the job view in Visual Stu
 
 ## Check job results
 
+Stream Analytics tools for Visual Studio currently supports output preview for Azure Data Lake Storage Storage and blob storage. To view result, simply double click the output node of the job diagram in **Job View** and enter the appropriate credentials.
+
+   ![Stream Analytics job blob output](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
 
 ## Export jobs to a project
@@ -66,6 +69,17 @@ There are two ways you can export an existing job to a project.
 
 ## Test connections
 
+Input and output connections can be tested from the **Job View** by selecting an option from the **Test Connection** dropdown.
 
+   ![Test Connection dropdown](./media/stream-analytics-vs-tools/stream-analytics-test-connection-dropdown.png)
+
+The **Test Connection** results are displayed in the **Output** window.
+
+   ![Test Connection results](./media/stream-analytics-vs-tools/stream-analytics-test-connection-results.png)
 
 ## Next Steps
+
+* [Monitor and manage Azure Stream Analytics jobs using Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
+* [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Tutorial: Deploy an Azure Stream Analytics job with CI/CD using VSTS](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)
