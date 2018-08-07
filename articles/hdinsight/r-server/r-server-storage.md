@@ -1,20 +1,14 @@
 ---
-title: Azure Storage solutions for ML Services on HDInsight - Azure | Microsoft Docs
+title: Azure Storage solutions for ML Services on HDInsight - Azure 
 description: Learn about the different storage options available with ML Services on HDInsight
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: jasonh
-
 ---
 # Azure Storage solutions for ML Services on Azure HDInsight
 

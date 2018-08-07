@@ -5,9 +5,9 @@ keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 services: hdinsight
 ms.service: hdinsight
 author: raviperi
-editor: jasonwhowell
 ms.author: raviperi
-ms.topic: article
+editor: jasonwhowell
+ms.topic: conceptual
 ms.date: 11/2/2017
 ---
 
