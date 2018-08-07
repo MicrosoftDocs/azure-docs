@@ -139,12 +139,5 @@ search in (Event) "win"
 
 
 ## Next steps
-Continue with the advanced tutorials:
-* [Date and time operations](datetime-operations.md)
-* [String operations](string-operations.md)
-* [Aggregation functions](aggregations.md)
-* [Advanced aggregations](advanced-aggregations.md)
-* [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-and-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+
+- See further tutorials on the [Log Analytics query language site](http://http://docs.loganalytics.io)

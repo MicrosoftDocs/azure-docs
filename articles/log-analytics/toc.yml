@@ -111,16 +111,16 @@
     items:
     - name: Language documentation
       items:
-        - name: Get started with Analytics portal
-          href: query-language/get-started-analytics-portal.md
-        - name: Get started with queries
-          href: query-language/get-started-queries.md
-        - name: Search queries
-          href: query-language/search-queries.md
-        - name: Language reference
-          href: https://docs.loganalytics.io
-    - name: Transition from legacy language
-      href: log-analytics-log-search-transition.md
+      - name: Transition from legacy language
+        href: log-analytics-log-search-transition.md
+      - name: Get started with Analytics portal
+        href: query-language/get-started-analytics-portal.md
+      - name: Get started with queries
+        href: query-language/get-started-queries.md
+      - name: Search queries
+        href: query-language/search-queries.md
+      - name: Language reference
+        href: https://docs.loganalytics.io
     - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results

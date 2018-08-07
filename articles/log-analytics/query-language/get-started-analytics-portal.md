@@ -33,7 +33,7 @@ In this tutorial you will learn how to use the Analytics portal to write Azure L
 ## Meet the Analytics portal
 The Analytics portal is a web tool to write and execute Azure Log Analytics queries. If you have an Analytics environment set up you can use it throughout this tutorial. Otherwise, use the _Run query_ button on the below examples, to see results on our demo environment.
 
-![Home page](media/getting-started-analytics-portal/homepage.png)
+![Home page](media/get-started-analytics-portal/homepage.png)
 
 The home page offers easy access to useful resources, such as recent and saved queries, and examples. Open a new tab to start writing your own queries.
 
@@ -70,7 +70,7 @@ The examples in this tutorial have the Run Query button, that executes the query
 ## Understand the schema
 The schema is a collection of tables, grouped visually under a logical category. In the screenshot below we see the title "Application Insights" which covers different tables, all related to the same product. For example, traces and customEvents are names of tables:
 
-![Schema](media/getting-started-analytics-portal/schema.png)
+![Schema](media/get-started-analytics-portal/schema.png)
 
 In each table, data is organized in columns of different types, as indicated by the icons. For example, the requests table (expanded in the screenshot) contains the column timestamp which is a date-time, URL as a text column, and duration as a number.
 
@@ -97,7 +97,7 @@ Let's focus on requests that execute GET. When reviewing the results, we can ide
 
 Click the Filter icon next to the column title, and in the pop-up window select values that Starts with the text GET:
 
-![Filter](media/getting-started-analytics-portal/filter.png)
+![Filter](media/get-started-analytics-portal/filter.png)
 
 ### Add a filter to the query
 To the left of each record, an arrow is shown. Click it to open a specific record and review its details.
@@ -106,7 +106,7 @@ Hover above a specific value (e.g. resultCode) and 2 icons will appear: "+" and 
 
 To add a filter that will return only records with the same value, click the "+" sign. If instead you'd like to exclude records that have this value, click "-".
 
-![Add filter to query](media/getting-started-analytics-portal/add-filter.png)
+![Add filter to query](media/get-started-analytics-portal/add-filter.png)
 
 ## Sort and group results
 Now we have narrowed down the results to include only failed GET requests, from the last 24 hours. However, the results are not sorted in any way. To sort the results by a specific column - such as timestamp - click the column title. One click sorts in ascending order, two - descending.
@@ -115,18 +115,18 @@ One of the common ways to organize results is by groups.
 
 To group results by a specific column, simply drag the column header above the other columns. To create subgroups - drag other columns the upper bar as well.
 
-![Groups](media/getting-started-analytics-portal/groups.png)
+![Groups](media/get-started-analytics-portal/groups.png)
 
 ## Select columns to display
 The results table often includes a lot of columns. You might find that some of the returned columns are not displayed by default, or you may want to remove some the columns that are displayed. To select the columns to show, click the Columns button:
 
-![Select columns](media/getting-started-analytics-portal/select-columns.png)
+![Select columns](media/get-started-analytics-portal/select-columns.png)
 
 
 ## Select a time range
 By default, the Analytics portal applies the "last 24 hours" time range. To use a different range, simply select another value through the time picker, and click "Go". If none of the preset values match your needs, use the "Custom time range" option to select an absolute range for your query.
 
-![Time picker](media/getting-started-analytics-portal/time-picker.png)
+![Time picker](media/get-started-analytics-portal/time-picker.png)
 
 When selecting a custom time range, the selected values are in UTC, which could be different than your local time zone.
 
@@ -144,11 +144,11 @@ requests
 
 By default, results are displayed in a table. Click Chart to see the results in a more graphic view:
 
-![Bar chart](media/getting-started-analytics-portal/bar-chart.png)
+![Bar chart](media/get-started-analytics-portal/bar-chart.png)
 
 Now the results are shown in a stacked bar chart, and the groups proportions are even clearer. Click Stacked Column and select Pie to show another view of the results:
 
-![Pie chart](media/getting-started-analytics-portal/pie-chart.png)
+![Pie chart](media/get-started-analytics-portal/pie-chart.png)
 
 Different properties of the view, such as x and y axes, or grouping and splitting preferences, can be changed manually from the control bar.
 
@@ -157,12 +157,12 @@ You can also set the preferred view in the query itself, using the render operat
 ### Smart diagnostics
 On a timechart, if there is a sudden spike or step in your data, you may see a highlighted point on the line. This indicates that Smart Diagnostics has identified a combination of properties that filter out the sudden change. Click the point to get more detail on the filter, and to see the filtered version. This may help you identify what caused the change:
 
-![Smart diagnostics](media/getting-started-analytics-portal/smart-diagnostics.png)
+![Smart diagnostics](media/get-started-analytics-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
 To pin a diagram or table to one of your shared dashboards - just click the pin icon.
 
-![Pin to dashboard](media/getting-started-analytics-portal/pin-dashboard.png)
+![Pin to dashboard](media/get-started-analytics-portal/pin-dashboard.png)
 
 This means that, when you put together a dashboard to help you monitor the performance or usage of your web services or resources, you can include quite complex analysis alongside the other metrics.
 
@@ -178,11 +178,11 @@ Certain simplifications are applied to a chart when you pin it to a dashboard:
 where timestamp > ago(14d).
 - Bin count restriction: If you display a chart that has a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query: requests | summarize count_search = count() by client_CountryOrRegion looks like this in Analytics:
 
-![Pinned in Analytics](media/getting-started-analytics-portal/pinned-analytics.png)
+![Pinned in Analytics](media/get-started-analytics-portal/pinned-analytics.png)
 
 but when you pin it to a dashboard, it looks like this:
 
-![Pined in dashboard](media/getting-started-analytics-portal/pinned-dashboard.png)
+![Pined in dashboard](media/get-started-analytics-portal/pinned-dashboard.png)
 
 ## Save queries
 Once you've created a useful query, you might want to save it or share with others. On the top bar you can find the "Save" icon.
@@ -190,23 +190,23 @@ Once you've created a useful query, you might want to save it or share with othe
 ### Application Insights Analytics portal
 In this portal, the Save action applies to the entire query page, which could include one or more queries. Queries can be saved as private queries ("My queries") or be shared with the other users of this application ("Shared queries").
 
-![Save query](media/getting-started-analytics-portal/save-query.png)
+![Save query](media/get-started-analytics-portal/save-query.png)
 
 ### Log Analytics portal
 In this portal, the Save action can save either the entire query page, or a single query as a function (Functions are queries that can also be referenced by other queries, read more here). In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
 
-![Save function](media/getting-started-analytics-portal/save-function.png)
+![Save function](media/get-started-analytics-portal/save-function.png)
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
 On the top-right area you can find the Query Explorer icon. The query explorer exposes all saved queries by categories, so you can easily find the relevant query. It also enables you to mark specific queries as Favorites, to quickly find them in the future.
 
-![Query explorer](media/getting-started-analytics-portal/query-explorer.png)
+![Query explorer](media/get-started-analytics-portal/query-explorer.png)
 
 ## Export and share as link
 
-![Export query results](media/getting-started-analytics-portal/export-query.png)
+![Export query results](media/get-started-analytics-portal/export-query.png)
 
 The analytics portal supports several exporting methods:
 

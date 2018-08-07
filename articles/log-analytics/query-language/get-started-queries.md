@@ -89,7 +89,7 @@ SecurityEvent
 
 Descending is the default sorting order, so we typically omit the **desc** argument.The output will look like this:
 
-![Top 10](media/getting-started-with-queries/top10.png)
+![Top 10](media/get-started-queries/top10.png)
 
 
 ## Where: filtering on a condition
@@ -135,7 +135,7 @@ SecurityEvent
 ### Time picker
 The time picker is in the top left corner , which indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
 
-![Time Picker](media/getting-started-with-queries/timepicker.png)
+![Time Picker](media/get-started-queries/timepicker.png)
 
 
 ### Time filter in query
@@ -161,7 +161,7 @@ SecurityEvent
 
 The preceding example generates this output:
 
-![Log Analytics project results](media/getting-started-with-queries/project.png)
+![Log Analytics project results](media/get-started-queries/project.png)
 
 You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
 
@@ -233,7 +233,7 @@ Perf
 
 To make the output clearer, you select to display it as a time-chart, showing the available memory over time:
 
-![Log Analytics memory over time](media/getting-started-with-queries/chart.png)
+![Log Analytics memory over time](media/get-started-queries/chart.png)
 
 
 
