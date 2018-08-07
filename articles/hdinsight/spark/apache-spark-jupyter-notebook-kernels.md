@@ -4,7 +4,7 @@ description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter no
 keywords: jupyter notebook on spark,jupyter spark
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Kernels for Jupyter notebook on Spark clusters in Azure HDInsight 
