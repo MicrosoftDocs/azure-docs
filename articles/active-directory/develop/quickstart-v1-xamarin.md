@@ -190,6 +190,6 @@ ADAL makes it easy to incorporate common identity features into the app. It take
 
 For reference, download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (without your configuration values).
 
-You can now move on to additional identity scenarios. For example, try [Secure a .NET Web API with Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+You can now move on to additional identity scenarios. For example, try [Secure a .NET Web API with Azure AD](quickstart-v1-dotnet-webapi.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
