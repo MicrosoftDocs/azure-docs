@@ -5,7 +5,7 @@ keywords: etl hadoop, getting data into hadoop, hadoop load data
 services: hdinsight,storage
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Upload data for Hadoop jobs in HDInsight

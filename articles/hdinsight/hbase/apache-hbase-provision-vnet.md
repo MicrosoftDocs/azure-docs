@@ -4,7 +4,7 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 keywords: ''
 services: hdinsight,virtual-network
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Create HBase clusters on HDInsight in Azure Virtual Network

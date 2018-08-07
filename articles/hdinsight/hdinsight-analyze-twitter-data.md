@@ -3,7 +3,7 @@ title: Analyze Twitter data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---

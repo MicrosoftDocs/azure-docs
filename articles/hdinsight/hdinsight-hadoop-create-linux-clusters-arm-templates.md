@@ -4,7 +4,7 @@ description: Learn how to create clusters for HDInsight by using Resource Manage
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Create Hadoop clusters in HDInsight by using Resource Manager templates
