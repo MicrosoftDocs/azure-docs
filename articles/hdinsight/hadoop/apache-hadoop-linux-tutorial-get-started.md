@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template and run a Hive job
 ---
 # Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
