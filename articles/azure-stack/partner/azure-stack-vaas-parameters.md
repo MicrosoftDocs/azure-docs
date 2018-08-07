@@ -50,6 +50,9 @@ Service Administrator User             | Azure Active Directory Administrator of
 Cloud Administrator User               | Azure Stack domain administrator account (e.g., `contoso\cloudadmin`). Search for `User Role="CloudAdmin"` in the stamp information file and select the value in the `UserName` tag.
 Diagnostics Connection String          | A SAS URL to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URL, see [Generate the diagnostics connection string](#generate-the-diagnostics-connection-string). |
 
+> [!IMPORTANT]
+> The **diagnostics connection string** must be valid before proceeding.
+
 ### Generate the diagnostics connection string
 
 The diagnostics connection string is required for storing diagnostics logs during test execution. Use the Azure Storage Account created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)) to create a shared access signature (SAS) URL to give VaaS access to upload logs to your storage account.
@@ -71,3 +74,7 @@ The diagnostics connection string is required for storing diagnostics logs durin
 > [!NOTE]  
 > The SAS URL expires at the end time specified when the URL was generated.  
 When scheduling tests, ensure that the URL is valid for at least 30 days plus the time required for test execution (three months is suggested).
+
+### Test-specific parameters
+
+Depending on the test definition, a test may require you to enter a value independently of the common parameters, or may allow you to override the common parameter value.
