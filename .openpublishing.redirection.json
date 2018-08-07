@@ -27076,9 +27076,11 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
             "redirect_url": "/azure/active-directory/conditional-access/overview",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
+            "redirect_url": "/azure/active-directory/conditional-access/app-based-mfa",
+            "redirect_document_id": true
         }
-
-
-
     ]
 }
