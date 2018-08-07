@@ -12,13 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
 # Run a custom Windows container in Azure (Preview)
 
 [Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy a custom IIS image to Azure App Service from [Docker Hub](https://hub.docker.com/).
+
+![](media/app-service-web-get-started-windows-container/app-running.png)
 
 ## Sign in to Azure
 
@@ -82,3 +84,18 @@ The streamed logs looks like this:
 27/07/2018 12:05:05.017 INFO - Site: win-container-demo - Container start complete
 27/07/2018 12:05:05.020 INFO - Site: win-container-demo - Container started successfully
 ```
+
+## Use a different Docker image
+
+You are free to use a different custom Docker image to run your app. However, you must choose the right [parent image](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want: 
+
+- To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Core apps, use a parent image based on the Windows Server Nano 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
+
+It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
+
+- [Microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
+- [Microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
+- [Microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
+- [Microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
+- [Microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
