@@ -63,14 +63,6 @@ If all endpoints in a Traffic Manager profile that is configured for proximity r
 
 If a Traffic Manager profile is configured for geographic routing, then traffic is routed to endpoints based on defined regions. If a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" will avoid traffic being dropped and improve service availability. Advisor identifies Traffic Manager profiles configured for geographic routing where there is no endpoint configured to have the Regional Grouping as "All (World)" and recommends making that configuration change.
 
-## Remove data skew on your SQL data warehouse table to increase query performance
-
-Data skew can cause unnecessary data movement or resource bottlenecks when running your workload. Advisor will detect distribution data skew greater than 15% and recommend that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
-
-## Create or update outdated table statistics on your SQL data warehouse table to increase query performance
-
-Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan for fastest performance.
-
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
