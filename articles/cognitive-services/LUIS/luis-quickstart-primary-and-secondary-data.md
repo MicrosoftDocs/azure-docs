@@ -350,10 +350,10 @@ Adding the phrase list boosted the signal of the words in the list but is **not*
 ## What has this LUIS app accomplished?
 This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the job data. 
 
-Your chatbot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
+Your chat bot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 
