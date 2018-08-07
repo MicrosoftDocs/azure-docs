@@ -6,7 +6,7 @@
       href: overview.md
 - name: Quickstarts
   items:
-  - name: "Quickstart: Send search queries using the REST API"
+  - name: "Send search queries using the REST API"
     expanded: true
     items:
     - name: "C#"
@@ -21,7 +21,7 @@
       href: quickstarts/python.md
     - name: "Ruby"
       href: quickstarts/ruby.md
-  - name: "Quickstart: Request and filter images using the SDK"
+  - name: "Request and filter images using the SDK"
     items:
     - name: "C#"
       href: image-search-sdk-quickstart.md
