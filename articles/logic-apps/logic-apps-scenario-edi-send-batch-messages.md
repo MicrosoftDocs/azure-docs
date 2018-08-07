@@ -3,7 +3,7 @@ title: Batch process EDI messages as a group or collection - Azure Logic Apps | 
 description: Send EDI messages for batch processing in logic apps
 services: logic-apps
 ms.service: logic-apps
-author: divswarnkar
+author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
@@ -93,12 +93,13 @@ Select this trigger: **Batch messages**
    |----------|-------|-------|
    | **Batch Mode** | Inline |  |  
    | **Batch Name** | TestBatch | Available only with **Inline** batch mode | 
-   | **Release Criteria** | Schedule based | Available only with **Inline** batch mode | 
+   | **Release Criteria** | Message count based, Schedule based | Available only with **Inline** batch mode | 
+   | **Message Count** | 10 | Available only with **Message count based** release criteria | 
    | **Interval** | 10 | Available only with **Schedule based** release criteria | 
    | **Frequency** | minute | Available only with **Schedule based** release criteria | 
    ||| 
 
-   ![Provide Batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-schedule-based.png)
+   ![Provide Batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
 
 5. Now add an action that encodes each batch: 
 
