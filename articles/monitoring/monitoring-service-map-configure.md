@@ -48,7 +48,7 @@ The following section list the supported operating systems for the Dependency ag
 - Windows 8
 - Windows 7
 
-## Supported Linux operating system
+## Supported Linux operating systems
 The following section list the supported operating systems for the Dependency agent on Red Hat Enterprise Linux, CentOS Linux, and Oracle Linux (with RHEL Kernel).  
 
 - Only default and SMP Linux kernel releases are supported.
