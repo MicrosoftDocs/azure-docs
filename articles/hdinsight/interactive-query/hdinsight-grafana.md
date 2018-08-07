@@ -3,7 +3,7 @@ title: 'Use Grafana on Azure HDInsight | Microsoft Docs'
 description: Learn how to access Grafana in Azure HDInsight
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Access Grafana in Azure HDInsight
