@@ -170,7 +170,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
     }
     ```
 
-While searching for a form, the user provided more information than was necessary to find the form. The additional information is returned as **builtin.keyPhrase**. The client application can use this additional information for a follow-up question, such as "Would you like to talk to a Human Resource representative about new dental benefits" or provide a menu with more options including "More information about new dental benefits or medical plan."
+    While searching for a form, the user provided more information than was necessary to find the form. The additional information is returned as **builtin.keyPhrase**. The client application can use this additional information for a follow-up question, such as "Would you like to talk to a Human Resource representative about new dental benefits" or provide a menu with more options including "More information about new dental benefits or medical plan."
 
 ## What has this LUIS app accomplished?
 This app, with keyPhrase entity detection, identified a natural language query intention and returned the extracted data including the main subject matter. 
