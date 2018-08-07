@@ -4,7 +4,7 @@ description: Learn how to create on-demand Hadoop clusters in HDInsight using Az
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nitinme
+ms.author: jasonh
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
 ---
