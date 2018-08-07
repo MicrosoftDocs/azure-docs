@@ -323,7 +323,7 @@ The argument `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refers to the ins
 
 In addition to the command line, you can use Visual Studio Build or an MSBuild task to build U-SQL database projects in Visual Studio Team Services. To set up a build task, make sure to add two tasks in the build pipeline: a NuGet restore task and an MSBuild task.
 
-    ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+   ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
 1.	Add NuGet restore task to get the solution-referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
@@ -337,7 +337,6 @@ In addition to the command line, you can use Visual Studio Build or an MSBuild t
     ```
     /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
-
  
 ### U-SQL database project build output
 
