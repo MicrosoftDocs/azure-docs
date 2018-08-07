@@ -3,8 +3,6 @@ title: Guidance for Azure Data Lake Storage Gen1 customers | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Preview offers native Blob storage functionality, including data tiering, lifecycle management, and enhanced network security, in addition to the Hadoop Compatible file system available in Data Lake Storage Gen1.
 services: storage
 author: roygara
-manager: twooley
-
 ms.topic: article
 ms.author: rogarana
 ms.date: 06/27/2018
