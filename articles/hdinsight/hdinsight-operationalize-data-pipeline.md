@@ -1,17 +1,14 @@
 ---
-title:  Operationalize a data analytics pipeline - Azure | Microsoft Docs
+title:  Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+editor: jasonwhowell
 
 ms.assetid:
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
 

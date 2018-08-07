@@ -1,16 +1,12 @@
 ---
-title: Use SSH tunneling to access Azure HDInsight | Microsoft Docs
+title: Use SSH tunneling to access Azure HDInsight 
 description: Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
+editor: jasonwhowell
 
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: jasonh
