@@ -32,7 +32,7 @@ The SQL DB service does not automatically shrink data files to reclaim unused al
 
 ## Understanding types of storage space for a database
 
-Understanding the following database storage space quantities are important for managing file space.
+Understanding the following storage space quantities are important for managing the file space of a database.
 
 |Database quantity|Definition|Comments|
 |---|---|---|
@@ -86,7 +86,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 ## Understanding the types of storage space for an elastic pool
 
-Understanding the following elastic pool storage space quantities are important for managing file space.
+Understanding the following storage space quantities are important for managing the file space of an elastic pool.
 
 |Elastic pool quantity|Definition|Comments|
 |---|---|---|
