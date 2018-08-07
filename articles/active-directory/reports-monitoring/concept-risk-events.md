@@ -177,7 +177,7 @@ Risk events are the foundation for protecting your Azure AD's identities. Azure 
 Where can you find the risk events that have been detected in your environment?
 There are two places where you review reported risk events:
 
- - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more information, see the [users at risk security report](../active-directory-reporting-security-user-at-risk.md) and the [risky sign-ins security report](concept-risky-sign-ins.md).
+ - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more information, see the [users at risk security report](concept-user-at-risk.md) and the [risky sign-ins security report](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** - Risk events are also part of [Azure Active Directory Identity Protection's](../active-directory-identityprotection.md) reporting capabilities.
     

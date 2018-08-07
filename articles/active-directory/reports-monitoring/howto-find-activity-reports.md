@@ -111,7 +111,7 @@ In the Azure portal, you can access reports about detected risk events on the **
 
 For more information about security reports, see:
 
-- [Users at Risk security report in the Azure Active Directory portal](../active-directory-reporting-security-user-at-risk.md)
+- [Users at Risk security report in the Azure Active Directory portal](concept-user-at-risk.md)
 - [Risky Sign-ins report in the Azure Active Directory portal](concept-risky-sign-ins.md)
 
 

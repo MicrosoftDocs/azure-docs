@@ -36,7 +36,7 @@ You can review users flagged for risk through the related [report](https://porta
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-For more information, see [Users flagged for risk security report in the Azure Active Directory portal](active-directory-reporting-security-user-at-risk.md).
+For more information, see [Users flagged for risk security report in the Azure Active Directory portal](reports-monitoring/concept-user-at-risk.md).
 
 ### Azure AD subscription for Office 365 customers
 

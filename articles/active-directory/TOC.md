@@ -113,7 +113,7 @@
 ## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
 ### [Audit activity](reports-monitoring/concept-audit-logs.md)
-### [Users at risk](active-directory-reporting-security-user-at-risk.md)
+### [Users at risk](reports-monitoring/concept-user-at-risk.md)
 ### [Risky sign-ins](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk events](reports-monitoring/concept-risk-events.md)
 ### [Monitoring logs using Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)

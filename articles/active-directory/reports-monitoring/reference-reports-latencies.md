@@ -86,7 +86,7 @@ If you want to know more about the activity reports in the Azure portal, see:
 
 If you want to know more about the security reports in the Azure portal, see:
 
-- [Users at risk security report in the Azure Active Directory portal](../active-directory-reporting-security-user-at-risk.md)
+- [Users at risk security report in the Azure Active Directory portal](concept-user-at-risk.md)
 - [Risky sign-ins report in the Azure Active Directory portal](concept-risky-sign-ins.md)
 
 If you want to know more about risk events, see [Azure Active Directory risk events](concept-risk-events.md).
