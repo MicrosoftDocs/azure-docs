@@ -140,7 +140,7 @@
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
-#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
+#### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
