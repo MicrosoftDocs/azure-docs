@@ -42,8 +42,8 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 
   - **Name:** Enter a meaningful application name
   - **Application type:** 
-    - Select "Native" for [client applications](active-directory-dev-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](active-directory-dev-glossary.md#native-client).
-    - Select "Web app / API" for [client applications](active-directory-dev-glossary.md#client-application) and [resource/API applications](active-directory-dev-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](active-directory-dev-glossary.md#web-client) and public [user-agent-based clients](active-directory-dev-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
+    - Select "Native" for [client applications](developer-glossary.md#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](developer-glossary.md#native-client).
+    - Select "Web app / API" for [client applications](developer-glossary.md#client-application) and [resource/API applications](developer-glossary.md#resource-server) that are installed on a secure server. This setting is used for OAuth confidential [web clients](developer-glossary.md#web-client) and public [user-agent-based clients](developer-glossary.md#user-agent-based-client). The same application can also expose both a client and resource/API.
   - **Sign-On URL:** For "Web app / API" applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application. 
   - **Redirect URI:** For "Native" applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example `http://MyFirstAADApp`
 
@@ -101,7 +101,7 @@ The following steps show you how the consent experience works for both the appli
 ### Configure a client application to access web APIs
 In order for a web/confidential client application to be able to participate in an authorization grant flow that requires authentication (and obtain an access token), it must establish secure credentials. The default authentication method supported by the Azure portal is client ID + secret key. This section covers the configuration steps required to provide the secret key with your client's credentials.
 
-Additionally, before a client can access a web API exposed by a resource application (such as the Microsoft Graph API), the consent framework ensures the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from "Windows Azure Active Directory" (Graph API) and "Windows Azure Service Management API." The [Graph API “Sign-in and read user profile” permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) is also selected by default. If your client is being registered in a tenant that has accounts subscribed to Office 365, web APIs and permissions for SharePoint and Exchange Online are available for selection. You can select from [two types of permissions](active-directory-dev-glossary.md#permissions) for each desired web API:
+Additionally, before a client can access a web API exposed by a resource application (such as the Microsoft Graph API), the consent framework ensures the client obtains the permission grant required, based on the permissions requested. By default, all applications can choose permissions from "Windows Azure Active Directory" (Graph API) and "Windows Azure Service Management API." The [Graph API “Sign-in and read user profile” permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) is also selected by default. If your client is being registered in a tenant that has accounts subscribed to Office 365, web APIs and permissions for SharePoint and Exchange Online are available for selection. You can select from [two types of permissions](developer-glossary.md#permissions) for each desired web API:
 
 - Application Permissions: Your client application needs to access the web API directly as itself (no user context). This type of permission requires administrator consent and is also not available for native client applications.
 
@@ -145,7 +145,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 
 ### Configuring a resource application to expose web APIs
 
-You can develop a web API and make it available to client applications by exposing access [scopes](active-directory-dev-glossary.md#scopes) and [roles](active-directory-dev-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Access scopes and roles are exposed through your [application's manifest](active-directory-dev-glossary.md#application-manifest), which is a JSON file that represents your application’s identity configuration. 
+You can develop a web API and make it available to client applications by exposing access [scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Access scopes and roles are exposed through your [application's manifest](developer-glossary.md#application-manifest), which is a JSON file that represents your application’s identity configuration. 
 
 The following section shows you how to expose access scopes, by modifying the resource application's manifest.
 
@@ -199,10 +199,10 @@ The following section shows you how to expose access scopes, by modifying the re
 
 The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API access scopes we discussed. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:  
 
-- The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](active-directory-dev-glossary.md#permissions) for a web API. 
-- The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](active-directory-dev-glossary.md#permissions) for a web API.
+- The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API. 
+- The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
 
-For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
+For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md).
 
 ### Accessing the Azure AD Graph and Office 365 via Microsoft Graph APIs  
 
@@ -266,7 +266,7 @@ Single Page Application’s (SPAs) are typically structured with a JavaScript-he
 
 After the user has granted consent, this same authentication protocol can be used to obtain tokens to secure calls between the client and other web API resources configured for the application. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-By default, OAuth 2.0 implicit Grant is disabled for applications. You can enable OAuth 2.0 Implicit Grant for your application by setting the `oauth2AllowImplicitFlow` value in its [application manifest](active-directory-application-manifest.md).
+By default, OAuth 2.0 implicit Grant is disabled for applications. You can enable OAuth 2.0 Implicit Grant for your application by setting the `oauth2AllowImplicitFlow` value in its [application manifest](reference-app-manifest.md).
 
 #### To enable OAuth 2.0 implicit grant
 
@@ -314,7 +314,7 @@ In order to remove a multi-tenant application’s access to your directory (afte
 - For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
 - See the [Branding Guidelines for Integrated Apps](howto-add-branding-in-azure-ad-apps.md) for tips on visual guidance for your app.
 - For more information on the relationship between an application's Application and Service Principal object(s), see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
-- To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md)
-- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the core Azure AD developer concepts.
+- To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md)
+- See the [Azure AD developer glossary](developer-glossary.md) for definitions of some of the core Azure AD developer concepts.
 - Visit the [Active Directory developer's guide](azure-ad-developers-guide.md) for an overview of all developer-related content.
 

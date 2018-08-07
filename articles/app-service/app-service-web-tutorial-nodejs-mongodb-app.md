@@ -127,6 +127,10 @@ For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB
 
 ### Create a Cosmos DB account
 
+> [!NOTE]
+> There is a cost to creating the Azure Cosmos DB databases in this tutorial in your own Azure subscription. To use a free Azure Cosmos DB account for seven days, you can use the [Try Azure Cosmos DB for free](https://azure.microsoft.com/en-us/try/cosmosdb/) experience. Just click the **Create** button in the MongoDB tile to create a free MongoDB database on Azure. Once the database is created, navigate to **Connection String** in the portal and retrieve your Azure Cosmos DB connection string for use later in the tutorial.
+>
+
 In the Cloud Shell, create a Cosmos DB account with the [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) command.
 
 In the following command, substitute a unique Cosmos DB name for the *\<cosmosdb_name>* placeholder. This name is used as the part of the Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. The name must contain only lowercase letters, numbers, and the hyphen (-) character, and must be between 3 and 50 characters long.
