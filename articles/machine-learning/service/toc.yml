@@ -10,9 +10,7 @@
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
-    href: how-to-migrate.md
-  - name: What's new
-    href: azure-machine-learning-release-notes.md              
+    href: how-to-migrate.md             
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -273,6 +271,8 @@
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Build and deploy text classification models
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
+    - name: Older release notes
+      href: azure-machine-learning-release-notes.md       
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Issues
