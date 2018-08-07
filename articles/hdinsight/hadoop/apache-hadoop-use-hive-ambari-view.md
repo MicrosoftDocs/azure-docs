@@ -3,7 +3,7 @@ title: Use Ambari Views to work with Hive on HDInsight (Hadoop) - Azure | Micros
 description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use Ambari Hive View with Hadoop in HDInsight
