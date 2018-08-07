@@ -23,7 +23,7 @@ In this article, you learn how to set up a continuous integration and deployment
 
 ## Use CI/CD for U-SQL jobs
 
-Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you organize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes the further CI/CD scenarios easily.
+Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you organize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes further CI/CD scenarios easy.
 
 ## Build a U-SQL project
 
@@ -77,7 +77,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 The arguments definition and values are as follows:
 
-* **USQLSDKPath=<U-SQL Nuget package>\build\runtime**. This parameter refers to the install path of the NuGet package for the U-SQL language service.
+* **USQLSDKPath=<U-SQL Nuget package>\build\runtime**. This parameter refers to the installation path of the NuGet package for the U-SQL language service.
 * **USQLTargetType=Merge or SyntaxCheck**:
     * **Merge**. Merge mode compiles code-behind files. Examples are **.cs**, **.py**, and **.r** files. It inlines the resulting user-defined code library into the U-SQL script. Examples are a dll binary, Python, or R code.
     * **SyntaxCheck**. SyntaxCheck mode first merges code-behind files into the U-SQL script. Then it compiles the U-SQL script to validate your code.
@@ -119,7 +119,7 @@ Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 
 ## Deploy a U-SQL job
 
-After you verify code through the build and test process, you can submit U-SQL jobs directly from Visual Studio Team Services through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob Storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+After you verify code through the build and test process, you can submit U-SQL jobs directly from Visual Studio Team Services through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
 ### Submit U-SQL jobs through Visual Studio Team Services
 
@@ -230,7 +230,7 @@ Main
 
 ### Deploy U-SQL jobs through Azure Data Factory
 
-You can submit U-SQL jobs directly from Visual Studio Team Services. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob Storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+You can submit U-SQL jobs directly from Visual Studio Team Services. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
 Use the [Azure PowerShell task](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) in Visual Studio Team Services with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
@@ -292,7 +292,7 @@ UploadResources
 
 ## CI/CD for a U-SQL database
 
-Azure Data Lake Tools for Visual Studio provide U-SQL database project templates that help you develop, manage, and deploy U-SQL databases. Learn more about a [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
+Azure Data Lake Tools for Visual Studio provides U-SQL database project templates that help you develop, manage, and deploy U-SQL databases. Learn more about a [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 ## Build U-SQL database project
 
@@ -326,7 +326,7 @@ In addition to the command line, you can use Visual Studio Build or an MSBuild t
    ![CI/CD MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1.	Add NuGet restore task to get the solution-referenced NuGet package including `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
+1.	Add a NuGet restore task to get the solution-referenced NuGet package, which includes `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
     ![CI/CD NuGet task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
