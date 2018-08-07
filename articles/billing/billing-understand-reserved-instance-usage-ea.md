@@ -34,18 +34,18 @@ For the following sections, assume that you are running a Standard_D1_v2 Windows
 |SKU | Standard_D1|
 |Region | eastus |
 
-The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the reservation, go to Azure Reserved VM Instances software costs, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
+The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the reservation, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md).
 
-### Usage in CSV for Reserved VM Instances
+### Usage in CSV file for Reserved VM Instances
 
-You can download the EA usage csv from EA portal. In the downloaded csv file, filter on additional info and type in your **ReservationID**. The following screenshot shows the fields related to the reservation:
+You can download the Enterprise usage CSV file from the Enterprise portal. In CSV file you download, filter on **Additional Info** and type in your **ReservationID**. The following screenshot shows the fields related to the reservation:
 
 ![Enterprise Agreement (EA) csv for Azure reservation](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
-1. **ReservationId** in Additional Info field represents the reservation that was used to apply benefit to the VM.
-2. **ConsumptionMeter** is the MeterId for the VM.
-3. This is the Reservation Meter with $0 cost. The cost of the running VM is paid by the reserved VM instance.
-4. Standard_D1 is one vCPU VM and the VM is deployed without the Azure Hybrid Benefit. So this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md) to find the meter corresponding to the D series 1 core VM. If you have the Azure Hybrid Benefit, this extra charge isn't applied.
+1. **ReservationId** in **Additional Info** field represents the reservation that's applied to the VM.
+2. **ConsumptionMeter** is the meter ID for the VM.
+3. **Meter ID** is the reservation meter with $0 cost. The cost of the running VM is paid by the reserved VM instance.
+4. Standard_D1 is one vCPU VM and the VM is deployed without the Azure Hybrid Benefit. So this meter covers the extra charge of Windows software. To to find the meter corresponding to the D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md).  If you have the Azure Hybrid Benefit, this extra charge isn't applied.
 
 ## Usage for SQL Database reserved capacity reservations
 
@@ -58,15 +58,15 @@ For the following sections, assume that you are running a SQL Database Gen 4 in 
 |Product| SQL Database Gen 4 (2 Core)|
 |Region | eastus |
 
-### Usage in csv for SQL Database reserved capacity
+### Usage in CSV file for SQL Database reserved capacity
 
-Filter on additional info and type in your **Reservation ID**. The following screenshot shows the fields related to the reservation.
+Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the reservation.
 
 ![Enterprise Agreement (EA) csv for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
-1. **ReservationId** in the Additional Info field is the reservation that was used to apply the benefit to the SQL Database resource.
-2. **ConsumptionMeter** is the Meter Id for the SQL Database resource.
-3. This is the Meter Id for reservation. The cost of this meter is $0. Any SQL Database resource that qualifies for the reservation has this MeterId in the CSV file.
+1. **ReservationId** in the **Additional Info** field is the reservation that was used to apply the benefit to the SQL Database resource.
+2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
+3. **Meter ID** is the reservation meter with  $0 cost. Any SQL Database resource that qualifies for the reservation shows this MeterId in the CSV file.
 
 ## Usage summary page in Enterprise portal
 
