@@ -14,36 +14,38 @@ ms.author: diberry
 
 --- 
 
-# Tutorial: Review endpoint utterances
+# Tutorial: 1. Review endpoint utterances
 In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand reviewing endpoint utterances 
-> * Use LUIS app for the Human Resources (HR) domain 
 > * Review endpoint utterances
-> * Train, and publish app
+> * Train app
+> * Publish app
 > * Query endpoint of app to see LUIS JSON response
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you don't have the Human Resources app from the [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) tutorial, import the app from [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github repository. If you use this tutorial as a new, imported app, you also need to train, publish, then add the utterances to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. The utterances to add are:
+If you don't have the Human Resources app from the [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) tutorial, import the app from [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github repository. 
+
+If you use this tutorial as a new, imported app, you also need to train, publish, then add the utterances to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. The utterances to add are:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `review`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+If you want to keep the original Human Resources app, clone the version on the [Versions](luis-how-to-manage-versions.md#clone-a-version) page, and name it `review`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
-If you have all the versions of the app, through the series of tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint. 
+If you have all the versions of the app, through the series of tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version you are actively editing or which version of the app was published at the endpoint. 
 
 ## Purpose of reviewing endpoint utterances
-This review process is another way for LUIS to learn your app domain. LUIS selected the utterances in the review list. This list is:
+This review process is another way for LUIS to learn your app domain. LUIS selected the utterances that appear in the review list. This list is:
 
 * Specific to the app.
 * Is meant to improve the app's prediction accuracy. 
 * Should be reviewed on a periodic basis. 
 
-By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted. 
+By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted or predicted incorrectly. 
 
 ## Review endpoint utterances
 
@@ -51,19 +53,17 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 2. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 
-    [ ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Toggle the **Entities view** to see the labeled entities. 
     
-    [ ![Screenshot of Review endpoint utterances with Entities view toggle highlighted](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Screenshot of Review endpoint utterances with Entities view toggle highlighted](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Utterance|Correct intent|Missing entities|
     |:--|:--|:--|
     |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
     This utterance is not in the correct intent and has a score less than 50%. The **ApplyForJob** intent has 21 utterances compared to the seven utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That is left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
-
-    When you are in **Tokens View**, you can hover over any blue text to the utterance to see the predicted entity name. 
 
 4. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
@@ -85,16 +85,18 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
     [ ![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. 
+9. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until the list is empty. 
 
-    This is a very small app. The review process takes only a few minutes.
+10. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table.
+
+    Continue until all intents and entities in the filter list have an empty list. This is a very small app. The review process takes only a few minutes. 
 
 ## Add new job name to phrase list
 Keep the phrase list current with any newly discovered job names. 
 
 1. Select **Phrase lists** from left navigation.
 
-2. Select the **Jobs** phrase list.
+2. Select the **Job** phrase list.
 
 3. Add `Natural Language Processing` as a value then select **Save**. 
 

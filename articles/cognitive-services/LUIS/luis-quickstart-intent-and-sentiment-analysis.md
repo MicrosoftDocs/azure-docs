@@ -20,7 +20,7 @@ In this tutorial, create an app that demonstrates how to extract positive, negat
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Understand sentiment analysis
-> * Add sentiment analysis
+> * Add sentiment analysis as publish setting
 > * Train app
 > * Publish app
 > * Query endpoint of app to see LUIS JSON response
