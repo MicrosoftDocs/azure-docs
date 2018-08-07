@@ -38,7 +38,7 @@ For the following sections, assume that you are running a Standard_DS1_v2 Window
 
 The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the reserved VM instance, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md)
 
-### Statement section of CSV file
+### Statement section of CSV file for VMs
 
 This section of your CSV file shows the total usage for your reservation. Apply the filter on the **Meter Subcategory** field that contains **"Reservation-"**. You see something like the following screenshot:
 

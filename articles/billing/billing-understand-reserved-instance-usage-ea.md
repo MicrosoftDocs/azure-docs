@@ -38,14 +38,14 @@ The hardware portion of the VM is covered because the deployed VM matches the re
 
 ### Usage in CSV file for Reserved VM Instances
 
-You can download the Enterprise usage CSV file from the Enterprise portal. In CSV file you download, filter on **Additional Info** and type in your **ReservationID**. The following screenshot shows the fields related to the reservation:
+You can download the Enterprise usage CSV file from the Enterprise portal. In the CSV file, filter on **Additional Info** and type in your **ReservationID**. The following screenshot shows the fields related to the reservation:
 
 ![Enterprise Agreement (EA) csv for Azure reservation](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
 1. **ReservationId** in **Additional Info** field represents the reservation that's applied to the VM.
 2. **ConsumptionMeter** is the meter ID for the VM.
 3. **Meter ID** is the reservation meter with $0 cost. The cost of the running VM is paid by the reserved VM instance.
-4. Standard_D1 is one vCPU VM and the VM is deployed without the Azure Hybrid Benefit. So this meter covers the extra charge of Windows software. To to find the meter corresponding to the D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md).  If you have the Azure Hybrid Benefit, this extra charge isn't applied.
+4. Standard_D1 is one vCPU VM and the VM is deployed without the Azure Hybrid Benefit. So this meter covers the extra charge of Windows software. To find the meter corresponding to the D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md).  If you have the Azure Hybrid Benefit, this extra charge isn't applied.
 
 ## Usage for SQL Database reserved capacity reservations
 
@@ -64,9 +64,9 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 
 ![Enterprise Agreement (EA) csv for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
-1. **ReservationId** in the **Additional Info** field is the reservation that was used to apply the benefit to the SQL Database resource.
+1. **ReservationId** in the **Additional Info** field is the reservation that's applied to the SQL Database resource.
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
-3. **Meter ID** is the reservation meter with  $0 cost. Any SQL Database resource that qualifies for the reservation shows this MeterId in the CSV file.
+3. **Meter ID** is the reservation meter with  $0 cost. Any SQL Database resource that qualifies for the reservation shows this meter ID in the CSV file.
 
 ## Usage summary page in Enterprise portal
 
