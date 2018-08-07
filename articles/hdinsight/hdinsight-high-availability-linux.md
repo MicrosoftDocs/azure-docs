@@ -4,7 +4,7 @@ description: Learn how HDInsight clusters improve reliability and availability b
 services: hdinsight
 editor: cgronlun
 manager: cgronlun
-author: Blackmist
+author: jasonwhowell
 documentationcenter: ''
 tags: azure-portal
 keywords: hadoop high availability
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight

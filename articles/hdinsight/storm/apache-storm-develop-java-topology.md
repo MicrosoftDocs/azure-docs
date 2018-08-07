@@ -3,7 +3,7 @@ title: Apache Storm example Java topology - Azure HDInsight | Microsoft Docs
 description: Learn how to create Apache Storm topologies in Java by creating an example word count topology.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.service: hdinsight
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 ---

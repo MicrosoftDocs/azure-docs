@@ -3,7 +3,7 @@ title: Use Hadoop Hive on the Query Console in HDInsight - Azure | Microsoft Doc
 description: Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---

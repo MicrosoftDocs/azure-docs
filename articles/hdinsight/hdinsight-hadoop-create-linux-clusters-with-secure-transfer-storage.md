@@ -2,8 +2,8 @@
 title: Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 description: Learn how to create HDInsight clusters with secure transfer enabled Azure storage accounts.
 services: hdinsight
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal

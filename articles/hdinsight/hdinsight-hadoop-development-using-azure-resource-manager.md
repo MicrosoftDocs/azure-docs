@@ -4,7 +4,7 @@ description: How to migrate to Azure Resource Manager development tools for HDIn
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
-author: nitinme
+author: jasonwhowell
 documentationcenter: ''
 
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters

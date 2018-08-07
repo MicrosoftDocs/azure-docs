@@ -4,7 +4,7 @@ description: Use time-based Hadoop Oozie coordinator in HDInsight, a big data se
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
 ---
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs

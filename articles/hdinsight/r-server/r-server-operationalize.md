@@ -3,7 +3,7 @@ title: Operationalize ML Services on HDInsight - Azure | Microsoft Docs
 description: Learn how to operationalize ML Services in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -12,7 +12,7 @@ ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Operationalize ML Services cluster on Azure HDInsight

@@ -4,7 +4,7 @@ description: How to add an empty edge node to an HDInsight cluster that can be u
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
-author: mumian
+author: jasonwhowell
 tags: azure-portal
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Use empty edge nodes on Hadoop clusters in HDInsight

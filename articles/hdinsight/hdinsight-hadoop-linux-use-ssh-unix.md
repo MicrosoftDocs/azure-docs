@@ -3,7 +3,7 @@ title: Use SSH with Hadoop - Azure HDInsight | Microsoft Docs
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 

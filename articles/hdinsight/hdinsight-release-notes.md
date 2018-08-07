@@ -5,7 +5,7 @@ services: hdinsight
 documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
-author: nitinme
+author: jasonwhowell
 tags: azure-portal
 
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Release notes for Azure HDInsight

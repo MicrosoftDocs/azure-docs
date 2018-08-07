@@ -3,7 +3,7 @@ title: Use Hadoop Sqoop with Curl in HDInsight - Azure | Microsoft Docs
 description: Learn how to remotely submit Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Run Sqoop jobs with Hadoop in HDInsight with Curl

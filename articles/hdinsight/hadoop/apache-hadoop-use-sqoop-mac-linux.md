@@ -5,7 +5,7 @@ editor: cgronlun
 manager: jhubbard
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 tags: azure-portal
 keywords: hadoop sqoop,sqoop
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Use Apache Sqoop to import and export data between Hadoop on HDInsight and SQL Database

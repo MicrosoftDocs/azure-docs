@@ -5,7 +5,7 @@ services: hdinsight
 documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
-author: nitinme
+author: jasonwhowell
 tags: azure-portal
 
 ms.service: hdinsight
@@ -13,7 +13,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Archived release notes for Azure HDInsight
