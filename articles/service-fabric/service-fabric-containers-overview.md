@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/21/2018
+ms.date: 8/7/2018
 ms.author: msfussell
 ---
 
@@ -31,21 +31,20 @@ By default, Service Fabric deploys and activates these services as processes. Pr
 
 If you just want to [deploy and manage containers](service-fabric-containers-overview.md), Service Fabric is a perfect choice as a container orchestrator.
 
-To jump right in and try out containers on Service Fabric, try one of the following quickstarts, tutorial, or sample:  
+To jump right in and try out containers on Service Fabric, try a quickstart, tutorial, or sample:  
 
 [Quickstart: Deploy a Linux container application to Service Fabric](service-fabric-quickstart-containers-linux.md)
 [Quickstart: Deploy a Windows container application to Service Fabric](service-fabric-quickstart-containers.md)
 [Containerize an existing .NET app](service-fabric-host-app-in-a-container.md)
 [Service Fabric Container Samples](https://azure.microsoft.com/resources/samples/service-fabric-containers/)
 
-
 ## What are containers
 
-Containers solve the problem of running software reliably in different computing environments. Containers wrap an application, and all of its dependencies such as libraries and configuration files, into its own isolated 'box' that contains everything needed to run the software inside the container. Wherever the container runs, the application inside it always has everything it needs to run.
+Containers solve the problem of running software reliably in different computing environments by providing an immutable environment for applications to run in. Containers wrap an application and all of its dependencies, such as libraries and configuration files, into its own isolated 'box' that contains everything needed to run the software inside the container. Wherever the container runs, the application inside it always has everything it needs to run.
 
-An application in a container has no knowledge of any other applications or processes outside of its container. Each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of the operating system. In addition to portability, this degree of security and resource isolation is the main benefit of using containers with Service Fabric, which otherwise runs services in a process.
+Containers run directly on top of the kernel and have an isolated view of the file system and other resources. An application in a container has no knowledge of any other applications or processes outside of its container. Each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of the operating system. In addition to making it easy to provide all of your application's dependencies it needs to run in different computing environments, security and resource isolation are important benefits of using containers with Service Fabric--which otherwise runs services in a process.
 
-Containers provide an immutable environment for applications to run with varying degrees of isolation. Containers run directly on top of the kernel and have an isolated view of the file system and other resources. Compared to virtual machines, containers have the following advantages:
+Compared to virtual machines, containers have the following advantages:
 
 * **Small**: Containers use a single storage space and layer versions and updates to increase efficiency.
 * **Fast**: Containers don’t have to boot an entire operating system, so they can start much faster, typically in seconds.
