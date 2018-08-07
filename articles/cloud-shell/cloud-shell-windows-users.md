@@ -19,18 +19,18 @@ ms.author: damaerte
 
 # PowerShell in Azure Cloud Shell for Windows Users
 
-In May 2018, changes were [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) to PowerShell experience in Azure Cloud Shell.
+In May 2018, changes were [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) to PowerShell in Azure Cloud Shell.
 The PowerShell experience in Azure Cloud Shell now runs [PowerShell Core 6](https://github.com/powershell/powershell) in a Linux environment.
-With this change, there may be some differences in PowerShell experience in Cloud Shell compared to what is expected in Windows PowerShell experience.
+With this change, there may be some differences in the PowerShell experience in Cloud Shell compared to what is expected in a Windows PowerShell experience.
 
-## Filesystem Case Sensitivity
+## File system case sensitivity
 
-File system is case-insensitive in Windows, whereas on Linux, the file system is case-sensitive.
+The file system is case-insensitive in Windows, whereas on Linux, the file system is case-sensitive.
 Previously `file.txt` and `FILE.txt` were considered to be the same file, but now they are considered to be different files.
 Proper casing must be used while `tab-completing` in the file system.
 PowerShell specific experiences, such as `tab-completing` cmdlet names, parameters, and values, are not case-sensitive.
 
-## Windows PowerShell Aliases vs Linux Utilities
+## Windows PowerShell aliases vs Linux utilities
 
 Some existing PowerShell aliases have the same names as built-in Linux commands, such as `cat`,`ls`, `sort`, `sleep`, etc.
 In PowerShell Core 6, aliases that collide with built-in Linux commands have been removed.
@@ -53,7 +53,7 @@ Below are the common aliases that have been removed as well as their equivalent 
 Earlier users could only persist scripts and other files in their Cloud Drive.
 Now, the user's $HOME directory is also now persisted across sessions.
 
-## PowerShell Profile
+## PowerShell profile
 
 By default, a user's PowerShell profile is not created.
 To create your profile, create a `PowerShell` directory under `$HOME/.config`.
