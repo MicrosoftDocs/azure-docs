@@ -4,7 +4,6 @@ description: Use ScaleR and SparkR with ML Services on HDInsight
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

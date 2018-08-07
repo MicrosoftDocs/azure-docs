@@ -1,16 +1,11 @@
 ---
-title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on HDInsight - Azure '
 description: Learn how to extract data from a raw CSV dataset, transform it using Hive on HDInsight, and then load the transformed data into Azure SQL database by using Sqoop.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jasonh
