@@ -58,7 +58,7 @@ For more information about workflow properties and parameters, see [Workflow com
 
 ## Tests
 
-A test in VaaS consists of a suite of operations that run against an Azure Stack solution. Tests have different purposes identified by a category such as **Functional** or **Reliability** and may target one or more services of Azure Stack. Each tests defines its own set of parameters, some of which are specified by common parameters of the containing workflow.
+A test in VaaS consists of a suite of operations that run against an Azure Stack solution. Tests have different purposes identified by a category such as **Functional** or **Reliability**, and may target one or more services of Azure Stack. Each tests defines its own set of parameters, some of which are specified by common parameters of the containing workflow.
 
 For more information about managing and monitoring tests, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
@@ -68,9 +68,9 @@ For more information about test parameters, see [Workflow common parameters for 
 
 A VaaS agent drives test execution. Tests can be performed in the following ways:
 
-- Cloud agent. This is the default agent available in VaaS. Zero setup is required, but this requires in-bound connectivity to your environment and Azure Stack endpoints must be resolvable from the internet. Some tests are not compatible with the cloud agent.
+- Cloud agent. This is the default agent available in VaaS. No setup is required, but this requires in-bound connectivity to your environment and Azure Stack endpoints must be resolvable from the internet. Some tests are not compatible with the cloud agent.
 - Local agent. This enables you to perform validation in scenarios where in-bound connectivity to your environment is not feasible. Some tests require execution through the local agent.
 
 Local agents are not tied to any particular Azure Stack or VaaS solution. As a best practice, they should run outside of an Azure Stack environment.
 
-For instructions on adding a local agent, [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+For instructions on adding a local agent, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
