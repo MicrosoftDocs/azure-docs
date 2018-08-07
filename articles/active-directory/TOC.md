@@ -129,7 +129,7 @@
 #### [Integrate activity logs with Splunk using Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
 
 ### Reference
-#### [Retention](active-directory-reporting-retention.md)
+#### [Retention](reports-monitoring/reference-reports-data-retention.md)
 #### [Latencies](reports-monitoring/reference-reports-latencies.md)
 #### [Audit activity reference](reports-monitoring/reference-audit-activities.md)
 #### [Sign-in activity error codes](reports-monitoring/reference-sign-ins-error-codes.md)

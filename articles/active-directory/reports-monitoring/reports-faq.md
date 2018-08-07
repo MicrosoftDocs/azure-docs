@@ -66,7 +66,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** See [for how long is the collected data stored?](../active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) for an answer to this question.
+**A:** See [for how long is the collected data stored?](reference-reports-data-retention.md#q-for-how-long-is-the-collected-data-stored) for an answer to this question.
 
 --- 
 

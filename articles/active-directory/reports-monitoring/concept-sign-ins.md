@@ -160,7 +160,7 @@ If you want to run the script on a **Windows 10** machine, you need to perform a
 3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
 4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
-In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](../active-directory-reporting-retention.md).  
+In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-in activities shortcuts
