@@ -55,7 +55,7 @@ Where *{Your Search Terms}* is your search keywords.
 
 <br/>
 
-[![Stack Overflow](media/active-directory-develop-help-support/stackoverflow-logo.png)](https://www.stackoverflow.com)
+[![Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions - where both members of community as Microsoft team members are directly involved on helping you to solve your problem.
@@ -80,7 +80,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 <br/>
 
 
-[![Stack Overflow](media/active-directory-develop-help-support/github-logo.png)](https://www.github.com)
+[![Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
 ## Create a GitHub issue
 
  If you find a bug or problem related to our libraries, raise an issue on our GitHub repositories. Because our libraries are open source, you are also free to submit a pull request as well. The following article contains a list of libraries and their GitHub repositories:
