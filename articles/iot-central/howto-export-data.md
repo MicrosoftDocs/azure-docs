@@ -38,7 +38,7 @@ This article describes how to use the continuous data export feature in Azure Io
 
 ### Measurements
 
-The measurements that devices send are exported to your Storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
+The measurements that devices send are exported to your storage account once per minute. The data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the device ID.
@@ -201,12 +201,12 @@ Each record in the decoded AVRO file looks like:
 
 ## Set up continuous data export
 
-1. If you don't have an Azure Storage account, [create a new Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal. Create the Storage account **in the Azure subscription that has your IoT Central application**.
+1. If you don't have an Azure storage account, [create a new storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the Azure portal. Create the storage account **in the Azure subscription that has your IoT Central application**.
     - For the account type, choose **General purpose** or **Blob storage**.
     - Select the subscription that has your IoT Central application. If you don't see the subscription, you might need to sign in to a different Azure account or request access to the subscription.
-    - Choose an existing resource group or create a new one. Learn about [how to create a new Storage account](https://aka.ms/blobdocscreatestorageaccount).
+    - Choose an existing resource group or create a new one. Learn about [how to create a new storage account](https://aka.ms/blobdocscreatestorageaccount).
 
-2. Create a container in your Storage account to export your IoT Central data. Go to your Storage account. Under **Blob Service**, select **Browse Blobs**. Select **Container** to create a new container.
+2. Create a container in your storage account to export your IoT Central data. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **Container** to create a new container.
 
    ![Create a container](media/howto-export-data/createcontainer.png)
 
@@ -216,11 +216,11 @@ Each record in the decoded AVRO file looks like:
 
    ![Configure continuous data export](media/howto-export-data/continuousdataexport.PNG)
 
-5. In the **Storage account** drop-down list box, select your Storage account. In the **Container** drop-down list box, select your container. Under **Data to export**, specify each type of data to export by setting the type to **On**.
+5. In the **Storage account** drop-down list box, select your storage account. In the **Container** drop-down list box, select your container. Under **Data to export**, specify each type of data to export by setting the type to **On**.
 
 6. To turn on continuous data export, set **Data export** to **On**. Select **Save**.
 
-7. After a few minutes, your data appears in your Storage account. Browse to your Storage account. Select **Browse blobs** > your container. You see three folders for the export data. The default paths for the AVRO files with the export data are:
+7. After a few minutes, your data appears in your storage account. Browse to your storage account. Select **Browse blobs** > your container. You see three folders for the export data. The default paths for the AVRO files with the export data are:
     - Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
     - Devices: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
     - Device templates: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
