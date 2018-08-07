@@ -5,8 +5,6 @@ keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop 
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
-ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
