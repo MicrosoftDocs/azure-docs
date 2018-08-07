@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: haining
 author: haining
-ms.date: 09/27/2018
+ms.date: 09/24/2018
 ---
 
 # How to migrate to the latest version of Azure Machine Learning Services 

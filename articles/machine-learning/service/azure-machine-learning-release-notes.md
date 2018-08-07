@@ -25,13 +25,13 @@ In this article, learn about the past releases of Azure Machine Learning.
 With this release of Azure Machine Learning, you can:
 + Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and [deploy that model to an FPGA on Azure](../service/how-to-deploy-fpga-web-service.md) for ultra-low latency inferencing.
 
-+ Quickly build and deploy highly-accurate machine learning and deep learning models using [custom Azure Machine Learning Packages](../service/reference-python-package-overview.md) for the following domains:
-  + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
-  + [Text analytics](../service/how-to-build-deploy-text-classification-models.md)
-  + [Forecasting](../service/how-to-build-deploy-forecast-models.md)
++ Quickly build and deploy highly-accurate machine learning and deep learning models using [custom Azure Machine Learning Packages](../desktop-workbench/reference-python-package-overview.md) for the following domains:
+  + [Computer vision](../desktop-workbench/how-to-build-deploy-image-classification-models.md)
+  + [Text analytics](../desktop-workbench/how-to-build-deploy-text-classification-models.md)
+  + [Forecasting](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
 ## 2018-03 (Sprint 4)
-**Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
 Many of the following updates are made as direct results of your feedback. Please keep them coming!
@@ -73,10 +73,10 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 
 ### Experimentation
-- Azure Machine Learning Workbench now supports running your scripts natively on your own python or pyspark environment. For this capability, user creates and manages their own environment on the remote VM and use Azure Machine Learning Workbench to execute their scripts on that target. Please see [Configuring Azure Machine Learning Experimentation Service](experimentation-service-configuration.md) 
+- Azure Machine Learning Workbench now supports running your scripts natively on your own python or pyspark environment. For this capability, user creates and manages their own environment on the remote VM and use Azure Machine Learning Workbench to execute their scripts on that target. Please see [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md) 
 
 ### Model Management
-- Support for Customizing the Deployed Containers: enables customizing the container image by allowing installation of external libraries using apt-get, etc. It is no longer limited to pip-installable libraries. See the [documentation](model-management-custom-container.md) for more info.
+- Support for Customizing the Deployed Containers: enables customizing the container image by allowing installation of external libraries using apt-get, etc. It is no longer limited to pip-installable libraries. See the [documentation](../desktop-workbench/model-management-custom-container.md) for more info.
   - Use the `--docker-file myDockerStepsFilename` flag and file name with the manifest, image, or service creation commands.
   - Note that the base image is Ubuntu, and cannot be modified.
   - Example command: 
@@ -88,7 +88,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 
 ## 2018-01 (Sprint 3) 
-**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
@@ -124,7 +124,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
   - Enabled local environment setup for free subscriptions 
 
 ## 2017-12 (Sprint 2 QFE) 
-**Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 This is the QFE (Quick Fix Engineering) release, a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
 
@@ -134,12 +134,12 @@ In addition, there are two important updates:
 - In the command-line tool, you no longer need to be an Azure subscription owner to provision Machine Learning Compute ACS clusters. 
 
 ## 2017-12 (Sprint 2)
-**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welcome to the third update of Azure Machine Learning. This update includes improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. 
 
 **Notable New Features**
-- [Support for SQL Server and Azure SQL DB as a data source](data-prep-appendix2-supported-data-sources.md#types) 
+- [Support for SQL Server and Azure SQL DB as a data source](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Deep Learning on Spark with GPU support using MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](http://aka.ms/aml-iot-edge-blog)
 - Registered model list and detail views available Azure portal
@@ -170,7 +170,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 - Performance improvements while recommending edge cases to review in the 'derive column by example' transformation
 
-- [Support for SQL Server and Azure SQL DB as a data source](data-prep-appendix2-supported-data-sources.md#types) 
+- [Support for SQL Server and Azure SQL DB as a data source](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Image of creating a new SQL server data source](media/azure-machine-learning-release-notes/sql-server-data-source.png)
 
@@ -198,7 +198,7 @@ You can now create and access a remotedocker or cluster type compute target usin
 
 - You can prepare this compute target and use it for execution and Azure ML Workbench will use this key for authentication.  
 
-For more information on creating compute targets, see [Configuring Azure Machine Learning Experimentation Service](experimentation-service-configuration.md)
+For more information on creating compute targets, see [Configuring Azure Machine Learning Experimentation Service](../desktop-workbench/experimentation-service-configuration.md)
 
 ### Visual Studio Tools for AI
 - Added support for [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
@@ -234,7 +234,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
     - `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
 
 ## 2017-11 (Sprint 1) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 In this release, we've made improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Keep them coming!
 
@@ -343,20 +343,20 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - Image construction service now supports building images for Azure IoT services/devices.
 
 #### Sample projects
-- [_Classifying Iris_](./tutorial-classifying-iris-part-1.md) sample project:
+- [_Classifying Iris_](../desktop-workbench/tutorial-classifying-iris-part-1.md) sample project:
     - `iris_pyspark.py` is renamed to `iris_spark.py`.
     - `iris_score.py` is renamed to `score_iris.py`.
     - `iris.dprep` and `iris.dsource` are updated to reflect the latest data prep engine updates.
     - `iris.ipynb` Notebook is amended to work in HDInsight cluster.
     - Run history is turned on in `iris.ipynb` Notebook cell.
-- [_Advanced Data Prep using Bike Share Data_](./tutorial-bikeshare-dataprep.md) sample project "Handle Error Value" step fixed.
+- [_Advanced Data Prep using Bike Share Data_](../desktop-workbench/tutorial-bikeshare-dataprep.md) sample project "Handle Error Value" step fixed.
 - [_MMLSpark on Adult Census Data_](https://github.com/Azure/MachineLearningSamples-mmlspark) sample project `docker.runconfig` format updated from JSON to YAML.
-- [_Distributed Hyperparameter Tuning_](./scenario-distributed-tuning-of-hyperparameters.md) sample project`docker.runconfig` format updated from JSON to YAML.
-- New sample project [_Image Classification using CNTK_](./scenario-image-classification-using-cntk.md).
+- [_Distributed Hyperparameter Tuning_](../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md) sample project`docker.runconfig` format updated from JSON to YAML.
+- New sample project [_Image Classification using CNTK_](../desktop-workbench/scenario-image-classification-using-cntk.md).
 
 
 ## 2017-10 (Sprint 0) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welcome to the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes.  Some of the critical issues we addressed include:
 

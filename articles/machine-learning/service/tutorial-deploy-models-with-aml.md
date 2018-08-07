@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: hning86
 ms.author: haining
 ms.reviewer: jmartens
-ms.date: 7/27/2018
+ms.date: 09/24/2018
 ---
 
 # Tutorial #2: Deploy model on Azure Machine Learning with MNIST dataset and TensorFlow

@@ -9,9 +9,14 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Build and deploy image similarity models with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 In this article, learn how to use Azure Machine Learning Package for Computer Vision (AMLPCV) to train, test, and deploy an image similarity model. For an overview of this package and its detailed reference documentation, see https://aka.ms/aml-packages/vision.
 
