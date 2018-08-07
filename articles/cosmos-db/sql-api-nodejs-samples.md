@@ -21,6 +21,7 @@ ms.author: moderakh
 > * [Java Examples](sql-api-java-samples.md)
 > * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
+> * [Node.js Examples - v2.0 Preview](sql-api-nodejs-samples-preview.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 

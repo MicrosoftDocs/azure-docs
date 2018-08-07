@@ -3,7 +3,7 @@ title: Example Apache Storm topologies on HDInsight | Microsoft Docs
 description: A list of example Storm topologies created and tested with Apache Storm on HDInsight including basic C# and Java topologies, and working with Event Hubs.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Example Storm topologies and components for Apache Storm on HDInsight
