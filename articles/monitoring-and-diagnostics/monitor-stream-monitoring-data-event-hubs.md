@@ -48,7 +48,7 @@ Azure tenant monitoring data is currently only available for Azure Active Direct
 
 ### Stream Azure Active Directory data into an event hub
 
-To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) to set up a tenant diagnostic setting.
+To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) to set up a tenant diagnostic setting.
 
 ## How do I set up Azure subscription monitoring data to be streamed to an event hub?
 
