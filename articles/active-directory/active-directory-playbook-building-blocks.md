@@ -538,7 +538,7 @@ Approximate time to Complete: 10 minutes
 
 ### Considerations
 
-This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](active-directory-reporting-risk-events.md)
+This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md)
 
 ## Configuring certificate based authentication
 
