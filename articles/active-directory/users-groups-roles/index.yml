@@ -23,9 +23,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory.md">Add users to Azure AD</a>
-    - html: <a href="/azure/active-directory/fundamentals/get-started-azure-ad.md">Assign licenses to users</a>    
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium.md">Sign up for Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Add users to Azure AD</a>
+    - html: <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Assign licenses to users</a>    
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a>
     - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Set Office 365 groups to expire in Azure Active Directory</a>
     - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Add naming policy for Office 365 groups in Azure Active Directory</a>
 
