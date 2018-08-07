@@ -46,7 +46,7 @@ To follow this example, you need these items:
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
-Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * An existing [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 associated with your Azure subscription
@@ -100,6 +100,12 @@ Select this trigger: **Batch messages**
    ||| 
 
    ![Provide Batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
+
+   > [!NOTE]
+   > This example doesn't set up a partition for the batch, 
+   > so each batch uses the same partition key. 
+   > To learn more about partitions, see 
+   > [Batch process messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md#batch-sender).
 
 5. Now add an action that encodes each batch: 
 
@@ -223,7 +229,7 @@ Select this trigger: **When a HTTP request is received**
 To test your batching solution, post X12 messages to your batch sender logic 
 app from [Postman](https://www.getpostman.com/postman) or a similar tool. 
 Soon, you start getting X12 messages in your request bin, 
-either every 10 minutes or in batches of five, all with the same partition key.
+either every 10 minutes or in batches of 10, all with the same partition key.
 
 ## Next steps
 
