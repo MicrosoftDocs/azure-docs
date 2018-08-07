@@ -205,8 +205,7 @@ For a user called **Device Manager** in the **ManageDevices** role, the response
 }
 ```
 
-The following snippet from [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) in the [
-[web UI](https://github.com/Azure/pcs-remote-monitoring-webui/) shows how the permissions are enforced declaratively:
+The following snippet from [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) in the [web UI](https://github.com/Azure/pcs-remote-monitoring-webui/) shows how the permissions are enforced declaratively:
 
 ```json
 <FlyoutContent>
