@@ -37,6 +37,10 @@ and processing those messages. In this scenario,
 the batch receiver also encodes the messages in the batch 
 by using the specified X12 agreement or partner identities.
 
+  You must first create your batch receiver so that 
+  when you later create your batch sender, you can 
+  select the receiver app as the batch destination.
+
 * [Create a "batch sender" logic app](#sender), 
 which send the messages to the previously created batch receiver. 
 
@@ -180,7 +184,11 @@ to the batch receiver logic app. In each batch sender,
 you specify the batch receiver logic app and batch name, 
 message content, and any other settings. You can 
 optionally provide a unique partition key to divide 
-the batch into subsets to collect messages with that key.
+the batch into subsets to collect messages with that key. 
+
+Make sure you previously [created your batch receiver logic app](#receiver) 
+so that when you create your batch sender, you can select that 
+receiver app as the batch destination.
 While batch receivers don't need to know anything about batch senders, 
 the batch senders must know where to send messages. 
 
