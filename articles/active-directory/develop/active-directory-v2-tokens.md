@@ -137,7 +137,7 @@ When your app receives an ID token upon user sign-in, it should also perform a f
 
 For a full list of claim validations that your app should perform, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
 
-Details of the expected values for these claims are included in the [ID tokens](# ID tokens) section.
+Details of the expected values for these claims are included in the [ID tokens](#id-tokens) section.
 
 ## Token lifetimes
 We provide the following token lifetimes for your information only. The information might help you as you develop and debug apps. Your apps should not be written to expect any of these lifetimes to remain constant. Token lifetimes can and will change at any time.
