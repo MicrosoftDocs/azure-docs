@@ -47,7 +47,7 @@ On the workspace page, click on `Explore your Azure Machine Learning Workspace`
 
  ![explore workspace](./media/quickstart-get-started/explore_aml.png)
 
-In a moment, you will use this page.  For now, leave the browser open and move on to configure your project.
+In a moment, you will use this page.  For now, leave the browser open and move on to configure a project.
 
 ## Configure a project
 
@@ -75,7 +75,7 @@ Go back to the portal page on your browser to find the configuration code for yo
 
 [!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
 
-## Attach the project and run the script
+## Run the script
 
 Attach the project to your workspace and run the script with this Python code:
 

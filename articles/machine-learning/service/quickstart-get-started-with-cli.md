@@ -52,7 +52,7 @@ az extension add azureml-sdk
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+In a command-line window, sign in with the Azure CLI command, `az login`. Follow the prompts for interactive login:
     
    ```azurecli
    az login
@@ -68,7 +68,7 @@ List the available Azure subscriptions, and specify the one you want to use:
 
 Create a resource group to hold your workspace.
    In this quickstart:
-   + The name of the resource group is `myrg`.
+   + The name of the resource group is `docs-aml`.
    + The region is `eastus2`. 
 
    ```azurecli
@@ -99,7 +99,7 @@ In the command-line window, create a folder on your local machine for your Azure
 
 [!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
 
-## Attach the project and run the script
+## Run the script
 
 Attach the folder as a project to the workspace. The `--history` argument specifies a name for the run history file that captures the metrics for each run.
 
