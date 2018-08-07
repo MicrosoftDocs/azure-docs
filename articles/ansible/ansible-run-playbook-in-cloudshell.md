@@ -51,7 +51,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   chmod +x azure_rm.py
   ```
 
-1. Use the [ansible command](https://docs.ansible.com/ansible/2.4/ansible.html) to connect to your virtual machine: 
+1. Use the [ansible command](http://docs.ansible.com/ansible/latest/cli/ansible.html) to connect to your virtual machine: 
 
   ```azurecli-interactive
   ansible -i azure_rm.py ansible-test-vm -m ping
@@ -77,7 +77,7 @@ Ansible has created a Python script called [azure_rm.py](https://github.com/ansi
   ```
 
 ## Run a playbook in Cloud Shell
-The [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-playbook.html) command executes Ansible playbooks, running the tasks on the targeted host(s). 
+The [ansible-playbook](http://docs.ansible.com/ansible/latest/cli/ansible-playbook.html) command executes Ansible playbooks, running the tasks on the targeted host(s). 
 This section walks you through using the Cloud Shell to create and execute two playbooks - one to create a resource group, and a second to delete the resource group. 
 
 1. Create a file named `rg.yml` as follows:
