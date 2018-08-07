@@ -25,96 +25,80 @@ Validation as a Service (VaaS) is an Azure service that is made available to Mic
 
 Learn how to get your system ready for Validation as a Service. Set up the Azure Active Directory instance and perform other required tasks for getting ready to use VaaS.
 
-The tasks include:
+## Configure an Azure Active Directory tenant
 
-- Create an Azure Storage Account to store logs
-- Deploy the local agent
-- Download test image virtual machines on the Azure Stack instance to be tested
+An Azure Active Directory tenant is required for authenticating and registering with VaaS.  The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
 
-## Create an Azure Active Directory tenant ID
+> [!NOTE]
+> It is important that you register your "organizational" Azure AD tenant directory (rather than the AAD tenant directory used for Azure Stack) and establish a policy for managing the user accounts in it. For more information, see [Manage your Azure AD directory](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
 
-1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com) or use an existing tenant.
+### Create a tenant
 
-    It is recommended to create a tenant specifically for use with VaaS with a descriptive name, such as, ContosoVaaS@onmicrosoft.com. The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
+It is recommended to create a tenant specifically for use with VaaS with a descriptive name, for example, ContosoVaaS\@onmicrosoft.com.
 
-    More information, see [Manage your Azure AD directory](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com), or use an existing tenant. For instructions on creating new Azure Active Directory tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad).
 
-    > [!Note]  
-    > For more information about creating new Azure Active Directory tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad).
+2. Add members of your organization to the tenant. These users will be responsible for using the service to view or schedule tests. Once registration is complete, users' level of access will be defined by role assignments in [Assign user roles](#assign-user-roles).
 
-2. Add members of your organization who will be responsible for using the service to the tenant. Assign each user in the tenant one of the following roles to control their access level to VaaS:
+> [!TIP]
+> If you would like to isolate VaaS resources and operations among different groups within the organization, you can create multiple Azure AD tenant directories.
 
-    | Role Name | Description |
-    |---------------------|------------------------------------------|
-    | Owner | Has full access to all resources. |
-    | Reader | Can view all resources but not edit. |
-    | Test Contributor | Can manage test resources. |
-    | Catalog Contributor | Can manage solution publishing resources. |
+### Register your tenant
 
-## Set up your tenant
+This process authorizes your tenant with the **Azure Stack Validation Service** Azure Active Directory application.
 
-Set up your tenant in the **Azure Stack Validation Service** application.
-
-1. Send the following information about the tenant to Microsoft at vaashelp@microsoft.com.
+1. Send the following information about the tenant to Microsoft at [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
     | Data | Description |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Organization Name | Official organization name. |
     | Azure AD Tenant Directory Name | Azure AD Tenant Directory name being registered. |
-    | Azure AD Tenant Directory Id | Azure AD Tenant Directory GUID associated with the directory.<br> For information on how to find your Azure AD Tenant Directory ID can be found, see "[Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)." |
+    | Azure AD Tenant Directory ID | Azure AD Tenant Directory GUID associated with the directory. For information on how to find your Azure AD Tenant Directory ID, see [Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
 
+2. Wait for confirmation from the Azure Stack Validation team that your tenant can use the VaaS portal.
 
+### Consent to the VaaS application
 
-2. The Azure Stack team provides confirmation that your tenant can use the VaaS portal.
+As the AAD administrator, give the VaaS AAD application the required permissions on behalf of your tenant.
 
-3. Use the global admin credentials for the tenant to sign into the [VaaS portal](https://azurestackvalidation.com/
-). Select **My Account**.
+1. Use the global admin credentials for the tenant to sign into the [VaaS portal](https://azurestackvalidation.com/). Click on **My Account**.
 
     ![Sign to the VaaS portal](media/vaas_portalsignin.png)
 
-3. The site will prompted you to grant access for VaaS. Accept the terms to proceed.
+2. The site will prompt you to grant VaaS access to the listed AAD permissions. Accept the terms to proceed.
 
-## Assign user roles
+For more information on the consent framework, see [Overview of the consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#overview-of-the-consent-framework).
 
-To assign a user role:
+### Assign user roles
+
+Authorize the users in your tenant to perform actions in VaaS by assigning one of the following roles:
+
+| Role Name | Description |
+|---------------------|------------------------------------------|
+| Owner | Has full access to all resources. |
+| Reader | Can view all resources but not create or manage. |
+| Test Contributor | Can create and manage test resources. |
+
+To assign roles in the **Azure Stack Validation Service** application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** > **Azure Active Directory** in the **Identity** group.
+2. Select **All Services** > **Azure Active Directory** under the **Identity** section.
 3. Select **Enterprise Applications** > **Azure Stack Validation Service** application.
 4. Select **Users and groups**. The **Azure Stack Validation Service - Users and group** blade lists the users with permission to use the application.
-5. Select **+ Add user** to add an assignment.
+5. Select **+ Add user** to add a user from your tenant and assign a role.
 
-## Create an Azure Storage Account to store logs
+## Create an Azure Storage Account
 
-VaaS creates diagnostic logs when running the validation tests. You need a location an Azure blob service SAS URL to store your logs. The storage account may also be used to the store the OEM customization packages.
+During test execution, VaaS outputs diagnostic logs to an Azure Storage Account. In addition to test logs, the storage account may also be used to the upload the OEM customization packages during the Package Validation workflow.
 
-These steps walk through how to set up and generate a shared access signature (SAS) URI for an Azure Storage Account, and where to specify the storage account in the VaaS portal when starting tests in the portal.
-
-### Create an Azure Storage Account
-
-1. To create a storage account, follow the instructions, [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
-
+1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.
 
-### Generate a SAS URL for the storage account
+For details on using the storage account for VaaS, see the following articles:
 
-1. Navigate to the storage account created above.
-
-2. On the blade under **Settings**, select **Shared access signature**.
-
-3. Check only **Blob** from **Allowed Services options**. Uncheck the remaining options.
-
-4. Check **Service**, **Container, and **Object** from **Allowed resource types**.
-
-5. Check **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions**. Uncheck the remaining options.
-
-6. Set **Start time** to the current time, and **End time** to three months from the current time.
-
-7. Select **Generate SAS and connection string** and save the **Blob service SAS URL** string.
-
-> [!Note]  
-> The SAS URL expires at the end time set when the URL was generated. Ensure that the URL is sufficiently valid before sharing it with product team for debugging, or that the URL is valid for more than 30 days when scheduling tests.
+- [Generate the diagnostics connection string](azure-stack-vaas-parameters.md#generate-the-diagnostics-connection-string)
+- [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
 
 ## Next steps
 
-- Use the VaaS local agent to check your hardware. For instruction, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+- Use the VaaS local agent to prepare for test execution. For instruction, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
