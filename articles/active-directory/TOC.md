@@ -142,7 +142,7 @@
 #### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
-###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
+###	[Programmatic Access](reports-monitoring/concept-reporting-api.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](reports-monitoring/sample-audit-api.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)

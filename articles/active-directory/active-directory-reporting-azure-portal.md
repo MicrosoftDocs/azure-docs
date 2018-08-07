@@ -96,7 +96,7 @@ To access the sign-ins activity report, your tenant must have an Azure AD Premiu
 
 ## Programmatic access
 
-In addition to the user interface, Azure Active Directory reporting also provides you with [programmatic access](active-directory-reporting-api-getting-started-azure-portal.md) to the reporting data. The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. 
+In addition to the user interface, Azure Active Directory reporting also provides you with [programmatic access](reports-monitoring/concept-reporting-api.md) to the reporting data. The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. 
 
 
 ## Next steps
@@ -110,7 +110,7 @@ If you want to know more about the various report types in Azure Active Director
 
 If you want to know more about accessing the reporting data using the reporting API, see: 
 
-- [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Getting started with the Azure Active Directory reporting API](reports-monitoring/concept-reporting-api.md)
 
 
 <!--Image references-->

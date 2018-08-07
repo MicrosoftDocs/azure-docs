@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 ---
 # Get data using the Azure Active Directory reporting API with certificates
 
-The [Azure Active Directory (Azure AD) reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. If you want to access the Azure AD Reporting API without user intervention, you can configure your access to use certificates.
+The [Azure Active Directory (Azure AD) reporting APIs](reports-monitoring/concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools. If you want to access the Azure AD Reporting API without user intervention, you can configure your access to use certificates.
 
 This involves the following steps:
 
@@ -81,7 +81,7 @@ You can now choose to export this data to a CSV and save to a SIEM system. You c
 
 ## Next steps
 
-* [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Get a first impression of the reporting APIs](reports-monitoring/concept-reporting-api.md)
 * [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 

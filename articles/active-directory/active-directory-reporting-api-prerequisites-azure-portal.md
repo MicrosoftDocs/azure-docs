@@ -227,6 +227,6 @@ To get your application's client secret, you need to create a new key and save i
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](active-directory-reporting-api-with-certificates.md)
-* [Get a first impression of the reporting APIs](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Get a first impression of the reporting APIs](reports-monitoring/concept-reporting-api.md)
 * [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
