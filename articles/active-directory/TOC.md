@@ -138,7 +138,7 @@
 
 ### Troubleshoot
 #### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
-#### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
+#### [Missing data in downloads](reports-monitoring/troubleshoot-missing-data-download.md)
 #### [Azure AD Activity logs content pack errors](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errors in Azure AD Reporting API](reports-monitoring/troubleshoot-graph-api.md)
 
