@@ -105,8 +105,7 @@ The following steps describe how you can manage terms of use:
 You can capture terms of use acceptance under the following scenarios:
 
 - A new user is signing up. The terms of use are displayed, and the acceptance result is stored.
-- A user is signing in who has previously accepted the latest or active terms of agreement. The terms of use are not displayed.
-<!-- Linguist comment: Please confirm if "terms of agreement" is correct here. Throughout the document "terms of use" is used, and "terms of agreement" is the only occurrence, hence, this seems to be incorrect. Could you please advise? Thanks. -->
+- A user is signing in who has previously accepted the latest or active terms of use. The terms of use are not displayed.
 - A user is signing in who has not already accepted the latest or active terms of use. The terms of use are displayed, and the acceptance result is stored.
 - A user is signing in who has already accepted an older version of the terms of use, which are now updated to the latest version. The terms of use are displayed, and the acceptance result is stored.
 
