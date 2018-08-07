@@ -61,7 +61,7 @@ For this tutorial, you have two options for deployment of the Voting application
 * Publish to an existing cluster in your subscription.  You can create Service Fabric clusters through the [Azure portal](https://portal.azure.com), using [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from a [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy-setup.md#).
 
 
 ### Find the VotingWeb service endpoint for your Azure subscription

@@ -27,7 +27,7 @@ Many users want to enable voice input on their applications. Voice input is a gr
 
 ### Voice Triggered Apps with baseline models
 
-If your app is going to be used by the general public in environments where the background noise is not excessive, the easiest and fastest way to do this be simply downloading our [Speech SDK](speech-sdk.md) and following the relevant [Samples](quickstart-csharp-dotnet-windows.md). The SDK powered by your [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) allows developers to upload audio to baseline speech recognition models that power Cortana and Skype. The mdoels are state of the art, and are used by the aforementioned products. You can be up and running in minutes.
+If your app is going to be used by the general public in environments where the background noise is not excessive, the easiest and fastest way to do this be simply downloading our [Speech SDK](speech-sdk.md) and following the relevant [Samples](quickstart-csharp-dotnet-windows.md). The SDK powered by your [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) allows developers to upload audio to baseline speech recognition models that power Cortana and Skype. The models are state of the art, and are used by the aforementioned products. You can be up and running in minutes.
 
 ### Voice Triggered Apps with custom models
 
@@ -35,7 +35,7 @@ If your app addresses a specific domain, (say chemistry, biology or special diet
 
 ## Transcribe Call center audio calls
 
-Call centers accumulate large quantities of audio. Hidden within those audio files lies value that can be obtained though transcription. The duration of the call, the sentiment, the satisfaction of the customer and the general value the call provided to the caller can be discovered by obtaining call transcripts.
+Call centers accumulate large quantities of audio. Hidden within those audio files lies value that can be obtained through transcription. The duration of the call, the sentiment, the satisfaction of the customer and the general value the call provided to the caller can be discovered by obtaining call transcripts.
 
 The best starting point is the [Batch transcription API](batch-transcription.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
@@ -51,7 +51,7 @@ If you plan to use a custom model, then you will need the ID of that model along
 
 ## Voice Bots
 
-Developer can empower their application with voice output. The Speech Service can synthetize speech for a number of [languages](supported-languages.md) and provides the [endpoints](rest-apis.md) for accessing and adding that capability to your app.
+Developers can empower their applications with voice output. The Speech Service can synthetize speech for a number of [languages](supported-languages.md) and provides the [endpoints](rest-apis.md) for accessing and adding that capability to your app.
 
 In addition, for users that want to add more personality and uniqueness to their bots, the Speech Service enables developers to customize a unique voice font. Similar to customizing speech recognition models voice fonts require user data. Developers are upload that data in our [voice adaptation portal](https://customspeech.ai) and start building your unique brand of voice for your bot. Details are described [here](how-to-text-to-speech.md) as well as the [FAQ](faq-text-to-speech.md) pages 
 

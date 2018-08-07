@@ -369,7 +369,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### Input - JavaScript example
 
-The following example shows a  table input binding in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
+The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
 
 The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
 

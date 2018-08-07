@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 # Should I use the v2.0 endpoint?
 
-When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](active-directory-v2-compare.md) for developers.
+When you build applications that integrate with Azure Active Directory (Azure AD), you need to decide whether the v2.0 endpoint and authentication protocols meet your needs. Azure AD's original endpoint is still fully supported and, in some respects, is more feature rich than v2.0. However, the v2.0 endpoint [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
 
 Here's a simplified recommendation for developers at this point in time:
 
@@ -87,7 +87,7 @@ You can add the latter two because they are subdomains of the first redirect URI
 
 Also note, you can have only 20 reply URLs for a particular application.
 
-To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
+To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](quickstart-v2-register-an-app.md).
 
 ## Restrictions on libraries and SDKs
 

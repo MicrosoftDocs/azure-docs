@@ -40,10 +40,10 @@ In the conditional access terminology, these client apps are known as **approved
 ![Conditional access](./media/active-directory-conditional-access-mam/05.png)
 
 
-For a list of approved client apps, see [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+For a list of approved client apps, see [approved client app requirement](conditional-access/technical-reference.md#approved-client-app-requirement).
 
 
-You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md) to provide flexibility in how to protect data for both personal and corporate devices.
+You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](conditional-access/require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
 
  
 
@@ -52,14 +52,14 @@ You can combine app-based conditional access policies with other policies such a
 
 This topic assumes that you are familiar with:
 
-- The [approved client app requirement](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) technical reference.
+- The [approved client app requirement](conditional-access/technical-reference.md#approved-client-app-requirement) technical reference.
 
 
 - The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- How to [configure a conditional access policy](active-directory-conditional-access-app-based-mfa.md).
+- How to [configure a conditional access policy](conditional-access/app-based-mfa.md).
 
-- The [migration of conditional access policies](active-directory-conditional-access-best-practices.md#policy-migration).
+- The [migration of conditional access policies](conditional-access/best-practices.md#policy-migration).
  
 
 ## Prerequisites
@@ -440,6 +440,6 @@ See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/int
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
+If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](conditional-access/app-based-mfa.md).
 
-If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md). 

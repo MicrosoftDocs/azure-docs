@@ -3,11 +3,10 @@ title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 services: event-grid
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
 ---
 
@@ -63,7 +62,7 @@ By default, Event Grid expires all events that are not delivered within 24 hours
 
 ## Dead-letter events
 
-When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. To see undelivered events, you can pull them from the dead-letter location. For more information, see [Manage Event Grid delivery settings](manage-event-delivery.md).
+When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. To see undelivered events, you can pull them from the dead-letter location. For more information, see [Dead letter and retry policies](manage-event-delivery.md).
 
 ## Next steps
 
