@@ -182,10 +182,10 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
-Once you have determined that you have unused allocated space that you wish to reclaim, use the following command to shrink the database space allocated. 
+Once databases have been identified for reclaiming unused allocated space, their data files can be shrunk by modifying the following command. 
 
 > [!IMPORTANT]
-> For databases in an elastic pool, databases with the most space allocated unused should be shrunk first to reclaim file space most quickly.  
+> For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
 
 Modify the following command to shrink all of the data files in the specified database:
 
