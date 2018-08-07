@@ -57,8 +57,8 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Th
 |samlMetadataUrl    |string| `http://MyRegisteredAppSAMLMetadata` |The URL to the SAML metadata for the application.| 
 
 ## Next steps
-* For more information on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
-* See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
+* For more information on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
+* See the [Azure AD developer glossary](developer-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
 Use the following comments section to provide feedback that helps refine and shape our content.
 
