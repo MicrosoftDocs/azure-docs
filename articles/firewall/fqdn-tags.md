@@ -11,13 +11,19 @@ ms.author: victorh
 
 # FQDN tags overview
 
-There are three potential types of FQDN tags:
+FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Azure Backup network traffic through your firewall. You create an application rule, include the Azure Backup tag, and now network traffic from Azure Backup can flow through your firewall.
 
-1)	Built-in FQDN tags – these are similar to L3-L4 service tags in a sense that Microsoft is responsible to maintain the actual FQDNs the tag represents. There are two sub types here:
-a.	Generic/static tags – for example, “Windows Update” has the same list of endpoints for all users.
-b.	Per deployment/dynamic tags – for example, App Service Environment and Azure Backup create storage accounts per deployment. Such a list can only be determined dynamically (for example, RP to RP calls)
-2)	Custom FQDN tags – these are similar to the planned L3-L4 IP Groups, but at Layer 7. Users can create logical group that they can them reuse as destination in different rules. It seems this is what you referred to below.
-3)	Infra Default collection – this is the default generic FQDNs for platform services where users not even aware of these services, so they will not define explicit rules to open access unless they find out something is not working as expected. 
+<!--- screenshot of application rule with Azure Backup tag.-->
+
+The following table shows the current FQDN tags you can use. Microsoft maintains these tags and updates the list periodically.
+
+
+|FQDN tag  |Description  |
+|---------|---------|
+|Azure Backup     |         |
+|Windows Update     |         |
+|SQL     |         |
+|App Service Environment     |         |
 
 
 ### Next steps
