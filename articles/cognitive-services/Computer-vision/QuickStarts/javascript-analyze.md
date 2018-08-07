@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with JavaScript
+# Quickstart: Analyze an image with JavaScript
 
 In this quickstart, you analyze an image using Computer Vision.
 

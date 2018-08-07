@@ -12,17 +12,17 @@ ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: it-pro
-
 ---
+
 # What is Azure Active Directory?
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution. Azure AD also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules.
 
 ![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
-- **For IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../active-directory-saas-tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your employees, helping to increase both security and compliance.
+- **For IT admins.** Azure AD provides a more secure solution for your organization through the use of stronger identity management and single sign-on (SSO) access to thousands of [cloud-based SaaS apps](../saas-apps/tutorial-list.md) and on-premises apps. Through these apps, you'll also get cloud-based app security, seamless access, enhanced collaboration, and automation of the identity lifecycle for your employees, helping to increase both security and compliance.
 
     Additionally, with just [four clicks](./../connect/active-directory-aadconnect-get-started-express.md), you can integrate Azure AD with an existing Windows Server Active Directory, letting your organization use your existing on-premises identity investments to manage cloud-based SaaS app access.
 
@@ -65,7 +65,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 
 **If you are a developer:**
  
-* Check out the [Developers Guide](../develop/active-directory-developers-guide.md) to Azure Active Directory
+* Check out the [Developers Guide](../develop/azure-ad-developers-guide.md) to Azure Active Directory
 
 * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30-day trial today and  start integrating your apps with Azure AD
 

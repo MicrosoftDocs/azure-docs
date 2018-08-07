@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ![API Context menu - add version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Select **Conference API** from the API list.
+1. Select **Demo Conference API** from the API list.
 2. Select the context menu (**...**) next to it.
 3. Select **+ Add Version**.
 
@@ -54,37 +54,39 @@ Azure API Management allows you to choose the way in which you allow callers to 
 ![Add version screen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Leave **path** selected as your **versioning scheme**.
-2. Add **v1** as your **version identifier**.
+2. Add **v1** as the **Name** and **Version identifier**.
 
     > [!TIP]
     > If you select **header** or **query string** as a versioning scheme, you need to provide an additional value - the name of the header or query string parameter.
 
-3. Provide a description if you wish.
-4. Select **Create** to set up your new version.
-5. Underneath **Big Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
+3. Select **Create** to set up your new version.
+4. Underneath **Demo Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
 
     ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > If you add a version to a non-versioned API, an **Original** will be automatically created - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
 
-6. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
+5. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
 
 ## Add the version to a product
 
 In order for callers to see the new version, it must be added to a **product**.
 
 1. Select **Products** from the classic deployment model page.
+
+    ![API Management Products](media/api-management-getstarted-publish-versions/Products.png)
+
 2. Select **Unlimited**.
 3. Select **APIs**.
 4. Select **Add**.
-5. Select **Conference API, Version v1**.
+5. Select **Demo Conference API, Version v1**.
 6. Navigate to the service management page and select **APIs**.
 
 ## Browse the developer portal to see the version
 
 1. Select **Developer Portal** from the top menu.
-2. Select **APIs**, notice that **Conference API** shows **Original** and **v1** versions.
+2. Select **APIs**, notice that **Demo Conference API** shows **Original** and **v1** versions.
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
@@ -103,4 +105,4 @@ In this tutorial, you learn how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Upgrade and scale](upgrade-and-scale.md)
+> [Customize the style of the Developer portal pages](api-management-customize-styles.md)

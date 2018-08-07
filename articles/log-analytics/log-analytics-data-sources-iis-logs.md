@@ -4,19 +4,20 @@ description: Internet Information Services (IIS) stores user activity in log fil
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
-
+ms.comopnent: na
 ---
+
 # IIS logs in Log Analytics
 Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  
 

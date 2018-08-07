@@ -126,12 +126,12 @@ Each interaction in the diagram showed in Figure X represents one access control
 
   3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md).
 
-  4. Conditional Access for Saas apps: [This feature](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
+  4. Conditional Access for Saas apps: [This feature](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. You can apply the multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 
 Since the options for access control use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each scenario that requires you to control access to your resources.
 
 ## Define incident response options
-Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity. IT can use Azure AD Access and Usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](active-directory-view-access-usage-reports.md) are categorized as follows:
+Azure AD can assist IT to identity potential security risks in the environment by monitoring user’s activity. IT can use Azure AD Access and Usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, an IT admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.  [Azure AD Premium subscription](fundamentals/active-directory-get-started-premium.md) has a set of security reports that can enable IT to obtain this information. [Azure AD reports](active-directory-view-access-usage-reports.md) are categorized as follows:
 
 * **Anomaly reports**: Contain sign-in events that were found to be anomalous. The goal is to make you aware of such activity and enable you to make a determination about whether an event is suspicious.
 * **Integrated Application report**: Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
@@ -140,9 +140,9 @@ Azure AD can assist IT to identity potential security risks in the environment b
 * **Activity logs**: Contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, as well as group activity changes, and password reset and registration activity.
 
 > [!TIP]
-> Another report that can also help the Incident Response team working on a case is the [user with leaked credentials](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) report. This report surfaces any matches between the leaked credentials list and your tenant.
+> Another report that can also help the Incident Response team working on a case is the [user with leaked credentials](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) report. This report surfaces any matches between the leaked credentials list and your tenant.
 >
->
+
 
 Other important built-in reports in Azure AD that can be used during an incident response investigation and are:
 

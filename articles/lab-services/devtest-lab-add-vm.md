@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
 
 ---
@@ -31,17 +31,21 @@ This article also shows you how to manage the artifacts for a VM in your lab.
     ![Add VM button](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. On the **Choose a base** pane, select a base for the VM.
-1. On the **Virtual machine** pane, enter a name for the new virtual machine in the **Virtual machine name** text box.
+1. On the **Virtual machine** pane, **virtual machine name** is pre-filled for you with a unique auto-generated name. The name corresponds to the user name within your email address followed by a unique 3-digit number. This feature saves you the time to think of a machine name and type it every time you create a machine. You can override this auto-filled field with a name of your choice if you wish to. To override the auto-filled name for the VM, enter a name in the **Virtual machine name** text box. 
 
     ![Lab VM pane](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
-1. If you want to use a password stored in your [secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
-1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
-1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
-1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
+1. The **user name** for the machine is pre-filled with a unique auto-generated name. The name corresponds to the user name within your email address. This feature saves you the time to decide on a username every time you create a new machine. Again, you can override this auto-filled field with a username of your choice if you wish to. To override the auto-filled value for user name, enter a value in the **User Name** text box. This user is granted **administrator** privileges on the virtual machine.     
+1. For the **Password**:
+    
+    If you are creating first VM in the lab, enter a password in the **Type a value** text box. To save this password as a default password in the Azure key vault associated with the lab, select **Save as default password**. The default password is saved in the key vault with the name: **VmPassword**. When you try to create subsequent VMs in the lab, **VmPassword** is automatically selected for the **password**. To override the value, clear the **Use a saved secret** check box, and enter a password. 
+
+    You can also save secrets in the key vault first and then use it while creating a VM in the lab. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). To use the password stored in the key vault, select **Use a saved secret**, and specify a key value that corresponds to your secret (password). 
+3. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
+4. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+5. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
     **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
-1. Select **Advanced settings** to configure the VM's network options and expiration options. 
+6. Select **Advanced settings** to configure the VM's network options and expiration options. 
 
    To set an expiration option, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire. 
 1. If you want to view or copy the Azure Resource Manager template, refer to the [Save Azure Resource Manager template](#save-azure-resource-manager-template) section, and return here when finished.
@@ -101,7 +105,7 @@ An Azure Resource Manager template provides a declarative way to define a repeat
 The following steps explain how to save the Azure Resource Manager template for the VM being created.
 Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. On the **Virtual machine** pane, select **View ARM Template**.
+1. On the **Virtual machine** pane, select **View Azure Resource Manager Template**.
 2. On the **View Azure Resource Manager template** pane, select the template text.
 3. Copy the selected text to the clipboard.
 4. Select **OK** to close the **View Azure Resource Manager Template pane**.

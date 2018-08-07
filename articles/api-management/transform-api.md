@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -66,19 +66,21 @@ To see the original response:
 1. Select **Demo Conference API**.
 2. On the top of the screen, select **Design** tab.
 3. Select **All operations**.
-4. In the **Outbound processing** window, click the triangle (next to the pencil).
-5. Select **Code editor**.
-    
+4. In the **Outbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
      ![Edit policy](./media/set-edit-policies/set-edit-policies01.png)
-6. Position the cursor inside the **&lt;outbound&gt;** element.
-7. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
+5. Position the cursor inside the **&lt;outbound&gt;** element.
+6. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
 
     ![Policies](./media/transform-api/transform-api.png)
-8. Modify your **<outbound>** code to look like this:
+7. Modify your **<outbound>** code to look like this:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![Policies](./media/transform-api/set-policy.png)
+8. Click the **Save** button.
+
+
 ## Replace original URLs in the body of the API response with APIM gateway URLs
 
 This section shows how to hide original URLs that appear in the body of API's HTTP response and instead redirect them to the APIM gateway.
@@ -101,11 +103,10 @@ To see the original response:
 1. Select **Demo Conference API**.
 2. Select **All operations**.
 3. On the top of the screen, select **Design** tab.
-4. In the **Outbound processing** window, click the triangle (next to the pencil).
-5. Select **Code editor**.
-6. Position the cursor inside the **&lt;outbound&gt;** element.
-7. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
-8. Modify your **<find-and-replace** code (in the **<outbound>** element) to replace the URL to match your APIM gateway. For example:
+4. In the **Outbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
+5. Position the cursor inside the **&lt;outbound&gt;** element.
+6. In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
+7. Modify your **find-and-replace** code (in the **\<outbound\>** element) to replace the URL to match your APIM gateway. For example:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -116,11 +117,10 @@ This section shows how to add protection for your backend API by configuring rat
 1. Select **Demo Conference API**.
 2. Select **All operations**.
 3. On the top of the screen, select **Design** tab.
-4. In the **Inbound processing** window, click the triangle (next to the pencil).
-5. Select **Code editor**.
-6. Position the cursor inside the **&lt;inbound&gt;** element.
-7. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
-8. Modify your **<rate-limit-by-key** code (in the **<inbound>** element) to the following code:
+4. In the **Inbound processing** window, click the triangle (next to the pencil) and select **Code editor**.
+5. Position the cursor inside the **&lt;inbound&gt;** element.
+6. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
+7. Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

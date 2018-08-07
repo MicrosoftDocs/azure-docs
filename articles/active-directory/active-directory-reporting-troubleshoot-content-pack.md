@@ -30,7 +30,7 @@ When working with the Power BI Content Pack for Azure Active Directory Preview, 
 - [Failed to update data source credentials](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
 - [Importing of data is taking too long](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
  
-This topic provides you with information about the possible causes and how to fix these errors.
+This article provides you with information about the possible causes and how to fix these errors.
  
 ## Refresh failed 
  
@@ -39,8 +39,8 @@ This topic provides you with information about the possible causes and how to fi
 
 | Cause | How to fix |
 | ---   | ---        |
-| Refresh failure errors can be caused when the credentials of the users connecting to the content pack have been reset but not updated in the connection settings of the of the content pack. | In Power BI, locate the dataset corresponding to the Azure Active Directory Activity logs dashboard (Azure Active Directory Activity logs), choose schedule refresh, and then enter your Azure AD credentials. |
-| A refresh can fail due to data issues in the underlying content pack. | File a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| Refresh failure errors can be caused when the credentials of the users connecting to the content pack have been reset but not updated in the connection settings of the content pack. | In Power BI, locate the dataset corresponding to the Azure Active Directory Activity logs dashboard (Azure Active Directory Activity logs), choose schedule refresh, and then enter your Azure AD credentials. |
+| A refresh can fail due to data issues in the underlying content pack. | File a support ticket. For more information, see [How to get support for Azure Active Directory](fundamentals/active-directory-troubleshooting-support-howto.md).|
  
  
 ## Failed to update data source credentials 
@@ -49,8 +49,8 @@ This topic provides you with information about the possible causes and how to fi
 
 | Cause | How to fix |
 | ---   | ---        |
-| The connecting user is neither a global admin nor a security reader or a security admin. | Use an account that is either a global admin or a security reader or a security admin to access the content packs. |
-| Your tenant is not a Premium tenant or doesn't have at least one user with Premium license File. | File a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| The connecting user is not a global admin or a security reader or a security admin. | Use an account that is either a global admin or a security reader or a security admin to access the content packs. |
+| Your tenant is not a Premium tenant or doesn't have at least one user with Premium license File. | File a support ticket. For more information, see [How to get support for Azure Active Directory](fundamentals/active-directory-troubleshooting-support-howto.md).|
  
 
  
@@ -61,7 +61,7 @@ This topic provides you with information about the possible causes and how to fi
 
 | Cause | How to fix |
 | ---   | ---        |
-| Depending on the size of your tenant, this step could take anywhere from a few mins to 30 minutes. | Just be patient. If the message does not change to showing your dashboard within an hour, please file a support ticket. For more details, see [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| Depending on the size of your tenant, this step could take anywhere from a few mins to 30 minutes. | Just be patient. If the message does not change to showing your dashboard within an hour, please file a support ticket. For more information, see [How to get support for Azure Active Directory](fundamentals/active-directory-troubleshooting-support-howto.md).|
 
 ## Next steps
 

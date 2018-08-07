@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring primary and replica servers.
+In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring the primary and replica servers. Data-in Replication allows you to synchronize data from a primary MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MySQL service. 
 
 This article assumes that you have at least some prior experience with MySQL servers and databases.
 
@@ -24,7 +24,7 @@ This article assumes that you have at least some prior experience with MySQL ser
    Create a new MySQL server (ex. "replica.mysql.database.azure.com"). Refer to [Create an Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) for server creation. This server is the "replica" server in Data-in Replication.
 
    > [!IMPORTANT]
-   > This server must be created in the General Purpose or Memory Optimized pricing tiers.
+   > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers.
    > 
 
 2. Create same user accounts and corresponding privileges
@@ -32,6 +32,7 @@ This article assumes that you have at least some prior experience with MySQL ser
    User accounts are not replicated from the primary server to the replica server. If you plan on providing users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MySQL server.
 
 ## Configure the primary server
+The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "primary" in Data-in replication. 
 
 1. Turn on binary logging
 
@@ -221,3 +222,6 @@ To skip a replication error and allow replication to proceed, use the following 
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## Next steps
+- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MySQL. 

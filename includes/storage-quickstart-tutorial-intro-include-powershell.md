@@ -1,6 +1,6 @@
 ﻿## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
 Connect-AzureRmAccount

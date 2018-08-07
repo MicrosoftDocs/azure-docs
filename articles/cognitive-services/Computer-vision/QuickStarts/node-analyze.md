@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/06/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Node.js
+# Quickstart: Analyze an image with Node.js
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 

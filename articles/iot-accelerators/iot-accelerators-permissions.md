@@ -91,9 +91,9 @@ To continue learning about IoT solution accelerators, see how you can [customize
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
+[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]: ../active-directory/active-directory-users-profile-azure-portal.md
+[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md

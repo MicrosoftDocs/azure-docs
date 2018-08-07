@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with PHP
+# Quickstart: Generate a thumbnail with PHP
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

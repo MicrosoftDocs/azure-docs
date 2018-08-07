@@ -152,7 +152,7 @@ After that, select dataset container from the list and click Upload button. Azur
 
 Upload of the files takes several minutes, depending on your Internet connection. 
 
-In our code, we use [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. You can see the account name in the top left corner of your storage account's Azure page. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
+In our code, we use [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. You can see the account name in the top left corner of your storage account's Azure page. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
  
 ![access key](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

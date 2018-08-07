@@ -33,19 +33,17 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 >
 
 ## Choosing the user sign-in method for your organization
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
+The first decision of implementing Azure AD Connect is choosing which authentication method your users will use to sign in. It's important to make sure you choose the right method that meets your organization's security and advanced requirements. Authentication is critical, because it will validate user's identities to access apps and data in the cloud. To choose the right authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time.
 
-I need to | PHS with SSO| PTA with SSO| AD FS |
- --- | --- | --- | --- |
-Sync new user, contact, and group accounts in on-premises Active Directory to the cloud automatically.|x|x|x|
-Set up my tenant for Office 365 hybrid scenarios.|x|x|x|
-Enable my users to sign in and access cloud services by using their on-premises password.|x|x|x|
-Implement single sign-on by using corporate credentials.|x|x|x|
-Ensure that no passwords are stored in the cloud.||x*|x|
-Enable on-premises multi-factor authentication solutions.|||x|
+Azure AD supports the following authentication methods: 
 
-*Through a lightweight agent.
+* **Cloud Authentication** - When you choose this authentication method Azure AD handles the authentication process for user's sign-in. With cloud authentication you can choose from two options: 
+   * **Password hash synchronization (PHS)** - Password Hash Sync enables users to use the same username and password that they use on-premises without having to deploy any additional infrastructure besides Azure AD Connect. 
+   * **Pass-through authentication (PTA)** - This option is similar to password hash sync, but provides a simple password validation using on-premises software agents for organizations with strong security and compliance policies.
+* **Federated authentication** - When you choose this authentication method Azure AD will hand off the authentication process to a separate trusted authentication system, such as AD FS or a third-party federation system, to validate the user's sign-in. 
 
+For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
+ 
 For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/azure-ad-choose-authn.md)
 
 ### Password hash synchronization

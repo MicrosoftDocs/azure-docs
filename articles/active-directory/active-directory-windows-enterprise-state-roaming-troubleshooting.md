@@ -8,13 +8,14 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
+ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
@@ -175,7 +176,7 @@ Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/31965
 
 ## Next steps
 
-- Use the [User Voice forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) to provide feedback and make suggestions on how to improve Enterprise State Roaming.
+- Use the [User Voice forum](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) to provide feedback and make suggestions on how to improve Enterprise State Roaming.
 
 - For more information, see the [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md). 
 

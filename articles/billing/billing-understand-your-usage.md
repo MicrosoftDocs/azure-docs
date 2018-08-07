@@ -1,5 +1,5 @@
 ---
-title: Understand your Azure detailed usage
+title: Understand your Azure detailed usage | Microsoft Docs
 description: Learn how to read and understand the sections of your detailed usage CSV for your Azure subscription
 services: ''
 documentationcenter: ''

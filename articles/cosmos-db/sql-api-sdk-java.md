@@ -10,8 +10,8 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -48,6 +48,13 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 </table></br>
 
 ## Release notes
+
+### <a name="1.16.2"/>1.16.2
+* Added streaming fail over support.
+* Added support for custom metadata.
+* Improved session handling logic.
+* Fixed a bug in partition key range cache.
+* Fixed a NPE bug in direct mode.
 
 ### <a name="1.16.1"/>1.16.1
 * Added support for Unique Index.
@@ -146,7 +153,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>1.7.1
-* Added retry policy support for throttling.  
+* Added retry policy support for rate limiting.  
 
 ### <a name="1.7.0"/>1.7.0
 * Added time to live (TTL) support for documents.
@@ -194,6 +201,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |June 29, 2018 |--- |
 | [1.16.1](#1.16.1) |May 16, 2018 |--- |
 | [1.16.0](#1.16.0) |March 15, 2018 |--- |
 | [1.15.0](#1.15.0) |Nov 14, 2017 |--- |

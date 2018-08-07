@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 06/12/2018
+ ms.date: 06/20/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -21,7 +21,7 @@
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
-| NSG rules per NSG |200 |400 |
+| NSG rules per NSG |200 |1000 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses (dynamic) |5 |contact support |
@@ -37,29 +37,30 @@ The following limits apply only for networking resources managed through Azure R
 | --- | --- | --- |
 | Virtual networks |50 |1000 |
 | Subnets per virtual network |1000 |10000 |
-| Virtual network peerings per Virtual Network |10 |50 |
+| Virtual network peerings per Virtual Network |50** |100 |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |16384** |16384 |
-| Private IP Addresses per network interface |256 |1024 |
+| Private IP Addresses per network interface |256 |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |24000** |24000 |
 | Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |1000** |1000 |
 | IP addresses and ranges specified for source or destination in a security group |2000 |4000 |
-| Application security groups |200 |500 |
+| Application security groups |500 |3000 |
 | Application security groups per IP configuration, per NIC |10 |20 |
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
+| User defined routes per route table |400** |400 |
 | Public IP addresses - dynamic |(Basic) 60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-**These default limits apply to subscriptions that have not previously had these limits increased through support
+**These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Load Balancer limits
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |

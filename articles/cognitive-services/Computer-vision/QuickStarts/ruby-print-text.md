@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/26/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Ruby <a name="OCR"> </a>
+# Quickstart: Extract printed text (OCR) with Ruby
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 

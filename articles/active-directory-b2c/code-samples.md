@@ -8,7 +8,7 @@ manager: mtillman
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: sample
 ms.service: active-directory
 ms.component: B2C
 ---

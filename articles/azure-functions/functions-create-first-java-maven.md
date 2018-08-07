@@ -12,15 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
 # Create your first function with Java and Maven (Preview)
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
 This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
@@ -110,7 +109,7 @@ public class Function {
 Change directory to the newly created project folder and build and run the function with Maven:
 
 ```
-cd fabrikam-function
+cd fabrikam-functions
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -168,7 +167,7 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
