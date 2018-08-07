@@ -1,6 +1,6 @@
 ---
-title: Getting started with Log Analytics queries | Microsoft Docs
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
+title: Getting Started with queries in Azure Log Analytics| Microsoft Docs
+description: This article provides a tutorial for getting started writing queries in Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -71,8 +71,7 @@ This query searches the *SecurityEvent* table for records that contain the phras
 > By default, a time range of _last 24 hours_ is set. To use a different range, use the time-picker (located next to the *Go* button) or add an explicit time range filter to your query.
 
 ## Sort and top
-While *take* is useful to get a few records, the results are selected and displayed in no particular order. 
-To get an ordered view, you could **sort** by the preferred column:
+While **take** is useful to get a few records, the results are selected and displayed in no particular order. To get an ordered view, you could **sort** by the preferred column:
 
 ```
 SecurityEvent	
@@ -89,31 +88,38 @@ SecurityEvent
 ```
 
 Descending is the default sorting order, so we typically omit the **desc** argument.The output will look like this:
-<p><img src="./images/getting-started-with-queries/top10.png" alt="Log Analytics top results"></p>
+
+![Top 10](media/getting-started-with-queries/top10.png)
 
 
 ## Where: filtering on a condition
-Filters, as indicated by their name, filter the data by a specific condition. This is the most common way to zoom-in on relevant information.
-To add a filter to a query - use the *where* operator followed by one or more conditions.
-For example, the following query returns only *SecurityEvent* records in which Level equals 8:
+Filters, as indicated by their name, filter the data by a specific condition. This is the most common way to limit query results to relevant information.
+
+To add a filter to a query, use the **where** operator followed by one or more conditions. For example, the following query returns only *SecurityEvent* records where _Level_ equals _8_:
+
 ```OQL
 SecurityEvent
 | where Level == 8
 ```
 
-When writing filter conditions, you can use the following expression:
-1. == is used to check equality (case-sensitive). For example: `Level == 8`
-2. =~ is used to check equality (case-insensitive). For example: `EventSourceName =~ "microsoft-windows-security-auditing"`
-3. !=, <> are used to check inequality (both expressions are acceptable). For example: `Level != 4`
-4. *and*, *or* are required between conditions. For example: `Level == 16 or CommandLine != ""`
+When writing filter conditions, you can use the following expressions:
 
-To filter by multiple conditions, you can either use *and*:
+| Expression | Description | Example |
+|:---|:---|:---|
+| == | Check equality<br>(case-sensitive) | `Level == 8` |
+| =~ | Check equality<br>(case-insensitive) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
+| !=, <> | Check inequality<br>(both expressions are identical) | `Level != 4` |
+| *and*, *or* | Required between conditions| `Level == 16 or CommandLine != ""` |
+
+To filter by multiple conditions, you can either use **and**:
+
 ```OQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-or pipe multiple *where* elements one after the other:
+or pipe multiple **where** elements one after the other:
+
 ```OQL
 SecurityEvent
 | where Level == 8 
@@ -121,34 +127,32 @@ SecurityEvent
 ```
 	
 > [!NOTE]
-> Getting the right type:
-> Values can have different types, so you might need to cast them to perform comparison on the correct type.
-> For example, SecurityEvent *Level* column is of type String, so you must cast it to a numerical type such as *int* or *long*, before you can use numerical operators on it:
+> Values can have different types, so you might need to cast them to perform comparison on the correct type. For example, SecurityEvent *Level* column is of type String, so you must cast it to a numerical type such as *int* or *long*, before you can use numerical operators on it:
 > `SecurityEvent | where toint(Level) >= 10`
 
 ## Specify a time range
 
 ### Time picker
-On the top right corner, you can see the time picker, which indicates we’re querying only records from the last 24 hours.
-24 hours is the default time range applied to all queries. To get only records from the last hour, select “Last hour” option and run the query again.
+The time picker is in the top left corner , which indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
 
-<p><img src="./images/getting-started-with-queries/timepicker.png" alt="Log Analytics time picker"></p>
+![Time Picker](media/getting-started-with-queries/timepicker.png)
 
 
 ### Time filter in query
-You can also define your own time range by adding a time filter to the query.<br/>
-It’s best to place the time filter immediately after the table name: 
+You can also define your own time range by adding a time filter to the query. It’s best to place the time filter immediately after the table name: 
+
 ```OQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
 ```
 
-In the above time filter - `ago(30m)` means ’30 minutes ago’, so this query only returns records from the last 30 minutes. Other units of time include days (2d), minutes (25m), and seconds (10s). 
+In the above time filter  `ago(30m)` means "30 minutes ago" so this query only returns records from the last 30 minutes. Other units of time include days (2d), minutes (25m), and seconds (10s).
 
 
 ## Project and Extend: select and compute columns
-*project* is used to select specific columns to include in the results:
+Use **project** to select specific columns to include in the results:
+
 ```OQL
 SecurityEvent 
 | top 10 by TimeGenerated 
@@ -156,22 +160,24 @@ SecurityEvent
 ```
 
 The preceding example generates this output:
-<p><img src="./images/getting-started-with-queries/project.png" alt="Log Analytics project results"></p>
 
-*project* can also be used to rename columns and define new ones. The following example uses project to do the following:
+![Log Analytics project results](media/getting-started-with-queries/project.png)
+
+You can also use **project** to rename columns and define new ones. The following example uses project to do the following:
+
 * Select only the *Computer* and *TimeGenerated* original columns.
 * Rename the *Activity* column to *EventDetails*.
-* Create a new column on-the-fly, named *EventCode*. The *substring()* function is used to get only the first 4 characters from the Activity field.
+* Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the Activity field.
 
-Here's how this is used in a query:
+
 ```OQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-*extend*, on the contrary, keeps all original columns in the result set, and defines additional ones.</br>
-The following query uses *extend* to add a *localtime* column, which contains a localized TimeGenerated value (originally UTC).
+**extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add a *localtime* column, which contains a localized TimeGenerated value.
+
 ```OQL
 SecurityEvent
 | top 10 by TimeGenerated
@@ -179,47 +185,44 @@ SecurityEvent
 ```
 
 ## Summarize: aggregate groups of rows
-Use *summarize* to identify groups of records, according to one or more columns, and apply aggregations to them.
+Use **summarize** to identify groups of records, according to one or more columns, and apply aggregations to them. The most common use os **summarize** is *count*, which returns the number of results in each group.
 
-The most common use case is *count*, which returns the number of results in each group.</br>
-The following query reviews all *Perf* records from the last hour, groups them by *ObjectName* and counts the records in each group: 
+The following query reviews all *Perf* records from the last hour, groups them by *ObjectName*, and counts the records in each group: 
 ```OQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
 ```
 
-Sometimes it makes sense to define groups by two-dimension. Each unique combination of these values defines a separate group:
+Sometimes it makes sense to define groups by multiple dimensions. Each unique combination of these values defines a separate group:
+
 ```OQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
 ```
 
-Another common use is to perform mathematical or statistical calculations on each group.
-In most cases, the calculation applies to a single column, across a group defined by another column (or several columns).</br>
-For example, let's calculate the average *CounterValue* for each computer:
+Another common use is to perform mathematical or statistical calculations on each group. For example, the following calculates the average *CounterValue* for each computer:
+
 ```OQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
 ```
-Unfortunately, the results of this query are meaningless - we mixed together different performance counters: disk operations, memory measurements etc.
-To make sense of it, we should calculate the average separately for each combination of *CounterName* and *Computer*:
+
+Unfortunately, the results of this query are meaningless since we mixed together different performance counters. To make this more meaningful, we should calculate the average separately for each combination of *CounterName* and *Computer*:
+
 ```OQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
 ```
 
-### Summarize using *bin*
-Grouping results can also be based on a time column, or another continuous value (such as duration, price etc.).</br>
-However, simply summarizing `by TimeGenerated` would create groups for every single milli-second over the time range, since these are unique values.
-We would end up with too many "groups", and that would probably defeat the purpose.<br/>
+### Summarize by a time column
+Grouping results can also be based on a time column, or another continuous value. Simply summarizing `by TimeGenerated` though would create groups for every single millisecond over the time range, since these are unique values. 
 
-To create groups based on continuous values, it is best to break the range into manageable units, using *bin*.</br>
-The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer.
-It calculates the average value for each period if 1 hour, over the last 2 days:
+To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value for each period if 1 hour, over the last 2 days:
+
 ```OQL
 Perf 
 | where TimeGenerated > ago(2d)
@@ -228,21 +231,20 @@ Perf
 | summarize count() by bin(TimeGenerated, 1h)
 ```
 
-To make the output clearer, let's select to display it as a time-chart, showing the available memory over time:
-<p><img src="./images/getting-started-with-queries/chart.png" alt="Log Analytics memory over time"></p>
+To make the output clearer, you select to display it as a time-chart, showing the available memory over time:
+
+![Log Analytics memory over time](media/getting-started-with-queries/chart.png)
 
 
-### *Congrats!*
-You've successfully completed the Getting Started tutorials, and can start exploring data on your own!
 
 ## Next steps
 Continue with our advanced tutorials:
-* [Search queries](./search.md)
-* [Date and time operations](./datetime-operations.md)
-* [String operations](./string-operations.md)
-* [Aggregation functions](./aggregations.md)
-* [Advanced aggregations](./advanced-aggregations.md)
-* [Charts and diagrams](./charts.md)
-* [Working with JSON and data structures](./json-and-data-structures.md)
-* [Advanced query writing](./advanced-query-writing.md)
-* [Joins - cross analysis](./joins.md)
+* [Search queries](search.md)
+* [Date and time operations](datetime-operations.md)
+* [String operations](string-operations.md)
+* [Aggregation functions](aggregations.md)
+* [Advanced aggregations](advanced-aggregations.md)
+* [Charts and diagrams](charts.md)
+* [Working with JSON and data structures](json-and-data-structures.md)
+* [Advanced query writing](advanced-query-writing.md)
+* [Joins - cross analysis](joins.md)
