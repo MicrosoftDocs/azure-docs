@@ -15,10 +15,26 @@ ms.author: scottwhi
 
 # What is Bing Image Search?
 
-The Bing Image Search API enables you to develop intelligent apps that leverage Bing's cognitive image service. By sending user search queries with the API, you can get relevant image-specific results similar to [Bing Images](https://www.bing.com/images).    
+The Bing Image Search API enables you to develop intelligent apps that leverage Bing's cognitive image service. By sending user search queries with the API, you can get relevant image-specific results similar to [Bing Images](https://www.bing.com/images).
 
 > [NOTE]
 > The Bing Image Search API provides image-only search results. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) and [News Search API](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search) for other types of web content. 
+
+## Bing Image Search Capabilities
+
+While Bing Image Search primarily finds and returns relevant images from a search query, the service also provides features to filter images, and suggest additional queries.  
+
+
+| Feature                         | Description |
+|---------------------------------|-------------|
+| Suggesting & using search terms | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms in real time.|
+| Getting images from Bing         | Take a search query and use the Bing Image Search API to get relevant images. |
+| Filtering image results         | Filter the images that Bing returns by editing query parameters.           |
+| Displaying thumbnails           | Display thumbnail previews for the images returned by Bing Image Search. |  
+| Pivoting the Query              | Display optional search terms to the user based on their original search query.        |
+| Expanding the Query             | Expand your search capabilities by including Bing-suggested search-terms in queries.|
+| Throttling requests             |             |
+
 
 ## Using and suggesting search terms
 
