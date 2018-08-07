@@ -32,7 +32,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [3]: ./media/partner-migration-postgresql/PW-logo-text-CMYK1000.png
 [4]: ./media/partner-migration-postgresql/InfosysLogo.png
 [5]: ./media/partner-migration-postgresql/credativ_round_logo2.png
-[6]: ./media/partner-migration-mysql/pactera_logo_small2.png
+[6]: ./media/partner-migration-mysql/Pactera_logo_small2.png
 
 <!--Website links -->
 [snp_website]:https://www.snp.com//
@@ -40,7 +40,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
-[partera_website]:https://en.pactera.com/service/azure-data-platform-services/
+[pactera_website]:https://en.pactera.com/service/azure-data-platform-services/
 
 <!--Get Started Links-->
 <!--Datasheet Links-->
@@ -69,4 +69,4 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [pragmatic-works_contact]:mailto:marketing@pragmaticworks.com
 [infosys_contact]:https://www.infosys.com/contact/
 [credativ_contact]:mailto:info@credativ.com
-[partera_contract]:mailto:shushi.gaur@pactera.com
+[pactera_contract]:mailto:shushi.gaur@pactera.com
