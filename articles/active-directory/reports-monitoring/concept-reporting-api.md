@@ -54,7 +54,7 @@ You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/g
 
 Consider using the Azure AD Reporting API with certificates if you plan to retrieve reporting data without user intervention.
 
-For detailed instructions, see [Get data using the Azure AD Reporting API with certificates](../active-directory-reporting-api-with-certificates.md).
+For detailed instructions, see [Get data using the Azure AD Reporting API with certificates](tutorial-access-api-with-certificates.md).
 
 
 ## Explore
