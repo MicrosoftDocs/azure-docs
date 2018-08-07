@@ -552,7 +552,7 @@
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Virtual Machine Scale Set Node Type scale out
-          href: virtual-machine-scale-set-scale-node-type-scale-out.md.md
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
