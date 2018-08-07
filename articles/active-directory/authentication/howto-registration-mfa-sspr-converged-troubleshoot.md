@@ -16,9 +16,9 @@ ms.reviewer: sahenry, michmcla
 ---
 # Disable Azure AD converged registration (Public preview)
 
-When a user registers their phone number and/or mobile app in the new converged experience, our service stamps a set of flags (StrongAuthenticationMethods) for those methods on that user. This functionality allows the user to perform MFA with those methods whenever MFA is required.
+When a user registers their phone number and/or mobile app in the new converged experience, our service stamps a set of flags (StrongAuthenticationMethods) for those methods on that user. This functionality allows the user to perform Azure Multi-Factor Authentication (MFA) with those methods whenever MFA is required.
 
-The methods that users register through the new experience have the StrongAuthenticationMethods property set. This behavior will also occur once public preview is available, if an admin enables the preview, users register through the new experience, and then the admin disables the preview. This means users may unintentionally be registered for MFA, particularly if that user is only enabled to use SSPR, not MFA.
+The methods that users register through the new experience have the StrongAuthenticationMethods property set. This behavior will also occur once public preview is available. If an admin enables the preview, users register through the new experience, and then the admin disables the preview, users may unknowingly be registered for MFA also.
 
 If a user who has completed converged registration navigates to the current SSPR registration page, at [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup), they will be prompted to perform MFA before they can access that page. This step is an expected behavior from a technical standpoint, but for users who were previously registered for SSPR only, this step is a new behavior. Although this extra step does improve the user’s security posture by providing an additional level of security, admins may want to roll back their users so that they are no longer capable of performing MFA.  
 
