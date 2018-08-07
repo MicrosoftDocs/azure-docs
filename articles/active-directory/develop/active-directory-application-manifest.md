@@ -25,8 +25,6 @@ Apps that integrate with Azure AD must be registered with an Azure AD tenant. Th
 
 ## Manifest Reference
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
 |Key  |Value Type |Example Value  |Description  |
 |---------|---------|---------|---------|
 |appID     |  Identifier string       |""|  The unique identifier for the application that is assigned to an app by Azure AD.|
