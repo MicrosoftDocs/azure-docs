@@ -131,7 +131,7 @@
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies-azure-portal.md)
-#### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
+#### [Audit activity reference](reports-monitoring/reference-audit-activities.md)
 #### [Sign-in activity error codes](reports-monitoring/reference-sign-ins-error-codes.md)
 #### [Interpret the audit log schema in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
