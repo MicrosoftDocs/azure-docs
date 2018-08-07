@@ -112,7 +112,7 @@
 
 ## [Manage reports](active-directory-reporting-azure-portal.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
-### [Audit activity](active-directory-reporting-activity-audit-logs.md)
+### [Audit activity](reports-monitoring/concept-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)

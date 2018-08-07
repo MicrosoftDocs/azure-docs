@@ -34,7 +34,7 @@ You can now route Azure Active Directory (Azure AD) activity logs to your own st
 
 You can route audit activity logs and sign-in activity logs to your Azure storage account, event hub, or custom solution by using this feature. 
 
-* **Audit logs**: The [audit logs activity report](active-directory-reporting-activity-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* **Audit logs**: The [audit logs activity report](reports-monitoring/concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](reports-monitoring/concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 
 > [!NOTE]

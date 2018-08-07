@@ -598,5 +598,5 @@ For an overview of:
 
 - Reporting, see the [Azure Active Directory reporting](../active-directory-reporting-azure-portal.md).
 
-- Audit activity reports, see [Audit activity reports in the Azure Active Directory portal](../active-directory-reporting-activity-audit-logs.md). 
+- Audit activity reports, see [Audit activity reports in the Azure Active Directory portal](concept-audit-logs.md). 
 
