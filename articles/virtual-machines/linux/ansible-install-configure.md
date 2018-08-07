@@ -29,7 +29,7 @@ To manage Azure resources with Ansible, you need the following prerequisites:
 
 ## Install Ansible
 
-Log in to your Linux machine, select one of the following distros for steps on how to install Ansible:
+Sign in to your Linux machine and select one of the following distros for steps on how to install Ansible:
 
 - [CentOS 7.4](#centos-74)
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)

@@ -36,7 +36,7 @@
    ansible-playbook rg.yml
    ```
 
-The output should look similar to the following:
+The results of running the ansible command should look similar to the following output:
 
 ```output
 PLAY [localhost] *********************************************************************************
