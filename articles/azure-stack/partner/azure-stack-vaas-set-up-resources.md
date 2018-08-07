@@ -1,6 +1,6 @@
 ---
-title: Set up your Azure Stack Validation as a Service account | Microsoft Docs
-description: Learn how to set up your Validation as a Service account.
+title: Set up your Azure Stack Validation as a Service resources | Microsoft Docs
+description: Learn how to set up resources for Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,17 +17,17 @@ ms.reviewer: johnhas
 
 ---
 
-# Set up your Validation as a Service account
+# Set up your Validation as a Service resources
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Validation as a Service (VaaS) is an Azure service that is made available to Microsoft Azure Stack partners who have a co-engineering agreement with Microsoft to design, develop, validate, sell, deploy, and support Azure Stack solutions in the market.
 
-Learn how to get your system ready for Validation as a Service. Set up the Azure Active Directory instance and perform other required tasks for getting ready to use VaaS.
+Learn how to get ready to use Validation as a Service by setting up the Azure Active Directory instance and creating a storage account.
 
 ## Configure an Azure Active Directory tenant
 
-An Azure Active Directory tenant is required for authenticating and registering with VaaS.  The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
+An Azure Active Directory tenant is required for authenticating and registering with VaaS. The role-based access control (RBAC) features of the tenant will be used by the partner to manage who in the partner organization can use VaaS.
 
 > [!NOTE]
 > It is important that you register your "organizational" Azure AD tenant directory (rather than the AAD tenant directory used for Azure Stack) and establish a policy for managing the user accounts in it. For more information, see [Manage your Azure AD directory](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
@@ -65,7 +65,7 @@ As the AAD administrator, give the VaaS AAD application the required permissions
 
     ![Sign to the VaaS portal](media/vaas_portalsignin.png)
 
-2. The site will prompt you to grant VaaS access to the listed AAD permissions. Accept the terms to proceed.
+2. The site will prompt you to grant VaaS the listed AAD permissions. Accept the terms to proceed.
 
 For more information on the consent framework, see [Overview of the consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#overview-of-the-consent-framework).
 
