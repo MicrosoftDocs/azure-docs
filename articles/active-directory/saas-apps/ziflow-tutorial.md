@@ -126,7 +126,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, login to Ziflow as a Security Administrator.
 
-
 8. Click on Avatar in the top right corner, and then click **Manage account**.
 
 	![Ziflow Configuration Manage](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
