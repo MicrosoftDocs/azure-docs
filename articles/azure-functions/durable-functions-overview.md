@@ -58,7 +58,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 > [!NOTE]
-> There are subtle differences while writing a precompiled durable function in C# vs the C# script sample shown before. A C# precompiled function would require durable parameters to be decorated with respective attributes. An example is `[OrchestrationTrigger]` attribute for `DurableOrchestrationContext` parameter. If the parameters are not properly decorated, the runtime would not be able to inject the variables to the function and would give error. Please visit [sample]((https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) for more examples.
+> There are subtle differences while writing a precompiled durable function in C# vs the C# script sample shown before. A C# precompiled function would require durable parameters to be decorated with respective attributes. An example is `[OrchestrationTrigger]` attribute for `DurableOrchestrationContext` parameter. If the parameters are not properly decorated, the runtime would not be able to inject the variables to the function and would give error. Please visit [sample](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) for more examples.
 
 #### JavaScript (Functions v2 only)
 
