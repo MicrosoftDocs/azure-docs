@@ -1,9 +1,9 @@
 ---
-title: Distributed training using Horovod - Azure Batch AI
-description: Tutorial - How train a distributed model with Horovod using the Azure Batch AI Service and Azure CLI.
+title: Distributed training using Horovod - Azure Batch AI | Microsoft Docs
+description: Tutorial - How to train a distributed model with Horovod using the Azure Batch AI service and Azure CLI.
 services: batch-ai
 author: johnwu10
-manager: alexsutton
+manager: jeconnoc
 
 ms.service: batch-ai
 ms.topic: tutorial
@@ -14,11 +14,11 @@ ms.custom: mvc
 
 # Tutorial: Train a distributed model with Horovod 
 
-Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates how to train a distributed model by running it in parallel across multiple nodes in a Batch AI cluster. A common Batch AI workflow will be introduced along with how to interact with Batch AI resources through the Azure CLI. Topics that will be covered include:
+Batch AI is a managed service for training machine learning models at scale on clusters of Azure GPUs. This tutorial demonstrates how to train a distributed model by running it in parallel across multiple nodes in a Batch AI cluster. A common Batch AI workflow is introduced along with how to interact with Batch AI resources through the Azure CLI. Topics that will be covered include:
 
 > [!div class="checklist"]
 > * Set up a Batch AI workspace, experiment, and cluster
-> * Upload files to an Azure file share
+> * Set up an Azure file share for input and output
 > * Parallelize a model using Horovod
 > * Submit a training job
 > * Monitor the job
@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 This tutorial assumes you're running commands in a Bash shell, either in Cloud Shell or on your local computer.
 
-## Create an Azure resource group
+## Create a resource group
 
 A resource group must be created in order to deploy resources in Batch AI. In this example, create a resource group named `batchai.horovod` in the `eastus` region. The available regions can be found [here](https://azure.microsoft.com/global-infrastructure/services/).
 
@@ -43,7 +43,7 @@ Use the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create
 az group create --name batchai.horovod --location eastus 
 ```
 
-This resource group is used for the remainder of the tutorial to create the different Batch AI resources. For an explanation of these resources, see [Overview of resources in Batch AI](resource-concepts.md) 
+This resource group is used for the remainder of the tutorial to create the different Batch AI resources: workspace, experiment, cluster, and job. For an explanation of these resources, see [Overview of resources in Batch AI](resource-concepts.md) 
 
 ## Create a workspace
 
@@ -410,12 +410,13 @@ Once jobs are finished running, a best practice for saving compute costs is to d
 az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --target 0 --workspace batchaidev
 ```
 
-If there are no more plans to use the workspace in the future, the resource group can be deleted using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group will delete all resources that are part of that group as a result.
+If you don't plan to use the workspace in the future, delete the resource group  using the [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) command. Deleting a resource group deletes all resources that are part of that group.
 
 ```azurecli-interactive
 az group delete --name batchai.horovod
 ```
-Note, this command will not delete the auto storage that was created with the cluster as that was created using a different resource group. The auto storage and all its content can be deleted by using the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto storage options will use this existing storage instead of creating a new one.
+
+Note, this command will not delete the auto-storage that was created with the cluster as that was created using a different resource group. To delete the auto-storage, use the same command to delete the `batchaiautostorage` resource group. If not deleted, future auto-storage options will use this existing storage account instead of creating a new one.
 
 ```azurecli-interactive
 az group delete --name batchaiautostorage
@@ -426,14 +427,12 @@ az group delete --name batchaiautostorage
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-> * Create an Azure resource group
-> * Set up and scale a Batch AI cluster
-> * Upload files to an Azure File Share
-> * Manage workspaces, experiments, and jobs in Batch AI
+> * Set up a Batch AI workspace, experiment, and cluster
+> * Set up an Azure file share for input and output
 > * Parallelize a model using Horovod
-> * Monitor the output of jobs
-> * Retrieving the training results
-> * Delete resources
+> * Submit a training job
+> * Monitor the job
+> * Retrieve the training results
 
 For more examples of using Batch AI, see the recipes on GitHub.
 
