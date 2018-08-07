@@ -212,4 +212,4 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]: ../active-directory/develop/active-directory-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md

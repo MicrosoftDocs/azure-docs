@@ -189,7 +189,7 @@ You can use the [Validate JWT](api-management-access-restriction-policies.md#Val
 
 ## Build an application to call the API
 
-In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/active-directory-code-samples.md).
+In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/sample-v1-code.md).
 
 ## Next steps
 * Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
