@@ -24,7 +24,7 @@ Certificates on a device should always be stored in a safe place like a [hardwar
 
 ## Rolling the certificate in the IoT hub
 
-The device certificate can be manually added to an IoT hub, or it can be automated using a Device Provisioning Service instance. In this article, we will assume a provisioning service instance is being used to support auto-provisioning.
+The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we will assume a provisioning service instance is being used to support auto-provisioning.
 
 When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s [leaf certificate](concepts-security.md#end-entity-leaf-certificate) as the credential. The provisioning service then tells the device which IoT hub it is assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub. 
 
@@ -32,7 +32,7 @@ Once a new leaf certificate has been rolled to the device, it will no longer be 
 
 One possible exception to this connection failure would be a scenario where you have created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you are not rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least blacklist the specific device certificates in the group that are considered to be breached. For more information, see [Blacklist specific devices in an enrollment group](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
-To update an enrollment entry to account for rolled certificates, first navigate to **Manage Enrollments**:
+Updating enrollment entries for rolled certificates is accomplished on the **Manage enrollments** page. To access that page, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the IoT Hub Device Provisioning Service instance that contains the enrollment entry for your device.
 
@@ -41,10 +41,10 @@ To update an enrollment entry to account for rolled certificates, first navigate
    ![Manage enrollments](./media/how-to-roll-certificates/manage-enrollments-portal.png)
 
 
-How you handle updating the enrollment entry will depend on whether you are using individual enrollments or group enrollments. Also the recommended procedures differ depending on whether you are rolling certificates because of a security breach, or to deal with certificate expirations.
+How you handle updating the enrollment entry will depend on whether you are using individual enrollments, or group enrollments. Also the recommended procedures differ depending on whether you are rolling certificates because of a security breach, or certificate expirations. The following sections describe how to handle these updates.
 
 
-#### Updating an individual enrollment for a security breach
+## Updating individual enrollments for security breaches
 
 If you are rolling certificates in response to a security breach, you should use the following approach that deletes the current certificate immediately:
 
@@ -59,7 +59,7 @@ If you are rolling certificates in response to a security breach, you should use
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-#### Updating an individual enrollment for a certificate expirations
+## Updating individual enrollments for certificate expirations
 
 If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision:
 
@@ -74,15 +74,15 @@ If you are rolling certificates to handle certificate expirations, you should us
 When the secondary certificate nears expiration, and needs to be rolled, you can rotate to use the primary configuration. Rotating the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
 
 
-#### Updating an enrollment group for a security breach
+## Updating an enrollment group for a security breach
 
-To update a group enrollment for the new certificate in response to a security breach, you should use one of the following approaches that will delete the current certificate immediately.
+To update a group enrollment for the new certificate in response to a security breach, you should use one of the following approaches that will delete the current root CA , or intermediate certificate immediately.
 
-If you are updating the root CA certificates:
+#### Updating compromised root CA certificates
 
 1. Click the **Certificates** tab for your provisioning service instance.
 
-2. Click the compromised certificate in the list, and then click the **Delete** button. Comfirm the delete by entering the certificate name and click **OK**. Repeat this process for all compromised certificates.
+2. Click the compromised certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**. Repeat this process for all compromised certificates.
 
     ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -90,9 +90,9 @@ If you are updating the root CA certificates:
 
     ![Add the new root CA certificate](./media/how-to-roll-certificates/add-root-cert.png)
 
-4. Click the **Manage enrollments** tab and **Enrollment Groups**. Click the group name in the list.
+4. Click the **Manage enrollments** tab and the **Enrollment Groups** list. Click your enrollment group name in the list.
 
-5. Click **CA Certificate** and select your new root CA certificate. Then click **Save**. 
+5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
     ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -101,7 +101,7 @@ If you are updating the root CA certificates:
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-For Intermediate certificates:
+#### Updating compromised intermediate certificates
 
 1. Click **Enrollment Groups**, and then click the group name in the list. 
 
@@ -115,7 +115,7 @@ For Intermediate certificates:
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-#### Updating an enrollment group for a certificate expirations
+## Updating an enrollment group for a certificate expirations
 
 If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision:
 
