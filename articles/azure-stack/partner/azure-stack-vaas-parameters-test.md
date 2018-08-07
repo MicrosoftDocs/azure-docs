@@ -54,18 +54,18 @@ You can enter the values manually listed in the [Test parameters table](#test-pa
 You can also find the test parameter values by opening the ECE **configuration file**. You can find the file at the following path on the DVM machine:  
 `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787`
 
-## Test parameters 
+## Test parameters
 
 | Parameter    | Description |
 |-------------|-----------------|
-| Azure Stack Build                      | Azure Stack Build or version number that was deployed for example, 1.0.170330.0 | 
-| Tenant ID                              | Azure Active Directory Tenant specified during Azure Stack deployment. Search for **AADTenant** in the configuration file and select the **GUID** value in the `Id` tag. | 
-| Region                                 | Azure Stack deployment region. Search for **Region** in the configuration file. | 
-| Tenant Resource Manager                | Tenant Azure Resource Manager endpoint, for example, `https://management.<ExternalFqdn>` | 
-| Admin Resource Manager                 | Admin Azure Resource Manager endpoint. for example, `https://adminmanagement.<ExternalFqdn>` | 
-| External FQDN                          | External FQDN of the Environment. Search for **ExternalFqdn** in the configuration file. | 
-| Tenant User                            | Azure Active Directory Tenant Admin that was either provisioned already or needs to be provisioned by the Service Admin in the Azure AD Directory. For details on provisioning tenant account see [Add a new Azure Stack tenant account in Azure Active Directory](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad). This value is used by the test to perform tenant level operations such as deploying templates to provision resources (VM’s, storage accounts etc.) and execute workloads. | 
-| Service Administrator User             | Azure Active Directory Admin of the Azure AD Directory Tenant specified during Azure Stack deployment. Search for **AADTenant** in the configuration file and select the value in the `UniqueName` tag in the configuration file. | 
+| Azure Stack Build                      | Azure Stack Build or version number that was deployed for example, 1.0.170330.0 |
+| Tenant ID                              | Azure Active Directory Tenant specified during Azure Stack deployment. Search for **AADTenant** in the configuration file and select the **GUID** value in the `Id` tag. |
+| Region                                 | Azure Stack deployment region. Search for **Region** in the configuration file. |
+| Tenant Resource Manager                | Tenant Azure Resource Manager endpoint, for example, `https://management.<ExternalFqdn>` |
+| Admin Resource Manager                 | Admin Azure Resource Manager endpoint. for example, `https://adminmanagement.<ExternalFqdn>` |
+| External FQDN                          | External FQDN of the Environment. Search for **ExternalFqdn** in the configuration file. |
+| Tenant User                            | Azure Active Directory Tenant Admin that was either provisioned already or needs to be provisioned by the Service Admin in the Azure AD Directory. For details on provisioning tenant account see [Add a new Azure Stack tenant account in Azure Active Directory](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad). This value is used by the test to perform tenant level operations such as deploying templates to provision resources (VMs, storage accounts etc.) and execute workloads. |
+| Service Administrator User             | Azure Active Directory Admin of the Azure AD Directory Tenant specified during Azure Stack deployment. Search for **AADTenant** in the configuration file and select the value in the `UniqueName` tag in the configuration file. |
 
 ## Checks before starting the tests
 

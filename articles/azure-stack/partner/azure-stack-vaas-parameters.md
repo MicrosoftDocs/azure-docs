@@ -48,4 +48,26 @@ Parameter    | Description
 Tenant Administrator User                            | Azure Active Directory Tenant Administrator that was provisioned by the service administrator in the AAD directory. This user performs tenant-level operations such as deploying templates to provision resources (VMs, storage accounts, etc.) and executing workloads. For details on provisioning the tenant account, see [Add a new Azure Stack tenant](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-new-user-aad).
 Service Administrator User             | Azure Active Directory Administrator of the AAD Directory Tenant specified during Azure Stack deployment. Search for `AADTenant` in the stamp information file and select the value in the `UniqueName` tag <TODO where are tags?>.
 Cloud Administrator User               | Azure Stack domain administrator account (e.g., `contoso\cloudadmin`). Search for `User Role="CloudAdmin"` in the stamp information file and select the value in the `UserName` tag.
-Diagnostics Connection String          | A SAS URI to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URI, see [Set up a blob storage account](azure-stack-vaas-set-up-account.md) <TODO move this>. |
+Diagnostics Connection String          | A SAS URL to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URL, see [Generate the diagnostics connection string](#generate-the-diagnostics-connection-string). |
+
+### Generate the diagnostics connection string
+
+The diagnostics connection string is required for storing diagnostics logs during test execution. Use the Azure Storage Account created during account setup in [Set up your Validation as a Service account](azure-stack-vaas-set-up-account.md) to create a shared access signature (SAS) URL to give VaaS access to upload logs to your storage account.
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+
+2. On the blade under **Settings**, select **Shared access signature**.
+
+3. Select **Blob** from **Allowed Services options**. Deselect the remaining options.
+
+4. Select **Service**, **Container**, and **Object** from **Allowed resource types**.
+
+5. Select **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions**. Deselect the remaining options.
+
+6. Set **Start time** to the current time, and **End time** to three months from the current time.
+
+7. Select **Generate SAS and connection string** and copy the **Blob service SAS URL** string.
+
+> [!NOTE]  
+> The SAS URL expires at the end time specified when the URL was generated.  
+When scheduling tests, ensure that the URL is valid for at least 30 days plus the time required for test execution (three months is suggested).

@@ -42,6 +42,7 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
     - **Maximum**: the solution is configured with the maximum supported number of nodes.
 5. Click on **Upload** to upload your Azure Stack stamp information file. For instructions, see [Generate the stamp information file](azure-stack-vaas-parameters.md#generate-the-stamp-information-file).
     ![Solution Validation information](media/workflow_validation-solution_info.png)
+
 6. Enter the test parameters. For additional details and instructions, see [Test parameters](azure-stack-vaas-parameters.md#test-parameters) and <TODO link diagnostics article>
 7. Click **Submit** to create the workflow. You will be redirected to the tests summary page.
 
@@ -54,4 +55,6 @@ In the **Solution validation tests summary** page, you will see a list of the te
     ![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
 
 ## Next steps
+
+
 - [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)
