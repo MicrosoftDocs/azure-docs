@@ -158,7 +158,7 @@ Here is a code snippet for provisioning 100,000 request units per second across 
 // Provision 100,000 RU/sec at the database level. 
 // sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
 // dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
 
 DocumentCollection sharedCollection1 = new DocumentCollection();
 sharedCollection1.Id = "sharedCollection1";

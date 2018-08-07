@@ -1,21 +1,14 @@
 ---
-title: Submit Hadoop jobs in HDInsight | Microsoft Docs
+title: Submit Hadoop jobs in HDInsight 
 description: Learn how to submit Hadoop jobs in Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
+ms.author: jasonh
 author: jasonwhowell
-
-ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-
 ---
 # Submit Hadoop jobs in HDInsight
 
