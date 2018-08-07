@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 ---
 # Get started with the Azure Active Directory reporting API
 
-Azure Active Directory provides you with a variety of [reports](../active-directory-reporting-azure-portal.md). The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. 
+Azure Active Directory provides you with a variety of [reports](overview-reports.md). The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. 
 
 By using the Azure AD reporting API, you can gain programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 

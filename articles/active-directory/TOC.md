@@ -110,7 +110,7 @@
 #### [Change group membership type](users-groups-roles/groups-change-type.md)
 #### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
-## [Manage reports](active-directory-reporting-azure-portal.md)
+## [Manage reports](reports-monitoring/overview-reports.md)
 ### [Sign-ins activity](reports-monitoring/concept-sign-ins.md)
 ### [Audit activity](reports-monitoring/concept-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)

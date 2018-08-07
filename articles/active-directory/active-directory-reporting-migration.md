@@ -122,4 +122,4 @@ To view the **Application Usage** report, on the **Azure Active Directory** blad
 
 ## Next steps
 
-For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
+For an overview of reporting, see the [Azure Active Directory reporting](reports-monitoring/overview-reports.md).

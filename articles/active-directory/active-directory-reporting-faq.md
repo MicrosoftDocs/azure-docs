@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 ---
 # Azure Active Directory reporting FAQ
 
-This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](active-directory-reporting-azure-portal.md). 
+This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](reports-monitoring/overview-reports.md). 
 
 ## Getting started 
 

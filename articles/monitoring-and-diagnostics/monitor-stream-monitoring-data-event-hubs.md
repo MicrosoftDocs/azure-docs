@@ -44,7 +44,7 @@ Please also see the [Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md).
 
 ## How do I set up Azure tenant monitoring data to be streamed to an event hub?
 
-Azure tenant monitoring data is currently only available for Azure Active Directory. You can use the data from [Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant.
+Azure tenant monitoring data is currently only available for Azure Active Directory. You can use the data from [Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant.
 
 ### Stream Azure Active Directory data into an event hub
 

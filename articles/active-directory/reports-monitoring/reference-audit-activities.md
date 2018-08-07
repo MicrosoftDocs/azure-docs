@@ -596,7 +596,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 For an overview of:
 
-- Reporting, see the [Azure Active Directory reporting](../active-directory-reporting-azure-portal.md).
+- Reporting, see the [Azure Active Directory reporting](overview-reports.md).
 
 - Audit activity reports, see [Audit activity reports in the Azure Active Directory portal](concept-audit-logs.md). 
 

@@ -26,7 +26,7 @@ The scope of this Article is to provide you with sample code for the **sign-in a
 
 See:
 
-* [Audit logs](../active-directory-reporting-azure-portal.md#activity-reports)  for more conceptual information
+* [Audit logs](overview-reports.md#activity-reports)  for more conceptual information
 * [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
 
 

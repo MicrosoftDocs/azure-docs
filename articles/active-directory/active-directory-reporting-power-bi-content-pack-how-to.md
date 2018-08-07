@@ -147,4 +147,4 @@ Check out our [troubleshooting guide](active-directory-reporting-troubleshoot-co
 
 ## Next steps
 
-For an overview of reporting, see the [Azure Active Directory reporting](active-directory-reporting-azure-portal.md).
+For an overview of reporting, see the [Azure Active Directory reporting](reports-monitoring/overview-reports.md).

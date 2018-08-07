@@ -184,7 +184,7 @@ You can filter this view further down to just **groups** or just **users**.
 
 ## Next steps
 
-- For an overview of reporting, see the [Azure Active Directory reporting](../active-directory-reporting-azure-portal.md).
+- For an overview of reporting, see the [Azure Active Directory reporting](overview-reports.md).
 
 - For a complete list of all audit activities, see [Azure AD audit activity reference](reference-audit-activities.md)
 
