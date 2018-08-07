@@ -17,11 +17,11 @@ ms.author: yashar
 ---
 # Understand how the Azure reservation discount is applied to virtual machines
 
-After you buy an Azure Reserved VM Instance, the reservation discount is automatically applied to virtual machines that match the attributes and quantity of the reservation. A reservation covers the compute costs of your virtual machines.
+After you buy an Azure Reserved Virtual Machine Instance, the reservation discount is automatically applied to virtual machines that match the attributes and quantity of the reservation. A reservation covers the compute costs of your virtual machines.
 
-The following table illustrates the costs for your virtual machine after you purchase a reservation. In all cases, you're charged for storage and networking at the normal rates.
+The following table illustrates the costs for your virtual machine after you purchase a Reserved VM Instance. In all cases, you're charged for storage and networking at the normal rates.
 
-| Virtual Machine Type  | Charges with reservation |
+| Virtual Machine Type  | Charges with Reserved VM Instance |
 |-----------------------|--------------------------------------------|
 |Linux VMs without additional software | The reservation covers your VM infrastructure costs.|
 |Linux VMs with software charges (For example, Red Hat) | The reservation covers the infrastructure costs. You're charged for additional software.|

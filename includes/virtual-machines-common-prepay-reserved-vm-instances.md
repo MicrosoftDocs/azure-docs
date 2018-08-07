@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07-30-2018
+ms.date: 08-07-2018
 ---
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
 Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-You can buy Azure reservations in the [Azure portal](https://portal.azure.com). To buy a reservation:
+You can buy a Reserved VM Instance in the [Azure portal](https://portal.azure.com). To buy an instance:
 
 - You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
 - For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
@@ -22,14 +22,14 @@ The Meter Sub-category and Product fields in the usage data doesn't distinguish 
 - Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since these fields do not differentiate between S and Non-S versions of a VM.
 - You can also get accurate VM size information using Powershell, Azure Resource Manager, or from VM details in the Azure portal.
 
-reservations are available for most VM sizes with some exceptions:
+Reserved VM Instances are available for most VM sizes with some exceptions:
 
 - VMs in Preview: Any VM-series or size that is in preview are not available for reservation purchase.
 - Clouds: reservations are not available for purchase in the Azure US Government, Germany, or China regions.
 - Insufficient quota: A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series, then you can't buy a reservation for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series and has two standard_D1 instances deployed, then you can buy a reservation for 10 standard_D1 instances in this subscription. 
 - Capacity restrictions: In rare circumstances, Azure limits the purchase of new reservations for subset of VM sizes, due to low capacity in a region.
 
-## Buy a Reserved Virtual Machine Instance
+## Buy a Reserved VM Instance
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
