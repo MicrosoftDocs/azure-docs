@@ -30,29 +30,16 @@ ms.custom: H1Hack27Feb2017
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/@azure/cosmos)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)</td></tr>
-
-<tr><td>**Samples**</td><td>[Node.js code samples](sql-api-nodejs-samples-preview.md)</td></tr>
-
-<tr><td>**Get started tutorial**</td><td>[Get started with the JavaScript SDK](sql-api-nodejs-get-started-preview.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application-preview.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for Version 2.0.0 and above.<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Resource  |Link  |
+|---------|---------|
+|Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Samples | [Node.js code samples](sql-api-nodejs-samples-preview.md)
+| Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started-preview.md)
+| Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Current supported platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for SDK Version 2.0.0 and above.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## Release notes
 
