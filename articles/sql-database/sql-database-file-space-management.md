@@ -169,7 +169,7 @@ The following screenshot is an example of the output of the script:
 
 ### Elastic pool data max size
 
-Modify the following T-SQL query to return the elastic pool data max size in MB.
+Modify the following T-SQL query to return the elastic pool data max size.  Units of the query result are in MB.
 
 ```sql
 -- Connect to master
@@ -182,16 +182,14 @@ ORDER BY end_time DESC
 
 ## Reclaim unused allocated space
 
-Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database:
+Once databases have been identified for reclaiming unused allocated space, modify the following command to shrink the data files for each database.  For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
-For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-
-For databases in an elastic pool, databases with the most unused allocated space should be shrunk first to reclaim file space most quickly.  
+For more information about this command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).  
 
 > [!IMPORTANT] 
 > Consider rebuilding database indexes
