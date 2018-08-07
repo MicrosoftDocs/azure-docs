@@ -1,5 +1,5 @@
 ---
-title: Getting Started with queries in Azure Log Analytics| Microsoft Docs
+title: Get Started with queries in Azure Log Analytics| Microsoft Docs
 description: This article provides a tutorial for getting started writing queries in Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.author: bwren
 ms.component: na
 ---
 
-# Getting Started with queries in Log Analytics
+# Get started with queries in Log Analytics
 
 
 > [!NOTE]
-> You should complete [Getting started with the Analytics portal]() before completing this tutorial.
+> You should complete [Get started with the Analytics portal](get-started-analytics-portal.md) before completing this tutorial.
 
 
 In this tutorial you will learn to write Azure Log Analytics queries. It will teach you how to:
@@ -238,13 +238,5 @@ To make the output clearer, you select to display it as a time-chart, showing th
 
 
 ## Next steps
-Continue with our advanced tutorials:
-* [Search queries](search.md)
-* [Date and time operations](datetime-operations.md)
-* [String operations](string-operations.md)
-* [Aggregation functions](aggregations.md)
-* [Advanced aggregations](advanced-aggregations.md)
-* [Charts and diagrams](charts.md)
-* [Working with JSON and data structures](json-and-data-structures.md)
-* [Advanced query writing](advanced-query-writing.md)
-* [Joins - cross analysis](joins.md)
+
+- Learn about [writing search queries](search-queries.md)
