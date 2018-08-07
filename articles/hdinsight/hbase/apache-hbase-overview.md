@@ -5,7 +5,7 @@ keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop

@@ -201,7 +201,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>” \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
@@ -221,7 +221,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev net_vdev_netvsc<id>,iface=<the iface to attach to>” \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
@@ -238,7 +238,7 @@ The following commands periodically print the packets per second statistics:
      -w <pci address NIC1> \
      -w <pci address NIC2> \
      --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --vdev=” net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     --vdev=”net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      –eth-peer=<recv port id>,<peer MAC address> \

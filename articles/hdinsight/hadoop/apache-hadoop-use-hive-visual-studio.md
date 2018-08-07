@@ -3,7 +3,7 @@ title: Hive with Data Lake (Hadoop) tools for Visual Studio - Azure HDInsight | 
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Run Hive queries using the Data Lake tools for Visual Studio

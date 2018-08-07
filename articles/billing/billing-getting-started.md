@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
@@ -116,7 +116,7 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and check out Azure Advisor recommendations
 
-[Azure Advisor](../advisor/advisor-overview.md) is a preview feature that helps you reduce costs by identifying resources with low usage. Turn it on in the Azure portal:
+[Azure Advisor](../advisor/advisor-overview.md) is a feature that helps you reduce costs by identifying resources with low usage. Visit Advisor in the Azure portal:
 
 ![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.PNG)
 

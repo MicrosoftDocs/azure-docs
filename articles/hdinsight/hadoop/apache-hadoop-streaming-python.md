@@ -4,7 +4,7 @@ description: Learn how to use Python in streaming MapReduce jobs. Hadoop provide
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
+ms.author: jasonh
 
 ---
 # Develop Python streaming MapReduce programs for HDInsight

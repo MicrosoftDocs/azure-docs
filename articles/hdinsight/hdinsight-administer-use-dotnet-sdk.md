@@ -5,7 +5,7 @@ services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
-author: mumian
+author: jasonwhowell
 documentationcenter: ''
 
 ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using .NET SDK

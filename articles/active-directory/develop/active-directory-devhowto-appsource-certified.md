@@ -23,7 +23,7 @@ ms.custom: aaddev
 # How to get AppSource Certified for Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
-To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](./active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocols. SAML integration is not accepted for AppSource certification.
+To list a standalone SaaS application on AppSource, your application must accept single sign-on from work accounts from any company or organization that has Azure Active Directory. The sign-in process must use the [OpenID Connect](v1-protocols-openid-connect-code.md) or [OAuth 2.0](v1-protocols-oauth-code.md) protocols. SAML integration is not accepted for AppSource certification.
 
 ## Guides and code samples
 If you want to learn about how to integrate your application with Azure Active Directory using Open ID connect, follow our guides and code samples in the [Azure Active Directory developer's guide](azure-ad-developers-guide.md#get-started "Get Started with Azure AD for developers").
@@ -37,7 +37,7 @@ In order to enable multi-tenancy on your application:
 - Update your code to send requests to the '`common`' endpoint (update the endpoint from *https://login.microsoftonline.com/{yourtenant}* to *https://login.microsoftonline.com/common*)
 - For some platforms, like ASP.NET, you need also to update your code to accept multiple issuers
 
-For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
+For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md).
 
 ### Single-tenant applications
 Applications that only accept sign-ins from users of a defined Azure Active Directory instance are known as *single-tenant application*. External users (including Work or School accounts from other organizations, or personal account) can sign in to a single-tenant application after adding each user as *guest account* to the Azure Active Directory instance that the application is registered. You can add users as guest accounts to an Azure Active Directory via the [*Azure AD B2B collaboration*](../b2b/what-is-b2b.md) - and it can be done [programatically](../b2b/code-samples.md). When you add a user as guest account to an Azure Active Directory, an invitation email is sent to the user, who has to accept the invitation by clicking on the link in the invitation email. Invitations that are sent to an additional user in an inviting organization that is also a member of the partner organization are not required to accept an invitation to sign in.
@@ -117,7 +117,7 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 

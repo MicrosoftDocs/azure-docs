@@ -4,7 +4,7 @@ description: Learn how to use the Azure Command-line Interface to manage Hadoop 
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
-author: mumian
+author: jasonwhowell
 tags: azure-portal
 documentationcenter: ''
 
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight using the Azure CLI

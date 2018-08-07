@@ -116,7 +116,7 @@ In your environment, you should avoid the following configurations:
 
 ## How should you deploy a new policy?
 
-As a first step, you should evaluate your policy using the [what if tool](../active-directory-conditional-access-whatif.md).
+As a first step, you should evaluate your policy using the [what if tool](what-if-tool.md).
 
 When you are ready to deploy a new policy into your environment, you should do this in phases:
 
@@ -145,7 +145,7 @@ Consider migrating the policies you have not created in the Azure portal because
 - The Azure classic portal has been retired.   
 
 
-For more information, see [Migrate classic policies in the Azure portal](../active-directory-conditional-access-migration.md).
+For more information, see [Migrate classic policies in the Azure portal](policy-migration.md).
 
 
 ## Next steps

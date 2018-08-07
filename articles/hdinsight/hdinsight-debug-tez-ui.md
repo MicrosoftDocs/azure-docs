@@ -3,7 +3,7 @@ title: Use Tez UI with Windows-based HDInsight - Azure | Microsoft Docs
 description: Learn how to use the Tez UI to debug Tez jobs on Windows-based HDInsight HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 
@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
 
 ---

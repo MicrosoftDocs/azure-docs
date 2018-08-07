@@ -3,7 +3,7 @@ title: Publish Azure HDInsight applications | Microsoft Docs
 description: Learn how to create an HDInsight application, and then publish it in the Azure Marketplace.
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Publish an HDInsight application in the Azure Marketplace
