@@ -27,34 +27,34 @@ An Azure Stack solution is a hardware bill of materials (BoM) that has been join
 
 To certify your solution, run the Solution Validation workflow twice. Run it once for the *minimally* supported configuration. Run it a second time for the *maximally* supported configuration. Microsoft certifies the solution if both configurations pass all tests.
 
-[!INCLUDE [azure-stack-vaas-create-solution](includes/azure-stack-vaas-create-solution.md)]
-
 ## Create a Solution Validation workflow
 
-1. On the solutions dashboard, create or select an existing solution to certify. For instructions, see [Create a solution in the VaaS portal](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 2. Click **Start** on the **Solution Validations** tile.
 
     ![Solution Validations workflow tile](media/tile_validation-solution.png)
 
-3. Enter a **name** for the workflow.
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 4. Select the **solution configuration**.
     - **Minimum**: the solution is configured with the minimum supported number of nodes.
     - **Maximum**: the solution is configured with the maximum supported number of nodes.
-5. Click on **Upload** to upload your Azure Stack stamp information file. For instructions, see [Generate the stamp information file](azure-stack-vaas-parameters.md#generate-the-stamp-information-file).
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+
     ![Solution Validation information](media/workflow_validation-solution_info.png)
 
-6. Enter the test parameters. For additional details and instructions, see [Test parameters](azure-stack-vaas-parameters.md#test-parameters) and <TODO link diagnostics article>
-7. Click **Submit** to create the workflow. You will be redirected to the tests summary page.
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
 
 ## Execute Solution Validation tests
 
 In the **Solution validation tests summary** page, you will see a list of the tests required for completing validation.
 
-1. Select the agent that will execute the test. For information about adding local test execution agents, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 2. Click on the context menu next to a test and select **Schedule**. In the window, review the test parameters and then click **Submit** to schedule the test for execution.
+
     ![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
 
 ## Next steps
-
 
 - [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

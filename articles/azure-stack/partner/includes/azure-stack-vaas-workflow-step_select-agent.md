@@ -1,0 +1,1 @@
+Select the agent that will execute the test. For information about adding local test execution agents, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
