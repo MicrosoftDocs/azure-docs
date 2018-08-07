@@ -44,13 +44,13 @@ There are three steps required for using content trust in an Azure container reg
 
 Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal, and can pull both signed and unsigned images. Consumers who've enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
 
-To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Enabled**.
+To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **POLICIES**, select **Content Trust (Preview)** > **Enabled** > **Save**.
 
 ![Enabling content trust for a registry in the Azure portal][content-trust-01-portal]
 
 ## Enable client content trust
 
-To work with trusted images, both image publishers and consumers need to enable content trust in their clients. As a publisher, you can sign the images you push to a content trust-enabled registry. As a consumer, enabling content trust limits your view of a registry to signed images only. Content trust is disabled by default, but you can enable it per command or per shell session.
+To work with trusted images, both image publishers and consumers need to enable content trust for their Docker clients. As a publisher, you can sign the images you push to a content trust-enabled registry. As a consumer, enabling content trust limits your view of a registry to signed images only. Content trust is disabled by default in Docker clients, but you can enable it per shell session or per command.
 
 To enable content trust for a shell session, set the `DOCKER_CONTENT_TRUST` environment variable to **1**. For example, in the Bash shell:
 
@@ -75,7 +75,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## Grant image signing permissions
 
-Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Azure Active Directory
+Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Azure Active Directory identities the `AcrImageSigner` role. This is in addition to the `Contributor` (or `Owner`) role required for pushing images to the registry.
+
+Details for granting the `AcrImageSigner` role in the Azure portal and the Azure CLI follow.
 
 ### Azure portal
 
@@ -87,10 +89,16 @@ In this example, two entities have been assigned the `AcrImageSigner` role: a se
 
 ### Azure CLI
 
-Grant signing permissions to user:
+To grant signing permissions to a user with the Azure CLI, assign the `AcrImageSigner` role to the user, scoped to your registry. The format of the command is:
+
+```azurecli
+az role assignment create --scope <registry ID> --role AcrImageSigner --assignee <user name>
+```
+
+For example, to grant yourself the role, you can run the following commands in an authenticated Azure CLI session. Modify the `REGISTRY` value to reflect the name of your Azure container registry.
 
 ```bash
-# Grant signing permissions to user
+# Grant signing permissions to authenticated Azure CLI user
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
@@ -98,23 +106,23 @@ REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
-Grant signing permissions to service principal:
+You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry.
+
+The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value:
 
 ```azurecli
-az role assignment create --scope resource_id --role AcrImageSigner --assignee 00000000-0000-0000-0000-000000000000
+az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
 ## Push a trusted image
 
-To push trusted images and enable image signing, you need to grant yourself or a service principle the `AcrImageSigner`, role in addition to the `Owner` and `Contributor` roles.
-
 ## Pull a trusted image
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu imperdiet diam, in fermentum justo. Mauris interdum bibendum erat, non accumsan quam dictum nec. In congue consequat massa vel pretium. Praesent ullamcorper egestas est, eu hendrerit quam ornare eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
 ## Next steps
 
-The Docker documentation for content trust and
+See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, additional important content trust topics can be found here:
+
+[Content trust in Docker][docker-content-trust]
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png
