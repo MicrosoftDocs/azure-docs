@@ -5,7 +5,7 @@ keywords: hadoop emulator,hadoop sandbox
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-author: nitinme
+author: jasonwhowell
 documentationcenter: ''
 tags: azure-portal
 
@@ -15,7 +15,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Get started with a Hadoop sandbox, an emulator on a virtual machine
