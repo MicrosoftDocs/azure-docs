@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Storm by using Azure HDInsight 
+title: Troubleshoot Storm by using Azure HDInsight
 description: Get answers to common questions about using Apache Storm with Azure HDInsight.
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 services: hdinsight

@@ -1,16 +1,11 @@
 ---
-title: Use Hadoop Pig with Remote Desktop in HDInsight - Azure | Microsoft Docs
+title: Use Hadoop Pig with Remote Desktop in HDInsight - Azure 
 description: Learn how to use the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based Hadoop cluster in HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh

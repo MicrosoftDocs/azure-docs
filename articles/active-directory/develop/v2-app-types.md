@@ -66,7 +66,7 @@ You can learn about all the types of tokens and claims that are available to an 
 
 In web server apps, the sign-in authentication flow takes these high-level steps:
 
-![Web app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![Web app authentication flow](./media/v2-app-types/convergence_scenarios_webapp.png)
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
@@ -91,7 +91,7 @@ A Web API can give users the power to opt in or opt out of specific functionalit
 
 A Web API can receive access tokens from all types of apps, including web server apps, desktop and mobile apps, single-page apps, server-side daemons, and even other Web APIs. The high-level flow for a Web API looks like this:
 
-![Web API authentication flow](/media/v2-protocols-oidc/convergence_scenarios_webapi.png)
+![Web API authentication flow](./media/v2-app-types/convergence_scenarios_webapi.png)
 
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
@@ -102,14 +102,14 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 
 In this flow, the app receives an authorization code from the v2.0 endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to Web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
-![Native app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![Native app authentication flow](./media/v2-app-types/convergence_scenarios_native.png)
 
 ## Single-page apps (JavaScript)
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Azure AD v2.0 endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
 
 In this flow, the app receives tokens directly from the v2.0 authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 
-![Implicit authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Implicit authentication flow](./media/v2-app-types/convergence_scenarios_implicit.png)
 
 To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
@@ -118,6 +118,6 @@ Apps that have long-running processes or that operate without interaction with a
 
 In this flow, the app interacts directly with the `/token` endpoint to obtain endpoints:
 
-![Daemon app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
+![Daemon app authentication flow](./media/v2-app-types/convergence_scenarios_daemon.png)
 
 To build a daemon app, see the [client credentials documentation](v2-oauth2-client-creds-grant-flow.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
