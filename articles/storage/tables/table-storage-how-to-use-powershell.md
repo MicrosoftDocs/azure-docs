@@ -1,20 +1,13 @@
-﻿---
+---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
 description: Perform Azure Table storage operations with PowerShell.
 services: cosmos-db
-documentationcenter: storage
 author: robinsh
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: robinsh
+ms.component: tables
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 

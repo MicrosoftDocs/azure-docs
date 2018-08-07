@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -54,7 +54,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 
 6. On the toolbar, click the notification icon to view the status of the restore job.
 
-   ![restore job progress from vault](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![restore job progress](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. When the restore job is completed, open the **SQL databases** page to view the newly restored database.
 

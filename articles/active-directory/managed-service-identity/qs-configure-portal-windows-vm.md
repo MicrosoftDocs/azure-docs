@@ -33,7 +33,7 @@ In this article, you will learn how to enable and disable the system assigned id
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following role assignment:
-    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove Managed Service Identity from an Azure VM.
+    - [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) to enable and remove system assigned identity from an Azure VM.
 
 ## Managed Service Identity during creation of an Azure VM
 

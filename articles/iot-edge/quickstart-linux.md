@@ -41,18 +41,18 @@ Add the Azure IoT extension to the cloud shell instance.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## Prerequisites
 
-This quickstart uses a Linux machine as an IoT Edge device. If you don't have one available for testing, you can create one using the Azure CLI. 
+Cloud resources: 
 
-Create a new resource group. You can use this resource group for the other Azure resources that you create in this quickstart, for easy management.  
+* A resource group to manage all the resources you use in this quickstart. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Create the virtual machine. You don't need a very large virtual machine to test IoT Edge. A size like **B1ms** is sufficient.
+* A Linux virtual machine to act as your IoT Edge device. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -60,18 +60,13 @@ Create the virtual machine. You don't need a very large virtual machine to test 
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub in the Azure portal.
+Start the quickstart by creating your IoT Hub with Azure CLI. 
+
 ![Create IoT Hub][3]
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
 
-1. In the Azure cloud shell, create a resource group if you didn't as part of the prerequisites. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
+The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
@@ -237,7 +232,7 @@ After a logoff and login, *sudo* is not required for the above command.
 
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
-You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+You can also view the telemetry the device is sending by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 
 ## Clean up resources
@@ -308,10 +303,9 @@ This quickstart is the prerequisite for all of the IoT Edge tutorials. You can c
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

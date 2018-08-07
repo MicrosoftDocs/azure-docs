@@ -20,9 +20,9 @@ ms.author: apurvajo;cephalin
 
 This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
-## Step 1 - Log in to Azure
+## Step 1 - Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com
+Sign in to the Azure portal at http://portal.azure.com
 
 ## Step 2 - Place an SSL Certificate order
 
@@ -194,11 +194,11 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew the certificate
 
-To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**.
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. Certificates can start automatically renewing 90 days before expiration if you have automatic renewal turned on.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-To manually renew the certificate instead, click **Manual Renew** instead.
+To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

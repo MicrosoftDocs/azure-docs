@@ -100,7 +100,7 @@ default TTL = 300 (5 mins)
 
 ## Clean up resources
 
-When no longer needed, delete the **contosoRG** resource group to delete the resources created in this tutorial. To do so, click the **contosoRG** resource group and then click **Delete resource group**. 
+You can keep the **contosoRG** resource group if you intend to do the next tutorial. Otherwise, delete the **contosoRG** resource group to delete the resources created in this tutorial. To do so, click the **contosoRG** resource group and then click **Delete resource group**. 
 
 ## Next steps
 
