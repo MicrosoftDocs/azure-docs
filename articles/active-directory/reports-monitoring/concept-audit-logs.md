@@ -128,7 +128,7 @@ When you select **Group** as **activity resource type**, you get an additional f
 
 The **activity** filter is based on the category and Activity resource type selection you make. You can select a specific activity you want to see or choose all. 
 
-You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](active-directory-reporting-audit-events.md).
+You can get the list of all Audit Activities using the Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, where $tenantdomain = your domain name or refer to the article [audit report events](concept-audit-logs.md).
 
 
 ## Audit logs shortcuts

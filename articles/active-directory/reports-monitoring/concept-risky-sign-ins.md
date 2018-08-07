@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 With the security reports in Azure Active Directory (Azure AD) you can gain insights into the probability of compromised user accounts in your environment. 
 
-Azure AD detects suspicious actions that are related to your user accounts. For each detected action, a record called *risk event* is created. For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
+Azure AD detects suspicious actions that are related to your user accounts. For each detected action, a record called *risk event* is created. For more details, see [Azure Active Directory risk events](concept-risk-events.md). 
 
 The detected risk events are used to calculate:
 
@@ -85,7 +85,7 @@ This report provides you with an option to:
 
 The risky sign-ins report in the Azure Active Directory premium editions provides you with:
 
-- Aggregated information about the [risk event types](active-directory-identity-protection-risk-events.md) that have been detected
+- Aggregated information about the [risk event types](concept-risk-events.md) that have been detected
 
 - An option to download the report
 

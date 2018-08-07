@@ -97,7 +97,7 @@ The following Azure AD anomalous activity security reports are not included as r
 * Sign-ins from multiple geographies
 
 For more information, see
-[Azure Active Directory risk events](active-directory-identity-protection-risk-events.md).  
+[Azure Active Directory risk events](concept-risk-events.md).  
 
 
 #### Detected risk events

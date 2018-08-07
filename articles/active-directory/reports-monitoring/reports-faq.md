@@ -98,7 +98,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How many records can I query through the activities API?**
 
-**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API [here](active-directory-reporting-api-getting-started.md).
+**A:** You can query up to 1 million records (if you don’t use the top operator, which sorts the record by most recent). If you do use the “top” operator, you can query up to 500K records. You can find sample queries on how to use the API [here](concept-reporting-api.md).
 
 ---
 

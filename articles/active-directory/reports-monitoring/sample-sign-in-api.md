@@ -27,11 +27,11 @@ The scope of this Article is to provide you with sample code for the **sign-in a
 See:
 
 * [Audit logs](overview-reports.md#activity-reports)  for more conceptual information
-* [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
+* [Getting started with the Azure Active Directory Reporting API](concept-reporting-api.md) for more information about the reporting API.
 
 
 ## Prerequisites
-Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
+Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](howto-configure-prerequisites-for-reporting-api.md).  
 
 ## PowerShell script
 
@@ -94,6 +94,6 @@ The script returns output from the sign-in report in JSON format. It also create
 
 ## Next Steps
 * Would you like to customize the samples in this article? Check out the [Azure Active Directory sign-in activity API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
-* If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).
-* If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+* If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](concept-reporting-api.md).
+* If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](overview-reports.md).  
 

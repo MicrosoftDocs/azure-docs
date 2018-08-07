@@ -27,13 +27,13 @@ The scope of this article is to provide you with sample code for the **audit API
 See:
 
 * [Audit logs](overview-reports.md#activity-reports) for more conceptual information
-* [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.
+* [Getting started with the Azure Active Directory Reporting API](concept-reporting-api.md) for more information about the reporting API.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
 
 
 ## Prerequisites
-Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
+Before you can use the samples in this article, you need to complete the [prerequisites to access the Azure AD reporting API](howto-configure-prerequisites-for-reporting-api.md).  
 
 ## Known issue
 App Auth will not work if your tenant is in the EU region. Please use User Auth for accessing the Audit API as a workaround until we fix the issue. 
@@ -101,6 +101,6 @@ The script returns output from the audit report in JSON format. It also creates 
 
 ## Next steps
 * Would you like to customize the samples in this article? Check out the [Azure Active Directory audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
-* If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).
-* If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+* If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](concept-reporting-api.md).
+* If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](overview-reports.md).  
 
