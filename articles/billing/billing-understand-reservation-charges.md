@@ -1,6 +1,6 @@
 ---
-title: Understand Azure Reserved Instances discount | Microsoft Docs
-description: Learn how a reserved instance discount is applied to running SQL Databases. 
+title: Understand Azure reservation discount | Microsoft Docs
+description: Learn how a reservation discount is applied to running SQL Databases. 
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
 ---
-# Understand how the reserved instance discount is applied to SQL Databases
+# Understand how an Azure reservation discount is applied to SQL Databases
 
-After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reserved instance. A reserved instance covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL Databases that match the attributes and quantity of the reservation. A reservation covers the compute costs of your SQL Database. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Databases with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 For Reserved Virtual Machine Instances, see [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md).
 
-## Application of reserved instance discount to SQL Databases
+## Reservation discount applied to SQL Databases
 
- The SQL Database reserved capacity discount is applied to running SQL Databases on an hourly basis. The reserved instance that you buy is matched to the compute usage emitted by the running SQL Databases. For SQL Databases that don't run the full hour, the reserved instance is automatically applied to other SQL Databases matching the reservation attributes. The discount can apply to SQL Databases that are running concurrently. If you don't have SQL Databases that run for the full hour that match the reservation attributes, you don't get the full benefit of the reserved instance discount for that hour.
+ The SQL Database reserved capacity discount is applied to running SQL Databases on an hourly basis. The reservation that you buy is matched to the compute usage emitted by the running SQL Databases. For SQL Databases that don't run the full hour, the reservation is automatically applied to other SQL Databases matching the reservation attributes. The discount can apply to SQL Databases that are running concurrently. If you don't have SQL Databases that run for the full hour that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 The following examples show how the SQL Database reserved capacity discount applies depending on the number of cores you bought, and when they're running.
 
@@ -35,20 +35,20 @@ For the rest of these examples, assume that the SQL Database reserved capacity y
 - Scenario 3: You run one 16 core SQL Database from 1 pm to 1:30 pm. You run another 16 core SQL Database from 1:30 to 2 pm. Both are covered by the reservation discount.
 - Scenario 4: You run one 16 core SQL Database from 1 pm to 1:45 pm. You run another 16 core SQL Database from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure reserved instances in billing usage reports, see [Understand reserved instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
+To understand and view the application of your Azure reservations in billing usage reports, see [Understand Azure reservation usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## Next steps
 
-To learn more about reserved instances, see the following articles:
+To learn more about Azure reservations, see the following articles:
 
-- [What are Azure reserved instances?](billing-save-compute-costs-reservations.md)
+- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
-- [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
-- [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-- [Understand reserved instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows software costs not included with reserved VM instances](billing-reserved-instance-windows-software-costs.md)
+- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+
 
 ## Need help? Contact support
 
