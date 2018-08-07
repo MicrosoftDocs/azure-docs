@@ -73,7 +73,7 @@
       href: guidance-for-loading-data.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-  - name: Develop
+  - name: Development
     items:
     - name: Overview
       href: sql-data-warehouse-overview-develop.md
@@ -155,7 +155,7 @@
       href: sql-data-warehouse-concept-recommendations.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
-  - name: Integrate
+  - name: Integration
     items:
     - name: Overview
       href: sql-data-warehouse-overview-integrate.md
