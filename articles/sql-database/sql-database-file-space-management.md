@@ -17,7 +17,7 @@ This article describes different types of storage space in Azure SQL Database, a
 
 ## Overview
 
-In Azure SQL Database, storage size metrics displayed in the Azure portal and the following APIs measure the number of used data pages for databases and elastic pools:
+In Azure SQL Database, most storage space metrics displayed in the Azure portal and the following APIs measure the number of used data pages for databases and elastic pools:
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
