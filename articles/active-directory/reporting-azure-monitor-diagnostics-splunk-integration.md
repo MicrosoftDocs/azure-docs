@@ -51,5 +51,5 @@ To use this feature, you need:
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](reports-monitoring/reference-azure-monitor-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Interpret sign-in logs schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 * [Frequently asked questions and known issues](reports-monitoring/overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)

@@ -134,7 +134,7 @@
 #### [Audit activity reference](reports-monitoring/reference-audit-activities.md)
 #### [Sign-in activity error codes](reports-monitoring/reference-sign-ins-error-codes.md)
 #### [Interpret the audit log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-audit-log-schema.md)
-#### [Interpret the sign-in log schema in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](reports-monitoring/troubleshoot-missing-audit-data.md)
