@@ -1,6 +1,6 @@
 ---
 title: Get started with the Analytics Portal in Azure Log Analytics| Microsoft Docs
-description: This article provides a tutorial for getting started writing queries in Log Analytics.
+description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -31,89 +31,81 @@ In this tutorial you will learn how to use the Analytics portal to write Azure L
 
 
 ## Meet the Analytics portal
-The Analytics portal is a web tool to write and execute Azure Log Analytics queries. If you have an Analytics environment set up you can use it throughout this tutorial. Otherwise, use the _Run query_ button on the below examples, to see results on our demo environment.
+The Analytics portal is a web tool used to write and execute Azure Log Analytics queries. 
 
 ![Home page](media/get-started-analytics-portal/homepage.png)
 
 The home page offers easy access to useful resources, such as recent and saved queries, and examples. Open a new tab to start writing your own queries.
 
-## Queries
-Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data.
-
-Let's take a look at a basic query:
+## Basic queries
+Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data. Start with a basic query:
 
 ```OQL
-requests | search "azurewebsites"
+Event | search "error"
 ```
 
-This query searches the requests table for records that contain the term "azurewebsites".
+This query searches the _Event_ table for records that contain the term "error" in any property.
 
-Queries can start with either a table name or a search command. The above example starts with the table name requests, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one in the input of the following command. You can add as many commands as required (covered in our next tutorial: Getting Started with Queries).
+Queries can start with either a table name or a **search** command. The above example starts with the table name _Event_, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one in the input of the following command. You can add any number of commands to a single query.
 
-Another way to write that query would be.
+Another way to write that same query would be:
 
 ```OQL
-search in (requests) "azurewebsites"
+search in (Event) "error"
 ```
 
-In this example, search is scoped to the requests table, and in it search for all records that contain "azurewebsites".
+In this example, **search** is scoped to the _Event_ table, and all records in that table are searched for the term "error".
 
-When running a query, pay attention to the following:
+## Running a query
+Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider the following details which determine the code that will be run and the data that's returned:
 
-Line breaks - a single break makes your query clearer. Multiple line-breaks split it into separate queries.
-Cursor - be sure to put the cursor inside or at the end of the query before executing it.
-Time range - A time range of "last 24 hours" is set by default. To use a different range, use the time-picker (located next to the Go button) or add an explicit time range filter to your query.
-
-The examples in this tutorial have the Run Query button, that executes the query automatically. When you write a query manually through the Analytics query editor, click the “Go” button (located at the top right corner) or press Shift-Enter to run it.
+- Line breaks: A single break makes your query clearer. Multiple line breaks split it into separate queries.
+- Cursor: Place your cursor somewhere inside the query to execute it. The current query is considered to be the code up until a blank line is found.
+- Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
 
 ## Understand the schema
-The schema is a collection of tables, grouped visually under a logical category. In the screenshot below we see the title "Application Insights" which covers different tables, all related to the same product. For example, traces and customEvents are names of tables:
+The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and client heartbeats.
 
 ![Schema](media/get-started-analytics-portal/schema.png)
 
-In each table, data is organized in columns of different types, as indicated by the icons. For example, the requests table (expanded in the screenshot) contains the column timestamp which is a date-time, URL as a text column, and duration as a number.
+In each table, data is organized in columns with different data types as indicated by icons next to the column name. For example, the _Event_ table shown in the screenshot contains columns such as _Computer_ which is text, _EventCategory_ which is a number, and _TimeGenerated_ which is date/time.
 
 ## Filter the results
-let's start by getting everything in the requests table.
+Start by getting everything in the _Event_ table.
 
 ```OQL
-requests
+Event
 ```
-
-Run this query. How many results did you get?
 
 The Analytics portal automatically scopes results by:
 
-Time range - by default, queries are limited to the last 24 hours.
-Number of results - results are limited to maximum of 10,000 records.
+- Time range:  By default, queries are limited to the last 24 hours.
+- Number of results: Results are limited to maximum of 10,000 records.
 
-This query is very general, and it returns too many results to make sense of. We can filter the results either through the table elements, or by explicitly adding a filter to the query.
-
-Note that while filtering results through the table elements applies to the existing result set, adding a filter to the query itself will return a new, filtered, result set and could therefore produce more accurate results.
-
-### Filter through the table elements
-Let's focus on requests that execute GET. When reviewing the results, we can identify the relevant information is in the name column.
-
-Click the Filter icon next to the column title, and in the pop-up window select values that Starts with the text GET:
-
-![Filter](media/get-started-analytics-portal/filter.png)
+This query is very general, and it returns too many results to be useful. You can filter the results either through the table elements, or by explicitly adding a filter to the query. Filtering results through the table elements applies to the existing result set, while a filter to the query itself will return a new filtered result set and could therefore produce more accurate results.
 
 ### Add a filter to the query
-To the left of each record, an arrow is shown. Click it to open a specific record and review its details.
+There is an arrow to the left of each record. Click this arrow to open the details for a specific record.
 
-Hover above a specific value (e.g. resultCode) and 2 icons will appear: "+" and "-".
-
-To add a filter that will return only records with the same value, click the "+" sign. If instead you'd like to exclude records that have this value, click "-".
+Hover above a column name for the "+" and "-" icons to display. To add a filter that will return only records with the same value, click the "+" sign. Click "-" to exclude records with this value and then click **Run** to run the query again.
 
 ![Add filter to query](media/get-started-analytics-portal/add-filter.png)
 
+### Filter through the table elements
+Now let's focus on events with a severity of _Error_. This is specified in a column named _EventLevelName_. You'll need to scroll to the right to see this column.
+
+Click the Filter icon next to the column title, and in the pop-up window select values that _Starts with_ the text _error_:
+
+![Filter](media/get-started-analytics-portal/filter.png)
+
+
 ## Sort and group results
-Now we have narrowed down the results to include only failed GET requests, from the last 24 hours. However, the results are not sorted in any way. To sort the results by a specific column - such as timestamp - click the column title. One click sorts in ascending order, two - descending.
+The results are now narrowed down to include only error events from SQL Server, created in the last 24 hours. However, the results are not sorted in any way. To sort the results by a specific column, such as _timestamp_ for example, click the column title. One click sorts in ascending order while a second click will sort in descending.
 
-One of the common ways to organize results is by groups.
+![Sort column](media/get-started-analytics-portal/sort-column.png)
 
-To group results by a specific column, simply drag the column header above the other columns. To create subgroups - drag other columns the upper bar as well.
+Another way to organize results is by groups. To group results by a specific column, simply drag the column header above the other columns. To create subgroups, drag other columns the upper bar as well.
 
 ![Groups](media/get-started-analytics-portal/groups.png)
 
@@ -124,29 +116,30 @@ The results table often includes a lot of columns. You might find that some of t
 
 
 ## Select a time range
-By default, the Analytics portal applies the "last 24 hours" time range. To use a different range, simply select another value through the time picker, and click "Go". If none of the preset values match your needs, use the "Custom time range" option to select an absolute range for your query.
+By default, the Analytics portal applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
 
 ![Time picker](media/get-started-analytics-portal/time-picker.png)
 
 When selecting a custom time range, the selected values are in UTC, which could be different than your local time zone.
 
-If the query explicitly contains a time range filter (such as ... | where timestamp > ago(2d)), the time picker title will show "Set in query". Manual selection will be disabled to prevent a conflict.
+If the query explicitly contains a filter for _TimeGenerated_, the time picker title will show _Set in query_. Manual selection will be disabled to prevent a conflict.
 
 
 ## Charts
-Query results can be presented in different ways, depending on your preferences. Let's review this example:
+In addition returning results in a table, query results can be presented in visual formats. Use the following query as an example:
 
 ```OQL
-requests
-| where timestamp > ago(1d)
-| summarize count() by client_CountryOrRegion
+Event 
+| where EventLevelName == "Error" 
+| where TimeGenerated > ago(1d) 
+| summarize count() by Source 
 ```
 
-By default, results are displayed in a table. Click Chart to see the results in a more graphic view:
+By default, results are displayed in a table. Click _Chart_ to see the results in a graphic view:
 
 ![Bar chart](media/get-started-analytics-portal/bar-chart.png)
 
-Now the results are shown in a stacked bar chart, and the groups proportions are even clearer. Click Stacked Column and select Pie to show another view of the results:
+The results are shown in a stacked bar chart. Click _Stacked Column_ and select _Pie_ to show another view of the results:
 
 ![Pie chart](media/get-started-analytics-portal/pie-chart.png)
 
@@ -155,69 +148,42 @@ Different properties of the view, such as x and y axes, or grouping and splittin
 You can also set the preferred view in the query itself, using the render operator.
 
 ### Smart diagnostics
-On a timechart, if there is a sudden spike or step in your data, you may see a highlighted point on the line. This indicates that Smart Diagnostics has identified a combination of properties that filter out the sudden change. Click the point to get more detail on the filter, and to see the filtered version. This may help you identify what caused the change:
+On a timechart, if there is a sudden spike or step in your data, you may see a highlighted point on the line. This indicates that _Smart Diagnostics_ has identified a combination of properties that filter out the sudden change. Click the point to get more detail on the filter, and to see the filtered version. This may help you identify what caused the change:
 
 ![Smart diagnostics](media/get-started-analytics-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
-To pin a diagram or table to one of your shared dashboards - just click the pin icon.
+To pin a diagram or table to one of your shared Azure dashboards, click the pin icon.
 
 ![Pin to dashboard](media/get-started-analytics-portal/pin-dashboard.png)
 
-This means that, when you put together a dashboard to help you monitor the performance or usage of your web services or resources, you can include quite complex analysis alongside the other metrics.
-
-In order to pin a table to the dashboard, it must have four or fewer columns. Only the top seven rows are displayed.
-
-### ### Dashboard refresh
-The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every hours. You can also click the Refresh button.
-
-Automatic simplifications
 Certain simplifications are applied to a chart when you pin it to a dashboard:
 
-- Time restriction: Queries are automatically limited to the past 14 days. The effect is the same as if your query includes this time filter:
-where timestamp > ago(14d).
-- Bin count restriction: If you display a chart that has a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query: requests | summarize count_search = count() by client_CountryOrRegion looks like this in Analytics:
-
-![Pinned in Analytics](media/get-started-analytics-portal/pinned-analytics.png)
-
-but when you pin it to a dashboard, it looks like this:
-
-![Pined in dashboard](media/get-started-analytics-portal/pinned-dashboard.png)
+- Table columns and rows: In order to pin a table to the dashboard, it must have four or fewer columns. Only the top seven rows are displayed.
+- Time restriction: Queries are automatically limited to the past 14 days.
+- Bin count restriction: If you display a chart that has a lot of discrete bins, less populated bins are automatically grouped into a single _others_ bin. 
+- 
 
 ## Save queries
-Once you've created a useful query, you might want to save it or share with others. On the top bar you can find the "Save" icon.
+Once you've created a useful query, you might want to save it or share with others. The **Save** icon is on the top bar.
 
-### Application Insights Analytics portal
-In this portal, the Save action applies to the entire query page, which could include one or more queries. Queries can be saved as private queries ("My queries") or be shared with the other users of this application ("Shared queries").
-
-![Save query](media/get-started-analytics-portal/save-query.png)
-
-### Log Analytics portal
-In this portal, the Save action can save either the entire query page, or a single query as a function (Functions are queries that can also be referenced by other queries, read more here). In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
+You can save either the entire query page, or a single query as a function. Functions are queries that can also be referenced by other queries. In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
 
 ![Save function](media/get-started-analytics-portal/save-function.png)
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
-On the top-right area you can find the Query Explorer icon. The query explorer exposes all saved queries by categories, so you can easily find the relevant query. It also enables you to mark specific queries as Favorites, to quickly find them in the future.
+The Query Explorer icon is at the top-right area. This lists all saved queries by category. It also enables you to mark specific queries as Favorites to quickly find them in the future. Double-click a saved query to add it to the current window.
 
 ![Query explorer](media/get-started-analytics-portal/query-explorer.png)
 
 ## Export and share as link
+The Analytics portal supports several exporting methods:
 
-![Export query results](media/get-started-analytics-portal/export-query.png)
-
-The analytics portal supports several exporting methods:
-
-### Excel
-Save the results as a CSV file, to later review in Excel, for example.
-
-### Power BI
-Export the results to power BI, to later generate a PowerBI report. To learn more on this process, review this article.
-
-### Share a link
-The query itself can be shared as a link, which can then be sent and executed by other users that have access to the same environment.
+- Excel: Save the results as a CSV file.
+- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../log-analytics-powerbi.md) for details.
+- Share a link: The query itself can be shared as a link which can then be sent and executed by other users that have access to the same workspace.
 
 ## Next steps
 
