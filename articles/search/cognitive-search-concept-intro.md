@@ -14,9 +14,9 @@ ms.author: heidist
 
 Cognitive search creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline. AI integration is through *cognitive skills*, enriching source documents en route to a search index. 
 
-**Natural language processing** skills include [entity recognition](cognitive-search-skill-named-entity-recognition.md), language detection, [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and sentiment detection. With these skills, unstructured text becomes structured, mapped to fields in an index, searchable and filterable.
+**Natural language processing** skills include [entity recognition](cognitive-search-skill-named-entity-recognition.md), language detection, [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and sentiment detection. With these skills, unstructured text becomes structured, mapped to searchable and filterable fields in an index.
 
-**Image processing** includes [OCR](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using full text search techniques.
+**Image processing** includes [OCR](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Search.
 
 ![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
