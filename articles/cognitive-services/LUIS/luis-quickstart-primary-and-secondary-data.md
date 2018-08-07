@@ -267,7 +267,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Screenshot of create new phrase list button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
 
-3. Name the new phrase list `Jobs` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+3. Name the new phrase list `Job` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
