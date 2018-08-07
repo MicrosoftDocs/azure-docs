@@ -63,7 +63,7 @@ ORDER BY end_time DESC
 ```
 
 ### Database data space allocated and unused allocated space
-Use the following query to return the amount of database data space allocated and the space allocated unused in MB.
+Use the following query to return the amount of database data space allocated and the amount of unused space allocated in MB.
 
 ```sql
 -- Connect to database
