@@ -24,14 +24,16 @@ Batch AI is a managed service for training machine learning models at scale on c
 > * Monitor the job
 > * Retrieve the training results
 
-[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. An example TensorFlow object detection model is trained on the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html) for this tutorial.
+[Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. 
+
+An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 40 minutes to complete.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-This tutorial assumes you're running commands in a Bash shell, either in Cloud Shell or on your local computer.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -55,7 +57,7 @@ az batchai workspace create --resource-group batchai.horovod --workspace batchai
 
 ## Create an experiment
 
-For this tutorial, create a single experiment to run the distributed job. The following [az batchai experiment create](https://docs.microsoft.com/en-us/cli/azure/batchai/experiment?view=azure-cli-latest#az-batchai-experiment-create) creates an experiment called `cifar` under the workspace and resource group created earlier.
+For this tutorial, create a single experiment to run the distributed job. The following [az batchai experiment create](https://docs.microsoft.com/en-us/cli/azure/batchai/experiment?view=azure-cli-latest#az-batchai-experiment-create) command creates an experiment called `cifar` under the workspace and resource group.
 
 ```azurecli-interactive
 az batchai experiment create --resource-group batchai.horovod --workspace batchaidev --name cifar 
@@ -67,7 +69,7 @@ The next few sections will consist of instructions for creating all the necessar
 
 The next step ise to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
 
-* **VM size** - Azure contains many options for [GPU-enabled VMs](../azure/virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
+* **VM size** - Azure contains many options for [GPU-enabled VMs](../virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
 
 * **Priority** - Azure offers dedicated VMs in addition to a [low-priority VM](../batch/batch-low-pri-vms.md) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of VMs being pre-empted and interrupting your jobs. For this experiment, a `dedicated` option is selected.
 
@@ -277,7 +279,7 @@ print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 ```
 
-As shown in this example, it is easy to modify a model to enable distributed training using the Horovod framework. More information can be found at the [Horovod repo]](https://github.com/uber/horovod) on how to use Horovod with other machine learning libraries.
+As shown in this example, it is easy to modify a model to enable distributed training using the Horovod framework. More information can be found at the [Horovod repo](https://github.com/uber/horovod) on how to use Horovod with other machine learning libraries.
 
 Keep in mind that this script uses a relatively small model and dataset for demo purposes, so a distributed model will not necessarily show a substantial performance improvement. In order to truly see the power of distributed training, a much larger model, and dataset must be used.
 
@@ -323,9 +325,9 @@ Going through each of the properties:
 
 * **stdOutErrPathPrefix** - The path to store the job outputs and logs, which for this experiment will be the same `cifar` directory. 
 
-* **jobPreparation** - This field defines any special instructions for preparing the environment for running the job. This experiment requires installation of the indicated MPI and Horovod packages.
+* **jobPreparation** - Any special instructions for preparing the environment for running the job. This experiment requires installation of the indicated MPI and Horovod packages.
 
-* **containerSettings** - This field defines the settings on the type of container that the job should run on. This experiment uses a Docker container built with `tensorflow`.
+* **containerSettings** - The settings on the type of container that the job should run on. This experiment uses a Docker container built with `tensorflow`.
 
 Using the configuration, create the job can using the [az batchai job create](/cli/azure/batchai/job?view=azure-cli-latest#az-batchai-job-create) command. The following command queues a new job called `cifar_distributed` using all the resources that have been set up to this point.
 
@@ -341,7 +343,7 @@ az batchai job show --experiment cifar --name cifar_distributed --resource-group
 
 ## Visualize the distributed training
 
-Once the job starts running, Use the [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command once again to query the status of the cluster nodes. 
+Once the job starts running, use the [az batchai cluster show](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-show) command once again to query the status of the cluster nodes. 
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeStateCounts"
@@ -396,7 +398,7 @@ az batchai job file stream --experiment cifar --file-name stdout.txt --job cifar
 
 ## Retrieve the results
 
-The script that was executed performed 25 epochs through the dataset. If everything went well, the validation accuracy should be about 70-75% and the trained model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
+The script that was executed performed 25 epochs through the dataset, which takes some time. If everything went well, the validation accuracy should be about 70-75% and the trained model should be saved to the file share storage at `cifar/saved_models/keras_cifar10_trained_model.h5`. This model can be downloaded locally using the [az storage file download](/cli/azure/storage/file?view=azure-cli-latest#az-storage-file-download) command.
 
 ```azurecli-interactive
 az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h5 --share-name batchaishare --account-name <STORAGE ACCOUNT NAME> 
