@@ -401,7 +401,8 @@
 ### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
-### [Conditional access](conditional-access/overview.md)
+### [Conditional access]
+#### [Overview](conditional-access/overview.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### Quickstarts
 ##### [Require MFA for specific apps](conditional-access/app-based-mfa.md)
