@@ -1,6 +1,6 @@
 ---
-title: Upgrade an Azure Service Fabric cluster VMs SKU or OS | Microsoft Docs
-description: Learn how to upgrade the virtual machines in a Service Fabric cluster's primary nodetype.
+title: Scale out an Azure Service Fabric cluster by Adding Virtual Machine Scale Set | Microsoft Docs
+description: Learn how to scale a Service Fabric cluster by adding a Virtual Machine Scale Set.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -17,11 +17,11 @@ ms.date: 05/21/2018
 ms.author: ryanwi
 
 ---
-# Upgrade the primary node type VMs of a Service Fabric cluster
-This article describes how to upgrade the primary node type virtual machines of a Service Fabric cluster running in Azure.  A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
+# Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set
+This article describes how to scale an Azure Service Fabric cluster by adding a new virtual machine scale set to an existing cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes), upgrade the operating system of the node type VMs, or add a new virtual machine scale set to an existing cluster.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
+> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. This means your primary node type, which is running stateful service fabric system services, or any node type that is running your stateful application work loads.
 >
 
 ## Upgrade the size and operating system of the primary node type VMs
@@ -149,6 +149,45 @@ foreach($name in $nodeNames){
     Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
     Write-Host "Removed node state for node $name"
 }
+```
+
+## Adding an additional Scale set to an existing cluster
+Adding a new NodeType Virtual Machine Scale Set to an existing cluster, is similar to the aforementioned upgrading of the primary node type, except you won't use the same NodeTypeRef; obviously won't be disabling any actively used Virtual Machine Scale sets, and you wont lose cluster availability if do not update the primary node type. 
+
+NodeTypeRef property is declared within the Virtual Machine Scale Set Service Fabric Extension properties:
+```json
+<snip>
+"publisher": "Microsoft.Azure.ServiceFabric",
+     "settings": {
+     "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+     "nodeTypeRef": "[parameters('vmNodeType2Name')]",
+     "dataPath": "D:\\\\SvcFab",
+     "durabilityLevel": "Silver",
+<snip>
+```
+
+Additionally you will need to add this new node type to your Service Fabric cluster resource:
+
+```json
+<snip>
+"nodeTypes": [
+      {
+      "name": "[parameters('vmNodeType2Name')]",
+      "applicationPorts": {
+                "endPort": "[parameters('nt2applicationEndPort')]",
+                "startPort": "[parameters('nt2applicationStartPort')]"
+      },
+      "clientConnectionEndpointPort": "[parameters('nt2fabricTcpGatewayPort')]",
+      "durabilityLevel": "Silver",
+       "ephemeralPorts": {
+                "endPort": "[parameters('nt2ephemeralEndPort')]",
+                "startPort": "[parameters('nt2ephemeralStartPort')]"
+      },
+      "httpGatewayEndpointPort": "[parameters('nt2fabricHttpGatewayPort')]",
+      "isPrimary": false,
+      "vmInstanceCount": "[parameters('nt2InstanceCount')]"
+},
+<snip>
 ```
 
 ## Next steps

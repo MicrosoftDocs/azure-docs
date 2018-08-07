@@ -3,7 +3,7 @@ title: Install Jupyter locally & connect to an Azure HDInsight Spark cluster | M
 description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
-author: nitinme
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,7 +14,7 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
+ms.author: jasonh
 
 ---
 # Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight

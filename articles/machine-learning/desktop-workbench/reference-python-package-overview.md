@@ -49,14 +49,3 @@ Try these next steps for this package:
 1. Read the [install docs](https://aka.ms/aml-packages/text).
 1. [Build and deploy a text classification model](how-to-build-deploy-text-classification-models.md) with a Jupyter notebook.
 1. Explore the package [reference documentation](https://aka.ms/aml-packages/text).
-
-<a name="amlrealtimeai"></a>
-## amlrealtimeai (FPGA acceleration)
-
-With Azure Machine Learning Hardware Acceleration package, data scientists and AI developers can featurize images with a quantized version of ResNet 50, train classifiers based on those features, and then deploy models to an [field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md) on Azure for ultra-low latency inferencing.
-
-Try these next steps for this package:
-1. [Download](https://aka.ms/aml-real-time-ai-package) the package.
-1. Read the [install docs](reference-fpga-package-overview.md).
-1. [Deploy a model to an FPGA](how-to-deploy-fpga-web-service.md).
-

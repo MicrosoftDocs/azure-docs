@@ -10,7 +10,7 @@
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
-    href: how-to-migrate.md
+    href: how-to-migrate.md             
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -19,10 +19,11 @@
     href: quickstart-get-started-with-cli.md   
 - name: Tutorials
   items:
-  - name: 1. Train models
+  - name: 'Train models: Part 1'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Deploy models
+  - name: 'Deploy models: Part 2'
     href: tutorial-deploy-models-with-aml.md
+  - name: Automatic algorithm selection
 - name: Concepts   
   items: 
   - name: Architecture and terms
@@ -61,38 +62,7 @@
   - name: Machine learning SDK
     href: reference-azure-machine-learning-sdk.md
   - name: Machine learning CLI
-    href: reference-azure-machine-learning-cli.md
-  - name: Domain packages
-    href: reference-python-package-overview.md
-    items:    
-    - name: Computer vision package
-      items:
-      - name: Package install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-      - name: Model and deploy
-        items:
-        - name: Image classification
-          href: how-to-build-deploy-image-classification-models.md
-        - name: Object detection
-          href: how-to-build-deploy-object-detection-models.md
-        - name: Image similarity
-          href: how-to-build-deploy-image-similarity-models.md
-      - name: Improve model accuracy
-        href: how-to-improve-accuracy-for-computer-vision-models.md
-    - name: Forecasting package
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
-      - name: Build and deploy forecast models
-        href: how-to-build-deploy-forecast-models.md
-    - name: FPGA acceleration package
-      href: reference-fpga-package-overview.md
-    - name: Text analytics package
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
-      - name: Build and deploy text classification models
-        href: how-to-build-deploy-text-classification-models.md    
+    href: reference-azure-machine-learning-cli.md    
 - name: Resources
   items:  
   - name: Azure roadmap
@@ -270,11 +240,42 @@
         href: ../desktop-workbench/model-data-collection-api-reference.md
     - name: Key concepts
       href: ../desktop-workbench/overview-general-concepts.md    
+    - name: Domain packages
+      href: ../desktop-workbench/reference-python-package-overview.md
+      items:    
+      - name: Computer vision package
+        items:
+      - name: Package install
+        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
+      - name: Model and deploy
+        items:
+        - name: Image classification
+          href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
+        - name: Object detection
+          href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
+        - name: Image similarity
+          href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
+        - name: Improve model accuracy
+          href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
+      - name: Forecasting package
+        items:
+        - name: Overview and install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
+        - name: Build and deploy forecast models
+          href: ../desktop-workbench/how-to-build-deploy-forecast-models.md
+      - name: FPGA acceleration package
+        href: reference-fpga-package-overview.md
+      - name: Text analytics package
+        items:
+        - name: Overview and install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
+        - name: Build and deploy text classification models
+          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
+    - name: Older release notes
+      href: azure-machine-learning-release-notes.md       
     - name: FAQs
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Issues
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Past release notes
-      href: ../desktop-workbench/azure-machine-learning-release-notes.md              
     - name: Support
       href: support-for-aml-services.md

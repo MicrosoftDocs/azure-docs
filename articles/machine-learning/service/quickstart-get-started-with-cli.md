@@ -8,7 +8,7 @@ ms.topic: quickstart
 author: rastala
 ms.author: roastala
 ms.reviewer: sgilley
-ms.date: 7/27/2018
+ms.date: 09/24/2018
 ---
 # Quickstart: Get started with Azure Machine Learning using the CLI extension
 

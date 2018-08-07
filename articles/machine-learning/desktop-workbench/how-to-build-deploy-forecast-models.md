@@ -9,9 +9,13 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Build and deploy forecasting models with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 In this article, learn how to use **Azure Machine Learning Package for Forecasting** (AMLPF) to quickly build and deploy a forecasting model. The workflow is as follows:
 

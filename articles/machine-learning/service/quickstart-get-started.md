@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 09/27/2018
+ms.date: 09/24/2018
 ---
 
 # Quickstart: Get started with Azure Machine Learning Services

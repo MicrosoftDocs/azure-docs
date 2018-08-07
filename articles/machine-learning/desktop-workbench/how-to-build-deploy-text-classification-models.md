@@ -9,9 +9,14 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Build and deploy text classification models with Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 In this article, you can learn how to train and deploy a text classification model with **Azure Machine Learning Package for Text Analytics** (AMLPTA). The goal of text classification is to assign a piece of text to one or more predefined classes or categories. This text could, for example, be a document, news article, search query, email, tweet, support tickets.
 
