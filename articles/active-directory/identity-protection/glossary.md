@@ -159,5 +159,5 @@ Users that have risk events, which are either active or remediated
 A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.
 
 ## See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

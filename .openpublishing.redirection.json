@@ -27234,6 +27234,51 @@
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
             "redirect_url": "/azure/active-directory/conditional-access/app-based-mfa",
             "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
+            "redirect_url": "/azure/active-directory/identity-protection/enable",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identity-protection-faqs.md",
+            "redirect_url": "/azure/active-directory/identity-protection/faqs",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-flows.md",
+            "redirect_url": "/azure/active-directory/identity-protection/flows",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-glossary.md",
+            "redirect_url": "/azure/active-directory/identity-protection/glossary",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-graph-getting-started.md",
+            "redirect_url": "/azure/active-directory/identity-protection/graph-get-started",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-unblock-howto.md",
+            "redirect_url": "/azure/active-directory/identity-protection/howto-unblock-user",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-notifications.md",
+            "redirect_url": "/azure/active-directory/identity-protection/notifications",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-playbook.md",
+            "redirect_url": "/azure/active-directory/identity-protection/playbook",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-vulnerabilities.md",
+            "redirect_url": "/azure/active-directory/identity-protection/vulnerabilities",
+            "redirect_document_id": true
         }
     ]
 }
