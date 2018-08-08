@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/04/2018
+ms.date: 08/09/2018
 ms.author: marsma
 ---
 # Content trust in Azure Container Registry
@@ -106,13 +106,17 @@ REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
-You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry. The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value:
+You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry. The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value.
 
 ```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
+The `<service principal ID>` can be the service principal's **appId**, **objectId**, or one of its **servicePrincipalNames**. For more information about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
+
 ## Push a trusted image
+
+To push a trusted image to your container registry, first enable content trust for your registry and your client, then execute the `docker push` command. The first time push a signed image, you're asked to create a passphrase for both a root signing key and a repository signing key.
 
 ## Pull a trusted image
 
