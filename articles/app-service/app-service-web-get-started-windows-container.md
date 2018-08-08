@@ -89,8 +89,8 @@ The streamed logs looks like this:
 
 You are free to use a different custom Docker image to run your app. However, you must choose the right [parent image](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want: 
 
-- To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
-- To deploy .NET Core apps, use a parent image based on the Windows Server Nano 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Core apps, use a parent image based on the Windows Server Nano 2016 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) release. 
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
