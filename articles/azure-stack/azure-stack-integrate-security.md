@@ -179,6 +179,10 @@ Set-SyslogServer -Remove
 Set-SyslogClient -RemoveCertificate 
 ```
 
+## Verifying the syslog setup
+
+If you successfully connected the syslog client to your syslog server, you should soon start receiving events from three different channels: Azure, Azure Stack and Windows. If you don't see any event, or not channel is visible, please verify your setup.
+
 ## Syslog message schema
 
 The syslog forwarding of the Azure Stack infrastructure sends messages formatted in Common Event Format (CEF).
