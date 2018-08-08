@@ -25,6 +25,8 @@
     href: app-service-web-get-started-java.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
+  - name: Run custom Windows container
+    href: app-service-web-get-started-windows-container.md
 - name: Tutorials
   items:
   - name: App with DB

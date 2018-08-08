@@ -161,6 +161,12 @@
       href: third-party-notices.md
   - name: Speech Devices SDK
     items:
+    - name: Download 
+      href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+    - name: Samples
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK 
+    - name: Release notes
+      href: devices-sdk-release-notes.md
     - name: License
       href: speech-devices-sdk-license.md
       displayName: roobo, speech devices sdk

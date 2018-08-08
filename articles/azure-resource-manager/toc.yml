@@ -32,6 +32,8 @@
     maintainContext: true
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
+  - name: Deployment modes
+    href: deployment-modes.md
 - name: How to
   items:
   - name: Create templates
