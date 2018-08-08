@@ -556,6 +556,16 @@ For more information, see [Azure Instance Metadata service](https://docs.microso
 #### MAC Address (Instance Metadata)
 `$im.network.interface.macAddress`
 
+## Using Serial Console for NMI calls in Windows VMs
+A non-maskable interrupt (NMI) is designed to create a signal that sofware on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
+
+The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system respond. Windows can be configured to crash and create a memory dump when receiving an NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+For information on configuring Windows to create a crash dump when it receives an NMI, see: [How to generate a complete crash dump file or a kernel crash dump file by using an NMI on a Windows-based system](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
+
+
 ## Errors
 Most errors are transient in nature and retrying connection address these. Below table shows a list of errors and mitigation 
 
@@ -575,6 +585,8 @@ There is no option with virtual machine scale set instance serial console | At t
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 Only health information is shown when connecting to a Windows VM| [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
+If the serial console connection is open for several minutes without sending an [NMI](nmi.md), attempts to send an [NMI](nmi.md) may not initially return a response and cause a console error after several seconds. | Close and reopen the serial console blade.
+If the the virtual machine is rebooted in the same session, attempts to send an [NMI](nmi.md) may fail after the serial console session reconnection. | Close and reopen the serial console blade.
 
 ## Frequently asked questions 
 **Q. How can I send feedback?**

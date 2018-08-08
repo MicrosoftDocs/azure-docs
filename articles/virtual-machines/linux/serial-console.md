@@ -97,7 +97,7 @@ SUSE        | Newer SLES images available on Azure have console access enabled b
 Oracle Linux        | Oracle Linux images available on Azure have console access enabled by default.
 Custom Linux images     | To enable serial console for your custom Linux VM image, enable console access in /etc/inittab to run a terminal on ttyS0. Here is an example to add this in the inittab file: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
-## GRUB access and Single User Mode access
+## Using Serial Console to access GRUB and Single User Mode
 Single user mode is a minimal environment minimal functionality. It can be useful for investigating boot issues or network issues. Some distros will automatically drop you into single user mode or emergency mode if the VM is unable to boot. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. 
@@ -222,6 +222,109 @@ Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your 
 #### Single user mode
 Follow the instructions for RHEL above to enable single user mode in Oracle Linux.
 
+
+## Using Serial Console for SysRq and NMI calls
+
+### System Request (SysRq)
+A SysRq is a sequence of keys understood by the Linux operation system kernel which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can not be performed through traditional administration (for example the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
+
+Once the SysRq sequence is delivered, the kernel configuration will control how the system responds. For information on enabling and disabling SysRq, see the *SysRq Admin Guide* [text](https://www.kernel.org/doc/Documentation/admin-guide/sysrq.rst) | [markdown](https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/sysrq.rst).  
+
+The Azure Serial Console can be used to send a SysRq to an Azure virtual machine using the keyboard icon in the command bar shown below.
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+
+Choosing "Send SysRq Command" will open a dialog which provides common SysRq options or accepts a sequence of SysRq commands entered into the dialog.  This allows for series of SysRq's to perform a high-level operation such as a safe reboot using: `REISUB`.
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+
+The SysRq command cannot be used on virtual machines that are stopped or whose kernel is in a non-responsive state. (for example a kernel panic).
+
+#### Enabling SysRq 
+As described in the *SysRq Admin Guide* above, SysRq can be configured such that all, none, or only certain commands are available. You can enable all SysRq commands using the step below but it will not survive a reboot:
+```
+echo "1" >/proc/sys/kernel/sysrq
+```
+To make the SysReq configuration persistent you can do the followig to enable all SysRq commands
+1. Adding the this line to */etc/sysctl.conf* <br>
+    `kernel.sysrq = 1`
+1. Rebooting or updating sysctl by running <br>
+    `sysctl -p`
+
+#### Command Keys 
+From the SysRq Admin Guide above:
+
+|Command| Function
+| ------| ----------- |
+|``b``  |   Will immediately reboot the system without syncing or unmounting your disks.
+|``c``  |   Will perform a system crash by a NULL pointer dereference. A crashdump will be taken if configured.
+|``d``  |   Shows all locks that are held.
+|``e``  |   Send a SIGTERM to all processes, except for init.
+|``f``  |   Will call the oom killer to kill a memory hog process, but do not panic if nothing can be killed.
+|``g``  |   Used by kgdb (kernel debugger)
+|``h``  |   Will display help (actually any other key than those listed here will display help. but ``h`` is easy to remember :-)
+|``i``  |    Send a SIGKILL to all processes, except for init.
+|``j``  |    Forcibly "Just thaw it" - filesystems frozen by the FIFREEZE ioctl.
+|``k``  |    Secure Access Key (SAK) Kills all programs on the current virtual console. NOTE: See important comments below in SAK section.
+|``l``  |    Shows a stack backtrace for all active CPUs.
+|``m``  |    Will dump current memory info to your console.
+|``n``  |    Used to make RT tasks nice-able
+|``o``  |    Will shut your system off (if configured and supported).
+|``p``  |    Will dump the current registers and flags to your console.
+|``q``  |    Will dump per CPU lists of all armed hrtimers (but NOT regular timer_list timers) and detailed information about all clockevent devices.
+|``r``  |    Turns off keyboard raw mode and sets it to XLATE.
+|``s``  |    Will attempt to sync all mounted filesystems.
+|``t``  |    Will dump a list of current tasks and their information to your console.
+|``u``  |    Will attempt to remount all mounted filesystems read-only.
+|``v``  |    Forcefully restores framebuffer console
+|``v``  |    Causes ETM buffer dump [ARM-specific]
+|``w``  |    Dumps tasks that are in uninterruptable (blocked) state.
+|``x``  |    Used by xmon interface on ppc/powerpc platforms. Show global PMU Registers on sparc64. Dump all TLB entries on MIPS.
+|``y``  |    Show global CPU Registers [SPARC-64 specific]
+|``z``  |    Dump the ftrace buffer
+|``0``-``9`` | Sets the console log level, controlling which kernel messages will be printed to your console. (``0``, for example would make it so that only emergency messages like PANICs or OOPSes would make it to your console.)
+
+#### Distribution-specific documentation ###
+For distribution specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
+##### Ubuntu ####
+ - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+##### Red Hat ####
+- [What is the SysRq Facility and how do I use it?](https://access.redhat.com/articles/231663)
+- [How to use the SysRq facility to collect information from a RHEL server](https://access.redhat.com/solutions/2023)
+##### SUSE ####
+- [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
+##### CoreOS ####
+- [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+
+### Non-Maskable Interrupt (NMI) 
+A non-maskable interrupt (NMI) is designed to create a signal that sofware on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
+
+The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds.  Linux operating systems can be configured to crash and create a memory dump when receiving an NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+
+For Linux systems which support sysctl for configuring kernel parameters, you can enable a panic when receiving this NMI by using the following:
+1. Adding the this line to */etc/sysctl.conf* <br>
+    `kernel.panic_on_unrecovered_nmi=1`
+1. Rebooting or updating sysctl by running <br>
+    `sysctl -p`
+
+For additional information on Linux kernel configurations, including `unknown_nmi_panic`, `panic_on_io_nmi`, and `panic_on_unrecovered_nmi`, see: [Documentation for /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). For distribution specific documentation  on NMI and steps to configure Linux to create a crash dump when it receives an NMI, see the links below:
+ 
+ #### Ubuntu 
+ - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
+ #### Red Hat 
+ - [What is an NMI and what can I use it for?](https://access.redhat.com/solutions/4127)
+ - [How can I configure my system to crash when NMI switch is pushed?](https://access.redhat.com/solutions/125103)
+ - [Crash Dump Admin Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
+
+#### SUSE 
+- [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
+#### CoreOS 
+- [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
+
+
 ## Errors
 Most errors are transient in nature and retrying the serial console connection often addresses these. Below table shows a list of errors and mitigation 
 
@@ -239,6 +342,8 @@ Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance serial console |  At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+If the serial console connection is open for several minutes without sending either a [SysRq](sysrq.md) or [NMI](nmi.md), attempts to send a [SysRq](sysrq.md) or [NMI](nmi.md) may not initially return a response and cause a console error after several seconds. | Close and reopen the serial console blade
+If the the virtual machine is rebooted in the same session, attempts to send a [SysRq](sysrq.md) or [NMI](nmi.md) may fail after the serial console session reconnection. | Close and reopen the serial console blade
 
 
 ## Frequently asked questions 
