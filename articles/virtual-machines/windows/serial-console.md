@@ -579,14 +579,13 @@ Unable to determine the resource group for the boot diagnostics storage account 
 ## Known issues 
 As we are still in the preview stages for serial console access, we are working through some known issues, below is the list of these with possible workarounds 
 
-Issue                           |   Mitigation 
+Issue                             |   Mitigation 
 :---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance serial console | At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 Only health information is shown when connecting to a Windows VM| [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 Unable to type at SAC prompt if kernel debugging is enabled | RDP to VM and run `bcdedit /debug {current} off` from an elevated command prompt. If you can't RDP you can instead attach the OS disk to another Azure VM and modify it while attached as a data disk using `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, then swap the disk back.
-If the serial console connection is open for several minutes without sending an [NMI](nmi.md), attempts to send an [NMI](nmi.md) may not initially return a response and cause a console error after several seconds. | Close and reopen the serial console blade.
-If the the virtual machine is rebooted in the same session, attempts to send an [NMI](nmi.md) may fail after the serial console session reconnection. | Close and reopen the serial console blade.
+
 
 ## Frequently asked questions 
 **Q. How can I send feedback?**

@@ -342,8 +342,6 @@ Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
 There is no option with virtual machine scale set instance serial console |  At the time of preview, access to the serial console for virtual machine scale set instances is not supported.
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
-If the serial console connection is open for several minutes without sending either a [SysRq](sysrq.md) or [NMI](nmi.md), attempts to send a [SysRq](sysrq.md) or [NMI](nmi.md) may not initially return a response and cause a console error after several seconds. | Close and reopen the serial console blade
-If the the virtual machine is rebooted in the same session, attempts to send a [SysRq](sysrq.md) or [NMI](nmi.md) may fail after the serial console session reconnection. | Close and reopen the serial console blade
 
 
 ## Frequently asked questions 
