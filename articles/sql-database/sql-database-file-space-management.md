@@ -12,7 +12,6 @@ ms.author: moslake
 
 ---
 # Manage file space in Azure SQL Database
-
 This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
 
 ## Overview
