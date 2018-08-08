@@ -27,7 +27,7 @@ Azure Active Directory Identity Protection is a capability of Azure Active Direc
 - Set risk-based Conditional Access policies to automatically protect your users
 - Improve security posture by acting on vulnerabilities 
 
-For more information, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 This article shows how to enable Azure Active Directory Identity Protection.
 
@@ -37,20 +37,20 @@ This article shows how to enable Azure Active Directory Identity Protection.
 
 2. In the Azure portal, click **Marketplace**.
    
-    ![Create](./media/active-directory-identityprotection-enable/01.png "Create")
+    ![Create](./media/enable/01.png "Create")
 
 3. In the applications list, click **Identity**.
    
-    ![Create](./media/active-directory-identityprotection-enable/05.png "Create")
+    ![Create](./media/enable/05.png "Create")
 
 4. Click **Azure AD Identity Protection**.
    
-    ![Create](./media/active-directory-identityprotection-enable/06.png "Create")
+    ![Create](./media/enable/06.png "Create")
 
 5. On the **Azure AD Identity Protection** blade, click **Create**.
    
-    ![Create](./media/active-directory-identityprotection-enable/04.png "Create")
+    ![Create](./media/enable/04.png "Create")
 
 ## Next Steps
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 
