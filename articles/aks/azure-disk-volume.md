@@ -99,7 +99,7 @@ Learn more about Kubernetes volumes using Azure disks.
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/disk#az_disk_list
-[az-disk-create]: /cli/azure/disk#az_disk_create
-[az-group-list]: /cli/azure/group#az_group_list
+[az-disk-list]: /cli/azure/disk#az-disk-list
+[az-disk-create]: /cli/azure/disk#az-disk-create
+[az-group-list]: /cli/azure/group#az-group-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

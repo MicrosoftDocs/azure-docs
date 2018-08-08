@@ -1,18 +1,13 @@
 ---
-title: Hadoop architecture - Azure HDInsight | Microsoft Docs
+title: Hadoop architecture - Azure HDInsight 
 description: Describes Hadoop storage and processing on HDInsight clusters.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
 

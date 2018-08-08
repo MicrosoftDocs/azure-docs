@@ -52,7 +52,7 @@ After creating a zone and delegating it to Azure DNS, you can then create record
 
 ## Create an A record and TXT record
 
-An A record is used to map a name to its IP address. In the following example, assign "@" as an A record using your web app IPv4 address. @ typically represents the root domain.
+An A record is used to map a name to its IP address. In the following example, assign "\@" as an A record using your web app IPv4 address. \@ typically represents the root domain.
 
 ### Get the IPv4 address
 
