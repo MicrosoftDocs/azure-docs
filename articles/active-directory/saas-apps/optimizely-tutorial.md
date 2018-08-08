@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not the real. You will update the value with the actual Sign-on URL and Identifier, which is explained later in the tutorial.
 
-4. Collaborative Innovation application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+4. Optimizely application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_attribute.png)
 	
@@ -185,15 +185,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_01.png) 
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
+2. To display the list of users, go to **Users and groups** and click **All users**.
 	
 	![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_02.png) 
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
+3. To open the **User** dialog, click **Add** on the top of the dialog.
  
 	![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_03.png) 
 
-1. On the **User** dialog page, perform the following steps:
+4. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_04.png) 
 
@@ -204,22 +204,22 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating an Optimizely test user
 
 In this section, you create a user called Britta Simon in Optimizely.
 
 1. On the home page, select **Collaborators** tab.
 
-1. To add new collaborator to the project, click **New Collaborator**.
+2. To add new collaborator to the project, click **New Collaborator**.
    
     ![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_10.png)
 
-1. Fill in the email address and assign them a role. Click **Invite**.
+3. Fill in the email address and assign them a role. Click **Invite**.
 
     ![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_11.png)
 
-1. They receive an email invite. Using the email address, they have to log in to Optimizely.
+4. They receive an email invite. Using the email address, they have to log in to Optimizely.
 
 ### Assigning the Azure AD test user
 
@@ -231,38 +231,36 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
-1. In the applications list, select **Optimizely**.
+2. In the applications list, select **Optimizely**.
 
 	![Configure Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_app.png) 
 
-1. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-1. Click **Select** button on **Users and groups** dialog.
+6. Click **Select** button on **Users and groups** dialog.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+7. Click **Assign** button on **Add Assignment** dialog.
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application. 
+When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application.
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -277,4 +275,3 @@ When you click the Optimizely tile in the Access Panel, you should get automatic
 [201]: ./media/optimizely-tutorial/tutorial_general_201.png
 [202]: ./media/optimizely-tutorial/tutorial_general_202.png
 [203]: ./media/optimizely-tutorial/tutorial_general_203.png
-
