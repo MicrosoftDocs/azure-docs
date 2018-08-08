@@ -84,7 +84,7 @@ To configure and test Azure AD single sign-on with N2F - Expense reports, you ne
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a N2F - Expense reports test user](#create-a-n2f-expensereports-test-user)** - to have a counterpart of Britta Simon in N2F - Expense reports that is linked to the Azure AD representation of user.
+3. **[Create a N2F - Expense reports test user](#create-a-n2f---expense-reports-test-use)** - to have a counterpart of Britta Simon in N2F - Expense reports that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
