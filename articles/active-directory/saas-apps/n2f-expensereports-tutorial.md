@@ -219,7 +219,7 @@ To enable Azure AD users to log in to N2F - Expense reports, they must be provis
 	e. Click **Validate and send invitation**.
 
 	> [!NOTE]
-	> If you are facing any problems while adding the user, please contact [N2F - Expense reports support team](mailto:	support@n2f.com)
+	> If you are facing any problems while adding the user, please contact [N2F - Expense reports support team](mailto:support@n2f.com)
 
 ### Assign the Azure AD test user
 
