@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 08/08/2018
 ms.author: jeedes
 
 ---
@@ -174,7 +174,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure the single sign-On Save button](./media/cisco-webex-tutorial/tutorial_general_400.png)
 	
-13. On the Cisco Webex company site administrator page **Import Idp Metadata** page, use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
+13. On the Cisco Webex company site administrator page, use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and go to next screen. 
 
 	![Configure Single Sign-On](./media/cisco-webex-tutorial/tutorial_cisco_webex_11.png)
 
