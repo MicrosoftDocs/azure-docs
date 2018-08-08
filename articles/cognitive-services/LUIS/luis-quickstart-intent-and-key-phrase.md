@@ -1,6 +1,6 @@
 ---
-title: Tutorial create a LUIS app that returns key phrases - Azure | Microsoft Docs 
-description: In this tutorial, learn how to add and return keyPhrase entity to your LUIS app to analyze utterances for key subject matter. 
+title: Tutorial create a LUIS app that returns key phrases - Azure Cognitive Services | Microsoft Docs 
+description: In this tutorial, use a keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -15,7 +15,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 8. Add keyPhrase entity 
-In this tutorial, use an app that demonstrates how to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
+In this tutorial, use a keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 
 <!-- green checkmark -->
 > [!div class="checklist"]

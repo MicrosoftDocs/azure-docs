@@ -1,6 +1,6 @@
 ---
-title: Tutorial to create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
-description: In this tutorial, learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
+title: Tutorial to create a LUIS app that returns sentiment analysis - Azure Cognitive Services| Microsoft Docs 
+description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -15,7 +15,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 9.  Add sentiment analysis
-In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 
 <!-- green checkmark -->
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
-title: Tutorial to create a LUIS app to get location data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
+title: Tutorial to create a LUIS app to get location data - Azure Cognitive Services | Microsoft Docs 
+description: In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. To generate a work order both pieces of data may be required and they are related to each other.   
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -15,7 +15,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 5. Add hierarchical entity
-In this tutorial, find related pieces of data based on context. 
+In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. To generate a work order both pieces of data may be required and they are related to each other.  
 
 <!-- green checkmark -->
 > [!div class="checklist"]

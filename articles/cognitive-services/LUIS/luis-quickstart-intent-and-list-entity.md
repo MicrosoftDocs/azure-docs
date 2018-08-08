@@ -1,6 +1,6 @@
 ---
-title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
+title: Tutorial create a LUIS app to get exact text match listed data - Azure Cognitive Services | Microsoft Docs 
+description: In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -14,7 +14,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 4. Add list entity
-In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. 
+In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
