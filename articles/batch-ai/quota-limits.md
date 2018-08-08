@@ -4,21 +4,21 @@ description: Learn about default Azure Batch AI quotas, limits, and constraints,
 services: batch-ai
 documentationcenter: ''
 author: johnwu10
-manager: alexsutton
+manager: jeconnoc
 editor: ''
 
 ms.service: batch-ai
 ms.topic: article
-ms.date: 07/18/2018
-ms.author: t-jowu
+ms.date: 08/08/2018
+ms.author: danlep
 ms.custom: mvc
 
 ---
 # Batch AI service quotas and limits
 
-As with other Azure services, there are limits on certain resources associated with the Batch AI service. In Batch AI, these limits are default quotas applied at the subscription level for each region. This article discusses those defaults, and how you can request quota increases.
+As with other Azure services, there are limits on certain resources associated with the Batch AI service. In Batch AI, these limits are default quotas applied at the subscription level for each region where the service is [available](https://azure.microsoft.com/global-infrastructure/services/). This article discusses those defaults, and how you can request quota increases.
 
-Keep these quotas in mind as you design and scale up your Batch AI resources. For example, if your cluster doesn't reach the target number of compute nodes you specified, then you might have reached the core quota limit for your Batch AI subscription.
+Keep these quotas in mind as you design and scale up your Batch AI resources. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached a core quota limit for your subscription.
 
 If you plan to run production workloads in Batch AI, you may need to increase one or more of the quotas above the default.
 
@@ -29,7 +29,7 @@ If you plan to run production workloads in Batch AI, you may need to increase on
 
 ## Resource quotas
 
-In Batch AI, there is a default quota limit on both the number of cores and number of clusters allowed per region in a subscription. The following chart summarizes these limits.
+In Batch AI, there is a default quota limit on both the number of cores and number of clusters allowed per region in a subscription.
 
 | **Resource** | **Default limit** | **Maximum limit** |
 | --- | --- | --- |
@@ -65,17 +65,15 @@ The following are strict limits, which cannot be exceeded once hit.
 
 View your current Batch AI subscription quotas in the [Azure portal][portal].
 
-1. One the left panel, click on **All services**. Then search for **Batch AI** and click to open the service.
+1. On the left pane, click on **All services**. Then search for **Batch AI** and click to open the service.
 2. Click on **Usage + quotas** on the Batch AI menu.
 3. Select your subscription to view the quota limits.
 
-## Request a quota increase
+## Increase a Batch AI cores quota
 
 Follow these steps to request a quota increase for your Batch AI subscription using the [Azure portal][portal]. 
 
-## Increase a Batch AI cores quota 
-
-1. One the left panel, click on **All services**. Then search for **Batch AI** and click to open the service.
+1. On the left pane, click on **All services**. Then search for **Batch AI** and click to open the service.
 2. Click on **New support request** on the Batch AI menu.
 3. In **Basics**:
    
@@ -87,7 +85,7 @@ Follow these steps to request a quota increase for your Batch AI subscription us
    
     d. **Support plan** > Select your support plan.
 
-    Click **Next**
+    Click **Next**.
 4. In **Problem**:
    
     a. Select a **Severity** according to your [business impact][support_sev].
