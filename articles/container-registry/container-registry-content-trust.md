@@ -106,9 +106,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 
-You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry.
-
-The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value:
+You can also grant a [service principal](container-registry-auth-service-principal.md) the rights to push trusted images to your registry. This is useful for build systems and other unattended systems that need to push trusted images to your registry. The format is similar to granting a user permission, but specify a service principal ID for the `--assignee` value:
 
 ```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>

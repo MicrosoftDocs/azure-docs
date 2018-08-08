@@ -57,7 +57,7 @@
     href: container-registry-repositories.md
   - name: Delete container images
     href: container-registry-delete.md
-  - name: Signed images with content trust
+  - name: Content trust (preview)
     href: container-registry-content-trust.md
   - name: Upgrade a Classic registry
     href: container-registry-upgrade.md
