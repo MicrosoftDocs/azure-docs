@@ -24,7 +24,7 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 
 ## Custom role example
 
-The following shows a custom role for monitoring and restarting virtual machines as displayed using Azure PowerShell:
+The following shows what a custom role looks like as displayed in JSON format. This custom role can be used for monitoring and restarting virtual machines.
 
 ```json
 {
@@ -61,7 +61,7 @@ The following shows a custom role for monitoring and restarting virtual machines
 }
 ```
 
-After you create a custom role, it appears in the Azure portal with an orange resource icon.
+When you create a custom role, it appears in the Azure portal with an orange resource icon.
 
 ![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
 
@@ -78,7 +78,9 @@ After you create a custom role, it appears in the Azure portal with an orange re
 
 3. Test the custom role
 
-    Once you have your custom role, you have to test it to verify that it works as you expect. If adjustments need to be made, you can update the custom role.
+    Once you have your custom role, you have to test it to verify that it works as you expect. If you need to make adjustments later, you can update the custom role.
+
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md) or [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md).
 
 ## Custom role properties
 
@@ -98,7 +100,7 @@ A custom role has the following properties.
 
 ## AssignableScopes for custom roles
 
-Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. However, you can't use the root scope (`"/"`) in your own custom roles. If you try, you will get an authorization error. The `AssignableScopes` property for a custom role also controls who can create, delete, modify, or view the custom role.
+Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. However, you currently can't use the root scope (`"/"`) or a management group scope in your own custom roles. If you try, you will get an authorization error. The `AssignableScopes` property for a custom role also controls who can create, delete, modify, or view the custom role.
 
 | Task | Operation | Description |
 | --- | --- | --- |
