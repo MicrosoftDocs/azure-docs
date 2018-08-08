@@ -24,6 +24,7 @@ ms.reviewer: waltero
 
 > [!Note]  
 > The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
+<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
 
 The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud.
 
