@@ -46,7 +46,7 @@ The Data Box device has the following features in this release.
 | Cables                                                  | 1 X Power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
 | Components                                              | Built-in power supply unit (PSU)|
 | Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
-| Network interfaces                                      | 2 X 1 GbE interface  - 1 interface dedicated to management, not user configurable, used for initial setup. The other interface is for data, is user configurable and is DHCP by default. These network interfaces can work as 10 GbE as well. <br> 2 X 10 GbE interface - DHCP (default) or static, user configurable, both are data interfaces. |
+| Network interfaces                                      | 2 X 1 GbE interface  - 1 interface dedicated to management, not user configurable, used for initial setup. The other interface is for data, is user configurable, and is DHCP by default. These network interfaces can work as 10 GbE as well. <br> 2 X 10 GbE interface - DHCP (default) or static, user configurable, both are data interfaces. |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet.  |
 | Security                                                | Combination lock. <br> Tamper-evident rugged device casing.|
 | Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface.        |
@@ -61,7 +61,7 @@ The Data Box includes the following components:
     ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined.png)
 
     
-* **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage devices and alerts, and manage shares.  
+* **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
     ![The Data Box service in Azure portal](media/data-box-overview/data-box-service.png)
 
@@ -91,7 +91,7 @@ Throughout this process, you are notified via email on all status changes. For m
 
 ## Region availability
 
-Data Box can tranfer data to the following Azure regions:
+Data Box can transfer data to the following Azure regions:
 
 - Service availability - For this release, the Data Box service is available all of US and Europe. 
 - Device availability
