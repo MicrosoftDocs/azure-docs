@@ -17,9 +17,10 @@ This article demonstrates how to monitor your Stream Analytics job in Visual Stu
 
 ## Job summary
 
-The **Job Summary** and **Job Metrics** give a quick snapshot of your job. At a glance, you can determine a job's status and event information.
+The **Job Summary** and **Job Metrics** give a quick snapshot of your job. At a glance, you can determine a job's status and event information.]
 
-![Stream Analytics job summary and job metrics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png)
+<img src="./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-job-summary-metrics.png" alt="Stream Analytics job summary and job metrics" width="300px"/> 
+
 
 ## Job metrics
 
