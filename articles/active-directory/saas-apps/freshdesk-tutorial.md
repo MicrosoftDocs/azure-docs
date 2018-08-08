@@ -26,7 +26,7 @@ Integrating FreshDesk with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to FreshDesk
 - You can enable your users to automatically get signed-on to FreshDesk (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+- You can manage your accounts in one central location - the Azure portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -59,7 +59,7 @@ To configure the integration of FreshDesk into Azure AD, you need to add FreshDe
 
 **To add FreshDesk from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
 	![Active Directory][1]
 
@@ -97,11 +97,11 @@ To configure and test Azure AD single sign-on with FreshDesk, you need to comple
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your FreshDesk application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your FreshDesk application.
 
 **To configure Azure AD single sign-on with FreshDesk, perform the following steps:**
 
-1. In the Azure Management portal, on the **FreshDesk** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **FreshDesk** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -149,23 +149,23 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. Select **SAML SSO**.
 
-    c. In the **SAML Login URL** textbox, paste **SAML Single Sign-On Service URL** value which you have copied from the Azure portal.
+    c. In the **SAML Login URL** textbox, paste **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
 
-    d. In the **Logout URL** textbox, paste **Sign-Out URL** value which you have copied from the Azure portal.
+    d. In the **Logout URL** textbox, paste **Sign-Out URL** value, which you have copied from the Azure portal.
 
-    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value which you have copied from the Azure portal.
+    e. In the **Security Certificate Fingerprint** textbox, paste **Thumbprint** value, which you have copied from the Azure portal.
   
 	f. Click **Save**.
 
 ### Creating an Azure AD test user
 
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
 	![Creating an Azure AD test user](./media/freshdesk-tutorial/create_aaduser_01.png) 
 
@@ -197,6 +197,7 @@ In the case of FreshDesk, provisioning is a manual task.
 **To provision a user accounts, perform the following steps:**
 
 1. Log in to your **Freshdesk** tenant.
+
 2. In the menu on the top, click **Admin**.
 
    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
@@ -238,7 +239,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to FreshDesk, perform the following steps:**
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201]
 
