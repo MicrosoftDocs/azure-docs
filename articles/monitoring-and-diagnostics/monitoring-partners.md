@@ -12,14 +12,14 @@ ms.component: ""
 # Azure Monitor partner integrations
 | Partners |  |  |
 | --- | --- | --- |
-| [**AlertLogic**  <br/> ![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics** <br/> ![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**   <br/> ![Partner Logo][atlassian-logo]][atlassian-anchor] 
-| [**Botmetric**][botmetric-anchor] | [**Circonus** <br/> ![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth** <br/> ![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn** <br/> ![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog** <br/> ![Partner Logo][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana** <br/> ![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor** <br/> ![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft** <br/> ![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic** <br/> ![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie** <br/> ![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
-| [**PagerDuty** <br/> ![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar** <br/> ![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic** <br/> ![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
-| [**SignalFx** <br/> ![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4** <br/> ![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic** <br/> ![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic** <br/> ![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
+| [**AlertLogic**<br/>![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Partner Logo][atlassian-logo]][atlassian-anchor] 
+| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
+| [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner Logo][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
+| [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
+| [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
+| [**SignalFx**<br/>![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
+| [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
 
 
 ## AlertLogic Log Manager
@@ -88,7 +88,7 @@ Microsoft Azure Automation and Control tools provide a real-time window into the
 
 Moogsoft AIOps automates the Event to Remediation workflow without changing existing processes and organizational structure. 
 
-Moogsoft runs in your Azure real-estate with integration to monitoring and automation tools across the hybrid fabric. It actively detects application impacting incidents earlier, dynamically orchestrates the appropriate resources to make them situation aware and, reduces the mean time to remediate and adverse impact on customer experience. 
+Moogsoft runs in your Azure real-estate with integration to monitoring and automation tools across the hybrid fabric. It actively detects application impacting incidents earlier, dynamically orchestrates the appropriate resources to make them situation aware, and reduces the mean time to remediate and adverse impact on customer experience. 
 
 [Go to the documentation.][moogsoft-doc]
 
@@ -114,7 +114,7 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 [Learn more.][sciencelogic-doc]
 
 ## SignalFx
-SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud, replacing traditional point tools and providing real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as Telegraf, statsD, and collectd to provide best in class dashboards, analytics, and alerts for Azure.
+SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as Telegraf, statsD, and collectd to provide best in class dashboards, analytics, and alerts for Azure.
 
 [Go to the documentation.][signalfx-doc]
 
