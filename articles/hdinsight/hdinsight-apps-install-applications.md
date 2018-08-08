@@ -1,17 +1,12 @@
 ---
-title: Install third-party Hadoop applications on Azure HDInsight | Microsoft Docs
+title: Install third-party Hadoop applications on Azure HDInsight 
 description: Learn how to install third-party Hadoop applications on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh

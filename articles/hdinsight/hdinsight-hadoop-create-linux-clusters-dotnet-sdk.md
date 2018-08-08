@@ -1,12 +1,9 @@
 ---
-title: Create Hadoop clusters using .NET - Azure HDInsight | Microsoft Docs
+title: Create Hadoop clusters using .NET - Azure HDInsight 
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
 services: hdinsight
 author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

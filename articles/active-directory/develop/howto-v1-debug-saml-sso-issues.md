@@ -97,6 +97,6 @@ To resolve the error:
 
 
 ## Next steps
-Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md), or [get started with conditional access](../active-directory-conditional-access-azure-portal-get-started.md).
+Now that single sign-on is working to your application, you could [Automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md), or [get started with conditional access](../conditional-access/app-based-conditional-access.md).
 
 

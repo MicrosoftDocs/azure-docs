@@ -6,7 +6,7 @@ author: omidm1
 ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2017
 ---
 
