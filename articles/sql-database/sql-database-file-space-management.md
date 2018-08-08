@@ -27,7 +27,7 @@ There are workload patterns where the allocation of underlying data files for da
 The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
+> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance. 
 
 ## Understanding types of storage space for a database
 
