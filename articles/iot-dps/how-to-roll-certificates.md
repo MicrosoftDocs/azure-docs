@@ -74,9 +74,9 @@ If you are rolling certificates to handle certificate expirations, you should us
 When the secondary certificate nears expiration, and needs to be rolled, you can rotate to use the primary configuration. Rotating the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
 
 
-## Updating an enrollment group for a security breach
+## Updating enrollment groups for security breaches
 
-To update a group enrollment for the new certificate in response to a security breach, you should use one of the following approaches that will delete the current root CA , or intermediate certificate immediately.
+To update a group enrollment in response to a security breach, you should use one of the following approaches that will delete the current root CA, or intermediate certificate immediately.
 
 #### Updating compromised root CA certificates
 
@@ -115,9 +115,28 @@ To update a group enrollment for the new certificate in response to a security b
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-## Updating an enrollment group for a certificate expirations
+## Updating enrollment groups for certificate expirations
 
-If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision:
+If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision.
+
+Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
+
+#### Updating expiring root CA certificates
+
+1. Click the **Certificates** tab for your provisioning service instance.
+
+2. Click the **Add** button. Enter a name for your new certificate and click the folder icon to locate and upload the certificate file. Then click **Save**.
+
+    ![Add the new root CA certificate](./media/how-to-roll-certificates/add-root-cert.png)
+
+3. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
+
+    ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+
+
+
+#### Updating expiring intermediate certificates
+
 
 1. Click **Enrollment Groups**, and click the group name in the list. 
 
@@ -125,9 +144,7 @@ If you are rolling certificates to handle certificate expirations, you should us
 
    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
-3. Later when the primary certificate has actually expired, come back and delete that primary certificate. 
 
-When the secondary certificate nears expiration, and needs to be rolled, you can rotate to use the primary configuration. Rotating the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
 
 ## Device reprovisioning
 
@@ -144,7 +161,7 @@ Once reprovisioning is complete, devices will be able to connect to IoT Hub usin
 
 To blacklist a device certificate, simply disable the enrollment entry for the target device/certificate. For more information, see blacklisting devices in the [Manage disenrollment](how-to-revoke-device-access-portal.md) article.
 
-Once an enrollment entry is disabled, any device(s) attempting to register with an IoT hub using the certificates configured with the entry will fail.
+Once a certificate is included as part of a disabled enrollment entry, any attempts to register with an IoT hub using that certificates will fail even if it is part of another enabled enrollment entry.
  
 
 
