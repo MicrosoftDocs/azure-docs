@@ -1,20 +1,14 @@
 ---
-title: Log Analytics for Apache Kafka - Azure HDInsight | Microsoft Docs
-description: 'Learn how to use Log Analytics to analyze logs from Apache Kafka cluster on Azure HDInsight.'
+title: Log Analytics for Apache Kafka - Azure HDInsight 
+description: Learn how to use Log Analytics to analyze logs from Apache Kafka cluster on Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: jasonwhowell
-manager: jhubbard
-editor: cgronlun
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: ''
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/15/2018
+author: jasonwhowell
 ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 06/15/2018
 ---
 # Analyze logs for Apache Kafka on HDInsight
 

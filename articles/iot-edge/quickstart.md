@@ -54,18 +54,17 @@ Cloud resources:
    az group create --name IoTEdgeResources --location westus
    ```
 
-A Windows computer or virtual machine to act as your IoT Edge device: 
+IoT Edge device: 
 
-* Use a supported Windows version:
+* A Windows computer or virtual machine to act as your IoT Edge device. Use a supported Windows version:
    * Windows 10 or newer
    * Windows Server 2016 or newer
 * If it's a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 * Install [Docker for Windows][lnk-docker] and make sure it's running.
-* Configure Docker to use [Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT Hub with Azure CLI. 
+Start the quickstart by creating your IoT hub with Azure CLI. 
 
 ![Create IoT Hub][3]
 
@@ -84,7 +83,9 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
 Register an IoT Edge device with your newly created IoT Hub.
 ![Register a device][4]
 
-Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
+Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity. 
+
+Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
 
 1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
@@ -107,7 +108,11 @@ Install the Azure IoT Edge runtime on your IoT Edge device and configure it with
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+During the runtime installation, you're asked for a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure. 
+
 The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
+
+Complete the following steps in the Windows machine or VM that you prepared to function as an IoT Edge device. 
 
 ### Download and install the IoT Edge service
 
@@ -122,7 +127,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
    Install-SecurityDaemon -Manual -ContainerOs Linux
    ```
 
-3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. 
+3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string. 
 
 ### View the IoT Edge runtime status
 
@@ -258,7 +263,6 @@ You are ready to continue on to any of the other tutorials to learn how Azure Io
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
