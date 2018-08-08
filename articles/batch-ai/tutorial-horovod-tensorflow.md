@@ -26,7 +26,7 @@ Batch AI is a managed service for training machine learning models at scale on c
 
 [Horovod](https://github.com/uber/horovod) is a distributed training framework for Tensorflow, Keras, and PyTorch, and is used for this tutorial. Horovod was chosen because it enables you to convert a training script designed to run on a single GPU to one that can run efficiently on a distributed system using just a few lines of code. 
 
-An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html)of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 60 minutes to complete.
+An example Keras object detection model is modified to run in parallel with Horovod. The model trains on the [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) of images. The training job runs on a cluster containing 24 cores and 4 GPUs, and takes approximately 60 minutes to complete.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 before you begin.
@@ -45,11 +45,11 @@ Use the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create
 az group create --name batchai.horovod --location eastus 
 ```
 
-This resource group is used for the remainder of the tutorial to create the different Batch AI resources: workspace, experiment, cluster, and job. For an explanation of these resources, see [Overview of resources in Batch AI](resource-concepts.md) 
+This resource group is used for the remainder of the tutorial to create the different Batch AI resources: workspace, experiment, cluster, and job. For an explanation of these resources, see [Overview of resources in Batch AI](resource-concepts.md).
 
 ## Create a workspace
 
-Create a single development workspace for this example using the [az batchai workspace create](/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command. The following command creates a workspace called `batchaidev` under the resource group created earlier.
+Create a single development workspace for this example using the [az batchai workspace create](/cli/azure/batchai/workspace?view=azure-cli-latest#az-batchai-workspace-create) command. The following command creates a workspace called `batchaidev` under your resource group.
 
 ```azurecli-interactive
 az batchai workspace create --resource-group batchai.horovod --workspace batchaidev 
@@ -63,13 +63,13 @@ For this tutorial, create a single experiment to run the distributed job. The fo
 az batchai experiment create --resource-group batchai.horovod --workspace batchaidev --name cifar 
 ```
 
-The next few sections will consist of instructions for creating all the necessary resources in order to run the experiment.
+The next few sections provide instructions to create all the resources needed to run the experiment.
 
 ## Provision a GPU cluster
 
-The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters towards specific needs. The full documentation for the different options can be found [here](https://docs.microsoft.com/en-us/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
+The next step is to provision a GPU cluster that can be used to run the experiment. Batch AI provides a flexible range of options for customizing clusters for specific needs. Additional documentation for the different options can be found [here](/cli/azure/batchai/cluster?view=azure-cli-latest). Here are some important options to consider both for functional and budgeting purposes when choosing configurations for the cluster:
 
-* **VM size** - Azure contains many options for [GPU-enabled VMs](../virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
+* **VM size** - Azure provides many options for [GPU-enabled VMs](../virtual-machines/linux/sizes-gpu.md) which can be used for Batch AI clusters. For this experiment, a `Standard_NC6` machine is used, which contains one NVIDIA Tesla K80 GPU. This VM size is chosen because the NC-series machines are optimized for compute-intensive algorithms that are ideal for deep learning jobs like this one.
 
 * **Priority** - Azure offers dedicated VMs in addition to a [low-priority VM](../batch/batch-low-pri-vms.md) option that allocates unutilized capacity of other VMs at significant cost savings in exchange for the possibility of VMs being pre-empted and interrupting your jobs. For this experiment, a `dedicated` option is selected.
 
@@ -77,7 +77,7 @@ The next step is to provision a GPU cluster that can be used to run the experime
 
 * **VM image** - The VMs in the cluster can be provisioned with a default Ubuntu Server image or with a preconfigured Azure image, such as a [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md). For this experiment, a default Ubuntu Server image is used as it is designed to host container-based applications, such as Docker.
 
-* **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto-storage option that automatically creates a file share and storage container in a designated storage account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in a central location that can be accessed by all VMs. This tutorial utilizes this auto-storage option. For those who do not wish to use auto-storage, see the following [article](use-azure-storage.md) for other Azure storage options.
+* **Storage** - Batch AI provides many flexible storage options for data depending on the specific needs. Azure Batch AI clusters offer an auto-storage option that automatically creates a file share and storage container in a designated storage account. It mounts this storage to each node of the created cluster, allowing files and data to be stored in a central location that can be accessed by all VMs. This tutorial utilizes this auto-storage option. For those who do not wish to use auto-storage, see [other Azure storage options](use-azure-storage.md).
 
 The following [az batchai cluster create](/cli/azure/batchai/cluster?view=azure-cli-latest#az-batchai-cluster-create) command creates a new cluster called `nc6cluster` with the above configurations under the workspace and resource group created earlier.
 
@@ -105,7 +105,7 @@ During creation, a unique storage account name was generated which must be retri
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --query "nodeSetup.mountVolumes.azureFileShares[0].{storageAccountName:accountName}"
 ```
 
-The output should be similar to the following. Substitute the name of the storage account for `<STORAGE ACCOUNT NAME>` in later commands in this tutorial. 
+The output should be similar to the following. Substitute the storage account name for `<STORAGE ACCOUNT NAME>` in later commands in this tutorial. 
 
 ```json
 {
@@ -123,7 +123,7 @@ The next step is to prepare the actual training script, which you then upload to
 
 ## Create the training script
 
-For this experiment, the following [Python script](https://raw.githubusercontent.com/keras-team/keras/master/examples/cifar10_cnn.py) will be modified with a few small changes in order to parallelize the model. Create a file named `cifar_cnn_distributed.py` with the content below. All changes that were made to the original source code are commented with a `HOROVOD` prefix.
+For this experiment, an existing [Python script](https://raw.githubusercontent.com/keras-team/keras/master/examples/cifar10_cnn.py) is modified with a few small changes in order to parallelize the model. Create a file named `cifar_cnn_distributed.py` with the content below. All changes that were made to the original source code are commented with a `HOROVOD` prefix.
 
 ```python
 from __future__ import print_function
