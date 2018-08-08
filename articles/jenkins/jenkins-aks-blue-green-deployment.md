@@ -83,7 +83,7 @@ In this section, you perform the following steps:
 
 - Use the Azure CLI 2.0 to create a managed Kubernetes cluster.
 - Learn how to set up a cluster, either by using the setup script or manually.
-- Create the an instance of the Azure Container Registry service.
+- Create an instance of the Azure Container Registry service.
 
 > [!NOTE]	
 > AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
@@ -229,7 +229,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
 
 1. Add your Azure Docker registry username and password (as obtained in the section, "Create an instance of Container Registry") as the type **Username with password**.
 
-## Edit the Jenkins file
+## Edit the Jenkinsfile
 
 1. In your own repo, go to `/deploy/aks/`, and open `Jenkinsfile`.
 
