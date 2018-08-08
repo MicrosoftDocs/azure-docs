@@ -103,20 +103,20 @@ period or indefinitely. By default, termination is delayed for one hour.
 
 To delay system termination by one hour:
 
-``` CLI
+```azurecli-interactive
 $ jetpack keepalive
 ```
 
 To disable the HealthCheck service entirely, i.e. delay termination
 indefinitely:
 
-``` CLI
+```azurecli-interactive
 $ jetpack keepalive forever
 ```
 
 To delay system termination by six hours:
 
-``` CLI
+```azurecli-interactive
 $ jetpack keepalive 6h
 ```
 
@@ -138,27 +138,27 @@ Cluster UI page to avoid flooding the page with low priority messages.
 
 To send an informational log message that will appear on the Cluster UI page:
 
-``` CLI
+```azurecli-interactive
 $ jetpack log 'system is now ready'
 ```
 
 To send a low priority log message that you do not want to appear on the Cluster
 UI page:
 
-``` CLI
+```azurecli-interactive
 $ jetpack log 'system is now ready' --priority low
 ```
 
 By default, messages with a level of *error* have a high priority. To send an
 error message:
 
-``` CLI
+```azurecli-interactive
 $ jetpack log 'the machine cannot process jobs' --level error
 ```
 
 To send a trivial error message:
 
-``` CLI
+```azurecli-interactive
 $ jetpack log 'the machine cannot process jobs' --level error --priority low
 ```
 

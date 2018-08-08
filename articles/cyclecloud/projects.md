@@ -38,7 +38,7 @@ Azure CycleCloud uses a shorthand for storage accounts, so `https://mystorage.bl
 
 The node will download each project it references from the locker using the [**POGO**](pogo-overview.md) tool:
 
-``` CLI
+```azurecli-interactive
 pogo get az://mystorage/mycontainer/projects/okta/1.3.0/bind
 ```
 
@@ -48,13 +48,13 @@ CycleCloud has internal projects that run by default on all nodes to perform spe
 
 The user is responsible to mirroring any additional projects to the locker. The CycleCloud CLI has methods to compose projects:
 
-``` CLI
+```azurecli-interactive
 cyclecloud project init myproject
 ```
 
 and mirror:
 
-``` CLI
+```azurecli-interactive
 cyclecloud project init mylocker
 ```
 
@@ -324,7 +324,7 @@ CYCLECLOUD_SPEC_PATH = /mnt/cluster-init/test-project/default
 
 To run ONLY the cluster-init scripts:
 
-``` CLI
+```azurecli-interactive
 jetpack converge --cluster-init
 ```
 

@@ -61,4 +61,117 @@ Once the CLI has been installed, you'll need to connect it to your Azure CycleCl
 1. Initialize the server with `cyclecloud initialize`. You will be prompted for the CycleServer URL, which is the FQDN of your application server. Enter it in the format **https://FQDN**.
 2. The installed Azure CycleCloud server uses either a Let's Encrypt SSL certificate, or a self-signed certificate. Type `yes` when asked to allow the certificate.
 3. Log in with the same username and password used for the CycleCloud web interface.
-4. Test
+4. Test that the CycleCloud CLI is working with `show_cluster`.
+
+## Create a New CycleCloud Project
+
+Azure CycleCloud clusters are defined using text files. In this next step, you will create a new CycleCloud Project and generate a template from it.
+
+1. Create a directory for the project with `mkdir ~/cyclecloud_projects/` and move to that directory.
+2. Initiate a new project with `cyclecloud project init [project-name]`. For example, you can use:
+
+```azurecli-interactive
+cyclecloud project init azurecyclecloud_tutorial
+```
+
+When prompted for a Default Locker, specify `azure-storage`. The shell will confirm that your project has been created.
+
+The `cyclecloud project init` command creates a new directory structure, and includes a `project.ini` file that defines attributes for the project. You will need to edit this file to specify your project as an *application*, which will allow CycleCloud to generate the appropriate template.
+
+Edit the `project.ini` file to change the application type. If you are using Cloud Shell and would like a text editor with a GUI, run the following:
+
+```azurecli-interactive
+cd ~/cyclecloud_projects/azurecyclecloud_tutorial
+code .
+```
+
+Add the line and enter `type = application` into the project.ini file, then save the changes.
+
+## Generate a New Cluster Template File
+
+Run the following command to create a new cluster template based on the modification you made to the project.ini file. You will need to specify a location for the output template:
+
+```azurecli-interactive
+cyclecloud project generate_template templates/extended_nfs.template.txt
+```
+
+## Add Volumes to the NFS Server
+
+Once your new template file has been generated, you will edit it to add volumes to the file server. In Cloud Shell, use the following command:
+
+```azurecli-interactive
+code templates/extended_nfs.template.txt
+```
+
+**After** line 44, add the following blocks:
+
+```
+# Add 2 premium disks in a RAID 0 configuration to the NFS export
+[[[volume nfs-1]]]
+Size = 512
+SSD = True
+Mount = nfs
+Persistent = true
+
+[[[volume nfs-2]]]
+Size = 512
+SSD = True
+Mount = nfs
+Persistent = true
+
+[[[configuration cyclecloud.mounts.nfs]]]
+mountpoint = /mnt/exports
+fs_type = ext4
+raid_level = 0
+```
+
+Save your changes.
+
+Kimli Screenshot
+
+The lines added tell CycleCloud that two premium 512 GB disks (SSD = True) with a RAID 0 config should be added to the master node when it is provisioned, then mount the volume at `/mnt/exports/` and format the lot as an `ext4` filesystem.
+
+The Persistent = true tag indicates that the two managed disks will not be deleted when the cluster is terminated, but will be deleted if the cluster itself is deleted. You can find more information about customizing volumes and mounts in a CycleCloud cluster in our [Storage documentation](~/attach-storage.md).
+
+## Import the New Cluster Template
+
+In your shell, import the template into the application server:
+
+```azurecli-interactive
+cyclecloud import_template -f templates/extended_nfs.template.txt
+```
+
+Once it is complete, return to the CycleCloud web interface and create a new cluster. You should see the a new application type called azurecyclecloud_tutorial:
+
+kimli Screenshot
+
+## Start the Cluster
+
+Start a new cluster using your new application template. When selecting your Virtual Machine settings, ensure you choose one that supports attached premium storage such as **Standard_DS12_v2**.
+
+When your cluster is up, log into the master node and verify that `/mnt/exports/` is a 1TB volume with:
+
+```azurecli-interactive
+df -h /mnt/exports
+```
+
+You should see something similar to the following:
+
+``` output
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/vg_cyclecloud_nfs-lv0  1.1T   80M  1.1T   1% /mnt/exports
+```
+
+## Next Steps
+
+In this tutorial, you learned how to:
+
+* Install and configure the Azure CycleCloud CLI
+* Create a new CycleCloud [project](~/projects.md)
+* Modify cluster template to add storage to the cluster's NFS Server
+* Add a new cluster type in CycleCloud
+
+For more Azure CycleCloud tutorials, see our documentation site or view the available cluster templates on GitHub.
+
+> [!div class="nextstepaction"]
+> [More Azure CycleCloud](https://docs.microsoft.com/en-us/azure/cyclecloud/)

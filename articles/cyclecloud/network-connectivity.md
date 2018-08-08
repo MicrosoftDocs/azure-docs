@@ -90,7 +90,7 @@ Those commands only need to be run once (or after you reboot).
 
 You can connect to an instance via a bastion server by specifying the IP address on the command line:
 
-``` CLI
+```azurecli-interactive
 $ cyclecloud connect htcondor-master --bastion-host 1.1.1.1
 ```
 
@@ -113,7 +113,7 @@ You can also use `cyclecloud connect` to connect a Windows instance. Executing t
 command will create an RDP connection over an SSH tunnel. Additionally, it will launch the
 Microsoft RDP client on OS X and Windows:
 
-``` CLI
+```azurecli-interactive
 $ cyclecloud connect windows-execute-1
 ```
 
@@ -134,7 +134,7 @@ bastion_port = 222
 
 You can connect to an internal server via the bastion server using agent forwarding:
 
-``` CLI
+```azurecli-interactive
 ssh -A -t ec2-user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP
 ```
 
@@ -156,7 +156,7 @@ by connecting to the target instance with a similar SSH command from
 above, using the -L argument:
 
 
-``` CLI
+```azurecli-interactive
 ssh -A -t ec2-user@BASTION_SERVER_IP  -L 33890:TARGET:3389 ssh -A root@TARGET_SERVER_IP
 ```
 

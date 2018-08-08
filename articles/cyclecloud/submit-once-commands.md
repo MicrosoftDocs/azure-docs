@@ -97,7 +97,7 @@ The following diagram shows the clusters used in the example.
 
 First let's try submitting a simple sleep job. On a node in the internal cluster, run the following commands:
 
-``` CLI
+```azurecli-interactive
 $ mkdir -p ~/sleep
 $ cd ~/sleep
 $ touch sleep.sh
@@ -115,7 +115,7 @@ The contents of sleep.sh should be:
 
 To submit the sleep job, execute the csub command:
 
-``` CLI
+```azurecli-interactive
 $ csub sleep.sh
 Submission ID: 116
 Your job 11 ("sleep") has been submitted
@@ -145,7 +145,7 @@ Note that in either case, the output is prefixed by the cluster name (internal i
 
 If you want to know where your jobs will land before running csub, use the croute command:
 
-``` CLI
+```azurecli-interactive
 # This job will go to the "internal" cluster
 $ croute sleep.sh
 internal
@@ -153,7 +153,7 @@ internal
 
 Because this is only a single job, and there are 2 execute nodes (1 free slot each) in the internal cluster, that's where it will run. All things being equal, jobs will prefer to run locally due to the lack of file transfer time. Try submitting a task array of 100 and you'll see a different result:
 
-``` CLI
+```azurecli-interactive
 $ croute -t 1-100 sleep.sh
 external
 ```
@@ -162,7 +162,7 @@ Because there are twice the number of free slots on the external cluster and the
 
 Lastly, if you want to force the task array to run locally anyway, you can use the "-c targetcluster" option:
 
-``` CLI
+```azurecli-interactive
 $ croute -t 1-100 -c "internal" sleep.sh
 internal
 ```
@@ -171,7 +171,7 @@ internal
 
 Using cdel, you can delete jobs across clusters without worrying about overlapping job ids. Let's submit a new task array then delete it:
 
-``` CLI
+```azurecli-interactive
 $ csub -t 1-4 sleep.sh
 Submission ID: 353
 Your job-array 8.1-4:1 ("sleep") has been submitted
@@ -179,7 +179,7 @@ Your job-array 8.1-4:1 ("sleep") has been submitted
 
 The first line of output gives the SubmitOnce submission ID, which you can use to delete jobs across clusters:
 
-``` CLI
+```azurecli-interactive
 $ cdel -cid 353
 external > cluster.user has registered the job-array task 8.1 for deletion
 external > cluster.user has registered the job-array task 8.2 for deletion
@@ -189,7 +189,7 @@ external > cluster.user has registered the job-array task 8.4 for deletion
 
 Alternatively, you can delete the jobs by their Grid Engine job numbers using the -c flag to specify the cluster to delete from:
 
-``` CLI
+```azurecli-interactive
 $ cdel -c external -j 8
 external > cluster.user has registered the job-array task 8.1 for deletion
 external > cluster.user has registered the job-array task 8.2 for deletion

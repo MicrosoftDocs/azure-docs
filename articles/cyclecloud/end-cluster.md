@@ -18,7 +18,7 @@ When all submitted jobs are complete, you no longer need the cluster. To clean u
 
 To remove the resources no longer needed, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
 
-``` CLI
+```azurecli-interactive
 az group delete --name "{RESOURCE GROUP}"
 ```
 
@@ -26,6 +26,6 @@ az group delete --name "{RESOURCE GROUP}"
 
 Run the following command to delete the service principal created at the start of the lab, substituting the name used if other than the example name:
 
-``` CLI
+```azurecli-interactive
 az ad sp delete --id "http://CycleCloudApp"
 ```

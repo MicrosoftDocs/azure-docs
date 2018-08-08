@@ -41,7 +41,7 @@ The Azure CycleCloud platform has built-in, first-class support for several grid
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
 
-``` CLI
+```azurecli-interactive
 cyclecloud add_node grid-engine -t execute -c 10
 ```
 
@@ -123,13 +123,13 @@ CycleCloud's automation will automatically request grouped nodes and assign them
 
 The most generic way to submit jobs to a Grid Engine scheduler is the command:
 
-``` CLI
+```azurecli-interactive
 qsub my_job.sh
 ```
 
 This command will submit a job that will run on a node of type 'execute', that is a node defined by the nodearray 'execute'. To make a job run on a nodearray of a different type, for example the 'gpu' node type above, we modify our submission:
 
-``` CLI
+```azurecli-interactive
 qsub -l slot_type=gpu my_gpu_job.sh
 ```
 
@@ -185,7 +185,7 @@ You can use this scripting functionality to automatically assign 'slot_type's ba
 
 If you were to submit 5 jobs of each 'slot_type':
 
-``` CLI
+```azurecli-interactive
 qsub -t 1:5 gpu_job.sh
 qsub -t 1:5 normal_job.sh
 ```
@@ -194,7 +194,7 @@ There would now be 10 jobs in the queue. Because of the script defined above, th
 
 Jobs are assumed to have a duration of one hour. If the job runtime is known the autoscale algorithm can benefit from this information. Inform autoscale of the expected job run time by adding it to the job context. The following example tells autoscale that the job runtime is on average 10 minutes:
 
-``` CLI
+```azurecli-interactive
 qsub -ac average_runtime=10 job_with_duration_of_10m.sh
 ```
 
@@ -237,7 +237,7 @@ The [PBS Pro Scheduler (PBS Pro)](http://pbspro.org/) can easily be enabled on a
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
 
-``` CLI
+```azurecli-interactive
 cyclecloud add_node my-pbspro -t execute -c 10
 ```
 
@@ -291,7 +291,7 @@ CycleCloud supports a standard set <autostop-attributes> of autostop attributes 
 
 Importing and starting a cluster with definition in CycleCloud will yield a "manager" and a "scheduler" node, as well as one "execute" node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. To add 10 more execute nodes:
 
-``` CLI
+```azurecli-interactive
 cyclecloud add_node htcondor -t execute -c 10
 ```
 
@@ -318,7 +318,7 @@ By default, HTCondor will request cores from the nodearray called 'execute'. If 
 
 The most generic way to submit jobs to an HTCondor scheduler is the command (run from a scheduler node):
 
-``` CLI
+```azurecli-interactive
 condor_submit my_job.submit
 ```
 

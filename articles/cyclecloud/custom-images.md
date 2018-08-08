@@ -45,13 +45,13 @@ You can use a Marketplace image with an associated pricing plan with CycleCloud.
 
 To accept a license from the CLI:
 
-``` CLI
+```azurecli-interactive
 $> az vm image accept-terms --urn publisher:offer:sku:version
 ```
 
 or
 
-``` CLI
+```azurecli-interactive
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 

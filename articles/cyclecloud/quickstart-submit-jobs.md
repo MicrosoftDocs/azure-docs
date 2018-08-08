@@ -30,7 +30,7 @@ Copy the appropriate string and use your SSH client or Cloud Shell to connect to
 
 Check the status of the job queue with the following commands:
 
-``` CLI
+```azurecli-interactive
 $ qstat
 $ qstat -f
 ```
@@ -44,7 +44,7 @@ all.q@ip-0A000404              BIP   0/0/8          0.46     linux-x64
 
 Submit 100 test "hostname" jobs with:
 
-``` CLI
+```azurecli-interactive
 $ qsub -t 1:100 -b y -cwd hostname
 ```
 

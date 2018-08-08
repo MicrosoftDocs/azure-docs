@@ -48,7 +48,7 @@ submitonce cstat -c external
 
 To install the SubmitOnce CLI, first unpack the tarball:
 
-``` CLI
+```azurecli-interactive
 tar -xzvf submitonce-2.4.0.linux64.tar.gz
 ```
 
@@ -70,7 +70,7 @@ to `http://localhost:8080`.
 
 The configure the SubmitOnce CLI for the first time, you should run the "initialize" command:
 
-``` CLI
+```azurecli-interactive
 $ submitonce initialize
 ```
 
@@ -111,7 +111,7 @@ rsync_options = --copy-links --copy-dirlinks --keep-dirlinks
 To submit work to clusters via SubmitOnce, the clusters must be configured via either the GUI or
 the CLI. To configure a cluster from the CLI, use the `add_cluster` command:
 
-``` CLI
+```azurecli-interactive
 $ submitonce add_cluster CLUSTER_NAME
 ```
 
