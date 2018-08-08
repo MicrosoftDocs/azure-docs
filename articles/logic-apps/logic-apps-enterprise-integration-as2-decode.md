@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: LADocs; divswa
+ms.author: LADocs; padmavc
 
 ---
 # Decode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack 
