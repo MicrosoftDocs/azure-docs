@@ -79,7 +79,7 @@ This update includes the following improvements for Azure Stack.
 
 ### Fixed issues
 
-- <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
+- <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which minimize potential downtime for workloads during the update.
 
 - <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
@@ -205,10 +205,10 @@ The following are post-installation known issues for this build version.
 
 - <!-- 2812138 | IS --> You might see an alert for **Storage** component that have the following details:
 
-   - NAME: Storage service internal communication error
-   - SEVERITY: Critical
-   - COMPONENT: Storage
-   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+   - NAME: Storage service internal communication error  
+   - SEVERITY: Critical  
+   - COMPONENT: Storage  
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.  
 
     The alert can be safely ignored, but you need to close the alert manually.
 
