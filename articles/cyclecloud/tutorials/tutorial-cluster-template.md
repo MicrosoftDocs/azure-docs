@@ -15,7 +15,7 @@ ms.author: a-kiwels
 This tutorial shows how to modify a standard HPC cluster to add persistent storage to the file system. At the end of this exercise, you will have:
 
 * Installed and configured the Azure CycleCloud CLI
-* Created a new CycleCloud [project](projects.md)
+* Created a new CycleCloud [project](~/projects.md)
 * Modified a cluster template to add storage to the cluster's NFS Server
 * Added a new cluster type in CycleCloud
 
@@ -52,13 +52,13 @@ wget https://cyclecloudarm.blob.core.windows.net/cyclecloudrelease/7.5.0/cyclecl
 
 The cloud shell will show you the progress of the download. When it is complete, unzip the file:
 
-``` shell
+```azurecli-interactive
 unzip cyclecloud-cli.zip
 ```
 
 After all the files have been unpacked, navigate to the install directory with `cd cyclecloud-cli-installer` then run the script:
 
-``` shell
+```azurecli-interactive
 ./install.sh
 ```
 
