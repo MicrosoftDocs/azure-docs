@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/15/2018
+ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -72,24 +72,23 @@ The Dynatrace OneAgent integrates with Azure VMs and App Services via the Azure 
 [Go to the documentation.][dynatrace-doc]
 
 ## Grafana
-Grafana is an open source application that enables you to visualize time series metric data.
+Grafana is an open-source application that enables you to visualize time series metric data.
 
 [Go to the documentation.][grafana-doc]
 
 ## Logic Monitor
-LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources, all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
+LogicMonitor® is the leading SaaS-based, performance monitoring platform for complex IT infrastructure. With coverage for thousands of technologies, LogicMonitor provides granular visibility into infrastructure and application performance. LM Cloud’s comprehensive Azure monitoring enables users to correlate the performance of Azure cloud, on-premises, and hybrid cloud resources -- all from a single platform. Automated resource discovery, built in monitoring templates, preconfigured alert thresholds, and customizable dashboards combine to give IT the speed, flexibility, and visibility required to succeed.
 
 [Go to the documentation.][logicmonitor-doc]
 
 ## Moogsoft
 Moogsoft AIOps accelerates the agile business transformation.
 
-Microsoft Azure Automation and Control tools provide a real-time window into the status of the Applications and microservices deployed in Azure, and help orchestrate diagnostics and runbooks for faster remediation.
-Other third party tools provide a window into the on-premises Applications and infrastructure status.
+Microsoft Azure Automation and Control tools provide a real-time window into the status of the Applications and microservices deployed in Azure. They help orchestrate diagnostics and runbooks for faster remediation. Other third-party tools provide a window into the on-premises Applications and infrastructure status.
 
 Moogsoft AIOps automates the Event to Remediation workflow without changing existing processes and organizational structure. 
 
-Running in your Azure real-estate, with integration to monitoring and automation tools across the hybrid fabric, Moogsoft AIOps actively detects Application impacting incidents earlier, dynamically orchestrates the appropriate resources to make them situation aware and, reduces the mean time to remediate and adverse impact on customer experience. 
+Moogsoft runs in your Azure real-estate with integration to monitoring and automation tools across the hybrid fabric. It actively detects application impacting incidents earlier, dynamically orchestrates the appropriate resources to make them situation aware and, reduces the mean time to remediate and adverse impact on customer experience. 
 
 [Go to the documentation.][moogsoft-doc]
 
@@ -115,12 +114,12 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 [Learn more.][sciencelogic-doc]
 
 ## SignalFx
-SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud, replacing traditional point tools and providing real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open source connectors such as Telegraf, statsD, and collectd to provide best in class dashboards, analytics, and alerts for Azure.
+SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud, replacing traditional point tools and providing real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as Telegraf, statsD, and collectd to provide best in class dashboards, analytics, and alerts for Azure.
 
 [Go to the documentation.][signalfx-doc]
 
 ## SIGNL4
-SIGNL4 - the mobile alerting app for operations teams - is the fastest way to route critical alerts from Azure Monitor to the right people at the right time – anywhere by push, text and voice calls. SIGNL4 manages on-call duties and shifts of your team, tracks delivery and ownership of alerts and escalates if necessary. Full transparency across your team is provided. Using the super-easy REST web-hook of SIGNL4 any Azure service can be connected with no effort. With SIGNL4 you will see a up to an 10x faster response over email notifications and manual alerting.
+SIGNL4 - the mobile alerting app for operations teams - is the fastest way to route critical alerts from Azure Monitor to the right people at the right time – anywhere by push, text, and voice calls. SIGNL4 manages on-call duties and shifts of your team, tracks delivery and ownership of alerts and escalates if necessary. Full transparency across your team is provided. Using the super-easy REST web-hook of SIGNL4 any Azure service can be connected with no effort. With SIGNL4, you will see up to 10x faster response over email notifications and manual alerting.
 
 [Go to the documentation.][signl4-doc]
 
@@ -139,7 +138,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [Learn more.][sumologic-doc]
 
 ## Turbonomic
-Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate to ensure applications constantly get the resources they require to deliver their SLA and nothing more across compute, storage and network for the IaaS and PaaS layer. Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on-time, within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
+Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate to ensure applications constantly get the resources they require to deliver their SLA and nothing more across compute, storage and network for the IaaS and PaaS layer. Organizations can simulate migrations, properly scale workloads, and retire datacenter resources to responsibly migrate to Azure on-time, within budget, while assuring both performance and compliance. Turbonomic is API driven and runs as an agentless VM in Azure and on-premises.
 
 [Learn more.][turbonomic-doc]
 
@@ -147,8 +146,8 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 ## Next Steps
 * [Learn more about Azure Monitor](monitoring-overview.md)
 * [Access metrics using the REST API](monitoring-rest-api-walkthrough.md)
-* [Stream the Activity Log to a third party service](monitoring-stream-activity-logs-event-hubs.md)
-* [Stream Diagnostic Logs to a third party service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream the Activity Log to a non-Microsoft service](monitoring-stream-activity-logs-event-hubs.md)
+* [Stream Diagnostic Logs to a non-Microsoft service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
