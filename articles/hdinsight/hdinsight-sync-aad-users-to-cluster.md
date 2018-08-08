@@ -69,7 +69,7 @@ The following method uses POST with the Ambari REST API. For more information, s
     }
     ```
 
-4. To see the synchronization status, execute a new `curl` command, using the `href` value returned from the previous command:
+4. To see the synchronization status, execute a new `curl` command:
 
     ```bash
     curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
