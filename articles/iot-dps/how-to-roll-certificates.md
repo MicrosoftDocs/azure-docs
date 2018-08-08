@@ -44,7 +44,7 @@ Updating enrollment entries for rolled certificates is accomplished on the **Man
 How you handle updating the enrollment entry will depend on whether you're using individual enrollments, or group enrollments. Also the recommended procedures differ depending on whether you're rolling certificates because of a security breach, or certificate expiration. The following sections describe how to handle these updates.
 
 
-## Updating individual enrollments for security breaches
+## Individual enrollments and security breaches
 
 If you're rolling certificates in response to a security breach, you should use the following approach that deletes the current certificate immediately:
 
@@ -59,11 +59,11 @@ If you're rolling certificates in response to a security breach, you should use 
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-## Updating individual enrollments for certificate expiration
+## Individual enrollments and certificate expiration
 
 If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
 
-When the secondary certificate nears expiration, and needs to be rolled, you can rotate to use the primary configuration. Rotating the primary and secondary certificates in this way reduces downtime for devices attempting to provision. 
+Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
 
 
 1. Click **Individual Enrollments**, and click the registration ID entry in the list. 
@@ -72,9 +72,9 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 
    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
+3. Later when the primary certificate has actually expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
-
-## Updating enrollment groups for security breaches
+## Enrollment groups and security breaches
 
 To update a group enrollment in response to a security breach, you should use one of the following approaches that will delete the current root CA, or intermediate certificate immediately.
 
@@ -90,7 +90,7 @@ To update a group enrollment in response to a security breach, you should use on
 
     ![Add the new root CA certificate](./media/how-to-roll-certificates/add-root-cert.png)
 
-4. Click the **Manage enrollments** tab and the **Enrollment Groups** list. Click your enrollment group name in the list.
+4. Click the **Manage enrollments** tab for your provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
 
 5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
@@ -115,7 +115,7 @@ To update a group enrollment in response to a security breach, you should use on
     ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
 
-## Updating enrollment groups for certificate expiration
+## Enrollment groups and certificate expiration
 
 If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision.
 
@@ -133,6 +133,10 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
     ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
+4. Later when the primary certificate has actually expired, click the **Certificates** tab for your provisioning service instance again. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**.
+
+    ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
+
 
 
 #### Updating expiring intermediate certificates
@@ -144,6 +148,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
+3. Later when the primary certificate has actually expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
 
 
 ## Device reprovisioning
