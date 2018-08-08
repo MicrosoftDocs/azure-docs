@@ -194,11 +194,11 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew the certificate
 
-To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. The certificate will renew 60 days before expiration if you have automatic renewal turned on.
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**. Certificates can start automatically renewing 90 days before expiration if you have automatic renewal turned on.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-To manually renew the certificate instead, click **Manual Renew** instead.
+To manually renew the certificate instead, click **Manual Renew** instead. You can request to manually renew your certificate 60 days before expiration.
 
 > [!NOTE]
 > The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
