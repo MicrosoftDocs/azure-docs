@@ -46,6 +46,9 @@ This tutorial assumes that you are familiar with:
     
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
+-  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+  
+
 To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
  
 
