@@ -16,7 +16,7 @@ ms.workload: NA
 ms.date: 08/08/2018
 ms.author: alkohli
 ---
-# Quickstart: Deploy Azure Data Box using the Azure portal (Preview)
+# Quickstart: Deploy Azure Data Box using the Azure portal
 
 This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 Make sure that the subscription you use for Data Box service is one of the following types:
-- Enterprise Agreement (EA). Read more about EA subscriptions.
-- Cloud solution provider (CSP). Learn more about CSP subscriptions.
-- Azure Government. More information about Azure Government subscriptions.
+- Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+- Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Consumption - Pay as you go. More information about Azure [Pay-as-you-go subscriptions](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
 ## Sign in to Azure
 

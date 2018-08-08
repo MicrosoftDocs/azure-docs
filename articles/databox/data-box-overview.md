@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/07/2018
+ms.date: 08/08/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box?
@@ -26,11 +26,15 @@ You can order the Data Box device via the Azure portal. Once the device is recei
 
 ## Use cases
 
-Use Data Box to transfer TBs of data in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box can be used for data transfer.
+Data Box is ideally suited to transfer data sizes larger than 30 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box can be used for data transfer.
 
- - **One time migration** - when large amount of on-premises data is moved to Azure. For example, moving data from offline tapes to archival data in Azure cool storage.
+ - **One time migration** - when large amount of on-premises data is moved to Azure. 
+     - Moving a media library from offline tapes into Azure to create an online media library.
+     - Migrating your VM farm, SQL server, and applications to Azure
+     - Moving historical data to Azure for in-depth analysis and reporting using HDInsight
 
- - **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data via network to Azure storage.
+ - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box (seed) followed by incremental transfers over the network. 
+     - For example, backup solutions partners such as Commvault and Data Box are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.      
 
@@ -41,14 +45,14 @@ The Data Box device has the following features in this release.
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | ~ 50 lbs.                |
-| Dimensions                                              | Device - Width: 344 mm Height: 307 mm Length: 389 mm <br> Case - Width: 483 mm Height: 356 mm Length: 483 mm |            
-| Rack space                                              | 7 U when placed in the rack (cannot be rack-mounted)|
-| Cables                                                  | 1 X Power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
+| Dimensions                                              | Device - Width: 305 mm Height: 410 mm Depth: 500 mm |            
+| Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
+| Cables required                                         | 1 X power cable <br> 2 X 1 Gbps RJ45 cables <br> 2 X 10 Gbps SFP+ copper cables|
 | Components                                              | Built-in power supply unit (PSU)|
 | Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
 | Network interfaces                                      | 2 X 1 GbE interface  - 1 interface dedicated to management, not user configurable, used for initial setup. The other interface is for data, is user configurable, and is DHCP by default. These network interfaces can work as 10 GbE as well. <br> 2 X 10 GbE interface - DHCP (default) or static, user configurable, both are data interfaces. |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet.  |
-| Security                                                | Combination lock. <br> Tamper-evident rugged device casing.|
+| Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device.|
 | Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface.        |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |
 
@@ -91,13 +95,18 @@ Throughout this process, you are notified via email on all status changes. For m
 
 ## Region availability
 
-Data Box can transfer data to the following Azure regions:
+Data Box can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
-- Service availability - For this release, the Data Box service is available all of US and Europe. 
-- Device availability
-- Destination Storage accounts - The storage accounts that store the data are available in all Azure regions for public cloud. The regions where the storage accounts that store Data Box data should be located for optimum performance.
-    We strongly recommend that you create storage accounts in the same region or very close to the region where the device is deployed. A storage account located far from the device will result in long latencies and slower performance. 
+- **Service availability** - For this release, the Data Box service is available in the following regions:
+    - All regions in the United States.
+    - West Europe and North Europe (EU).
+    - UK South, UK West.
+    - France Central, France South.
 
+- **Shipping regions** - The Data Box devices are shipped from datacenters in West US, East US, West Europe, and UK West. 
+
+- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions for public cloud. The regions where the storage accounts store Data Box data should be located for optimum performance.
+    We strongly recommend that you create storage accounts in the same region or very close to the region where the device is deployed. A storage account located far from the device results in long latencies and slower performance. 
 
 
 ## Next steps
