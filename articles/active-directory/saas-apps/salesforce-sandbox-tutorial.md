@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. If this is the first instance you are adding to the tenant then perform the following steps:
+13. On the **Single Sign-On Settings** section, perform the following steps:
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config1.png)
 
@@ -171,7 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
 	f. As **SAML Identity Location**, select **Identity is an Attribute element**.
 
-    g. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` it into the **Custom Logout URL** textbox.
+    g. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` into the **Custom Logout URL** textbox.
 
     h. Click **Save**.
 
@@ -187,22 +187,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. You should have a verified domain.
 
-    b. To enable your domain on Salesforce Sandbox, perform the following steps:
-
-    > [!NOTE]
-    > Before enabling the domain you need to create the same on Salesforce Sandbox. For more information, see [Defining Your Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Once the domain is created, please make sure that it's configured correctly.
-
-    * On the left navigation pane in Salesforce Sandbox, click **Company Settings** to expand the related section, and then click **My Domain**.
-
-         ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
-
-    * In the **Authentication Configuration** section, click **Edit**.
-
-        ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
-
-    * In the **Authentication Configuration** section, as **Authentication Service**, select the name of the SAML Single Sign-On Setting which you have set during SSO configuration in Salesforce Sandbox and click **Save**.
-
-        ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure2.png)
+    b. You need to configure and enable your domain on Salesforce Sandbox, steps for this are explained later in this tutorial.
 
     c. In the Azure portal, on the **Salesforce Sandbox Domain and URLs** section, check **Show advanced URL settings** and perform the following step:
   
@@ -276,6 +261,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     i. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` it into the **Custom Logout URL** textbox.
 
     j. Click **Save**.
+
+27. To enable your domain on Salesforce Sandbox, perform the following steps:
+
+    > [!NOTE]
+    > Before enabling the domain you need to create the same on Salesforce Sandbox. For more information, see [Defining Your Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Once the domain is created, please make sure that it's configured correctly.
+
+    * On the left navigation pane in Salesforce Sandbox, click **Company Settings** to expand the related section, and then click **My Domain**.
+
+         ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+
+    * In the **Authentication Configuration** section, click **Edit**.
+
+        ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+
+    * In the **Authentication Configuration** section, as **Authentication Service**, select the name of the SAML Single Sign-On Setting which you have set during SSO configuration in Salesforce Sandbox and click **Save**.
+
+        ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure2.png)
 
 ### Create an Azure AD test user
 
