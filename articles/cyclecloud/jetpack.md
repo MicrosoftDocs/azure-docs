@@ -14,15 +14,15 @@ ms.author: a-kiwels
 
 When a virtual machine is provisioned to become a node in a cluster, Jetpack is automatically installed when using Azure CycleCloud. Jetpack is required on every node of a cluster, as it provides three main functions:
 
-1. Node Configuration
+* Node Configuration
 
 Azure CycleCloud uses [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node. A Chef client is embedded within Jetpack, and the Chef cookbooks needed for the configuration of the node are downloaded by Jetpack.
 
-2. Distributed Synchronization
+* Distributed Synchronization
 
 Jetpack manages communication between the node and the Azure CycleCloud application server, which enables CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
 
-3. HeathCheck
+* HeathCheck
 
 Jetpack runs [HealthCheck](healthcheck.md) on VMs, and terminates them if they are unhealthy.
 
@@ -33,8 +33,8 @@ When you first start a cluster using Azure CycleCloud, the software fetches the 
 ## Jetpack Install Location
 All Jetpack files are installed inside a singular directory tree:
 
-* Windows: C:\cycle\jetpack
-* Linux: /opt/cycle/Jetpack
+* Windows: `C:\cycle\jetpack`
+* Linux: `/opt/cycle/Jetpack`
 
 In addition to creating this directory, the Jetpack installer:
 
