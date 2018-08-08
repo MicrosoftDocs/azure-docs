@@ -2,19 +2,12 @@
 title: Use an Azure file share with Windows | Microsoft Docs
 description: Learn how to use an Azure file share with Windows and Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
+ms.component: files
 ---
 
 # Use an Azure file share with Windows
@@ -132,7 +125,7 @@ Storing the credentials for another user on the machine is very easy: when logge
 ```PowerShell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FileName PowerShell.exe -Credential $credential -LoadUserProfile
+Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 ```
 
 This will open a new PowerShell window under the user context of your service account (or user account). You can then use the cmdkey utility as described [above](#persisting-azure-file-share-credentials-in-windows).

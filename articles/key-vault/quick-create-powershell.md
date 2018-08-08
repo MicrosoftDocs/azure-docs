@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Quickstart - Create a Key Vault PowerShell | Microsoft Docs
+title: Azure Quickstart - Set & retrieve a secret from Key Vault using PowerShell | Microsoft Docs
 description: 
 services: key-vault
 author: barclayn
@@ -18,7 +18,7 @@ ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
 ---
-# Quickstart: Create an Azure Key Vault using PowerShell
+# Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](key-vault-overview.md). In this quickstart, you use PowerShell to create a key vault. You then store a secret in the newly created vault.
 

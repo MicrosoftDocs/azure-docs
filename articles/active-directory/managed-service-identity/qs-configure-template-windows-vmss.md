@@ -1,6 +1,6 @@
 ---
-title: Configure MSI on an Azure virtual machine scale set using a template
-description: Step-by-step instructions for configuring a Managed Service Identity (MSI) on an Azure VMSS, using an Azure Resource Manager template.
+title: Configure Managed Service Identity on an Azure virtual machine scale set using a template
+description: Step-by-step instructions for configuring a Managed Service Identity on an Azure VMSS, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -45,7 +45,7 @@ As with the Azure portal and scripting, [Azure Resource Manager](../../azure-res
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to both create and deploy a template.  
 
-Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling MSI on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments.
+Regardless of the option you choose, template syntax is the same during initial deployment and redeployment. Enabling Managed Service Identity on a new or existing VM is done in the same manner. Also, by default, Azure Resource Manager does an [incremental update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) to deployments.
 
 ## System assigned identity
 
@@ -65,7 +65,7 @@ In this section, you will enable and disable the system assigned identity using 
    },
    ```
 
-3. (Optional) Add the virtual machine scale set MSI extension as an `extensionsProfile` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity, to retrieve tokens as well.  Use the following syntax:
+3. (Optional) Add the virtual machine scale set Managed Service Identity extension as an `extensionsProfile` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity, to retrieve tokens as well.  Use the following syntax:
 
    >[!NOTE] 
    > The following example assumes a Windows virtual machine scale set extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
