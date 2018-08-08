@@ -52,7 +52,7 @@ Use the Azure portal to add or remove a user from the Remote Monitoring solution
 
     ![Enterprise application](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
-1. Check your are an owner of the application by clicking the application and then clicking **Owners**. In the following screenshot, **Contoso admin** is an owner of the **contoso-rm4** application:
+1. Check you're an owner of the application by clicking the application and then clicking **Owners**. In the following screenshot, **Contoso admin** is an owner of the **contoso-rm4** application:
 
     ![Owners](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
@@ -75,7 +75,7 @@ Use the Azure portal to add or remove a user from the Remote Monitoring solution
 The Remote Monitoring solution includes the **Admin** and **Read Only** roles when it's first deployed. You can add custom roles with different sets of permissions. To define a custom role, you need to:
 
 - Add a new role to the application in the Azure portal.
-- Define a policy for the new role in the PCS Authentication and Authorization microservice.
+- Define a policy for the new role in the Authentication and Authorization microservice.
 - Update the solution's web UI.
 
 ### Define a custom role in the Azure portal
@@ -90,7 +90,7 @@ The following steps describe how to add a role to an application in Azure Active
 
     ![View manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
 
-1. Edit the manifest to add a role called **ManageDevices** as shown in the following snippet. You need a new GUID for the new role, you can generate a new GUID using a service such as the [Online GUID Generator](https://www.guidgenerator.com/):
+1. Edit the manifest to add a role called **ManageDevices** as shown in the following snippet. You need a unique string such as a GUID for the new role ID. You can generate a new GUID using a service such as the [Online GUID Generator](https://www.guidgenerator.com/):
 
     ```json
     "appRoles": [
@@ -131,9 +131,9 @@ The following steps describe how to add a role to an application in Azure Active
 
 ### Define a policy for the new role
 
-After to add the role to the app in the Azure portal, you need to define a policy for the role that assigns the permissions needed to manage devices.
+After to add the role to the app in the Azure portal, you need to define a policy in [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) for the role that assigns the permissions needed to manage devices.
 
-1. Clone the [PCS Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) repository from GitHub to your local machine.
+1. Clone the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) repository from GitHub to your local machine.
 
 1. Edit the **Services/data/policies/roles.json** file to add the policy for the **ManageDevices** role as shown in the following snippet. The **ID** and **Role** values must match the role definition in the app manifest from the previous section. The list of allowed actions allows someone in the **ManageDevices** role to create, update, and delete devices connected to the solution:
 
@@ -177,11 +177,11 @@ After to add the role to the app in the Azure portal, you need to define a polic
     }
     ```
 
-1. When you have finished editing the **Services/data/policies/roles.json** file, rebuild and redeploy the PCS Authentication and Authorization microservice to your solution accelerator.
+1. When you have finished editing the **Services/data/policies/roles.json** file, rebuild and redeploy the Authentication and Authorization microservice to your solution accelerator.
 
 ### How the web UI enforces permissions
 
-The web UI uses the [PCS Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
+The web UI uses the [Authentication and Authorization microservice](https://github.com/Azure/pcs-auth-dotnet) to determine what actions a user is allowed to take and what controls are visible in the UI. For example, if your solution is called **contoso-rm4**, the web UI retrieves a list of allowed actions for the current user by sending the following request:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
