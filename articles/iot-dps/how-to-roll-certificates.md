@@ -18,15 +18,32 @@ Rolling certificates is a security best practice to help secure your system in c
 
 Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. Afterwards, the device can reprovision itself with the IoT hub using normal [auto-provisioning](concepts-auto-provisioning.md) with the Device Provisioning Service.
 
+
+## Obtaining new certificates
+
+There are many ways to obtain new certificates for your IoT devices These include obtaining certificates from the device factory, generating your own certificates, and having a third party manage certificate creation for you. 
+
+Certificates are signed by each other in order to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-security.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+ 
+There are two different ways to obtain a signing certificate. The first way, which is recommended for production systems, is to purchase a signing certificate from a root certificate authority (CA). This way chains security up to a trusted source. 
+
+The second way is to create your own X.509 certificates using a tool like OpenSSL. This is great for testing X.509 certificates but provides few guarantees around security. We recommend you only use this approach for testing unless you prepared to act as your own CA provider.
+ 
+
 ## Rolling the certificate on the device
 
-Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. If you got your certificates from a third party, you must look into how they roll their certificates. The process may be included in your arrangement with them, or it may be a separate service they offer. If you're managing your own device certificates, you'll have to build your own pipeline for updating certificates. Make sure both old and new leaf certificates have the same common name (CN). By having the same CN, the device can reprovision itself without creating a duplicate registration record.
+Certificates on a device should always be stored in a safe place like a [hardware security module (HSM)](concepts-device.md#hardware-security-module). The way you roll device certificates will depend on how they were created and installed in the devices in the first place. 
+
+If you got your certificates from a third party, you must look into how they roll their certificates. The process may be included in your arrangement with them, or it may be a separate service they offer. 
+
+If you're managing your own device certificates, you'll have to build your own pipeline for updating certificates. Make sure both old and new leaf certificates have the same common name (CN). By having the same CN, the device can reprovision itself without creating a duplicate registration record.
+
 
 ## Rolling the certificate in the IoT hub
 
 The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we'll assume a provisioning service instance is being used to support auto-provisioning.
 
-When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s [leaf certificate](concepts-security.md#end-entity-leaf-certificate) as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub. 
+When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub. 
 
 Once a new leaf certificate has been rolled to the device, it can no longer connect to the IoT hub because it’s using a new certificate to connect. The IoT hub only recognizes the device with the old certificate. The result of the device's connection attempt will be an "unauthorized" connection error. To resolve this, you must update the enrollment entry for the device to account for the device's new leaf certificate. Then the provisioning service can update the IoT Hub device registry information as needed when the device is reprovisioned. 
 
@@ -86,9 +103,7 @@ To update a group enrollment in response to a security breach, you should use on
 
     ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
 
-3. Click the **Add** button. Enter a name for your new certificate and click the folder icon to locate and upload the certificate file. Then click **Save**.
-
-    ![Add the new root CA certificate](./media/how-to-roll-certificates/add-root-cert.png)
+3. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
 4. Click the **Manage enrollments** tab for your provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
 
@@ -107,6 +122,8 @@ To update a group enrollment in response to a security breach, you should use on
 
 2. Click **Intermediate Certificate**, and **Delete current certificate**. Click the folder icon to navigate to the new intermediate certificate to be uploaded for the enrollment group. This should be completed for both the primary and secondary certificate, if both are compromised. Click **Save** when you're finished.
 
+    This new intermediate certificate should be signed by a verified root CA certificate that is already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
+
    ![Manage individual enrollments](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
@@ -123,17 +140,15 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 #### Updating expiring root CA certificates
 
-1. Click the **Certificates** tab for your provisioning service instance.
+1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
-2. Click the **Add** button. Enter a name for your new certificate and click the folder icon to locate and upload the certificate file. Then click **Save**.
-
-    ![Add the new root CA certificate](./media/how-to-roll-certificates/add-root-cert.png)
+2. Click the **Manage enrollments** tab for your provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
 
 3. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
     ![Select the new root CA certificate](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Later when the primary certificate has actually expired, click the **Certificates** tab for your provisioning service instance again. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**.
+4. Later when the primary certificate has actually expired, click the **Certificates** tab for your provisioning service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**.
 
     ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -145,6 +160,8 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 1. Click **Enrollment Groups**, and click the group name in the list. 
 
 2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+
+    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-security.md#x509-certificates).
 
    ![Manage individual enrollments using the secondary certificate](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
