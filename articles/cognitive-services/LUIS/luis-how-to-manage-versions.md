@@ -1,5 +1,5 @@
 ---
-title: Manage versions in LUIS apps in Azure | Microsoft Docs
+title: Manage versions in LUIS apps - Azure Cognitive Services  | Microsoft Docs
 description: Learn how to manage versions in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: diberry

@@ -1,5 +1,5 @@
 ---
-title: Manage the authoring and endpoint keys in LUIS | Microsoft Docs
+title: Manage the authoring and endpoint keys in LUIS - Azure Cognitive Services | Microsoft Docs
 description: Use Language Understanding (LUIS) to manage your programmatic API, endpoint, and external keys.
 titleSuffix: Azure
 services: cognitive-services

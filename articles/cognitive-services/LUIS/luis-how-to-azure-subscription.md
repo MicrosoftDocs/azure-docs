@@ -1,5 +1,5 @@
 ---
-title: Manage Azure endpoint subscription | Microsoft Docs
+title: Manage Language Understanding (LUIS) endpoint subscription - Azure Cognitive Services | Microsoft Docs
 description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
 author: diberry

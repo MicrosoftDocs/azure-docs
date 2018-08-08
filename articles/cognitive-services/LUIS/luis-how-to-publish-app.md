@@ -1,5 +1,5 @@
 ---
-title: Publish your LUIS app | Microsoft Docs
+title: Publish your LUIS app to the prediction endpoint - Azure Cognitive Services | Microsoft Docs
 description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure.
 services: cognitive-services
 titleSuffix: Azure

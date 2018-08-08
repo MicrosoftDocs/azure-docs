@@ -1,5 +1,5 @@
 ---
-title: Use Speech C# SDK with LUIS - Azure | Microsoft Docs 
+title: Use Speech C# SDK with LUIS - Azure Cognitive Services  | Microsoft Docs 
 titleSuffix: Azure
 description: Use the Speech C# SDK sample to speak into microphone and get LUIS intent and entities predictions returned.
 services: cognitive-services
