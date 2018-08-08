@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
 
 #As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my tenant’s user-created groups. 
 ---
-# Quickstart: Naming policy for Office 365 groups in Azure Active Directory
+# Quickstart: Naming policy for groups in Azure Active Directory
 
 In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) tenant for user-created Office 365 groups, to help you sort and search your tenant’s groups. For example, you could use the naming policy to:
 
@@ -28,7 +28,7 @@ In this quickstart, you will set up naming policy in your Azure Active Directory
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Install the PowerShell cmdlets that you need
+## Install PowerShell cmdlets
 
 Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands. 
 
@@ -45,7 +45,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   ````
 If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
-## Set up the group naming policy for your tenant using PowerShell
+## Set up naming policy
 
 ### Step 1: Sign in using PowerShell cmdlets
 
