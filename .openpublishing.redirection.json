@@ -22209,12 +22209,6 @@
             "redirect_document_id": false
         },
         {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
             "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
             "redirect_document_id": false
