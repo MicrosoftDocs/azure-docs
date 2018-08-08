@@ -84,7 +84,7 @@
   - name: Alerts
     href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     items:
-    - name: About Alerts (classic)  
+    - name: About alerts (classic)  
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -232,7 +232,7 @@
           href: ../application-insights/app-insights-windows-services.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Windows desktop
           href: ../application-insights/app-insights-windows-desktop.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: ASP.NET CoreCore
+        - name: ASP.NET Core
           href: ../application-insights/app-insights-asp-net-core.md?toc=%2fazure%2fazure-monitor%2ftoc.json
           items:
           - name: Profiler for Linux App services
@@ -329,7 +329,7 @@
         href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Custom JSON data
         href: ../log-analytics/log-analytics-data-sources-json.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-      - name: Collectd performance data
+      - name: CollectD performance data
         href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Nagios and Zabbix alerts
         href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -384,7 +384,7 @@
         - name: Continuous export
           href: ../application-insights/app-insights-export-telemetry.md?toc=%2fazure%2fazure-monitor%2ftoc.json
           items:
-          - name: Code Samples
+          - name: Code samples
             items:
             - name: Export to SQL using Stream Analytics
               href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=%2fazure%2fazure-monitor%2ftoc.json
@@ -489,7 +489,7 @@
         items:
         - name: Availability
           href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-        - name: Metric Alerts
+        - name: Metric alerts
           href: ../application-insights/app-insights-alerts.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Use action groups with alerts
         items:
