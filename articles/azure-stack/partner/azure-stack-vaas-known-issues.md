@@ -25,4 +25,4 @@ These are the known issues for the Azure Stack Validation as a Service.
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Troubleshoot Validation as a Service](azure-stack-vaas-troubleshoot.md)
