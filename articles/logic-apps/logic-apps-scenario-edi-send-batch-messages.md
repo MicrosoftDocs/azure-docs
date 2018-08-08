@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/08/18
+ms.date: 08/09/18
 ms.reviewer: estfan, LADocs
 ---
 
@@ -28,7 +28,7 @@ before the messages go to the trading partner or other destination.
 To learn more about the batch trigger and action, see 
 [Batch process messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-In this article, you'll perform these tasks in the following order:
+In this article, you'll perform these tasks in this specific order:
 
 * [Create a "batch receiver" logic app](#receiver), 
 which accepts and collects messages into a batch 
