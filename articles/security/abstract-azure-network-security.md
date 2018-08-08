@@ -17,5 +17,5 @@ The intended audiences for this white paper include:
 - SMEs or business process executives who want a high-level overview of the Azure technologies and services that relate to network security in the Azure public cloud.
 
 
-[Download the white paper]()
+[Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-network-security/Azure%20Network%20Security.pdf)
 
