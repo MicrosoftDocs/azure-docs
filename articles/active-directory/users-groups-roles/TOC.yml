@@ -34,6 +34,8 @@
     href: groups-dynamic-tutorial.md
 - name: Concepts
   items:
+  - name: Delegate Azure AD admin roles    
+    href: roles-concept-delegation.md
   - name: Group-based licensing basics    
     href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Compare member and guest user permissions    
