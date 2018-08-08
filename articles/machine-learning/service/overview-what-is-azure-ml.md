@@ -36,13 +36,6 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might like based on what you've purchased. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-<!--
-## Key capabilities
-+ BatchAI
-+ AutoML
-+ Training and deploying
--->
-
 ## What can I do with Azure Machine Learning Services?
 
 Using the [Azure Machine Learning SDK for Python](./reference-azure-machine-learning-sdk.md), you can build and train highly accurate machine learning and deep learning models in an Azure Machine Learning workspace. 
@@ -53,7 +46,7 @@ Once you have a model, you use it to create a Docker container that can be deplo
 You then can manage your deployed models using the [Azure portal](https://portal.azure.com/) or the [Azure Machine Learning CLI extension](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 You can evaluate model metrics, retrain and redeploy new versions of the model, all while tracking the model's rich run history.
 
-To get started using Azure Machine Learning Services, see [Next steps](next-steps) below.
+To get started using Azure Machine Learning Services, see [Next steps](#next-steps) below.
 
 ## Free trial
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
@@ -67,7 +60,8 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 2. Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services. 
 
-<!--
+<!-- Check with Serina to see if she is planning a video that could go here. Basically an intro to AML or an end-to-end quickstart.
+
 In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
@@ -75,4 +69,5 @@ In this 9-minute video, learn how you can benefit your app. You'll learn about k
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
+
 -->

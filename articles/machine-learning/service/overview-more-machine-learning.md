@@ -19,21 +19,29 @@ In addition to [Azure Machine Learning](overview-what-is-azure-ml.md), there are
 
 | Use this option...                                                            | if you want to do this... |
 | ----------------------------------------------------------------------------- | ---------------- |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio)               | build and deploy models using a drag-and-drop visual interface |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | build and deploy models on-premises or inside SQL Server  |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server)       | build and deploy R and Python models on an enterprise server |
 | [Spark MLLib in HDInsight](#spark-mllib-in-hdinsight)                         | create models as part of Spark jobs executing on big data |
 | [Microsoft Cognitive Toolkit (CNTK)](#microsoft-cognitive-toolkit-cntk)       | develop models using deep learning algorithms             |
+| [Azure Batch AI Training](#azure-batch-ai-training)                           | experiment and train models at scale across clustered GPUs |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine)     | use a customized virtual machine with pre-installed data science tools |
 | [Azure Cognitive Services](#azure-cognitive-services)                         | use pre-built machine learning models in applications     |
 | | |
 
 <!-- 
-| Batch AI Training Service            | | 
+Run this list by Carolyn and Hai, and ML writers
 -->
+
+## Azure Machine Learning Studio
+
+[Microsoft Azure Machine Learning Studio](../studio/what-is-ml-studio.md) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. There's no programming required, just visually connecting datasets and modules to construct your machine learning model and deploy it.
+
+Use Machine Learning Studio when you want to develop and deploy models with no code required. With only a browser, you can sign in, upload data, and immediately start machine learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine learning tasks simple and quick.
 
 ## SQL Server Machine Learning Services
 
-[SQL Server Microsoft Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) enables you to run, train, and deploy machine learning models using R or Python. You can use data located on-premises and in SQL Server databases. 
+[SQL Server Microsoft Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services) enables you to run, train, and deploy machine learning models using R or Python. You can use data located on-premises and in SQL Server databases.
 
 Use Microsoft Machine Learning Services when you need to train or deploy models on-premises, or inside of Microsoft SQL Server. Models built with Machine Learning Services can be deployed and managed using Azure Machine Learning Services. 
 
@@ -57,9 +65,6 @@ Use Microsoft Machine Learning Server when you need to:
 
 [Spark MLLib in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning) lets you create models as part of Spark jobs that are executing on big data. Spark lets you easily transform and prepare data and then scale out model creation in a single job.
 You can use Azure Machine Learning Services to deploy, manage, and monitor models created through Spark MLLib, and dispatch and manage training runs.
-<!--
-Spark can also be used to scale out data preparation jobs created in the Machine Learning Workbench. 
--->
 
 Use Spark when you need to scale out your data processing and create models as part of a data pipeline. You can author Spark jobs in Scala, Java, Python, or R.
 
@@ -68,6 +73,19 @@ Use Spark when you need to scale out your data processing and create models as p
 The [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) is a unified deep-learning toolkit that describes neural networks as computational steps in a directed graph. In this directed graph, leaf nodes represent input values or network parameters, while other nodes represent matrix operations upon their inputs. The Cognitive Toolkit allows you to easily realize and combine popular model types such as feed-forward DNNs, convolutional nets (CNNs), and recurrent networks (RNNs/LSTMs). It implements stochastic gradient descent (SGD, error backpropagation) learning with automatic differentiation and parallelization across multiple GPUs and servers.
 
 Use the Cognitive Toolkit when you want to build a model using deep learning.  The Cognitive Toolkit can be used in any of the preceding services.
+
+## Azure Batch AI Training
+
+[Azure Batch AI Training](https://aka.ms/batchaitraining) helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs. Describe your job requirements and configuration to run, and Batch AI handles the rest.
+
+Batch AI Training enables you to scale-out deep learning jobs across clustered GPUs, using frameworks such as:
+
+Cognitive Toolkit
+Caffe
+Chainer
+TensorFlow
+
+Azure Machine Learning Services can be used to take models from Batch AI Training to deploy, manage, and monitor them.
 
 ## Azure Data Science Virtual Machine
 
