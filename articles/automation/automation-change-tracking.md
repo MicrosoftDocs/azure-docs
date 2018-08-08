@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -88,8 +88,18 @@ Use the following steps to configure files tracking on Windows computers:
 |Enabled     | Determines if the setting is applied.        |
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Enter Path     | The path to check for the file For example: "c:\temp\\\*.txt"<br>You can also use environement variables such as "%winDir%\System32\\\*.*"       |
+|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Wildcard, recursion, and environment settings
+
+Recursion allows you to specify wildcards or environment variables to simplify tracking of files. If you want to use recursion path must use a wild card
+
+* Wildcards are required for tracking multiple files
+* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
+* Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
 
 ## Configure File Content tracking
 
