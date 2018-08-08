@@ -54,7 +54,7 @@ After all the files have been unpacked, navigate to the install directory with `
 ```
 
 > [!NOTE]
-> If you receive an error stating ""`/home/your-name/bin` not found in your PATH environment variable", fix it with the following: `export PATH=$PATH:~/bin`.
+> If you receive an error stating "/home/your-name/bin not found in your PATH environment variable", fix it with the following: `export PATH=$PATH:~/bin`.
 
 Once the CLI has been installed, you'll need to connect it to your Azure CycleCloud server. The Azure CycleCloud CLI communicates with the server using a REST API, and must be initialized with your Azure CycleCloud server:
 
@@ -127,7 +127,7 @@ raid_level = 0
 
 Save your changes.
 
-Kimli Screenshot
+[//]: # (## kimli screenshot)
 
 The lines added tell CycleCloud that two premium 512 GB disks (SSD = True) with a RAID 0 config should be added to the master node when it is provisioned, then mount the volume at `/mnt/exports/` and format the lot as an `ext4` filesystem.
 
@@ -143,7 +143,7 @@ cyclecloud import_template -f templates/extended_nfs.template.txt
 
 Once it is complete, return to the CycleCloud web interface and create a new cluster. You should see the a new application type called azurecyclecloud_tutorial:
 
-kimli Screenshot
+[//]: # (## kimli screenshot)
 
 ## Start the Cluster
 
