@@ -1,5 +1,5 @@
 ---
-title: Test Stream Analytics queries locally with Visual Studio
+title: Test Azure Stream Analytics queries locally with Visual Studio
 description: This article describes how to test queries locally with Azure Stream Analytics Tools for Visual Studio.
 services: stream-analytics
 author: su-jie
@@ -59,7 +59,7 @@ You can also collect sample input data from your input sources to a local file. 
 
 ![Sample Data](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Note that you can only sample data streaming from Event Hubs or IoT Hubs. Other input sources are not supported. In the pop-up dialog box, fill in the local path to save the sample data and select **Sample**.
+You can only sample data streaming from Event Hubs or IoT Hubs. Other input sources are not supported. In the pop-up dialog box, fill in the local path to save the sample data and select **Sample**.
 
 ![Sample data configuration](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
