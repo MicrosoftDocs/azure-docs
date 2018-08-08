@@ -96,7 +96,7 @@ A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In
 
 ## Create a disk from the snapshot
 
-This script creates a managed disk with name 'NewOSDisk' from the snapshot named `mysnapshot`.  
+This script creates a managed disk with name `newOSDisk` from the snapshot named `mysnapshot`.  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -113,7 +113,7 @@ $resourceGroupName ='myResourceGroup'
 $snapshotName = 'mySnapshot' 
 
 #Provide the name of the Managed Disk
-$diskName = 'NewOSDisk'
+$diskName = 'newOSDisk'
 
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
@@ -146,7 +146,7 @@ Now we attach the copy of the original OS disk to a VM as a data disk. This proc
 $rgName = "myResourceGroup"
 $vmName = "RecoveryVM"
 $location = "eastus" 
-$dataDiskName = "NewOSDisk"
+$dataDiskName = "newOSDisk"
 $disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -179,7 +179,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
     ------   -------------   -------------   ------------   -----------------   ----------   ----------
     0        Virtual HD                                     Healthy             Online       127 GB MBR
     1        Virtual HD                                     Healthy             Online       50 GB MBR
-    2        NewOSDisk                                  Healthy             Online       127 GB MBR
+    2        newOSDisk                                  Healthy             Online       127 GB MBR
     ```
 
 After the copy of the original OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
@@ -204,11 +204,11 @@ Once your errors are resolved, you unmount and detach the existing disk from you
     2        Msft Virtu...                                  Healthy             Offline      127 GB MBR
     ```
 
-2. Exit your RDP session. From your Azure PowerShell session, remove the disk named `NewOSDisk` from the VM named 'RecoveryVM'.
+2. Exit your RDP session. From your Azure PowerShell session, remove the disk named `newOSDisk` from the VM named 'RecoveryVM'.
 
     ```powershell
     $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "RecoveryVM"
-    Remove-AzureRmVMDataDisk -VM $myVM -Name "NewOSDisk"
+    Remove-AzureRmVMDataDisk -VM $myVM -Name "newOSDisk"
     Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
@@ -216,7 +216,7 @@ Once your errors are resolved, you unmount and detach the existing disk from you
 
 You can use Azure PowerShell to swap the OS disks. You don't have to delete and recreate the VM.
 
-This example stops the VM named `myVM` and assigns the disk named `NewOSDisk` as the new OS disk. 
+This example stops the VM named `myVM` and assigns the disk named `newOSDisk` as the new OS disk. 
 
 ```powershell
 # Get the VM 
