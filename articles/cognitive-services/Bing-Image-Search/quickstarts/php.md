@@ -20,7 +20,7 @@ This article includes a simple console application that performs a Bing Image Se
 
 You need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the application
 

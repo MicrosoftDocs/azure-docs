@@ -22,7 +22,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 ## Prerequisites
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the walkthrough
 To continue with the walkthrough, set `subscription_key` to your API key for the Bing API service.

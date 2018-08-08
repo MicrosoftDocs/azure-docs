@@ -20,7 +20,7 @@ This article includes a simple console application that performs a Bing Image Se
 
 You will need [Ruby 2.4 or later](https://www.ruby-lang.org/en/downloads/) to run the example code.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the application
 

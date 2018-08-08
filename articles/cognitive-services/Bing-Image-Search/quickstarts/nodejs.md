@@ -20,7 +20,7 @@ This article includes a simple console application that performs a Bing Image Se
 
 You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Running the application
 
