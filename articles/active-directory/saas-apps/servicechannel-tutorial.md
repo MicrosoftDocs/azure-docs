@@ -49,7 +49,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding ServiceChannel from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding ServiceChannel from the gallery
 To configure the integration of ServiceChannel into Azure AD, you need to add ServiceChannel from the gallery to your list of managed SaaS apps.
@@ -60,19 +60,19 @@ To configure the integration of ServiceChannel into Azure AD, you need to add Se
 
 	![Active Directory][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
 	
-3. Click **Add** button on the top of the dialog.
+1. Click **Add** button on the top of the dialog.
 
 	![Applications][3]
 
-4. In the search box, type **ServiceChannel**.
+1. In the search box, type **ServiceChannel**.
 
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/tutorial-servicechannel_000.png)
 
-5. In the results panel, select **ServiceChannel**, and then click **Add** button to add the application.
+1. In the results panel, select **ServiceChannel**, and then click **Add** button to add the application.
 
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/tutorial-servicechannel_2.png)
 
@@ -86,10 +86,10 @@ This link relationship is established by assigning the value of the **user name*
 To configure and test Azure AD single sign-on with ServiceChannel, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a ServiceChannel test user](#creating-a-servicechannel-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Creating a ServiceChannel test user](#creating-a-servicechannel-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -101,11 +101,11 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
  
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial-servicechannel_01.png)
 
-3. On the **ServiceChannel Domain and URLs** section, perform the following steps:
+1. On the **ServiceChannel Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us) to get these values.
 
-4. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. **NameIdentifier(User Identifier)** is the only mandatory claim and the default value is **user.userprincipalname** but ServiceChannel expects this to be mapped with **user.mail**. If you are planning to enable Just In Time user provisioning, then you should add the following claims as shown below. **Role** claim needs to be mapped to **user.assignedroles** which contains the role of the user.  
+1. Your ServiceChannel application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. **NameIdentifier(User Identifier)** is the only mandatory claim and the default value is **user.userprincipalname** but ServiceChannel expects this to be mapped with **user.mail**. If you are planning to enable Just In Time user provisioning, then you should add the following claims as shown below. **Role** claim needs to be mapped to **user.assignedroles** which contains the role of the user.  
 
 	You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
   	
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE] 
 	> See [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md) to learn how to configure **Role** in Azure AD.
 
-5. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes.
+1. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes.
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
@@ -143,17 +143,17 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	
 	d. Click **Ok**
 	
-6. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
+1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial-servicechannel_05.png) 
 
-7. Click **Save**.
+1. Click **Save**.
 
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-8. On the **ServiceChannel Configuration** section, click **Configure ServiceChannel** to open **Configure sign-on** window. Please note the **SAML Enitity ID** from the **Quick Reference** section.
+1. On the **ServiceChannel Configuration** section, click **Configure ServiceChannel** to open **Configure sign-on** window. Please note the **SAML Enitity ID** from the **Quick Reference** section.
 
-9. To configure single sign-on on **ServiceChannel** side, you need to send the downloaded **certificate (Base64)** and **SAML Entity ID** to [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us). They will set this up in order to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **ServiceChannel** side, you need to send the downloaded **certificate (Base64)** and **SAML Entity ID** to [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us). They will set this up in order to have the SAML SSO connection set properly on both sides.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
@@ -166,15 +166,15 @@ The objective of this section is to create a test user in the Azure Management p
 
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/create_aaduser_01.png) 
 
-2. Go to **Users and groups** and click **All users** to display the list of users.
+1. Go to **Users and groups** and click **All users** to display the list of users.
 	
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/create_aaduser_02.png) 
 
-3. At the top of the dialog click **Add** to open the **User** dialog.
+1. At the top of the dialog click **Add** to open the **User** dialog.
  
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/create_aaduser_03.png) 
 
-4. On the **User** dialog page, perform the following steps:
+1. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/servicechannel-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **ServiceChannel**.
+1. In the applications list, select **ServiceChannel**.
 
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![Assign User][202] 
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![Assign User][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Testing single sign-on
 

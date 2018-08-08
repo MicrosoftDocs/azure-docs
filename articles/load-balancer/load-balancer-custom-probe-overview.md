@@ -1,6 +1,6 @@
 ---
-title: Use Load Balancer custom probes to monitor health status | Microsoft Docs
-description: Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer
+title: Use Load Balancer health probes to protect your service | Microsoft Docs
+description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/06/2018
 ms.author: kumud
 ---
 
@@ -24,7 +24,10 @@ Azure Load Balancer uses health probes to determine which backend pool instances
 
 When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance. The behavior of new and existing flows depends on whether a flow is TCP or UDP as well as which Load Balancer SKU you are using.  Review [probe down behavior for details](#probedown).
 
-## Health probe types
+> [!IMPORTANT]
+> Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance up.  Review [probe source IP address](#probesource) for details.
+
+## <a name="types"></a>Health probe types
 
 Health probes can observe any port on a backend instance, including the port on which the actual service is provided. The health probe supports TCP listeners or HTTP endpoints. 
 
@@ -34,7 +37,9 @@ When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) w
 
 You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.
 
-### TCP probe
+If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination or [source](#probesource)).
+
+### <a name="tcpprobe"></a>TCP probe
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a four-way close TCP handshake.
 
@@ -44,7 +49,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-### HTTP probe
+### <a name="httpprobe"></a>HTTP probe
 
 HTTP probes establish a TCP connection and issue an HTTP GET with the specified path. 
 HTTP probes support relative paths for the HTTP GET. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  HTTP health probes attempt to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration cannot exceed 120 seconds. 
@@ -59,7 +64,7 @@ An HTTP probe fails when:
 * HTTP probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * HTTP probe endpoint closes the connection via a TCP reset.
 
-### Guest agent probe (Classic only)
+### <a name="guestagent"></a>Guest agent probe (Classic only)
 
 Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   You should consider this an option of last resort.  You should always define an health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
 
@@ -73,7 +78,7 @@ If the guest agent responds with an HTTP 200, the load balancer sends new flows 
 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
-## Probe health
+## <a name="probehealth"></a>Probe health
 
 TCP and HTTP health probes are considered healthy and mark the role instance as healthy when:
 
@@ -95,9 +100,6 @@ The timeout and frequency values set in SuccessFailCount determine whether an in
 
 A load balancing rule has a single health probe defined the respective backend pool.
 
-> [!IMPORTANT]
-> A load balancer health probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions, and it doesn't change. We recommend that you allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a packet from that address. If you don't allow this IP address in your firewall policies, unexpected behavior occurs in a variety of scenarios, including failure of your load balanced service. You should also not configure your VNet with an IP address range containing 168.63.129.16.  If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require uniquely source NAT'ing this address in the VM on a per interface basis.
-
 ## <a name="probedown"></a>Probe down behavior
 
 ### TCP Connections
@@ -118,11 +120,25 @@ UDP is connectionless and there is no flow state tracked for UDP. If any backend
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
+
+## <a name="probesource"></a>Probe source IP address
+
+All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
+
+For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.
+
+If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can cause your load balanced service to fail. 
+
+You should also not configure your VNet with the Microsoft owned IP address range which contains 168.63.129.16.  This will collide with the IP address of the health probe.
+
+If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require uniquely source NAT'ing this address in the VM on a per interface basis.
+
 ## Monitoring
 
 All [Standard Load Balancer](load-balancer-standard-overview.md) exposes health probe status as multi-dimensional metrics per instance via Azure Monitor.
 
 Basic Load Balancer exposes health probe status per backend pool via Log Analytics.  This is only available for public Basic Load Balancers and not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+
 
 ## Limitations
 

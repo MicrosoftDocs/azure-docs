@@ -2,20 +2,12 @@
 title: Repairing an Azure Import/Export export job - v1 | Microsoft Docs
 description: Learn how to repair an export job that was created and run using the Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-
+ms.component: common
 ---
 # Repairing an export job
 After an export job has completed, you can run the Microsoft Azure Import/Export Tool on-premises to:  

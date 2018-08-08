@@ -3,12 +3,11 @@ title: Calling Azure Storage Services REST API operations including authenticati
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
 author: tamram
-manager: twooley
-
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
+ms.component: common
 ---
 
 # Using the Azure Storage REST API

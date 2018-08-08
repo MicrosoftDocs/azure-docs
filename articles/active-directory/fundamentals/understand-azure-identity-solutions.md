@@ -121,5 +121,3 @@ Now that you understand Azure identity concepts and the options available to you
 [Learn more about Azure hybrid identity solutions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
-
-[Deploy Azure AD in production](https://aka.ms/aad-onboard)

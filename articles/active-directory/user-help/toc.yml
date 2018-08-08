@@ -13,8 +13,7 @@
   - name: Manage app passwords
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
-    href: user-help-sign-in.md
-    maintainContext: true
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Password reset help
   items:
   - name: Overview
@@ -42,8 +41,7 @@
   - name: Manage your security info
     href: security-info-manage-settings.md
   - name: How to sign in
-    href: user-help-sign-in.md
-    maintainContext: true      
+    href: user-help-sign-in.md?toc=./toc.json   
 - name: Microsoft Authenticator app help
   items:
   - name: Overview

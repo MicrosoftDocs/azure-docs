@@ -4,7 +4,7 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -183,11 +183,11 @@ the subscription or the management group.
 | Scope | Policy Definitions | 250 |
 | Scope | Initiative Definitions | 100 |
 | Tenant | Initiative Definitions | 1000 |
-| Scope | Policy Assignment | 100 |
+| Scope | Policy/Initiative Assignments | 100 |
 | Policy Definition | Parameters | 20 |
 | Initiative Definition | Policies | 100 |
 | Initiative Definition | Parameters | 100 |
-| Policy Assignment | Exclusions (notScopes) | 100 |
+| Policy/Initiative Assignments | Exclusions (notScopes) | 100 |
 | Policy Rule | Nested Conditionals | 512 |
 
 ## Recommendations for managing policies

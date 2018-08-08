@@ -1,4 +1,3 @@
-
 ## Add the application’s registration information to your app
 
 In this step, you need to add the Client ID to your project.
