@@ -18,7 +18,7 @@ ms.custom: it-pro
 ---
 # Quickstart: Set Office 365 groups to expire in Azure Active Directory
 
-In this quickstart, you set the expiration policy for your Office 365 groups. Now that users can set up their own groups, unused groups can multiply. One way to manage unused groups is to set those groups to expire, to reduce the maintenance of manually deleting groups.
+In this quickstart, you set the expiration policy for your Office 365 groups. When users can set up their own groups, unused groups can multiply. One way to manage unused groups is to set those groups to expire, to reduce the maintenance of manually deleting groups.
 
 Expiration policy is simple:
 
