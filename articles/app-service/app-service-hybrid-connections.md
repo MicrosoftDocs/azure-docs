@@ -243,7 +243,7 @@ The early form of this feature was called BizTalk Hybrid Connections. This capab
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
-[11]: ./media/app-service-hybrid-connections/hybridconn-hcmmanual.png
+[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
