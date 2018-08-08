@@ -70,10 +70,17 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 Close the run dialog when you're done testing your function. Only one function host can be active and running locally at a time.
 
 ### Debug the function in IntelliJ
+You can debug functions in IntelliJ by attaching to the function host after startup. To start the function host in debug mode, please add **-DenableDebug** as the argument, the function host will open a debug port at 5005.
 
-You can debug functions in IntelliJ by attaching to the function host after startup.  Run the Azure Function locally using the steps above, and then in the **Run** menu select **Attach to local process**.  You should see a process on port 5005 available.  After attaching you can have breakpoints hit and debug inside your function app.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Run the Azure Function locally using the steps above, and then in the **Run** menu select **Attach to local process**.  You should see a process on port 5005 available.  After attaching you can have breakpoints hit and debug inside your function app.
 
 When finished stop the debugger and the running process. Only one function host can be active and running locally at at time.
+
+![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 ## Deploy the function to Azure
 
