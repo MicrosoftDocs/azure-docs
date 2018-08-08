@@ -82,7 +82,7 @@ This article helps you to troubleshoot your security info, including two-step ve
 
 ## Next steps
 
-- Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
+- Learn more about security info in [Security info (preview) overview](user-help-security-info-overview.md).
 
 - Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 
 

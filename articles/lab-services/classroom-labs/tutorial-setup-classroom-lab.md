@@ -43,6 +43,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     7. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. Once the lab is created, select **Go to my lab**. 
+
+    ![Go to my lab](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. You see the **dashboard** for the lab. 
     
     ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

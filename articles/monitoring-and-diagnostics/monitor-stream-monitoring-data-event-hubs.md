@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -44,11 +44,11 @@ Please also see the [Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md).
 
 ## How do I set up Azure tenant monitoring data to be streamed to an event hub?
 
-Azure tenant monitoring data is currently only available for Azure Active Directory. You can use the data from [Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant.
+Azure tenant monitoring data is currently only available for Azure Active Directory. You can use the data from [Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md), which contains the history of sign-in activity and audit trail of changes made within a particular tenant.
 
 ### Stream Azure Active Directory data into an event hub
 
-To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) to set up a tenant diagnostic setting.
+To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) to set up a tenant diagnostic setting.
 
 ## How do I set up Azure subscription monitoring data to be streamed to an event hub?
 
@@ -107,6 +107,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
     1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this github repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## Next Steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)

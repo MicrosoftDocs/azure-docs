@@ -17,11 +17,11 @@ ms.author: rithorn
 
 # Manage your resources with management groups
 
-Management groups are containers that help you manage access, policy, and compliance across multiple subscriptions. You can change, delete, and manage these containers to have hierarchies that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls (RBAC)](../role-based-access-control/overview.md). To learn more about management groups, see [Organize your resources with Azure management groups ](management-groups-overview.md).
+Management groups are containers that help you manage access, policy, and compliance across multiple subscriptions. You can change, delete, and manage these containers to have hierarchies that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls (RBAC)](../role-based-access-control/overview.md). To learn more about management groups, see [Organize your resources with Azure management groups](management-groups-overview.md).
 
 To make changes to a management group, you must have an Owner or Contributor role on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more about RBAC Roles, see [Manage access and permissions with RBAC](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## Change the name of a management group
 
@@ -250,4 +250,4 @@ To Learn more about management groups, see:
 - [Create management groups to organize Azure resources](management-groups-create.md)
 - [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI Extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI Extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
