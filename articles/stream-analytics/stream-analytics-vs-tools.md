@@ -31,7 +31,8 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 
 1. In **Server Explorer**, select **Stream Analytics jobs** and then select **Refresh**. Your job should appear under **Stream Analytics jobs**.
 
-   <img src="./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png" alt="Stream Analytics server explorer list" width=300px/>
+    ![Stream Analytics server explorer list](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
+
 
 
 2. Expand your job node, and double-click on the **Job View** node to open a job view.
