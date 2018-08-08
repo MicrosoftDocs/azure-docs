@@ -14,7 +14,7 @@ manager: carmonm
 # Update your Automation account authentication with Run As accounts 
 You can update your existing Automation account from the Azure portal or use PowerShell if:
 
-* You create an Automation account but decline to create the Run As account.
+* You create an Automation account but do not create the Run As account.
 * You already use an Automation account to manage Resource Manager resources and you want to update the account to include the Run As account for runbook authentication.
 * You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.   
 
@@ -244,6 +244,9 @@ This PowerShell script includes support for the following configurations:
     }
     ```
 
+    > [!IMPORTANT]
+    > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
 3. From the elevated command-line shell, go to the folder that contains the script you created in step 1.  
 4. Execute the script by using the parameter values for the configuration you require.
@@ -281,5 +284,5 @@ In the Azure portal, select **Subscriptions** and choose the subscription of you
 To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Do this for the resources groups you want to give your Azure Automation Run As service principal access to.
 
 ## Next steps
-* For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+* For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Data sources in Log Analytics
 Log Analytics collects data from your Connected Sources and stores it in your Log Analytics workspace.  The data that is collected from each is defined by the Data Sources that you configure.  Data in Log Analytics is stored as a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
 

@@ -3,7 +3,7 @@ title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
-ms.author: adegeo
+ms.author: jeconnoc
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -105,7 +105,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%

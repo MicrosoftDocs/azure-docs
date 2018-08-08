@@ -5,8 +5,8 @@ description: Reporting on Azure AD self-service password reset events
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ After deployment, many organizations want to know how or if self-service passwor
 The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](../active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -37,7 +37,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Power BI content pack
 
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
+If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 
@@ -51,6 +51,10 @@ In the Azure portal experience, we have improved the way that you can view passw
 6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
 7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
 8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
+
+### Converged registration (preview)
+
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -171,8 +175,8 @@ The following list explains this activity in detail:
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

@@ -2,19 +2,19 @@
 title: Tutorial create a LUIS app that returns key phrases - Azure | Microsoft Docs 
 description: In this tutorial, learn how to add and return keyPhrase entity to your LUIS app to analyze utterances for key subject matter. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: diberry
+manager: cjgronlund
 
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
-ms.author: v-geberr
+ms.date: 08/02/2018
+ms.author: diberry
 #Customer intent: As a new user, I want to understand key subject matter in a user's utterances. 
 
 --- 
 
-# Tutorial: 7. Add keyPhrase entity 
+# Tutorial: 8. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->
@@ -25,10 +25,10 @@ In this tutorial, use an app that demonstrates how to extract key subject matter
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response including key phrases
 
-For this article, you can use the free [LUIS](luis-reference-regions.md#publishing-regions) account in order to author your LUIS application.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Before you begin
-If you don't have the Human Resources app from the [simple entity](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [simple entity](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `keyphrase`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -48,8 +48,6 @@ Your client application can use these values, along with other extracted entitie
 Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
-
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. Select **Entities** from the left menu.
 
@@ -71,33 +69,17 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
     [ ![Screenshot of Utilities.Confirm intent with keyPhrases labeled in utterances](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## Train the LUIS app
-The new `keyphrase` version of the app needs to be trained.  
 
-1. In the top right side of the LUIS website, select the **Train** button.
-
-    ![Train the app](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Training succeeded](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Publish app to endpoint
 
-1. Select **Publish** in the top right navigation.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. Select the Production slot and the **Publish** button.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with an utterance
 
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint url highlighted](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -199,10 +181,10 @@ Your chatbot now has enough information to determine the next step in the conver
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the keyPhrase data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)
-

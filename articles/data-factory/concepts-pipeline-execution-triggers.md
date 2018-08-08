@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
 
 ---
@@ -102,8 +102,8 @@ You pass parameters in the body of the request payload. In the .NET SDK, Azure P
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -134,7 +134,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
 
-- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Azure Data Factory doesn't currently support event-based triggers. For example, the trigger for a pipeline run that responds to a file-arrival event is not supported.
+- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state.
 
 - Event-based trigger: A trigger that responds to an event.
 

@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Face service Documentation 
+title: Face Service Documentation
 metadata:
   title: Face Service Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use the Face service to detect and identify faces in images and return facial information. Tutorials show you how to build apps that use the API.
@@ -29,10 +29,6 @@ sections:
         src: media/index/logo_Csharp.svg
       text: C&#35;
       href: QuickStarts/CSharp
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: QuickStarts/Go
     - image: 
         src: media/index/logo_java.svg
       text: Java
@@ -45,15 +41,19 @@ sections:
         src: media/index/logo_python.svg
       text: Python
       href: QuickStarts/Python
-#- title: Step-by-Step Tutorials
-#  items:
-#  - type: paragraph
-#    text: 'Learn how to develop applications using the Face service:'
-#  - type: list
-#    style: unordered
-#    items:
-#    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">C&#35; Tutorial</a></li>
-#    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Java for Android Tutorial</a></li>
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/Go
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Face service:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image on Windows</a></li>
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Detect and frame faces in an image on Android</a></li>
 #    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 - title: Reference
   items:
@@ -64,9 +64,9 @@ sections:
     - title: APIs
       html: <p><a href="APIReference">Face API</a></p>
     - title: SDKs
-      html: <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face">Go</a></p>
+      html: <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p>
-            <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
+            <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face">Go</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>

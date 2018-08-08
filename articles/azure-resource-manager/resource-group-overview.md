@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
 
 ---
@@ -59,7 +59,9 @@ The following suggestions help you take full advantage of Resource Manager when 
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
 
-For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+
+For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
 ## Resource groups
 There are some important factors to consider when defining your resource group:
@@ -280,6 +282,7 @@ For information about using these languages with your resources, see:
 * For a more thorough walkthrough of creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 * To understand the functions you can use in a template, see [Template functions](resource-group-template-functions.md)
 * For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* For information on migration of resources from Classic to ARM, see [Migrate from Classic to Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
 Here's a video demonstration of this overview:
 

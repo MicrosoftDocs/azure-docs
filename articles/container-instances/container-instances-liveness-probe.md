@@ -45,7 +45,7 @@ properties:
                 - "/tmp/healthy"
         periodSeconds: 5
   osType: Linux
-  restartPolicy: Never
+  restartPolicy: Always
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
@@ -96,7 +96,7 @@ Restart policies supersede the restart behavior triggered by liveness probes. Fo
 
 ## Next steps
 
-Task-based scenarios may require a liveness probe tom enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

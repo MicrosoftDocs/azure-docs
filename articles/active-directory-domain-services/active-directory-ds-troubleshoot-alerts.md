@@ -13,7 +13,7 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: ergreenl
 
@@ -35,7 +35,7 @@ Pick the troubleshooting steps that correspond to the ID or message in the alert
 | AADDS105 | *The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.* | [The password synchronization application is out of date](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *The managed domain was last synchronized with Azure AD on [date]. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.* | [Synchronization hasn't happened in a while](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *The managed domain was last backed up on [date].* | [A backup hasn't been taken in a while](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *The secure LDAP certificate for the managed domain will expire on XX.* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *The secure LDAP certificate for the managed domain will expire on [date]].* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *The managed domain is suspended because the Azure subscription associated with the domain is not active.* | [Suspension due to disabled subscription](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* | [Suspension due to an invalid configuration](#aadds504-suspension-due-to-an-invalid-configuration) |
 
@@ -108,6 +108,9 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 [Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
+Here are some common reasons why synchronization stops on managed domains:
+- Network connection is blocked on the managed domain. To learn more about checking your network for problems, read how to [troubleshoot Network Security Groups](active-directory-ds-troubleshoot-nsg.md) and [network requirements for Azure AD Domain Services](active-directory-ds-networking.md).
+-  Password synchronization was never set up or completed. To set up password synchronization, read [this article](active-directory-ds-getting-started-password-sync.md).
 
 ## AADDS501: A backup has not been taken in a while
 
@@ -128,6 +131,9 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 **Resolution:**
 
+> [!WARNING]
+> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](active-directory-ds-suspension.md).
+
 To restore your service, [renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associated with your managed domain.
 
 ## AADDS504: Suspension due to an invalid configuration
@@ -138,7 +144,11 @@ To restore your service, [renew your Azure subscription](https://docs.microsoft.
 
 **Resolution:**
 
+> [!WARNING]
+> If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](active-directory-ds-suspension.md).
+
 [Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
+
 
 ## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

@@ -2,21 +2,16 @@
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
-ms.date: 12/04/2017
+ms.date: 7/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Azure Files scalability and performance targets
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. This article discusses the scalability and performance targets for Azure Files and Azure File Sync (Preview).
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
 
 The scalability and performance targets listed here are high-end targets, but may be affected by other variables in your deployment. For example, the throughput for a file may also be limited by your available network bandwidth, not just the servers hosting the Azure Files service. We strongly recommend testing your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. We are also committed to increasing these limits over time. Please don't hesitate to give us feedback, either in the comments below or on the [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files), about which limits you would like to see us increase.
 

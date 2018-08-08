@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -21,7 +21,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Create a storage account
 
-To use Blob storage events, you need either a [Blob storage account](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../storage/common/storage-account-options.md#general-purpose-v2). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts. 
+To use Blob storage events, you need either a [Blob storage account](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../storage/common/storage-account-options.md#general-purpose-v2-accounts). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts. 
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -51,6 +51,8 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 1. You see the site but no events have been posted to it yet.
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to the Blob storage
 

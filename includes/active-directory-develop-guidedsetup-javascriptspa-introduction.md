@@ -45,6 +45,6 @@ This guide uses the following library:
 
 > [!NOTE]
 > *msal.js* targets the *Azure Active Directory v2 endpoint* - which enables personal, school and work accounts to sign in and acquire tokens. The *Azure Active Directory v2 endpoint* has [some limitations](..\articles\active-directory\develop\active-directory-v2-limitations.md). If you are interested only in school and work accounts, use *adal.js* and the *V1 endpoint*. 
-> To understand differences between the v1 and v2 endpoints read the [v1-v2 comparison](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> To understand differences between the v1 and v2 endpoints read the [v1-v2 comparison](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

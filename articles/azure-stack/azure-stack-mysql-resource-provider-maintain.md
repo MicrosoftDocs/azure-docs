@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -77,11 +77,11 @@ Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
 
 # Install the update definitions.
 Invoke-Command -Session $session -ScriptBlock `
-    {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\"}
+    {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
 
 # Cleanup the definitions package file and session.
 Invoke-Command -Session $session -ScriptBlock `
-    {Remove-AzSItemOnUserDrive -ItemPath "User:\"}
+    {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
 $session | Remove-PSSession
 
 ```
@@ -215,7 +215,7 @@ $destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
 # Cleanup the logs.
-$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
+$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog}
 # Close the session.
 $session | Remove-PSSession
 

@@ -46,7 +46,7 @@ If the selected workspace does not have the Update Management or Change Tracking
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
-If the the selected workspace already has the solution. The solution is not re-deployed, and the scope configuration is not added to it.
+If the selected workspace already has the solution. The solution is not re-deployed, and the scope configuration is not added to it.
 
 ## Saved searches
 

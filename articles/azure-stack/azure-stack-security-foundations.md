@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
 
 ---
@@ -23,17 +23,16 @@ ms.author: mabrigg
 
 Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
 
-In Azure Stack, there are two security posture layers that coexist. The first layer comprises the Azure Stack infrastructure, which goes from the hardware components all the way up to the Azure Resource Manager, and includes the Administrator and the Tenant portals. The second layer consists of the workloads that tenants create, deploy, and manage and includes things like virtual machines or App Services web sites.  
+Two security posture layers coexist in Azure Stack. The first layer is the Azure Stack infrastructure, which includes the hardware components up to the Azure Resource Manager. The first layer includes the Administrator and the Tenant portals. The second layer consists of the workloads created, deployed, and managed by tenants. The second layer includes items like virtual machines and App Services web sites.
 
 ## Security approach
-Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
 
- - **Assume Breach.**  
+The security posture for Azure Stack is designed to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
+
+ - **Assume Breach**  
 Starting from the assumption that the system has already been breached, focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
- - **Hardened by Default.**  
-Since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate all the security features* by default.
-
-
+ - **Hardened by Default**  
+Since the infrastructure runs on well-defined hardware and software, Azure Stack *enables, configures, and validates all the security features* by default.
 
 Because Azure Stack is delivered as an integrated system, the security posture of the Azure Stack infrastructure is defined by Microsoft. Just like in Azure, tenants are responsible for defining the security posture of their tenant workloads. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
@@ -79,6 +78,8 @@ Azure Stack infrastructure comes with multiple layers of network Access Control 
 Network ACLs are enforced in three layers:
 1.  Top of Rack switches
 2.  Software Defined Network
-3.  Host and VM operating system firewalls 
+3.  Host and VM operating system firewalls
 
+## Next steps
 
+- [Learn how to rotate your secrets in Azure Stack](azure-stack-rotate-secrets.md)

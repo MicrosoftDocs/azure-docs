@@ -6,7 +6,7 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/15/2017
+ms.date: 06/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
 ---
@@ -402,7 +402,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Attributes|Description|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 4096 MB.<br />
-|**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
+|**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|
+|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data for all child elements that support sinks. Sink example is Application Insights or Event Hubs.|  
+
 
 <br /> <br />
 
@@ -564,7 +566,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**bufferQuotaInMB**|**unsignedInt**|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
 |**scheduledTransferLogLevelFilterr**|**string**|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**, which transfers all logs. Other possible values (in order of most to least information) are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
-|**sinks** Added in 1.5|**string**|Optional. Points to a sink location to also send diagnostic data. For example, Application Insights.|  
+|**sinks** |**string**| Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Application Insights or Event Hubs.|  
 
 ## DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*

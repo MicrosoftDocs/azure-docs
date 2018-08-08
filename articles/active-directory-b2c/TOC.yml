@@ -72,8 +72,6 @@
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Core
       href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-    - name: Node.js
-      href: active-directory-b2c-devquickstarts-web-node.md
   - name: Single page apps
     items:
     - name: Overview
@@ -189,7 +187,7 @@
           href: active-directory-b2c-setup-sf-app-custom.md
       - name: Integrate RESTful APIs
         items:
-        - name: Vaildate user input
+        - name: Validate user input
           href: active-directory-b2c-rest-api-validation-custom.md
         - name: Obtain additional claims
           href: active-directory-b2c-rest-api-step-custom.md

@@ -1,17 +1,17 @@
 ---
 title: Import data into Azure Search in the portal | Microsoft Docs
-description: Use the Azure Search Import Data Wizard in the Azure Portal to crawl Azure data from NoSQL Azure Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Import data to Azure Search using the portal
+# How to import data into Azure Search index using the Azure portal
+
 The Azure portal provides an **Import data** wizard on the Azure Search dashboard for loading data into an index. 
 
   ![Import Data on the command bar][1]
@@ -21,8 +21,6 @@ Internally, the wizard configures and invokes an *indexer*, automating several s
 * Connect to an external data source in the same Azure subscription
 * Generate a modifiable index schema based on the source data structure
 * Load JSON documents into an index using a rowset retrieved from the data source
-
-You can try out this workflow using sample data in Azure Cosmos DB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
 
 > [!NOTE]
 > You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
@@ -40,8 +38,10 @@ A flattened dataset is a required input. You can only import from a single table
 
 ## Connect to your data
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
-2. Click **Import Data** on the command bar to slide open the Import Data blade.  
-3. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
+
+1. Click **Import Data** on the command bar to slide open the Import Data blade.
+
+1. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
 
 |  |  |
 | --- | --- |
@@ -56,35 +56,42 @@ A flattened dataset is a required input. You can only import from a single table
 A preliminary index is typically inferred from the dataset. Add, edit, or delete fields to complete the schema. Additionally, set attributes at the field level to determine its subsequent search behaviors.
 
 1. In **Customize target index**, specify the name and a **Key** used to uniquely identify each document. The Key must be a string. If field values include spaces or dashes be sure to set advanced options in **Import your data** to suppress the validation check for these characters.
-2. Review and revise the remaining fields. Field name and type are typically filled in for you. You can change the data type up until the index is created. Changing it afterwards will require a rebuild.
-3. Set index attributes for each field:
+
+1. Review and revise the remaining fields. Field name and type are typically filled in for you. You can change the data type up until the index is created. Changing it afterwards will require a rebuild.
+
+1. Set index attributes for each field:
    
    * Retrievable returns the field in search results.
    * Filterable allows the field to be referenced in filter expressions.
    * Sortable allows the field to be used in a sort.
    * Facetable enables the field for faceted navigation.
    * Searchable enables full-text search.
-4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
+
+1. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
    
    * Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
    * Choose the analyzer you want. See [Create an index for documents in multiple languages](search-language-support.md) for details.
-5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
+
+1. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
 
 ## Import your data
 1. In **Import your data**, provide a name for the indexer. Recall that the product of the Import Data wizard is an indexer. Later, if you want to view or edit it, you'll select it from the portal rather than by rerunning the wizard. 
-2. Specify the schedule, which is based on the regional time zone in which the service is provisioned.
-3. Set advanced options to specify thresholds on whether indexing can continue if a document is dropped. Additionally, you can specify whether **Key** fields are allowed to contain spaces and slashes.  
-4. Click **OK** to create the index and import the data.
+
+1. Specify the schedule, which is based on the regional time zone in which the service is provisioned.
+
+1. Set advanced options to specify thresholds on whether indexing can continue if a document is dropped. Additionally, you can specify whether **Key** fields are allowed to contain spaces and slashes.  
+
+1. Click **OK** to create the index and import the data.
 
 You can monitor indexing in the portal. As documents are loaded, the document count will grow for the index you have defined. Sometimes it takes a few minutes for the portal page to pick up the most recent updates.
 
 The index is ready to query as soon as all of the documents are loaded.
 
-## Query an index using Search Explorer
+## Query an index using Search explorer
 
-The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use [Search Explore](search-explorer.md) on any index.
+The portal includes **Search explorer** so that you can query an index without having to write any code. You can use [Search explorer](search-explorer.md) on any index.
 
-The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Results are returned in JSON, in a verbose format, so that you can inspect the entire document.
 

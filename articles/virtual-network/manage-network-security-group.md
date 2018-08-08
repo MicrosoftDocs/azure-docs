@@ -100,7 +100,7 @@ If a network security group is associated to any subnets or network interfaces, 
 **Commands**
 
 - Azure CLI: [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## Work with security rules
 
@@ -117,17 +117,15 @@ There is a limit to how many rules per network security group can create per Azu
     
     |Setting  |Value  |Details  |
     |---------|---------|---------|
-    |Source     | Select **Any**, **IP Addresses**, or **Service Tag**.        | If you select **IP Addresses**, you must then specify **Source IP addresses/CIDR ranges**. You can specify a single value or comma-separated list of multiple values. An example of multiple values is 10.0.0.0/16, 192.188.1.1. There are limits to the number of values you can specify. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details. If you select **Service Tag**, you must then select one service tag. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see [Service tags](security-overview.md#service-tags). If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP address, not the public IP address, if a public IP address is assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
+    |Source     | Select **Any**, **Application security group**, **IP Addresses**, or **Service Tag** for inbound security rules. If you're creating an outbound security rule, the options are the same as options listed for **Destination**.       | If you select **Application security group**, then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group** for both the **Source** and **Destination**, the network interfaces within both application security groups must be in the same virtual network. If you select **IP Addresses**, then specify **Source IP addresses/CIDR ranges**. You can specify a single value or comma-separated list of multiple values. An example of multiple values is 10.0.0.0/16, 192.188.1.1. There are limits to the number of values you can specify. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details. If you select **Service Tag**, then select one service tag. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see [Service tags](security-overview.md#service-tags). If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
     |Source port ranges     | Specify a single port, such as 80, a range of ports, such as 1024-65535, or a comma-separated list of single ports and/or port ranges, such as 80, 1024-65535. Enter an asterisk to allow traffic on any port. | The ports and ranges specify which ports traffic is allowed or denied by the rule. There are limits to the number of ports you can specify. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.  |
-    |Destination     | Select **Any**, **IP addresses**, or **Virtual Network**.        | If you select **IP addresses**, you must then specify **Destination IP addresses/CIDR ranges**. Similar to **Source** and **Source IP addresses/CIDR ranges**, you can specify a single, or multiple addresses or ranges, and there are limits to the number you can specify. Selecting **Virtual network**, which is a service tag, means that traffic is allowed to all IP addresses within the address space of the virtual network. If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP address, not the public IP address, if a public IP address is assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
+    |Destination     | Select **Any**, **Application security group**, **IP addresses**, or **Virtual Network** for inbound security rules. If you're creating an outbound security rule, the options are the same as options listed for **Source**.        | If you select **Application security group** you must then select one or more existing application security groups that exist in the same region as the network interface. Learn how to [create an application security group](#create-an-application-security-group). If you select **Application security group**, then select one existing application security group that exists in the same region as the network interface. If you select **IP addresses**, then specify **Destination IP addresses/CIDR ranges**. Similar to **Source** and **Source IP addresses/CIDR ranges**, you can specify a single, or multiple addresses or ranges, and there are limits to the number you can specify. Selecting **Virtual network**, which is a service tag, means that traffic is allowed to all IP addresses within the address space of the virtual network. If the IP address you specify is assigned to an Azure virtual machine, ensure that you specify the private IP, not the public IP address assigned to the virtual machine. Security rules are processed after Azure translates the public IP address to a private IP address for inbound security rules, and before Azure translates a private IP address to a public IP address for outbound rules. To learn more about public and private IP addresses in Azure, see [IP address types](virtual-network-ip-addresses-overview-arm.md).        |
     |Destination port ranges     | Specify a single value, or comma-separated list of values. | Similar to **Source port ranges**, you can specify a single, or multiple ports and ranges, and there are limits to the number you can specify. |
     |Protocol     | Select **Any**, **TCP**, or **UDP**.        |         |
     |Action     | Select **Allow** or **Deny**.        |         |
     |Priority     | Enter a value between 100-4096 that is unique for all security rules within the network security group. |Rules are processed in priority order. The lower the number, the higher the priority. It's recommended that you leave a gap between priority numbers when creating rules, such as 100, 200, 300. Leaving gaps makes it easier to add rules in the future that you may need to make higher or lower than existing rules.         |
     |Name     | A unique name for the rule within the network security group.        |  The name can be up to 80 characters. It must begin with a letter or number, end with a letter, number, or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.       |
     |Description     | An optional description.        |         |
-
-    You cannot specify an [application security group](#work-with-application-security-groups) for the **Source** or **Destination** settings using the portal. You can however, using the Azure CLI or PowerShell. The settings for **Outbound security rules** are similar, so they are not covered separately.
 
 **Commands**
 
@@ -169,7 +167,7 @@ The list contains any rules you have created and the network security group [def
 **Commands**
 
 - Azure CLI: [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell: [Set-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell: [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
 
 ### Delete a security rule
 
@@ -179,31 +177,56 @@ The list contains any rules you have created and the network security group [def
 **Commands**
 
 - Azure CLI: [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell: [Remove-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
-
+- PowerShell: [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
 ## Work with application security groups
 
-An application security group contains zero or more network interfaces. To learn more, see [application security groups](security-overview.md#application-security-groups). You cannot work with application security groups in the portal, but you can use PowerShell or the Azure CLI. All network interfaces in an application security group must exist in the same virtual network. The first network interface added to an application security group determines which virtual network all subsequent network interfaces must be in. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
+An application security group contains zero or more network interfaces. To learn more, see [application security groups](security-overview.md#application-security-groups). All network interfaces in an application security group must exist in the same virtual network. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
 
 ### Create an application security group
+
+1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+2. In the **Search the Marketplace** box, enter *Application security group*. When **Application security group** appears in the search results, select it, select **Application security group** again under **Everything**, and then select **Create**.
+3. Enter, or select, the following information, and then select **Create**:
+
+    | Setting        | Value                                                   |
+    | ---            | ---                                                     |
+    | Name           | The name must be unique within a resource group.        |
+    | Subscription   | Select your subscription.                               |
+    | Resource group | Select an existing resource group, or create a new one. |
+    | Location       | Select a location                                       |
+
+**Commands**
 
 - Azure CLI: [az network asg create](/cli/azure/network/asg#az-network-asg-create)
 - PowerShell: [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### View all application security groups
 
+1. Select **All services** on the upper, left corner of the Azure portal.
+2. Enter *application security groups* in the **All services Filter** box, and then select **Application security groups** when it appears in the search results.
+
+**Commands**
+
 - Azure CLI: [az network asg list](/cli/azure/network/asg#az-network-asg-list)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### View details of a specific application security group
+
+1. Select **All services** on the upper, left corner of the Azure portal.
+2. Enter *application security groups* in the **All services Filter** box, and then select **Application security groups** when it appears in the search results.
+3. Select the application security group that you want to view the details of.
+
+**Commands**
 
 - Azure CLI: [az network asg show](/cli/azure/network/asg#az-network-asg-show)
 - PowerShell: [Get-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/get-azurermapplicationsecuritygroup)
 
 ### Change an application security group
 
-While you can change some settings such as tags and permissions for an existing application security group, you can't change its name or location.
+1. Select **All services** on the upper, left corner of the Azure portal.
+2. Enter *application security groups* in the **All services Filter** box, and then select **Application security groups** when it appears in the search results.
+3. Select the application security group that you want to change settings for. You can add or remove tags, or assign or remove permissions to the application security group.
 
 - Azure CLI: [az network asg update](/cli/azure/network/asg#az-network-asg-update)
 - PowerShell: No PowerShell cmdlet.
@@ -211,6 +234,11 @@ While you can change some settings such as tags and permissions for an existing 
 ### Delete an application security group
 
 You cannot delete an application security group if it has any network interfaces in it. Remove all network interfaces from the application security group by either changing network interface settings, or deleting the network interfaces. For details, see [Add to or remove a network interface from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
+
+1. Select **All services** on the upper, left corner of the Azure portal.
+2. Enter *application security groups* in the **All services Filter** box, and then select **Application security groups** when it appears in the search results.
+3. Select the application security group that you want to delete.
+4. Select **Delete**, and then select **Yes** to delete the application security group.
 
 **Commands**
 
@@ -221,21 +249,25 @@ You cannot delete an application security group if it has any network interfaces
 
 To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate permissions listed in the following tables:
 
-### Network security groups
+### Network security group
 
 | Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Get network security group                                          |
-| Microsoft.Network/ruleTables/write                            |   Create or update network security group                             |
-| Microsoft.Network/ruleTables/delete                           |   Delete network security group                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Associate a network security group to a subnet or network interface |
-| Microsoft.Network/ruleTables/rules/read                       |   Get rule                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Create or update rule                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Delete rule                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Get Network Interface Effective network security group              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Gets the next hop from a VM                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Get network security group                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Create or update network security group                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
-### Application security groups
+
+### Network security group rule
+
+| Action                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Get rule                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Create or update rule                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Delete rule                                                         |
+
+### Application security group
 
 | Action                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

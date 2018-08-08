@@ -3,13 +3,14 @@ title: Static website hosting in Azure Storage (Preview) | Microsoft Docs
 description: Azure Storage now offers static website hosting (Preview), providing a cost-effective, scalable solution for hosting modern web applications.  
 services: storage
 author: MichaelHauss
-manager: vamshik
 
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
+ms.component: blobs
 ---
+
 # Static website hosting in Azure Storage (Preview)
 Azure Storage now offers static website hosting (Preview), enabling you to deploy cost-effective and scalable modern web applications on Azure. On a static website, webpages contain static content and JavaScript or other client-side code. By contrast, dynamic websites depend on server-side code, and can be hosted using [Azure Web Apps](/app-service/app-service-web-overview.md).
 
@@ -39,6 +40,9 @@ To start hosting your web application on Azure Storage, you can configure the fe
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Upload your web assets to the "$web" container that was created as a part of static website enablement. You can do this directly in Azure Portal, or you can take advantage of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include an index document with the name you configured. In this example, the document's name is "index.html".
+
+> [!NOTE]
+> The document name is case sensitive and therefore needs to match the name of the file in storage exactly.
 
 Finally, navigate to your web endpoint to test your website.
 

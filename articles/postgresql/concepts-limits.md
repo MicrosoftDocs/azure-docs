@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/30/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -46,8 +46,12 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 ### Subscription management
 - Dynamically moving servers across subscriptions and resource groups is currently not supported.
 
-### Point-in-time-restore (PITR)
-- When using the PITR feature, the new server is created with the same configurations as the server it is based on.
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+
+### Restoring a server
+- When using the PITR feature, the new server is created with the same pricing tier configurations as the server it is based on.
+- The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 - Restoring a deleted server is not supported.
 
 ## Next steps

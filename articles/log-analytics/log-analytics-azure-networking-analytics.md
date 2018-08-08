@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-
+ms.component: na
 ---
+
 # Azure networking monitoring solutions in Log Analytics
 
 Log Analytics offers the following solutions for monitoring your networks:

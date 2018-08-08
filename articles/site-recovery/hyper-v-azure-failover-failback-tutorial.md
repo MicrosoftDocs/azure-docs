@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
@@ -33,26 +33,33 @@ Make sure there are no snapshots on the VM, and that the on-premises VM is turne
 Failover and failback have three stages:
 
 1. **Failover to Azure**: Failover Hyper-V VMs from the on-premises site to Azure.
-2. **Failback to on-premises**: Failover Azure VMs to your on-premises site, when it's available. It starts replicating VMs back to the on-premises Hyper-V VMs. After initial data synchronization, failover Azure VMs to the on-premises site.  
-3. **Reverse replicate on-premises VMs**: After data has failed back, reverse replicate the on-premises VMs to start replicating them to Azure.
+2. **Failback to on-premises**: Failover Azure VMs to your on-premises site when the on-premises site is available. It starts synchronizing data from Azure to on-premises and on completion, it brings up the VMs on on-premises.  
+3. **Reverse replicate on-premises VMs**: After failed back to on-premises, reverse replicate the on-premises VMs to start replicating them to Azure.
 
 ## Verify VM properties
 
-Before failover verify the VM properties, and make sure that the VM meet with [Azure requirements](hyper-v-azure-support-matrix.md#replicated-vms).
+Before failover verify the VM properties, and make sure that the VM meets with [Azure requirements](hyper-v-azure-support-matrix.md#replicated-vms).
 
-1. In **Protected Items**, click **Replicated Items** > <VM-name>.
+In **Protected Items**, click **Replicated Items** > VM.
 
-2. In the **Replicated item** pane, review the VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
-     - In **Compute and Network**, you can modify the VM settings, and network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it. Managed disks aren't supported for failback from Azure to Hyper-V.
-      - In **Disks**, you can see information about the operating system and data disks on the VM.
+2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
+   latest available recovery points. Click **Properties** to view more details.
+
+3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
+   [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
+
+4. You can view and modify network settings, including the network/subnet in which the Azure VM
+   will be located after failover, and the IP address that will be assigned to it.
+
+5. In **Disks**, you can see information about the operating system and data disks on the VM.
 
 ## Failover to Azure
 
-1. In **Settings** > **Replicated items** click the VM > **Failover**.
-2. In **Failover** select the **Latest** recovery point. 
+1. In **Settings** > **Replicated items**, click the VM > **Failover**.
+2. In **Failover**, select the **Latest** recovery point. 
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to do a shutdown of source VMs before triggering the failover. Failover continues even if shutdown fails. You
    can follow the failover progress on the **Jobs** page.
-4. After you verify the failover click **Commit**. It deletes all the available recovery points.
+4. After you verify the failover, click **Commit**. It deletes all the available recovery points.
 
 > [!WARNING]
 > **Don't cancel a failover in progress**: If you cancel in progress, failover stops, but the VM won't replicate again.

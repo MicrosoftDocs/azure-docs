@@ -37,11 +37,11 @@ This section provides quick access to relevant troubleshooting guides. More info
 
 | Feature Area |  |
 |:---:| --- |
-| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](develop/howto-v1-debug-saml-sso-issues.md) |
 | Password-Based Single Sign-On |[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Application Proxy |[App Proxy Troubleshooting Guide](manage-apps/application-proxy-troubleshoot.md) |
 | Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Hash Synchronization](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Troubleshooting Password Writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
+| Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](users-groups-roles/groups-troubleshooting.md) |
 
 ## Single Sign-On (SSO)
 ### Federated Single Sign-On: Sign into many apps using one identity
@@ -50,10 +50,10 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](saas-apps/tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](saas-apps/tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](develop/howto-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](saas-apps/tutorial-list.md) |
 | How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
-| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](develop/howto-v1-debug-saml-sso-issues.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
@@ -105,10 +105,10 @@ Once you set up single sign-on to your apps and resources, you can then further 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to the conditional access capabilities offered across Azure AD, Office365, and Intune |[Managing Risk With Conditional Access](active-directory-conditional-access-azure-portal.md) |
-| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-azure-portal.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](conditional-access/app-based-conditional-access.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-azure-portal.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | How to register devices with Azure Active Directory in order to enable device-based conditional access policies |[Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 Conditional Access is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
@@ -139,8 +139,8 @@ If your organization is developing or maintaining line-of-business (LoB) applica
 
 | Article Guide |  |
 |:---:| --- |
-| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](active-directory-developers-guide.md) |
-| How to application vendors can add their apps to the Azure AD App Gallery |[Listing your Application in the Azure Active Directory Application Gallery](active-directory-app-gallery-listing.md) |
+| Guidance for both IT professionals and application developers on integrating apps with Azure AD |[The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](develop/azure-ad-developers-guide.md) |
+| How to application vendors can add their apps to the Azure AD App Gallery |[Listing your Application in the Azure Active Directory Application Gallery](develop/howto-app-gallery-listing.md) |
 | How to manage access to developed applications using Azure Active Directory |[How to Enable User Assignment for Developed Applications](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Assigning Group to your App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 If you're developing consumer-facing applications, you may be interested in using [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) so that you don't have to develop your own identity system to manage your users. [Learn more](../active-directory-b2c/active-directory-b2c-overview.md).
@@ -151,10 +151,10 @@ To help you manage who should have access to which resources, Azure Active Direc
 
 | Article Guide |  |
 |:---:| --- |
-| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
-| Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
+| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](users-groups-roles/groups-saasapps.md) |
+| Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](users-groups-roles/groups-self-service-management.md) |
 | Instructions for setting up your groups in Azure AD |[How to Create Security Groups](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
-| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
+| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](users-groups-roles/groups-troubleshooting.md) |
 
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
 
@@ -176,7 +176,7 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 | Article Guide |  |
 |:---:| --- |
 | A comparison of the different options available for deploying single sign-on apps to users |[Deploying Azure AD Integrated Applications to Users](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| An overview of the Access Panel and its mobile equivalent MyApps |[Introduction to Access Panel and MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| An overview of the Access Panel and its mobile equivalent MyApps |[Introduction to Access Panel and MyApps](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | How to access Azure AD apps from the Office 365 website |[Using the Office 365 App Launcher](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | How to access Azure AD apps from the Intune Managed Browser mobile app |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | How to access Azure AD apps using deep links to initiate single sign-on |[Getting Direct Sign-On Links to Your Apps](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

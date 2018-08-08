@@ -3,7 +3,7 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Monitor Azure SQL Databases using Azure SQL Analytics (Preview)
@@ -127,7 +128,7 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Analyze data and create alerts
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
 
 
