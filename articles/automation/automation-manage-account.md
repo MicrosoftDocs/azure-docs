@@ -72,6 +72,6 @@ When you select the Run As account, the account **Properties** pane displays the
 You can quickly resolve these Run As account issues by deleting and re-creating the account.
 
 ## Next steps
-* For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+* For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about Role-based Access Control in Azure Automation, refer to [Role-based access control in Azure Automation](automation-role-based-access-control.md).
 * For more information about certificates and Azure services, refer to [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
