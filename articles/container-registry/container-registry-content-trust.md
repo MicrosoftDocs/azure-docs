@@ -116,7 +116,27 @@ The `<service principal ID>` can be the service principal's **appId**, **objectI
 
 ## Push a trusted image
 
-To push a trusted image to your container registry, first enable content trust for your registry and your client, then execute the `docker push` command. The first time push a signed image, you're asked to create a passphrase for both a root signing key and a repository signing key.
+To push a trusted image to your container registry, enable content trust and push the image with `docker push`. The first time you push a signed image, you're asked to create a passphrase for both a root (or "offline") signing key and a repository signing key.
+
+```console
+$ docker push myregistry.azurecr.io/myimage:v1
+The push refers to repository [myregistry.azurecr.io/myimage]
+ee83fc5847cb: Pushed
+v1: digest: sha256:aca41a608e5eb015f1ec6755f490f3be26b48010b178e78c00eac21ffbe246f1 size: 524
+Signing and pushing trust metadata
+You are about to create a new root signing key passphrase. This passphrase
+will be used to protect the most sensitive key in your signing system. Please
+choose a long, complex passphrase and be careful to keep the password and the
+key file itself secure and backed up. It is highly recommended that you use a
+password manager to generate the passphrase and keep it safe. There will be no
+way to recover this key. You can find the key in your config directory.
+Enter passphrase for new root key with ID 4c6c56a:
+Repeat passphrase for new root key with ID 4c6c56a:
+Enter passphrase for new repository key with ID bcd6d98:
+Repeat passphrase for new repository key with ID bcd6d98:
+Finished initializing "myregistry.azurecr.io/myimage"
+Successfully signed myregistry.azurecr.io/myimage:v1
+```
 
 ## Pull a trusted image
 
