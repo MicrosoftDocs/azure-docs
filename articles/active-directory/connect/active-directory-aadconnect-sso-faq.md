@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -35,19 +35,20 @@ No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-Listed below is a non-exhaustive list of applications that send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO (i.e., no need for your users to input their usernames):
+Listed below is a non-exhaustive list of applications that can send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO (i.e., no need for your users to input their usernames or passwords):
 
 | Application name | Application URL to be used |
 | -- | -- |
-| Access panel | myapps.microsoft.com/contoso.com |
-| Outlook on Web | outlook.office365.com/contoso.com |
+| Access panel | https://myapps.microsoft.com/contoso.com |
+| Outlook on Web | https://outlook.office365.com/contoso.com |
+| Office 365 portal | https://portal.office.com?domain_hint=contoso.com |
 
 In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's tenanted endpoints - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
 
 | Application name | Application URL to be used |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Azure portal | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure portal | https://portal.azure.com/contoso.com |
 
 In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
 
