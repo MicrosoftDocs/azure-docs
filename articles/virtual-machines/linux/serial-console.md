@@ -84,7 +84,7 @@ SSH/RDP configuration issues | Access serial console and change settings | Linux
 Network lock down system| Access serial console via portal to manage system | Linux/Windows 
 Interacting with bootloader | Access GRUB/BCD via the serial console | Linux/Windows 
 
-## Accessing Serial console for Linux
+## Accessing Serial Console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Simply clicking Serial Console section in the Azure Portal will provide access to the console. 
 
 Distro      | Serial Console access
