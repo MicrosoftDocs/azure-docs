@@ -37,7 +37,7 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 > [!NOTE]
 > This means that you should try to always use a DNS name for your Hybrid Connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
 >
->
+
 
 ### App Service Hybrid Connection benefits ###
 
@@ -167,6 +167,10 @@ To enable someone outside your subscription to host an HCM instance for a given 
 
 ![Manually add a Hybrid Connection][11]
 
+### Upgrade ###
+
+There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a popup will show up in the HCM UI. Applying the upgrade will apply the changes and restart the HCM. 
+
 ## Adding a Hybrid Connection to your app via programmatically ##
 
 The APIs noted below can be used directly to manage the Hybrid Connections connected to your web apps. 
@@ -221,6 +225,12 @@ The primary reason that clients cannot connect to their endpoint is because the 
 
 In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
 
+## BizTalk Hybrid Connections ##
+
+The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all web apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager then it will give a status of Discontinued and display an End of Life statement at the bottom.
+
+![BizTalk Hybrid Connections in the HCM][12]
+
 
 <!--Image references-->
 [1]: ./media/app-service-hybrid-connections/hybridconn-connectiondiagram.png
@@ -234,6 +244,7 @@ In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) c
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
 [11]: ./media/app-service-hybrid-connections/hybridconn-hcmmanual.png
+[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
