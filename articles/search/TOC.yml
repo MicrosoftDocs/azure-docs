@@ -27,7 +27,7 @@
       href: search-import-data-rest-api.md
     - name: Search
       href: search-query-rest-api.md
-    - name: Test with REST clients
+    - name: Expore REST with Postman or Fiddler
       href: search-fiddler.md
 - name: Tutorials
   items:

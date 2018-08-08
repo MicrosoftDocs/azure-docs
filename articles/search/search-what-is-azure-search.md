@@ -98,7 +98,7 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 ## How to get started
 
-1. Create a [free service](search-create-service-portal.md).
+1. Create a [free service](search-create-service-portal.md). All quickstarts and tutorials can be completed on the free service.
 
 2. Step through the [tutorial on using built-in tools for indexing and queries](search-get-started-portal.md). Learn important concepts and gain familiarity with information the portal provides.
 
