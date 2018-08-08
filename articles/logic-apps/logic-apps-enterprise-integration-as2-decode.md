@@ -75,6 +75,7 @@ select **Body** and **Headers** from the Request outputs.
 
 	![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## AS2 decoder details
 
 The Decode AS2 connector performs these tasks: 
@@ -83,6 +84,7 @@ The Decode AS2 connector performs these tasks:
 * Verifies the signature (if configured)
 * Decrypts the messages (if configured)
 * Decompresses the message (if configured)
+* Check and disallow message ID duplicates (if configured)
 * Reconciles a received MDN with the original outbound message
 * Updates and correlates records in the non-repudiation database
 * Writes records for AS2 status reporting
@@ -90,6 +92,12 @@ The Decode AS2 connector performs these tasks:
 * Determines whether an MDN is required, and whether the MDN should be synchronous or asynchronous based on configuration in AS2 agreement
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
+
+  > [!NOTE]
+  > If you are using Azure Key Vault for certificate management, then ensure that the keys are configured to permit **Decrypt** operation, 
+  > else AS2 Decode will fail.
+  >
+  > ![Keyvault decrypt](media/logic-apps-enterprise-integration-as2-decode/keyvault.png)
 
 ## Try this sample
 
