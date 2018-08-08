@@ -180,7 +180,7 @@ module.exports = function (context, eventGridEvent) {
 
 ### Trigger - Java example
 
-The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function prints out the String representation of the triggering object.
+The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding and prints out an event.
 
 ```json
 {
@@ -197,12 +197,12 @@ The following example shows a trigger binding in a *function.json* file and a [J
 Here's the Java code:
 
 ```java
-@FunctionName("egprocessor")
-  public void eventGridProcessor(
-     @EventGridTrigger(name = "obj") MyModel obj,
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
       final ExecutionContext context
   ) { 
-      context.getLogger().info(obj.toString());
+      context.getLogger().info(content);
     }
 ```
      
@@ -219,6 +219,10 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
     ...
 }
  ```
+
+## Java annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
 
 For a complete example, see [C# example](#c-example).
 

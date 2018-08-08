@@ -158,7 +158,7 @@ Here's the JavaScript code:
 
 ### Trigger - Java example
 
-The following example shows a Cosmos DB trigger binding in *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function count of the returned items when data in Cosmos DB is modified.
+The following example shows a Cosmos DB trigger binding in *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function is involved when there are inserts or updates in the specified database and collection.
 
 ```json
 {
@@ -166,9 +166,9 @@ The following example shows a Cosmos DB trigger binding in *function.json* file 
     "name": "items",
     "direction": "in",
     "leaseCollectionName": "leases",
-    "connectionStringSetting": "connectionVarName",
-    "databaseName": "mydbname",
-    "collectionName": "mycollname",
+    "connectionStringSetting": "AzureCosmosDBConnection",
+    "databaseName": "ToDoList",
+    "collectionName": "Items",
     "createLeaseCollectionIfNotExists": false
 }
 ```
@@ -176,19 +176,20 @@ The following example shows a Cosmos DB trigger binding in *function.json* file 
 Here's the Java code:
 
 ```java
-    @FunctionName("cdbprocessor")
+    @FunctionName("cosmosDBMonitor")
     public void cosmosDbProcessor(
         @CosmosDBTrigger(name = "items",
-            databaseName = "mydbname",
-            collectionName = "mycollname",
-            leaseCollectionName = "",
-            connectionStringSetting = "connectionVarName") MyDataItem[] items,
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            reateLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
-                context.getLogger().info(items.length);
+                context.getLogger().info(items.length + "item(s) is/are changed.");
             }
 ```
 
-## Trigger - attributes
+## Trigger - C# attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
 
@@ -206,6 +207,13 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Trigger - C# example](#trigger---c-example).
+
+## Trigger - Java annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
+
+For a complete example, see [Trigger - Java example](#trigger---java-example).
+
 
 ## Trigger - configuration
 
@@ -258,6 +266,7 @@ See the language-specific examples that read a single document by specifying an 
 * [C# script (.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
+* [Java](#input---java)
 
 [Skip input examples](#input---attributes)
 
@@ -1186,11 +1195,39 @@ dependencies:
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
+### Input - Java examples
+
+The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a ToDoItem document from the specified database and collection.
+
+Here's the Java code:
+
+```java
+@FunctionName("getItem")
+public String cosmosDbQueryById(
+    @HttpTrigger(name = "req",
+                  methods = {HttpMethod.GET},
+                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
+    @CosmosDBInput(name = "database",
+                      databaseName = "ToDoList",
+                      collectionName = "Items",
+                      leaseCollectionName = "",
+                      id = "{Query.id}"
+                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
+    final ExecutionContext context
+ ) {
+    return item.orElse("Not found");
+ }
+ ```
+
 ## Input - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration). 
+
+## Input - annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
 
 ## Input - configuration
 
@@ -1231,6 +1268,7 @@ See the language-specific examples:
 * [C# script (.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
+* [Java](#output---java-example)
 
 See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
@@ -1596,6 +1634,21 @@ dependencies:
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
+## Output - Java
+
+The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
+     final ExecutionContext context
+)  {
+     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+   }
+```
+
 ## Output - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
@@ -1613,6 +1666,12 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Output - C# example](#output---c-example).
+
+## Output  - annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be OutputBinding<T>, where T is either a native Java type or a POJO.
+
+For a complete example, see [Output - Java example](#output---java-example).
 
 ## Output - configuration
 
