@@ -98,6 +98,7 @@ When you create an AKS cluster, the following parameters are configurable for ad
 * Must not be within the VNet IP address range of your cluster
 * Must not overlap with any other VNets with which the cluster VNet peers
 * Must not overlap with any on-premises IPs
+* Must not be within the ranges `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16`
 
 Although it's technically possible to specify a service address range within the same VNet as your cluster, doing so is not recommended. Unpredictable behavior can result if overlapping IP ranges are used. For more information, see the [FAQ](#frequently-asked-questions) section of this article. For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
@@ -149,9 +150,9 @@ The following questions and answers apply to the **Advanced** networking configu
 
   The complete list of properties for the VNet and subnets that you create during AKS cluster creation can be configured in the standard VNet configuration page in the Azure portal.
 
-* *Can I use a different subnet within my cluster VNet for the **Kubernetes service address range***?
+* *Can I use a different subnet within my cluster VNet for the* **Kubernetes service address range**?
 
-  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster VNet that overlaps with the service address range. If such an overlap occurs, it's possible for Kubernetes to assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's VNet, you can avoid this overlap risk.
+  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster VNet that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's VNet, you can avoid this overlap risk.
 
 ## Next steps
 
