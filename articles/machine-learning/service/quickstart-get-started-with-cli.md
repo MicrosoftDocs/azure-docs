@@ -16,10 +16,10 @@ In this quickstart, you'll use a machine learning CLI extension to get started w
 
 Using the CLI, you'll learn how to:
 
-1. Create a workspace, which is the top-level resource for this service. This workspace is used by one or more users to store their compute resources, models, deployments, and run histories.
-1. Attach a project containing your machine learning scripts to your workspace.   A project is a local folder that contains the scripts needed to solve your machine learning problem.  
-1. Run a Python script in your project to show a few metrics.
-1. View the run history.
+1. Create a workspace in your Azure subscription. The workspace is used by one or more users to store their compute resources, models, deployments, and run histories in the cloud.
+1. Attach a project to your workspace.   A project is a local folder that contains the scripts and configuration files needed to solve your machine learning problem.  
+1. Run a Python script in your project that logs some values across multiple iterations.
+1. View the logged values in the run history of your workspace.
 
 > [!NOTE]
 > For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
@@ -52,7 +52,7 @@ az extension add azureml-sdk
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
 
-In a command-line window, sign in with the Azure CLI command, [`az login`](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Follow the prompts for interactive login:
+In a command-line window, sign in with the Azure CLI command, `az login`. Follow the prompts for interactive login:
     
    ```azurecli
    az login
@@ -68,11 +68,11 @@ List the available Azure subscriptions, and specify the one you want to use:
 
 Create a resource group to hold your workspace.
    In this quickstart:
-   + The name of the resource group is `myrg`.
-   + The region is `eastus2`. You can use any [available region](https://azure.microsoft.com/global-infrastructure/services/) close to your data.  
+   + The name of the resource group is `docs-aml`.
+   + The region is `eastus2`. 
 
    ```azurecli
-   az group create -n my_resource_group -l eastus2
+   az group create -n docs-aml -l eastus2
    ```
 
 ## Create a workspace and a project folder
@@ -81,11 +81,11 @@ In the command-line window, create an Azure Machine Learning Workspace under the
 
 
    In this quickstart:
-   + The workspace name is `my_workspace`.
-   + The resource group name is `my_resource_group`
+   + The workspace name is `docs-ws`.
+   + The resource group name is `docs-aml`
 
    ```azurecli
-   az ml workspace create -n my_workspace -g my_resource_group
+   az ml workspace create -n docs-ws -g docs-aml
    ```
 
 In the command-line window, create a folder on your local machine for your Azure Machine Learning project.
@@ -99,12 +99,12 @@ In the command-line window, create a folder on your local machine for your Azure
 
 [!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
 
-## Attach the project and run the script
+## Run the script
 
 Attach the folder as a project to the workspace. The `--history` argument specifies a name for the run history file that captures the metrics for each run.
 
    ```azurecli
-   az ml project attach --history my_history -w my_workspace -g my_resource_group
+   az ml project attach --history my_history -w docs-ws -g docs-aml
    ```
 
 Run the script on your local computer.
