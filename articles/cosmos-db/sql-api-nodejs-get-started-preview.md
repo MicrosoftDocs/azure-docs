@@ -20,8 +20,9 @@ ms.author: dech
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js - v2.0 Preview](sql-api-nodejs-get-started-preview.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 
 
