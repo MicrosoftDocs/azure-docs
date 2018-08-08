@@ -1,21 +1,14 @@
 ---
-title: Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Docs
+title: Stream Azure Diagnostics data to Event Hubs
 description: Configuring Azure Diagnostics with Event Hubs end to end, including guidance for common scenarios.
-services: event-hubs
-documentationcenter: na
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -391,9 +384,11 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 </ServiceConfiguration>
 ```
 
-Equivalent Json based settings for virtual machines is as follows:
+Equivalent JSON settings for virtual machines is as follows:
+
+Public Settings:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -489,8 +484,11 @@ Equivalent Json based settings for virtual machines is as follows:
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+Protected Settings:
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

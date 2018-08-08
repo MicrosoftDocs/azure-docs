@@ -36,7 +36,7 @@ Personal contact information may be deleted in the following ways:
 - Data saved with the job is deleted with the job. Users can delete jobs manually and completed jobs are automatically deleted after 90 days. You can manually delete the jobs via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Contact information saved in the portal settings may be removed by deleting the portal settings. You can delete portal settings by following these steps:
-  - Log in to the [Azure portal](https://portal.azure.com).
+  - Sign in to the [Azure portal](https://portal.azure.com).
   - Click on the *Settings* icon ![Azure Settings Icon](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Click *Export all settings* (to save your current settings to a `.json` file).
   - Click *Delete all settings and private dashboards* to delete all settings including saved contact information.

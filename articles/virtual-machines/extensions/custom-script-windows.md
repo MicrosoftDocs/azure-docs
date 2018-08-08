@@ -3,7 +3,7 @@ title: Azure Custom Script Extension for Windows | Microsoft Docs
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
-ms.author: danis
+ms.author: roiyz
 
 ---
 # Custom Script Extension for Windows
@@ -41,7 +41,7 @@ You can use the extension to use your Azure Blob storage credentials, to access 
 
 
 ### Internet Connectivity
-If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 If your script is on a local server, then you may still need additional firewall/Network Security Group ports need to be opened.
 

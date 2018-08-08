@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -21,7 +21,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
@@ -29,13 +29,15 @@ If you aren't using Cloud Shell, you must first sign in using `az login`.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
 ```
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
 ## Create a custom topic
 

@@ -4,7 +4,7 @@ description: Connect to on-premises file systems from logic app workflows throug
 keywords: file systems, on premises
 services: logic-apps
 author: derek1ee
-manager: anneta
+manager: jeconnoc
 documentationcenter: ''
 
 ms.assetid:

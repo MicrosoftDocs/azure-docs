@@ -7,6 +7,7 @@ ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018

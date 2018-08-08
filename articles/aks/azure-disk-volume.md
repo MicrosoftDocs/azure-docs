@@ -2,13 +2,13 @@
 title: Use Azure Disks with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -45,6 +45,12 @@ Once the disk has been created, you should see output similar to the following. 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Azure managed disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 4TiB for S50 or P50 disks. Furthermore, the throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+
+> [!NOTE]
+> If you need to create the disk in a separate resource group, you also need to add the Azure Kubernetes Service (AKS) service principal for your cluster to the resource group holding the disk with the `Contributor` role. 
+>
 
 ## Mount disk as volume
 
@@ -90,9 +96,10 @@ Learn more about Kubernetes volumes using Azure disks.
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[az-disk-list]: /cli/azure/disk#az_disk_list
-[az-disk-create]: /cli/azure/disk#az_disk_create
-[az-group-list]: /cli/azure/group#az_group_list
+[az-disk-list]: /cli/azure/disk#az-disk-list
+[az-disk-create]: /cli/azure/disk#az-disk-create
+[az-group-list]: /cli/azure/group#az-group-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

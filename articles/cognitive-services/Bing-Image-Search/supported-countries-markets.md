@@ -1,6 +1,6 @@
 ---
-title: Supported countries and languages for Bing Image Search API on Azure | Microsoft Docs
-description: Find out which countries and languages are supported by the Bing Image Search API.
+title: Supported countries/regions and languages for Bing Image Search API on Azure | Microsoft Docs
+description: Find out which countries/regions and languages are supported by the Bing Image Search API.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -11,13 +11,13 @@ ms.date: 10/06/2017
 ms.author: v-jerkin
 ---
 
-# Bing Image Search countries and languages
+# Bing Image Search countries/regions and languages
 
-The Bing Image Search API supports more than three dozen countries, many with more than one language. Specifying a country with a query serves primarily to refine search results based on interests in that country. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country or language.
+The Bing Image Search API supports more than three dozen countries/regions, many with more than one language. Specifying a country/region with a query serves primarily to refine search results based on interests in that country/region. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country/regions or language.
 
-To specify the country and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
+To specify the country/region and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country/region and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
 
-Alternatively, you can specify the country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country; they are given for each country in the Markets table.
+Alternatively, you can specify the country/region using the `cc` query parameter. If you specify a country/region, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country/region; they are given for each country/region in the Markets table.
 
 > [!NOTE]
 > The Trending Images API currently supports only the following markets:
@@ -28,7 +28,7 @@ Alternatively, you can specify the country using the `cc` query parameter. If yo
 
 ## Countries
 
-|Country|Code|
+|Country/region|Code|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -70,7 +70,7 @@ Alternatively, you can specify the country using the `cc` query parameter. If yo
 
 ## Markets
 
-|Country|Language|Market Code|
+|Country/region|Language|Market Code|
 |-------|--------|-----------|
 |Argentina|Spanish|es-AR|
 |Australia|English|en-AU|

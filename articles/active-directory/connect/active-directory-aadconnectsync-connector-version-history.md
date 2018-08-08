@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
-ms.author: davidste
+ms.author: billmath
 
 ---
 # Connector Version Release History

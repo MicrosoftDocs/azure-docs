@@ -5,10 +5,10 @@ ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/26/2018
 ---
 

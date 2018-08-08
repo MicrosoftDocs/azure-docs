@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
@@ -35,7 +35,7 @@ We recommend that you set up custom domains for your applications whenever possi
 ### Prerequisites
 
 Before you configure a custom domain, make sure that you have the following requirements prepared: 
-- A [verified domain added to Azure Active Directory](../add-custom-domain.md).
+- A [verified domain added to Azure Active Directory](../fundamentals/add-custom-domain.md).
 - A custom certificate for the domain, in the form of a PFX file. 
 - An on-premises app [published through Application Proxy](application-proxy-publish-azure-portal.md).
 
@@ -69,7 +69,7 @@ There is no restriction on the certificate signature methods. Elliptic Curve Cry
 You can use a wildcard certificate as long as the wildcard matches the desired external URL. 
 
 ### Changing the domain
-All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](../add-custom-domain.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
+All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](../fundamentals/add-custom-domain.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
 
 ### Certificate management
 You can use the same certificate for multiple applications unless the applications share an external host. 
@@ -81,6 +81,6 @@ Currently all certificate management is through individual application pages so 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
 * [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md) to your published apps.
-* [Add your custom domain name to Azure AD](../add-custom-domain.md)
+* [Add your custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
 
 

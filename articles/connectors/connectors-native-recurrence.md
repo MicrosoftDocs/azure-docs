@@ -4,7 +4,7 @@ description: Create and schedule regularly running tasks, actions, workflows, pr
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

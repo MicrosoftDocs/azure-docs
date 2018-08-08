@@ -72,12 +72,21 @@ An Automation Operator is able to create and manage jobs, and read runbook names
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Read authorization.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Read Hybrid Runbook Worker Resources.|
 |Microsoft.Automation/automationAccounts/jobs/read|List jobs of the runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Resume a job that is paused.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|Cancel a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Read the Job Streams and Output.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Get the Output of a job.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Pause a job in progress.|
 |Microsoft.Automation/automationAccounts/jobs/write|Create jobs.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Get an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Create an Azure Automation job schedule.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Get the workspace linked to the automation account.|
+|Microsoft.Automation/automationAccounts/read|Get an Azure Automation account.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Get an Azure Automation runbook.|
+|Microsoft.Automation/automationAccounts/schedules/read|Get an Azure Automation schedule asset.|
+|Microsoft.Automation/automationAccounts/schedules/write|Create or update an Azure Automation schedule asset.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Read roles and role assignments.         |
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |

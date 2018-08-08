@@ -2,21 +2,15 @@
 title: Azure hot, cool, and archive storage for blobs | Microsoft Docs
 description: Hot, cool, and archive storage for Azure storage accounts.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor:
 
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-
+ms.component: blobs
 ---
+
 # Azure Blob storage: Hot, cool, and archive storage tiers
 
 ## Overview
@@ -69,7 +63,7 @@ During rehydration, you may check the **Archive Status** blob property to confir
 
 Blob-level tiering allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately except when a blob is rehydrating from archive which can take several hours. The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. If a blob is in the archive tier, it may not be overwritten, and therefore, uploading the same blob is not allowed in this scenario. You may overwrite a blob in hot and cool, and in this case, the new blob inherits the tier of the old blob that was overwritten.
 
-Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you see the **Access Tier Inferred** blob property set to “true”, and the blob **Access Tier** blob property matches the account tier. In the Azure portal, the access tier inferred property is displayed with the blob access tier (for example, Hot (inferred) or Cool (inferred)).
+Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you see the **Access Tier Inferred** blob property set to "true", and the blob **Access Tier** blob property matches the account tier. In the Azure portal, the access tier inferred property is displayed with the blob access tier (for example, Hot (inferred) or Cool (inferred)).
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.

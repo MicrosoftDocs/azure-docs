@@ -2,18 +2,19 @@
 title: Azure Active Directory Identity Protection playbook | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
+keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -38,7 +39,7 @@ Other risk events cannot be simulated in a secure manner.
 
 ### Sign-ins from anonymous IP addresses
 
-For more information about this risk event, see [Sign-ins from anonymous IP addresses](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+For more information about this risk event, see [Sign-ins from anonymous IP addresses](reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
 Completing the following procedure requires you to use:
 
@@ -54,7 +55,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ### Sign-ins from unfamiliar locations
 
-For more information about this risk event, see [Sign-ins from unfamiliar locations](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
+For more information about this risk event, see [Sign-ins from unfamiliar locations](reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
 
 To simulate unfamiliar locations, you have to sign in from a location and device your test account has not signed in from before.
 
@@ -80,7 +81,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ### Impossible travel to atypical location
 
-For more information about this risk event, see [Impossible travel to atypical location](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
+For more information about this risk event, see [Impossible travel to atypical location](reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 Simulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk events. Because of the complex machine learning models and above rules, there is a chance that the following steps will not lead to a risk event. You might want to replicate these steps for multiple Azure AD accounts to publish this risk event.
 
@@ -99,8 +100,8 @@ The sign-in shows up in the Identity Protection dashboard within 2-4 hours.
 Vulnerabilities are weaknesses in an Azure AD environment that can be exploited by a bad actor. Currently 3 types of vulnerabilities are surfaced in Azure AD Identity Protection that leverage other features of Azure AD. These Vulnerabilities will be displayed on the Identity Protection dashboard automatically once these features are set up.
 
 * Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 
 ## Testing security policies

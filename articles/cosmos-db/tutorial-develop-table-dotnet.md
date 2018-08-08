@@ -7,6 +7,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/18/2017

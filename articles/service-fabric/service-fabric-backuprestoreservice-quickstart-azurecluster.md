@@ -1,6 +1,6 @@
 ---
-title: Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for protecting your applications from data loss.
+title: Quickstart - Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
+description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -17,7 +17,7 @@ ms.date: 04/04/2018
 ms.author: hrushib
 
 ---
-# Periodic backup and restore in Azure Service Fabric (Preview)
+# Quickstart: Periodic backup and restore in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -46,7 +46,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 - Schedule periodic backup of Reliable Stateful services and Reliable Actors with support to upload backup to (external) storage locations. Supported storage locations
     - Azure Storage
-    - File Share (on-premise)
+    - File Share (on-premises)
 - Enumerate backups
 - Trigger an ad-hoc backup of a partition
 - Restore a partition using previous backup
@@ -114,13 +114,13 @@ Let's walk through steps to enable periodic backup for Reliable Stateful service
 
 First step is to create backup policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
 
-For backup storage, use the Azure Storage account created above. This example assumes the Azure Storage account with name `sfbackupstore`. Container `backup-container` is configured to store backups, container with this name is created, if not already present, during backup upload. Populate `ConnectionString` with valid connection string for the Azure Storage account.
+For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
 
-Execute following PowerShell script for invoking required REST API to create new policy.
+Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }
@@ -219,13 +219,14 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## Preview Limitation/ Caveats
+## Preview limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric CLI.
-- No support for automated backup purging. Requires manual clean-up of backups.
+- No support for automated backup purging. [Backup retention script](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) may be referred to setup up script based external automation for purging backups.
 - No support for Service Fabric clusters on Linux.
 
-## Next Steps
+## Next steps
+- [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

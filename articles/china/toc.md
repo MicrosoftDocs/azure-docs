@@ -11,7 +11,7 @@
 # Get started
 ## [Plan an Azure deployment](china-get-started-plan.md)
 ## [Developer guide](china-get-started-developer-guide.md)
-## [Azure service availability](china-get-started-service-availability.md)
+## [Azure service availability](https://www.azure.cn/home/features/products-by-region)
 ## [Azure Content Delivery Network](china-get-started-service-cdn.md)
 ## [Manage and connect to your subscription](china-get-started-service-manage-and-connect.md)
 

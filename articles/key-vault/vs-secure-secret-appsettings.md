@@ -154,7 +154,7 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
     </configSections>
     <configBuilders>
         <builders>
-            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```

@@ -9,11 +9,11 @@ editor: curtand
 
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
 

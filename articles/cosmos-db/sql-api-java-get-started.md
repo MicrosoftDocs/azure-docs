@@ -7,6 +7,7 @@ author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
@@ -20,7 +21,6 @@ ms.author: sngun
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
 >  
 > 
 

@@ -142,9 +142,9 @@ Service Fabric provides three broad areas to help you build applications that us
 ***Service Fabric is agnostic on how you build your service, and you can use any technology. However, it does provide built-in programming APIs that make it easier to build microservices.***
 
 ### Migrating existing applications to Service Fabric
-A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
+A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are:
 
-1) Take a traditional monolithic application  
+1) Start with a traditional monolithic application.  
 2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.  
 3) Modernization - New microservices added alongside existing containerized code.  
 4) Innovate - Break the monolithic into microservices purely based on need.  
@@ -154,18 +154,18 @@ A key approach to Service Fabric is to reuse existing code, which can then be mo
 
 It is important to emphasize again that you can **start and stop at any of these stages**. You are not compelled to progress to the next stage. Let's now look at examples for each of these stages.
 
-**Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers for two reasons;
+**Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers for two reasons:
 
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suits them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It means that developers can still be free to choose the technology that suits them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 
 **Modernization** - is the addition of new services alongside existing containerized code. If you are going to write new code, it is best to decide to take small steps down the microservices path. This could be adding a new REST API endpoint, or new business logic. This way, you start on the journey of building new microservices and practice developing and deploying them.
 
-**Innovate** - remember those original changing business needs at the start of this article, that are driving the microservices approach? At this stage the decision is, are these happening to my current application and if so, I need to start splitting the monolith, or innovating. An example here is when a database becomes a processing bottleneck, since it is being used as a workflow queue. As the number of workflow requests increasing the work needs to be distributed for scale. So for that particular piece of the application that is not scaling, or you need to update more frequently, split this out into a microservice and innovate. 
+**Innovate** - remember those original changing business needs at the start of this article, that are driving the microservices approach? At this stage the decision is, are these happening to my current application and if so, I need to start splitting the monolithic app into services, or innovating. An example here is when a database being used as a worflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. So for that particular piece of the application that is not scaling, or you need to update more frequently, split this out into a microservice and innovate. 
 
 **Transformed into microservices** - this is where your application is fully composed of (or decomposed into) microservices. To reach here, you have made the microservices journey. You can start here, but to do this without a microservices platform to help you is a significant investment. 
 
