@@ -91,8 +91,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
 
-- <!--  TBD | ASDK -->  **Default Time zone set to UTC.** The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will revert to UTC.
-
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 
@@ -114,6 +112,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
 
+- <!--  TBD | ASDK -->  The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will automatically revert to UTC as the default during installion.
 
 #### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  

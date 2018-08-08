@@ -205,10 +205,10 @@ The following are post-installation known issues for this build version.
 
 - <!-- 2812138 | IS --> You might see an alert for **Storage** component that have the following details:
 
-   - NAME: Storage service internal communication error
-   - SEVERITY: Critical
-   - COMPONENT: Storage
-   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+   - NAME: Storage service internal communication error  
+   - SEVERITY: Critical  
+   - COMPONENT: Storage  
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.  
 
     The alert can be safely ignored, but you need to close the alert manually.
 
