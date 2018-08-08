@@ -23,16 +23,16 @@ Validation as a Service (VaaS) provides the ability to automate the launching of
 
 You can use PowerShell for the following workflow:
 
-- Test-pass workflow
+- Test Pass
 
 This script encompasses the four elements of a workflow:
 
 - Installs prerequisites.
-- Installs and starting the local agent.
+- Installs and starts the local agent.
 - Launches a category of tests, such as integration, functional, reliability.
-- Reports each test pass result for monitoring and report file generation.
+- Reports test results.
 
-## Launch the test pass workflow
+## Launch the Test Pass workflow
 
 1. Open an elevated PowerShell prompt.
 
@@ -45,7 +45,7 @@ This script encompasses the four elements of a workflow:
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
     ````
 
-3. Run the following script with your values:
+3. Run the following script with the appropriate parameter values:
 
     ````PowerShell  
     $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>"  -AsPlainText -Force)
@@ -72,8 +72,8 @@ This script encompasses the four elements of a workflow:
     | TenantAdminPassword | The password for the primary tenant.  |
     | FunctionalCategory| Integration, Functional, or. Reliability. If you use multiple values, separate each value by a comma.  |
 
-4. Review the results of your test. For information about reading your test results, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
+4. Review the results of your test. For other options, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
 ## Next steps
- - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
- - To learn more about PowerShell on Azure Stack, see the [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Reference.
+
+- To learn more about PowerShell on Azure Stack, see the latest [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Reference.
