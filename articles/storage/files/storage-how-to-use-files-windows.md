@@ -44,7 +44,7 @@ You can use Azure file shares on a Windows installation that is running either i
 * **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <Your Storage Account Name>.core.windows.net -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
     
     ```
 
