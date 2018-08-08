@@ -2,20 +2,12 @@
 title: Moving large amounts of data to/from cloud storage in Azure | Microsoft Docs
 description: An overview of the different methods for moving data to and from Azure Storage.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-
+ms.component: common
 ---
 # Moving data to and from Azure Storage
 If you want to move on-premises data to Azure Storage (or vice versa), there are a variety of ways to do this. The approach that works best for you will depend on your scenario. This article will provide a quick overview of different scenarios and appropriate offerings for each one.

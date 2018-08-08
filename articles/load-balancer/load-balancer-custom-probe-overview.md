@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2018
+ms.date: 08/06/2018
 ms.author: kumud
 ---
 
@@ -65,7 +65,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-### <a name="httpprobe"></a><a name="httpsprobe"></a>HTTP / HTTPS probe
+### <a name="httpprobe"></a><a name="httpsprobe"></a> HTTP / HTTPS probe
 
 > [!NOTE]
 > HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -81,7 +81,7 @@ An HTTP / HTTPS probe fails when:
 * Probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * Probe endpoint closes the connection via a TCP reset.
 
-### Guest agent probe (Classic only)
+### <a name="guestagent"></a>Guest agent probe (Classic only)
 
 Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   You should consider this an option of last resort.  You should always define an health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
 
@@ -95,7 +95,7 @@ If the guest agent responds with an HTTP 200, the load balancer sends new flows 
 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
-## Probe health
+## <a name="probehealth"></a>Probe health
 
 TCP, HTTP, and HTTPS health probes are considered healthy and mark the role instance as healthy when:
 

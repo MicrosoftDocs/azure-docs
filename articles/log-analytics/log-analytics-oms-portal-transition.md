@@ -18,6 +18,10 @@ ms.component: na
 ---
 
 # OMS portal moving to Azure
+
+> [!NOTE]
+> This article applies to both the Azure public cloud and government cloud except where noted otherwise.
+
 One piece of feedback heard repeatedly from Log Analytics customers is the need for a single user experience to monitor and manage both on-premises and Azure workloads. You probably know the Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. We are happy to announce most of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. There are only a few gaps remaining including a few solutions that are still in the process to be moved to Azure portal. If you are not using these features, you will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, we recommend you start using the Azure portal today! 
 
 We expect to close down the remaining gaps between the two portals by August 2018. Based on feedback from customers, we will communicate the timeline for sunsetting the OMS portal. We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback@microsoft.com**. The rest of this article goes over the key scenarios, the current gaps, and the roadmap for this transition. 
@@ -56,7 +60,11 @@ There are currently some functionality gaps that require you to still use the OM
 
 
 ## What should I do now?  
-You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure portal as your primary experience. Send any feedback, questions, or concerns to LAUpgradeFeedback@microsoft.com.
+You should refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../log-analytics/log-analytics-oms-portal-faq.md) for information about how to transition to the Azure portal. If the [gaps described above](#current-known-gaps) don't apply to your environment, then you should consider starting using Azure portal as your primary experience. Send any feedback, questions, or concerns to **LAUpgradeFeedback@microsoft.com**.
+
+Most features will continue to work without performing any migration. Exceptions are listed below.
+
+- See [Migrate your OMS Update Deployments to Azure](../automation/migrate-oms-update-deployments.md) for details on transitioning the Update Management solution. 
 
 ## New workspaces
 Starting July 29, you will no longer be able to create new workspaces using the OMS portal. Follow the guidance in [Create a Log Analytics workspace in the Azure portal](log-analytics-quick-create-workspace.md) to create a new workspace in the Azure portal.
@@ -66,7 +74,7 @@ Starting July 29, you will no longer be able to create new workspaces using the 
 ### Alert extension  
 
 > [!NOTE]
-> Alerts have now been fully extended into the Azure portal. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal.
+> Alerts have now been fully extended into the Azure portal for the public cloud. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal. Extension of alerts into the Azure portal will start for the Azure government cloud in October, 2018.
 
 Alerts are in the process of being [extended into the Azure portal](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
 ---
 
@@ -352,7 +352,13 @@ The performance chart displays four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined in the selector above the chart. 
 - **Activity pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined in the selector above the chart. 
 
-If you switch to the **Nodes** tab, the row hierarchy follows the Kubernetes object model starting with a node in your cluster. Expand the node and you can view one or more pods running on the node. If more than one container is grouped to a pod, they are displayed as the last row in the hierarchy. You can also view how many non-pod related workloads are running on the host if the host has processor or memory pressure.
+When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item selected, including labels you define to organize Kubernetes objects.  Click on the **>>** link in the pane to view\hide the pane.  
+
+![Example Kubernetes perspectives properties pane](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For additional information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data).
+
+Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object model, starting with a node in your cluster. Expand the node and you can view one or more pods running on the node. If more than one container is grouped to a pod, they are displayed as the last row in the hierarchy. You can also view how many non-pod related workloads are running on the host if the host has processor or memory pressure.
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-health/container-health-nodes-view.png)
 
@@ -477,9 +483,9 @@ Examples of records that are collected by container health and the data types th
 ## Search logs to analyze data
 Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
 
-You can perform interactive analysis of data in the workspace by selecting the **View Log** option, available at the far right when you expand a controller or container. The **Log Search** page appears above the Azure portal page that you were on.
+You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane. The **Log Search** page appears to the right of the Azure portal page that you were on.
 
-![Analyze data in Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
+![Analyze data in Log Analytics](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because container health is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
 

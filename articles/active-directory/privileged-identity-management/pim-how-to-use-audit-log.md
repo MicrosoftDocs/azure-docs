@@ -10,14 +10,14 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 
 ---
 # Using the audit log in PIM
-You can use the Privileged Identity Management (PIM) audit log to see all the user assignments and activations within a given time period. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../active-directory-reporting-azure-portal.md)
+You can use the Privileged Identity Management (PIM) audit log to see all the user assignments and activations within a given time period. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../reports-monitoring/overview-reports.md)
 
 ## Navigate to the audit log
 From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Privileged Identity Management** app. From there, access the audit log by clicking **Manage privileged roles** > **Audit history** in the PIM dashboard.
