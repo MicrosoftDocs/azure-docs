@@ -41,7 +41,7 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 5. Select **Save** to save your changes. 
 
 Your IoT hub is now adjusted, and your configurations are unchanged. 
-Note that the maximum partition limit for basic tier IoT Hub is 8 and for standard tier is 32. Most IoT Hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value will remain unchanged when you migrate from basic tier to standard tier. 
+Note that the maximum partition limit for basic tier IoT Hub is 8 and for standard tier is 32. Most IoT Hubs only need 4 partitions. The partition limit is chosen when IoT Hub is created, and relates the device-to-cloud messages to the number of simultaneous readers of these messages. This value remains unchanged when you migrate from basic tier to standard tier. 
 
 ## Next steps
 
