@@ -54,8 +54,8 @@ In a moment, you will use this page.  For now, leave the browser open and move o
 In a command-line window, create a folder and subfolder on your local machine for your Azure Machine Learning project.
 
    ```sh
-   mkdir myproject
-   cd myproject
+   mkdir docs-prj
+   cd docs-prj
    mkdir aml_config
    ```
 
