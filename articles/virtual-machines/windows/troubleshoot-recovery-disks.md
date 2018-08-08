@@ -165,7 +165,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
         -LocalPath "C:\Users\ops\Documents\myVMRecovery.rdp"
     ```
 
-2. The data disk should be automatically detected and attached.View the list of attached volumes to determine the drive letter as follows:
+2. The data disk should be automatically detected and attached. View the list of attached volumes to determine the drive letter as follows:
 
     ```powershell
     Get-Disk
@@ -182,7 +182,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
     2        NewOSDISK                                  Healthy             Online       127 GB MBR
     ```
 
-After the copy of the orignial OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
+After the copy of the original OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
 
 ## Unmount and detach original virtual hard disk
 Once your errors are resolved, you unmount and detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
