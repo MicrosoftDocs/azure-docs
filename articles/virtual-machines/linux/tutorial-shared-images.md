@@ -215,10 +215,11 @@ In this tutorial, you created a gallery of images that you can share. You learne
 
 > [!div class="checklist"]
 > * Deprovision and generalize VMs
-> * Create a custom image
-> * Create a VM from a custom image
-> * List all the images in your subscription
-> * Delete an image
+> * Create a managed image
+> * Create an image gallery
+> * Create a shared image
+> * Create a VM from a shared image
+> * Delete a resources
 
 Advance to the next tutorial to learn about highly available virtual machines.
 

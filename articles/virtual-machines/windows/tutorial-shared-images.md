@@ -190,7 +190,7 @@ Create the first version of the image. In this example, the image version is *1.
 $versionConfig = New-AzureRmGalleryImageVersionConfig `
    -Location $resourceGroup.Location `
    -Region "West Central US", "South Central US" `
-   -Source "/subscriptions/7f321e1f-bca0-4e8e-87ec-b4ccc629013b/resourceGroups/Generalized/providers/Microsoft.Compute/images/myImage" `
+   -Source $managedImage.Id `
    -PublishingProfileEndOfLifeDate "2020-01-01"
 
 $imageVersion = New-AzureRmGalleryImageVersion `
@@ -243,9 +243,18 @@ Remove-AzureRmImage `
 Get gallery resources.
 
 ```azurepowershell-interactive
-Get-AzureRmGallery -ResourceGroupName rgname -GalleryName galname 
-Get-AzureRmGalleryImage -ResourceGroupName rgname -GalleryName galname -GalleryImageName imagename 
-Get-AzureRmGalleryImageVersion -ResourceGroupName rgname -GalleryName galname -GalleryImageName imagename -GalleryImageVersionName '1.0.0' 
+Get-AzureRmGallery `
+   -ResourceGroupName rgname `
+   -GalleryName galname 
+Get-AzureRmGalleryImage `
+   -ResourceGroupName rgname `
+   -GalleryName galname `
+   -GalleryImageName imagename 
+Get-AzureRmGalleryImageVersion `
+   -ResourceGroupName rgname `
+   -GalleryName galname `
+   -GalleryImageName imagename `
+   -GalleryImageVersionName '1.0.0' 
 Get-AzureRmGalleryImageVersion `
    -ResourceGroupName rgname `
    -GalleryName galname `
@@ -270,82 +279,16 @@ Get-AzureRmGalleryImageVersion -ResourceGroupName myResourceGroup -GalleryName m
 In this tutorial, you created a custom VM image. You learned how to:
 
 > [!div class="checklist"]
-> * Sysprep and generalize VMs
-> * Create a custom image
-> * Create a VM from a custom image
-> * List all the images in your subscription
-> * Delete an image
+> * Deprovision and generalize VMs
+> * Create a managed image
+> * Create an image gallery
+> * Create a shared image
+> * Create a VM from a shared image
+> * Delete a resources
 
 Advance to the next tutorial to learn about how highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)
 
-
--------------------
-
-Safekeeping
-
---------------
-
-
-$vm = Get-AzureRmVM -Name Generalized -ResourceGroupName Generalized
-
-$managedImageConfig = New-AzureRmImageConfig -Location "West Central US" -SourceVirtualMachineId $vm.ID
-
-$managedImage = New-AzureRmImage -Image $managedImageConfig -ImageName myImage -ResourceGroupName Generalized
-
-$resourceGroup = New-AzureRMResourceGroup `
-   -Name myGalleryRG `
-   -Location "West Central US"
-
-$galleryConfig = New-AzureRmGalleryConfig `
-   -Location $resourceGroup.Location `
-   -Description "Shared Image Gallery for my ORG"
-
-$gallery = New-AzureRmGallery `
-   -GalleryName "myGallery" `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -Gallery $galleryConfig
-
-$imageConfig = New-AzureRmGalleryImageConfig `
-   -OsType Windows `
-   -OsState Generalized `
-   -Location $gallery.Location `
-   -IdentifierPublisher "myPublisher" `
-   -IdentifierOffer "myOffer" `
-   -IdentifierSku "mySKU" 
-
-$galleryImage = New-AzureRmGalleryImage `
-   -GalleryImageName "myGalleryImage" `
-   -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -GalleryImage $imageConfig
-----
-tested
--------
-
-$versionConfig = New-AzureRmGalleryImageVersionConfig `
-   -Location $resourceGroup.Location `
-   -Region "West Central US", "South Central US" `
-   -Source $managedImage.Id `
-   -PublishingProfileEndOfLifeDate "2020-01-01"
-
-$imageVersion = New-AzureRmGalleryImageVersion `
-   -GalleryImageName $galleryImage.Name `
-   -GalleryImageVersionName "myVersion1" `
-   -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -GalleryImageVersion $versionConfig
-
-New-AzureRmVm `
-   -ResourceGroupName "myResourceGroup" `
-   -Name "myVMfromImage" `
-   -ImageName "myImage" `
-   -Location "East US" `
-   -VirtualNetworkName "myImageVnet" `
-   -SubnetName "myImageSubnet" `
-   -SecurityGroupName "myImageNSG" `
-   -PublicIpAddressName "myImagePIP" `
-   -OpenPorts 3389
 
