@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/21/2018
+ms.date: 08/08/2018
 ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Tutorial: Create a shared image of an Azure VM with the Azure CLI
+# Preview: Create a shared image gallery with the Azure CLI
 
-Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. You can also share images across subscriptions using a shared image gallery. In this tutorial, you create your own gallery and custom images of an Azure virtual machine. You learn how to:
+The Shared Image Gallery greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. The Shared Image Gallery lets to share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group share images. The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Disks.
+
+In this tutorial, you create your own gallery and custom images of an Azure virtual machine. You learn how to:
 
 > [!div class="checklist"]
 > * Deprovision and generalize VMs
@@ -58,12 +60,23 @@ Shared images encompasses multiple resources:
 
 ### Regional Support
 
-Regional support for shared image alleries is limited, but will expand over time. For Preview: 
+Regional support for shared image alleries is limited, but will expand over time. For preview: 
 
 | Create Gallery In  | Replicate Version To |
 |--------------------|----------------------|
-| West Central US    | South Central US     |
-|                    | North Europe         |
+| West Central US    |South Central US|
+|                    |East US|
+|                    |East US 2|
+|                    |West US|
+|                    |West US 2|
+|                    |Central US|
+|                    |North Central US|
+|                    |Canada Central|
+|                    |Canada East|
+|                    |North Europe|
+|                    |West Europe|
+|                    |South India|
+|                    |Southeast Asia|
 
 
 ## Before you begin
@@ -141,7 +154,7 @@ az image gallery create -g myGalleryRG --gallery-name myGallery
 
 ## Create an image definition
 
-Create an initial image family in the gallery using az image gallery create-image.
+Create an initial image in the gallery using az image gallery create-image.
 
 ```azurecli-interactive 
 az image gallery create-image \
@@ -170,7 +183,7 @@ az image gallery create-image-version \
 
 ## Create a VM
 
-Create a VM from the image in the image gallery using az vm create.
+Create a VM from the image in the image gallery using [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
@@ -179,7 +192,6 @@ az vm create\
    --image /subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImage/versions/1.0.0 \
    --generate-ssh-keys
 ```
-
 
 
 ## List information
@@ -195,13 +207,6 @@ List the image definitions in a gallery, including information about OS type and
 ```azurecli-interactive 
 az image gallery list-images -g myGalleryRG -r myGallery -o table
 ```
-
-List the versions of an image in a gallery using [az image gallery list-image-versions](/cli/azure/).
-
-```azurecli-interactive 
-```
-
-## Delete resources
 
 
 ## Next steps

@@ -14,25 +14,26 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/06/2018
+ms.date: 08/08/2018
 ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Tutorial: Create a shared image of an Azure VM with Azure PowerShell
+# Preview: Create a shared image gallery with Azure PowerShell
 
 The Shared Image Gallery greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. The Shared Image Gallery lets to share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group share images. The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Disks.
 
 In this tutorial, you create your own custom image of an Azure virtual machine and add the image to an image gallery for sharing. You learn how to:
 
 > [!div class="checklist"]
-> * Sysprep and generalize VMs
-> * Create a custom image
-> * Create a VM from a custom image
-> * List all the images in your subscription
-> * Delete an image
+> * Deprovision and generalize VMs
+> * Create a managed image
+> * Create an image gallery
+> * Create a shared image
+> * Create a VM from a shared image
+> * Delete a resources
 
 ## Overview
 
@@ -54,7 +55,7 @@ Shared images encompasses multiple resources:
 
 ### Regional Support
 
-Regional support for shared image alleries is limited, but will expand over time. For Preview: 
+Regional support for shared image alleries is limited, but will expand over time. For preview: 
 
 | Create Gallery In  | Replicate Version To |
 |--------------------|----------------------|
@@ -127,45 +128,77 @@ $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 Create the image configuration.
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$managedImageConfig = New-AzureRmImageConfig -Location West Central US -SourceVirtualMachineId $vm.ID 
 ```
 
 Create the image.
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+$managedImage = New-AzureRmImage -Image $managedImageConfig -ImageName myManagedImage -ResourceGroupName myResourceGroup
 ```	
+
 
 ## Create an image gallery
 
+An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. 
+
+Create a new resource group for the gallery, a gallery configuration, and then create the gallery. In this example, the gallery is named *myGallery* and the resource group is *myGalleryRG*.
+
 ```azurepowershell-interactive
-$resourceGroup = myGalleryRG
+$resourceGroup = New-AzureRMResourceGroup `
+   -Name myGalleryRG `
+   -Location "West Central US"
+
+$galleryConfig = New-AzureRmGalleryConfig `
+   -Location $resourceGroup.Location `
+   -Description "Shared image gallery for testing."
+
 $gallery = New-AzureRmGallery `
-   -GalleryName myGallery `
-   -ResourceGroupName $resourceGroup
+   -GalleryName "myGallery" `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Gallery $galleryConfig
 ```
 
 
 
-## Create an image definition
+## Create a gallery image 
+
+Create a configuration file for the gallery image and then create the image. In this example, the gallery image is named *myGalleryImage*.
 
 ```azurepowershell-interactive
+$imageConfig = New-AzureRmGalleryImageConfig `
+   -OsType Windows `
+   -OsState Generalized `
+   -Location $gallery.Location `
+   -IdentifierPublisher "myPublisher" `
+   -IdentifierOffer "myOffer" `
+   -IdentifierSku "mySKU" 
+
 $galleryImage = New-AzureRmGalleryImage `
-   -GalleryImageName myGalleryImage `
-   -GalleryName $gallery `
-   -ResourceGroupName $resourceGroup
+   -GalleryImageName "myGalleryImage" `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -GalleryImage $imageConfig
 
 ```
 
 ##Create an image version
 
+Create the first version of the image. In this example, the image version is *1.0.0* and it is replicated to both *West Central US* and *South Central US* datacenters.
+
 ```azurepowershell-interactive
-New-AzureRmGalleryImageVersion `
-   -GalleryImageName $galleryImage `
-   -GalleryImageVersion 1.0.0 `
-   -GalleryImageVersionName Name `
+$versionConfig = New-AzureRmGalleryImageVersionConfig `
+   -Location $resourceGroup.Location `
+   -Region "West Central US", "South Central US" `
+   -Source "/subscriptions/7f321e1f-bca0-4e8e-87ec-b4ccc629013b/resourceGroups/Generalized/providers/Microsoft.Compute/images/myImage" `
+   -PublishingProfileEndOfLifeDate "2020-01-01"
+
+$imageVersion = New-AzureRmGalleryImageVersion `
+   -GalleryImageName $galleryImage.Name `
+   -GalleryImageVersionName "1.0.0" `
    -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.Name
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -GalleryImageVersion $versionConfig
 ```
  
  
@@ -173,20 +206,19 @@ New-AzureRmGalleryImageVersion `
 
 Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
 
-This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
-
+This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVMfromImage" `
-	-ImageName "myImage" `
-    -Location "East US" `
-    -VirtualNetworkName "myImageVnet" `
-    -SubnetName "myImageSubnet" `
-    -SecurityGroupName "myImageNSG" `
-    -PublicIpAddressName "myImagePIP" `
-    -OpenPorts 3389
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVMfromImage" `
+   -Image $imageVersion.Id `
+   -Location "East US" `
+   -VirtualNetworkName "myImageVnet" `
+   -SubnetName "myImageSubnet" `
+   -SecurityGroupName "myImageNSG" `
+   -PublicIpAddressName "myImagePIP" `
+   -OpenPorts 3389
 ```
 
 ## Image management 
@@ -207,6 +239,31 @@ Remove-AzureRmImage `
     -ImageName myOldImage `
 	-ResourceGroupName myResourceGroup
 ```
+
+Get gallery resources.
+
+```azurepowershell-interactive
+Get-AzureRmGallery -ResourceGroupName rgname -GalleryName galname 
+Get-AzureRmGalleryImage -ResourceGroupName rgname -GalleryName galname -GalleryImageName imagename 
+Get-AzureRmGalleryImageVersion -ResourceGroupName rgname -GalleryName galname -GalleryImageName imagename -GalleryImageVersionName '1.0.0' 
+Get-AzureRmGalleryImageVersion `
+   -ResourceGroupName rgname `
+   -GalleryName galname `
+   -GalleryImageName imagename `
+   -GalleryImageVersionName '1.0.0' `
+   -Expand ReplicationStatus  
+```
+
+List gallery resources.
+
+```azurepowershell-interactive
+Get-AzureRmGallery	 
+Get-AzureRmGallery -ResourceGroupName myResourceGroup  
+Get-AzureRmGalleryImage -ResourceGroupName myResourceGroup -GalleryName myGallery  
+Get-AzureRmGalleryImageVersion -ResourceGroupName myResourceGroup -GalleryName myGallery -GalleryImageName myGalleryImage
+```
+
+
 
 ## Next steps
 
