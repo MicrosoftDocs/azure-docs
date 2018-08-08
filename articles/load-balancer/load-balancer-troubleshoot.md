@@ -118,7 +118,7 @@ You can resolve this issue via one of the following methods:
 
 ### Cause 4: Accessing the Internal Load Balancer VIP from the participating Load Balancer backend pool VM
 
-If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internal Load Balancer VIP, that results in failure. This is an unsupported scenario.
+If an Internal Load Balancer (ILB) frontend IP address is configured inside a VNet, and a backend Virtual Machine within the same VNet tries to access that ILB frontend IP address, that will result in failure. This is an unsupported scenario.
 **Resolution**
 Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to support that kind of scenario. For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
