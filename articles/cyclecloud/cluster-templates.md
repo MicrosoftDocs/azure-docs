@@ -42,7 +42,7 @@ Interruptible = false
 
 By adding the above section a new cluster template called `custom_slurm_cluster`, a new cluster is defined for Azure using `Standard_D12_v2` for the master node, `Standard_H16r` for the execute nodes, and will autoscale to a maximum of 128 cores. To import and run this new cluster type, enter:
 
-``` CLI
+```azurecli-interactive
 $ cyclecloud import custom_demo_cluster -f ~/.cycle/slurm_template.txt -c custom_slurm_cluster
 
 $ cyclecloud start custom_demo_cluster
@@ -126,7 +126,7 @@ This will create a JSON file containing the parameters for dev and a .properties
 
 You can now import the template using the parameters file to fill in the missing pieces:
 
-``` CLI
+```azurecli-interactive
 $ cyclecloud import_cluster gridengine-dev -f template.txt -p dev-params.json -c gridengine
 
 $ cyclecloud import_cluster gridengine-prod -f template.txt -p prod-params.properties -c gridengine

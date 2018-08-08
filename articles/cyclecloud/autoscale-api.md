@@ -60,7 +60,7 @@ There are two easy ways to make this API call: using the Python API or the jetpa
 
 ### Jetpack CLI
 
-``` CLI
+```azurecli-interactive
 $ jetpack autoscale --name=execute --corecount=128
 ```
 
@@ -181,7 +181,7 @@ receiving the request.
 
 ## Usage
 
-``` CLI
+```azurecli-interactive
 GET <AUTOSTOP_URL>?instance=<INSTANCE_ID>
 ```
 

@@ -13,7 +13,7 @@ ms.author: a-kiwels
 
 The Pogo call structure is as follows:
 
-``` CLI
+```azurecli-interactive
 pogo [options] <command> <source_url> [destination_url]
 ```
 
@@ -33,7 +33,7 @@ Pogo provides help output at the top level by running `pogo --help`. In
 addition, each of the supported commands has its own help output. For
 example:
 
-``` CLI
+```azurecli-interactive
 pogo del --help
 ```
 
@@ -76,12 +76,12 @@ To upload a file, use `pogo put <filename> <URL>`. For example, to
 upload data.zip from the local directory to the data_backups
 directory:
 
-``` CLI
+```azurecli-interactive
 pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups
 ```
 
 To give the file a different name in Azure, append the desired name:
-``` CLI
+```azurecli-interactive
 pogo put data.zip http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data-20150311.zip
 ```
 
@@ -100,14 +100,14 @@ To download a file, use `pogo get <URL> [<filename>]`. For example,
 to download /mycontainer/my/path/data_backups/data.zip to the local
 directory:
 
-``` CLI
+```azurecli-interactive
 pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
 ```
 
 To save the file as data-download.zip, use the optional filename
 argument:
 
-``` CLI
+```azurecli-interactive
 pogo get http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip data-download.zip
 ```
 
@@ -118,13 +118,13 @@ directory, use the `pogo sync` command. The source of the files is listed
 first, followed by the destination. To sync the data_backups directory
 from Azure to a local data_backups directory:
 
-``` CLI
+```azurecli-interactive
 pogo sync http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/ data_backups
 ```
 
 To sync the the local data_backups directory to Azure:
 
-``` CLI
+```azurecli-interactive
 pogo sync data_backups http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
 ```
 
@@ -137,14 +137,14 @@ To remove a file from a remote endpoint, use the pogo del command. For
 example, to remove the data.zip file from the data_backups directory in
 the /mycontainer/my/path/data_backups/ bucket:
 
-``` CLI
+```azurecli-interactive
 pogo del http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/data.zip
 ```
 
 To remove an entire directory, use the --recursive option. For example,
 to remove the data_backups directory in the /mycontainer/my/path/data_backups/ bucket:
 
-``` CLI
+```azurecli-interactive
 pogo del --recursive http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
 ```
 
@@ -164,7 +164,7 @@ pogo del --recursive http://mystorageaccount.blob.core.windows.net/mycontainer/m
 the local machine. The endpoints do not have to use the same credentials
 or be of the same type. The command syntax looks like `pogo [OPTIONS] cp [CP OPTIONS] <source> <destination>`. For example:
 
-``` CLI
+```azurecli-interactive
 pogo --dryrun cp --recursive s3://com.example.pogo.quickstart/my_directory az://portal12345/my_container/
 ```
 
@@ -186,7 +186,7 @@ file using a browser or command line utility like curl. Generated URLs
 will be valid immediately after generation up until the duration
 specified with -d/--duration, or 600 seconds by default. For example:
 
-``` CLI
+```azurecli-interactive
 pogo sign [OPTIONS] URL
 ```
 

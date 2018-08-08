@@ -38,18 +38,12 @@ For the purposes of this quickstart, much of the setup has been done via the ARM
 For this quickstart, you will need:
 
 1. An active Azure subscription.
-  * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+  * [!INCLUDE [quickstarts-free-trial-note.md](~/includes/free-trial-note.md)]
 2. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-### Open a Terminal Window
-
-Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
-
-```azurecli-interactive
-Click the "Try It" button to open Cloud Shell
-```
+[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
 > The "Try It" button opens a Cloud Shell in your current browser window. It does not enter the command for you. You will need to click the "Copy" button to save to your clipboard, then paste the command into your Shell.
@@ -110,19 +104,21 @@ The deployment process runs an installation script as a custom script extension,
 
 ## Log into the CycleCloud Application Server
 
+Run `export RESOURCE-GROUP="the name you gave your resource group"`. This will create allow you to copy the next command and enter it without modifying it.
+
 To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
 
 ```azurecli-interactive
-az network public-ip show -g ${RESOURCE-GROUP} -n cycle-ip --query dnsSettings.fqdn
+az network public-ip show -g ${RESOURCE-GROUP?} -n cycle-ip --query dnsSettings.fqdn
 ```
 
-Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser. The Azure CycleCloud End User License Agreement will be displayed - click to accept it.
+Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 
 Create a Site Name for your installation. You can use any name here:
 
 ![CycleCloud Welcome screen](~/images/cc-first-login.png)
 
-You will need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
+The Azure CycleCloud End User License Agreement will be displayed - click to accept it. You will then need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
 
 ![CycleCloud Create New User screen](~/images/create-new-user.png)
 

@@ -25,7 +25,7 @@ Different user accounts maybe configured for any cluster that does not have a `c
 
 Note that when CycleServer itself is installed, it creates a local `cycle_server` user with no login access by default. If CycleServer is installed on a node capable of submitting to the local Grid Engine cluster, then the local `cycle_server` user may be used by configuring shell access for the user. For most systems the following command is all that is required:
 
-``` CLI
+```azurecli-interactive
 sudo chsh -s /bin/bash cycle_server
 ```
 
@@ -33,7 +33,7 @@ sudo chsh -s /bin/bash cycle_server
 
 In **each** cluster, create a directory that SubmitOnce can use as scratch space. By default, the absolute path for this directory is `/shared/ss`:
 
-``` CLI
+```azurecli-interactive
 mkdir /shared/ss
 chown cycle_server:cycle_server /shared/ss
 ```
@@ -46,7 +46,7 @@ Alternatively, if there is no appropriate shared file system available for $SO_H
 
 Next, the cluster administrator must create a bin directory within $SO_HOME and copy the SubmitOnce scheduler tools to it from the SubmitOnce distribution:
 
-``` CLI
+```azurecli-interactive
 cd /tmp
 tar xzfv submitonce-schedtools.tar.gz
 mkdir /shared/ss/bin

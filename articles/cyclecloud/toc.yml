@@ -14,6 +14,10 @@
     href: quickstart-submit-jobs.md
   - name: Clean Up Resources
     href: quickstart-clean-up-resources.md
+- name: Tutorials
+  items:
+  - name: Modify a Cluster Template
+    href: ~/tutorials/modify-cluster-template.md
 - name: Concepts
   items:
   - name: Clusters and Nodes

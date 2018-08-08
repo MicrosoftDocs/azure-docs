@@ -26,7 +26,7 @@ The CLI installer is distributed as part of the CycleCloud installation package 
 
 Extract the contents of `cyclecloud-cli.zip` to a temporary directory:
 
-``` CMD
+```azurecli-interactive
 cd /tmp
 unzip /opt/cycle_server/tools/cyclecloud-cli.zip
 ```

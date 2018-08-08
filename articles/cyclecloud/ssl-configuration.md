@@ -53,19 +53,19 @@ You can enable Let's Encrypt support with the "SSL" option on the settings page,
 
 Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To start the process, first run:
 
-``` CLI
+```azurecli-interactive
 ./cycle_server keystore create_request <FQDN>
 ```
 
 You will be asked to provide a domain name, which is the "Common Name" field on the signed certificate. This will generate a new self-signed certificate for the specified domain and write a cycle_server.csr file. You must provide the CSR to a certificate authority, and they will provide the final signed certificate (which will be referred to as server.crt below). You will also need the root certificates and any intermediate ones used in the chain between your new certificate and the root certificate. The CA should provide these for you. If they have provided them bundled as a single certificate file, you can import them with the following command:
 
-``` CLI
+```azurecli-interactive
 ./cycle_server keystore import server.crt
 ```
 
 If they provided multiple certificate files, you should import them all at once appending the names to that same command, separated by spaces:
 
-``` CLI
+```azurecli-interactive
 ./cycle_server keystore import server.crt ca_cert_chain.crt
 ```
 
@@ -73,7 +73,7 @@ If they provided multiple certificate files, you should import them all at once 
 
 If you have previously created a CA or self-signed certificate, you can update CycleCloud to use it with the following command:
 
-``` CLI
+```azurecli-interactive
 ./cycle_server keystore update
 ```
 
