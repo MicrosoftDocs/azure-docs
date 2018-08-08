@@ -38,6 +38,25 @@ Data Box is ideally suited to transfer data sizes larger than 30 TBs in scenario
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.      
 
+## Benefits
+
+Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solutions has the following benefits:
+
+ - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
+
+ - **Easy to use** - Data Box is an easy to use solution.
+     - The device uses USB connectivity with almost no setup time.
+     - The solution provides end-to-end tracking via the Azure portal.
+
+- **Secure** - Data Box has built-in security protections for the device, data, and the service.
+    - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers. 
+    - The data on the device is secured with an AES 256-bit encryption at all times.
+    - The device can only be unlocked with a password provided in the Azure portal.
+    - The service is protected by the Azure security features.
+    - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
+    
+    For more information, go to Azure Data Box security and data protection.
+
 ## Features and specifications
 
 The Data Box device has the following features in this release.
@@ -98,10 +117,10 @@ Throughout this process, you are notified via email on all status changes. For m
 Data Box can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
 - **Service availability** - For this release, the Data Box service is available in the following regions:
-    - All regions in the United States.
-    - West Europe and North Europe (EU).
-    - UK South, UK West.
-    - France Central, France South.
+    - All regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
+    - European Union - West Europe and North Europe.
+    - UK - UK South and UK West.
+    - France - France Central and France South.
 
 - **Shipping regions** - The Data Box devices are shipped from datacenters in West US, East US, West Europe, and UK West. 
 
