@@ -130,7 +130,7 @@ At this point, you should be able to visit your app using `HTTPS://` instead of 
 
 ### Verifying Domain Ownership
 
-There are two types of domain verification supported by App service Certificates: domain (App Service) and manual verification.
+There are two other types of domain verification supported by App service Certificates: domain verification and manual verification.
 
 #### Domain Verification
 
