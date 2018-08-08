@@ -202,7 +202,8 @@ The following are post-installation known issues for this build version.
 
   Both alerts can be safely ignored and they'll close automatically over time.  
 
- - <!-- 2812138 | IS --> You might see an alert for **Storage** component that have the following details:
+
+- <!-- 2812138 | IS --> You might see an alert for **Storage** component that have the following details:
 
    - NAME: Storage service internal communication error
    - SEVERITY: Critical
