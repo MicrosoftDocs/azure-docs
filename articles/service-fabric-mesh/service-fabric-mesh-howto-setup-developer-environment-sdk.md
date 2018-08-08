@@ -14,7 +14,7 @@ manager: JeanPaul.Connock
 
 # Set up your Windows development environment to build Service Fabric Mesh apps
 
-To build and run Azure Service Fabric apps on your Windows development machine, install the Service Fabric Mesh runtime, SDK, and tools.
+To build and run Azure Service Fabric Mesh applications on your Windows development machine, install the Service Fabric Mesh runtime, SDK, and tools.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -27,7 +27,7 @@ The following operating system versions are supported for development:
 
 ## Visual Studio
 
-Visual Studio 2017 is required to deploy Service Fabric Mesh apps. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
+Visual Studio 2017 is required to deploy Service Fabric Mesh applications. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
 
 * ASP.NET and web development
 * Azure Development
