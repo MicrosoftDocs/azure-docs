@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 08/09/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -26,7 +26,7 @@ These release notes provide information about improvements, fixes, and known iss
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
 
-## Build 1.1807.0.67
+## Build 1.1807.0.74
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
@@ -63,9 +63,11 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](.\.\azure-stack-delegated-provider.md).
  
-- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption.  
+- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
 ### Fixed issues
+
+- <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
 -	<!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions.  Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
@@ -88,6 +90,8 @@ This build includes the following improvements and fixes for Azure Stack.
 -	<!-- 2055809- IS ASDK --> We fixed an issue that prevented you from deleting VMs from the compute blade when the VM failed to be created.  
 
 - <!--  2643962 IS ASDK -->  The alert for *Low memory capacity* no longer appears incorrectly.
+
+- <!--  TBD | ASDK -->  **Default Time zone set to UTC.** The default time zone for your Azure Stack deployment will now get set to UTC. You can select a time zone when installing Azure Stack, however it will revert to UTC.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -128,6 +132,14 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Both alerts can be safely ignored and will close automatically over time.  
 
+ - <!-- TBD - IS ASDK --> You might see an alert for **Storage** component that have the following details:
+
+   - NAME: Storage service internal communication error
+   - SEVERITY: Critical
+   - COMPONENT: Storage
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+
+    The alert can be safely ignored, but you need to close the alert manually.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
@@ -335,7 +347,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the original VM, and not to the new one.
 
-
 - <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased.
 
   To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. For more information, see how to [make an add-on plan available](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
@@ -366,7 +377,6 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 <!-- #### Identity -->
-
 
 
 ## Build 20180513.1

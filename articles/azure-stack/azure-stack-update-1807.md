@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 08/09/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -30,8 +30,7 @@ This article describes the contents of the 1807 update package. This update incl
 
 ## Build reference
 
-The Azure Stack 1807 update build number is **1.1807.0.65**.  
-
+The Azure Stack 1807 update build number is **1.1807.0.74**.  
 
 ### New features
 
@@ -73,12 +72,14 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- TBD | IS, ASDK -->  **Move subscriptions between Delegated Providers.** You can now move subscriptions between new or existing Delegated Provider subscriptions that belong to the same Directory tenant. Subscriptions belonging to the Default Provider Subscription can also be moved to the Delegated Provider Subscriptions in the same Directory-tenant. For more information see [Delegate offers in Azure Stack](azure-stack-delegated-provider.md).
 
-- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace. You might notice increased storage consumption due to images being replicated across different nodes. This replication is done to improve fetch actions during VM deployment. We are continuing work to optimize this storage consumption.
+- <!-- 2536808 IS ASDK --> **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
 - <!-- TBD | IS, ASDK -->  **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputing S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
 
 
 ### Fixed issues
+
+- <!-- TBD | ASDK, IS --> Various improvements were made to the update process to make it more reliable. In addition, fixes have been made to underlying infrastructure, which improves node drain, thereby minimizing potential downtime for workloads during the update.
 
 - <!--2292271 | ASDK, IS --> We fixed an issue where a modified Quota limit did not apply to existing subscriptions. Now, when you raise a Quota limit for a network resource that is part of an Offer and Plan associated with a tenant subscription, the new limit applies to the pre-existing subscriptions, as well as new subscriptions.
 
@@ -109,6 +110,28 @@ This update includes the following improvements for Azure Stack.
 
 <!-- ### Additional releases timed with this update    -->
 
+### Common Vulnerabilities and Exposures
+
+This update contains fixes for the following Common Vulnerabilities and Exposures (CVEs).
+
+| Date | Product | Product Family | Article | Download | Details |
+|------------|-------------------------------------------------|----------------|---------|----------------------|---------------|
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8206](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8206) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8222](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8222) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8282](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8282) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8304](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8304) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8307](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8307) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8308](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8308) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8309](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8309) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4338814](https://support.microsoft.com/help/4338814) | [Security Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4338814) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
+| 07/10/2018 | Windows Server 2016  (Server Core installation) | Windows | [4345418](https://support.microsoft.com/help/4345418) | [Alternate Cumulative](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4345418) | [CVE-2018-8313](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8313) |
 
 
 ## Before you begin
@@ -178,6 +201,15 @@ The following are post-installation known issues for this build version.
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
   Both alerts can be safely ignored and they'll close automatically over time.  
+
+ - <!-- 2812138 | IS --> You might see an alert for **Storage** component that have the following details:
+
+   - NAME: Storage service internal communication error
+   - SEVERITY: Critical
+   - COMPONENT: Storage
+   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.
+
+    The alert can be safely ignored, but you need to close the alert manually.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
