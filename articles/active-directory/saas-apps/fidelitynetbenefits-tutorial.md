@@ -117,13 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	For Production Environment:
 	`urn:sp:fidelity:geninbndnbparts20`
 
-	b. In the **Reply URL** textbox, type a URL:
-
-	For Testing Environment:
-    `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
-
-	For Production Environment:
-	`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+	b. In the **Reply URL** textbox, enter a URL that to be provided by Fidelity at time of implementation or contact your assigned Fidelity Client Service Manager.
 
 4. Fidelity NetBenefits application expects the SAML assertions in a specific format. We have mapped the **User Identifier** with the **user.userprincipalname**. You can map this with **employeeid** or any other claim which is applicable to your Organization as **User Identifier**. The following screenshot shows just an example for this.
 
