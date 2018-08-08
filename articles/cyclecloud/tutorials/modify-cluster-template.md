@@ -33,9 +33,7 @@ For this tutorial, you will need:
 
 ### Open a Terminal Window
 
-
-[!INCLUDE [cloud-shell-try-it.md](/azure-docs/master/includes/cloud-shell-try-it.md)]
-
+[//]: # (## this syntax does not work: [!INCLUDE [cloud-shell-try-it.md](azure-docs/master/includes/cloud-shell-try-it.md)])
 
 Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
 
@@ -64,4 +62,11 @@ After all the files have been unpacked, navigate to the install directory with `
 ```
 
 > [!NOTE]
-> If you receive an error stating `/home/your-name/bin`
+> If you receive an error stating ""`/home/your-name/bin` not found in your PATH environment variable", fix it with the following: `export PATH=$PATH:~/bin`.
+
+Once the CLI has been installed, you'll need to connect it to your Azure CycleCloud server. The Azure CycleCloud CLI communicates with the server using a REST API, and must be initialized with your Azure CycleCloud server:
+
+1. Initialize the server with `cyclecloud initialize`. You will be prompted for the CycleServer URL, which is the FQDN of your application server. Enter it in the format **https://FQDN**.
+2. The installed Azure CycleCloud server uses either a Let's Encrypt SSL certificate, or a self-signed certificate. Type `yes` when asked to allow the certificate.
+3. Log in with the same username and password used for the CycleCloud web interface.
+4. Test 

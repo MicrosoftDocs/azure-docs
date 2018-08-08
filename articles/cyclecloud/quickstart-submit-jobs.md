@@ -24,13 +24,7 @@ The pop-up window shows the connection string you would use to connect to the cl
 
 ![CycleCloud Master Node Connection Screen](~/images/connect-to-master-node.png)
 
-Copy the appropriate string and use your SSH client or to connect to the master node. You can also use Cloud Shell for this:
-
-```azurecli-interactive
-Copy the "ssh cyclecloud@" string from the window and enter it in Cloud Shell
-```
-
-You're now logged into the Grid Engine master node.
+Copy the appropriate string and use your SSH client or Cloud Shell to connect to the master node. After the connection is complete, you will be logged into the Grid Engine master node.
 
 ## Submit a Job
 
