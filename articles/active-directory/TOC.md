@@ -435,7 +435,8 @@
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
 #### [Get started](active-directory-certificate-based-authentication-get-started.md)
 
-### [Azure AD Identity Protection](active-directory-identityprotection.md)
+### Azure AD Identity Protection
+#### [Overview](identity-protection/overview.md)
 #### [Enable](identity-protection/enable.md)
 #### [Detect vulnerabilities](identity-protection/vulnerabilities.md)
 #### [Risk events](active-directory-identity-protection-risk-events.md)
