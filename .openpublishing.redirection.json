@@ -11871,6 +11871,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+            "redirect_document_id": false
+
+        },
+        {
             "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
             "redirect_document_id": false
@@ -15283,317 +15289,317 @@
         {
             "source_path": "articles/active-directory/develop/active-directory-developers-guide.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-developers-guide",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-aspnet-webapp",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-ios.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-ios",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-android.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-android",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-windesktop.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-uwp-v2.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-uwp",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-asp-webapp",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md",
             "redirect_url": "/azure/active-directory/develop/tutorial-v2-javascript-spa",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-authentication-scenarios.md",
             "redirect_url": "/azure/active-directory/develop/authentication-scenarios",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-app-registration.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-howto-tenant.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-create-new-tenant",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-ios.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-ios",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-android.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-android",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-dotnet",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-xamarin.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-xamarin",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-openid-connect-code",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-angular.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-angularjs-spa",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapi-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-dotnet-webapi",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapi-nodejs.md",
             "redirect_url": "/azure/active-directory/develop/quickstart-v1-nodejs-webapi",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-code-samples.md",
             "redirect_url": "/azure/active-directory/develop/sample-v2-code",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-code-samples.md",
             "redirect_url": "/azure/active-directory/develop/sample-v1-code",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-code.md",
             "redirect_url": "/azure/active-directory/develop/v1-protocols-oauth-code",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-protocols-oidc.md",
             "redirect_url": "/azure/active-directory/develop/v2-protocols-oidc",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-protocols-openid-connect-code.md",
             "redirect_url": "/azure/active-directory/develop/v1-protocols-openid-connect-code",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant.md",
             "redirect_url": "/azure/active-directory/develop/v1-oauth2-implicit-grant-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-protocols-implicit.md",
             "redirect_url": "/azure/active-directory/develop/v2-oauth2-implicit-grant-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md",
             "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-on-behalf-of.md",
             "redirect_url": "/azure/active-directory/develop/v1-oauth2-on-behalf-of-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-protocols-oauth-on-behalf-of.md",
             "redirect_url": "/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-service-to-service.md",
             "redirect_url": "/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md",
             "redirect_url": "/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-application-objects.md",
             "redirect_url": "/azure/active-directory/develop/app-objects-and-service-principals",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devhowto-multi-tenant-overview.md",
             "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
             "redirect_url": "/azure/active-directory/develop/v1-id-and-access-tokens",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-tokens.md",
             "redirect_url": "/azure/active-directory/develop/v2-id-and-access-tokens",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-permissions.md",
             "redirect_url": "/azure/active-directory/develop/v1-permissions-and-consent",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-scopes.md",
             "redirect_url": "/azure/active-directory/develop/v2-permissions-and-consent",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-conditional-access-developer.md",
             "redirect_url": "/azure/active-directory/develop/conditional-access-dev-guide",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-compare.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-endpoint-comparison",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-single-sign-on-protocol-reference.md",
             "redirect_url": "/azure/active-directory/develop/single-sign-on-saml-protocol",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-single-sign-out-protocol-reference.md",
             "redirect_url": "/azure/active-directory/develop/single-sign-out-saml-protocol",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-federation-metadata.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-federation-metadata",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-branding-guidelines.md",
             "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-app-terms-service-privacy-statement.md",
             "redirect_url": "/azure/active-directory/develop/howto-add-terms-of-service-privacy-statement",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-sso-android.md",
             "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-android",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-sso-ios.md",
             "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-on-ios",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
             "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
             "redirect_url": "/azure/active-directory/develop/howto-get-appsource-certified-for-azure-ad",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-app-gallery-listing.md",
             "redirect_url": "/azure/active-directory/develop/howto-list-app-in-azure-ad-app-gallery",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-application-manifest.md",
             "redirect_url": "/azure/active-directory/develop/reference-azure-ad-app-manifest",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-dev-glossary.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-dev-glossary",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-develop-help-support.md",
             "redirect_url": "/azure/active-directory/develop/azure-ad-dev-support-help-options",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-flows.md",
             "redirect_url": "/azure/active-directory/develop/v2-app-types",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-libraries.md",
             "redirect_url": "/azure/active-directory/develop/reference-azure-ad-v2-auth-libraries",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-android.md",
             "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-android",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/howto-v1-enable-sso-on-ios.md",
             "redirect_url": "/azure/active-directory/develop/howto-v1-enable-sso-ios",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/azure-ad-dev-glossary.md",
             "redirect_url": "/azure/active-directory/develop/developer-glossary",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/azure-ad-dev-support-help-options.md",
             "redirect_url": "/azure/active-directory/develop/developer-support-help-options",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/reference-azure-ad-v2-auth-libraries.md",
             "redirect_url": "/azure/active-directory/develop/reference-v2-libraries",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/howto-get-appsource-certified-for-azure-ad.md",
             "redirect_url": "/azure/active-directory/develop/howto-get-appsource-certified",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/reference-azure-ad-app-manifest.md",
             "redirect_url": "/azure/active-directory/develop/reference-app-manifest",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/develop/howto-list-app-in-azure-ad-app-gallery.md",
             "redirect_url": "/azure/active-directory/develop/howto-app-gallery-listing",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-expand-disks.md",
@@ -22208,113 +22214,6 @@
             "redirect_url": "https://cloudpartner.azure.com",
             "redirect_document_id": false
         },
-         {
-	    "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-portals.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/index.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-getting-started.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
-        {
-
-            "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
-            "redirect_url": "/azure/marketplace/",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
             "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
@@ -27278,6 +27177,21 @@
     	{
             "source_path": "articles/active-directory/active-directory-identityprotection-vulnerabilities.md",
             "redirect_url": "/azure/active-directory/identity-protection/vulnerabilities",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection.md",
+            "redirect_url": "/azure/active-directory/identity-protection/overview",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-conditions.md",
+            "redirect_url": "/azure/active-directory/conditional-access/conditions",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-conditional-access-controls.md",
+            "redirect_url": "/azure/active-directory/conditional-access/controls",
             "redirect_document_id": true
         }
     ]
