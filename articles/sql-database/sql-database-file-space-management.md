@@ -2,13 +2,13 @@
 title: Azure SQL Database file space management| Microsoft Docs
 description: This page describes how to manage file space with Azure SQL Database, and provides code samples for how to determine if you need to shrink a database as well as how to perform a database shrink operation.
 services: sql-database
-author: CarlRabeler
+author: oslame
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
+ms.date: 08/08/2018
+ms.author: moslake
 
 ---
 # Manage file space in Azure SQL Database
@@ -44,7 +44,7 @@ Understanding the following storage space quantities are important for managing 
 
 The following diagram illustrates the relationship between the different types of storage space for a database.
 
-![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
+![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png) 
 
 ## Query a database for storage space information
 
