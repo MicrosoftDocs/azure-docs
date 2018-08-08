@@ -25,29 +25,89 @@ You can test a new OEM package when there has been a change to the firmware or d
 
 All tests finish within 24 hours with result of **succeeded**. If any of the tests have a result of **failed**, file a bug in [Microsoft Collaborate](https://aka.ms/collaborate) and notify Microsoft by sending an email to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
-## Get your OEM package signed
+## Managing packages for validation
 
-1. Ensure that the current monthly update has been applied. For the latest version, see the most recent version in [Azure Stack Operator Documentation > Overview > Release notes](https://docs.microsoft.com/en-us/azure/azure-stack/) .
+When using the **Package Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
 
-    Microsoft software updates to Azure Stack are designated using a naming convention, for example, 1803 indicating the update is for March 2018. For information about the Azure Stack update policy, cadence and release notes are available, see [Azure Stack servicing policy](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
+### Prerequisite: Provision a storage container
 
-1. Check system health status by running **Test-AzureStack** as described in [Run a validation test for Azure Stack. Fix any warnings and errors before launching any tests.
+Create a container in your storage account for package blobs. This container can be used for all your Package Validation runs.
 
-2. In the [validation portal](https://azurestackvalidation.com), select an existing solution. If you have not added your solution, see [Add a new solution](azure-stack-vaas-validate-solution-new.md#add-a-new-solution).
+1. In the [Azure Portal](https://portal.azure.com), navigate to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
+2. On the left blade under **Blob Service**, click on **Containers**.
+3. Click on **+ Container** in the menu bar and provide a name for the container, e.g., `vaaspackages`.
 
-3. Select **Start** on the **Package Validations** tile to start a new workflow.
+### Upload package to storage account
 
-    ![Package Validations](media/image3.png)
+1. Prepare the package you want to validate. If your package contains multiple files, compress it into a `.zip` file.
+2. In the [Azure Portal](https://portal.azure.com), select the package container and upload the package by clicking on **Upload** in the menu bar.
+3. Select the package `.zip` file to upload. Keep defaults for **Blob type** (i.e., **Block Blob**) and **Block size**.
 
-4.  Provide a diagnostics connection string. For instructions, see [Set up a storage account](azure-stack-vaas-set-up-account.md).
+> [!NOTE]
+> Please ensure that the `.zip` contents are placed at the root of the `.zip` file. There should be no sub-folders in the package.
 
-    An OEM Extension package must be specified for every Package Validation run. Specify the OEM package that was installed on the solution at the time of Azure Stack deployment. For instructions, see [Create an Azure storage blob to store logs](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+### Generate package blob URL for VaaS
 
-    A JSON file with the environment variables must be used to finish the input for required fields for the run to avoid mistakes in data entry. For instructions, see [Get a configuration file in an Azure Stack deployment](azure-stack-vaas-parameters.md).
+When creating a **Package Validation** workflow in the VaaS portal, you will need to provide a URL to the Azure Storage blob containing your package.
 
-5. Run the tests.
+#### Option 1: Generating SAS URL for container
 
-6. When all tests have successfully completed, send the name of your Solution and package validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+[!INCLUDE [azure-stack-vaas-sas-steps_12num-navigate](includes/azure-stack-vaas-sas-steps_12num-navigate.md)]
+
+1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
+1. Select **Container** and **Object** from **Allowed resource types**. Deselect any remaining options.
+1. Select **Read** and **List** from **Allowed permissions**. Deselect any remaining options.
+1. Set **Start time** to the current time, and **End time** to 1 hour from the current time.
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)] The format should appear as follows:
+    `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
+    `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Use this value when starting a new **Package Validation** workflow in the VaaS portal.
+
+#### Option 2: Using public read container
+
+> [!CAUTION]
+> Note: This option opens up your container for anonymous read-only access.
+
+1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/en-us/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+2. In the package container, click on the package blob in the container to open the properties pane.
+3. Copy the **URL**. Use this value when starting a new **Package Validation** workflow in the VaaS portal.
+
+## Apply monthly update
+
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+## Create a Package Validation workflow
+
+1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
+
+2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+
+3. Click **Start** on the **Package Validation** tile.
+
+    ![Package Validations workflow tile](media/tile_validation-package.png)
+
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Enter the Azure Storage blob URL to the OEM package that was installed on the solution at deployment time. For instructions, see [Generate package blob URL for VaaS](#generate-package-blob-url-for-vaas).
+
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
+
+## Execute Package Validation tests
+
+In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+2. [!INCLUDE [azure-stack-vaas-validationworkflow_schedule](includes/azure-stack-vaas-validationworkflow_schedule.md)]
+3. When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 

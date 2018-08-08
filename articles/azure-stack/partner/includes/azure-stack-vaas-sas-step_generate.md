@@ -1,0 +1,1 @@
+Select **Generate SAS and connection string** and copy the **Blob service SAS URL** string.

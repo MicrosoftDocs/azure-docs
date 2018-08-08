@@ -57,19 +57,17 @@ Diagnostics Connection String          | A SAS URL to an Azure Storage Account t
 
 The diagnostics connection string is required for storing diagnostics logs during test execution. Use the Azure Storage Account created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)) to create a shared access signature (SAS) URL to give VaaS access to upload logs to your storage account.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+[!INCLUDE [azure-stack-vaas-sas-steps_12num-navigate](includes/azure-stack-vaas-sas-steps_12num-navigate.md)]
 
-2. On the blade under **Settings**, select **Shared access signature**.
+1. Select **Blob** from **Allowed Services options**. Deselect any remaining options.
 
-3. Select **Blob** from **Allowed Services options**. Deselect the remaining options.
+1. Select **Service**, **Container**, and **Object** from **Allowed resource types**.
 
-4. Select **Service**, **Container**, and **Object** from **Allowed resource types**.
+1. Select **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions**. Deselect any remaining options.
 
-5. Select **Read**, **Write**, **List**, **Add**, **Create** from **Allowed permissions**. Deselect the remaining options.
+1. Set **Start time** to the current time, and **End time** to three months from the current time.
 
-6. Set **Start time** to the current time, and **End time** to three months from the current time.
-
-7. Select **Generate SAS and connection string** and copy the **Blob service SAS URL** string.
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
 > The SAS URL expires at the end time specified when the URL was generated.  

@@ -34,7 +34,7 @@ An Azure Active Directory tenant is required for authenticating and registering 
 
 ### Create a tenant
 
-It is recommended to create a tenant specifically for use with VaaS with a descriptive name, for example, ContosoVaaS\@onmicrosoft.com.
+It is recommended to create a tenant specifically for use with VaaS with a descriptive name, for example, `ContosoVaaS@onmicrosoft.com`.
 
 1. Create an Azure Active Directory tenant in the [Azure portal](https://portal.azure.com), or use an existing tenant. For instructions on creating new Azure Active Directory tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad).
 
@@ -91,13 +91,16 @@ To assign roles in the **Azure Stack Validation Service** application:
 
 During test execution, VaaS outputs diagnostic logs to an Azure Storage Account. In addition to test logs, the storage account may also be used to the upload the OEM customization packages during the Package Validation workflow.
 
+> [!NOTE]
+> This Azure Storage account is hosted in the Azure public cloud (and not on your Azure Stack environment).
+
 1. To create a storage account, follow the instructions at [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account).
 2. When selecting the type of storage account, select the **Blob storage** account type.
 
 For details on using the storage account for VaaS, see the following articles:
 
 - [Generate the diagnostics connection string](azure-stack-vaas-parameters.md#generate-the-diagnostics-connection-string)
-- [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+- [Managing packages for validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation)
 
 ## Next steps
 
