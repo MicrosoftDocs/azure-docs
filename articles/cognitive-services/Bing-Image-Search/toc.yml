@@ -61,6 +61,11 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Concepts
+    items:
+      - name: Getting images from the web
+      - href: concepts/bing-image-search-get-images.md
+      - name: concepts/bing-image-search-sending-queries.md
 - name: Reference
   items:
   - name: Bing Image Search API v7
