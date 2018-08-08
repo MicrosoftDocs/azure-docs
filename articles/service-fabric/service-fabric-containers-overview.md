@@ -23,13 +23,13 @@ ms.author: msfussell
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers.
 
-Service Fabric is Microsoft's [container orchestrator](service-fabric-cluster-resource-manager-introduction.md) deploying microservices across a cluster of machines. Service Fabric benefits from the lessons learned during its years of running services at Microsoft at massive scale.
+Service Fabric is Microsoft's [container orchestrator](service-fabric-cluster-resource-manager-introduction.md) for deploying microservices across a cluster of machines. Service Fabric benefits from the lessons learned during its years of running services at Microsoft at massive scale.
 
 Microservices can be developed in many ways from using the [Service Fabric programming models](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), to deploying [any code of your choice](service-fabric-guest-executables-introduction.md).
 
 By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. You can also mix services in processes, and services in containers, in the same application.
 
-If you just want to [deploy and manage containers](service-fabric-containers-overview.md), Service Fabric is a perfect choice as a container orchestrator.
+If you just want to [deploy and manage containers](service-fabric-containers-overview.md), Service Fabric is also a great choice.
 
 To jump right in and try out containers on Service Fabric, try a quickstart, tutorial, or sample:  
 
@@ -40,7 +40,7 @@ To jump right in and try out containers on Service Fabric, try a quickstart, tut
 
 ## What are containers
 
-Containers solve the problem of running software reliably in different computing environments by providing an immutable environment for applications to run in. Containers wrap an application and all of its dependencies, such as libraries and configuration files, into its own isolated 'box' that contains everything needed to run the software inside the container. Wherever the container runs, the application inside it always has everything it needs to run.
+Containers solve the problem of running applications reliably in different computing environments by providing an immutable environment for the application to run in. Containers wrap an application and all of its dependencies, such as libraries and configuration files, into its own isolated 'box' that contains everything needed to run the software inside the container. Wherever the container runs, the application inside it always has everything it needs to run.
 
 Containers run directly on top of the kernel and have an isolated view of the file system and other resources. An application in a container has no knowledge of any other applications or processes outside of its container. Each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of the operating system. In addition to making it easy to provide all of your application's dependencies it needs to run in different computing environments, security and resource isolation are important benefits of using containers with Service Fabric--which otherwise runs services in a process.
 
@@ -51,11 +51,9 @@ Compared to virtual machines, containers have the following advantages:
 * **Portability**: A containerized application image can be ported to run in the cloud, on premises, inside virtual machines, or directly on physical machines.
 * **Resource governance**: A container can limit the physical resources that it can consume on its host.
 
-For more information about containers, see [About Windows Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/).
-
 ### Container types and supported environments
 
-Service Fabric supports containers on both Linux and Windows, and supports Hyper-V isolation mode on the latter.
+Service Fabric supports containers on both Linux and Windows, and supports Hyper-V isolation mode on Windows.
 
 #### Docker containers on Linux
 
