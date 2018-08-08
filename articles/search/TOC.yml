@@ -143,12 +143,12 @@
       href: search-synonyms.md
   - name: Indexing data
     items:
-    - name: Push vs. Pull indexing
+    - name: Load data
       href: search-what-is-data-import.md
-    - name: Import wizard (portal)
-      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
@@ -175,7 +175,7 @@
         href: search-indexer-field-mappings.md
   - name: Searching data
     items:
-    - name: Fundamentals
+    - name: Query types
       href: search-query-overview.md
     - name: Search explorer (portal)
       href: search-explorer.md

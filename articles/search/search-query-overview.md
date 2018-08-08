@@ -1,5 +1,5 @@
 ---
-title: Query fundamentals in Azure Search | Microsoft Docs
+title: Query types and composition in Azure Search | Microsoft Docs
 description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
 author: HeidiSteen
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 
 ---
-# Query fundamentals in Azure Search
+# Query types and composition in Azure Search
 
 Query composition in Azure Search is a full specification of a request: match criteria, plus parameters for directing query execution and shaping the response. A request specifies which fields to include, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
