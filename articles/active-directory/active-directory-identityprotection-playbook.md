@@ -39,7 +39,7 @@ Other risk events cannot be simulated in a secure manner.
 
 ### Sign-ins from anonymous IP addresses
 
-For more information about this risk event, see [Sign-ins from anonymous IP addresses](active-directory-reporting-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+For more information about this risk event, see [Sign-ins from anonymous IP addresses](reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
 Completing the following procedure requires you to use:
 
@@ -55,7 +55,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ### Sign-ins from unfamiliar locations
 
-For more information about this risk event, see [Sign-ins from unfamiliar locations](active-directory-reporting-risk-events.md#sign-in-from-unfamiliar-locations). 
+For more information about this risk event, see [Sign-ins from unfamiliar locations](reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
 
 To simulate unfamiliar locations, you have to sign in from a location and device your test account has not signed in from before.
 
@@ -81,7 +81,7 @@ The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes
 
 ### Impossible travel to atypical location
 
-For more information about this risk event, see [Impossible travel to atypical location](active-directory-reporting-risk-events.md#impossible-travel-to-atypical-locations). 
+For more information about this risk event, see [Impossible travel to atypical location](reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 Simulating the impossible travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as impossible travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days and 10 logins of the user before it begins generating risk events. Because of the complex machine learning models and above rules, there is a chance that the following steps will not lead to a risk event. You might want to replicate these steps for multiple Azure AD accounts to publish this risk event.
 

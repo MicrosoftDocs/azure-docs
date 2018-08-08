@@ -38,7 +38,7 @@ Following are some pre-requisites needed for any POC with Azure AD Premium.
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
+| Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](develop/quickstart-create-new-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
 | Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
@@ -156,7 +156,7 @@ Approximate time to Complete: 60 minutes
 | Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  |
 | Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Click on the tile for the application that was just created. Confirm access |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 ### Considerations
 
@@ -188,7 +188,7 @@ Approximate time to Complete: 15 minutes
 | Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Supply the application credential | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Close the browser and repeat the login. This time around the user should see seamless access to the application. |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 ### Considerations
 
@@ -220,7 +220,7 @@ Approximate time to Complete: 30 minutes
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites while assigning them credentials | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in as different users that access app as the **same shared account.**  |  |
-| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
+| Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### Considerations
@@ -449,9 +449,9 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Azure AD Management Portal: Conditional Access blade | [Azure AD Management Portal: Conditional Access](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Get started with conditional access in Azure Active Directory: Policy configuration steps](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Access application from inside corporate network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Access application from public network | [Get started with conditional access in Azure Active Directory: Testing the policy](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Create Conditional Access policy:<br/>- Target PoC Users under "Users and groups"<br/>- Target PoC Application under "Cloud apps"<br/>- Target all locations except trusted ones under "Conditions" -> "Locations" **Note:** trusted IPs are configured in [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Require multi-factor authentication under "Grant" | [Create your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Access application from inside corporate network | [Test your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Access application from public network | [Test your conditional access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### Considerations
 
@@ -538,7 +538,7 @@ Approximate time to Complete: 10 minutes
 
 ### Considerations
 
-This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](active-directory-reporting-risk-events.md)
+This capability is part of Azure AD Premium P2 and/or EMS E5. To learn more about risk events visit: [Azure Active Directory risk events](reports-monitoring/concept-risk-events.md)
 
 ## Configuring certificate based authentication
 

@@ -385,7 +385,7 @@ That takes care of all the initial setup and configuration, now let’s get down
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon.
 4. Replace the following two lines in **app.js** file:
