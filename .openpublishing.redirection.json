@@ -17806,6 +17806,159 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-errors.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-sign-ins-error-codes.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-sign-ins.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-audit-reference.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-audit-activities.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-activity-audit-logs.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-audit-logs.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-audit-samples.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/sample-audit-api.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-getting-started-azure-portal.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-reporting-api.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-prerequisites-azure-portal.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/howto-configure-prerequisites-for-reporting-api.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-samples.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/sample-sign-in-api.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-api-with-certificates.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/tutorial-access-api-with-certificates.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-azure-portal.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/overview-reports.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-faq.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reports-faq.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-latencies-azure-portal.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-reports-latencies.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-migration.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/howto-find-activity-reports.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/howto-power-bi-content-pack.md",
+            "redirect_document_id": false
+        },        
+        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-retention.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-reports-data-retention.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-risk-events.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-risk-events.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-security-risky-sign-ins.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-risky-sign-ins.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-security-user-at-risk.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-troubleshoot-content-pack.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/troubleshoot-content-pack.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-troubleshoot-graph-api.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/troubleshoot-graph-api.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-troubleshoot-missing-audit-data.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-reporting-troubleshoot-missing-data-download.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/troubleshoot-missing-data-download.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-report-security-user-at-risk-remediation.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/howto-remediate-users-flagged-for-risk.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-overview.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reporting-azure-monitor-diagnostics-splunk-integration.md",
+            "redirect_url": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
+            "redirect_document_id": false
+        },         
+        {
             "source_path": "articles/active-directory/active-directory-known-networks.md",
             "redirect_url": "/azure/active-directory/active-directory-named-locations",
             "redirect_document_id": false
@@ -27070,6 +27223,51 @@
 		{
             "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
             "redirect_url": "/azure/active-directory/conditional-access/app-based-mfa",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
+            "redirect_url": "/azure/active-directory/identity-protection/enable",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identity-protection-faqs.md",
+            "redirect_url": "/azure/active-directory/identity-protection/faqs",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-flows.md",
+            "redirect_url": "/azure/active-directory/identity-protection/flows",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-glossary.md",
+            "redirect_url": "/azure/active-directory/identity-protection/glossary",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-graph-getting-started.md",
+            "redirect_url": "/azure/active-directory/identity-protection/graph-get-started",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-identityprotection-unblock-howto.md",
+            "redirect_url": "/azure/active-directory/identity-protection/howto-unblock-user",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-notifications.md",
+            "redirect_url": "/azure/active-directory/identity-protection/notifications",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-playbook.md",
+            "redirect_url": "/azure/active-directory/identity-protection/playbook",
+            "redirect_document_id": true
+        },
+    	{
+            "source_path": "articles/active-directory/active-directory-identityprotection-vulnerabilities.md",
+            "redirect_url": "/azure/active-directory/identity-protection/vulnerabilities",
             "redirect_document_id": true
         }
     ]
