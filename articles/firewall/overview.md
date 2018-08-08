@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/16/2018
+ms.date: 9/24/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -35,6 +35,11 @@ Azure Firewall can scale up as much as you need  to accommodate changing network
 ### FQDN filtering 
 You can limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination.
 
+### FQDN tags
+
+FQDN tags make it easy for you to allow well known Azure service network traffic through your firewall. For example, say you want to allow Azure Backup network traffic through your firewall. You create an application rule, include the Azure Backup tag, and now network traffic from Azure Backup can flow through your firewall.
+
+
 ### Network traffic filtering rules
 
 You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.
@@ -42,6 +47,10 @@ You can centrally create *allow* or *deny* network filtering rules by source and
 ### Outbound SNAT support
 
 All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations.
+
+### Inbound DNAT support
+
+Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks. 
 
 ### Azure Monitor logging
 
