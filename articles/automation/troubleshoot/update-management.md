@@ -34,7 +34,7 @@ This error can be caused by the following reasons:
 
 #### Resolution
 
-1. Visit, [Network planning](automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
+1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
 2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
 
 ## Windows
