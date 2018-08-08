@@ -107,10 +107,10 @@ You will want to ensure that GRUB is enabled on your VM in order to be able to a
 ### Access for Red Hat Enterprise Linux (RHEL)
 RHEL will drop you into single user mode automatically if it cannot boot normally. However, if you have not set up root access for single user mode, you will not have a root password and will be unable to log in. There is a workaround (See 'Manually entering single user mode' below), but the suggestion is to set up root access initially.
 
-#### GRUB access
+#### GRUB access in RHEL
 RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
 
-#### Setting up root access for single user mode
+#### Setting up root access for single user mode in RHEL
 Single-user mode in RHEL requires the root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
 
 1. Log in to the Red Hat system via SSH
@@ -125,7 +125,7 @@ Now if the system boots into single user mode you can log in via root password.
 
 Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
 
-#### Manually entering single user mode
+#### Manually entering single user mode in RHEL
 If you have set up GRUB and root access with the instructions above, then you can enter single user mode with the following instructions:
 
 1. Press 'Esc' while restarting the VM to enter GRUB
@@ -137,14 +137,14 @@ If you have set up GRUB and root access with the instructions above, then you ca
 1. Press Ctrl + X to exit and reboot with the applied settings
 1. You will be prompted for the administrator password before being able to enter single user mode - this is the same password you created in the instructions above
 
-#### Single user mode without root account enabled
+#### Single user mode without root account enabled in RHEL
 If you did not go through the steps above to enable the root user, you can still reset your  root password. Use the following instructions:
 
 1. Press 'Esc' while restarting the VM to enter GRUB
 1. In GRUB, press 'e' to edit the selected OS you want to boot into (usually the first line)
 1. Find the kernel line - in Azure, this will start with `linux16`
 1. Add `rd.break` to the end of the line, ensuring there is a space before `rd.break` (see example below)
-    - This will interrupt the boot process before control is passed from `initramfs` to `systemd`. ([Source](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password))
+    - This will interrupt the boot process before control is passed from `initramfs` to `systemd`. ([Source](https://aka.ms/rhel7rootpassword))
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-shell-rd-break.png)
 1. Press Ctrl + X to exit and reboot with the applied settings
 1. Once you boot, you will be dropped into emergency mode with a read-only file system. Enter  `mount -o remount,rw /sysroot` into the shell to remount the root file system with read/write permissions
@@ -157,19 +157,19 @@ If you did not go through the steps above to enable the root user, you can still
 ### Access for CentOS
 Much like Red Hat Enterprise Linux, single user mode in CentOS requires GRUB and the root user to be enabled. 
 
-#### GRUB access
+#### GRUB access in CentOS
 CentOS comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press any key. You will see the GRUB screen show up.
 
-#### Single user mode
+#### Single user mode in CentOS
 Follow the instructions for RHEL above to enable single user mode in CentOS.
 
 ### Access for Ubuntu 
 Ubuntu images do not require a root password. If the system boots into single user mode, you can use it without additional credentials. 
 
-#### GRUB access
+#### GRUB access in Ubuntu
 To access GRUB, press and hold 'Esc' while the VM is booting up.
 
-#### Single user mode
+#### Single user mode in Ubuntu
 Ubuntu will drop you into single user mode automatically if it cannot boot normally. To manually enter single user mode, use the following instructions:
 
 1. From GRUB, press 'e' to edit your boot entry (the Ubuntu entry)
@@ -180,10 +180,10 @@ Ubuntu will drop you into single user mode automatically if it cannot boot norma
 ### Access for CoreOS
 Single user mode in CoreOS requires GRUB to be enabled. 
 
-#### GRUB access
+#### GRUB access in CoreOS
 To access GRUB, press any key when your VM is booting up.
 
-#### Single user mode
+#### Single user mode in CoreOS
 CoreOS will drop you into single user mode automatically if it cannot boot normally. To manually enter single user mode, use the following instructions:
 1. From GRUB, press 'e' to edit your boot entry
 1. Look for the line that starts with `linux$`. There should be 2, encapsulated in different if/else clauses
@@ -191,10 +191,10 @@ CoreOS will drop you into single user mode automatically if it cannot boot norma
     * Technically, just the second `linux$` will suffice
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
-### Access for SUSE
+### Access for SUSE SLES
 Newer images of SLES 12 SP3+ allow access via the serial console in case the system boots into emergency mode. 
 
-#### GRUB access
+#### GRUB access in SUSE SLES
 GRUB access in SLES requires bootloader configuration via YaST. To do this, follow these instructions:
 
 1. ssh into your SLES VM and run `sudo yast bootloader`. Use the `tab` key, `enter` key, and arrow keys to navigate through the menu. 
@@ -206,7 +206,7 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
     - The default timeout for GRUB is 1s. You can modify this by changing the `GRUB_TIMEOUT` variable in `/etc/default/grub`
 
 
-#### Single user mode
+#### Single user mode in SUSE SLES
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:
 
 1. From GRUB, press 'e' to edit your boot entry (the SLES entry)
@@ -218,10 +218,10 @@ You will be automatically dropped into emergency shell if SLES cannot boot norma
 ### Access for Oracle Linux
 Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled. 
 
-#### GRUB access
+#### GRUB access in Oracle Linux
 Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your VM with `sudo reboot` and press 'Esc'. You will see the GRUB screen show up.
 
-#### Single user mode
+#### Single user mode in Oracle Linux
 Follow the instructions for RHEL above to enable single user mode in Oracle Linux.
 
 
@@ -230,7 +230,7 @@ Follow the instructions for RHEL above to enable single user mode in Oracle Linu
 ### System Request (SysRq)
 A SysRq is a sequence of keys understood by the Linux operation system kernel which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can not be performed through traditional administration (for example the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
 
-Once the SysRq sequence is delivered, the kernel configuration will control how the system responds. For information on enabling and disabling SysRq, see the *SysRq Admin Guide* [text](https://www.kernel.org/doc/Documentation/admin-guide/sysrq.rst) | [markdown](https://github.com/torvalds/linux/blob/master/Documentation/admin-guide/sysrq.rst).  
+Once the SysRq sequence is delivered, the kernel configuration will control how the system responds. For information on enabling and disabling SysRq, see the *SysRq Admin Guide* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
 The Azure Serial Console can be used to send a SysRq to an Azure virtual machine using the keyboard icon in the command bar shown below.
 
