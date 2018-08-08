@@ -94,8 +94,8 @@ You are free to use a different custom Docker image to run your app. However, yo
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [Microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
-- [Microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
-- [Microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
-- [Microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
-- [Microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
+- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
+- [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
+- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
+- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
