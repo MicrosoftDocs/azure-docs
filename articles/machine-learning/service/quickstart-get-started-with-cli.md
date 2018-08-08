@@ -91,8 +91,8 @@ In the command-line window, create an Azure Machine Learning Workspace under the
 In the command-line window, create a folder on your local machine for your Azure Machine Learning project.
 
    ```
-   mkdir myproject
-   cd myproject
+   mkdir docs-prj
+   cd docs-prj
    ```
 
 ## Create a Python script
