@@ -19,6 +19,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - **Configure Ansible** - [Create Azure credentials and configure Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
 - **Ansible and the Azure Python SDK modules** 
+  - [Cloud Shell](./ansible-run-playbook-in-cloudshell.md) from your browser
   - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
   - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
   - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
@@ -152,7 +153,44 @@ The following output shows that the AKS cluster has been successfully created:
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## Delete a managed AKS cluster
 
+If you want to delete existing AKS cluster, the following sample Ansible playbook shows you how to delete it:
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+To delete the Azure Kubernetes Service cluster with Ansible, save the preceding playbook as *azure_delete_aks.yml*, and run the playbook as follows:
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+The following output shows that the AKS cluster has been successfully deleted:
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
 ## Next steps
 > [!div class="nextstepaction"] 
 > [Tutorial: Scale application in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
