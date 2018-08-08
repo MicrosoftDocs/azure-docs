@@ -58,7 +58,7 @@ Accelerated networking must be enabled on a Linux virtual machine. The virtual m
 
 ## Install DPDK dependencies
 
-### Ubuntu 18.04
+### Ubuntu 16.04
 
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
@@ -66,7 +66,7 @@ sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```
 
-### Ubuntu 16.04
+### Ubuntu 18.04
 
 ```bash
 sudo apt-get update
@@ -201,7 +201,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
@@ -221,7 +221,7 @@ The following commands periodically print the packets per second statistics:
      –l <core-mask> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
