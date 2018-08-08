@@ -161,8 +161,7 @@ Certain simplifications are applied to a chart when you pin it to a dashboard:
 
 - Table columns and rows: In order to pin a table to the dashboard, it must have four or fewer columns. Only the top seven rows are displayed.
 - Time restriction: Queries are automatically limited to the past 14 days.
-- Bin count restriction: If you display a chart that has a lot of discrete bins, less populated bins are automatically grouped into a single _others_ bin. 
-- 
+- Bin count restriction: If you display a chart that has a lot of discrete bins, less populated bins are automatically grouped into a single _others_ bin.
 
 ## Save queries
 Once you've created a useful query, you might want to save it or share with others. The **Save** icon is on the top bar.
