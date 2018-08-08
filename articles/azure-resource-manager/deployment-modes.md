@@ -54,16 +54,19 @@ When deployed in **complete** mode, Resource C is deleted. The resource group ha
 * Resource B
 * Resource D
 
-## Set the mode
+## Set deployment mode
 
-To use complete mode when deploying with PowerShell, use the `Mode` parameter:
+To set the deployment mode when deploying with PowerShell, use the `Mode` parameter.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
+New-AzureRmResourceGroupDeployment `
+  -Mode Complete `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\storage.json 
 ```
 
-To use complete mode when deploying with Azure CLI, use the `mode` parameter:
+To set the deployment mode when deploying with Azure CLI, use the `mode` parameter.
 
 ```azurecli-interactive
 az group deployment create \
@@ -72,6 +75,22 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters storageAccountType=Standard_GRS
+```
+
+To set the deployment mode in a [linked or nested template](resource-group-linked-templates.md), use the `mode` property.
+
+```json
+"resources": [
+  {
+      "apiVersion": "2017-05-10",
+      "name": "linkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          <nested-template-or-external-template>
+      }
+  }
+]
 ```
 
 ## Next steps
