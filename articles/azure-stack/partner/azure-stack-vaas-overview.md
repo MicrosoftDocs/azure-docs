@@ -57,3 +57,4 @@ For more information, see [Quickstart: Use the Validation as a Service portal to
 ## Next steps
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
+- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md).

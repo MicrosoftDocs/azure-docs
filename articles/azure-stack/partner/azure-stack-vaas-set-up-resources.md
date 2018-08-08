@@ -104,4 +104,5 @@ For details on using the storage account for VaaS, see the following articles:
 
 ## Next steps
 
-- Use the VaaS local agent to prepare for test execution. For instruction, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+- Use the VaaS local agent to prepare for test execution. For instructions, see [Deploy the local agent and test virtual machines](azure-stack-vaas-test-vm.md).
+- Learn about [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md).

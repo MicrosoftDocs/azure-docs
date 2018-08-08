@@ -16,7 +16,7 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ---
 
-# Validation as a Service Key Concepts
+# Validation as a Service key concepts
 
 This article describes key concepts in Validation as a Service (VaaS).
 
@@ -52,13 +52,14 @@ For more information on workflow types, see [What is Validation as a Service for
     - Solution Validation: [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
     - Package Validation: [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
     - Package Validation: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+
 3. To manage or monitor an existing workflow, click on **Manage** on the workflow tile. Click on the name of the workflow and use the **Edit** button to view properties or modify common test parameters.
 
 For more information about workflow properties and parameters, see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md).
 
 ## Tests
 
-A test in VaaS consists of a suite of operations that run against an Azure Stack solution. Tests have different purposes identified by a category such as **Functional** or **Reliability**, and may target one or more services of Azure Stack. Each tests defines its own set of parameters, some of which are specified by common parameters of the containing workflow.
+A test in VaaS consists of a suite of operations that run against an Azure Stack solution. Tests have different intended purposes identified by a category, such as functional or reliability, and target one or more services of Azure Stack. Each test defines its own set of parameters, some of which are specified by common parameters of the containing workflow.
 
 For more information about managing and monitoring tests, see [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md).
 
@@ -66,10 +67,10 @@ For more information about test parameters, see [Workflow common parameters for 
 
 ## Agents
 
-A VaaS agent drives test execution. Tests can be performed in the following ways:
+A VaaS agent drives test execution. Two types of agents execute VaaS tests:
 
-- Cloud agent. This is the default agent available in VaaS. No setup is required, but this requires in-bound connectivity to your environment and Azure Stack endpoints must be resolvable from the internet. Some tests are not compatible with the cloud agent.
-- Local agent. This enables you to perform validation in scenarios where in-bound connectivity to your environment is not feasible. Some tests require execution through the local agent.
+- The **cloud agent**. This is the default agent available in VaaS. No setup is required, but this requires in-bound connectivity to your environment and Azure Stack endpoints must be resolvable from the internet. Some tests are not compatible with the cloud agent.
+- A **local agent**. This enables you to perform validation in scenarios where in-bound connectivity to your environment is not feasible. Some tests require execution through the local agent.
 
 Local agents are not tied to any particular Azure Stack or VaaS solution. As a best practice, they should run outside of an Azure Stack environment.
 
