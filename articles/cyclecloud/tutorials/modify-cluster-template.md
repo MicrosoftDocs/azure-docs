@@ -33,7 +33,8 @@ For this tutorial, you will need:
 
 ### Open a Terminal Window
 
-[!INCLUDE ~/azure-docs/master/includes/cloud-shell-try-it.md]
+
+[!INCLUDE [cloud-shell-try-it.md](/azure-docs/master/includes/cloud-shell-try-it.md)]
 
 
 Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
