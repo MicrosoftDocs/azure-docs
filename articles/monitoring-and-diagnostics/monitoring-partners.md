@@ -12,15 +12,15 @@ ms.component: ""
 # Azure Monitor partner integrations
 | Partners |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [**Botmetric**][botmetric-anchor] | [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![Partner Logo][logicmonitor-logo]<br/>**Logic Monitor**][logicmonitor-anchor] |
-| [![Partner Logo][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Partner Logo][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Partner Logo][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
-| [![Partner Logo][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |
-| [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | [![Partner Logo][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
-|  |
+| [**AlertLogic**  <br/> ![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics** <br/> ![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**   <br/> ![Partner Logo][atlassian-logo]][atlassian-anchor] 
+| [**Botmetric**][botmetric-anchor] | [**Circonus** <br/> ![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth** <br/> ![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
+| [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn** <br/> ![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog** <br/> ![Partner Logo][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana** <br/> ![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor** <br/> ![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
+| [**Moogsoft** <br/> ![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic** <br/> ![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie** <br/> ![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
+| [**PagerDuty** <br/> ![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar** <br/> ![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic** <br/> ![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
+| [**SignalFx** <br/> ![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4** <br/> ![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
+| [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic** <br/> ![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic** <br/> ![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
+
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager collects VM, application, and Azure platform logs for security analysis and retention. It also collects the Azure Activity Log through the Azure Monitor API. This information is used to detect malfeasance and meet compliance requirements.
