@@ -66,7 +66,7 @@ Wait until the VM has finished deleting before you process to the next step.
 
 ## Create a snapshot from the OS Disk of the VM
 
-The following example creates a snapshot from the OS disk of the VM named `myVM`:
+The following example creates a snapshot with name `mySnapshot` from the OS disk of the VM named `myVM'. 
 
 ```powershell
 $resourceGroupName = 'myResourceGroup' 
@@ -96,7 +96,7 @@ A snapshot is a full, read-only copy of a VHD. It cannot be attached to a VM. In
 
 ## Create a disk from the snapshot
 
-This script creates a managed disk from a snapshot named `mysnapshot`.  
+This script creates a managed disk with name 'NewOSDisk' from the snapshot named `mysnapshot`.  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -216,7 +216,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 You can use Azure PowerShell to swap the OS disks. You don't have to delete and recreate the VM.
 
-This example stops the VM named myVM and assigns the disk named `NewOSDisk` as the new OS disk. 
+This example stops the VM named `myVM` and assigns the disk named `NewOSDisk` as the new OS disk. 
 
 ```powershell
 # Get the VM 
