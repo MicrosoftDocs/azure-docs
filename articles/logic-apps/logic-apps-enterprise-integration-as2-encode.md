@@ -13,8 +13,8 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: LADocs; padmavc
+ms.date: 08/08/2018
+ms.author: LADocs; divswa
 
 ---
 # Encode AS2 messages for Azure Logic Apps with the Enterprise Integration Pack
