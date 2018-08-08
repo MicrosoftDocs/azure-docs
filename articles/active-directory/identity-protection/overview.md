@@ -210,7 +210,7 @@ For an overview of the related user experience, see:
 
 ## Users flagged for risk
 
-All active [risk events](active-directory-identity-protection-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called user risk. A user flagged for risk is an indicator for a user account that might have been compromised.
+All active [risk events](../reports-monitoring/concept-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called user risk. A user flagged for risk is an indicator for a user account that might have been compromised.
 
 ![Users flagged for risk](./media/overview/1200.png)
 
