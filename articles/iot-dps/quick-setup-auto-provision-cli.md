@@ -1,8 +1,8 @@
 ---
 title: Set up Device Provisioning using Azure CLI | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using Azure CLI
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -42,7 +42,7 @@ az group create --name my-sample-resource-group --location westus
 
 ## Create an IoT hub
 
-Create an IoT IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. 
+Create an IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command.
 
 The following example creates an IoT hub named *my-sample-hub* in the *westus* location.  
 

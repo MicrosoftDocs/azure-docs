@@ -2,7 +2,7 @@
 title: Monitoring & performance tuning - Azure SQL Database | Microsoft Docs
 description: Tips for performance tuning in Azure SQL Database through evaluation and improvement.
 services: sql-database
-author: v-shysun
+author: danimir
 manager: craigg
 editor: ''
 keywords: sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning
@@ -10,7 +10,8 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: v-shysun
+ms.author: v-daljep
+ms.reviewer: carlrab
 
 ---
 # Monitoring and performance tuning

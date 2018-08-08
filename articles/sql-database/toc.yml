@@ -83,7 +83,9 @@
     - name: DTU model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
-      href: sql-database-resource-limits.md  
+      href: sql-database-resource-limits.md
+    - name: Prepay for reserved capacity
+      href: sql-database-reserved-capacity.md
   - name: Logical servers
     items: 
     - name: Create and manage
@@ -140,7 +142,7 @@
       items:
       - name: Long-term backup retention
         href: sql-database-long-term-retention.md
-      - name: Configure using Axure blob storage
+      - name: Configure using Azure blob storage
         href: sql-database-long-term-backup-retention-configure.md
       - name: Configure using Azure vault (deprecated)
         href: sql-database-long-term-backup-retention-configure-vault.md

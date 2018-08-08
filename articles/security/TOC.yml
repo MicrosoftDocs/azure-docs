@@ -9,7 +9,7 @@
   - name: Azure logging and auditing
     href: azure-log-audit.md
   - name: Azure network security
-    href: azure-network-security.md
+    href: abstract-azure-network-security.md
   - name: Azure serverless platform security
     href: abstract-serverless-platform-security.md
   - name: Enabling operational security

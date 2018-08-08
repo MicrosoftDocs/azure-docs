@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2018
+ms.date: 08/06/2018
 ms.author: kumud
 ---
 
@@ -27,7 +27,7 @@ When a health probe fails, Load Balancer stops sending new flows to the respecti
 > [!IMPORTANT]
 > Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance up.  Review [probe source IP address](#probesource) for details.
 
-## Health probe types
+## <a name="types"></a>Health probe types
 
 Health probes can observe any port on a backend instance, including the port on which the actual service is provided. The health probe supports TCP listeners or HTTP endpoints. 
 
@@ -39,7 +39,7 @@ You should not NAT or proxy a health probe through the instance which receives t
 
 If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination or [source](#probesource)).
 
-### TCP probe
+### <a name="tcpprobe"></a>TCP probe
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a four-way close TCP handshake.
 
@@ -49,7 +49,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-### HTTP probe
+### <a name="httpprobe"></a>HTTP probe
 
 HTTP probes establish a TCP connection and issue an HTTP GET with the specified path. 
 HTTP probes support relative paths for the HTTP GET. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  HTTP health probes attempt to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration cannot exceed 120 seconds. 
@@ -64,7 +64,7 @@ An HTTP probe fails when:
 * HTTP probe endpoint doesn't respond at all during the a 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * HTTP probe endpoint closes the connection via a TCP reset.
 
-### Guest agent probe (Classic only)
+### <a name="guestagent"></a>Guest agent probe (Classic only)
 
 Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   You should consider this an option of last resort.  You should always define an health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
 
@@ -78,7 +78,7 @@ If the guest agent responds with an HTTP 200, the load balancer sends new flows 
 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
-## Probe health
+## <a name="probehealth"></a>Probe health
 
 TCP and HTTP health probes are considered healthy and mark the role instance as healthy when:
 
