@@ -31,7 +31,7 @@ The troubleshooting process is as follows:
 2. Create a snapshot from the OS Disk of the VM.
 3. Create a disk from the OS disk snapshot.
 4. Attach the disk as a data disk to a recovery VM.
-5. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the copied OS disk.
+5. Connect to the recovery VM. Edit files or run any tools to fix issues on the copied OS disk.
 6. Unmount and detach disk from recovery VM.
 7. Change the OS disk for the affected VM.
 
@@ -156,9 +156,9 @@ $vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-## Connect to the troubleshooting VM and fix issues on the attached disk
+## Connect to the recovery VM and fix issues on the attached disk
 
-1. RDP to your troubleshooting VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `RecoveryVM` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
+1. RDP to your recovery VM using the appropriate credentials. The following example downloads the RDP connection file for the VM named `RecoveryVM` in the resource group named `myResourceGroup`, and downloads it to `C:\Users\ops\Documents`"
 
     ```powershell
     Get-AzureRMRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
@@ -185,7 +185,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 After the copy of the original OS disk is mounted, you can perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
 
 ## Unmount and detach original OS disk
-Once your errors are resolved, you unmount and detach the existing disk from your troubleshooting VM. You cannot use your disk with any other VM until the lease attaching the disk to the troubleshooting VM is released.
+Once your errors are resolved, you unmount and detach the existing disk from your recovery VM. You cannot use your disk with any other VM until the lease attaching the disk to the recovery VM is released.
 
 1. From within your RDP session, unmount the data disk on your recovery VM. You need the disk number from the previous `Get-Disk` cmdlet. Then, use `Set-Disk` to set the disk as offline:
 
