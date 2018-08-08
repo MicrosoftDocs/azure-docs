@@ -3,13 +3,13 @@ title: Add LUIS data to Application Insights using C# | Microsoft Docs
 titleSuffix: Azure
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Add LUIS results to Application Insights from a web app bot
@@ -173,7 +173,7 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
     ![Test web app bot in chat](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
 
-3. You should see no difference in the chat bot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
+3. You should see no difference in the chatbot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
 
 ```
 Please deliver a pizza

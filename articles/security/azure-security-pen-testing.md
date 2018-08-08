@@ -1,4 +1,4 @@
-﻿---
+---
 title: Pen Testing | Microsoft Docs
 description: The article provides an overview of the penetration testing (pentest) process and how perform pentest against your apps running in Azure infrastructure.
 services: security

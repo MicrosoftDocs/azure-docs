@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Core web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default ASP.NET web app.
+title: Create a C# ASP.NET Core web app in Azure | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
@@ -35,13 +35,9 @@ ms.custom: mvc, devcenter
 
 To complete this tutorial:
 
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
 
-    ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Create an ASP.NET Core web app
 
@@ -58,10 +54,6 @@ You can deploy any type of ASP.NET Core web app to Azure. For this quickstart, s
 Select **OK**.
 
 ![New ASP.NET Project dialog box](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Once the ASP.NET Core project is created, the ASP.NET Core welcome page will be displayed, providing numerous links to resources to help you get started. 
-
-![Welcome Page](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 From the menu, select **Debug > Start without Debugging** to run the web app locally.
 
@@ -81,11 +73,10 @@ This opens the **Create App Service** dialog, which helps you create all the nec
 
 ## Sign in to Azure
 
-In the **Create App Service** dialog, select **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
+In the **Create App Service** dialog, click **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
 
 > [!NOTE]
 > If you're already signed in, don't select **Create** yet.
->
 >
    
 ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -147,7 +138,8 @@ Find the `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-
 
 To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
-In the publish page, select **Publish**.
+In the publish summary page, select **Publish**.
+![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 

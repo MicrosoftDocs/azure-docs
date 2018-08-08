@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -78,5 +78,4 @@ In this tutorial, you learned how to:
 > * Customize the style of elements on pages of the **Developer** portal
 > * View your change
 
-> [!div class="nextstepaction"]
-> [Customize the Azure API Management developer portal using templates](api-management-developer-portal-templates.md)
+You might also be interested in learning [how to customize the Azure API Management developer portal using templates](api-management-developer-portal-templates.md).

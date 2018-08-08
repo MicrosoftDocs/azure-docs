@@ -23,7 +23,7 @@ There are currently five effects that are supported in a policy definition:
 - Audit
 - AuditIfNotExists
 - Deny
-- DeployIfNotExists
+- DeployIfNotExists (only available to **built-in** policies)
 
 ## Order of Evaluation
 
@@ -103,7 +103,7 @@ Example 3: Single **field/value** pair using an [alias](policy-definition.md#ali
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -143,7 +143,7 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in audit log when a non-compliant resource is
+Audit effect is used to create a warning event in the activity log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
 ### Audit Evaluation
@@ -151,7 +151,7 @@ evaluated, but it does not stop the request.
 The audit effect is the last to run during the creation or update of a resource prior to the
 resource is sent to the Resource Provider. Audit works the same for a resource request and an
 evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
-Activity Log. In both cases, the resource is marked as non-compliant.
+activity log. In both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
 
@@ -178,8 +178,8 @@ have the components specified in the **details** of the **then** condition.
 AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
 resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the Activity
-Log is executed in the same way as the audit effect. When triggered, the resource that satisfied
+effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the activity
+log is executed in the same way as the audit effect. When triggered, the resource that satisfied
 the **if** condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
@@ -208,7 +208,7 @@ related resources to match.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
   - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
   - Can use [field()] to check equivalence with values in the **if** condition.
-  - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+  - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 
 ### AuditIfNotExists Example
 
@@ -246,6 +246,9 @@ when missing.
 Similar to AuditIfNotExists, DeployIfNotExists executes a template deployment when the condition
 is met.
 
+> [!WARNING]
+> DeployIfNotExists is only available to **built-in** policies.
+
 ### DeployIfNotExists Evaluation
 
 DeployIfNotExists also runs after a Resource Provider has handled a create or update request to a
@@ -279,11 +282,11 @@ related resources to match and the template deployment to execute.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
 - **ExistenceCondition** (optional)
-  - If not specified, any related resource of **type** satisfies the effect and does not trigger the audit.
+  - If not specified, any related resource of **type** satisfies the effect and does not trigger the deployment.
   - Uses the same language as the policy rule for the **if** condition, but is evaluated against each related resource individually.
-  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the audit.
+  - If any matching related resource evaluates to true, the effect is satisfied and does not trigger the deployment.
   - Can use [field()] to check equivalence with values in the **if** condition.
-  - As an example, this could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
+  - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **Deployment** [required]
   - This property should contain the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
@@ -342,6 +345,37 @@ not, then a deployment to enable it is executed.
     }
 }
 ```
+
+## Layering policies
+
+A resource may be impacted by multiple assignments. These assignments may be at the same scope
+(specific resource, resource group, subscription, or management group) or at different scopes. Each
+of these assignments is also likely to have a different effect defined. Regardless, the condition
+and effect for each policy (assigned directly or as part of an initiative) is independently
+evaluated. For example, if policy 1 has a condition that restricts resource location for
+subscription A to only be created in ‘westus’ with the deny effect and policy 2 has a condition
+that restricts resource location for resource group B (which is in subscription A) to only be
+created in ‘eastus’ with the audit effect are both assigned, the resulting outcome would be::
+
+- Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
+- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.
+- Any new resource in subscription A not in 'westus' would be denied by policy 1.
+- Any new resource in subscription A / resource group B in 'westus' would be marked as non-compliant on policy 2, but would be created (compliant to policy 1 and policy 2 is audit and not deny).
+
+If both policy 1 and policy 2 had effect of deny, the situation would change to:
+
+- Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2.
+- Any resource already in resource group B not in 'westus' will be marked as non-compliant to policy 1.
+- Any new resource in subscription A not in 'westus' would be denied by policy 1.
+- Any new resource in subscription A / resource group B would be denied (since its location could never satisfy both policy 1 and policy 2).
+
+As each assignment is individually evaluated, there isn't an opportunity for a resource to slip
+through a gap due to differences in scope. Therefore, the net result of layering policies or policy
+overlap is considered to be **cumulative most restrictive**. In other words, a resource you want
+created could be blocked due to overlapping and conflicting policies such as the example above if
+both policy 1 and policy 2 had a deny effect. If you still need the resource to be created in the
+target scope, review the exclusions on each assignment to ensure the right policies are affecting
+the right scopes.
 
 ## Next steps
 

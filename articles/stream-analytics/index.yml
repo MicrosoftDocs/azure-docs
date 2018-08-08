@@ -38,6 +38,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
       href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
+    - image:
+       src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: http://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

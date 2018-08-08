@@ -398,7 +398,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
+   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
 4. Open `Program.cs` and add the following `using` statement:
    
         using Microsoft.Azure.NotificationHubs;

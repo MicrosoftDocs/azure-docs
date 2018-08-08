@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
 
@@ -77,7 +77,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
 
 ## Add additional workers directly within the App Service Resource Provider Admin.
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Sign in to the Azure Stack administration portal as the service administrator.
 
 2. Browse to **App Services**.
 

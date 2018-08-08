@@ -4,7 +4,7 @@
 ## [FAQ](faq-classic.md)
 
 # Get Started
-## [Create a Linux VM with Azure portal](createportal-classic.md)
+## [Create a Linux VM](createportal-classic.md)
 
 # How to
 ## Compute

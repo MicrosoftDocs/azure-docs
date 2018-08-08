@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -57,13 +57,13 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
     ![Import the certificate into storage explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. After storage explorer restarts, select the **Edit** menu, and check to see if **Target Azure Stack** is selected. If it isn't,select **Target Azure Stack**, and then restart storage explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+7. After storage explorer restarts, select the **Edit** menu, and check to see if **Target Azure Stack** is selected. If it isn't, select **Target Azure Stack**, and then restart storage explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## Connect to an Azure Stack subscription
+## Connect to an Azure Stack subscription with Azure AD
 
-Use the following steps to connect storage explorer to an Azure Stack subscription.
+Use the following steps to connect storage explorer to an Azure Stack subscription, which belongs to an Azure Active Directory (Azure AD) account.
 
 1. In the left pane of storage explorer, select **Manage Accounts**. 
     All the Microsoft subscription that you signed in are displayed.
@@ -72,7 +72,7 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
 
     ![Add an Azure Stack account](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, depending on the Azure Stack account that you're using. Select  **Sign in** to sign in to the Azure Stack account that's associated with at least one active Azure Stack subscription.
+3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, which depends on the Azure Stack account that is being used, select **Sign in** to sign in with the Azure Stack account associated with at least one active Azure Stack subscription.
 
     ![Connect to Azure storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -83,6 +83,44 @@ Use the following steps to connect storage explorer to an Azure Stack subscripti
     The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
 
     ![List of storage accounts including Azure Stack subscription accounts](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## Connect to an Azure Stack subscription with AD FS account
+
+> [!Note]  
+> The Azure Federated Service (AD FS) sign-in experience supports Storage Explorer 1.2.0 or newer versions with Azure Stack 1804 or newer update.
+Use the following steps to connect storage explorer to an Azure Stack subscription which belongs to an AD FS account.
+
+1. Select **Manage Accounts**. The explorer lists the Microsoft subscriptions that you signed in to.
+2. Select **Add an account** to connect to the Azure Stack subscription.
+
+    ![Add an account](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. Select **Next**. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Use Custom Environment**, then click **Next**.
+
+    ![Connect to Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. Enter the required information of Azure Stack custom environment. 
+
+    | Field | Notes |
+    | ---   | ---   |
+    | Environment name | The field can be customized by user. |
+    | Azure Resource Manager endpoint | The samples of Azure Resource Manager resource endpoints of Azure Stack Development Kit.<br>For operators: https://adminmanagement.local.azurestack.external <br> For users: https://management.local.azurestack.external |
+
+    If you are working on Azure Stack integrated system and don't know your management endpoint, contact your operator.
+
+    ![Add an account](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. Select **Sign in**, to connect to the Azure Stack account that associated with at least one active Azure Stack subscription.
+
+
+
+6. Select the Azure Stack subscriptions that you want to work with. Select **Apply**.
+
+    ![Account management](./media/azure-stack-storage-connect-se/account-management.png)
+
+    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+
+    ![List of associated subscriptions](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
 ## Connect to an Azure Stack storage account
 

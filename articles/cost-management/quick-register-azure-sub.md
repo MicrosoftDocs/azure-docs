@@ -6,9 +6,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
-ms.custom: 
+ms.custom:
 ms.service: cost-management
 manager: dougeby
 ---
@@ -18,9 +18,9 @@ manager: dougeby
 
 You use your Azure subscription to register with Azure Cost Management. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
-## Log in to Azure
+## Sign in to Azure
 
-- Log in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at http://portal.azure.com.
 
 ## Register with Azure Cost Management
 

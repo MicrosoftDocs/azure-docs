@@ -414,6 +414,7 @@ These attributes for **user** are in addition to the other apps you have selecte
 | --- |:---:| --- |
 | domainFQDN |X |Also called dnsDomainName. For example, contoso.com. |
 | domainNetBios |X |Also called netBiosName. For example, CONTOSO. |
+| msDS-KeyCredentialLink |X |Once the user is enrolled in Windows Hello for Business. | 
 
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.

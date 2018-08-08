@@ -4,7 +4,7 @@ description: Create a connection to Wunderlist, and use this connection to build
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

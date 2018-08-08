@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Service Principal for Azure Stack | Microsoft Docs
 description: Describes how to create a service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 
@@ -60,7 +60,7 @@ Check to see that you have the [required Azure AD permissions](../../azure-resou
 
 To create a service principal for your application:
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
+1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **App registrations** > **Add**.
 3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 

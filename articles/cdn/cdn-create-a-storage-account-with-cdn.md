@@ -81,7 +81,7 @@ You can use several methods to create a storage account, including the Azure por
 
 ## Enable Azure CDN for the storage account
 
-You can enable Azure CDN for your storage account directly from your storage account. If you want to specify advanced configuration settings for your CDN endpoint, such as the optimization type, you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md) to create a CDN profile or a CDN endpoint.
+You can enable Azure CDN for your storage account directly from your storage account. If you want to specify advanced configuration settings for your CDN endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md) to create a CDN profile and endpoint.
 
 1. Select a storage account from the dashboard, then select **Azure CDN** from the left pane. If the **Azure CDN** button is not immediately visible, you can enter CDN in the **Search** box of the left pane to find it.
 	
@@ -106,6 +106,9 @@ You can enable Azure CDN for your storage account directly from your storage acc
 From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page. From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
 	
 ![Storage CDN endpoint configuration](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## Enable SAS
+If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. For more information, see [Using Azure CDN with SAS](cdn-sas-storage-support.md).
 
 ## Access CDN content
 To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob has the following format:
@@ -136,8 +139,8 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 3. To delete your storage account, select it from the dashboard, then select **Delete** from the top menu.
 
 ## Next steps
-To learn about adding a custom domain to your CDN endpoint, see the following tutorial:
+To learn about adding a custom domain and enable HTTPS on your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Access storage blobs using an Azure CDN custom domain over HTTPS](cdn-storage-custom-domain-https.md)
 

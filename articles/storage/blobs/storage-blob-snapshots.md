@@ -3,14 +3,14 @@ title: Create a read-only snapshot of a blob in Azure Storage | Microsoft Docs
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-
+ms.component: blobs
 ---
+
 # Create a blob snapshot
 
 A snapshot is a read-only version of a blob that's taken at a point in time. Snapshots are useful for backing up blobs. After you create a snapshot, you can read, copy, or delete it, but you cannot modify it.

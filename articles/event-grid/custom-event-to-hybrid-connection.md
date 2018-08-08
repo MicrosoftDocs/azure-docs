@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
 ---
@@ -23,7 +23,7 @@ This article assumes you already have a hybrid connection and a listener applica
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. 
 
 The following example creates a resource group named *gridResourceGroup* in the *westus2* location.
 
@@ -33,7 +33,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it is represented by a DNS entry.
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your topic. The topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -49,7 +49,7 @@ You subscribe to a topic to tell Event Grid which events you want to track. The 
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-The following script gets the resource ID of the relay namespace. It constructs the ID for the hybrid connection, and subscribes to an event grid topic. It sets the endpoint type to `hybridconnection` and uses the hybrid connection ID for the endpoint.
+The following script gets the resource ID of the relay namespace. It constructs the ID for the hybrid connection, and subscribes to an event grid topic. The script sets the endpoint type to `hybridconnection` and uses the hybrid connection ID for the endpoint.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -67,9 +67,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## Create application to process events
+
+You need an application that can retrieve events from the hybrid connection. The [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) performs that operation. You've already finished the prerequisite steps.
+
+1. Make sure you have Visual Studio 2017 Version 15.5 or later.
+
+1. Clone the repository to your local machine.
+
+1. Load HybridConnectionConsumer project in Visual Studio.
+
+1. In Program.cs, replace `<relayConnectionString>` and `<hybridConnectionName>` with the relay connection string and hybrid connection name that you created.
+
+1. Compile and run the application from Visual Studio.
+
 ## Send an event to your topic
 
-Let's trigger an event to see how Event Grid distributes the message to your endpoint. First, let's get the URL and key for the custom topic. Again, use your topic name for `<topic_name>`.
+Let's trigger an event to see how Event Grid distributes the message to your endpoint. This article shows how to use Azure CLI to trigger the event. Alternatively, you can use [Event Grid publisher application](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+First, let's get the URL and key for the custom topic. Again, use your topic name for `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

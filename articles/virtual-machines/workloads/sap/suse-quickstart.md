@@ -130,7 +130,7 @@ SUSE provides a package called "sapconf" that manages a set of SAP-specific sett
 
 In the meantime, there is a new tool, which replaces 'sapconf - tuned-adm'. One can find more information about this tool following the two links:
 
-- SLES documentation about 'tuned-adm' profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+- SLES documentation about 'tuned-adm' profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_saptune.html) 
 
 - Tuning Systems for SAP Workloads with 'tuned-adm' - can be found [here](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) in chapter 6.2
 

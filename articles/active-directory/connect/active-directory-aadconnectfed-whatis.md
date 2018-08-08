@@ -3,10 +3,9 @@ title: Azure AD Connect and federation | Microsoft Docs
 description: This page is the central location for all documentation regarding AD FS operations that use Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
-
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -15,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.component: hybrid
-ms.author: anandy
+ms.author: billmath
 
 ---
 # Azure AD Connect and federation

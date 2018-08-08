@@ -47,11 +47,13 @@
 ### [Data + Analytics](documentation-government-services-dataandanalytics.md)
 ### [AI + Cognitive Services](documentation-government-services-aiandcognitiveservices.md) 
 ### [Internet of Things](documentation-government-services-iot-hub.md)
+### [Integration Services](documentation-government-services-integration.md)
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Developer Tools](documentation-government-services-devtools.md)
 ## [CSP for Azure Government](documentation-government-csp-application.md)
+### [Approved resellers](documentation-government-csp-list.md)
 ## Certifications
 ### [ITAR](documentation-government-overview-itar.md)
 ### [Justice and Public Safety](documentation-government-overview-jps.md)

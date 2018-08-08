@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
@@ -18,7 +18,7 @@ You can open a support request if you can't find the information you're looking 
 
 ## Open a support ticket
 
-1. Log in to the Azure portal (https://portal.azure.com).
+1. Sign in to the Azure portal (https://portal.azure.com).
 2. On the top navigation bar, click **Help**.
 3. In the **Help** menu, click **Help + support**.
 4. In the Help + support menu under Support, click **New support request**.

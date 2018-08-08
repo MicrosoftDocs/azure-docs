@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.author: danha; mbullwin
+ms.topic: conceptual
+ms.date: 07/02/2018
+ms.reviewer: danha
+ms.author: mbullwin
 
 ---
 # Using Analytics in Application Insights
@@ -148,7 +149,7 @@ The chart pinned to the dashboard is refreshed automatically by re-running the q
 
 Certain simplifications are applied to a chart when you pin it to a dashboard.
 
-**Time restriction:** Queries are automatically limited to the past 14 days. The effect is the same as if your query includes `where timestamp > ago(14d)`.
+**Time restriction:** Queries are automatically limited to the past 30 days. The effect is the same as if your query includes `where timestamp > ago(30d)`.
 
 **Bin count restriction:** If you display a chart that has a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query:
 

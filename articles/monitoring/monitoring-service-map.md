@@ -3,8 +3,8 @@ title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
 services:  monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
@@ -13,16 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
 
 ---
 
 # Using Service Map solution in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-This article describes the details of using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
+This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
 
+## Sign in to Azure
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+## Enable Service Map
+1. In the Azure portal, click **+ Create a resource**.
+2. In the search bar, type **Service Map** and press **Enter**.
+3. In the marketplace search results page, select **Service Map** from the list.<br><br> ![Select Service Map solution from Azure Marketplace search results](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. On the **Service Map** overview pane, review the solution details and then click **Create** to begin the onboarding process to your Log Analytics workspace.<br><br> ![Onboard the Service Map solution](./media/monitoring-service-map/service-map-onboard.png).
+5. In the **Configure a solution** pane, select an existing or create a new Log Analytics workspace.  For further information on how to create a new workspace, see [Create a Log Analytics workspace in the Azure portal](../log-analytics/log-analytics-quick-create-workspace.md). After providing the required information, click **Create**.  
+
+While the information is verified and the solution is deployed, you can track its progress under **Notifications** from the menu. 
+
+You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/monitoring-service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## Use cases: Make your IT processes dependency aware
 
@@ -41,9 +54,10 @@ If you are using Azure Site Recovery and need help defining the recovery sequenc
 ### Patch management
 Service Map enhances your use of the System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management by showing you whether your services are available and properly connected after they are patched and restarted.
 
-
 ## Mapping overview
-Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process. In the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
+Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process.
+
+From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
 
 ![Service Map overview](media/monitoring-service-map/service-map-overview.png)
 
@@ -185,16 +199,13 @@ The **Process Summary** pane provides additional information about the process�
 ![Process Summary pane](media/monitoring-service-map/process-summary.png)
 
 ## Alerts integration
-Service Map integrates with Alerts in Log Analytics to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
+Service Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
 
 ![Machine Alerts pane](media/monitoring-service-map/machine-alerts.png)
 
 To enable Service Map to display relevant alerts, create an alert rule that fires for a specific computer. To create proper alerts:
-- Include a clause to group by computer (for example, **by Computer interval 1minute**).
+- Include a clause to group by computer (for example, **by Computer interval 1 minute**).
 - Choose to alert based on metric measurement.
-
-![Alert configuration](media/monitoring-service-map/alert-configuration.png)
-
 
 ## Log events integration
 Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range. You can click any row in the list of event counts to jump to Log Search and see the individual log events.
@@ -222,7 +233,7 @@ The **Machine Change Tracking** pane lists all changes, with the most recent fir
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
-![ConfigurationChange event](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange event](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## Performance integration
@@ -252,7 +263,6 @@ Service Map integration with Security and Audit is automatic when both solutions
 The **Machine Security** pane shows data from the Security and Audit solution for the selected server. The pane lists a summary of any outstanding security issues for the server during the selected time range. Clicking any of the security issues drills down into a Log Search for details about them.
 
 ![Machine Security pane](media/monitoring-service-map/machine-security.png)
-
 
 ## Updates integration
 Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Anlaytics workspace.

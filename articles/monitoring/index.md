@@ -1,6 +1,6 @@
 ---
-title: Azure Management - Monitoring | Microsoft Docs
-description: Azure has multiple services and tools that work together to provide complete management for not only your applications running in Azure but also in other clouds and on-premises.  This article provides a high level description of the different areas of management and links to content on Azure tools for managing your cloud applications and resources.
+title: Azure Management and Operations Management Suite (OMS) | Microsoft Docs
+description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools that were previously bundled as Operations Management Suite (OMS).
 documentationcenter: ''
 author: bwren
 manager: carmonm

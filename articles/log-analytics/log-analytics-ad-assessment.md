@@ -3,7 +3,7 @@ title: Optimize your Active Directory environment with Azure Log Analytics | Mic
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
+ms.component: na
 
 ---
 # Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics

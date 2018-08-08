@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -31,7 +32,7 @@ This article provides you with an overview of both notification emails.
 
 ## Users at risk detected email
 
-In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](active-directory-reporting-security-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
+In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
 
 ![Users at risk detected email](./media/active-directory-identityprotection-notifications/01.png)
 
