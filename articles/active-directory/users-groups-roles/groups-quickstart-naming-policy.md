@@ -15,11 +15,16 @@ ms.date: 04/24/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
+
 #As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my tenant’s user-created groups. 
 ---
-# Quickstart: Add naming policy for Office 365 groups in Azure Active Directory
+# Quickstart: Naming policy for Office 365 groups in Azure Active Directory
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) tenant for self-service Office 365 groups, to help sort and search your tenant’s groups. 
+In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) tenant for user-created Office 365 groups, to help you sort and search your tenant’s groups. For example, you could use the naming policy to:
+
+* Communicate the function of a group, membership, geographic region, or who created the group.
+* Help categorize groups in the address book.
+* Block specific words from being used in group names and aliases.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -91,6 +96,26 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   ````
   
 That's it. You've set your naming policy and added your custom blocked words.
+
+## Clean up resources
+
+1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Save the settings for the new policy to be effective, such as in the following example.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
 
 ## Next steps
 
