@@ -275,9 +275,9 @@ To enable throttling:
 
 A1. There is at maximum delay of 15 mins between the backup job status reflected in the Azure backup agent and the Azure portal.
 
-**Q.2 When a backup job fails, how long does it take to raise an alert?**
+**Q2. When a backup job fails, how long does it take to raise an alert?**
 
-A.2 An alert is raised within 20 mins of the Azure backup failure.
+A2. An alert is raised within 20 mins of the Azure backup failure.
 
 **Q3. Is there a case where an email won’t be sent if notifications are configured?**
 
