@@ -41,6 +41,10 @@ Select **Run Locally** in the query editor. Or you can press F5.
    
 ![Run Locally](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
+The output can be viewed in a table format directly from Visual Studio.
+
+![Output in table format](./media/stream-analytics-vs-tools-local-run/stream-analytics-for-vs-local-result.png)
+
 You can find the output path from the console output. Press any key to open the result folder.
    
 ![Local run](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-02.png)
