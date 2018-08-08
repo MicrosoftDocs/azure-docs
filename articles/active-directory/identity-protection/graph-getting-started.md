@@ -20,7 +20,7 @@ ms.reviewer: nigu
 ms.custom: seohack1
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](active-directory-identityprotection.md) APIs. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](active-directory-identityprotection-risk-events-types.md) and associated information. This article gets you started querying this API. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started querying this API. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/).
 
 
 There are four steps to accessing Identity Protection data through Microsoft Graph:
@@ -42,12 +42,12 @@ Before you get started, you’ll need:
 
 2. On the left navigation pane, click **Active Directory**. 
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/41.png)
+    ![Creating an application](./media/graph-getting-started/41.png)
 
 
 3. In the **Manage** section, click **Properties**.
 
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/42.png)
+    ![Creating an application](./media/graph-getting-started/42.png)
 
 4. Copy your domain name.
 
@@ -56,16 +56,16 @@ Before you get started, you’ll need:
 
 1. On the **Active Directory** page, in the **Manage** section, click **App registrations**.
 
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/42.png)
+    ![Creating an application](./media/graph-getting-started/42.png)
 
 
 2. In the menu on the top, click **New application registration**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/43.png)
+    ![Creating an application](./media/graph-getting-started/43.png)
 
 3. On the **Create** page,  perform the following steps:
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/44.png)
+    ![Creating an application](./media/graph-getting-started/44.png)
 
     a. In the **Name** textbox, type a name for your application (e.g.: AADIP Risk Event API Application).
    
@@ -84,35 +84,35 @@ Before you get started, you’ll need:
 
 1. On the **Settings** page, click **Required permissions**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/15.png)
+    ![Creating an application](./media/graph-getting-started/15.png)
 
 2. On the **Required permissions** page, in the toolbar on the top, click **Add**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/16.png)
+    ![Creating an application](./media/graph-getting-started/16.png)
    
 3. On the **Add API access** page, click **Select an API**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/17.png)
+    ![Creating an application](./media/graph-getting-started/17.png)
 
 4. On the **Select an API** page, select **Microsoft Graph**, and then click **Select**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/18.png)
+    ![Creating an application](./media/graph-getting-started/18.png)
 
 5. On the **Add API access** page, click **Select permissions**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/19.png)
+    ![Creating an application](./media/graph-getting-started/19.png)
 
 6. On the **Enable Access** page, click **Read all identity risk information**, and then click **Select**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/20.png)
+    ![Creating an application](./media/graph-getting-started/20.png)
 
 7. On the **Add API access** page, click **Done**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/21.png)
+    ![Creating an application](./media/graph-getting-started/21.png)
 
 8. On the **Required Permissions** page, click **Grant Permissions**, and then click **Yes**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/22.png)
+    ![Creating an application](./media/graph-getting-started/22.png)
 
 
 
@@ -120,11 +120,11 @@ Before you get started, you’ll need:
 
 1. On the **Settings** page, click **Keys**.
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/23.png)
+    ![Creating an application](./media/graph-getting-started/23.png)
 
 2. On the **Keys** page, perform the following steps:
    
-    ![Creating an application](./media/active-directory-identityprotection-graph-getting-started/24.png)
+    ![Creating an application](./media/graph-getting-started/24.png)
 
     a. In the **Key description** textbox, type a description (for example, *AADIP Risk Event*).
     

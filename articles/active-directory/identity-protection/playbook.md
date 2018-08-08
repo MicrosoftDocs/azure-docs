@@ -113,7 +113,7 @@ This section provides you with steps for testing the user risk and the sign-in r
 
 For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
 
-![User risk](./media/active-directory-identityprotection-playbook/02.png "Playbook")
+![User risk](./media/playbook/02.png "Playbook")
 
 
 **To test a user risk security policy, perform the following steps**:
@@ -123,7 +123,7 @@ For more information, see [User risk security policy](active-directory-identityp
 3. On the **Azure AD Identity Protection** page, click **User risk policy**.
 4. In the **Assignments** section, select the desired users (and groups) and user risk level.
 
-    ![User risk](./media/active-directory-identityprotection-playbook/03.png "Playbook")
+    ![User risk](./media/playbook/03.png "Playbook")
 
 5. In the Controls section, select the desired Access control (e.g. Require password change).
 5. As **Enforce Policy**, select **Off**.
@@ -136,9 +136,9 @@ For more information, see [User risk security policy](active-directory-identityp
 
 ### Sign-in risk security policy
 
-For more information, see [User risk security policy](active-directory-identityprotection.md#user-risk-security-policy).
+For more information, see [User risk security policy](../active-directory-identityprotection.md#user-risk-security-policy).
 
-![Sign-in risk](./media/active-directory-identityprotection-playbook/01.png "Playbook")
+![Sign-in risk](./media/playbook/01.png "Playbook")
 
 
 **To test a sign in risk policy, perform the following steps:**
@@ -151,7 +151,7 @@ For more information, see [User risk security policy](active-directory-identityp
 
 4. In the **Assignments** section, select the desired users (and groups) and sign-in risk level.
 
-    ![Sign-in risk](./media/active-directory-identityprotection-playbook/04.png "Playbook")
+    ![Sign-in risk](./media/playbook/04.png "Playbook")
 
 
 5. In the **Controls** section, select the desired Access control (for example, **Require multi-factor authentication**). 
@@ -169,5 +169,5 @@ For more information, see [User risk security policy](active-directory-identityp
 
 ## See also
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

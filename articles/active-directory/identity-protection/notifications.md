@@ -34,7 +34,7 @@ This article provides you with an overview of both notification emails.
 
 In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
 
-![Users at risk detected email](./media/active-directory-identityprotection-notifications/01.png)
+![Users at risk detected email](./media/notifications/01.png)
 
 
 ### Configuration
@@ -47,7 +47,7 @@ As an administrator, you can set:
 
 To open the related dialog, click **Alerts** in the **Settings** section of the **Identity Protection** page.
 
-![Users at risk detected email](./media/active-directory-identityprotection-notifications/05.png)
+![Users at risk detected email](./media/notifications/05.png)
 
 
 ## Weekly digest email
@@ -63,19 +63,19 @@ It includes:
 
 - Links to the related reports in Identity Protection
 
-    ![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+    ![Remediation](./media/notifications/400.png "Remediation")
 
 ### Configuration
 
 As an administrator, you can switch sending a weekly digest email off.
 
-![User risks](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![User risks](./media/notifications/62.png "User risks")
 
 To open the related dialog, click **Weekly Digest** in the **Settings** section of the **Identity Protection** page.
 
-![Users at risk detected email](./media/active-directory-identityprotection-notifications/04.png)
+![Users at risk detected email](./media/notifications/04.png)
 
 
 ## See also
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

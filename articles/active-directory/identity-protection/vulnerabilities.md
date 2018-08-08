@@ -23,7 +23,7 @@ ms.reviewer: nigu
 Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting them.
 
 
-![vulnerabilities](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
+![vulnerabilities](./media/vulnerabilities/101.png "vulnerabilities")
 
 
 
@@ -54,8 +54,9 @@ To enable users to carry out privileged operations, organizations need to grant 
 
 We recommend that your organization uses Azure AD Privileged Identity Management to manage, control, and monitor privileged identities and their access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
 
-For more information, see [Azure AD Privileged Identity Management](privileged-identity-management/pim-configure.md). 
+For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
 ## See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+[Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 
