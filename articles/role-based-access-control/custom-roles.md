@@ -100,7 +100,7 @@ A custom role has the following properties.
 
 ## AssignableScopes for custom roles
 
-Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. However, you currently can't use the root scope (`"/"`) or a management group scope in your own custom roles. If you try, you will get an authorization error. The `AssignableScopes` property for a custom role also controls who can create, delete, modify, or view the custom role.
+Just like built-in roles, the `AssignableScopes` property specifies the scopes that the role is available for assignment. The `AssignableScopes` property for a custom role also controls who can create, delete, modify, or view the custom role.
 
 | Task | Operation | Description |
 | --- | --- | --- |
