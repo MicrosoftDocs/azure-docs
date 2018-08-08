@@ -43,7 +43,7 @@ To unblock a suspicious sign-in, you have the following options:
 
 1. **Sign in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices. Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.
 2. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-3. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. For more information, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+3. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## Unblocking accounts at risk
 To unblock an account at risk, you have the following options:
