@@ -13,8 +13,8 @@ ms.topic: conceptual
 There are multiple options for making the scene and asset files available to the rendering applications on the pool VMs:
 
 * [Azure blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
-  * Scene and asset files and uploaded to blob storage from a local file system; when the application is run by a task, then the required files are copied from blob storage onto the VM so they can be accessed by the rendering application; the output files are written by the rendering application to the VM disk; the output files are then copied to blob storage.  If necessary, the output files can be download from blob storage to a local file system.
-  * Azure blob storage is a simple and cost-effective option for smaller projects.  As all asset files are required on each pool VM, then once the number and size of asset files increases, then care needs to be taken to ensure the file transfers are as efficient as possible.  
+  * Scene and asset files and uploaded to blob storage from a local file system. When the application is run by a task, then the required files are copied from blob storage onto the VM so they can be accessed by the rendering application. The output files are written by the rendering application to the VM disk and then copied to blob storage.  If necessary, the output files can be download from blob storage to a local file system.
+  * Azure blob storage is a simple and cost-effective option for smaller projects.  As all asset files are required on each pool VM, then once the number and size of asset files increases care needs to be taken to ensure the file transfers are as efficient as possible.  
 * Azure storage as a file system using [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
   * For Linux VMs, a storage account can be exposed and used as a file system when the blobfuse virtual file system driver is used.
   * This option has the advantage that it is very cost-effective, as no VMs are required for the file system, plus blobfuse caching on the VMs avoids repeated downloads of the same files for multiple jobs and tasks.  Data movement is also simple as the files are simply blobs and standard APIs and tools, such as azcopy, can be used to copy file between an on-premises file system and Azure storage.
@@ -39,9 +39,7 @@ For example, using azcopy, all assets in a folder can be transferred as follows:
 
 To copy only modified files, the /XO parameter can be used:
 
-`
-azcopy /source:. /dest:https://account.blob.core.windows.net/rendering/project /destsas:"?st=2018-03-30T16%3A26%3A00Z&se=2020-03-31T16%3A26%3A00Z&sp=rwdl&sv=2017-04-17&sr=c&sig=sig" /XO /Y
-`
+`azcopy /source:. /dest:https://account.blob.core.windows.net/rendering/project /destsas:"?st=2018-03-30T16%3A26%3A00Z&se=2020-03-31T16%3A26%3A00Z&sp=rwdl&sv=2017-04-17&sr=c&sig=sig" /XO /Y`
 
 ### Copying input asset files from blob storage to Batch pool VMs
 
@@ -104,7 +102,7 @@ Example use of cmdkey in a pool template (escaped for use in JSON file) – note
 ```
 
 Example job task command line:
-```azurecli
+```
 "commandLine":"net use S:
   \\\\storageaccountname.file.core.windows.net\\rendering &
 3dsmaxcmdio.exe -v:5 -rfw:0 -10 -end:10

@@ -1,6 +1,6 @@
 ---
-title: Azure Batch rendering using render managers
-description: Using Azure for rendering using render managers
+title: Azure Batch render manager support
+description: Using Azure for rendering using Azure Batch render manager integration
 services: batch
 author: mscurrell
 ms.author: markscu
@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Using Azure Batch with render managers
 
-If there's any existing rendering work being performed and an existing on-premises render farm, then it's highly likely that a render management system is being used to manager the render farm capacity and render jobs.
+If there's any existing rendering work being performed using an on-premises render farm, then it's highly likely that a render management system is being used to manage the render farm capacity and render jobs.
 
 Azure support is either built-in or provided as add-ons for popular render managers, allowing Azure VMs to be added and removed, including VMs with the pay-for-use application licensing and low-priority VMs.
 

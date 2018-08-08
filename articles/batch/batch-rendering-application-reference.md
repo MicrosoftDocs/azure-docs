@@ -5,10 +5,14 @@ services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: ???
+ms.topic: conceptual
 ---
 
 # Rendering applications
+
+Rendering applications are used by creating Batch jobs and tasks, with the task command line property specifying the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  The templates can be viewed and modified versions created if required.
+
+This article provides a brief description of how each rendering application can be invoked.
 
 ## Rendering with Autodesk 3ds Max
 
@@ -21,15 +25,12 @@ In addition to the renderers built in to 3ds Max, the following renderers are al
 
 ### Task command line
 
-The ‘3dsmaxcmdio.exe’ application must be invoked to perform command line rendering on a pool node.  This application is on the path when the task is run and the application has the same available parameters as the ‘3dsmaxcmd.exe’ command application which is documented in the [3ds Max help documentation](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering | Command-Line Rendering section).
+The ‘3dsmaxcmdio.exe’ application must be invoked to perform command line rendering on a pool node.  This application is on the path when the task is run and the application has the same available parameters as the ‘3dsmaxcmd.exe’ command application, which is documented in the [3ds Max help documentation](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering | Command-Line Rendering section).
 
 For example:
 
-```azurecli
-3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0}
--bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images”
--outputName:dragon.jpg -w:1280 -h:720
-"%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
+```
+3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
 ```
 
 Notes:
@@ -56,19 +57,19 @@ The ‘renderer.exe’ command line render is used in the task command line. The
 
 In the following example, a job preparation task is used to copy the scene files and assets to the job preparation working directory, an output folder is used to store the rendering image, and frame 10 is rendered.
 
-```azurecli
+```
 render -renderer sw -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 
 For V-Ray rendering, the Maya scene file would normally specify that V-Ray should be used as the renderer.  It can also be specified on the command line:
 
-```azurecli
+```
 render -renderer vray -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 
 For Arnold rendering, the Maya scene file would normally specify that Arnold should be used as the renderer.  It can also be specified on the command line:
 
-```azurecli
+```
 render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_BATCH_TASK_WORKING_DIR%\output" -s 10 -e 10 -x 1920 -y 1080 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scene-file.ma"
 ```
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Azure Batch rendering capabilities
 
-In the main, standard Azure Batch capabilities are used to run rendering workloads and applications, but there are some areas where specific support has been added.
+Standard Azure Batch capabilities are used to run rendering workloads and applications, but there are some areas where specific rendering support has been added.
 
 For an overview of Batch concepts, including pools, jobs, and tasks see [this article](https://docs.microsoft.com/azure/batch/batch-api-basics).
 
@@ -18,17 +18,19 @@ For an overview of Batch concepts, including pools, jobs, and tasks see [this ar
 
 ### Rendering application installation
 
-An Azure Marketplace rendering VM image can be specified in the pool configuration if only one or more of the pre-installed applications need to be used.
+An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
 
 * There is a Windows 2016 image and a CentOS image.
 * For an example pool configuration, see the rendering tutorial.
 
-The other standard mechanisms are available if alternative or additional applications are required on the pool VMs:
+Other options are available if additional applications are required on the pool VMs:
 
-* A custom image based on a standard Marketplace image or a rendering Marketplace image
+* A custom image based on a standard Marketplace image or a rendering Marketplace image:
   * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray respectively to validate against an Azure Batch licensing service. You will need to ensure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. This license validation isn't required for Maya or 3ds Max as the current published versions don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
-* Application packages
-* Resource files
+* [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
+  * The application files are packaged using one or more ZIP files, uploaded via the Azure portal, and specified in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
+* Resource files:
+  * Application files are uploaded to Azure blob storage, references to those files are specified in the [pool start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), and when pool VMs are created the resource files are downloaded onto each VM.
 
 ### Pay-for-use licensing for pre-installed applications
 
@@ -39,7 +41,7 @@ The applications that will be used and have a licensing fee need to be specified
 
 The Azure portal and Batch Explorer display licensing UI that allow applications to be selected and show the application prices.
 
-If an attempt is made to execute an application, but the application hasn’t been specified in the ‘applicationLicenses’ property of the pool configuration, then the application execution will fail with a licensing error and non-zero exit code.
+If an attempt is made to use an application, but the application hasn’t been specified in the ‘applicationLicenses’ property of the pool configuration, then the application execution will fail with a licensing error and non-zero exit code.
 
 ### Environment variables for pre-installed applications
 
