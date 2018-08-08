@@ -15,7 +15,7 @@
     href: quickstart-tensorflow-training-cli.md
 - name: Tutorials
   items:
-  - name: Distributed training using Horovod - Azure Batch AI
+  - name: Distributed training using Horovod
     href: tutorial-horovod-tensorflow.md
 - name: Samples
   items:
