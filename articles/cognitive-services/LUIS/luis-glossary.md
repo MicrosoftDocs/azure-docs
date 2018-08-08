@@ -1,6 +1,6 @@
 ---
-title: Glossary for the Language Understanding (LUIS) API Service | Microsoft Docs
-description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
+title: Glossary for the Language Understanding (LUIS) API Service - Azure Cognitive Services | Microsoft Docs
+description: The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -12,6 +12,7 @@ ms.author: diberry
 ---
 
 # Glossary
+The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 
 ## <a name="active-version"></a>Active version
 
