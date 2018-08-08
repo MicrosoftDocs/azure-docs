@@ -43,16 +43,7 @@ For this quickstart, you will need:
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-### Open a Terminal Window
-
 [!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
-
-
-Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
-
-```azurecli-interactive
-Click the "Try It" button to open Cloud Shell
-```
 
 > [!NOTE]
 > The "Try It" button opens a Cloud Shell in your current browser window. It does not enter the command for you. You will need to click the "Copy" button to save to your clipboard, then paste the command into your Shell.

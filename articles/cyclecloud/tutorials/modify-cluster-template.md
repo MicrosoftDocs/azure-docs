@@ -26,20 +26,12 @@ Azure CycleCloud's cluster types are great for standard use cases, but users oft
 For this tutorial, you will need:
 
 1. An active Azure subscription.
-  * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+  * [!INCLUDE [quickstarts-free-trial-note.md](~/includes/free-trial-note.md)]
 2. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-### Open a Terminal Window
-
-[//]: # (## this syntax does not work: [!INCLUDE [cloud-shell-try-it.md](azure-docs/master/includes/cloud-shell-try-it.md)])
-
-Open a [Shell session](https://shell.azure.com) in a new browser window. You can also use the green "Try It" button below to open Cloud Shell in your current browser window:
-
-```azurecli-interactive
-Click the "Try It" button to open Cloud Shell
-```
+[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
 
 ## Install Azure CycleCloud CLI
 
@@ -69,4 +61,4 @@ Once the CLI has been installed, you'll need to connect it to your Azure CycleCl
 1. Initialize the server with `cyclecloud initialize`. You will be prompted for the CycleServer URL, which is the FQDN of your application server. Enter it in the format **https://FQDN**.
 2. The installed Azure CycleCloud server uses either a Let's Encrypt SSL certificate, or a self-signed certificate. Type `yes` when asked to allow the certificate.
 3. Log in with the same username and password used for the CycleCloud web interface.
-4. Test 
+4. Test
