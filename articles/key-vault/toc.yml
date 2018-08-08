@@ -44,30 +44,24 @@
     href: key-vault-ovw-throttling.md
 - name: How-to guides
   items:
-  - name: Manage
-    items:
-    - name: Azure Key Vault logging
-      href: key-vault-logging.md
-    - name: Access behind firewalls
-      href: key-vault-access-behind-firewall.md
-    - name: Availability and redundancy
-      href: key-vault-disaster-recovery-guidance.md
-    - name: Change tenant ID
-      href: key-vault-subscription-move-fix.md
-    - name: Create and manage using Azure CLI
-      href: key-vault-manage-with-cli2.md
-    - name: Use Key Vault soft-delete with CLI
-      href: key-vault-soft-delete-cli.md
-    - name: Use Key Vault soft-delete with Azure PowerShell
-      href: key-vault-soft-delete-powershell.md
-    - name: Use groups to grant access
-      href: key-vault-group-permissions-for-apps.md
-    - name: Secure your key vault
-      href: key-vault-secure-your-key-vault.md
-  - name: Automate
-    items:
-    - name: Azure automation
-      href: automation-manage-key-vault.md
+  - name: Azure Key Vault logging
+    href: key-vault-logging.md
+  - name: Access behind firewalls
+    href: key-vault-access-behind-firewall.md
+  - name: Availability and redundancy
+    href: key-vault-disaster-recovery-guidance.md
+  - name: Change tenant ID
+    href: key-vault-subscription-move-fix.md
+  - name: Create and manage using Azure CLI
+    href: key-vault-manage-with-cli2.md
+  - name: Use Key Vault soft-delete with CLI
+    href: key-vault-soft-delete-cli.md
+  - name: Use Key Vault soft-delete with Azure PowerShell
+    href: key-vault-soft-delete-powershell.md
+  - name: Use groups to grant access
+    href: key-vault-group-permissions-for-apps.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
 - name: Reference
   items:
   - name: Azure PowerShell
