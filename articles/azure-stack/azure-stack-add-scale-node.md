@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 08/09/2018
 ms.author: brenduns
 ms.reviewer: thoroet 
 ---
@@ -72,6 +72,9 @@ Use the **New-AzsScaleUnitNodeObject** cmdlet to add a node.
 
 Before using either of the following sample PowerShell scripts, replace the values *node names* and *IP addresses* with values from your Azure Stack environment.
 
+  > [!Note]  
+  > When naming a node you must keep the name to less than 15 characters in length. You also cannot use a name that contains a space or contains any of the following characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+
 **Add a node:**
   ```powershell
   ## Add a single Node 
@@ -79,7 +82,6 @@ Before using either of the following sample PowerShell scripts, replace the valu
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
-
 
 ## Monitor add node operations 
 You can use the admin portal or PowerShell to get the status of the add node operation. Add node operations can take several hours to days to complete.
