@@ -1,9 +1,8 @@
 ---
-title: Frequently asked questions for Speech to Text Service on Azure | Microsoft Docs
+title: Frequently asked questions for Speech to Text Service on Azure
 description: Here are answers to the most popular questions about the Speech to Text.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
@@ -11,9 +10,9 @@ ms.date: 06/11/2018
 ms.author: panosper
 ---
 
-# Custom Speech Service Frequently Asked Questions
+# Speech To Text Frequently Asked Questions
 
-If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
+If you can't find answers to your questions in this FAQ, check out other support options [here](support.md).
 
 ## General
 
@@ -23,7 +22,7 @@ If you can't find answers to your questions in this FAQ, try asking the Custom S
 
 **Question**: Where do I start if I want to use a baseline model?
 
-**Answer**: First you need to get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models,  consult the [details here](rest-apis.md). If you want to use WebSockets download the [SDK](speech-sdk.md)
+**Answer**: First you need to get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models, consult the [details here](rest-apis.md). If you want to use WebSockets download the [SDK](speech-sdk.md)
 
 **Question**: Do I always need to build a custom speech model?
 
@@ -31,7 +30,7 @@ If you can't find answers to your questions in this FAQ, try asking the Custom S
 
 **Question**: How will I know when the processing of my data set or model is complete?
 
-**Answer**: Currently, the status of the model or data set in the table is the only want to know.
+**Answer**: Currently, the status of the model or data set in the table is the only way to know.
 When the processing is complete, the status will be "Succeeded".
 
 **Question**: Can I create more than one model?
@@ -44,7 +43,7 @@ When the processing is complete, the status will be "Succeeded".
 
 **Question**: What is the difference between the Search & Dictation Models and the Conversational Models?
 
-**Answer**: There are more than one baseline models to choose from in the Speech Service. The Conversational model is appropriate for recognizing speech spoken in a conversational style. This model would be ideal for trnascribing calls while search and Dictation is ideal for voice triggered Apps. Universal is a new model that aims to address both scenarios.
+**Answer**: There are more than one baseline models to choose from in the Speech Service. The Conversational model is appropriate for recognizing speech spoken in a conversational style. This model would be ideal for transcribing calls while search and Dictation is ideal for voice triggered Apps. Universal is a new model that aims to address both scenarios.
 
 **Question**: Can I update my existing model (model stacking)?
 
@@ -131,7 +130,7 @@ You should aim to beat the baseline model to make the customization worthwhile.
 
 **Question**: How much text data do I need to upload?
 
-**Answer**: It depends on how different the vocabulary and phrases used in your application are from the starting language models. For all new words, it is useful to provide as many examples as possible of the usage of those words. For common phrases that are used in your application, including phrases in the language data is also useful as it tells the system to listen for these terms as well. It is common to have at least one hudrend and typically several hundred utterances in the language data set or more. Also if certain types of queries are expected to be more common than others, you can insert multiple copies of the common queries in the data set.
+**Answer**: It depends on how different the vocabulary and phrases used in your application are from the starting language models. For all new words, it is useful to provide as many examples as possible of the usage of those words. For common phrases that are used in your application, including phrases in the language data is also useful as it tells the system to listen for these terms as well. It is common to have at least one hundred and typically several hundred utterances in the language data set or more. Also if certain types of queries are expected to be more common than others, you can insert multiple copies of the common queries in the data set.
 
 **Question**: Can I just upload a list of words?
 

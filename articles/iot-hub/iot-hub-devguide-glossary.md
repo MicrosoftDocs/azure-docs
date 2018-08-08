@@ -35,6 +35,9 @@ There are _device SDKs_ available for multiple languages that enable you to crea
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
+## Azure IoT Toolkit
+The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a cross-platform, open-source Visual Studio Code extension that helps you manage Azure IoT Hub and devices in VS Code. With Azure IoT Toolkit, IoT developers could develop IoT project in VS Code with ease.
+
 ## Azure portal
 The [Microsoft Azure portal](https://portal.azure.com) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_.
 

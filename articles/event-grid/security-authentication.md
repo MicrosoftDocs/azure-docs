@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 services: event-grid
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/07/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -39,7 +39,7 @@ This mechanism of manual validation is in preview. To use it, you must install t
 ### Validation details
 
 * At the time of event subscription creation/update, Event Grid posts a Subscription Validation Event to the target endpoint. 
-* The event contains a header value "Aeg-Event-Type: SubscriptionValidation".
+* The event contains a header value "aeg-event-type: SubscriptionValidation".
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is "Microsoft.EventGrid.SubscriptionValidationEvent".
 * The data property of the event includes a "validationCode" property with a randomly generated string. For example, "validationCode: acb13…".
@@ -90,7 +90,7 @@ During event subscription creation, if you are seeing an error message such as "
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
-When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Finally, it's important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 

@@ -50,6 +50,8 @@ Before you begin this tutorial:
 
 * Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
+* The app for this tutorial must, for now, be built using the English locale.
+
 ## Create a Service Fabric Mesh project
 
 Run Visual Studio and select **File** > **New** > **Project...**

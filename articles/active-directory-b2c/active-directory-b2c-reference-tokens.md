@@ -68,7 +68,7 @@ Note that the claims in ID tokens are not returned in any particular order. In a
 
 | Name | Claim | Example value | Description |
 | --- | --- | --- | --- |
-| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. |
+| Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |An audience claim identifies the intended recipient of the token. For Azure AD B2C, the audience is your app's application ID, as assigned to your app in the app registration portal. Your app should validate this value and reject the token if it does not match. Audience is synonymous with resource. |
 | Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |This claim identifies the security token service (STS) that constructs and returns the token. It also identifies the Azure AD directory in which the user was authenticated. Your app should validate the issuer claim to ensure that the token came from the Azure Active Directory v2.0 endpoint. |
 | Issued at |`iat` |`1438535543` |This claim is the time at which the token was issued, represented in epoch time. |
 | Expiration time |`exp` |`1438539443` |The expiration time claim is the time at which the token becomes invalid, represented in epoch time. Your app should use this claim to verify the validity of the token lifetime. |

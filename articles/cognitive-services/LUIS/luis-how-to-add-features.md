@@ -2,13 +2,13 @@
 title: Add features in LUIS applications | Microsoft Docs
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 
 # Use features to improve your LUIS app's performance  
