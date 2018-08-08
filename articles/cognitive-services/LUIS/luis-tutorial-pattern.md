@@ -1,7 +1,7 @@
 ---
-title: Tutorial using patterns to improve LUIS predictions - Azure | Microsoft Docs 
+title: Tutorial using patterns to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
 titleSuffix: Cognitive Services
-description: In this tutorial, use pattern for intents to improve LUIS intent and entity predictions.
+description: In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided with a template utterance and entities and ignorable text.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -17,7 +17,7 @@ ms.author: diberry
 
 # Tutorial: Improve app with patterns
 
-In this tutorial, use patterns to increase intent and entity prediction.  
+In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided with a template utterance and entities and ignorable text.   
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app

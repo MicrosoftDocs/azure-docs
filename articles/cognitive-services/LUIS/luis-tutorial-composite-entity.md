@@ -1,6 +1,6 @@
 ---
-title: Tutorial creating a composite entity to extract complex data - Azure | Microsoft Docs 
-description: Learn how to create a composite entity in your LUIS app to extract different types of entity data. 
+title: Tutorial creating a composite entity to extract complex data - Azure Cognitive Services | Microsoft Docs 
+description: In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
 manager: cjgronlund 
@@ -13,7 +13,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 6. Add Composite entity 
-In this tutorial, add a composite entity to bundle extracted data into a containing entity.
+In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
 In this tutorial, you learn how to:
 

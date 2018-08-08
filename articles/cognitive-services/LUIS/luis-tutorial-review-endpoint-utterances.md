@@ -1,6 +1,6 @@
 ---
-title: Tutorial to review endpoint utterances in Language Understanding (LUIS) - Azure | Microsoft Docs 
-description: In this tutorial, learn how to review endpoint utterances in the Human Resources (HR) domain in LUIS. 
+title: Tutorial to review endpoint utterances in Language Understanding (LUIS) - Azure Cognitive Services| Microsoft Docs 
+description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -15,7 +15,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 1. Review endpoint utterances
-In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint. 
+In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 
 <!-- green checkmark -->
 > [!div class="checklist"]

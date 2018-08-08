@@ -1,7 +1,7 @@
 ---
-title: Tutorial using pattern roles to improve LUIS predictions - Azure | Microsoft Docs 
+title: Tutorial using pattern roles to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs 
 titleSuffix: Cognitive Services
-description: In this tutorial, use pattern roles for contextually related entities to improve LUIS predictions.
+description: In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -17,7 +17,7 @@ ms.author: diberry
 
 # Tutorial: Improve app with pattern roles
 
-In this tutorial, use a simple entity with roles combined with patterns to increase intent and entity prediction.  When using patterns, fewer example utterances are needed for the intent.
+In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
 > [!div class="checklist"]
 * Understand pattern roles

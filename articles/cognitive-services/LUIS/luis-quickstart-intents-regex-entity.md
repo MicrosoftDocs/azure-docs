@@ -1,6 +1,6 @@
 ---
-title: Tutorial creating a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and a regular expression entity to extract data. 
+title: Tutorial creating a LUIS app to get regular-expression matched data - Azure Cognitive Services| Microsoft Docs 
+description: In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the Regular expression entity.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -14,7 +14,7 @@ ms.author: diberry
 --- 
 
 # Tutorial: 3. Add regular expression entity
-In this tutorial, create an app that demonstrates how to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
+In this tutorial, modify the Human Resources app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
 
 <!-- green checkmark -->

@@ -1,7 +1,7 @@
 ---
-title: Use batch testing to improve LUIS predictions  | Microsoft Docs
+title: Use batch testing to improve LUIS predictions - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Load batch test, review results, and improve LUIS predictions with changes.
+description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Improve app with batch test
 
-This tutorial demonstrates how to use batch testing to find utterance prediction issues.  
+This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.  
 
 In this tutorial, you learn how to:
 

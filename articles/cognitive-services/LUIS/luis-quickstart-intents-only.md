@@ -1,6 +1,6 @@
 ---
-title: 1. Create an app to learn what an intent is. - Azure | Microsoft Docs
-description: In this tutorial, create an app that demonstrates how to use intents to determine the user's intention based on the utterance (text) they submit to the app. When you're finished, you have a LUIS endpoint running in the cloud.
+title: 1. Create an app to learn what an intent is - Azure Cognitive Services| Microsoft Docs
+description: In this tutorial, create an app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -13,9 +13,9 @@ ms.author: diberry
 ---
 
 # Tutorial: 1. Build app with custom domain
-In this tutorial, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you have a LUIS endpoint running in the cloud.
+In this tutorial, create an app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
 
-This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text. It only determines the user's intention of the overall utterance.
+This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text. It only determines the user's overall intention of the utterance.
 
 <!-- green checkmark -->
 > [!div class="checklist"]

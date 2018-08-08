@@ -1,7 +1,7 @@
 ---
-title: Tutorial using pattern.any entity to improve LUIS predictions - Azure | Microsoft Docs 
+title: Tutorial using pattern.any entity to improve LUIS predictions - Azure Cognitive Services| Microsoft Docs 
 titleSuffix: Cognitive Services
-description: In this tutorial, use the pattern.any entity to improve LUIS intent and entity predictions.
+description: In this tutorial, use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -17,7 +17,7 @@ ms.author: diberry
 
 # Tutorial: Improve app with pattern.any entity
 
-In this tutorial, use the pattern.any entity to increase intent and entity prediction.  
+In this tutorial, use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance. 
 
 > [!div class="checklist"]
 * Learn when and how to use pattern.any
