@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **August 3, 2018**
+The July Guest OS has released.
 
 ###### **July 3, 2018**
 The June Guest OS has released.
@@ -86,8 +89,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.21_201807-02 |August 3, 2018 |Post 5.23 |TBD |
 | WA-GUEST-OS-5.20_201806-01 |July 3, 2018 |Post 5.22 |TBD |
-| WA-GUEST-OS-5.19_201805-01 |June 1, 2018 |Post 5.21 |TBD |
+|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
 |~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
@@ -95,7 +99,6 @@ October Guest OS has released.
 |~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
 
 
 ## Family 4 releases
@@ -110,8 +113,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.56_201807-02 |August 3, 2018 |Post 4.58 |TBD |
 | WA-GUEST-OS-4.55_201806-01 |July 3, 2018 |Post 4.57 |TBD |
-| WA-GUEST-OS-4.54_201805-01 |June 1, 2018 |Post 4.56 |TBD |
+|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
 |~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
@@ -119,8 +123,6 @@ October Guest OS has released.
 |~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-
 
 
 ## Family 3 releases
@@ -135,8 +137,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.63_201807-02 |August 3, 2018 |Post 3.65 |TBD |
 | WA-GUEST-OS-3.62_201806-01 |July 3, 2018 |Post 3.64 |TBD |
-| WA-GUEST-OS-3.61_201805-01 |June 1, 2018 |Post 3.63 |TBD |
+|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |TBD |
 |~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
@@ -144,8 +147,6 @@ October Guest OS has released.
 |~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 
 
 ## Family 2 releases
@@ -160,8 +161,9 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.76_201807-02 |August 3, 2018 |Post 2.78 |TBD |
 | WA-GUEST-OS-2.75_201806-01 |July 3, 2018 |Post 2.77 |TBD |
-| WA-GUEST-OS-2.74_201805-01 |June 1, 2018 |Post 2.76 |TBD |
+|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|TBD |
 |~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |

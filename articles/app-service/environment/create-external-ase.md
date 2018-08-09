@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an External Azure App Service environment
 description: Explains how to create an App Service environment while you create an app or standalone
 services: app-service
@@ -59,36 +59,27 @@ To create an ASE while you create an App Service plan:
 
     ![Web app creation][1]
 
-2. Select your subscription. The app and the ASE are created in the same subscriptions.
+1. Select your subscription. The app and the ASE are created in the same subscriptions.
 
-3. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
+1. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
 
-4. Select your OS. 
+1. Select your OS (Windows, Linux, or Docker). 
 
-    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
-    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
-
-5. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
+1. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
 
     ![New App Service plan][2]
 
-6. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
+1. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-    > [!NOTE]
-    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
-    >
-
-7. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
-
-    * For the Linux on ASE preview, a 50% discount will be applied to the Isolated SKU (there will be no discount on the flat-fee for the ASE itself).
+1. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
 
     ![Pricing tier selection][3]
 
-8. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
+1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
     ![New App Service plan name][4]
 
-9. Specify your Azure virtual networking details. Select either **Create New** or **Select Existing**. The option to select an existing VNet is available only if you have a VNet in the selected region. If you select **Create New**, enter a name for the VNet. A new Resource Manager VNet with that name is created. It uses the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
+1. Specify your Azure virtual networking details. Select either **Create New** or **Select Existing**. The option to select an existing VNet is available only if you have a VNet in the selected region. If you select **Create New**, enter a name for the VNet. A new Resource Manager VNet with that name is created. It uses the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
 
     a. Select the VNet address block, if you have more than one.
 
@@ -98,7 +89,7 @@ To create an ASE while you create an App Service plan:
 
     d. Select the subnet IP range.
 
-10. Select **Create** to create the ASE. This process also creates the App Service plan and the app. The ASE, App Service plan, and app are all under the same subscription and also in the same resource group. If your ASE needs a separate resource group or if you need an ILB ASE, follow the steps to create an ASE by itself.
+1. Select **Create** to create the ASE. This process also creates the App Service plan and the app. The ASE, App Service plan, and app are all under the same subscription and also in the same resource group. If your ASE needs a separate resource group or if you need an ILB ASE, follow the steps to create an ASE by itself.
 
 ## Create an ASE and a Linux web app using a custom Docker image together
 
@@ -106,31 +97,25 @@ To create an ASE while you create an App Service plan:
 
     ![Web app creation][7]
 
-2. Select your subscription. The app and the ASE are created in the same subscriptions.
+1. Select your subscription. The app and the ASE are created in the same subscriptions.
 
-3. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
+1. Select or create a resource group. With resource groups, you can manage related Azure resources as a unit. Resource groups also are useful when you establish Role-Based Access Control rules for your apps. For more information, see the [Azure Resource Manager overview][ARMOverview].
 
-4. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
+1. Select the App Service plan, and then select **Create New**. Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
 
     ![New App Service plan][8]
 
-5. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
+1. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-    > [!NOTE]
-    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
-    >
-
-6. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
-
-    * For the Linux on ASE preview, a 50% discount will be applied to the Isolated SKU (there will be no discount on the flat-fee for the ASE itself).
+1. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
 
     ![Pricing tier selection][3]
 
-7. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
+1. Enter the name for your ASE. This name is used in the addressable name for your apps. If the name of the ASE is _appsvcenvdemo_, the domain name is *.appsvcenvdemo.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.appsvcenvdemo.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of that name.
 
     ![New App Service plan name][4]
 
-8. Specify your Azure virtual networking details. Select either **Create New** or **Select Existing**. The option to select an existing VNet is available only if you have a VNet in the selected region. If you select **Create New**, enter a name for the VNet. A new Resource Manager VNet with that name is created. It uses the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
+1. Specify your Azure virtual networking details. Select either **Create New** or **Select Existing**. The option to select an existing VNet is available only if you have a VNet in the selected region. If you select **Create New**, enter a name for the VNet. A new Resource Manager VNet with that name is created. It uses the address space `192.168.250.0/23` in the selected region. If you select **Select Existing**, you need to:
 
     a. Select the VNet address block, if you have more than one.
 
@@ -140,12 +125,12 @@ To create an ASE while you create an App Service plan:
 
     d. Select the subnet IP range.
 
-9.	Select “Configure Container.”
+1.	Select “Configure Container.”
     * Enter your custom image name (you can use Azure Container Registry, Docker Hub, and your own private registry). If you don’t want to use your own custom container, you can just bring your code and use a built-in image with App Service on Linux, using the instructions above. 
 
     ![Configure Container][9]
 
-10. Select **Create** to create the ASE. This process also creates the App Service plan and the app. The ASE, App Service plan, and app are all under the same subscription and also in the same resource group. If your ASE needs a separate resource group or if you need an ILB ASE, follow the steps to create an ASE by itself.
+1. Select **Create** to create the ASE. This process also creates the App Service plan and the app. The ASE, App Service plan, and app are all under the same subscription and also in the same resource group. If your ASE needs a separate resource group or if you need an ILB ASE, follow the steps to create an ASE by itself.
 
 
 ## Create an ASE by itself ##
@@ -154,19 +139,19 @@ If you create an ASE standalone, it has nothing in it. An empty ASE still incurs
 
 1. Search the Azure Marketplace for **App Service Environment**, or select **Create a resource** > **Web Mobile** > **App Service Environment**. 
 
-2. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.mynewdemoase.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
+1. Enter the name of your ASE. This name is used for the apps created in the ASE. If the name is *mynewdemoase*, the subdomain name is *.mynewdemoase.p.azurewebsites.net*. If you create an app named *mytestapp*, it's addressable at mytestapp.mynewdemoase.p.azurewebsites.net. You can't use white space in the name. If you use uppercase characters, the domain name is the total lowercase version of the name. If you use an ILB, your ASE name isn't used in your subdomain but is instead explicitly stated during ASE creation.
 
     ![ASE naming][5]
 
-3. Select your subscription. This subscription is also the one that all apps in the ASE use. You can't put your ASE in a VNet that's in another subscription.
+1. Select your subscription. This subscription is also the one that all apps in the ASE use. You can't put your ASE in a VNet that's in another subscription.
 
-4. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your VNet. If you select an existing VNet, the resource group selection for your ASE is updated to reflect that of your VNet. *You can create an ASE with a resource group that is different from the VNet resource group if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service environment from a template][MakeASEfromTemplate].
+1. Select or specify a new resource group. The resource group used for your ASE must be the same one that's used for your VNet. If you select an existing VNet, the resource group selection for your ASE is updated to reflect that of your VNet. *You can create an ASE with a resource group that is different from the VNet resource group if you use a Resource Manager template.* To create an ASE from a template, see [Create an App Service environment from a template][MakeASEfromTemplate].
 
     ![Resource group selection][6]
 
-5. Select your VNet and location. You can create a new VNet or select an existing VNet: 
+1. Select your VNet and location. You can create a new VNet or select an existing VNet: 
 
-    * If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
+    * If you select a new VNet, you can specify a name and location. 
     
     * The new VNet has the address range 192.168.250.0/23 and a subnet named default. The subnet is defined as 192.168.250.0/24. You can only select a Resource Manager VNet. The **VIP Type** selection determines if your ASE can be directly accessed from the internet (External) or if it uses an ILB. To learn more about these options, see [Create and use an internal load balancer with an App Service environment][MakeILBASE]. 
 

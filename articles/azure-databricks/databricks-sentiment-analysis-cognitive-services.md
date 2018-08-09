@@ -1,23 +1,15 @@
 ---
-title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks | Microsoft Docs'
+title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks'
 description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real-time.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: ''
-tags: ''
-
-ms.assetid:
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 06/21/2018
+ms.date: 08/06/2018
 ms.author: alehall
-
 ---
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
@@ -541,7 +533,7 @@ Add a new code cell and paste the snippet provided below. This snippet defines a
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
       if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble

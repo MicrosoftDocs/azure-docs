@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
@@ -42,7 +42,7 @@ If you choose Passthrough as your preauthentication method, you don't get this b
 
 Apply richer policy controls before connections to your network are established.
 
-With [conditional access](../active-directory-conditional-access-azure-portal-get-started.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
+With [conditional access](../conditional-access/overview.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
 You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. 
 

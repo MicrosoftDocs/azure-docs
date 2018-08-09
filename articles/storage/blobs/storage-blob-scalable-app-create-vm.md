@@ -2,17 +2,15 @@
 title: Create a VM and storage account for a scalable application in Azure | Microsoft Docs 
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
 services: storage
-documentationcenter: 
 author: roygara
-manager: jeconnoc
 
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
+ms.component: blobs
 ---
 
 # Create a virtual machine and storage account for a scalable application

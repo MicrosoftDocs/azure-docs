@@ -72,8 +72,6 @@
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Core
       href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-    - name: Node.js
-      href: active-directory-b2c-devquickstarts-web-node.md
   - name: Single page apps
     items:
     - name: Overview
