@@ -79,9 +79,9 @@ To configure machine-wide proxy settings, follow the steps below:
 
 3. Restart the Storage Sync Agent service by running the following command from an elevated command prompt or PowerShell: 
 
-    net stop filesyncsvc
+      net stop filesyncsvc
 
-    Note: The Storage Sync Agent (filesyncsvc) service will auto-start once stopped.
+      Note: The Storage Sync Agent (filesyncsvc) service will auto-start once stopped.
 
 ## Firewall
 As mentioned in a previous section, port 443 needs to be open outbound. Based on policies in your datacenter, branch or region, further restricting traffic over this port to specific domains may be desired or required.
