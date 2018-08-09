@@ -68,7 +68,7 @@ This environment is recommended when you need the following features:
 * __Data visualization__: There are many data visualization packages available for use with Jupyter Notebooks.
 * __A high degree of control over local compute resources__: You can install any library, kernel, or make any configuration changes you want to the local environment.
 
-## Jupyter Notebooks on Data Science Virtual Machine or Deep Learning Virtual Machine on Azure
+## Jupyter Notebooks on Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) is a VM image on Azure. It comes with many common data science and machine learning libraries pre-installed. When creating DSVM, you can choose the size of virtual machine, allowing you to choose the number of CPU cores and amount of memory. 
 
