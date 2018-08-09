@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 08/07/2018
 ms.author: jeedes
 
 ---
@@ -180,13 +180,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. To upload your certificate file, under **Certificate (RSA)**, click **Browse**.
 
-    c. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
+    c. For **Private key(RSA, PKCS8, DER)**, you can upload your own private key or you can contact [TOPdesk - Secure Client support team](http://www.topdesk.com/us/support) to get the private key.
 
-    d. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
-    e. In the **Display name** textbox, type a name for your configuration.
+    e. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Click **Save**.
+    f. In the **Display name** textbox, type a name for your configuration.
+
+    g. Click **Save**.
 
 ### Create an Azure AD test user
 
