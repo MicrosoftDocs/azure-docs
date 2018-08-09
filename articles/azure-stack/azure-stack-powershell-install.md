@@ -98,7 +98,7 @@ If the installation is successful, the AzureRM and AzureStack modules are displa
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]  
-> The release of 1.4.0 AzureStack module does not have any breaking changes with the earlier version 1.3.0. Please refer to the [release notes](https://aka.ms/azspsh140release) for the changes in release 1.4.0. However the version 1.3.0 os AzureStack module has a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+> The release of 1.4.0 AzureStack module does not have any breaking changes with the earlier version 1.3.0. Please refer to the [release notes](https://aka.ms/azspsh140release) for the changes in release 1.4.0. However the version 1.3.0 of AzureStack module has a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 
