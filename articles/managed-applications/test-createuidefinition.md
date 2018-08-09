@@ -62,6 +62,10 @@ Provide values for the fields. When finished, you see the values that are passed
 
 ![Show values](./media/test-createuidefinition/show-json.png)
 
+If your interface definition has an error, you see the description in the console.
+
+![Show error](./media/test-createuidefinition/show-error.png)
+
 ## Next steps
 The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
 
