@@ -240,16 +240,14 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 - If **provisioningState** is **Failed**, contact support with details to troubleshoot.
 - If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
 
-## Unable to select Target virtual network - network selection tab is greyed out.
+## Unable to select Target virtual network - network selection tab is grayed out.
 
 **Cause 1: If your VM is attached to a network that is already mapped to a 'Target network'.**
-- IF the source VM is part of an V-Net and another VM from the same V-Net is already mapped with a network in target resource group, then by default network selection dropdown will be disabled.
-- Target network can be selected during disaster recovery configuration of first VM in the V-Net and this will be used as 'Target network' for that source V-Net. </br>
+- If the source VM is part of a virtual network and another VM from the same virtual network is already mapped with a network in target resource group, then by default network selection drop down will be disabled.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
 **Cause 2: If you previously protected the VM using Azure Site Recovery and disabled the replication.**
- - If the VM was protected using Azure Site Recovery and replication was disabled, this could imply that the VM is still mapped to its previous network.
  - Disabling replication of a VM does not delete the Network Mapping. It has to be deleted from the recovery service vault where the VM was protected. </br>
  Navigate to recovery service vault > Site Recovery Infrastructure > Network mapping. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
