@@ -260,3 +260,4 @@ No. Transitive peering is not supported. You must peer VNet A and VNet C for thi
 ### Are there any bandwidth limitations for peering connections?
 
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limites by the VM or compute resource.
+
