@@ -3,7 +3,7 @@ title: Azure Event Hubs for Apache Kafka | Microsoft Docs
 description: Overview and introduction to Kafka enabled Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
