@@ -85,8 +85,8 @@ Both DSVM and DLVM comes with the Azure Machine Learning SDK and Jupyter Noteboo
 
 Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
  
-* __Visual Studio Code Tools for AI__: Tools for AI is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
-* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple sources. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
+* __Visual Studio Code Tools for AI__: Tool for AI is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
+* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple people. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
 * __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
 
 ## Code editor of your choice
