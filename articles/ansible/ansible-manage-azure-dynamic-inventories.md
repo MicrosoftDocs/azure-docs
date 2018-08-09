@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
 ---
 
@@ -26,6 +26,9 @@ Ansible can be used to pull inventory information from various sources (includin
 1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
+
+    > [!IMPORTANT]	
+    > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -178,7 +181,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. The [nginx -v](https://nginx.org/en/docs/switches.html) command is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
+1. While connected to the `ansible-inventory-test-vm1` virtual machine, run the [nginx -v](https://nginx.org/en/docs/switches.html) command to determine if Nginx is installed.
 
     ```azurecli-interactive
     nginx -v
