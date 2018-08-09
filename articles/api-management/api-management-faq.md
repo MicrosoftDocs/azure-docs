@@ -73,7 +73,7 @@ Yes, you can manage API Management programmatically by using:
 
 * The [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 * The [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
-* The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview PowerShell cmdlets.
+* The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
 Here's how you can add a user to the Administrators group:
