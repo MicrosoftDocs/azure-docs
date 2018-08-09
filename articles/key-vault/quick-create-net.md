@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Configure an Azure web application to set and retrieve a secret from Key vault | Microsoft Docs
-description: Quickstart showing how to configure an ASP.Net core application to set and retrieve a secret from Key vault
+title: Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
+description: Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 services: key-vault
 author: prashanthyv
 manager: sumedhb
