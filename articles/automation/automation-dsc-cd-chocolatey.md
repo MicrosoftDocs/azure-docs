@@ -164,6 +164,6 @@ Full source for this usage example is in [this Visual Studio project](https://gi
 
 ## Related Articles
 * [Azure Automation DSC Overview](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
