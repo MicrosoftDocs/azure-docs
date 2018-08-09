@@ -25,21 +25,29 @@
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Understand spending limit
     href: billing-spending-limit.md
-  - name: Save with Reserved VM Instances
+  - name: Save with Azure reservations
     items:
-    - name: What are reserved instances?
+    - name: What are Azure reservations?
       href: billing-save-compute-costs-reservations.md
-    - name: Buy a reserved instance 
-      href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+    - name: Buy a reservation 
+      items:
+      - name: Virtual machine  
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: SQL Database 
+        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
-      href: billing-understand-vm-reservation-charges.md
+      items:
+      - name: Reserved VM Instances
+        href: billing-understand-vm-reservation-charges.md
+      - name: SQL Database reserved capacity
+        href: billing-understand-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
     - name: Usage for Pay-As-You-Go
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Manage reserved instances
+    - name: Manage Azure reservations
       href: billing-manage-reserved-vm-instance.md
 - name: Manage account
   items:
