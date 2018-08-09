@@ -20,7 +20,7 @@ TBD
 
 After a search term is entered, URL-encode the term before setting the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) query parameter. For example, if a user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
 
-If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure cognitive services.
+If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience by displaying suggested search terms in real time. The API returns suggested query strings based on partial search terms and Azure cognitive services.
 
 ## Pivoting the query
 
@@ -150,4 +150,4 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]

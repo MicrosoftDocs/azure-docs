@@ -118,7 +118,7 @@ The information in the response can be used to display all, or a subset of the r
 
 You can also resize and expand thumbnails, such as when a user's cursor hovers above it. Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image. 
 
-For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md).
+For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md).
 
 <!-- Removing image until we can replace it with a sanatized version.
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
@@ -132,4 +132,4 @@ If `shoppingSourcesCount` or `recipeSourcesCount` are greater than zero, add bad
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
 -->
 
-To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). For details, see [Image Insights](./image-insights.md).
+To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). For details, see [Image Insights](../image-insights.md).
