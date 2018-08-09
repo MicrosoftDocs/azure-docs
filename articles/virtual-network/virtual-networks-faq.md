@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 08/09/2018
 ms.author: jdial
 
 ---
@@ -221,3 +221,42 @@ Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
+
+## VNet peering
+
+### Can I create a peering connection to a VNet in a different region?
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
+
+### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
+Currently it is not possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directories does not have tenants in each.
+
+### My VNet peering connection is in *Initiated* state, why can't I connect?
+If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
+
+### Can I peer my VNet with a VNet in a different subscription?
+
+Yes. You can peer VNets across subscriptions and across regions.
+
+### Can I peer two VNets with matching or overlapping address ranges?
+
+No. Address spaces must not overalap to enable VNet Peering.
+
+### How much do VNet peering links cost?
+
+There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. See here.
+
+### Is VNet peering traffic encrypted?
+
+No. Traffic between resources in peered VNets is private and isolated. It remains on the Microsoft Backbone.
+
+### Why is my peering connection in a disconnected state?
+
+VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
+
+### If I peer VNet A to VNet B and I peer VNet B to VNet C, does that mean VNet A and C are peered?
+
+No. Transitive peering is not supported. You must peer VNet A and VNet C for this to take place.
+
+### Are there any bandwidth limitations for peering connections?
+
+No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limites by the VM or compute resource.
