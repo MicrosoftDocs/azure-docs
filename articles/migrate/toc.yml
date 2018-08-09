@@ -73,7 +73,7 @@
   - name: Forum
     href: http://aka.ms/AzureMigrateForum
   - href: Blog
-    name: https://azure.microsoft.com/en-us/blog/tag/azure-migrate/
+    name: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate
     href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
