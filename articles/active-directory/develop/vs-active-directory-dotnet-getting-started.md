@@ -79,5 +79,5 @@ To add the SignIn/SignOut controls to your view, you can use the `_LoginPartial.
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)

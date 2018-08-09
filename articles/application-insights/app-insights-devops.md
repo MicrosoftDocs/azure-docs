@@ -1,4 +1,4 @@
-﻿---
+---
 title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 

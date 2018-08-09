@@ -19,7 +19,8 @@
 #### [Configure Azure Key Vault Integration](virtual-machines-windows-ps-sql-keyvault.md)
 ## Backup and restore
 ### [Backup and restore](virtual-machines-windows-sql-backup-recovery.md)
-### [Automated backup](virtual-machines-windows-sql-automated-backup.md)
+### [Automated backup for SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automated backup for SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # How-to guides

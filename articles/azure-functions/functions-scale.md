@@ -4,7 +4,7 @@ description: Learn how to choose between Azure Functions Consumption plan and Ap
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions,  consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 08/09/2018
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -41,10 +41,10 @@ On an App Service plan you can scale between tiers to allocate different amount 
 
 ## Consumption plan
 
-When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of 10 minutes. 
+When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time. 
 
 > [!NOTE]
-> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in the [host.json](functions-host-json.md#functiontimeout) project file.
+> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased for the Function App up to a maximum of 10 minutes by changing the property `functionTimeout` in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 
@@ -78,6 +78,8 @@ If you run on an App Service plan, you should enable the **Always On** setting s
 
 Always On is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
 
+Even with Always On enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
+
 ## Storage account requirements
 
 On either a Consumption plan or an App Service plan, a function app requires a general Azure Storage account that supports Azure Blob, Queue, Files, and Table storage. Internally, Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with zone-redundant storage replication. These accounts are filtered from the **Storage Account** blade when you're creating a function app.
@@ -88,14 +90,12 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the Consumption plan works
 
-In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a function app share resources within an instance and scale at the same time.
+In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the function app, meaning all functions within a function app share resources within an instance and scale at the same time. Function apps that share the same Consumption plan are scaled independently.  
 
 When you use the Consumption hosting plan, function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
 > [!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
-> - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as an Event Grid subscription or a queue message that contains the blob name. For an example, see the [examples for the blob input binding](functions-bindings-storage-blob.md#input---example).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use an App Service plan with Always On enabled, or use the Event Grid trigger. For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
 
 ### Runtime scaling
 

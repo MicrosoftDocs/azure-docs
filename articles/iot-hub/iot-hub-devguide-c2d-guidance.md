@@ -1,22 +1,15 @@
 ---
 title: Azure IoT Hub cloud-to-device options | Microsoft Docs
 description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-
 ---
+
 # Cloud-to-device communications guidance
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
@@ -34,7 +27,7 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
 | Durability | Disconnected devices are not contacted. The solution back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can be retained by IoT Hub for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
-| Size | Up to 8 KB requests and 8 KB responses. | Maximum desired properties size is 8 KB. | Up to 64 KB messages. |
+| Size | Maximum direct method payload size is 128 KB. | Maximum desired properties size is 8 KB. | Up to 64 KB messages. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
 | Protocol | Available using MQTT or AMQP. | Available using MQTT or AMQP. | Available on all protocols. Device must poll when using HTTPS. |
 
@@ -50,6 +43,6 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md

@@ -4,7 +4,7 @@ description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -39,7 +39,7 @@ ms.author: sedusch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
@@ -72,8 +72,8 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
-  The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
+* [SUSE SAP HA Best Practice Guides][suse-ha-guide]
+  The guides contains all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Please use this guides as a general baseline. They provide much more detailed information.
 * [Highly Available NFS Storage with DRBD and Pacemaker][suse-drbd-guide]
   The guide contains all required information to set up a highly available NFS server. Use this guide as a baseline.
 
@@ -226,7 +226,27 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Install SUSE Connector
    
    <pre><code>
-   sudo zypper install sap_suse_cluster_connector
+   sudo zypper install sap-suse-cluster-connector
+   </code></pre>
+
+   Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
+
+   <pre><code>
+   sudo zypper info sap-suse-cluster-connector
+   
+   Information for package sap-suse-cluster-connector:
+   ---------------------------------------------------
+   Repository     : SLE-12-SP3-SAP-Updates
+   Name           : sap-suse-cluster-connector
+   <b>Version        : 3.0.0-2.2</b>
+   Arch           : noarch
+   Vendor         : SUSE LLC <https://www.suse.com/>
+   Support Level  : Level 3
+   Installed Size : 41.6 KiB
+   <b>Installed      : Yes</b>
+   Status         : up-to-date
+   Source package : sap-suse-cluster-connector-3.0.0-2.2.src
+   Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
 1. **[A]** Update SAP resource agents  
@@ -267,9 +287,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -352,7 +372,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
@@ -382,7 +402,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install SAP NetWeaver ASCS  
 
-   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nw1-ascs</b>, <b>10.0.0.11</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
+   Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>nw1-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -404,7 +424,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm node standby <b>nw1-cl-0</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
@@ -439,7 +459,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Install SAP NetWeaver ERS  
 
-   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-aers</b>, <b>10.0.0.12</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
+   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-aers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -584,14 +604,14 @@ The steps bellow assume that you install the application server on a server diff
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
+   <b>10.0.0.20 nw1-di-0</b>
+   <b>10.0.0.21 nw1-di-1</b>
    </code></pre>
 
 1. Create the sapmnt directory

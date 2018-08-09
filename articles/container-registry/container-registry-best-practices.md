@@ -3,11 +3,11 @@ title: Best practices in Azure Container Registry
 description: Learn how to use your Azure container registry effectively by following these best practices.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
 ---
 
@@ -24,7 +24,7 @@ Additionally, all public clouds, Azure included, implement network egress fees. 
 
 ## Geo-replicate multi-region deployments
 
-Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Currently in preview, this feature is available with [Premium](container-registry-skus.md) registries.
+Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](container-registry-skus.md) registries.
 
 To learn how to use geo-replication, see the three-part tutorial, [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 
@@ -53,7 +53,7 @@ When authenticating with an Azure container registry, there are two primary scen
 
 | Type | Example scenario | Recommended method |
 |---|---|---|
-| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Individual identity | A developer pulling images to or pushing images from their development machine. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Headless/service identity | Build and deployment pipelines where the user isn't directly involved. | [Service principal](container-registry-authentication.md#service-principal) |
 
 For in-depth information about Azure Container Registry authentication, see [Authenticate with an Azure container registry](container-registry-authentication.md).
@@ -97,7 +97,7 @@ Azure Container Registry is available in several tiers, called SKUs, that each p
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

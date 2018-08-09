@@ -8,8 +8,8 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 07/24/2018
 ms.author: bonova
 
 ---
@@ -19,7 +19,7 @@ In this article, you learn about the methods for migrating a SQL Server 2005 or 
 
 SQL Database Managed Instance is an expansion of the existing SQL Database service, providing a third deployment option alongside single databases and elastic pools.  It is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. SQL Database Managed Instance provides high compatibility with the on-premises SQL Server programming model and out-of-box support for the large majority of SQL Server features and accompanying tools and services.
 
-At the high level, application migration process looks like on the following diagram:
+At a high level, the application migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -73,11 +73,12 @@ Managed Instance supports the following database migration options (currently th
 
 - Azure Database Migration Service - migration with near-zero downtime
 - Native RESTORE from URL - uses native backups from SQL Server and requires some downtime
-- Migrate using BACPAC file - uses BACPAC file from SQL Server or SQL Database and requires some downtime
 
 ### Azure Database Migration Service
 
 The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
+
+If you use SQL Server Integration Services (SSIS) on your SQL Server on premises, DMS does not yet support migrating SSIS catalog (SSISDB) that stores SSIS packages, but you can provision Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) that will create a new SSISDB in Azure SQL Database/Managed Instance and then you can redeploy your packages to it, see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -85,11 +86,11 @@ To learn more about this scenario and configuration steps for DMS, see [Migrate 
 
 RESTORE of native backups (.bak files) taken from SQL Server on-premises or [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of key capabilities on SQL DB Managed Instance that enables quick and easy offline database migration. 
 
-The following diagram explains the process at the high level:
+The following diagram provides a high-level overview of the process:
 
 ![migration-flow](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-The following table provides more information regarding the method you can use depending on source SQL Server version you are running:
+The following table provides more information regarding the methods you can use depending on source SQL Server version you are running:
 
 |Step|SQL Engine and version|Backup / Restore method|
 |---|---|---|
@@ -99,13 +100,10 @@ The following table provides more information regarding the method you can use d
 |Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
+> - When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a full tutorial that includes restoring a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### Migrate using BACPAC file
-
-You can import to Azure SQL Database and  Managed Instance from a create a copy of the original database, with the data, in a BACPAC file. See [Import a BACPAC file to a new Azure SQL Database](sql-database-import.md).
 
 ## Monitor applications
 

@@ -3,7 +3,7 @@ title: Upgrade a Classic Azure container registry
 description: Take advantage of the expanded feature set of Basic, Standard, and Premium managed container registries by upgrading your unmanaged Classic container registry.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
@@ -122,6 +122,6 @@ Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com

@@ -3,7 +3,7 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
+ms.reviewer: sdash
+ms.author: mbullwin
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -178,7 +179,9 @@ Use Visual Studio Enterprise to record a web session.
 
 View your test results and any failures in the same way as single-url tests.
 
-In addition, you can download the test results to view them in Visual Studio.
+You can also download the test results to view them in Visual Studio.
+
+To download the test results. Navigate to the Availability test summary, click on a result in the graph to open the Availability test result window, and then click on **Open in Visual Studio** to download the test result.
 
 #### Too many failures?
 

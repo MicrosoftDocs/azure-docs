@@ -1,13 +1,13 @@
 ---
 title: Create Azure managed application with Azure CLI | Microsoft Docs
 description: Shows how to create an Azure managed application that is intended for members of your organization.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz

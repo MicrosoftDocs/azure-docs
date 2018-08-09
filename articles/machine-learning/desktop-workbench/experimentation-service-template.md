@@ -7,6 +7,7 @@ ms.author: ahgyger
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017

@@ -199,7 +199,7 @@ Am example of the command appears next.
 The parameters are self-explanatory. Substitute your particular variables and run.
 
 > [!NOTE]
-> Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
+> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
 > 
 > 
 

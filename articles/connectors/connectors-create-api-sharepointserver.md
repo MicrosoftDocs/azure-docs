@@ -1,10 +1,10 @@
 ---
 title: Use the SharePoint Server Connector in your Logic Apps | Microsoft Docs
-description: Get started using the the SharePoint Server Connector  in your Logic apps
+description: Get started using the SharePoint Server Connector  in your Logic apps
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

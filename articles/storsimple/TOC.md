@@ -22,7 +22,8 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+#### [Install latest update](storsimple-virtual-array-install-update-11.md)
+##### [Install Update 1](storsimple-virtual-array-install-update-1.md)
 ##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Archive
 ###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 1.1 - current](storsimple-virtual-array-update-11-release-notes.md)
+### [Update 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
 #### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -62,7 +64,7 @@
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
 ### [Region availability](storsimple-regions.md)
-### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
+
 
 ## Get started
 
@@ -189,10 +191,11 @@
 ## Release notes
 ### [Update 5 - current](storsimple-update5-release-notes.md)
 ### [Update 4](storsimple-update4-release-notes.md)
-### [Update 3](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
+
 
 ### Archive
+#### [Update 3](storsimple-update3-release-notes.md)
+#### [Update 2.2](storsimple-update21-release-notes.md)
 #### [Update 2 ](storsimple-update2-release-notes.md)
 #### [Update 1 ](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)

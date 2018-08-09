@@ -22,6 +22,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 #ms.custom: 
 
 ---
+# Azure Active Directory guided setup steps
 
 [!INCLUDE [active-directory-develop-guidedsetup-android-configure-arp.md](../../includes/active-directory-develop-guidedsetup-android-configure-arp.md)]
 [!INCLUDE [active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md](../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure-arp.md)]

@@ -1,17 +1,13 @@
 ---
-title: Troubleshoot HBase by using Azure HDInsight | Microsoft Docs
+title: Troubleshoot HBase by using Azure HDInsight 
 description: Get answers to common questions about working with HBase and Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinver
-manager: ashitg
-
 ms.service: hdinsight
+author: nitinver
+ms.author: nitinver
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.author: nitinver
 ---
 
 # Troubleshoot HBase by using Azure HDInsight

@@ -3,7 +3,7 @@ title: Image storage in Azure Container Registry
 description: Details on how your Docker container images are stored in Azure Container Registry, including security, redundancy, and capacity.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article

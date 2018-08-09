@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate a multi-tier SharePoint application using Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate a multi-tier SharePoint application using Azure Site Recovery capabilities.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
 
 ---

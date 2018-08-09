@@ -3,7 +3,7 @@ title: Mount an emptyDir volume in Azure Container Instances
 description: Learn how to mount an emptyDir volume to share data between the containers in a container group in Azure Container Instances
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article

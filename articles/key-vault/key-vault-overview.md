@@ -6,14 +6,14 @@ author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 07/17/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
@@ -36,9 +36,9 @@ Centralizing storage of application secrets in Azure Key Vault allows you to con
 
 Your applications can securely access the information they need by using URIs that allow them to retrieve specific versions of a secret after the application’s key or secret is stored in Azure Key Vault. This happens without having to write custom code to protect any of the secret information.
 
-### Securely store secrets
+### Securely store secrets and keys
 
-Keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs). The HSMs used are Federal Information Processing Standards (FIPS) 140-2 Level 2 validated.
+Secrets and keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs). The HSMs used are Federal Information Processing Standards (FIPS) 140-2 Level 2 validated.
 
 Access to a key vault requires proper authentication and authorization before a caller (user or application) can get access. Authentication establishes the identity of the caller, while authorization determines the operations that they are allowed to perform.
 
@@ -46,7 +46,7 @@ Authentication is done via Azure Active Directory. Authorization may be done via
 
 Azure Key Vaults may be either software- or hardware-HSM protected. For situations where you require added assurance you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. Microsoft uses Thales hardware security modules. You can use Thales tools to move a key from your HSM to Azure Key Vault.
 
-Finally, Azure Key Vault is designed so that Microsoft does not see or extract your keys.
+Finally, Azure Key Vault is designed so that Microsoft does not see or extract your data.
 
 ### Monitor access and use
 
@@ -55,8 +55,6 @@ Once that you have created a couple of Key Vaults you will want to monitor how a
 - Archive to a storage account.
 - Stream to an event hub.
 - Send the logs to Log Analytics.
-
-![Page showing a Key Vault's properties](./media/key-vault-overview/key-vault-overview.png)
 
 You have control over your logs and you may secure them by restricting access and you may also delete logs that you no longer need.
 

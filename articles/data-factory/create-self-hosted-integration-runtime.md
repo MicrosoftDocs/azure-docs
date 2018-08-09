@@ -11,16 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 
 ---
 # How to create and configure Self-hosted Integration Runtime
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For details about IR, see [Integration Runtime Overview](concepts-integration-runtime.md).
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 A self-hosted integration runtime is capable of running copy activities between a cloud data stores and a data store in private network and dispatching transform activities against compute resources in an on-premises or Azure Virtual Network. Install Self-hosted integration runtime needs on an on-premises machine or a virtual machine inside a private network.  
 
@@ -101,7 +98,7 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 
 
 ## High Availability and Scalability
-A Self-hosted Integration Runtime can be associated to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
+A Self-hosted Integration Runtime can be associated to multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
 1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
@@ -140,6 +137,7 @@ Domain names | Ports | Description
 *.servicebus.windows.net | 443, 80 | Used for communication with Data Movement Service backend
 *.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
 *.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
+download.microsoft.com | 443 | Used for downloading the updates
 
 At **Windows firewall** level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on self-hosted integration runtime machine.
 

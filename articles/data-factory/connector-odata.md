@@ -11,20 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 ---
 # Copy data from OData source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-odata-connector.md)
-> * [Version 2 - Preview](connector-odata.md)
+> * [Version 1](v1/data-factory-odata-connector.md)
+> * [Current version](connector-odata.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an OData source. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [OData connector in V1](v1/data-factory-odata-connector.md).
 
 ## Supported capabilities
 
@@ -130,7 +127,7 @@ To copy data from OData, set the type property of the dataset to **ODataResource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ODataResource** | Yes |
-| path | Path to the OData resource. | No |
+| path | Path to the OData resource. | Yes |
 
 **Example**
 

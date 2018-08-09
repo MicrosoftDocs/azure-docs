@@ -10,6 +10,7 @@ tags: ''
 
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -74,7 +75,7 @@ For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger 
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
 
 **Compose and run a query**: Complete the following steps:
 

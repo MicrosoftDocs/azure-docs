@@ -1,19 +1,18 @@
----
-title: 'Azure Active Directory B2C: Usage reporting API samples and definitions | Microsoft Docs'
-description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications
+﻿---
+title: Usage reporting API samples and definitions in Azure Active Directory B2C | Microsoft Docs
+description: Guide and samples on getting reports on Azure AD B2C tenant users, authentications, and multi-factor authentications.
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
-ms.topic: article
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Accessing usage reports in Azure AD B2C via the reporting API
 
 Azure Active Directory B2C (Azure AD B2C) provides authentication based on user sign-in and Azure Multi-Factor Authentication. Authentication is provided for end users of your application family across identity providers. When you know the number of users registered in the tenant, the providers they used to register, and the number of authentications by type, you can answer questions like:

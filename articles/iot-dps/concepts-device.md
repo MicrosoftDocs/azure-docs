@@ -1,19 +1,13 @@
 ---
 title: Device concepts in Azure device provisioning | Microsoft Docs
 description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
-services: iot-dps
-keywords: 
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-dps
+manager: briz
 ---
 
 # IoT Hub Device Provisioning Service device concepts

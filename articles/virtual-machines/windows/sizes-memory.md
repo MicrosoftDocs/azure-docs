@@ -7,6 +7,7 @@ author: jonbeck7
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
+keywords: VM isolation,isolated VM,isolation,isolated
 
 ms.assetid: 
 ms.service: virtual-machines-windows
@@ -14,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
 
 ---
@@ -32,6 +33,7 @@ ms.author: jonbeck
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

@@ -9,7 +9,7 @@ manager: anneta
 ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
 ---

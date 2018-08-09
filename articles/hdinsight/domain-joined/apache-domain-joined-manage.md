@@ -2,16 +2,13 @@
 title: Manage Domain-joined HDInsight clusters - Azure
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
 
 ---
 # Manage Domain-joined HDInsight clusters
@@ -98,6 +95,8 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 |Interactive Query (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Any|Install Custom Application|<ul><li>[Script Actions](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
+   > [!NOTE]
+   > Jupyter is not installed/supported in Enterprise Security Package.
 
 Using the standard APIs helps from security perspective. In addition, you get the following benefits:
 

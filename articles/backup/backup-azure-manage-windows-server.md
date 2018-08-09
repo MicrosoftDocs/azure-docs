@@ -1,21 +1,13 @@
 ---
-title: Manage Azure Recovery Services vaults and servers | Microsoft Docs
+title: Manage Azure Recovery Services vaults and servers
 description: Use this article to manage Azure Recovery Services vaults and servers.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: tysonn
-
-ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: markgal
-
 ---
 # Monitor and manage Azure recovery services vaults and servers for Windows machines
 

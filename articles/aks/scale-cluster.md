@@ -1,9 +1,9 @@
 ---
-title: Scale an Azure Container Service (AKS) cluster
-description: Scale an Azure Container Service (AKS) cluster.
+title: Scale an Azure Kubernetes Service (AKS) cluster
+description: Scale an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -12,7 +12,7 @@ ms.author: gamonroy
 ms.custom: mvc
 ---
 
-# Scale an Azure Container Service (AKS) cluster
+# Scale an Azure Kubernetes Service (AKS) cluster
 
 It is easy to scale an AKS cluster to a different number of nodes.  Select the desired number of nodes and run the `az aks scale` command.  When scaling down, nodes will be carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.  When scaling up, the `az` command waits until nodes are marked `Ready` by the Kubernetes cluster.
 

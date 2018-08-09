@@ -4,7 +4,7 @@ description: Create logic apps with Azure App service. Connect to SFTP API to se
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

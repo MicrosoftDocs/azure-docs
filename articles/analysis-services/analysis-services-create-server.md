@@ -1,26 +1,27 @@
 ---
-title: Create an Analysis Services server in Azure | Microsoft Docs
+title: Quickstart - Create an Analysis Services server by using Azure portal | Microsoft Docs
 description: Learn how to create an Analysis Services server instance in Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/23/2018
+ms.service: azure-analysis-services
+ms.topic: quickstart
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
+#Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.
 ---
-# Create an Analysis Services server in Azure portal
-This article walks you through creating an Analysis Services server resource in your Azure subscription.
+# Quickstart: Create a server - Portal
 
-Before you begin, you need: 
+This quickstart describes how to create an Analysis Services server resource in your Azure subscription by using the portal.
+
+## Prerequisites 
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Log in to the Azure portal 
 
-Log in to the [Azure portal](https://portal.azure.com)
+[Log in to the portal](https://portal.azure.com)
 
 
 ## Create a server
@@ -31,8 +32,6 @@ Log in to the [Azure portal](https://portal.azure.com)
 
 2. In **Analysis Services**, fill in the required fields, and then press **Create**.
    
-    ![Create server](./media/analysis-services-create-server/aas-create-server-blade.png)
-   
    * **Server name**: Type a unique name used to reference the server.
    * **Subscription**: Select the subscription this server will be associated with.
    * **Resource group**: Create a new resource group or select one you already have. Resource groups are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/resource-group-overview.md).
@@ -41,20 +40,20 @@ Log in to the [Azure portal](https://portal.azure.com)
     * **Administrator**: By default, this will be the account you are logged in with. You can choose a different account from your Azure Active Directory.
     * **Backup Storage setting**: Optional. If you already have a [storage account](../storage/common/storage-introduction.md), you can specify it as the default for model database backup. You can also specify [backup and restore](analysis-services-backup.md) settings later.
     * **Storage key expiration**: Optional. Specify a storage key expiration period.
-3. Click **Create**.
 
-Create usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
+Creating the server usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
 
 ## Clean up resources
+
 When no longer needed, delete your server. In your server's **Overview**, click **Delete**. 
 
  ![Cleanup](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 
 
 ## Next steps
+In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can help secure it by configuring an (optional) server firewall. You can also add a basic sample data model to your server right from the portal. Having a sample model is helpful when learning about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
 
-[Add a sample data model](analysis-services-create-sample-model.md) to your server.  
-[Install an On-premises data gateway](analysis-services-gateway-install.md) if your data model connects to on-premises data sources.  
-[Deploy a tabular model project](analysis-services-deploy.md) from Visual Studio.   
-
-
+> [!div class="nextstepaction"]
+> [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)   
+> [!div class="nextstepaction"]
+> [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

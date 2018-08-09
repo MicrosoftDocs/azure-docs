@@ -3,7 +3,7 @@ title: Monitor Azure DC/OS cluster - Operations Management
 description: Monitor an Azure Container Service DC/OS cluster with Log Analytics.
 services: container-service
 author: keikhara
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

@@ -3,7 +3,7 @@ title: Azure Container Instances tutorial - Prepare Azure Container Registry
 description: Azure Container Instances tutorial part 2 of 3 - Prepare Azure Container Registry
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: tutorial
@@ -217,10 +217,10 @@ Advance to the next tutorial to learn how to deploy the container to Azure using
 [nodejs]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az_acr_create
-[az-acr-login]: /cli/azure/acr#az_acr_login
-[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_list
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
-[az-acr-show]: /cli/azure/acr#az_acr_show
-[az-group-create]: /cli/azure/group#az_group_create
+[az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
+[az-acr-show]: /cli/azure/acr#az-acr-show
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -1,13 +1,10 @@
 ---
 title: 'Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Docs'
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 07/03/2018
 ms.author: raynew
 ---
 
@@ -21,31 +18,31 @@ Each Azure region is paired with another region within the same geography, toget
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figure 1 – Azure regional pair diagram
+Figure 1 – Azure regional pairs
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
 | Asia |East Asia |Southeast Asia |
 | Australia |Australia East |Australia Southeast |
+| Australia |Australia Central |Australia Central 2 |
+| Brazil |Brazil South 2 |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
+| Europe |North Europe |West Europe |
+| Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
 | India |West India (1) |South India |
 | Japan |Japan East |Japan West |
 | Korea |Korea Central |Korea South |
-| North America |North Central US |South Central US |
 | North America |East US |West US |
 | North America |East US 2 |Central US |
-| North America |West US 2 |West Central US |
-| Europe |North Europe |West Europe |
-| Japan |Japan East |Japan West |
-| Brazil |Brazil South (2) |South Central US |
+| North America |North Central US |South Central US |
+| North America |West US 2 |West Central US 
+| UK |UK West |UK South |
+| US Department of Defense |US DoD East |US DoD Central |
+| US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa (3) |US Gov Virginia |
 | US Government |US Gov Virginia (4) |US Gov Texas |
-| US Government |US Gov Arizona |US Gov Texas |
-| US Department of Defense |US DoD East |US DoD Central |
-| UK |UK West |UK South |
-| Germany |Germany Central |Germany Northeast |
 
 Table 1 - Mapping of Azure regional pairs
 

@@ -8,11 +8,12 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
 
