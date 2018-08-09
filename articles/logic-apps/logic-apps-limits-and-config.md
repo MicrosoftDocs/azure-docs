@@ -9,7 +9,7 @@ ms.author: estfan
 manager: jeconnoc
 ms.author: estfan
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/10/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -57,6 +57,19 @@ Here are the limits for a single logic app run:
 | Minimum recurrence interval | 1 second | | 
 | Maximum recurrence interval | 500 days | | 
 |||| 
+
+<a name="disable-delete"></a>
+
+## Disabling or deleting logic apps
+
+When you disable a logic app, no new runs are instantiated. 
+All in-progress and pending runs will continue until they finish, 
+which might take time to complete. 
+
+When you delete a logic app, no new runs are instantiated. 
+All in-progress and pending runs are canceled. 
+If you have thousands of runs, cancellation might 
+take significant time to complete. 
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
