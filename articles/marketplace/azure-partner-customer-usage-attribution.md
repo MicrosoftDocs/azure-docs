@@ -52,23 +52,8 @@ Adding the GUID is a single modification of the main template file:
 
 ## Sample template code
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## Method 2: Azure Resource Manager APIs
 
@@ -79,6 +64,8 @@ If you are using an Azure Resource Manager template, you should tag your solutio
 **How to tag a deployment using the Azure Resource Manager APIs:**
 For this approach, when designing your API calls you will include a GUID in the user agent header in the request. The GUID should be added for each Offer or SKU.  The string will need to be formatted with the prefix pid- and then include the partner generated GUID.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >GUID format for insertion into the user agent: 
 pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // enter your GUID after the “pid-“
@@ -88,13 +75,7 @@ The format of the string is important. If the prefix “pid-” is not included,
 **Example using the Python SDK:**
 For Python, you need to use the “config” attribute. You can only add to a UserAgent. Here is an example:
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >This has to be done for each client, there is no global static configuration (You may choose to do a client factory to be sure every client is doing it. 
 >[Additional reference information](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)

@@ -45,7 +45,7 @@ Click through to see all the AD forests that have been enabled for Seamless SSO.
 
 ## Sign-in failure reasons in the Azure Active Directory admin center (needs a Premium license)
 
-If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) in the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center: Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 
