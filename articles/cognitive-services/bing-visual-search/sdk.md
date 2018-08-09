@@ -26,5 +26,6 @@ Bing Visual Search provides the following client SDKs that you can use to exerci
     * [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) for definitions and dependencies
 * [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) for definitions and dependencies
+* [Bing Visual Search tools](https://github.com/Azure-Samples/bing-visualsearch-tools)
 
 SDK samples for each language include a ReadMe file with prerequisites for using the SDK along with steps for installing and running the samples.
