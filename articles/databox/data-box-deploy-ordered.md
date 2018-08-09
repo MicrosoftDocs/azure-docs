@@ -43,14 +43,14 @@ Before you begin, make sure that:
 
 Before you begin, make sure that:
 - You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements).
-- Your datacenter needs to have high speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+- Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
 
 
 ## Order Data Box
 
 Perform the following steps in the Azure portal to order a device.
 
-1. Use your Microsoft Azure credentials to log in at this URL: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
+1. Use your Microsoft Azure credentials to sign in at this URL: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
 2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
     
    [![Search Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
@@ -77,7 +77,7 @@ Perform the following steps in the Azure portal to order a device.
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> Currently, storage accounts in all of US, West Europe, and North Europe regions are supported.        |
-    |Storage account(s)     | Based on the specified Azure region, select one or more storage account from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**.        |
+    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**.        |
     
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
 

@@ -134,38 +134,6 @@ Data Box can transfer data based on the region in which service is deployed, cou
 - Understand the Data Box limits.
 - Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
 
-<!---Move this to a security doc
 
-## Security considerations
-
-Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the device and for the associated service ensuring the security of the data stored on them. 
-
-### Data Box device protection
-
-The Data Box device is protected by the following features:
-
-- A rugged case that withstands shocks, adverse transportation, and environmental conditions. 
-- Tamper-evident seals to indicate any device tampering during transit.
-- Hardware and software tampering detection that prevents further device operations.
-- Run only Data Box-specific software.
-- Boot up in a locked state and control access via device password.
-- Access credentials to copy data in and out of the device.
- 
-### Data Box service protection
-
-The Data Box service is protected by the following features:
-
-- An Azure subscription enabled for Data Box.
-- Azure security features.
-- Stores device password in the Azure portal. 
-- Stores order details and status in the Azure portal.
-
-### Data Box data protection
-
-The data that flows in and out of Data Box is stored by the following features:
-
-- AES 256-bit encryption for Data-at-rest. 
-- Encrypted protocols can be used for data-in-flight.
-- Secure erasure of data from device once upload to Azure is complete. -->
 
 

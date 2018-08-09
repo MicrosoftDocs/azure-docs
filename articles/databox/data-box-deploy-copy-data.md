@@ -34,13 +34,13 @@ Before you begin, make sure that:
 2. You have received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to high speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds will be impacted. 
+    - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted. 
 
 ## Copy data
 
-Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. For each share on the device you want to copy the data to, you need to get the corresponding share access credentials. 
+Your Data Box creates three shares for each associated storage account. The three shares store data from block blobs, page blobs, and Azure Files. For each share on the device, you want to copy the data to, you need to get the corresponding share access credentials. 
 
-Under block blob and page blob shares, first level entities are containers, and second level entities are blobs. Under shares for Azure Files, first level entities are shares.
+Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares.
 
 Consider the following example. 
 
@@ -195,7 +195,7 @@ To copy data from a Linux host computer, you will need to configure the device t
 
 #### Connect to an NFS share
 
-1. You need to supply the IP addresses of the allowed clients that can access the share.
+1. Supply the IP addresses of the allowed clients that can access the share.
 
 2. Ensure that the Linux host has NFSv4 client installed. To install NFS client, use the following command:
 
@@ -207,7 +207,7 @@ To copy data from a Linux host computer, you will need to configure the device t
 
     `sudo mount <Edge device IP>:/<NFS share on Edge device> /home/username/<Folder on local Linux computer>`
 
-Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created and also do not contain any files or sub-folders.
+Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created. The directories should not contain any files or subfolders.
 
 The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is 10.161.23.130, the share mylinuxshare2 is mounted on the ubuntuVM, mount point being /home/databoxubuntuhost/databox.
 
@@ -216,7 +216,7 @@ The following example shows how to connect via NFS to a Data Box share. The Data
 
 #### Copy data to an NFS share
 
-If you are using a Linux host computer, follow these guidelines:
+If you're using a Linux host computer, follow these guidelines:
 
 - Use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 - Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
