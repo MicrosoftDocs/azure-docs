@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 # Send events to Azure Event Hubs using the .NET Framework

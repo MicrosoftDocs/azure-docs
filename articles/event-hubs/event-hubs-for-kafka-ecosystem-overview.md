@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: darosa
+ms.author: shvija
 
 ---
 # Azure Event Hubs for Apache Kafka (preview)

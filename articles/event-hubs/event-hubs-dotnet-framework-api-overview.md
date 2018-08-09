@@ -9,7 +9,7 @@ ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 
