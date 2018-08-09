@@ -47,7 +47,12 @@ Development resources:
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
+
+   >[!Note]
+   >C modules for Azure IoT Edge don't support Windows containers. 
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -273,7 +278,7 @@ In the previous section you created an IoT Edge solution and added code to the C
     ```
 
 4. Save this file.
-5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build IoT Edge solution**. 
+5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the `CModule.dll`, and the push it to the container registry that you specified when you initialized the solution. 
 
