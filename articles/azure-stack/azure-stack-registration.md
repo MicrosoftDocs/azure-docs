@@ -109,7 +109,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
 2. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>"
+   Add-AzureRmAccount -Environment "<Either AzureCloud, AzureUSGovernment or AzureChinaCloud>"
    ```
 
 3. In the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
