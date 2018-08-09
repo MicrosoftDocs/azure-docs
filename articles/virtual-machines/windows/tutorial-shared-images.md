@@ -190,7 +190,7 @@ Create the first version of the image. In this example, the image version is *1.
 $versionConfig = New-AzureRmGalleryImageVersionConfig `
    -Location $resourceGroup.Location `
    -Region "West Central US", "South Central US" `
-   -Source $managedImage.Id `
+   -Source $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate "2020-01-01"
 
 $imageVersion = New-AzureRmGalleryImageVersion `
