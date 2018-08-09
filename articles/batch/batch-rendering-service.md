@@ -47,6 +47,7 @@ The most common case is for there to be an existing on-premises render farm bein
 The render management software either has Azure support built-in or we make available plug-ins that add Azure support.  See the article on [using render managers](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers) for more information on the supported render managers and functionality enabled.
 
 ### Custom rendering workflow
+
 The requirement is for VMs to extend an existing render farm.  Azure Batch pools can allocate large numbers of VMs, allow low-priority VMs to be used and dynamically auto-scaled with full-priced VMs, and provide pay-for-use licensing for popular rendering applications.
 
 ### No existing render farm
@@ -92,3 +93,7 @@ See the following introductory tutorials to try Azure Batch rendering:
 
 * [Use Batch Explorer to render a Blender scene](tutorial-rendering-batchexplorer-blender)
 * [Use the Batch CLI to render an Autodesk 3ds Max scene](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+
+## Next steps
+
+Determine the list of rendering applications and versions included on the Azure Marketplace VM images in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

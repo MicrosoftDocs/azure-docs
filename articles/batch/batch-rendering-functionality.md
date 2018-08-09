@@ -20,12 +20,18 @@ For an overview of Batch concepts, including pools, jobs, and tasks see [this ar
 
 An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
 
-* There is a Windows 2016 image and a CentOS image.
-* For an example pool configuration, see the rendering tutorial.
+There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com) the VM images can be found by searching for 'batch rendering'.
+
+For an example pool configuration, see the [Azure CLI rendering tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Specific UI is present in the Azure portal and Batch Explorer to enable the selection of the rendering VM images when a pool is created.  If using a Batch API, then the following property values need to be specified for [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) when creating a pool:
+
+| Publisher | Offer | Sku | Version |
+|---------|---------|---------|--------|
+| batch | rendering-centos73 | rendering | latest |
+| batch | rendering-windows2016 | rendering | latest |
 
 Other options are available if additional applications are required on the pool VMs:
 
-* A custom image based on a standard Marketplace image or a rendering Marketplace image:
+* A custom image based on a standard Marketplace image:
   * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray respectively to validate against an Azure Batch licensing service. You will need to ensure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. This license validation isn't required for Maya or 3ds Max as the current published versions don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * The application files are packaged using one or more ZIP files, uploaded via the Azure portal, and specified in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
@@ -46,7 +52,6 @@ If an attempt is made to use an application, but the application hasn’t been s
 ### Environment variables for pre-installed applications
 
 To be able to create the command line for rendering tasks, the installation location of the rendering application executables must be specified.  System environment variables have been created on the Azure Marketplace VM images, which can be used instead of having to specify actual paths.  These environment variables are in addition to the [standard Batch environment variables](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) created for each task.
-
 
 |Application|Application Executable|Environment Variable|
 |---------|---------|---------|
@@ -73,5 +78,12 @@ For more information about the characteristics of low-priority VMs and the vario
 
 ## Jobs and Tasks
 
-No rendering-specific support is present for jobs and tasks.  The main configuration item is the task command line, which needs to reference the required application.
+No rendering-specific support is required for jobs and tasks.  The main configuration item is the task command line, which needs to reference the required application.
 When the Azure Marketplace VM images are used, then the best practice is to use the environment variables to specify the path and application executable.
+
+## Next steps
+
+For examples of Batch rendering try out the two tutorials:
+
+* [Rendering using the Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Rendering using Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

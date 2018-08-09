@@ -132,7 +132,7 @@
     items:
     - name: Rendering using Azure
       href: batch-rendering-service.md
-    - name: Rendering applications
+    - name: Rendering VM images
       href: batch-rendering-applications.md
     - name: Batch rendering capabilities
       href: batch-rendering-functionality.md

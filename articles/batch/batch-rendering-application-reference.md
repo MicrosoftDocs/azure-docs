@@ -76,3 +76,7 @@ render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_B
 ### Batch Explorer templates
 
 Pool and job templates can be accessed from the ‘Gallery’ in Batch Explorer.  The template source files are available in the [Batch Explorer data repository on GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya).
+
+## Next steps
+
+Use the pool and job templates from the [data repository in GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) using Batch Explorer.  When required create new templates or modify one of the supplied templates.

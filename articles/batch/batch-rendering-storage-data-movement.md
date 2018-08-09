@@ -13,7 +13,7 @@ ms.topic: conceptual
 There are multiple options for making the scene and asset files available to the rendering applications on the pool VMs:
 
 * [Azure blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
-  * Scene and asset files and uploaded to blob storage from a local file system. When the application is run by a task, then the required files are copied from blob storage onto the VM so they can be accessed by the rendering application. The output files are written by the rendering application to the VM disk and then copied to blob storage.  If necessary, the output files can be download from blob storage to a local file system.
+  * Scene and asset files are uploaded to blob storage from a local file system. When the application is run by a task, then the required files are copied from blob storage onto the VM so they can be accessed by the rendering application. The output files are written by the rendering application to the VM disk and then copied to blob storage.  If necessary, the output files can be downloaded from blob storage to a local file system.
   * Azure blob storage is a simple and cost-effective option for smaller projects.  As all asset files are required on each pool VM, then once the number and size of asset files increases care needs to be taken to ensure the file transfers are as efficient as possible.  
 * Azure storage as a file system using [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
   * For Linux VMs, a storage account can be exposed and used as a file system when the blobfuse virtual file system driver is used.
@@ -65,7 +65,7 @@ Azure Batch has built-in support to copy files between a storage account and Bat
 
 Blobfuse is a virtual file system driver for Azure Blob Storage, which allows you to access files stored as blobs in a Storage account through the Linux file system.
 
-Pool nodes can mount the file system when started or the mount can happen as part of a job preparation task – a task that is only run when the first task in a job runs on a nod.  Blobfuse can be configured to leverage both a ramdisk and the VMs local SSD for caching of files, which will increase performance significantly if multiple tasks on a node access some of the same files.
+Pool nodes can mount the file system when started or the mount can happen as part of a job preparation task – a task that is only run when the first task in a job runs on a node.  Blobfuse can be configured to leverage both a ramdisk and the VMs local SSD for caching of files, which will increase performance significantly if multiple tasks on a node access some of the same files.
 
 [Sample templates are available](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/vray/render-linux-with-blobfuse-mount) to run standalone V-Ray renders using a blobfuse file system and can be used as the basis for templates for other applications.
 
@@ -121,3 +121,11 @@ Job tasks specify paths for input files and output files using the mounted file 
 Azure Files are supported by all the main APIs and tools that have Azure Storage support; e.g. azcopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer, etc.
 
 [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) is available to automatically synchronize files between an on-premises file system and an Azure File share.
+
+## Next steps
+
+For more information about the storage options see the in-depth documentation:
+
+* [Azure blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
+* [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

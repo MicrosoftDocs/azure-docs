@@ -22,7 +22,7 @@ There are several ways to use Azure Batch rendering:
   * For each of the rendering applications, a number of pool and job templates are provided that can be used to easily create pools and to submit jobs.  A set of templates is listed in the application UI, with the template files being accessed from GitHub.
   * Custom templates can be authored from scratch or the supplied templates from GitHub can be copied and modified.
 * Client application plug-ins:
-  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Labs application with contextual information about the current 3D model.
+  * Plug-ins are available that allow Batch rendering to be used from directly within the client design and modeling applications.  The plug-ins mainly invoke the Batch Explorer application with contextual information about the current 3D model and includes features to help manage assets.
 
 The best way to try Azure Batch rendering and simplest way for end-users, who are not developers and not Azure experts, is to use the Batch Explorer application, either directly or invoked from a client application plug-in.
 
@@ -35,7 +35,8 @@ For a step-by-step tutorial for using Batch Explorer to perform rendering see th
 Batch Explorer [downloads are available](https://azure.github.io/BatchExplorer/) for Windows, OSX, and Linux.
 
 ### Using templates to create pools and run jobs
-A comprehensive set of templates is available for use with Batch Explorer that makes it easy to create pools and submit jobs for the various rendering applications without having to specify all the properties required to create pools, jobs, and tasks directly with Batch.  The templates available in Batch Explorer are stored and visible [a GitHub repository](https://github.com/Azure/BatchExplorer-data/tree/master/ncj).
+
+A comprehensive set of templates is available for use with Batch Explorer that makes it easy to create pools and submit jobs for the various rendering applications without having to specify all the properties required to create pools, jobs, and tasks directly with Batch.  The templates available in Batch Explorer are stored and visible in [a GitHub repository](https://github.com/Azure/BatchExplorer-data/tree/master/ncj).
 
 ![Batch Explorer Gallery](./media/batch-rendering-using/batch-explorer-gallery.png)
 
@@ -54,3 +55,10 @@ Plug-ins are available for some of the client applications.  The plug-ins allow 
 * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
+
+## Next steps
+
+For examples of Batch rendering try out the two tutorials:
+
+* [Rendering using the Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
+* [Rendering using Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

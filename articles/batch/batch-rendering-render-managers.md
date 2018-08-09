@@ -8,9 +8,9 @@ ms.date: 08/02/2018
 ms.topic: conceptual
 ---
 
-# Using Azure Batch with render managers
+# Using Azure Batch with render farm managers
 
-If there's any existing rendering work being performed using an on-premises render farm, then it's highly likely that a render management system is being used to manage the render farm capacity and render jobs.
+If rendering work is being performed using an existing on-premises render farm, then it's highly likely that a render management system is being used to manage the render farm capacity and render jobs.
 
 Azure support is either built-in or provided as add-ons for popular render managers, allowing Azure VMs to be added and removed, including VMs with the pay-for-use application licensing and low-priority VMs.
 
@@ -26,7 +26,7 @@ Scripts and instructions to enable Azure Batch pool VMs to be used as Qube worke
 
 ## Using Azure with Royal Render
 
-Royal Render has Azure and Azure Batch integration built-in, with the ability to create Azure-based VMs for a render farm or extend an existing on-premises render farm. A summary of the capabilities available is included in [the help files](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Royal Render has Azure and Azure Batch integration built-in, with the ability to create Azure-based VMs to extend a render farm. A summary of the capabilities available is included in [the help files](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 For an example of a Royal Render customer using the Azure integration, see the [Jellyfish Pictures customer story](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
 
@@ -34,3 +34,6 @@ For an example of a Royal Render customer using the Azure integration, see the [
 
 Scripts and instructions to enable Azure Batch pool VMs to be used as Deadline slaves are in [the GitHub repository](https://github.com/Azure/azure-deadline).
 
+## Next steps
+
+Try out the Azure Batch integration for your render manager, using the appropriate plug-in and instructions on GitHub, where applicable.
