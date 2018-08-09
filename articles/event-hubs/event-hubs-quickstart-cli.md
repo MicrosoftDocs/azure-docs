@@ -2,7 +2,7 @@
 title: Azure Quickstart - Process event streams using Azure CLI | Microsoft Docs
 description: In this quickstart, you learn how to process event streams using Azure CLI.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
@@ -10,7 +10,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
+ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub?
 
 ---
