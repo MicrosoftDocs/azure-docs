@@ -22,7 +22,7 @@ ms.author: shants
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
-- If the maintenance doesn't require a reboot, Azure uses in-place migration to pause the VM while the host is updated. Maintenance operations that don't require a reboot are applied by fault domain. Progress is stopped if any warning health signals are received.
+- If the maintenance doesn't require a reboot, Azure uses in-place migration to pause the VM while the host is updated. Maintenance operations that don't require a reboot are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
 
 - If maintenance requires a reboot, you receive a notification that shows when the maintenance is planned. In these cases, you are given a time window in which you can start the maintenance yourself when it works best for you.
 
@@ -49,7 +49,7 @@ The following guidelines can help you decide whether to start maintenance at a t
 
 Self-service maintenance isn't recommended for deployments that use *availability sets*. Availability sets are highly available setups in which only one update domain is affected at any time. For availability sets:
 
-- Let Azure trigger the maintenance. For maintenance that requires a reboot, maintenance is done by update domain. Update domains don't necessarily receive the maintenance sequentially. There's a 30-minute pause between update domains.
+- Let Azure trigger the maintenance. For maintenance that requires a reboot, maintenance is done update domain by update domain. Update domains don't necessarily receive the maintenance sequentially. There's a 30-minute pause between update domains.
 - If a temporary loss of some of your capacity (1/update domain count) is a concern, you can easily compensate for the loss by allocating additional instances during the maintenance period.
 - For maintenance that doesn't require a reboot, updates are applied at the fault domain level. 
 	
