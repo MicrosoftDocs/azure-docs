@@ -59,6 +59,8 @@
       href: resource-group-create-multiple.md
     - name: Create resource group in template
       href: create-resource-group-in-template.md
+    - name: Create resources in subscription
+      href: deploy-to-subscription.md
     - name: Update resource
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy
