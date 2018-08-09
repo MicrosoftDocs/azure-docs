@@ -1,30 +1,30 @@
 ---
-title: Threat Detection - Azure SQL Database | Microsoft Docs
-description: Threat Detection detects anomalous database activities indicating potential security threats to the database. 
+title: Threat Protection - Azure Database for PostgreSQL | Microsoft Docs
+description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
 services: postgresql
 author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/09/2018
 ms.author: mbolz
 
 ---
-# Azure Database for PostgreSQL Advanced Threat Detection
+# Advanced Threat Protection for Azure Database for PostgreSQL
 
-Azure Database for PostgreSQL Advanced Threat Detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Threat Detection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Detection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
+Threat Protection is part of the Advanced Threat Protection (ATP) offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) and is currently in preview.
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the Azure Database for PostgreSQL server you want to protect. In the security settings, select **Threat Detection (Preview)**.
-3. On the **Threat Detection (Preview)** configuration page:
+2. Navigate to the configuration page of the Azure Database for PostgreSQL server you want to protect. In the security settings, select **Threat Protection (Preview)**.
+3. On the **Threat Protection (Preview)** configuration page:
 
    - Enable Advanced Threat Protection on the server.
-   - In **Threat Detection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
+   - In **Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
-   ![Set up threat detection](./media/howto-database-threat-detection-using-portal/set-up-threat-detection.png)
+   ![Set up threat detection](./media/howto-database-threat-protection-using-portal/set-up-threat-protection.png)
 
 ## Explore anomalous database activities upon detection of a suspicious event
 
