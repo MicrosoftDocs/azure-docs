@@ -28,7 +28,7 @@ Ansible can be used to pull inventory information from various sources (includin
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
 
     > [!IMPORTANT]	
-    > The Azure resource group created in this step must be entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
+    > The Azure resource group you create in this step must have a name that is entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -181,7 +181,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. The [nginx -v](https://nginx.org/en/docs/switches.html) command is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
+1. The [nginx -v](https://nginx.org/en/docs/switches.html) command can be is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
 
     ```azurecli-interactive
     nginx -v
