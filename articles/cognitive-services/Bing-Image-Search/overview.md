@@ -26,9 +26,9 @@ While Bing Image Search primarily finds and returns relevant images from a searc
 
 | Feature                             | Description                                                                                                                                                            |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Suggest search terms in real-time   | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms as they're typed. |
-| Filter and restrict image results   | Filter the images that Bing returns by editing query parameters.                                                                                                       |
-| Crop, resize, and display thumbnails | Display thumbnail previews for the images returned by Bing Image Search.                                                                                               |
+| [Suggest search terms in real-time](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#using-and-suggesting-search-terms)   | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms as they're typed. |
+| [Filter and restrict image results](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)   | Filter the images that Bing returns by editing query parameters.                                                                                                       |
+| [Crop, resize, and display thumbnails](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails) | Edit and display thumbnail previews for the images returned by Bing Image Search.                                                                                               |
 | Pivot & expand user search queries | Expand your search capabilities by including and displaying Bing-suggested search terms to queries.                                                                    |
 | Get trending images                | Expand your search capabilities by including Bing-suggested search-terms in queries.                                                                                   |
 
@@ -50,6 +50,10 @@ To quickly get started with your first API request, you can learn to:
 
 ## See also
 
-The [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) reference section contains definitions and information on the endpoints, headers, API responses, and query parameters that you can use to request image-based search results.
+* The [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) reference section contains definitions and information on the endpoints, headers, API responses, and query parameters that you can use to request image-based search results.
 
-The [Bing Use and Display Requirements](./useanddisplayrequirements.md) topic specifies acceptable uses of the content and information gained through the Bing search APIs.
+* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) topic specifies acceptable uses of the content and information gained through the Bing search APIs.
+
+* [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)
+
+* [Sending and working with search queries](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)
