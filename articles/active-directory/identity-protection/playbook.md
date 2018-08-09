@@ -111,7 +111,7 @@ This section provides you with steps for testing the user risk and the sign-in r
 
 ### User risk security policy
 
-For more information, see [User risk security policy](../active-directory-identityprotection.md#user-risk-security-policy).
+For more information, see [User risk security policy](overview.md#user-risk-security-policy).
 
 ![User risk](./media/playbook/02.png "Playbook")
 
@@ -136,7 +136,7 @@ For more information, see [User risk security policy](../active-directory-identi
 
 ### Sign-in risk security policy
 
-For more information, see [User risk security policy](../active-directory-identityprotection.md#user-risk-security-policy).
+For more information, see [User risk security policy](overview.md#user-risk-security-policy).
 
 ![Sign-in risk](./media/playbook/01.png "Playbook")
 
