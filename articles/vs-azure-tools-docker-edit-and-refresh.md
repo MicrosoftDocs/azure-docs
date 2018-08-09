@@ -32,7 +32,7 @@ This article also shows you how to set breakpoints for debugging.
 ## Prerequisites
 The following tools must be installed.
 
-* [Latest version of Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 To run Docker containers locally, you'll need a local docker client.
