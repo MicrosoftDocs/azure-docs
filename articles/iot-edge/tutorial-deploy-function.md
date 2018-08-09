@@ -180,7 +180,7 @@ In this section, you provide the credentials for your container registry twice. 
 
    ![View your module in the deployment manifest](./media/tutorial-deploy-function/deployment-template.png)
 
-3. Open the **.env** file in your IoT Edge solution workspace. This git-ignored file stores your container registry credentials so that you don't have to put them in the deployment manifest template. 
+3. Open the **.env** file in your IoT Edge solution workspace. This git-ignored file stores your container registry credentials so that you don't have to put them in the deployment manifest template. Provide the **username** and **password** for your container registry. 
 
 5. Save this file.
 
