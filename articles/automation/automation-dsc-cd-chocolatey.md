@@ -104,22 +104,22 @@ with it (once), and creating and storing the configuration there (initially). Th
 upgraded and deployed to the repository, refresh the Configuration and Node Configuration in the
 pull server (repeat as needed).
 
-If you're not starting with an ARM template, that's also OK. There are PowerShell cmdlets designed
-to help you register your VMs with the pull server and all of the rest. For more details, see this
-article: [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md)
+If you're not starting with an Resource Manager template, that's also OK. There are PowerShell
+cmdlets designed to help you register your VMs with the pull server and all of the rest. For more
+details, see this article: [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 ## Step 1: Setting up the pull server and automation account
 
 At an authenticated (`Connect-AzureRmAccount`) PowerShell command line: (can take a few minutes while the pull server is set up)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 
 You can put your automation account into any of the following regions (aka location): East US 2,
 South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and
 Australia Southeast, Canada Central, North Europe.
 
-## Step 2: VM extension tweaks to the ARM template
+## Step 2: VM extension tweaks to the Resource Manager template
 
 Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure
 Quickstart
@@ -263,7 +263,7 @@ From that point on, it's up to the VMs that depend on that configuration to pull
 install it. Each of these updates are simple - just a line or two of PowerShell. In the case of
 Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained
 together in a build. This
-[article](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery)
+[article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)
 provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the
 various available build tasks.
 
