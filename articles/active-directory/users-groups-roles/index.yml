@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute quickstarts
   items:
   - type: paragraph
-    text: Learn how to manage groups in Azure Active Directory
+    text: Learn to use management tools in Azure Active Directory
   - type: list
     style: unordered
     items:
@@ -32,7 +32,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: Learn how to set up dynamically populated groups in Azure Active Directory
+    text: Learn how to dynamically populate groups in Azure Active Directory
   - type: list
     style: unordered
     items:
