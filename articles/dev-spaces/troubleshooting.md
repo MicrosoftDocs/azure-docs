@@ -72,7 +72,7 @@ You can use the following command to list out all URLs associated with your Dev 
 
 If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for this to happen. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
 
-If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the nginx ingress controller that is responsible for DNS registration. You can use the following command to delete the pod running the nginx controller. It will be recreated automatically.
+If a URL remains in the *Pending* state for more than 5 minutes, it may indicate a problem with the nginx ingress controller that is responsible for acquiring the public endpoint. You can use the following command to delete the pod running the nginx controller. It will be recreated automatically.
 
     ```cmd
     kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
