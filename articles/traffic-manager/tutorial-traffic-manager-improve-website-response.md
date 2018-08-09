@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Route traffic to improve website response using Azure Traffic Manager | Microsoft Docs
+title: Tutorial: Route traffic to improve website response using Azure Traffic Manager | Microsoft Docs
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 documentationcenter: ''
@@ -64,6 +64,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWEurope* in the 
     |||
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
+    
     |Setting|Value|
     |---|---|
     |Virtual network| Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet1*, for subnet, enter *mySubnet*.|
@@ -118,7 +119,7 @@ Traffic Manager routes user traffic based on DNS name of the service endpoints. 
 1. Click **All resources** in the left-hand menu, and then from the resources list, select *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
 2. On the **Overview** page, under **DNS name**, select **Configure**.
 3. On the **Configuration** page, under DNS name label, add a unique name, and then select **Save**.
-4. Repeat steps 1-3, for the VM named **myIISVMWEurope* that is located in the *myResourceGroupTM1* resource group.
+4. Repeat steps 1-3, for the VM named *myIISVMWEurope* that is located in the *myResourceGroupTM1* resource group.
 
 ### Create test VMs
 
