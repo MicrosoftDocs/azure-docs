@@ -112,6 +112,8 @@ The response message from Bing contains an [Images](https://docs.microsoft.com/r
 },
 ```
 
+When you call the Bing Image Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of images that are available to view. For details about how you'd page through the remaining images, see [Paging Images](./paging-images.md).
+
 ## Displaying thumbnails
 
 The information in the response can be used to display all, or a subset of the returned thumbnails. If you display a subset, provide a option to view the remaining images. 
