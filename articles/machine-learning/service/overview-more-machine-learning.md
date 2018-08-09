@@ -15,7 +15,7 @@ ms.date: 04/11/2018
 
 # Other machine learning products and services from Microsoft
 
-In addition to [Azure Machine Learning](overview-what-is-azure-ml.md), there are a variety of options at Microsoft to build, deploy, and manage your machine learning models.
+In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), there are a variety of options at Microsoft to build, deploy, and manage your machine learning models.
 
 | Use this option...                                                            | if you want to do this... |
 | ----------------------------------------------------------------------------- | ---------------- |

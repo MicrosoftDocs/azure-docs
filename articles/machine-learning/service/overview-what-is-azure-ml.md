@@ -26,7 +26,10 @@ Azure Machine Learning Services fully supports open-source technologies, so you 
 
 Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), make it easy to interactively explore data, transform it, and then develop, test, and deploy models.
 
-Azure Machine Learning Services lets you start training on your local machine, and then scale out to the cloud. With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and advanced hyperparameter tuning services<!-- link TBD -->, you can build better models faster, using the power of the cloud. When you have the right model, you can easily deploy it with full Docker support. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the Docker container in your own deployments, either on-premises or in the cloud.
+Azure Machine Learning Services lets you start training on your local machine, and then scale out to the cloud. With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and advanced hyperparameter tuning services *(link TBD)*, you can build better models faster, using the power of the cloud. When you have the right model, you can easily deploy it with full Docker support. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the Docker container in your own deployments, either on-premises or in the cloud.
+
+> [!NOTE]
+> For a more technical, in-depth look at Azure Machine Learning Services, see [Azure Machine Learning Services architecture and concepts](concept-azure-machine-learning-architecture.md).
 
 In addition to Azure Machine Learning Services, Microsoft provides other options to build, deploy, and manage machine learning models. For more information on these options, see [Other machine learning products from Microsoft](./overview-more-machine-learning.md).
 
