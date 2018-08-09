@@ -100,7 +100,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     ![Device options](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. On the **SCP** page, for each forest you want Azure AD Connect to the SCP, perform the following steps, and then click **Next**: 
+6. On the **SCP** page, for each forest you want Azure AD Connect to configure the SCP, perform the following steps, and then click **Next**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
