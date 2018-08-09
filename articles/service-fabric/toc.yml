@@ -187,6 +187,8 @@
         href: service-fabric-dnsservice.md
       - name: Reverse proxy
         href: service-fabric-reverseproxy.md
+      - name: Set up and configure reverse proxy 
+        href: service-fabric-reverseproxy-setup.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Reverse proxy diagnostics
@@ -551,8 +553,8 @@
           href: service-fabric-cluster-scale-up-down.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
-        - name: Scale up the primary node type VMs
-          href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+        - name: Virtual Machine Scale Set Node Type scale out
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
@@ -568,9 +570,7 @@
       - name: Delete
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-      - name: Upgrade/migrate VMSS SKU 
-        href: service-fabric-update-vmss-sku.md
+        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
     - name: Standalone clusters
       items:
       - name: Create

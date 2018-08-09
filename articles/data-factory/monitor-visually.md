@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2018
+ms.date: 07/12/2018
 ms.author: shlo
 
 ---
@@ -72,6 +72,11 @@ List view showcasing activity runs corresponding to each pipeline run. Click **'
 
 ## Features
 
+#### Select a data factory to monitor
+Hover on the **Data Factory** icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
+
+![Select data factory](media/monitor-visually/select-datafactory.png)
+
 #### Rich ordering and filtering
 
 Order pipeline runs in desc/asc by Run Start and filter pipeline runs by following columns:
@@ -84,7 +89,7 @@ Order pipeline runs in desc/asc by Run Start and filter pipeline runs by followi
 
 ![Filter](media/monitor-visually/filter.png)
 
-#### Add/Remove columns to list view
+#### Add/Remove columns in list view
 Right click the list view header and choose columns that you want to appear in the list view
 
 ![Columns](media/monitor-visually/columns.png)
@@ -92,10 +97,22 @@ Right click the list view header and choose columns that you want to appear in t
 #### Reorder column widths in list view
 Increase and decrease the column widths in list view by simply hovering over the column header
 
-#### Select data factory
-Hover on the 'Data Factory' icon on the top left. Click on the 'Arrow' icon to see a list of azure subscriptions and data factories that you can monitor.
+#### User properties
 
-![Select data factory](media/monitor-visually/select-datafactory.png)
+You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the Copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a Copy activity.
+
+![Create user properties](media/monitor-visually/monitor-user-properties-image1.png)
+
+> [!NOTE]
+> You can only promote up to 5 pipeline activity properties as user properties.
+
+After you create the user properties, you can then monitor them in the monitoring list views. If the source for the Copy activity is a table name, you can monitor the source table name as a column in the activity runs list view.
+
+![Activity runs list without user properties](media/monitor-visually/monitor-user-properties-image2.png)
+
+![Add columns for user properties to activity runs list](media/monitor-visually/monitor-user-properties-image3.png)
+
+![Activity runs list with columns for user properties](media/monitor-visually/monitor-user-properties-image4.png)
 
 #### Guided Tours
 Click on the 'Information Icon' in lower left and click 'Guided Tours' to get step-by-step instructions on how to monitor your pipeline and activity runs.

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
@@ -29,7 +29,7 @@ To avoid confusion, many companies want to apply a consistent look and feel acro
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
 Company branding customizations appear on the Azure AD sign-in page when users access a tenant-specific URL such as
-[*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+[*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) or passing the domain vaiable in the URL like [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com)
 
 For example, when users visit www.office.com, the sign-in page doesn't show any company branding customizations because the user has not yet entered credentials. After a user enters their user ID or selects a user tile, company branding displays.
 
@@ -67,7 +67,7 @@ This color is used in place of the background image on low-bandwidth connections
 ### Square logo image
 Description | Constraints | Recommendations
 ------- | ------- | ----------
-This image appears during setup for new Enterprise Windows 10 PCs. It provides context to employees when they set up their new work PC. The image is displayed for tenants that use [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) to deploy their work devices, and on password entry pages in other Windows 10 experiences. | Transparent PNG (preferred) or JPG<br>Image dimensions: 240x240 px<br>File size: &lt; 10 KB | Use your organization’s logo here.<br> Use a transparent image.<br>Don’t assume that the background will be white.<br>Don't add padding to your logo in the image or your logo will look disproportionately small.
+This image appears during setup for new Enterprise Windows 10 PCs. It provides context to employees when they set up their new work PC. The image is displayed for tenants that use [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) to deploy their work devices, and on password entry pages in other Windows 10 experiences.<br>The square logo is used exclusively in Windows authentication. The dark theme version is deprecated and is no longer used anywhere. | Transparent PNG (preferred) or JPG<br>Image dimensions: 240x240 px<br>File size: &lt; 10 KB | Use your organization’s logo here.<br> Use a transparent image.<br>Don’t assume that the background will be white.<br>Don't add padding to your logo in the image or your logo will look disproportionately small.
 
 ### Show option to remain signed in
 Description | Constraints | Recommendations

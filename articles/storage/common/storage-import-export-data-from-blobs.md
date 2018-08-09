@@ -2,14 +2,12 @@
 title: Using Azure Import/Export to export data from Azure Blobs | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
@@ -22,6 +20,13 @@ You must:
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
+- Have a FedEx/DHL account.  
+    - The account must be valid, should have balance, and must have return shipping capabilities.
+    - Generate a tracking number for the export job.
+    - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported. 
+    - If you do not have a carrier account, go to:
+        - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or 
+        - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## Step 1: Create an export job
 
@@ -49,7 +54,7 @@ Perform the following steps to create an export job in the Azure portal.
     
 3. In **Job details**:
 
-    - Select the storage account where the data to be exported resides. 
+    - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
     - The drop-off location is automatically populated based on the region of the storage account selected. 
     - Specify the blob data you wish to export from your storage account to your blank drive or drives. 
     - Choose to **Export all** blob data in the storage account.
@@ -75,11 +80,18 @@ Perform the following steps to create an export job in the Azure portal.
     - Select the carrier from the dropdown list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+
+        > [!TIP] 
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
    
 5. In **Summary**:
 
     - Review the details of the job.
-    - Note the job name and provided Azure datacenter shipping address for shipping disks to Azure. 
+    - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure. 
+
+        > [!NOTE] 
+        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
+
     - Click **OK** to complete export job creation.
 
 ## Step 2: Ship the drives

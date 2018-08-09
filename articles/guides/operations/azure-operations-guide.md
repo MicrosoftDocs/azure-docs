@@ -3,7 +3,7 @@ title: Getting started guide for Azure IT operators | Microsoft Docs
 description: Getting started guide for Azure IT operators
 services:
 documentationcenter:
-author: neilpeterson
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic:
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
+ms.author: mibender
 ---
 
 # Introduction to cloud computing and Microsoft Azure

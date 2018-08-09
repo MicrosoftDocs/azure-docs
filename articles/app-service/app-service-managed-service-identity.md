@@ -53,7 +53,7 @@ To set up a managed service identity using the Azure CLI, you will need to use t
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
 
     ```azurecli-interactive
     az login
@@ -199,7 +199,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.

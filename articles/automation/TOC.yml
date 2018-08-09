@@ -41,6 +41,8 @@
         href: automation-update-management.md
       - name: Manage updates for multiple VMs
         href: manage-update-multi.md
+      - name: Migrate OMS update deployments to Azure
+        href: migrate-oms-update-deployments.md
       - name: Integrate SCCM with Update Management
         href: oms-solution-updatemgmt-sccmintegration.md
     - name: Change Tracking
@@ -97,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Source control integration
           href: automation-source-control-integration.md
+        - name: Create runbooks with the Graphical runbook SDK
+          href: graphical-runbook-sdk.md
     - name: Automate
       items:
         - name: Start a runbook
@@ -143,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: Forward Azure Automation DSC reporting data to OMS Log Analytics
           href: automation-dsc-diagnostics.md
-    - name: Manage assets
+    - name: Manage shared resources
       items:
         - name: Certificates
           href: automation-certificates.md

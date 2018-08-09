@@ -14,7 +14,7 @@ manager: carmonm
 
 When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker services the request for your job. A single runbook can have multiple jobs running at one time. The execution environment for jobs from the same Automation Account may be reused. When you view the list of runbooks in the Azure portal, it lists the status of all jobs that were started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses [Job Statuses](#job-statuses).
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 The following diagram shows the lifecycle of a runbook job for [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -139,7 +139,7 @@ This is to protect the service from runbooks running indefinitely without comple
 
 If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it restarts from the beginning.
 
-For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and do not have have a limitation on how long a runbook can execute.
+For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and do not have a limitation on how long a runbook can execute.
 
 If you are using a PowerShell Workflow runbook on Azure, when you create a runbook, you should ensure that the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to ensure that it does not reach this three-hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
 

@@ -2,13 +2,13 @@
 title: Understand LUIS app collaboration - Azure | Microsoft Docs
 description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ---
 # Collaborating
 
@@ -19,7 +19,7 @@ A LUIS account is associated with a single [Microsoft Live](https://login.live.c
 
 A LUIS account may have many LUIS apps.
 
-See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 ## LUIS app owner
 The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 

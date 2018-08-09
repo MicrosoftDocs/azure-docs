@@ -23,12 +23,12 @@ ms.reviewer: elisol, lenalepa
 # How and why applications are added to Azure AD
 
 There are two representations of applications in Azure AD: 
-* [Application objects](active-directory-application-objects.md#application-object) - Although there are [exceptions](#notes-and-exceptions), application objects can be considered the definition of an application.
-* [Service principals](active-directory-application-objects.md#service-principal-object) - Can be considered an instance of an application. 
+* [Application objects](app-objects-and-service-principals.md#application-object) - Although there are [exceptions](#notes-and-exceptions), application objects can be considered the definition of an application.
+* [Service principals](app-objects-and-service-principals.md#service-principal-object) - Can be considered an instance of an application. 
 Service principals generally reference an application object, and one application object can be referenced by multiple service principals across directories.
 
 ## What are application objects and where do they come from?
-You can manage [application objects](active-directory-application-objects.md#application-object) in the Azure portal through the [App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include any of the following (as well as additional information not mentioned here):
+You can manage [application objects](app-objects-and-service-principals.md#application-object) in the Azure portal through the [App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) experience. Application objects describe the application to Azure AD and can be considered the definition of the application, allowing the service to know how to issue tokens to the application based on its settings. The application object will only exist in its home directory, even if it's a multi-tenant application supporting service principals in other directories. The application object may include any of the following (as well as additional information not mentioned here):
 * Name, logo, and publisher
 * Reply URLs
 * Secrets (symmetric and/or asymmetric keys used to authenticate the application)
@@ -47,7 +47,7 @@ Application objects can be created through multiple pathways, including:
 * Many others including various developer experiences in Azure and in API explorer experiences across developer centers
 
 ## What are service principals and where do they come from?
-You can manage [service principals](active-directory-application-objects.md#service-principal-object) in the Azure portal through the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experience. Service principals are what govern an application connecting to Azure AD and can be considered the instance of the application in your directory. For any given application, it can have at most one application object (which is registered in a "home" directory) and one or more service principal objects representing instances of the application in every directory in which it acts. 
+You can manage [service principals](app-objects-and-service-principals.md#service-principal-object) in the Azure portal through the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) experience. Service principals are what govern an application connecting to Azure AD and can be considered the instance of the application in your directory. For any given application, it can have at most one application object (which is registered in a "home" directory) and one or more service principal objects representing instances of the application in every directory in which it acts. 
 
 The service principal can include:
 

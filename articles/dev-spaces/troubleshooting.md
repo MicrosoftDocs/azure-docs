@@ -16,13 +16,36 @@ manager: "douge"
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Error 'Failed to create Azure Dev Spaces controller'
+
+You might see this error when something goes wrong with the creation of the controller. If it's a transient error, deleting and recreating the controller will fix it.
+
+### Try:
+
+To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+And then run this command to delete the controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
+
+
 ## Error 'Service cannot be started.'
 
 You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, make the following changes to your commands and settings:
 
+### Try:
+
 On the command line:
 
-1. When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
+When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
  
     ```cmd
     azds up --verbose --output json
@@ -43,6 +66,19 @@ The error means that azds.exe is not in the PATH environment variable, as seen i
 ### Try:
 
 Launch VS Code from a command prompt where the PATH environment variable is set properly.
+
+## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
+ 
+You might see this error if azds.exe is not installed or configured correctly.
+
+### Try:
+
+1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) for azds.exe. If it's there, add that location to the PATH environment variable.
+2. If azds.exe is not installed, run the following command:
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
 
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 

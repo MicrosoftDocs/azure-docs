@@ -2,26 +2,25 @@
 title: Configure Azure AD SSO for applications | Microsoft Docs
 description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
 services: active-directory
-author: asmalser-msft
+author: barbkess
 documentationcenter: na
 manager: mtillman
-
-ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2018
-ms.author: asmalser
-ms.reviewer: luleon
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.reviewer: asmalser,luleon
 
 ms.custom: H1Hack27Feb2017
 ---
 
 # Configure single sign-on to applications that are not in the Azure Active Directory application gallery
 
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](develop/authentication-scenarios.md).
 
 The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](manage-apps/what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
@@ -145,7 +144,7 @@ Assigning a user will allow Azure AD to issue a token for the user. It also caus
 
 ### Test the SAML application
 
-Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](develop/active-directory-saml-debugging.md).
+Before testing the SAML application, you must have set up the application with Azure AD, and assigned users or groups to the application. To test the SAML application, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## Password single sign-on
 

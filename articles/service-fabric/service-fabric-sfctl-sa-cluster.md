@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
 
 ---
@@ -31,7 +31,7 @@ Manage stand-alone Service Fabric clusters.
 ## sfctl sa-cluster config
 Get the Service Fabric standalone cluster configuration.
 
-Get the Service Fabric standalone cluster configuration. The cluster configuration contains properties of the cluster that include different node types on the cluster, security configurations, fault, and upgrade domain topologies, etc.
+The cluster configuration contains properties of the cluster that include different node types on the cluster, security configurations, fault, and upgrade domain topologies, etc.
 
 ### Arguments
 
@@ -59,7 +59,8 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 
 |Argument|Description|
 | --- | --- |
-| --cluster-config            [Required] | The cluster configuration. |
+| --cluster-config            [Required] | The cluster configuration that will be applied to the cluster. |
+| --application-health-policies | JSON encoded dictionary of pairs of application type name and maximum percentage unhealthy before raising error. |
 | --delta-unhealthy-nodes | The maximum allowed percentage of delta health degradation during the upgrade. Allowed values are integer values from zero to 100. |
 | --health-check-retry | The length of time between attempts to perform a health checks if the application or cluster is not healthy.  Default\: PT0H0M0S. |
 | --health-check-stable | The length of time that the application or cluster must remain healthy.  Default\: PT0H0M0S. |
@@ -81,6 +82,11 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
+### Examples
+
+Start a cluster configuration update
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+
 ## sfctl sa-cluster upgrade-status
 Get the cluster configuration upgrade status of a Service Fabric standalone cluster.
 
@@ -101,6 +107,7 @@ Get the cluster configuration upgrade status details of a Service Fabric standal
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

@@ -49,8 +49,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-### Point-in-time-restore (PITR)
-- When using the PITR feature, the new server is created with the same configurations as the server it is based on.
+### Restoring a server
+- When using the PITR feature, the new server is created with the same pricing tier configurations as the server it is based on.
+- The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 - Restoring a deleted server is not supported.
 
 ## Next steps
