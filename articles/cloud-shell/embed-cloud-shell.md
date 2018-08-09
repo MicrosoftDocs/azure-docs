@@ -46,9 +46,9 @@ The HTML to embed a pop-up Cloud Shell is below:
 Set a specific shell experience by augmenting your URL.
 |Experience   |URL   |
 |---|---|
-|Most recently used shell   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|Most recently used shell   |[shell.azure.com](https://shell.azure.com)           |
+|Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
 ## Next steps
 [Bash in Cloud Shell quickstart](quickstart.md)<br>
