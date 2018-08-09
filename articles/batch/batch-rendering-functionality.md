@@ -20,7 +20,7 @@ For an overview of Batch concepts, including pools, jobs, and tasks see [this ar
 
 An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
 
-There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com) the VM images can be found by searching for 'batch rendering'.
+There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
 For an example pool configuration, see the [Azure CLI rendering tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Specific UI is present in the Azure portal and Batch Explorer to enable the selection of the rendering VM images when a pool is created.  If using a Batch API, then the following property values need to be specified for [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
@@ -66,13 +66,13 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 
 ### Azure VM families
 
-As with other workloads, rendering application system requirements vary and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, etc.
+As with other workloads, rendering application system requirements vary and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
 Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPU and/or GPU.
-For a description of available VM families and VM sizes [see VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+For a description of available VM families and VM sizes, [see VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 ### Low-Priority VMs
 
-As with other workloads, low-priority VMs can be utilized in Batch pools for rendering.  Low-priority VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs are not going to be suitable for all rendering jobs; for example, if images take many hours to render then it is likely that having the rendering of those images interrupted and restarted due to VMs being preempted, would not be acceptable.
+As with other workloads, low-priority VMs can be utilized in Batch pools for rendering.  Low-priority VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs aren't going to be suitable for all rendering jobs. For example, if images take many hours to render then it's likely that having the rendering of those images interrupted and restarted due to VMs being preempted wouldn't be acceptable.
 
 For more information about the characteristics of low-priority VMs and the various ways to configure them using Batch, see [Use low-priority VMs with Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
 

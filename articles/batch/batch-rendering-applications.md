@@ -34,7 +34,7 @@ For Windows Server 2016 rendering nodes:
 * Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254)
 * Autodesk Arnold for Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
 * Autodesk Arnold for Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
-* Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926)
+* Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4)(version 1.2.926)
 * Chaos Group V-Ray for Maya (version 3.52.03)
 * Chaos Group V-Ray for 3ds Max (version 3.60.02)
 * Blender (2.79)

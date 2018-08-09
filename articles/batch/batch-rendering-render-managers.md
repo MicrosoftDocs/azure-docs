@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 If rendering work is being performed using an existing on-premises render farm, then it's highly likely that a render management system is being used to manage the render farm capacity and render jobs.
 
-Azure support is either built-in or provided as add-ons for popular render managers, allowing Azure VMs to be added and removed, including VMs with the pay-for-use application licensing and low-priority VMs.
+Azure support is either built in or provided as add-ons for popular render managers, allowing Azure VMs to be added and removed, including VMs with the pay-for-use application licensing and low-priority VMs.
 
 The following render managers are supported:
 

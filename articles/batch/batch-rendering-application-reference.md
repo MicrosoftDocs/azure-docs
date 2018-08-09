@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Rendering applications
 
-Rendering applications are used by creating Batch jobs and tasks, with the task command line property specifying the appropriate command line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  The templates can be viewed and modified versions created if required.
+Rendering applications are used by creating Batch jobs and tasks, with the task command line property specifying the appropriate command-line and parameters.  The easiest way to create the job tasks is to use the Batch Explorer templates as specified in [this article](https://docs.microsoft.com/azure/batch/batch-rendering-using#using-batch-explorer).  The templates can be viewed and modified versions created if necessary.
 
 This article provides a brief description of how each rendering application can be invoked.
 
@@ -53,7 +53,7 @@ In addition to the renderers built into Maya, the following renderers are also a
 
 ### Task command line
 
-The ‘renderer.exe’ command line render is used in the task command line. The command line renderer is documented in [Maya help](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+The ‘renderer.exe’ command-line render is used in the task command line. The command-line renderer is documented in [Maya help](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 In the following example, a job preparation task is used to copy the scene files and assets to the job preparation working directory, an output folder is used to store the rendering image, and frame 10 is rendered.
 
@@ -79,4 +79,4 @@ Pool and job templates can be accessed from the ‘Gallery’ in Batch Explorer.
 
 ## Next steps
 
-Use the pool and job templates from the [data repository in GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) using Batch Explorer.  When required create new templates or modify one of the supplied templates.
+Use the pool and job templates from the [data repository in GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) using Batch Explorer.  When required, create new templates or modify one of the supplied templates.

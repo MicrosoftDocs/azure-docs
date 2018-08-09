@@ -23,13 +23,13 @@ For many reasons, rendering is a workload perfectly suited for Azure and Azure B
 * Rendering jobs can be split into many pieces that can be run in parallel using multiple VMs:
   * Animations consist of many frames and each frame can be rendered in parallel.  The more VMs available to process each frame, the faster all the frames and the animation can be produced.
   * Some rendering software allows single frames to be broken up into multiple pieces, such as tiles or slices.  Each piece can be rendered separately, then combined into the final image when all pieces have finished.  The more VMs that are available, the faster a frame can be rendered.
-* Rendering projects can leverage huge scale:
-  * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames.  A huge amount of compute is required to render high-quality animations in a reasonable amount of time.  In some cases, over 100,000 cores have been leveraged to render thousands of frames in parallel.
+* Rendering projects can require huge scale:
+  * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames.  A huge amount of compute is required to render high-quality animations in a reasonable amount of time.  In some cases, over 100,000 cores have been used to render thousands of frames in parallel.
 * Rendering projects are project-based and require varying amounts of compute:
   * Being able to allocate compute and storage capacity when required, scale it up or down according to load during a project, and remove it when a project is finished is a huge benefit for rendering workloads.
   * Pay for capacity when allocated, but don’t pay for it when there is no load, such as between projects.
   * Cater for bursts due to unexpected changes; scale higher if there are unexpected changes late in a project and those changes need to be processed on a tight schedule.
-* Leverage a wide selection of hardware according to application, workload, and timeframe:
+* Choose from a wide selection of hardware according to application, workload, and timeframe:
   * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
   * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or to use certain features. 
 * Low-priority VMs reduce costs:
@@ -44,7 +44,7 @@ There are a range of Azure capabilities that can be used for rendering workloads
 
 The most common case is for there to be an existing on-premises render farm being managed by a render management application such as PipelineFX Qube, Royal Render, or Thinkbox Deadline.  The requirement is to extend the on-premises render farm capacity using Azure VMs.
 
-The render management software either has Azure support built-in or we make available plug-ins that add Azure support.  See the article on [using render managers](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers) for more information on the supported render managers and functionality enabled.
+The render management software either has Azure support built-in or we make available plug-ins that add Azure support. For more information on the supported render managers and functionality enabled, see the article on [using render managers](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
 
 ### Custom rendering workflow
 
@@ -63,10 +63,10 @@ Azure Batch is used for many workloads, but the following capabilities are avail
 * VM images with pre-installed graphics and rendering applications:
   * Azure Marketplace VM images are available that contain popular graphics and rendering applications, avoiding the need to install the applications yourself or create your own custom images with the applications installed. 
 * Pay-per-use licensing for rendering applications:
-  * You can choose to pay for the applications by the minute, in addition to paying for the compute VMs.  This avoids having to buy licenses and potentially configure a license server for the applications.  Paying for use also means that it is possible to cater for varying and unexpected load as there is not a fixed number of licenses.
+  * You can choose to pay for the applications by the minute, in addition to paying for the compute VMs, which avoids having to buy licenses and potentially configure a license server for the applications.  Paying for use also means that it is possible to cater for varying and unexpected load as there is not a fixed number of licenses.
   * It is also possible to use the pre-installed applications with your own licenses and not use the pay-per-use licensing.
 * Plug-ins for client design and modeling applications:
-  * Plug-ins allow end-users to utilize Azure Batch directly from client application, such as Autodesk Maya, enabling them to create pools, submit jobs and leverage more compute capacity to perform faster renders.
+  * Plug-ins allow end-users to utilize Azure Batch directly from client application, such as Autodesk Maya, enabling them to create pools, submit jobs and make use of more compute capacity to perform faster renders.
 * Render manager integration:
   * Azure Batch is integrated into render management applications or plug-ins are available to provide the Azure Batch integration.
 
@@ -74,7 +74,7 @@ There are several ways to use Azure Batch, all of which also apply to Azure Batc
 
 * APIs:
   * Write code using the [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch), or other supported APIs.  Developers can integrate Azure Batch capabilities into their existing applications or workflow, whether cloud or based on-premises.  For example, the [Autodesk Maya plug-in](https://github.com/Azure/azure-batch-maya) utilizes the Batch Python API to invoke Batch, creating and managing pools, submitting jobs and tasks, and monitoring status.
-* Command line tools:
+* Command-line tools:
   * The [Azure command line](https://docs.microsoft.com/cli/azure/) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) can be used to script Batch use.
   * In particular, the Batch CLI template support makes it much easier to create pools and submit jobs.
 * UIs:
