@@ -55,11 +55,11 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Feed your project code into the VSTS project code repository: 
+1. Feed your project code into the VSTS project code repository: 
 
     ![Project code repository](./media/code-test/create_repo.PNG)
 
-4. Suppose you've done some data preparation work, such as data ingestion, feature engineering, and creating label columns. You want to make sure your code is generating the results that you expect. Here's some code that you can use to test whether the data-processing code is working properly:
+1. Suppose you've done some data preparation work, such as data ingestion, feature engineering, and creating label columns. You want to make sure your code is generating the results that you expect. Here's some code that you can use to test whether the data-processing code is working properly:
 
 	* Check that column names are right:
 	
@@ -78,7 +78,7 @@ Use the following steps to set up and run code testing and an automated build by
       ![Code for missing rate](./media/code-test/check_missing_rate.PNG)
 
 
-5. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
+1. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
 
 	* Check prediction levels:
 	
@@ -88,28 +88,28 @@ Use the following steps to set up and run code testing and an automated build by
 
       ![Code for checking prediction values](./media/code-test/check_prediction_values.PNG)
 
-6. Put all test functions together into a Python script called **test_funcs.py**:
+1. Put all test functions together into a Python script called **test_funcs.py**:
 
     ![Python script for test functions](./media/code-test/create_file_test_func.PNG)
 
 
-7. After the test codes are prepared, you can set up the testing environment in Visual Studio.
+1. After the test codes are prepared, you can set up the testing environment in Visual Studio.
 
    Create a Python file called **test1.py**. In this file, create a class that includes all the tests you want to do. The following example shows six tests prepared:
 	
 	![Python file with a list of tests in a class](./media/code-test/create_file_test1_class.PNG)
 
-8. Those tests can be automatically discovered if you put **codetest.testCase** after your class name. Open Test Explorer in the right pane, and select **Run All**. All the tests will run sequentially and will tell you if the test is successful or not.
+1. Those tests can be automatically discovered if you put **codetest.testCase** after your class name. Open Test Explorer in the right pane, and select **Run All**. All the tests will run sequentially and will tell you if the test is successful or not.
 
     ![Running the tests](./media/code-test/run_tests.PNG)
 
-9. Check in your code to the project repository by using Git commands. Your most recent work will be reflected shortly in VSTS.
+1. Check in your code to the project repository by using Git commands. Your most recent work will be reflected shortly in VSTS.
 
     ![Git commands for checking in code](./media/code-test/git_check_in.PNG)
 
     ![Most recent work in VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Set up automatic build and test in VSTS:
+1. Set up automatic build and test in VSTS:
 
 	a. In the project repository, select **Build and Release**, and then select **+New** to create a new build process.
 

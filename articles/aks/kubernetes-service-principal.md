@@ -95,12 +95,12 @@ For more information about Azure Active Directory service principals, see the Az
 > [Application and service principal objects][service-principal]
 
 <!-- LINKS - internal -->
-[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
-[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
