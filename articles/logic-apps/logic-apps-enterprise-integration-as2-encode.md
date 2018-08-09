@@ -84,6 +84,7 @@ The Encode AS2 connector performs these tasks:
 * Compresses the message (if configured)
 * Transmit file name in MIME header (if configured)
 
+
   > [!NOTE]
   > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Encrypt** operation.
   > Otherwise, the AS2 Encode will fail.
