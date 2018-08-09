@@ -4,7 +4,7 @@ description: Learn how to choose between Azure Functions Consumption plan and Ap
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions,  consumption plan, app service plan, event processing, webhooks, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/05/2018
+ms.date: 08/09/2018
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -77,6 +77,8 @@ If you are planning to run JavaScript functions on an App Service plan, you shou
 If you run on an App Service plan, you should enable the **Always On** setting so that your function app runs correctly. On an App Service plan, the functions runtime will go idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. This is similar to how WebJobs must have Always On enabled. 
 
 Always On is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
+
+Even with Always On enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 ## Storage account requirements
 

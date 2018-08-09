@@ -70,7 +70,7 @@ The following variations exist for Translator Text API from Commercial Azure:
 - Available SKUs: F0, S1, S2, S3, S4
 - Translator Hub, Web Widget, and Collaboration Translation Framework (CTF) are not supported.
  
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
 
 
 ### Data Considerations

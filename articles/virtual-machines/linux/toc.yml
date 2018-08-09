@@ -228,9 +228,9 @@
       href: metrics-vm-usage-rest.md
   - name: Manage costs
     items:
-    - name: Prepay for VMs - reserved instances
+    - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: What are reserved instances?
+    - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
