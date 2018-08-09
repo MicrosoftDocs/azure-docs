@@ -62,7 +62,7 @@ When considering how to design your backend pool, you can design for the least n
 
 ### <a name="probes"></a>Health probes
   
-Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probe-overview.md#httpsprobe) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
+Standard Load Balancer adds support for [HTTPS health probes](load-balancer-custom-probe-overview.md#httpprobe) (HTTP probe with Transport Layer Security (TLS) wrapper) to accurately monitor your HTTPS applications.  
 
 In addition, when the entire backend pool [probes down](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer allows all established TCP connections to continue. (Basic Load Balancer will terminate all TCP connections to all instances).
 
