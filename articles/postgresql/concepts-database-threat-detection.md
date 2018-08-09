@@ -6,7 +6,7 @@ author: bolzmj
 manager: kfile
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: mbolz
 
 ---
@@ -18,7 +18,7 @@ Threat Detection is part of the Advanced Threat Protection (ATP) offering, which
 
 ## What is Advanced Threat Detection?
 
-Azure Database for PostgreSQL Advanced Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, and  potential vulnerabilities, as well as anomalous database access and queries patterns. Azure Database for PostgreSQL Advanced Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which includes details of suspicious activity and recommends action on how to investigate and mitigate the threat. Azure Database for PostgreSQL Advanced Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems. 
+Azure Database for PostgreSQL Advanced Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, and potential vulnerabilities, as well as anomalous database access and queries patterns. Azure Database for PostgreSQL Advanced Threat Detection integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which includes details of suspicious activity and recommends action on how to investigate and mitigate the threat. Azure Database for PostgreSQL Advanced Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems. 
 
 ![Advanced Threat Detection Concept](media/concepts-database-threat-detection/advanced-threat-detection-concept.png)
 
