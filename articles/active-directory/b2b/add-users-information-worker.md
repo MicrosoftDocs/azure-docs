@@ -69,7 +69,7 @@ After an app is configured for self-service, application owners can invite guest
 
 ## Prerequisites
 
-Self-service app management requires some initial setup by a Global Administrator and an Azure AD administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+Self-service app management requires some initial setup by a Global Administrator and an Azure AD administrator. As part of this setup, you'll configure the app for self-service and assign a group to the app that the application owner can manage. You can also configure the group to allow anyone to request membership but require a group owner's approval. (Learn more about [self-service group management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
 
 > [!NOTE]
 > You cannot add guest users to a dynamic group or to a group that is synced with on-premises Active Directory.
@@ -99,7 +99,7 @@ Self-service app management requires some initial setup by a Global Administrato
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Enterprise applications** > **All applications**.
 4. In the application list, find and open the app.
-5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+5. Under **Manage**, select **Single sign-on**, and configure the application for single sign-on. (For details, see [how to manage single sign-on for enterprise apps](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
 6. Under **Manage**, select **Self-service**, and set up self-service app access. (For details, see [how to use self-service app access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
     > [!NOTE]
     > For the setting **To which group should assigned users be added?** select the group you created in the previous section.
