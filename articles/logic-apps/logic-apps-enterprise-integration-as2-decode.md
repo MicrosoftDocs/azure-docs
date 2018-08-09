@@ -93,6 +93,7 @@ The Decode AS2 connector performs these tasks:
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
 
+
   > [!NOTE]
   > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Decrypt** operation.
   > Otherwise, the AS2 Decode will fail.
