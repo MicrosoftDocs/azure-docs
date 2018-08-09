@@ -73,7 +73,7 @@ You can also troubleshoot connectivity to a virtual machine in a peered virtual 
 
 ## Requirements and constraints
 
-The following constraints apply when the virtual networks are globally peered:
+The following constraints apply when virtual networks are globally peered:
 - The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
 - Resources in one virtual network cannot communicate with the frontend IP address of an Azure internal load balancer in the globally peered virtual network. The load balancer and the resources that communicate with it must be in the same region.
 - You cannot use remote gateways or allow gateway transit. To use remote gateways or allow gateway transit, peered virtual networks in  must be in the same region.
