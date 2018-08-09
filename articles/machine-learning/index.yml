@@ -92,30 +92,20 @@ sections:
     - href: /sql/advanced-analytics/r/r-services
       html: <p>In-database analytics with support for both R and Python.</p>
       image:
-        src: /sql/advanced-analytics/r/r-services/media/index/logo_sql.png
+        src: /azure/machine-learning/media/index/logo_sql.png
       title: SQL Server Machine Learning Services
-    - href: /azure/batch-ai/
-      html: <p>Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.</p>
-      image:
-        src: /azure/batch-ai/media/index/batch.png
-      title: Batch AI Training
     - href: /machine-learning-server/
       html: <p>Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.</p>
       image:
-        src: /machine-learning-server/media/index/ml-server.png
+        src: /azure/machine-learning/media/index/ml-server.png
       title: Microsoft Machine Learning Server
-    - href: /cognitive-toolkit/
-      html: <p>A free, open-source toolkit to train deep learning algorithms.</p>
-      image:
-        src: /cognitive-toolkit/media/index/cntk.png
-      title: Microsoft Cognitive Toolkit
     - href: /azure/machine-learning/team-data-science-process
       html: <p>A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.</p>
       image:
-        src: /azure/machine-learning/team-data-science-process/media/index/tdsp.png
+        src: /azure/machine-learning/media/index/tdsp.png
       title: Team Data Science Process
     - href: /azure/machine-learning/data-science-virtual-machine/
       html: <p>Experiment without worrying installing or configuring software using these Data Science (DSVM) and Deep Learning (DLVM) virtual machines. Popular data analytics, machine learning and AI tools are preinstalled.</p>
       image:
-        src: /azure/machine-learning/data-science-virtual-machine/media/index/virtualmachine.svg
+        src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Data Science Virtual Machine
