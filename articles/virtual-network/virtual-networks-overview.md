@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/9/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
 
