@@ -29,6 +29,7 @@ Here is a quick overview of steps required to set firewall and virtual network r
 > * Only IPv4 addresses are supported at this time.
 
 Here is a list of trusted services that are allowed to access a key vault if 'Allow trusted services' option is enabled.
+
 |Trusted service|Usage scenarios|
 | --- | --- |
 |Azure Virtual Machines deployment service|[Deploy Certificates to VMs from customer-managed Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
