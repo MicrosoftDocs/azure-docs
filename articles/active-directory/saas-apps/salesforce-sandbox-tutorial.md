@@ -240,7 +240,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
-    c. For the **Entity ID** type your domain specific **Sign On URL** and use this as the **Entity ID** value.
+    c. In the **Entity ID** textbox, use `https://test.salesforce.com` value for first instance and from second instance of the application you can use the tenant specific Identifier value.
 
     d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.
 
