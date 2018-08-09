@@ -679,6 +679,30 @@
         href: ../monitoring/monitoring-solutions-resources-views.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Best practices
         href: ../monitoring/monitoring-solutions-best-practices.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/log-analytics/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=log-analytics
+  - name: Windows Analytics
+    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
+  - name: Quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=monitoring
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=monitor
+  - name: Usage and estimated costs
+    href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Reference
     items:
     - name: Query language reference
@@ -718,27 +742,3 @@
           href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: 1.0
           href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/log-analytics/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=log-analytics
-  - name: Windows Analytics
-    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
-  - name: Quickstart templates
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=monitoring
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=monitor
-  - name: Usage and estimated costs
-    href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=%2fazure%2fazure-monitor%2ftoc.json
