@@ -12,10 +12,31 @@ ms.custom: bfmigrate
 
 ## Azure Cosmos DB
 
-This service is already covered under [Databases](./germany-migration-databases.md#azure-cosmos-db)
+This service is also covered under [Databases](./germany-migration-database.md#azure-cosmos-db).
+
+With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB. The Azure Cosmos DB Data Migration tool is an open source solution that imports data to Azure Cosmos DB from different sources.
+
+The tool is available as a graphical interface tool or as command-line tool. The source code is available in the GitHub repository for [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool), and a compiled version is available on the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=46436).
+
+### Next Steps
+
+- Perform a review of application uptime requirements, and account configurations to recommend the right action plan. 
+- Follow the steps to clone the account configurations from Azure Germany to new region by running a tool that we provide 
+- If a maintenance window is possible, follow the steps to copy data from source to destination by running a tool that we provide 
+- If a maintenance window isn't possible, follow the steps to copy data from source to destination by running a tool and process that we recommend 
+  - Make changes to read/write in application with config driven approach 
+  - Perform first-time sync 
+  - Setup incremental sync/catch up with change feed 
+  - Point reads to new account and validate application 
+  - Stop writes to old account, validate change feed is caught up, then point writes to new accounts 
+  - Stop tool, and delete old account 
+- Follow steps to run a tool we provide to validate that data is consistent across the old and new accounts.
 
 
+### References
 
+- [Azure Cosmos DB](../cosmos-db/introduction.md)
+- [Import data to Azure Cosmos DB](../cosmos-db/import-data.md)
 
 
 
@@ -82,21 +103,23 @@ Refresh your knowledge about Notification Hubs by following these [Step-by-Step 
 
 ## IoT Hub
 
-A seamless migration of IoT Hub instances from Azure Germany to global Azure is not possible. You can follow these steps to migrate IoT Hub instances from Azure Germany to global Azure.
+A seamless migration of IoT Hub instances from Azure Germany to global Azure isn't possible. You can follow these steps to migrate IoT Hub instances from Azure Germany to global Azure.
 
 > [!NOTE]
-> This migration causes downtime and data loss to your IoT application. 
+> This migration can cause downtime and data loss to your IoT application. All telemetry messages, C2D commands and Job (schedules and history) related information are not migrated to Azure public. You must reconfigure your devices and backend applications to start using the new IoT hub connection strings.
 
-All telemetry messages, C2D commands and Job (schedules and history) related information will not get migrated to global Azure. You will also have to reconfigure your devices and backend applications to start using the new IoT hub connection strings.
+### Step 1 - Recreate IoT Hub
 
-- Export all device identities, device twins, module twins (including the keys) from the IoT hub instance in Azure Germany to a storage account in Azure Germany.
-- Use the [AzCopy tool](../storage/common/storage-use-azcopy.md) to copy all the exported blobs from Azure Germany to global Azure. See more details under [storage > blob](./germany-migration-storage.md).
-- Create a new IoT hub instance in global Azure.
-- Import all artifacts exported in the first step including the keys to this IoT hub instance in global Azure.
-- Reconfigure your devices and backend services to start using the new connection strings.
+IoT Hub doesn’t support cloning natively. However, you can use the [ARM export resource group as a template](../azure-resource-manager/resource-manager-export-template-powershell.md) feature to export your IoT hub metadata, including configured routes and other IoT hub settings, and redeploy it in global Azure. You may also find it easier to recreate the IoT Hub in the portal by looking at the details in the exported JSON.
 
-> [!NOTE] 
-> The Root CA is different between the Azure Germany and Public Azure, so this need to be accounted for while reconfiguring your devices and backend applications interacting with the IoT Hub instance.
+### Step 2 - Migrate device identities
+
+- In the source tenant in Azure Germany, use the [ExportDevices](../iot-hub/iot-hub-bulk-identity-mgmt.md) Resource Manager API to all export device identities, device twins, module twins (including the keys) to a storage container. You may use a storage container in either Azure Germany or global Azure, just make sure the generated SAS URI has enough permission. 
+- Run the [ImportDevices](../iot-hub/iot-hub-bulk-identity-mgmt.md) Azure Resource Manager API to import all device identities from the storage container into the cloned IoT hub in global Azure.
+- Reconfigure your devices and backend services to start using the new connection strings. The hostname changes from `*.azure-devices.de` to `*.azure-devices.com`.  
+
+> [!NOTE]
+> The Root CA is different between the Azure Germany and global Azure, so this needs to be accounted for while reconfiguring your devices and backend applications interacting with the IoT Hub instance.
 
 ### Next Steps
 

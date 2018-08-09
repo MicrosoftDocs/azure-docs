@@ -57,12 +57,23 @@ The tool is available as a graphical interface tool or as command-line tool. The
 
 ### Next Steps
 
-- Read the blog announcement: [Easily Import Data to Azure Cosmos DB](http://azure.microsoft.com/blog/2015/04/14/easily-import-data-to-documentdb/)
-- Review the tutorial: [Import data to Azure Cosmos DB](../cosmos-db/import-data.md)
+- Perform a review of application uptime requirements, and account configurations to recommend the right action plan. 
+- Follow the steps to clone the account configurations from Azure Germany to new region by running a tool that we provide 
+- If a maintenance window is possible, follow the steps to copy data from source to destination by running a tool that we provide 
+- If a maintenance window isn't possible, follow the steps to copy data from source to destination by running a tool and process that we recommend 
+  - Make changes to read/write in application with config driven approach 
+  - Perform first-time sync 
+  - Setup incremental sync/catch up with change feed 
+  - Point reads to new account and validate application 
+  - Stop writes to old account, validate change feed is caught up, then point writes to new accounts 
+  - Stop tool, and delete old account 
+- Follow steps to run a tool we provide to validate that data is consistent across the old and new accounts.
+
 
 ### References
 
-- Azure Cosmos DB](../cosmos-db/introduction.md)
+- [Azure Cosmos DB](../cosmos-db/introduction.md)
+- [Import data to Azure Cosmos DB](../cosmos-db/import-data.md)
 
 
 
