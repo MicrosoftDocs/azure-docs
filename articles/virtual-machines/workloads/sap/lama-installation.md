@@ -28,6 +28,10 @@ ms.author: sedusch
 [2445033]:https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
+[dbms-guide]:dbms-guide.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+[hana-ops-guide]:hana-vm-operations.md
 
 > [!NOTE]
 > General Support Statement: Please always open an incident with SAP on component BC-VCM-LVM-HYPERV if you need support for SAP LaMa or the Azure connector.
@@ -467,3 +471,9 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
   * Solution  
     Make sure to add a Host rule in step *Isolation* to allow communication from the VM to the domain controller
+
+## Next steps
+* [SAP HANA on Azure operations guide][hana-ops-guide]
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
