@@ -10,9 +10,9 @@ ms.topic: conceptual
 
 # Using Azure Batch with render farm managers
 
-If rendering work is being performed using an existing on-premises render farm, then it's highly likely that a render management system is being used to manage the render farm capacity and render jobs.
+If you're using an existing on-premises render farm, then it's highly likely that a render manager controls the render farm capacity and render jobs.
 
-Azure support is either built in or provided as add-ons for popular render managers, allowing Azure VMs to be added and removed, including VMs with the pay-for-use application licensing and low-priority VMs.
+Azure provides either built-in support or add-ons for popular render managers. You can then add and remove Azure VMs, including VMs with the pay-for-use application licensing and low-priority VMs.
 
 The following render managers are supported:
 
@@ -26,7 +26,7 @@ Scripts and instructions to enable Azure Batch pool VMs to be used as Qube worke
 
 ## Using Azure with Royal Render
 
-Royal Render has Azure and Azure Batch integration built-in, with the ability to create Azure-based VMs to extend a render farm. A summary of the capabilities available is included in [the help files](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Royal Render has Azure and Azure Batch integration built-in, allowing you to extend a render farm with Azure-based VMs. For a summary, see [the help files](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 For an example of a Royal Render customer using the Azure integration, see the [Jellyfish Pictures customer story](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
 

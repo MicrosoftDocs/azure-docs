@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 Standard Azure Batch capabilities are used to run rendering workloads and applications, but there are some areas where specific rendering support has been added.
 
-For an overview of Batch concepts, including pools, jobs, and tasks see [this article](https://docs.microsoft.com/azure/batch/batch-api-basics).
+For an overview of Batch concepts, including pools, jobs, and tasks, see [this article](https://docs.microsoft.com/azure/batch/batch-api-basics).
 
 ## Batch Pools
 
@@ -22,7 +22,7 @@ An Azure Marketplace rendering VM image can be specified in the pool configurati
 
 There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
-For an example pool configuration, see the [Azure CLI rendering tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Specific UI is present in the Azure portal and Batch Explorer to enable the selection of the rendering VM images when a pool is created.  If using a Batch API, then the following property values need to be specified for [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) when creating a pool:
+For an example pool configuration, see the [Azure CLI rendering tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
 | Publisher | Offer | Sku | Version |
 |---------|---------|---------|--------|
@@ -32,22 +32,22 @@ For an example pool configuration, see the [Azure CLI rendering tutorial](https:
 Other options are available if additional applications are required on the pool VMs:
 
 * A custom image based on a standard Marketplace image:
-  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray respectively to validate against an Azure Batch licensing service. You will need to ensure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. This license validation isn't required for Maya or 3ds Max as the current published versions don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
+  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
-  * The application files are packaged using one or more ZIP files, uploaded via the Azure portal, and specified in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
+  * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
-  * Application files are uploaded to Azure blob storage, references to those files are specified in the [pool start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), and when pool VMs are created the resource files are downloaded onto each VM.
+  * Application files are uploaded to Azure blob storage, and you specify file references ain the [pool start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). When pool VMs are created the resource files are downloaded onto each VM.
 
 ### Pay-for-use licensing for pre-installed applications
 
 The applications that will be used and have a licensing fee need to be specified in the pool configuration.
 
-* The ‘applicationLicenses’ property needs to be specified when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
+* The `applicationLicenses` property needs to be specified when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
 * When one or more applications are specified, then the cost of those applications will be charged in addition to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
-The Azure portal and Batch Explorer display licensing UI that allow applications to be selected and show the application prices.
+You can use the Azure portal or Batch Explorer display to select applications to be selected and show the application prices.
 
-If an attempt is made to use an application, but the application hasn’t been specified in the ‘applicationLicenses’ property of the pool configuration, then the application execution will fail with a licensing error and non-zero exit code.
+If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration, then the application execution fails with a licensing error and non-zero exit code.
 
 ### Environment variables for pre-installed applications
 
@@ -66,17 +66,17 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 
 ### Azure VM families
 
-As with other workloads, rendering application system requirements vary and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
-Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPU and/or GPU.
+As with other workloads, rendering application system requirements vary, and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
+Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPUs and/or GPUs.
 For a description of available VM families and VM sizes, [see VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
-### Low-Priority VMs
+### Low-priority VMs
 
 As with other workloads, low-priority VMs can be utilized in Batch pools for rendering.  Low-priority VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs aren't going to be suitable for all rendering jobs. For example, if images take many hours to render then it's likely that having the rendering of those images interrupted and restarted due to VMs being preempted wouldn't be acceptable.
 
 For more information about the characteristics of low-priority VMs and the various ways to configure them using Batch, see [Use low-priority VMs with Batch](https://docs.microsoft.com/azure/batch/batch-low-pri-vms).
 
-## Jobs and Tasks
+## Jobs and tasks
 
 No rendering-specific support is required for jobs and tasks.  The main configuration item is the task command line, which needs to reference the required application.
 When the Azure Marketplace VM images are used, then the best practice is to use the environment variables to specify the path and application executable.

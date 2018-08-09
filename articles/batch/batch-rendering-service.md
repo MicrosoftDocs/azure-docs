@@ -10,9 +10,9 @@ ms.topic: conceptual
 
 # Rendering using Azure
 
-Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes single images are created from the scene files, but it is common for multiple images to be modeled and rendered, so they can be combined in an animation.
+Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes single images are created from the scene files. However, it's common to model and render multiple images, and then combine them in an animation.
 
-The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry but is also used in many other areas such as advertising, retail, oil and gas, and manufacturing.
+The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry. Rendering is also used in many other industires such as advertising, retail, oil and gas, and manufacturing.
 
 The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can leverage Azure and Azure Batch to run many renders in parallel.
 
@@ -26,12 +26,12 @@ For many reasons, rendering is a workload perfectly suited for Azure and Azure B
 * Rendering projects can require huge scale:
   * Individual frames can be complex and require many hours to render, even on high-end hardware; animations can consist of hundreds of thousands of frames.  A huge amount of compute is required to render high-quality animations in a reasonable amount of time.  In some cases, over 100,000 cores have been used to render thousands of frames in parallel.
 * Rendering projects are project-based and require varying amounts of compute:
-  * Being able to allocate compute and storage capacity when required, scale it up or down according to load during a project, and remove it when a project is finished is a huge benefit for rendering workloads.
+  * Allocate compute and storage capacity when required, scale it up or down according to load during a project, and remove it when a project is finished.
   * Pay for capacity when allocated, but don’t pay for it when there is no load, such as between projects.
   * Cater for bursts due to unexpected changes; scale higher if there are unexpected changes late in a project and those changes need to be processed on a tight schedule.
 * Choose from a wide selection of hardware according to application, workload, and timeframe:
   * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
-  * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or to use certain features. 
+  * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or certain features. 
 * Low-priority VMs reduce costs:
   * Low-priority VMs are available for a large discount compared to regular on-demand VMs and are suitable for some job types.
   * Low-priority VMs can be allocated by Azure Batch, with Batch providing flexibility on how they are used to cater for a broad set of requirements.  Batch pools can consist of both dedicated and low-priority VMs, with it being possible to change the mix of VM types at any time.
