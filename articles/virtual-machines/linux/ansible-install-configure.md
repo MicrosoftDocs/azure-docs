@@ -16,7 +16,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 For more installation options and steps for additional platforms, see the [Ansible install guide](https://docs.ansible.com/ansible/intro_installation.html).
 
-One of the easiest ways to use Ansible with Azure is with the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), a browser-based shell experience to manage and develop Azure resources. Ansible is pre-installed in the Cloud Shell. For a list of additional tools available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
+One of the easiest ways to use Ansible with Azure is with the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), a browser-based shell experience to manage and develop Azure resources. Ansible is pre-installed in the Cloud Shell. For a list of additional tools available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
 
 The following instructions show you how to create a Linux virtual machine for various distros and then install Ansible.
 

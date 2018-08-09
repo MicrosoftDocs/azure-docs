@@ -1,3 +1,11 @@
+---
+ author: tomarcher
+ ms.service: ansible
+ ms.topic: include
+ ms.date: 08/09/2018
+ ms.author: tarcher
+---
+
 1. In Cloud Shell, create a file named `rg.yml`.
 
     ```bash
