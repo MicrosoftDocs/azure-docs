@@ -1,7 +1,7 @@
 ---
 
 title: Add B2B collaboration users as an information worker - Azure Active Directory | Microsoft Docs
-description: B2B collaboration allows information workers and app owners to add users from their organization to Azure AD for access | Microsoft Docs
+description: B2B collaboration allows information workers and app owners to add guest users to Azure AD for access | Microsoft Docs
 
 services: active-directory
 ms.service: active-directory
