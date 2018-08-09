@@ -44,7 +44,7 @@
     href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Service limits and restrictions    
     href: directory-service-limits-restrictions.md
-- name: How to
+- name: How-to guides
   items:
   - name: Manage users
     items: 
