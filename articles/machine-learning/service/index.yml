@@ -1,11 +1,11 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Services Documentation
+title: Azure Machine Learning (Preview) Documentation
 metadata:
-  title: Azure Machine Learning Services Documentation (Preview)
-  meta.description: Learn how to use Azure Machine Learning Services (Preview).
+  title: Azure Machine Learning Documentation (Preview)
+  meta.description: Learn how to use Azure Machine Learning (Preview).
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
@@ -15,8 +15,17 @@ metadata:
   ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
-  description: Azure Machine Learning Services  (Preview) enable you to build, train, deploy, and manage machine learning and AI models using any Python tools and libraries. You can use a wide variety of data and compute services in Azure to store and process your data.
+  description: With Azure Machine Learning (Preview), you can build, train, deploy, and manage machine learning and AI models using any Python tools and libraries or the CLI. You can use a wide variety of data and compute services in Azure to store and process your data.
 sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Start modeling and deploying Azure Machine Learning using the SDK or CLI.
+      image: 
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
 
 - title: 5-Minute Quickstarts
   items:
@@ -28,23 +37,23 @@ sections:
     - html: <a href="quickstart-get-started.md">Get started in the Azure portal </a>
     - html: <a href="quickstart-get-started-with-cli.md">Get started using the Azure CLI</a>
 
-
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to prepare your data, set up an experiment, and operationalize your models.'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Walk through the basics of Machine Learning services</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Use the Machine Learning Workbench to build a model with the Iris flower dataset</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Learn how to deploy a Machine Learning model</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Use Azure Machine Learning Workbench for advanced data prep</a>
+    - html: <a href="tutorial-train-models-with-aml">Train your own machine learning model</a>
+    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Let us pick and tune an algorithm for you</a>
+    - html: <a href="tutorial-deploy-models-with-aml">Deploy a model as a web service</a>
+
+- title: Reference
+  items:
+  - html: <p><a href="reference-python-package-overview#amlpcv">Azure Machine Learning SDK for Python</a></p>
 
 - title: Other Azure Machine Learning Technologies
   items:
-  - type: paragraph
-    text: 'Other technologies available in Azure Machine Learning:'
   - type: list
     style: cards
     className: cardsFTitle
@@ -59,14 +68,3 @@ sections:
       image: 
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Packages
-      html: <p><a href="reference-python-package-overview#amlpcv">Azure Machine Learning SDK for Python</a></p>
-    - title: Languages
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
