@@ -4,8 +4,6 @@
   items: 
   - name: What is Language Understanding?
     href: Home.md
-  - name: Supported languages
-    href: luis-supported-languages.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -246,6 +244,8 @@
     href: luis-reference-regions.md
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Supported languages
+    href: luis-supported-languages.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -306,7 +306,7 @@
       href: https://aka.ms/luis-authoring-sdk
 - name: Related
   items: 
-  - name: Bot Framework
+  - name: Azure Bot Service
     href: https://dev.botframework.com/
   - name: Bot Builder 3.x SDK C#
     href: https://github.com/Microsoft/BotBuilder
