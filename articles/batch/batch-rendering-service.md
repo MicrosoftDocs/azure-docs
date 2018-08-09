@@ -91,7 +91,7 @@ There are several ways to use Azure Batch, all of which also apply to Azure Batc
 
 See the following introductory tutorials to try Azure Batch rendering:
 
-* [Use Batch Explorer to render a Blender scene](tutorial-rendering-batchexplorer-blender)
+* [Use Batch Explorer to render a Blender scene](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
 * [Use the Batch CLI to render an Autodesk 3ds Max scene](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
 ## Next steps
