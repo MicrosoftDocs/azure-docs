@@ -33,8 +33,9 @@ On CentOS 7 rendering nodes:
 
 On Windows Server 2016 rendering nodes:
 - Autodesk Maya I/O 2017 Update 5 (version 17.4.5459) 
-- Autodesk Maya I/O 2018 Update 2 (version 18.2.0.6476) 
+- Autodesk Maya I/O 2018 Update 3 (version 18.3.0.7040) 
 - Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254) 
+- Autodesk 3ds Max I/O 2019 Update 1 (version 21.10.1314) 
 - Autodesk Arnold for Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
 - Autodesk Arnold for Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
 - Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926) 
