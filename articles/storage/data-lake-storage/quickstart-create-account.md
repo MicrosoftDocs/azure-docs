@@ -169,9 +169,10 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
 
-To do that: using the Cloud Shell or a local shell, enter the following command to do that: `az extension add --name storage-preview`
+>[!IMPORTANT]
+>To do that: enter the following command using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
 
-## Create an account using Azure CLI 
+## Create an account using Azure CLI
 
 To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
 
