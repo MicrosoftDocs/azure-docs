@@ -37,7 +37,7 @@ Under **Virtual Machines**, use the dropdown to select your region. **Master VM 
 
 Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and that `Max Cores` has been set to 100.
 
-Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
+Under **Networking**, select the subnet to use for the compute infrastructure. Use the subnet ID that ends in `-compute`, then click **Next**.
 
 ![New Cluster Required Settings screen](~/images/quickstart-required-settings.png)
 

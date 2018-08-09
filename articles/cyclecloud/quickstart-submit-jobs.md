@@ -45,7 +45,7 @@ all.q@ip-0A000404              BIP   0/0/8          0.46     linux-x64
 Submit 100 test "hostname" jobs with:
 
 ```azurecli-interactive
-$ qsub -t 1:100 -b y -cwd hostname
+qsub -t 1:100 -b y -cwd hostname
 ```
 
 You should receive confirmation that the job request has been submitted:
@@ -54,7 +54,7 @@ You should receive confirmation that the job request has been submitted:
 Your job-array 1.1-100:1 ("hostname") has been submitted
 ```
 
-The command you ran, `$ qsub -t 1:100 -b y -cwd hostname`, tells the node the following:
+The command you ran tells the node the following:
 
 ``` output
 Submit (qsub) a task (-t) array of 1 to 100 (1:100) jobs with a binary (-b y) to run the (hostname) command in the current working directory (-cwd)
@@ -73,6 +73,9 @@ In this quickstart you submitted 100 jobs, so 100 cores will be requested. Since
 When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
 
 QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
+
+> [!NOTE]
+> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
 
 > [!div class="nextstepaction"]
 > [Continue to Quickstart 4](quickstart-clean-up-resources.md)

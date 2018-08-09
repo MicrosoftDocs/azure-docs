@@ -37,8 +37,7 @@ For the purposes of this quickstart, much of the setup has been done via the ARM
 
 For this quickstart, you will need:
 
-1. An active Azure subscription.
-  * [!INCLUDE [quickstarts-free-trial-note.md](~/includes/free-trial-note.md)]
+1. An Azure account with an active subscription.
 2. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -104,12 +103,12 @@ The deployment process runs an installation script as a custom script extension,
 
 ## Log into the CycleCloud Application Server
 
-Run `export RESOURCE-GROUP="the name you gave your resource group"`. This will create allow you to copy the next command and enter it without modifying it.
+Run `export RESOURCE_GROUP="the name you gave your resource group"`. This will create allow you to copy the next command and enter it without modifying it.
 
 To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
 
 ```azurecli-interactive
-az network public-ip show -g ${RESOURCE-GROUP?} -n cycle-ip --query dnsSettings.fqdn
+az network public-ip show -g ${RESOURCE_GROUP?} -n cycle-ip --query dnsSettings.fqdn
 ```
 
 Browse to https://[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.

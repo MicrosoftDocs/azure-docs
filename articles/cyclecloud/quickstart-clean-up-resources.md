@@ -12,6 +12,9 @@ ms.author: a-kiwels
 
 # Azure CycleCloud QuickStart 4: Clean Up Resources
 
+> [!NOTE]
+> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled. To free up resources, follow the steps below.
+
 ## Terminate the Cluster
 
 When all submitted jobs are complete, you no longer need the cluster. To clean up resources and free them for other jobs, click **Terminate** in the CycleCloud GUI to shut down all of the infrastructure. All underlying Azure resources will be cleaned up as part of the cluster termination, which may take several minutes.
