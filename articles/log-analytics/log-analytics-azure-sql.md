@@ -128,7 +128,7 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Analyze data and create alerts
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
 
 
 

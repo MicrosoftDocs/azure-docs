@@ -457,7 +457,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Represents a value of the specified parameter name. Parameter names must have a single @ as the first character.  
+     Represents a value of the specified parameter name. Parameter names must have a single \@ as the first character.  
   
  **Remarks**  
   

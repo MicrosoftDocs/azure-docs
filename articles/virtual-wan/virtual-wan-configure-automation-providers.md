@@ -13,7 +13,7 @@ Customer intent: As a Virtual WAN software-defined connectivity provider, I want
 
 # Configure Virtual WAN automation - for Virtual WAN partners (Preview)
 
-This article helps you understand how to set up the automation envorionment to connect and configure a branch device (a customer on-premises VPN device or SDWAN) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
+This article helps you understand how to set up the automation environment to connect and configure a branch device (a customer on-premises VPN device or SDWAN) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
 Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires an SDWAN or VPN device located on-premises that has an externally-facing public IP address assigned to it.
 

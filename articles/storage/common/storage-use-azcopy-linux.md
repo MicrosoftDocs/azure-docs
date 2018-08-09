@@ -2,20 +2,12 @@
 title: Copy or move data to Azure Storage with AzCopy on Linux | Microsoft Docs
 description: Use the AzCopy on Linux utility to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-
+ms.component: common
 ---
 # Transfer data with AzCopy on Linux
 
@@ -345,6 +337,9 @@ azcopy \
 	--include "ab" \
 	--set-content-type
 ```
+
+### Customizing the MIME content type mapping
+AzCopy uses a configuration file that contains a mapping of file extension to content type. You can customize this mapping and add new pairs as needed. The mapping is located at  ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## Blob: Copy
 ### Copy single blob within Storage account

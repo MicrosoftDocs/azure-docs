@@ -23,8 +23,8 @@ ms.custom: mvc
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
 
 * Windows web apps
-* Linux web apps (in Preview)
-* Docker containers (in Preview)
+* Linux web apps 
+* Docker containers
 * Mobile apps
 * Functions
 

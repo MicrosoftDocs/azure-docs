@@ -309,4 +309,4 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 
 ## Next steps
 
-[Overview](content-protection-overview.md)
+Check out how to [protect with DRM](protect-with-drm.md)

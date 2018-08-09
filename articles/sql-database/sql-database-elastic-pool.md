@@ -6,8 +6,9 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-pool
 ms.custom: DBs & servers
-ms.date: 06/20/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
 ---
@@ -28,9 +29,12 @@ Elastic pools solve this problem by ensuring that databases get the performance 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastic pools enable the developer to purchase resources for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. You can configure resources for the pool based either on the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). The resource requirement for a pool is determined by the aggregate utilization of its databases. The amount of resources available to the pool is controlled by the developer budget. The developer simply adds databases to the pool, sets the minimum and maximum resources for the databases (either minimum and maximum DTUs or minimum or maximum vCores depending on your choice of resourcing model), and then sets the resources of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.
+Elastic pools enable the developer to purchase resources for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. You can configure resources for the pool based either on the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). The resource requirement for a pool is determined by the aggregate utilization of its databases. The amount of resources available to the pool is controlled by the developer budget. The developer simply adds databases to the pool, sets the minimum and maximum resources for the databases (either minimum and maximum DTUs or minimum or maximum vCores depending on your choice of resourcing model), and then sets the resources of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.
 
 Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus, you have a predictable budget for the pool. Additional resources can be added to an existing pool with no database downtime, except that the databases may need to be moved to provide the additional compute resources for the new eDTU reservation. Similarly, if extra resources are no longer needed they can be removed from an existing pool at any point in time. And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
+
+> [!NOTE]
+> When moving databases into or out of an elastic pool, there is no downtime except for a brief period of time (on the order of seconds) at the end of the operation when database connections are dropped.
 
 ## When should you consider a SQL Database elastic pool?
 
@@ -97,7 +101,7 @@ The best size for a pool depends on the aggregate resources needed for all datab
 * Maximum resources utilized by all databases in the pool (either maximum DTUs or maximum vCores depending on your choice of resourcing model).
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md).
+For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](#monitor-an-elastic-pool-and-its-databases).
 
@@ -109,12 +113,12 @@ In cases where you can't use tooling, the following step-by-step can help you es
    MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
-   For vCore-based purchasing model (preview):
+   For vCore-based purchasing model:
    MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
 
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.
-3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model (preview), take the vCore estimate from Step 1.
+3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 

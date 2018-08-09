@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 07/24/2018
 ms.author: juliako
 
 ---
@@ -41,6 +41,10 @@ These release notes for Azure Media Services summarize changes from previous rel
 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## July 2018
+
+With the latest service release, there are minor formatting changes to the error messages returned by the service when a Job fails, with respect to how it is broken up into two or more lines.
 
 ## May 2018 
 
