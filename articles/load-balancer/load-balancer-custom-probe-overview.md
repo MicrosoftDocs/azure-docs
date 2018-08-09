@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/09/2018
 ms.author: kumud
 ---
 
@@ -164,6 +164,6 @@ Basic Load Balancer exposes health probe status per backend pool via Log Analyti
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
 - [Get started creating a public load balancer in Resource Manager by using PowerShell](load-balancer-get-started-internet-arm-ps.md)
-- [REST API for health probes](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
+- [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)
 
