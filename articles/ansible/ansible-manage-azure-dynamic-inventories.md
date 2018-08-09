@@ -181,7 +181,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. The [nginx -v](https://nginx.org/en/docs/switches.html) command can be is generally used to print the Nginx version. However, it can also be used to determine if Nginx is installed. Enter it while connected to the `ansible-inventory-test-vm1` virtual machine.
+1. While connected to the `ansible-inventory-test-vm1` virtual machine, run the [nginx -v](https://nginx.org/en/docs/switches.html) command to determine if Nginx is installed.
 
     ```azurecli-interactive
     nginx -v
