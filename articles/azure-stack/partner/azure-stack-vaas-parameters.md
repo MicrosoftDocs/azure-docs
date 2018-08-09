@@ -23,12 +23,15 @@ ms.reviewer: johnhas
 
 Common parameters include values such as environment variables and user credentials required by all tests in Validation as a Service (VaaS). These values are defined at the workflow level when you create or modify a workflow. When scheduling tests, these values are passed as parameters to each test under the workflow.
 
+> [!NOTE]
+> Each test defines its own set of parameters. At schedule time, a test may require you to enter a value independently of the common parameters, or may allow you to override the common parameter value.
+
 ## Environment parameters
 
 Environment parameters describe the Azure Stack environment under test. These values must be provided by generating and uploading an Azure Stack stamp information file for the specific instance you are testing.
 
 > [!NOTE]
-> Environment parameters cannot be modified after creating a workflow.
+> In official validation workflows, environment parameters cannot be modified after workflow creation.
 
 ### Generate the stamp information file
 
@@ -72,7 +75,3 @@ The diagnostics connection string is required for storing diagnostics logs durin
 > [!NOTE]  
 > The SAS URL expires at the end time specified when the URL was generated.  
 When scheduling tests, ensure that the URL is valid for at least 30 days plus the time required for test execution (three months is suggested).
-
-### Test-specific parameters
-
-Depending on the test definition, a test may require you to enter a value independently of the common parameters, or may allow you to override the common parameter value.

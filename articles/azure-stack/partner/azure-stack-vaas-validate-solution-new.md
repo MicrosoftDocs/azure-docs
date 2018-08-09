@@ -43,6 +43,10 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
     ![Solution Validation information](media/workflow_validation-solution_info.png)
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+
+> [!NOTE]
+> Environment parameters cannot be modified after creating a workflow.
+
 7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
 

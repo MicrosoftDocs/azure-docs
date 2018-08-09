@@ -97,6 +97,9 @@ When creating a **Package Validation** workflow in the VaaS portal, you will nee
 
 7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
+> [!NOTE]
+> Environment parameters cannot be modified after creating a workflow.
+
 8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)] You will be redirected to the tests summary page.
