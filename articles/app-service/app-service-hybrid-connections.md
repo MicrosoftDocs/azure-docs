@@ -171,7 +171,7 @@ To enable someone outside your subscription to host an HCM instance for a given 
 
 There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a popup will show up in the HCM UI. Applying the upgrade will apply the changes and restart the HCM. 
 
-## Adding a Hybrid Connection to your app via programmatically ##
+## Adding a Hybrid Connection to your app programmatically ##
 
 The APIs noted below can be used directly to manage the Hybrid Connections connected to your web apps. 
 
