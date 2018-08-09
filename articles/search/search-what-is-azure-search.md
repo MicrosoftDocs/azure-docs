@@ -10,12 +10,12 @@ ms.date: 08/09/2018
 ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Queries execute over a user-defined index.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Query execution is over a user-defined index.
 
-+ Search corpus contains only your data from multiple content types and platforms. 
-+ AI-powered indexing pipelines can extract text from images or audio, or entities and key phrases from undifferentiated text.
-+ Geo-search supports "find near me", language analyzers support non-English full text search, and scoring profiles add logic to ranked search results.
-+ Create an intuitive user experience using faceted navigation and filters, synonyms, auto-complete, and linguistic analysis for "did you mean" auto-corrected search.
++ Search corpus contains only your data, sourced from multiple content types and platforms. 
++ AI-powered indexing can extract text from images or audio, or entities and key phrases from undifferentiated text.
++ Add geo-search for "find near me", language analyzers for non-English full text search, and scoring logic for search rank.
++ Create intuitive user experiences with facet navigation and filters, synonyms, auto-complete, and text analysis for "did you mean" auto-corrections.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -109,7 +109,7 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 3. Move forward with code using either the .NET or REST API:
 
-  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main steps in managed code.  
+  + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
 
 ## Watch this video
