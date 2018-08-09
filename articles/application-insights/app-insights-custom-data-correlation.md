@@ -35,13 +35,13 @@ Since Application Insights is backed by the powerful Log Analytics data platform
 
 In this section, we will review how to get your data into Log Analytics.
 
-If you don’t already have one, provision a new Log Analytics workspace by following the instructions [here]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) through and including the “create a workspace” step.
+If you don’t already have one, provision a new Log Analytics workspace by following [these instructions]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm) through and including the “create a workspace” step.
 
 To start sending data into Log Analytics. Several options exist:
 
- - For a synchronous mechanism, you can either directly call the (data collector API)[ https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api] or use our Logic App connector – simply look for “Azure Log Analytics” and pick the “Send Data” option:
+ - For a synchronous mechanism, you can either directly call the [data collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) or use our Logic App connector – simply look for “Azure Log Analytics” and pick the “Send Data” option:
 
- ![test](./media/app-insights-custom-data-correlation/01-logic-app-connector.png)  
+ ![Screenshot choose and action ](./media/app-insights-custom-data-correlation/01-logic-app-connector.png)  
 
  - For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](Second doc about how to build a custom pipeline) for details.
 
