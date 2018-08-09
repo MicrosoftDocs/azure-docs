@@ -8391,11 +8391,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/documentdb/documentdb-change-notification.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/change-feed-hl7-fhir-logic-apps",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/documentdb/documentdb-community.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/community",
             "redirect_document_id": false
