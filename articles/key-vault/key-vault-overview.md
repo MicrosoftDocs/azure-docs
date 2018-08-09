@@ -61,7 +61,7 @@ You have control over your logs and you may secure them by restricting access an
 
 When storing valuable data, you must take several steps. Security information must be secured, it must follow a lifecycle, it must be highly available. Azure Key Vault simplifies a lot of this by:
 
-- Removing the need for in-house knowledge of [HSMs](https://en.wikipedia.org/wiki/Hardware_security_module).
+- Removing the need for in-house knowledge of Hardware Security Modules
 - Scaling up on short notice to meet your organization’s usage spikes.
 - Replicating the contents of your Key Vault within a region and to a secondary region. Key Vault ensures high availability and takes away the need of any action from the administrator to trigger the failover.
 - Providing standards Azure administration options via the portal, Azure CLI and PowerShell.
