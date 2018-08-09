@@ -10,10 +10,10 @@
     href: quickstart-create-traffic-manager-profile.md
 - name: Tutorials
   items:
-  - name: Route traffic based on geographic location of endpoint
-    href: traffic-manager-configure-geographic-routing-method.md
   - name: Route traffic for low latency
     href: tutorial-traffic-manager-improve-website-response.md
+  - name: Route traffic based on geographic location of endpoint
+    href: traffic-manager-configure-geographic-routing-method.md
   - name: Distribute traffic to a set of endpoints
     href: traffic-manager-configure-weighted-routing-method.md
   - name: Route traffic to a priority endpoint
