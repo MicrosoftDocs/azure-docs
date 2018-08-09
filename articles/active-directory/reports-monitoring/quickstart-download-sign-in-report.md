@@ -20,3 +20,16 @@ ms.reviewer: dhanyahk
 
 ---
 # Quickstart: Download a sign-in report
+
+In this quickstart, you learn how to download your sign-in data for the past 24 hours.
+
+## Prerequisites
+
+### Who can access the data?
+* Users in the Security Admin, Security Reader, Report Reader role
+* Global Admins
+* Any user (non-admins) can access their own sign-ins 
+
+### What Azure AD license do you need to access sign-in activity?
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
+
