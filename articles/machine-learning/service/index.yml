@@ -28,7 +28,6 @@ sections:
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning 
-
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
