@@ -33,7 +33,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 First, create a stored procedure and set it up to run a logic that compares sequence numbers of incoming events and records the latest event per device in the database.
 
-1. In your Cosmos DB SQL API, select **Data Explorer**-> **Items**->**New Stored Procedure**.
+1. In your Cosmos DB SQL API, select **Data Explorer** > **Items** > **New Stored Procedure**.
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -255,10 +255,10 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 5. Select **Create** to save the event subscription.
 
-## Observe Events
+## Observe events
 Now that your event subscription is set up, let's test by connecting a device.
 
-### Register a device in the IoT Hub
+### Register a device in IoT Hub
 
 1. From your IoT hub, select **IoT Devices**. 
 2. Select **Add**.
@@ -272,7 +272,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-### Start Raspberry Pi Simulator
+### Start Raspberry Pi simulator
 
 1. Let's use the Raspberry Pi web simulator to simulate device connection.
 

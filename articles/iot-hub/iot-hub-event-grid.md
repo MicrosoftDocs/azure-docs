@@ -39,7 +39,7 @@ Use either the Azure portal or Azure CLI to configure which events to publish fr
 
 IoT Hub events contain all the information you need to respond to changes in your device lifecycle. You can identify an IoT Hub event by checking that the eventType property starts with **Microsoft.Devices**. For more information about how to use Event Grid event properties, see the [Event Grid event schema](../event-grid/event-schema.md).
 
-### Device Connected schema
+### Device connected schema
 
 The following example shows the schema of a device connected event: 
 
@@ -125,9 +125,9 @@ The subject of IoT Events uses the format:
 ```json
 devices/{deviceId}
 ```
-## Limitations for Device Connected and Device Disconnected Events
+## Limitations for device connected and device disconnected events
 
-To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ReceiveAsync). The D2C link is open if you are sending telemetry. If the device connection is flickering, i.e. the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state that is snapshotted every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
+To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). The D2C link is open if you are sending telemetry. If the device connection is flickering, i.e. the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state that is snapshotted every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
 
 ## Tips for consuming events
 
@@ -136,7 +136,6 @@ Applications that handle IoT Hub events should follow these suggested practices:
 * Multiple subscriptions can be configured to route events to the same event handler, so it's important not to assume that events are from a particular source. Always check the message topic to ensure that it comes from the IoT hub that you expect. 
 * Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
 * Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date.
-
 
 ## Next steps
 
