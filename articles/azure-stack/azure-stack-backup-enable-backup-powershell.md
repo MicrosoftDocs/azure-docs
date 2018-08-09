@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -55,8 +55,8 @@ In the same PowerShell session, edit the following PowerShell script by adding t
     $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
     
     # The encryption key is generated using the New-EncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
-    # Make sure to store your encyrption key in a secure location after it is generated.
-    $Encryptionkey = New-EncryptionKeyBase64
+    # Make sure to store your encryption key in a secure location after it is generated.
+    $Encryptionkey = New-AzSEncryptionKeyBase64
     $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
     Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
