@@ -3,7 +3,7 @@ title: Receive events from Azure Event Hubs using the .NET Framework | Microsoft
 description: Follow this tutorial to receive events from Azure Event Hubs using the .NET Framework.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 # Receive events from Azure Event Hubs using the .NET Framework
