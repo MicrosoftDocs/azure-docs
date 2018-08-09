@@ -12818,7 +12818,7 @@
         },
         {
             "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade",
             "redirect_document_id": false
         },
         {
