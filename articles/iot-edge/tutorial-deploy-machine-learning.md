@@ -41,10 +41,10 @@ An Azure IoT Edge device:
 Cloud resources:
 
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 
 Development resources:
 
-* An Azure Machine Learning account. Follow the instructions in [Create Azure Machine Learning accounts and install Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). You do not need to install the workbench application for this tutorial. 
 * Model Management for Azure ML. To set up your environment and create an account, follow the instructions in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md). During deployment setup, it is recommended to choose the local steps instead of cluster, where possible.
 
 ### Disable process identification
@@ -52,7 +52,7 @@ Development resources:
 >[!NOTE]
 >
 > While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge. 
-> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux, as you will have completed this during the Windows Edge runtime setup steps.
+> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux, as you will have completed this during the Windows Edge runtime installation.
 
 To disable process identification on your IoT edge device, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
@@ -89,7 +89,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## Create the Azure ML container
 In this section, you download the trained model files and convert them into an Azure ML container.
 
-On the machine running Module Management for Azure ML, download and save [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device.
+On the machine running Model Management for Azure ML, download and save [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device.
 
 Use the trained model to create a container that can be deployed to IoT Edge devices. Use the following command to:
 
