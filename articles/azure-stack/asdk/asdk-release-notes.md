@@ -12,13 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/10/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
 ---
-
-
 
 # Azure Stack Development Kit release notes  
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -26,7 +24,7 @@ These release notes provide information about improvements, fixes, and known iss
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
 
-## Build 1.1807.0.74
+## Build 1.1807.0.76
 
 ### New features
 This build includes the following improvements and fixes for Azure Stack.  
