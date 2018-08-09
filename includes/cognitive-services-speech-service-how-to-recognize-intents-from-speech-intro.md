@@ -8,7 +8,7 @@ ms.author: wolfma
 
 <!-- N.B. no header, language-agnostic -->
 
-The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides a way to recognize **intents from speech**, powered by the Speech service and the [Language Understanding service (LUIS)](https://luis.ai).
+The [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) provides a way to recognize **intents from speech**, powered by the Speech service and the [Language Understanding service (LUIS)](https://www.luis.ai/home).
 
 1. Create a speech factory, providing a Language Understanding service subscription key and [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). The Language Understanding service subscription key is called **endpoint key** in the service documentation. You can't use the Language Understanding service authoring key. See also the **Note** below.
 
