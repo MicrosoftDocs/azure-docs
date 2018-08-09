@@ -54,12 +54,13 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Before installing the required version, make sure that you uninstall any previously installed Azure Stack AzureRM PowerShell modules. You can uninstall them by using one of the following two methods:
 
- - To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions and run the following command:
+ - To uninstall the existing AzureStack and AzureRM PowerShell modules, close all the active PowerShell sessions and run the following command:
 
   ```PowerShell
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
+    Uninstall-Module -Name AzureStack -Force -Verbose
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force -Verbose
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force -Verbose
+    Get-Module -ListAvailable | Where Name -Like "Azs.*" | Uninstall-Module -Force -Verbose
   ```
 
  - Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
