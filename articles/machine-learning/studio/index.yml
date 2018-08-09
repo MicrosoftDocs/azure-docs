@@ -17,15 +17,16 @@ metadata:
 abstract:
   description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.'
 sections:
-- title: 
-  items:
+- items:
   - type: list
     style: cards
-    className: cardsFTitle
+    className: cardsJ
+    columns: 1
     items:
-    - title: Start modeling and deploying in Studio's drag-and-drop interface.
-      image: 
+    - html: <p>Start modeling and deploying in Studio's drag-and-drop interface.</p>
+      image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
 
 - title: 5-Minute Quickstarts
   items:
