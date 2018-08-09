@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: compliance-reports
+ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
