@@ -6,7 +6,7 @@ keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
 ---
 
@@ -26,6 +26,9 @@ Ansible can be used to pull inventory information from various sources (includin
 1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Create an Azure resource group to hold the virtual machines for this tutorial.
+
+    > [!IMPORTANT]	
+    > The Azure resource group created in this step must be entirely lower-case. Otherwise, the generation of the dynamic inventory will fail.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
