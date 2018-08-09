@@ -138,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Fidelity NetBenefits Configuration](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
 
-8. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Metadata XML**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to **contact your assigned Fidelity Client Service Manager**. They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Fidelity NetBenefits** side, you need to send the downloaded **Metadata XML**, **SAML Single Sign-On Service URL** and **SAML Entity ID** to **your assigned Fidelity Client Service Manager**. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
