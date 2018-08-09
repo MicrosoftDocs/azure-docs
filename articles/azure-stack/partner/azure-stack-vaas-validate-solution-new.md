@@ -50,10 +50,10 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
 
 In the **Solution validation tests summary** page, you will see a list of the tests required for completing validation.
 
-1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
-2. [!INCLUDE [azure-stack-vaas-validationworkflow_schedule](includes/azure-stack-vaas-validationworkflow_schedule.md)]
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-    ![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
+
+![Schedule Solution Validation test](media/workflow_validation-solution_schedule-test.png)
 
 ## Next steps
 

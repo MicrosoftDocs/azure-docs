@@ -1,1 +1,0 @@
-Click on the context menu next to a test and select **Schedule**. In the window, review the test parameters and then click **Submit** to schedule the test for execution.
