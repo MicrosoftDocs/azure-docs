@@ -189,6 +189,9 @@ Here's the Java code:
             }
 ```
 
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
+
 ## Trigger - C# attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
@@ -207,12 +210,6 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Trigger - C# example](#trigger---c-example).
-
-## Trigger - Java annotations
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
-
-For a complete example, see [Trigger - Java example](#trigger---java-example).
 
 
 ## Trigger - configuration
@@ -266,7 +263,7 @@ See the language-specific examples that read a single document by specifying an 
 * [C# script (.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
-* [Java](#input---java)
+* [Java](#input---java-examples)
 
 [Skip input examples](#input---attributes)
 
@@ -1219,15 +1216,13 @@ public String cosmosDbQueryById(
  }
  ```
 
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
+
 ## Input - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration). 
-
-## Input - annotations
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
 
 ## Input - configuration
 
@@ -1634,7 +1629,7 @@ dependencies:
 
 To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
 
-## Output - Java
+## Output - Java examples
 
 The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
 
@@ -1648,6 +1643,9 @@ public String cosmosDbQueryById(
      return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
    }
 ```
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be OutputBinding<T>, where T is either a native Java type or a POJO.
+
 
 ## Output - attributes
 
@@ -1666,12 +1664,6 @@ The attribute's constructor takes the database name and collection name. For inf
 ```
 
 For a complete example, see [Output - C# example](#output---c-example).
-
-## Output  - annotations
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be OutputBinding<T>, where T is either a native Java type or a POJO.
-
-For a complete example, see [Output - Java example](#output---java-example).
 
 ## Output - configuration
 
