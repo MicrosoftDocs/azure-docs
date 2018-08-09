@@ -19,7 +19,7 @@ ms.author: mlearned
 ---
 # Debugging apps in a local Docker container
 ## Overview
-The Visual Studio Docker support in Visual Studio 2017 provides a consistent way to develop in and validate your application locally in a Linux Docker container.
+Visual Studio 2017 provides a consistent way to develop in and validate your application locally in a Linux Docker container.
 You don't have to restart the container each time you make a code change.
 This article illustrates how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
 make any necessary changes, and then refresh the browser to see those changes.
