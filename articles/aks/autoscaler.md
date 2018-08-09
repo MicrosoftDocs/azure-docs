@@ -52,8 +52,7 @@ CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".
 
 SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
 
-CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
-NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+NODE_RESOURCE_GROUP=`az aks show --name $cluster_name  --resource-group $resource_group -o tsv --query 'nodeResourceGroup' | base64`
 
 echo "---
 apiVersion: v1
