@@ -238,7 +238,7 @@ Yes. You can peer VNets across subscriptions and across regions.
 No. Address spaces must not overalap to enable VNet Peering.
 
 ### How much do VNet peering links cost?
-There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See] here(https://azure.microsoft.com/pricing/details/virtual-network/).
+There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See here](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Is VNet peering traffic encrypted?
 No. Traffic between resources in peered VNets is private and isolated. It remains completely on the Microsoft Backbone.
