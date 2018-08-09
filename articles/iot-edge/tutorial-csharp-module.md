@@ -268,7 +268,7 @@ You can see the full container image address with tag in the VS Code integrated 
        > [!Note]
        > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.
 
-2. In the Azure IoT Hub Devices explorer, right-click your IoT Edge device, and then select **Create Deployment for IoT Edge device**. Select the deployment.json file in the config folder and then choose **Select Edge Deployment Manifest**.
+2. In the Azure IoT Hub Devices explorer, right-click your IoT Edge device, and then select **Create Deployment for Single Device**. Select the deployment.json file in the config folder and then choose **Select Edge Deployment Manifest**.
 
 3. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 

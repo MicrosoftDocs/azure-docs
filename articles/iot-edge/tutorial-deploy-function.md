@@ -189,7 +189,7 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-6. Right-click the name of your IoT Edge device, and then select **Create Deployment for IoT Edge device**. 
+6. Right-click the name of your IoT Edge device, and then select **Create Deployment for Single Device**. 
 
 7. Browse to the solution folder that contains the **CSharpFunction**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
 

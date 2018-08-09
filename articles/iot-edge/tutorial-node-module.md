@@ -201,7 +201,7 @@ You could use the Azure portal to deploy your Node.ms module to an IoT Edge devi
 
 5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+6. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
 
 7. Navigate to the solution folder that contains NodeModule. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
 
