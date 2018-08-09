@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/14/2018
 ms.author: anwestg
 
 ---
@@ -350,6 +350,7 @@ Follow these steps:
 | AzureStackAdminCredential | Required | Null | Azure AD service admin credential. |
 | CertificateFilePath | Required | Null | **Full path** to the identity application certificate file generated earlier. |
 | CertificatePassword | Required | Null | Password that helps protect the certificate private key. |
+| Environment | Optional | AzureCloud | The name of the supported Cloud Environment in which the target Azure Active Directory Graph Service is available.  Allowed values: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## Create an Active Directory Federation Services application
 
