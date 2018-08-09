@@ -1,6 +1,6 @@
 ---
-title: Call and response - Node.js Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Send search queries using the REST API for the Bing Image Search API in Node.js"
+description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Node.js.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -10,7 +10,8 @@ ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
-# Call and response: your first Bing Image Search query for Node.js
+
+# Quickstart: Send search queries using the REST API in Node.js
 
 The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
