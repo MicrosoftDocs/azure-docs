@@ -14,7 +14,7 @@ ms.author: diberry
 
 In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the endpoint. 
 
-You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS user account has a free starter key for authoring. This key gives you unlimited authoring and a [few endpoint hits](../articles/cognitive-services/luis/luis-boundaries.md#key-limits). 
+You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS user account has a free starter key for authoring. This key gives you unlimited authoring and a few endpoint hits. 
 
 1. Select **Publish** in the top right navigation.
 

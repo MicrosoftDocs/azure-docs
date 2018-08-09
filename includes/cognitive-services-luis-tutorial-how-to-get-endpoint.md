@@ -12,4 +12,4 @@ ms.date: 08/06/2018
 ms.author: diberry
 --- 
 
-On the **Keys and endpoints** page, select the **endpoint** URL at the bottom of the page. This action opens another browser tab with the endpoint URL in the address bar. 
+In the **Manage** section (top right menu), on the **Keys and endpoints** page (left menu), select the **endpoint** URL at the bottom of the page. This action opens another browser tab with the endpoint URL in the address bar. 
