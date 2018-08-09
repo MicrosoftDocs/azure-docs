@@ -97,7 +97,7 @@ The Decode AS2 connector performs these tasks:
   > If you use Azure Key Vault for certificate management, make sure that you configure the keys to permit the **Decrypt** operation.
   > Otherwise, the AS2 Encode will fail.
   >
-  > ![Keyvault decrypt](media/logic-apps-enterprise-integration-as2-decode/keyvault.png)
+  > ![Keyvault decrypts](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## Try this sample
 
