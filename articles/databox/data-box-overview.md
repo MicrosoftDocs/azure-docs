@@ -88,13 +88,13 @@ The Data Box includes the following components:
 
     ![The Data Box service in Azure portal](media/data-box-overview/data-box-service.png)
 
-    For more information, go to [Use the Data Box service to administer your Data Box device](azure-data-box-portal-ui-admin.md).
+    For more information, go to [Use the Data Box service to administer your Data Box device](data-box-portal-ui-admin.md).
 
 * **Local web user interface** – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the Data Box service. Use the local web UI also to shut down and restart the Data Box device, view copy logs, and contact Microsoft Support to file a service request.
 
     ![The Data Box local web UI](media/data-box-overview/data-box-local-web-ui.png)
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](azure-data-box-web-ui-admin.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-web-ui-admin.md).
 
 ## The workflow
 

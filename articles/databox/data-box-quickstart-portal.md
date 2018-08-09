@@ -65,7 +65,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
 	
 4. Cable the device as shown below.  
 
-    ![Data Box cabled](media/azure-data-box-quickstart-portal/back-plane-labeled-m.png)    
+    ![Data Box cabled](media/data-box-quickstart-portal/back-plane-labeled.png)    
 
     1. Connect the power cable to the device.
     2. Use the CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
@@ -73,7 +73,7 @@ When you receive the Data Box, do the following steps to unpack, cable, and turn
     4. Turn on the device. The power button is on the front panel of the device.
 
 
-## Configure
+## Set up
 
 This step takes about 5-7 minutes to complete.
 
@@ -88,7 +88,7 @@ The time to complete this operation depends upon your data size and network spee
  
 1. Use any SMB compatible file copy tool such as Robocopy to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
 2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
-3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](azure-data-box-limits.md).
+3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
 
 ## Ship to Azure 
 
@@ -99,7 +99,7 @@ This operation takes about 10-15 minutes to complete.
 3. Ensure that the return shipping label is visible. If the label is damaged or lost, download shipping label from the portal and affix on the case.
 4. Lock the case and ship to Microsoft. 
 
-## Verify your data
+## Verify data
 
 The time to complete this operation depends upon your data size.
 

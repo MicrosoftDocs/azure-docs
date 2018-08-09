@@ -51,7 +51,7 @@ Consider the following example.
 
 > [!IMPORTANT]
 > - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
-> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](azure-data-box-limits.md). 
+> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
 > - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 
 Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to copy can be different.
@@ -64,11 +64,11 @@ Perform the following steps to connect and copy data from your computer to the D
 
 1. The first step is to authenticate and start a copy session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/azure-data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.<br>
     
-    ![Get share credentials 1](media/azure-data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Access the shares associated with your storage account (Mystoracct in the following example). Use the `\\<IP of the device>\ShareName` path to access the shares. Depending upon your data format, connect to the shares (use the share name) at the following address: 
     - *\\<IP address of the device>\Mystoracct_Blob*
@@ -89,11 +89,11 @@ Perform the following steps to connect and copy data from your computer to the D
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer.
     
-    ![Connect to share via File Explorer 2](media/azure-data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
 5. You should now be able to see the shares as folders. Create a folder for the files that you intend to copy (in this case templates). In this preview release, the folders may show the gray cross, this is not an error condition. The folders are flagged by the application to track the status.
     
-    ![Connect to share via File Explorer 2](media/azure-data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 #### Copy data to an SMB share
 
@@ -187,7 +187,7 @@ Perform the following steps to connect and copy data from your computer to the D
 7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting.
 8. To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device. 
     
-    ![Verify free and used space on dashboard](media/azure-data-box-deploy-copy-data/verify-used-space-dashboard.png)
+    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ### Connect to and copy data from a Linux host computer
 
@@ -230,20 +230,20 @@ If you are configuring your Data Box to copy data from other hosts that
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start preparing the device to ship.
 1. Go to **Prepare to ship** and click **Start preparation**. 
    
-    ![Prepare to ship 1](media/azure-data-box-deploy-copy-data/prepare-to-ship1.png)
+    ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
 2. If the checksum was not enabled, then you are presented the option to enable checksum. We recommend that for the integrity of your data, you perform the checksum validation. Selecting **Enable checksum** will then trigger checksum computation and may take some time depending upon the size of your data. Click **Start preparation**.
     1. The device shares go offline and the device is locked when we prepare to ship.
         
-        ![Prepare to ship 1](media/azure-data-box-deploy-copy-data/prepare-to-ship2.png) 
+        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
    
     2. The device status updates to *Ready to ship* once the device preparation is complete. 
         
-        ![Prepare to ship 1](media/azure-data-box-deploy-copy-data/prepare-to-ship3.png)
+        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
     3. You can download the list of files that were copied in this process.
         
-        ![Prepare to ship 1](media/azure-data-box-deploy-copy-data/prepare-to-ship4.png)
+        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
 
 3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
 4. Remove the cables and return to the device case. The next step is to ship the device to Microsoft.
@@ -258,5 +258,5 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the next tutorial to learn how to set up and copy data on your Data Box.
 
 > [!div class="nextstepaction"]
-> [Ship your Azure Data Box to Microsoft](./azure-data-box-deploy-picked-up.md)
+> [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 

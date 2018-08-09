@@ -42,7 +42,7 @@ Before you begin, make sure that:
 ### For device
 
 Before you begin, make sure that:
-- You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](azure-data-box-system-requirements).
+- You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements).
 - Your datacenter needs to have high speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
 
 
@@ -53,7 +53,7 @@ Perform the following steps in the Azure portal to order a device.
 1. Use your Microsoft Azure credentials to log in at this URL: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
 2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
     
-   [![Search Azure Data Box 1](media/azure-data-box-deploy-ordered/search-azure-data-box1.png)](media/azure-data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   [![Search Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Click **Create**.
 
@@ -67,7 +67,7 @@ Perform the following steps in the Azure portal to order a device.
 
 5. Select Data Box. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
-      [![Select Data Box option 1](media/azure-data-box-deploy-ordered/select-data-box-option1.png)](media/azure-data-box-deploy-ordered/select-data-box-option1.png#lightbox)
+      [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. In **Order**, specify the **Order details**. Enter or select the following information and click **Next**.
 
@@ -111,7 +111,7 @@ To cancel this order, in the Azure portal, go to **Overview** and click **Cancel
 
 You can only cancel when the device is ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order.
 
-   [![Data Box status ordered](media/azure-data-box-deploy-ordered/data-box-ordered.png)](media/azure-data-box-deploy-ordered/data-box-ordered.png#lightbox)   
+   [![Data Box status ordered](media/data-box-deploy-ordered/data-box-ordered.png)](media/data-box-deploy-ordered/data-box-ordered.png#lightbox)   
 
 To delete a canceled order, go to Overview and click Delete from the command bar.
 
@@ -124,6 +124,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
-> [Set up your Azure Data Box](./azure-data-box-deploy-set-up.md)
+> [Set up your Azure Data Box](./data-box-deploy-set-up.md)
 
 
