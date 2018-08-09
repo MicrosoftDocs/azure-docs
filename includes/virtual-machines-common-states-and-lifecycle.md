@@ -6,19 +6,20 @@
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 08/02/2018
- ms.author: vashan, cynthn
+ ms.author: vashan, cynthn, rajsqr
  ms.custom: include file
 ---
 
-Virtual machines go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for hardware and software usage. 
+Azure Virtual Machines (VM) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
 
 ## Power States
 
-The power state represents the last known state of a VM.
+The power state represents the last known state of the VM.
 
 ![VM power state diagram](./media/virtual-machines-common-states-and-lifecycle/vm-power-states.png)
 
 <br>
+The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
 <table>
 <tr>
@@ -29,7 +30,7 @@ State
 Description
 </th>
 <th>
-Billing
+Instance usage billing
 </th>
 </tr>
 <tr>
@@ -47,7 +48,7 @@ Billing
     ]</code></br>
 </td>
 <td>
-<p><b>Not Billed</b></p>
+<p><b>Not billed</b></p>
 </td>
 </tr>
 <tr>
@@ -65,7 +66,7 @@ Billing
  ]</code></br>
 </td>
 <td>
-<p><b>Billed (Hardware + Software) </b></p>
+<p><b>Billed</b></p>
 </td>
 </tr>
 <tr>
@@ -83,7 +84,7 @@ Billing
  ]</code></br>
 </td>
 <td>
-<p><b>Billed (Hardware + Software)</b></p>
+<p><b>Billed</b></p>
 </td>
 </tr>
 <tr>
@@ -102,7 +103,7 @@ Billing
  ]</code></br>
 </td>
 <td>
-<p><b>Billed (Hardware only)</b></p>
+<p><b>Not billed*</b></p>
 </td>
 </tr>
 <tr>
@@ -120,7 +121,7 @@ Billing
  ]</code></br>
 </td>
 <td>
-<p><b>Billed (Hardware only)</b></p>
+<p><b>Not billed*</b></p>
 </td>
 </tr>
 <tr>
@@ -138,7 +139,7 @@ Billing
  ]</code></br>
 </td>
 <td>
-<p><b>Not billed </b></p>
+<p><b>Not billed</b></p>
 </td>
 </tr>
 </tbody>
@@ -147,11 +148,11 @@ Billing
 
 ## Provisioning states
 
-A provisioning state is the status of a user-initiated (control plane) operation on the VM. These states are separate from the power state of a VM.
+A provisioning state is the status of an user-initiated, control plane operation on the VM. These states are separate from the power state of a VM.
 
 - **Create** – VM creation.
 
-- **Update** – update model for an existing VM. Some non-model changes to VM such as Start/Restart also fall under update.
+- **Update** – Update the model for an existing VM. Some non-model changes to VM such as Start/Restart also fall under update.
 
 - **Delete** – VM deletion.
 
@@ -159,8 +160,7 @@ A provisioning state is the status of a user-initiated (control plane) operation
 
 
 
-Here are the **Operation states**. These are transitional states after the platform has
-accepted a user-initiated action:
+Here are the transitional operation states after the platform has accepted an user-initiated action:
 
 <br>
 
