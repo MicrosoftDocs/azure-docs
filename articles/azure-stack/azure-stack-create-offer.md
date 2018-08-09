@@ -45,7 +45,7 @@ ms.author: brenduns
  
      ![Choose the state](media/azure-stack-create-offer/change-stage-1807.png)
 
-     As an alternative, after you access an offer you can go to **Offer settings**. Select  **Accessibility state** to change the state.
+     As an alternative, select **Change state** and then choose a state.
 
     ![Select Accessibility state](media/azure-stack-create-offer/change-stage-select-1807.png)
 
