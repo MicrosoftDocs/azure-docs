@@ -97,7 +97,7 @@ Other optional destinations for diagnostic logs:
 
     ![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
 
-Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
+Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### Access diagnostics logs in storage

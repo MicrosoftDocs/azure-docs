@@ -9,12 +9,12 @@ editor: tysonn
 
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
-
+ms.component: na
 ---
 
 # Transitioning to Azure Log Analytics new query language

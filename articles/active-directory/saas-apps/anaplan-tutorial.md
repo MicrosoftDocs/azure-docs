@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -203,7 +204,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Anaplan tile in the Access Panel, you should get automatically signed-on to your Anaplan application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

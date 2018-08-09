@@ -10,7 +10,7 @@ Configure your local Git deployment to be able to push to the remote.
 git remote add azure <URI from previous step>
 ```
 
-Push to the Azure remote to deploy your app. You are prompted for the password you created earlier when you created the deployment user. Make sure that you enter the password you created in earlier in the quickstart, and not the password you use to log in to the Azure portal.
+Push to the Azure remote to deploy your app. You are prompted for the password you created earlier when you created the deployment user. Make sure that you enter the password you created in earlier in the quickstart, and not the password you use to sign in to the Azure portal.
 
 ```bash
 git push azure master

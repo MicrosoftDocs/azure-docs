@@ -89,9 +89,9 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 ### Hybrid Worker role
 
-For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This access is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics.
+For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This access is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics. 
 
-If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access.
+If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access. If you use the OMS gateway as a proxy, ensure it is configured for hybrid workers. For instructions on how to do this, see [Configure the OMS Gateway for Automation Hybrid Workers](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 The following port and URLs are required for the Hybrid Runbook Worker role to communicate with Automation:
 
@@ -99,6 +99,8 @@ The following port and URLs are required for the Hybrid Runbook Worker role to c
 * Global URL: *.azure-automation.net
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+It is recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and reflects the currently deployed ranges and any upcoming changes to the IP ranges.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
 
@@ -138,19 +140,7 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 
 ## Troubleshoot
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it's the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error.
-
-### The hybrid worker is behind a proxy or firewall
-
-Verify that the computer has outbound access to *.azure-automation.net on port 443.
-
-### The computer that the hybrid worker is running on has less than the minimum hardware requirements
-
-A computer running the Hybrid Runbook Worker should meet the minimum hardware requirements before you designate it to host this feature. Otherwise, depending on the resource utilization of other background processes and the contention caused by runbooks during execution, the computer can become overutilized and cause runbook job delays or timeouts.
-
-Confirm that the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Memory or CPU pressure might indicate the need to upgrade processors, add processors, or increase memory to address the resource bottleneck and resolve the error. Or, select a different compute resource that can support the minimum requirements and scale when workload demands indicate that an increase is necessary.
-
-For more information on troubleshooting for a specific OS, see [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) or [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting).
+To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)
 
 ## Next steps
 

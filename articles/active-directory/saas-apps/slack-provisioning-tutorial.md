@@ -9,6 +9,7 @@ manager: mtillman
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -28,7 +29,7 @@ The objective of this tutorial is to show you the steps you need to perform in S
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active Active directory tenant
+*   An Azure Active Directory tenant
 *   A Slack tenant with the [Plus plan](https://aadsyncfabric.slack.com/pricing) or better enabled 
 *   A user account in Slack with Team Admin permissions 
 

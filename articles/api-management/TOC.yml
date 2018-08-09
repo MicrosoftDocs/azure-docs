@@ -77,6 +77,8 @@
       href: edit-api.md
   - name: Provision and scale
     items:
+    - name: Capacity metric
+      href: api-management-capacity.md
     - name: Upgrade and scale
       href: upgrade-and-scale.md
     - name: Configure a custom domain
@@ -175,6 +177,8 @@
       href: api-management-howto-deploy-multi-region.md
     - name: Log events to Azure Event Hubs
       href: api-management-howto-log-event-hubs.md
+    - name: Log requests with Azure Application Insights
+      href: api-management-howto-app-insights.md
     - name: Set up DR using backup/restore
       href: api-management-howto-disaster-recovery-backup-restore.md
     - name: Manage user accounts

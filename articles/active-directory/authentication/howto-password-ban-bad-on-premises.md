@@ -5,8 +5,8 @@ description: Deploy the Azure AD password protection preview to ban bad password
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/25/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,6 +35,10 @@ During the audit stage, many organizations find:
 
 Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce** thereby requiring more secure passwords. Focused monitoring during this time is a good idea.
 
+## Known limitation
+
+There is a known limitation in the preview version of the Azure AD password protection proxy. Use of tenant administrator accounts that require MFA is unsupported. A future update of the Azure AD password protection proxy will support proxy registration with administrator accounts that require MFA.
+
 ## Single forest deployment
 
 The preview of Azure AD password protection is deployed with the proxy service on up to two servers, and the DC agent service can be incrementally deployed to all domain controllers in the Active Directory forest.
@@ -49,7 +53,7 @@ There are two required installers for Azure AD password protection that can be d
 
 1. Choose one or more servers to host the Azure AD password protection proxy service.
    * Each such service can only provide password policies for a single forest, and the host machine must be domain-joined to a domain (root and child are both equally supported) in that forest. For Azure AD password protection proxy service to fulfill its mission, there must exist network connectivity between at least one DC in each domain of the forest, and the Azure AD password protection Proxy host machine.
-   * It is supported to install and run the Azure AD password protection proxy service on a domain controller for testing purposes but then  requires internet connectivity.
+   * It is supported to install and run the Azure AD password protection proxy service on a domain controller for testing purposes but the domain controller then requires internet connectivity.
 
    > [!NOTE]
    > The public preview supports a maximum of two (2) proxy servers per forest.
@@ -97,13 +101,16 @@ There are two required installers for Azure AD password protection that can be d
          The example only works if the currently logged in user is also an Active Directory domain administrator for the root domain. An alternative is to supply the necessary domain credentials via the -ForestCredential parameter.
 
          > [!NOTE]
-         > If multiple proxy servers are installed in your environment, it does not matter which specific proxy server the above procedure above is executed upon.
+         > If multiple proxy servers are installed in your environment, it does not matter which proxy server is specified in the procedure above.
 
          > [!TIP]
          > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
 
    > [!NOTE]
    > Registration of the Active Directory forest is expected to be a one-time step in the lifetime of the forest. The domain controller agents running in the forest will automatically perform any other necessary maintainenance from this point onwards. Once it has succeeded for a given forest, additional invocations of `Register-AzureADPasswordProtectionForest` continue to succeed but are unnecessary.
+
+   > [!NOTE]
+   > In order for `Register-AzureADPasswordProtectionForest` to succeed at least one Windows Server 2012 or later domain controller must be available in the proxy server's domain. However there is no requirement that the DC agent software be installed on any domain controllers prior to this step.
 
 6. Optional: Configure the Azure AD password protection proxy service to listen on a specific port.
    * RPC over TCP is used by the Azure AD password protection DC Agent software on the domain controllers to communicate with the Azure AD password protection proxy service. By default, the Azure AD password protection Password Policy Proxy service listens on any available dynamic RPC endpoint. If necessary due to networking topology or firewall requirements, the service may instead be configured to listen on a specific TCP port.

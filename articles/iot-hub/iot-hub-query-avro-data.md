@@ -1,6 +1,6 @@
 ---
-title: Query Avro data using Azure Data Lake Analytics | Microsoft Docs
-description: Use message body properties to route device telemetry to blob storage and query the Avro format data written to blob storage.
+title: Query Avro data by using Azure Data Lake Analytics | Microsoft Docs
+description: Use message body properties to route device telemetry to Blob storage and query the Avro format data that's written to Blob storage.
 services: iot-hub
 documentationcenter: 
 author: ksaye
@@ -12,48 +12,50 @@ ms.author: Kevin.Saye
 
 ---
 
-# Query Avro data using Azure Data Lake Analytics
+# Query Avro data by using Azure Data Lake Analytics
 
-This article is about how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services. Following the blog post announcement—[Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body. See also [Routing on message bodies][Routing on message bodies]. 
+This article discusses how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services. As we announced in the blog post [Azure IoT Hub message routing: now with routing on message body], IoT Hub supports routing on either properties or the message body. For more information, see [Routing on message bodies][Routing on message bodies]. 
 
-The challenge has been that when Azure IoT Hub routes messages to blob storage, IoT Hub writes the content in Avro format, which has both message body and message properties. Note that IoT Hub only supports writing data to blob storage in the Avro data format, and this format is not used for any other endpoints. See [When using Azure Storage containers][When using Azure storage containers]. While the Avro format is great for data/message preservation, it's challenging for querying the data. In comparison, JSON or CSV format is much easier for querying data.
+The challenge has been that when Azure IoT Hub routes messages to Azure Blob storage, IoT Hub writes the content in Avro format, which has both a message body property and a message property. IoT Hub supports writing data to Blob storage only in the Avro data format, and this format is not used for any other endpoints. For more information, see [When using Azure Storage containers][When using Azure storage containers]. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is much easier for querying data.
 
-To solve this, you can use many of the big data patterns for both transforming and scaling data to address non-relational big data needs and formats. One of the patterns, a “pay per query” pattern, is Azure Data Lake Analytics (ADLA). It is the focus of this article. Though you could easily execute the query in Hadoop or other solutions, ADLA is often better suited for this “pay per query” approach. There is an “extractor” for Avro in U-SQL. See [U-SQL Avro Example].
+To address non-relational big-data needs and formats and overcome this challenge, you can use many of the big-data patterns for both transforming and scaling data. One of the patterns, “pay per query,” is Azure Data Lake Analytics, which is the focus of this article. Although you can easily execute the query in Hadoop or other solutions, Data Lake Analytics is often better suited for this “pay per query” approach. 
+
+There is an “extractor” for Avro in U-SQL. For more information, see [U-SQL Avro example].
 
 ## Query and export Avro data to a CSV file
-The section walks you through querying Avro data and exporting it to a CSV file in Azure Blob Storage, though you could easily place the data in other repositories or data stores.
+In this section, you query Avro data and export it to a CSV file in Azure Blob storage, although you could easily place the data in other repositories or data stores.
 
-1. Set up Azure IoT Hub to route data to an Azure Blob Storage endpoint using a property in the message body to select messages.
+1. Set up Azure IoT Hub to route data to an Azure Blob storage endpoint by using a property in the message body to select messages.
 
-    ![Screen capture for step 1a][img-query-avro-data-1a]
+    ![The "Custom endpoints" section][img-query-avro-data-1a]
 
-    ![Screen capture for step 1b][img-query-avro-data-1b]
+    ![The Routes command][img-query-avro-data-1b]
 
-2. Ensure your device has the encoding, the content type, and the needed data in either the properties or the message body as referenced in the product documentation. When viewed in Device Explorer (see below), you can verify that these attributes are set correctly.
+2. Ensure that your device has the encoding, content type, and needed data in either the properties or the message body, as referenced in the product documentation. When you view these attributes in Device Explorer, as shown here, you can verify that they are set correctly.
 
-    ![Screen capture for step 2][img-query-avro-data-2]
+    ![The Event Hub Data pane][img-query-avro-data-2]
 
-3. Set up an Azure Data Lake Store (ADLS) and an Azure Data Lake Analytics instance. While Azure IoT Hub does not route to an Azure Data Lake Store, ADLA requires one.
+3. Set up an Azure Data Lake Store instance and a Data Lake Analytics instance. Azure IoT Hub does not route to a Data Lake Store instance, but a Data Lake Analytics instance requires one.
 
-    ![Screen capture for step 3][img-query-avro-data-3]
+    ![Data Lake Store and Data Lake Analytics instances][img-query-avro-data-3]
 
-4. In ADLA, configure the Azure Blob Storage as an additional store, the same Blob Storage that Azure IoT Hub routes data to.
+4. In Data Lake Analytics, configure Azure Blob storage as an additional store, the same Blob storage that Azure IoT Hub routes data to.
 
-    ![Screen capture for step 4][img-query-avro-data-4]
+    ![The "Data sources" pane][img-query-avro-data-4]
  
-5. As discussed in [U-SQL Avro Example], there are 4 DLLs that are needed.  Upload these files to a location in your ADLS.
+5. As discussed in [U-SQL Avro example], you need four DLL files. Upload these files to a location in your Data Lake Store instance.
 
-    ![Screen capture for step 5][img-query-avro-data-5] 
+    ![Four uploaded DLL files][img-query-avro-data-5] 
 
-6. In Visual Studio, create a U-SQL Project
+6. In Visual Studio, create a U-SQL project.
  
-    ![Screen capture for step 6][img-query-avro-data-6]
+    ![Create a U-SQL project][img-query-avro-data-6]
 
-7. Copy the content of the following script and paste it into the newly created file. Modify the 3 highlighted sections: your ADLA account, the associated DLLs' paths, and the correct path for your Storage Account.
+7. Paste the content of the following script into the newly created file. Modify the three highlighted sections: your Data Lake Analytics account, the associated DLL file paths, and the correct path for your storage account.
     
-    ![Screen capture for step 7a][img-query-avro-data-7a]
+    ![The three sections to be modified][img-query-avro-data-7a]
 
-    The actual U-SQL script for simple output to CSV:
+    The actual U-SQL script for simple output to a CSV file:
     
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
@@ -117,16 +119,15 @@ The section walks you through querying Avro data and exporting it to a CSV file 
         OUTPUT @cnt TO @output_file USING Outputters.Text(); 
     ```    
 
-    Running the script shown below, ADLA took 5 minutes when limited to 10 Analytic Units and processed 177 files, summarizing the output to a CSV file.
+    It took Data Lake Analytics five minutes to run the following script, which was limited to 10 analytic units and processed 177 files. The result is shown in the CSV-file output that's displayed in the following image:
     
-    ![Screen capture for step 7b][img-query-avro-data-7b]
+    ![Results of the output to CSV file][img-query-avro-data-7b]
 
-    Viewing the output, you can see the Avro content has converted to a CSV file. Continue to step 8 if you want to parse the JSON.
-    
-    ![Screen capture for step 7c][img-query-avro-data-7c]
+    ![Output converted to CSV file][img-query-avro-data-7c]
 
+    To parse the JSON, continue to step 8.
     
-8. Most IoT messages are in JSON format.  Adding the following lines, you can parse the message into JSON, so you can add the WHERE clauses and only output the needed data.
+8. Most IoT messages are in JSON file format. By adding the following lines, you can parse the message into a JSON file, which lets you add the WHERE clauses and output only the needed data.
 
     ```sql
        @jsonify = SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) AS message FROM @rs;
@@ -150,14 +151,14 @@ The section walks you through querying Avro data and exporting it to a CSV file 
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-9. Viewing the output, you now see columns for each item in the select command. 
+    The output displays a column for each item in the `SELECT` command. 
     
-    ![Screen capture for step 8][img-query-avro-data-8]
+    ![Output showing a column for each item][img-query-avro-data-8]
 
 ## Next steps
-In this tutorial, you learned how to query Avro data for efficiently routing messages from Azure IoT Hub to Azure services.
+In this tutorial, you learned how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-iot-sa-land].
+For examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-iot-sa-land].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
@@ -182,8 +183,8 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Routing on message bodies]: iot-hub-devguide-query-language.md#routing-on-message-bodies
 [When using Azure storage containers]:iot-hub-devguide-endpoints.md#when-using-azure-storage-containers
 
-[U-SQL Avro Example]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
+[U-SQL Avro example]:https://github.com/Azure/usql/tree/master/Examples/AvroExamples
 
-[lnk-iot-sa-land]: ../iot-accelerators/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.yml
 [IoT Hub developer guide]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

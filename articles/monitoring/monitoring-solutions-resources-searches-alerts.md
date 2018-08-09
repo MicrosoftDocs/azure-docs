@@ -334,8 +334,9 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      "SolutionPublisher": "Contoso",
 	      "ProductName": "SampleSolution",
 	
-	      "LogAnalyticsApiVersion": "2017-03-15-preview",
-	
+	      "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
 	      "MySearch": {
 	        "displayName": "Error records by hour",
 	        "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
@@ -374,7 +375,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	        "location": "[parameters('workspaceRegionId')]",
 	        "tags": { },
 	        "type": "Microsoft.OperationsManagement/solutions",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
 	        "dependsOn": [
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -402,7 +403,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [ ],
 	        "tags": { },
 	        "properties": {
@@ -415,7 +416,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [
 	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
 	        ],
@@ -429,7 +430,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	      {
 	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
 	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
 	        "dependsOn": [
 	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
 	        ],

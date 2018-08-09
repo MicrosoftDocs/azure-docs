@@ -130,11 +130,11 @@ The following steps illustrate how to create a blob container:
 
 1. In **Solution Explorer**, right-click the **Views** folder.
 
-2. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
+1. If there isn't a **Blobs** folder, create one. From the context menu, select **Add** > **New Folder**. Name the new folder *Blobs*. 
  
 1. In **Solution Explorer**, expand the **Views** folder, and right-click **Blobs**.
 
-4. From the context menu, select **Add** > **View**.
+1. From the context menu, select **Add** > **View**.
 
 1. In the **Add View** dialog box, enter **CreateBlobContainer** for the view name, and select **Add**.
 

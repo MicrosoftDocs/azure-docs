@@ -10,7 +10,7 @@ ms.author: ghogen
 ms.custom: include file
 ---
 > [!IMPORTANT]
-> Azure Dev Spaces is in currently in preview, and is supported only by AKS clusters in the **East US**, **West Europe**, and **Canada East** regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> Azure Dev Spaces is in currently in preview, and is supported only by AKS clusters in the **East US**,**Central US**, **West US 2**, **West Europe**, **Canada Central**, and **Canada East** regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

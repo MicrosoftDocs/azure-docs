@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup vault; back up a Windows server; backup windows;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
+ms.date: 8/5/2018
 ms.author: markgal
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model

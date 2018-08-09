@@ -35,7 +35,7 @@ In this example, you have a function running for each logic app that needs to be
 ## Build the function
 Next, you must create a function that acts as the trigger and listens to the queue.
 
-1. In the [Azure Functions portal](https://functions.azure.com/signin), select **New Function**, and then select the **ServiceBusQueueTrigger - C#** template.
+1. In the [Azure Functions portal](https://functions.azure.com/), select **New Function**, and then select the **ServiceBusQueueTrigger - C#** template.
    
     ![Azure Functions portal][2]
 2. Configure the connection to the Service Bus queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener.

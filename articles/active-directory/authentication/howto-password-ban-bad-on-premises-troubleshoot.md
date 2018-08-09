@@ -5,8 +5,8 @@ description: Understand Azure AD password protection preview logging and common 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-After deployment of Azure AD password protection monitoring and reporting are essentiaal tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
+After deployment of Azure AD password protection monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
 
 ## On-premises logs and events
 
@@ -203,7 +203,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Do not omit the asterisk (“*”) at the end of the $keywords variable value.
@@ -215,7 +215,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.

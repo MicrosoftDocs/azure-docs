@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 09/21/2017
 ---
 

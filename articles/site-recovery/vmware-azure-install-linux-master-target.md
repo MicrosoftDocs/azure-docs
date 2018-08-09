@@ -1,13 +1,10 @@
 ---
 title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
 description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---

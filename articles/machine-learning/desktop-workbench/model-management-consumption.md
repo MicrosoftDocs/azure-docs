@@ -17,7 +17,8 @@ Once you deploy a model as a realtime web service, you can send it data and get 
 
 With the [Azure Machine Learning Web service](model-management-service-deploy.md), an external application synchronously communicates with a predictive model by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
 
-Note that API keys are only available in the cluster deployment mode. Local web services do not have keys.
+> [!NOTE]
+> Note that API keys are only available in the cluster deployment mode. Local web services do not have keys.
 
 ## Service deployment options
 Azure Machine Learning Web services can be deployed to the cloud-based clusters for both production and test scenarios, and to local workstations using docker engine. The functionality of the predictive model in both cases remains the same. Cluster-based deployment provides scalable and performant solution based on Azure Container Services, while the local deployment can be used for debugging. 
@@ -66,11 +67,11 @@ Use the service URL to send a request from a C# Console App.
 1. In Visual Studio, create a new Console App: 
     * In the menu, click, File -> New -> Project
     * Under Visual Studio C#, click Windows Class Desktop, then select Console App.
-2. Enter _MyFirstService_ as the Name of the project, then click OK.
-3. In Project References, set references to _System.Net_, and _System.Net.Http_.
-4. Click Tools -> NuGet Package Manager -> Package Manager Console, then install the Microsoft.AspNet.WebApi.Client package.
-5. Open Program.cs file, and replace the code with the following code:
-6. Update the _SERVICE_URL_ and _API_KEY_ parameters with the information from your web service.
+2. Enter `MyFirstService` as the Name of the project, then click OK.
+3. In Project References, set references to `System.Net`, and `System.Net.Http`.
+4. Click Tools -> NuGet Package Manager -> Package Manager Console, then install the **Microsoft.AspNet.WebApi.Client** package.
+5. Open **Program.cs** file, and replace the code with the following code:
+6. Update the `SERVICE_URL` and `API_KEY` parameters with the information from your web service.
 7. Run the project.
 
 ```csharp

@@ -1,7 +1,7 @@
 Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
 ### To sign up for a SendGrid account
-1. Log in to the [Azure portal][Azure portal].
+1. Sign in to the [Azure portal][Azure portal].
 2. In the menu on the left, click **Create a resource**.
 
     ![command-bar-new][command-bar-new]

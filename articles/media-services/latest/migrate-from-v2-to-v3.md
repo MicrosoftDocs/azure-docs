@@ -141,7 +141,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Create Content Key Policy
 2. Create Asset
 3. Upload content or use Asset as JobOutput
-4. Create Locator
+4. Create StreamingLocator
 
 ## Next steps
 

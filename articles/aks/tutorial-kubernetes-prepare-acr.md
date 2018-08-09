@@ -1,14 +1,14 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Prepare ACR
 description: AKS tutorial - Prepare ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -118,7 +118,7 @@ This takes a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list][az-acr-repository-list] command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list][az-acr-repository-list] command. Update the command with the ACR instance name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -168,11 +168,11 @@ Advance to the next tutorial to learn about deploying a Kubernetes cluster in Az
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
 [az-acr-list]: /cli/azure/acr#list
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
-[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
+[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az-acr-list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
-[az-group-create]: /cli/azure/group#az_group_create
+[az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

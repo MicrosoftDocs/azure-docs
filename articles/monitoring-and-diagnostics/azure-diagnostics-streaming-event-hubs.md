@@ -384,9 +384,11 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 </ServiceConfiguration>
 ```
 
-Equivalent Json based settings for virtual machines is as follows:
+Equivalent JSON settings for virtual machines is as follows:
+
+Public Settings:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -482,8 +484,11 @@ Equivalent Json based settings for virtual machines is as follows:
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+Protected Settings:
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

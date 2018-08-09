@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/25/2018
+  ms.date: 06/28/2018
   ms.author: kamrani
 abstract:
   description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
@@ -20,24 +20,56 @@ sections:
 
 - title: 5-Minute Quickstarts
   items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="luis-get-started-create-app.md">Create app for a prebuilt domain</a>
-    - html: <a href="luis-quickstart-intents-only.md">Create app for a custom domain</a>
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_js.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_php.svg
+      - image:
+          src: media/index/logo_ruby.svg
+    rows:
+      - title: Endpoint API
+        values:
+        - href: luis-get-started-cs-get-intent
+        - href: luis-get-started-java-get-intent
+        - href: luis-get-started-js-get-intent
+        - href: luis-get-started-node-get-intent
+        - href: luis-get-started-python-get-intent
+        - href: luis-get-started-php-get-intent
+        - href: luis-get-started-ruby-get-intent
+      - title: Authoring API
+        values:
+        - href: luis-get-started-cs-add-utterance
+        - href: luis-get-started-java-add-utterance
+        - href: luis-get-started-javascript-add-utterance
+        - href: luis-get-started-node-add-utterance
+        - href: luis-get-started-python-add-utterance
+        - href: luis-get-started-php-add-utterance
+        - href: luis-get-started-ruby-add-utterance
 
 - title: Step-by-step tutorials
   items:
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Extract message data from an utterance using the simple entity</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">Extract KB article numbers from an utterance using the regular expression entity</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Extract drink order information from an utterance using the list entity</a>
-    - html: <a href="luis-tutorial-pattern">Improve intent and entity prediction accuracy with patterns</a>
-    - html: <a href="luis-tutorial-interchangeable-phrase-list">Improve word significance with a phrase list</a>
-    - html: <a href="luis-get-started-cs-get-intent">Send an utterance to LUIS and recieve the endpoint prediction response - C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">Add an example utterance to an intent and train the LUIS app - C#</a>
+    - html: <a href="luis-quickstart-intents-only">Build app for Human Resources (HR) domain</a>
+    - html: <a href="luis-tutorial-prebuilt-intents-entities">Add prebuilt intents and entities</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Add regular expression entity</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Add list entity</a>
+    - html: <a href="luis-quickstart-intent-and-hier-entity">Add hierarchical entity</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Add simple entity and phrase list</a>
+    - html: <a href="luis-quickstart-intent-and-key-phrase">Add keyPhrase entity</a>
+    - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Add sentiment analysis</a>
 
 - title: Videos
   items:
