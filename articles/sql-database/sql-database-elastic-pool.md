@@ -6,6 +6,7 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-pool
 ms.custom: DBs & servers
 ms.date: 07/27/2018
 ms.author: ninarn

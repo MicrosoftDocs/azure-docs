@@ -6,6 +6,7 @@ author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
+ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
