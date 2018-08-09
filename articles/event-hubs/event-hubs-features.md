@@ -3,7 +3,7 @@ title: Azure Event Hubs features overview | Microsoft Docs
 description: Overview and details about Azure Event Hubs features
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
+ms.author: shvija
 
 ---
 
