@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/09/2018
 ms.author: jeedes
 
 ---
@@ -104,10 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SafeConnect Domain and URLs single sign-on information](./media/safeconnect-tutorial/tutorial_safeconnect_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://portal.myweblogon.com:8443/saml/login`
-
-	> [!NOTE] 
-	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [SafeConnect Client support team](mailto:support@impulse.com) to get the value. 
+     In the **Sign-on URL** textbox, type a URL: `https://portal.myweblogon.com:8443/saml/login`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
