@@ -23,7 +23,7 @@ In this document, you'll learn about different choices for development environme
 
 __Notebook__ environments allow you to interactively experiment by modifying and running code sections. Notebooks also allow you to visualize the data you're working with. Operationalizing a notebook, or integrating with source control and build automation tools, may require extracting the code from the notebook.
 
-__Integrated Development Environments (IDE)__ such Visual Studio Code, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems.
+__Integrated Development Environments (IDE) and code editors__ such Visual Studio Code, Atom, and PyCharm, are more suited to creating production-ready solutions. IDEs provide development-oriented tools like debuggers, and have better integration with source control and build automation systems.
 
 __Local__ environments - a computer or virtual machine that you have full access to - provides the highest level of control. You can load any libraries or make any changes you need.
 
@@ -53,7 +53,7 @@ Use Azure Notebooks when you need the following features:
 * __Share your notebooks__: Azure Notebooks allows to you share a link to your notebook library, or mark a library as public. Visitors can then download your notebooks for use on Jupyter Notebooks, or clone your library into their own Azure Notebooks account.
 
 > [!TIP]
-> Azure Notebooks includes a library of examples to help you get started with Azure Machine Learning. For more information, see [TBD].
+> Azure Notebooks includes a library of examples to help you get started with Azure Machine Learning.
 
 > [!NOTE]
 > Azure Notebooks provides a set of pre-configured set of Jupyter kernels. You cannot add a custom kernel. Also, your code executes in a containerized environment that shares compute resources with other users, so it may not be as fast as using a local Jupyter Notebook. 
@@ -83,16 +83,13 @@ Both DSVM and DLVM comes with the Azure Machine Learning SDK and Jupyter Noteboo
 
 ## Visual Studio Code
 
-The disadvantage of notebook-based environments is that extra steps are required to extract production code and bring it into source control. 
-
-Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you are:
+Visual Studio Code is source code editor, which makes it easier to work on machine learning applications intended for production use. It is recommended when you need the following features:
  
-* Using source control for your machine learning code. 
-* Integrating your machine learning application with production systems
-
-Furthermore, you can use VS Code Tools for AI, which makes it easier to interact with Azure Machine Learning capabilities.
+* __Visual Studio Code Tools for AI__: Tools for AI is an extension that makes it easier to work with Azure Machine Learning from within Visual Studio Code.
+* __Source control__: Source control/Version control systems allow you to keep track of changes to your code over time. They also make it easier to coordinate code contributions from multiple sources. Visual Studio Code integrates with popular source control systems such as Git and Team Foundation Version Control.
+* __Integration with production systems__: Visual Studio Code provides integration with automated build and deployment systems that help speed up the process of deploying your model into production.
 
 ## Code editor of your choice
 
-The Azure Machine Learning SDK is pip installable Python package that you can use from a Python code editor of your choice, such as Spyder or PyCharm. 
+Since the Azure Machine Learning SDK is a pip installable Python package, you can use it from the code editor of your choice. Just install the package and continue using the editor and tools that work best for you.
 
