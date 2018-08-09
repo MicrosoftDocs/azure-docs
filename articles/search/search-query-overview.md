@@ -30,13 +30,13 @@ Examples are useful for illustrating key concepts. As a representative query con
  } 
 ```
 
-`queryType` sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
+**`queryType`** sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
-`search` is the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase queries. Search could be undefined, as in `search=*`, but more likely consists of terms, phrases, and operators similar what appears in the example.
+**`search`** is the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase queries. Search could be undefined, as in **`search=*`**, but more likely consists of terms, phrases, and operators similar what appears in the example.
 
-`searchFields` is optional, used to limit query execution to specific fields.
+**`searchFields`** is optional, used to limit query execution to specific fields.
 
-Responses are subject to parameters you include in the query. In this case, the result set consists of fields listed in the `select` statement. Only the top 10 are returned in this query, but `count` tells you how many documents match overall. In this example, rows are sorted by the listing 
+Responses are subject to parameters you include in the query. In this case, the result set consists of fields listed in the **`select`** statement. Only the top 10 are returned in this query, but **`count`** tells you how many documents match overall. In this example, rows are sorted by the listing 
 
 In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. In REST, both are provided in request headers.
 
@@ -59,13 +59,23 @@ The above screenshot is a partial list of index attributes for the real estate s
 
 <a name="types-of-queries"></a>
 
-## Types of queries: search and filter
+## Types of queries
 
-In the introductory example, the search parameter was identified as the means by which search criteria is passed to the engine. In practice, there are two main types of query: `search` and `filter`. 
+Azure Search supports a broad range of query types. The following table provides a list, but the ability to build queries using regular expressions means that you can often meet unusual and complex requirements not indicated here.
 
-+ `search` queries scan for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The examples in the introduction use the `search` parameter.
+| Query type | Syntax | Examples and more information |
+|------------|--------|-------------------------------|
+| **search** parameter for free form text search | simple |  TBD | 
+| **filter** parameter for an OData filter expression | simple | 
 
-+ `filter` queries evaluate a boolean expression over all *filterable* fields in an index. Unlike `search`, a `filter` query matches the exact contents of a field, including case-sensitivity on string fields.
+
+### Simple search and filter expressions
+
+The default simple syntax serves free form text search as well as OData filter expressions. In the introductory example, the **search** parameter was identified as the means by which search criteria is passed to the engine. Using the default parser, you could augment or even replace search with **filter**. 
+
++ **`search`** queries scan for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The examples in the introduction use the `search` parameter.
+
++ **`filter`** queries evaluate a boolean expression over all *filterable* fields in an index. Unlike `search`, a `filter` query matches the exact contents of a field, including case-sensitivity on string fields. Unlike search, filter queries are expressed in OData syntax.
 
 You can use search and filter together or separately. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
 
@@ -83,7 +93,7 @@ Used together, the filter is applied first to the entire index, and then the sea
 The syntax for filter expressions is a subset of the [OData filter language](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). For search queries, you can use either the [simplified syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) or the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) which are discussed below.
 
 
-## Choose a syntax: simple or full
+## Choose a syntax: simple|full
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
@@ -101,7 +111,7 @@ Boolean operators are mostly the same in both syntax, with additional formats in
 + [Boolean operators in simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search#operators-in-simple-search)
 + [Boolean operators in  full Lucene syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean)
 
-## Required and optional elements
+## Elements of a query
 
 Queries are always directed at a single index. You cannot join indexes or create custom or temporary data structures as a query target. 
 
@@ -113,7 +123,7 @@ Required elements on a query request include the following components:
 + API version (REST only), expressed as `api-version`
 + query or admin api-key, expressed as `api-key`
 + query string expressed as `search`, which can be unspecified if you want to perform an empty search. You can also send just a filter expression as `$filter`.
-+ `queryType`, either simple or full, which can be omitted if you want to use the default simple syntax.
++ `queryType`, either simple or full, which can be omitted if you are using the built-in default simple syntax.
 
 All other search parameters are optional.
 
