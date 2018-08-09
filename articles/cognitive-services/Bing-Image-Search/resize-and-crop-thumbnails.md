@@ -29,7 +29,7 @@ If `shoppingSourcesCount` or `recipeSourcesCount` are greater than zero, add bad
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
 -->
 
-To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). For details, see [Image Insights](../image-insights.md).
+To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). For details, see [Image Insights](../../image-insights.md).
 
 ## Resizing and cropping thumbnails
 
