@@ -40,7 +40,6 @@ Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtu
 Yes. You can use a VNet without connecting it to your premises. For example, you could run Microsoft Windows Server Active Directory domain controllers and SharePoint farms solely in an Azure VNet.
 
 ### Can I perform WAN optimization between VNets or a VNet and my on-premises data center?
-
 Yes. You can deploy a [WAN optimization network virtual appliance](https://azure.microsoft.com/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
 
 ## Configuration
@@ -187,7 +186,6 @@ Yes. You can (optionally) deploy Cloud Services role instances within VNets. To 
 Yes. You must connect a VMSS to a VNet.
 
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
-
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
 
 ### Which Azure PaaS resources can I restrict access to from a VNet?
@@ -234,30 +232,23 @@ Currently it is not possible to establish VNet Peering (whether local or global)
 If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
 
 ### Can I peer my VNet with a VNet in a different subscription?
-
 Yes. You can peer VNets across subscriptions and across regions.
 
 ### Can I peer two VNets with matching or overlapping address ranges?
-
 No. Address spaces must not overalap to enable VNet Peering.
 
 ### How much do VNet peering links cost?
-
-There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. See here.
+There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See] here(https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Is VNet peering traffic encrypted?
-
 No. Traffic between resources in peered VNets is private and isolated. It remains on the Microsoft Backbone.
 
 ### Why is my peering connection in a disconnected state?
-
 VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
 
 ### If I peer VNet A to VNet B and I peer VNet B to VNet C, does that mean VNet A and C are peered?
-
 No. Transitive peering is not supported. You must peer VNet A and VNet C for this to take place.
 
 ### Are there any bandwidth limitations for peering connections?
-
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limites by the VM or compute resource.
 
