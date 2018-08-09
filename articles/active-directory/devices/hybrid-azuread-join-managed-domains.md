@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -45,6 +45,9 @@ This tutorial assumes that you are familiar with:
 -  [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
     
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
+
+-  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+  
 
 To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
  
@@ -152,8 +155,6 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
@@ -187,14 +188,13 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 If you are experiencing issues with completing hybrid Azure AD join for domain joined Windows devices, see:
 
-- [Troubleshooting Hybrid Azure AD join for Windows current devices](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
 

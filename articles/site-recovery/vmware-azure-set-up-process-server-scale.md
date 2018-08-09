@@ -30,6 +30,8 @@ Verify the sizing requirements summarized in the table. In general, if you have 
 |8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
 |12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
 
+Where each protected source machine is configured with 3 disks of 100 GB each.
+
 ### Prerequisites
 
 The prerequisites for the additional process server are summarized in the following table.

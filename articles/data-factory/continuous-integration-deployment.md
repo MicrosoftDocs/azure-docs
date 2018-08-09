@@ -1,4 +1,4 @@
----
+﻿---
 title: Continuous integration and deployment in Azure Data Factory | Microsoft Docs
 description: Learn how to use continuous integration and deployment to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -49,15 +49,15 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 
 1.  Set up a development data factory with VSTS in which all developers can author Data Factory resources like pipelines, datasets, and so forth.
 
-2.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
+1.  Then developers can modify resources such as pipelines. As they make their modifications, they can select **Debug** to see how the pipeline runs with the most recent changes.
 
-3.  After developers are satisfied with their changes, they can create a pull request from their branch to the master branch (or the collaboration branch) to get their changes reviewed by peers.
+1.  After developers are satisfied with their changes, they can create a pull request from their branch to the master branch (or the collaboration branch) to get their changes reviewed by peers.
 
-4.  After changes are in the master branch, they can publish to the development factory by selecting **Publish**.
+1.  After changes are in the master branch, they can publish to the development factory by selecting **Publish**.
 
-5.  When the team is ready to promote changes to the test factory and the production factory, they can export the Resource Manager template from the master branch, or from any other branch in case their master branch backs the live development Data Factory.
+1.  When the team is ready to promote changes to the test factory and the production factory, they can export the Resource Manager template from the master branch, or from any other branch in case their master branch backs the live development Data Factory.
 
-6.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
+1.  The exported Resource Manager template can be deployed with different parameter files to the test factory and the production factory.
 
 ## Automate continuous integration with VSTS Releases
 
@@ -77,19 +77,19 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 1.  Go to your VSTS page in the same project as the one configured with the Data Factory.
 
-2.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
+1.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Select the **Empty process** template.
+1.  Select the **Empty process** template.
 
-4.  Enter the name of your environment.
+1.  Enter the name of your environment.
 
-5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
+1.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Add an Azure Resource Manager Deployment task:
+1.  Add an Azure Resource Manager Deployment task:
 
     a.  Create new task, search for **Azure Resource Group Deployment**, and add it.
 
@@ -105,9 +105,9 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Save the release definition.
+1.  Save the release definition.
 
-9.  Create a new release from this release definition.
+1.  Create a new release from this release definition.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -140,7 +140,7 @@ There are two ways to handle the secrets:
 
     -   The parameters file needs to be in the publish branch as well.
 
-2.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+1.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
 
     -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
@@ -156,9 +156,9 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 1.  In the Tasks tab of the VSTS Release, search for **Azure Powershell** and add it.
 
-2.  Choose **Azure Resource Manager** as the connection type and select your subscription.
+1.  Choose **Azure Resource Manager** as the connection type and select your subscription.
 
-3.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
+1.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

@@ -16,7 +16,6 @@
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Create encrypted storage account
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -33,6 +32,8 @@
     maintainContext: true
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
+  - name: Deployment modes
+    href: deployment-modes.md
 - name: How to
   items:
   - name: Create templates
@@ -52,10 +53,12 @@
         href: resource-manager-templates-outputs.md
     - name: Linked and nested templates
       href: resource-group-linked-templates.md
-    - name: Define dependency between resources
+    - name: Resource dependencies
       href: resource-group-define-dependencies.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
+    - name: Create resource group in template
+      href: create-resource-group-in-template.md
     - name: Update resource
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy

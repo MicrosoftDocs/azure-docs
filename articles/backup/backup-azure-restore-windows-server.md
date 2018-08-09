@@ -6,7 +6,7 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
@@ -46,6 +46,8 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 **Individual files and folders** and then click **Next**.
 
     ![Browse files](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> The option to restore *Individual Files and Folders* requires .NET Framework 4.5.2 or higher. If you do not see the *Individual Files and Folders* option, you must upgrade .NET Framework to version 4.5.2 or higher and try again.
 
 5. On the **Select Volume and Date** pane, select the volume that contains the files and/or folders you want to restore.
 
@@ -62,7 +64,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
     ![Recovery options](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify the correct versions are recovered.
+8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify that you are recovering the correct versions.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

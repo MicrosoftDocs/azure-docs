@@ -6,15 +6,15 @@
     href: key-vault-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Key Vault - CLI
+  - name: Set and retrieve a secret - CLI
     href: quick-create-cli.md
-  - name: Create a Key Vault - PowerShell
+  - name: Set and retrieve a secret - PowerShell
     href: quick-create-powershell.md
-  - name: Create a Key Vault - Portal
+  - name: Set and retrieve a secret - Portal
     href: quick-create-portal.md
-  - name: Read from a Key Vault - .NET
+  - name: Set and retrieve a secret - .NET
     href: quick-create-net.md
-  - name: Read from a Key Vault - Node.js
+  - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
 - name: Tutorials
   items:
@@ -44,30 +44,24 @@
     href: key-vault-ovw-throttling.md
 - name: How-to guides
   items:
-  - name: Manage
-    items:
-    - name: Azure Key Vault logging
-      href: key-vault-logging.md
-    - name: Access behind firewalls
-      href: key-vault-access-behind-firewall.md
-    - name: Availability and redundancy
-      href: key-vault-disaster-recovery-guidance.md
-    - name: Change tenant ID
-      href: key-vault-subscription-move-fix.md
-    - name: Create and manage using Azure CLI
-      href: key-vault-manage-with-cli2.md
-    - name: Use Key Vault soft-delete with CLI
-      href: key-vault-soft-delete-cli.md
-    - name: Use Key Vault soft-delete with Azure PowerShell
-      href: key-vault-soft-delete-powershell.md
-    - name: Use groups to grant access
-      href: key-vault-group-permissions-for-apps.md
-    - name: Secure your key vault
-      href: key-vault-secure-your-key-vault.md
-  - name: Automate
-    items:
-    - name: Azure automation
-      href: automation-manage-key-vault.md
+  - name: Azure Key Vault logging
+    href: key-vault-logging.md
+  - name: Access behind firewalls
+    href: key-vault-access-behind-firewall.md
+  - name: Availability and redundancy
+    href: key-vault-disaster-recovery-guidance.md
+  - name: Change tenant ID
+    href: key-vault-subscription-move-fix.md
+  - name: Create and manage using Azure CLI
+    href: key-vault-manage-with-cli2.md
+  - name: Use Key Vault soft-delete with CLI
+    href: key-vault-soft-delete-cli.md
+  - name: Use Key Vault soft-delete with Azure PowerShell
+    href: key-vault-soft-delete-powershell.md
+  - name: Use groups to grant access
+    href: key-vault-group-permissions-for-apps.md
+  - name: Secure your key vault
+    href: key-vault-secure-your-key-vault.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -75,13 +69,15 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/keyvault/client?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
   - name: Python
     href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
   - name: Develop
     items:
     - name: Developer quick start video
@@ -143,3 +139,5 @@
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Product feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
