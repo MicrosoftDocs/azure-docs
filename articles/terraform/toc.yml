@@ -43,6 +43,8 @@
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform reference
       href: http://aka.ms/terraform
+    - name: Azure Terraform VS Code extension
+      href: terraform-vscode-extension.md
 - name: Resources
   items:
     - name: Azure & Terraform
