@@ -14,9 +14,9 @@ ms.date: 08/03/2018
 
 Query composition in Azure Search is a full specification of a request: match criteria, plus parameters for directing query execution and shaping the response. A request specifies which fields to include, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
-## Introduction by example
+## A first look at query requests
 
-Examples are useful for illustrating key concepts. The following example, formulated using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), informs both the request and response. In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. 
+Examples are useful for illustrating key concepts. As a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), this example targets the [real estate demo index](search-get-started-portal.md) and demonstrates key elements: parser type, match criteria, and which fields to search and bring back.
 
 ```
 {  
@@ -26,40 +26,36 @@ Examples are useful for illustrating key concepts. The following example, formul
     "count": "true", 
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
-    "orderby": "listingId"
+    "orderby": "daysOnMarket"
  } 
 ```
-As a representative query, this example demonstrates several important aspects of query definition, from parser inputs, to shaping the result set. Query execution is always against one index, authenticated using an api-key provided in the request. 
 
-To run this query, use [Search explorer and the real estate demo index](search-get-started-portal.md). You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
+`queryType` sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
-**Searching the index**
+`search` is the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase queries. Search could be undefined, as in `search=*`, but more likely consists of terms, phrases, and operators similar what appears in the example.
 
-+ Query parser is a choice, set through `queryType`. Most developers use the default [simple parser](search-query-simple-examples.md) for full text search, but [full Lucene](search-query-lucene-examples.md) parsing is required for specialized query forms such as fuzzy search or regular expressions.
-+ Match criteria on documents in the index is set through the `search` parameter. Search could be undefined, as in `search=*`, but more likely consists of terms, phrases, and operators similar what appears in the example.
-+ Scope can be the entire index, or specific fields as shown in `searchFields`.
+`searchFields` is optional, used to limit query execution to specific fields.
 
-**Structuring the response**
+Responses are subject to parameters you include in the query. In this case, the result set consists of fields listed in the `select` statement. Only the top 10 are returned in this query, but `count` tells you how many documents match overall. In this example, rows are sorted by the listing 
 
-Other parameters in the example pertain to the results of query:
+In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. In REST, both are provided in request headers.
 
-+ `count` is the number of documents matching the query.
-+ `select` limits the fields returned in the response.
-+ `top` limits the rows or documents returned in the response. The default is 50; the example reduces that to 10.
-+ `orderby` sorts the results by a field.
+### How to run this query
 
-**Enabling operations through index attributes**
+To run this query, use [Search explorer and the real estate demo index](search-get-started-portal.md). 
 
-Index design and query design are tightly coupled in Azure Search. While not shown here, a critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field determine allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"orderby": "listingId"` only works if the listingId field is marked as *sortable* in the index schema. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&orderby=listingId`
 
-Allowed operations on a per-field basis are just one way that index definition informs query execution. Other capabilities enabled in the index include the following:
+### Enable operations through index attributes
 
-+ [Synonyms](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations)
-+ [Text (linguistic) analysis](https://docs.microsoft.com//rest/api/searchservice/language-support) and [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
-+ [Suggester constructs](https://docs.microsoft.com/rest/api/searchservice/suggesters) that enable autocomplete and auto-suggestion
-+ [Scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) that add logic to ranking search results
+Index design and query design are tightly coupled in Azure Search. One critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"orderby": "daysOnMarket"` only works because the daysOnMarket field is marked as *sortable* in the index schema. 
 
-The above capabilities are exercised during query execution, but are generally implemented in your code as attributes on the field rather than as parameters on the query.
+![Index definition for the real estate sample](./media/search-query-overview/realestate-sample-index-definition.png "Index definition for the real estate sample")
+
+The above screenshot is a partial list of index attributes for the real estate sample. You can view the entire index schema in the portal. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+> [!Note]
+> Allowed operations on a per-field basis are just one way that index definition informs query execution. Other capabilities enabled in the index include the following: [synonyms](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [linguistic analysis](https://docs.microsoft.com//rest/api/searchservice/language-support), [custom analysis](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [suggester constructs (for autocomplete)](https://docs.microsoft.com/rest/api/searchservice/suggesters), [scoring logic for ranking results](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
 
 <a name="types-of-queries"></a>
 
