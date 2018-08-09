@@ -19,7 +19,7 @@ ms.author: shvija
 ---
 
 # Event Hubs samples 
-You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). These samples demonstrates key features in [Azure Event Hubs](/azure/event-hubs/). This article categorizes and describes the samples available, with links to each.
+You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). These samples demonstrate key features in [Azure Event Hubs](/azure/event-hubs/). This article categorizes and describes the samples available, with links to each.
 
 ## .NET samples
 
