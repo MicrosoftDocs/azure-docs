@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Sending queries to the Bing Image Search API
 
-TBD
+The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
 
 ## Using and suggesting search terms
 
