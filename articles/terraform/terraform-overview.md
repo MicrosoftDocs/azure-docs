@@ -35,12 +35,12 @@ Terraform provides a command-line interface (CLI) that allows users to validate 
 
 ## Deploy infrastructure to multiple clouds
 
-Terraform is a popular tool choice for multi-cloud scenarios, where similar infrastructure is deployed to Azure and additional cloud providers or on-premise datacenters. It enables developers to use the same tools and configuration files to manage infrastructure on multiple cloud providers.
+Terraform is a popular tool choice for multi-cloud scenarios, where similar infrastructure is deployed to Azure and additional cloud providers or on-premises datacenters. It enables developers to use the same tools and configuration files to manage infrastructure on multiple cloud providers.
 
 ## Next steps
 
 Now that you have an overview of Terraform and its benefits, here are suggested next steps:
 
-- Get started by [installing Terraform and configuring it to use Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure).
-- [Create an Azure virtual machine using Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Get started by [installing Terraform and configuring it to use Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
+- [Create an Azure virtual machine using Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - Explore the [Azure Resource Manager module for Terraform](https://www.terraform.io/docs/providers/azurerm/) 

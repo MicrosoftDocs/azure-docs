@@ -3,8 +3,8 @@ title: Get started with PowerShell for Azure Batch | Microsoft Docs
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 services: batch
 documentationcenter: ''
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -30,9 +30,9 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
 * [Install and configure Azure PowerShell](/powershell/azure/overview)
-* Run the **Login-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
+* Run the **Connect-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Register with the Batch provider namespace**. This operation only needs to be performed **once per subscription**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

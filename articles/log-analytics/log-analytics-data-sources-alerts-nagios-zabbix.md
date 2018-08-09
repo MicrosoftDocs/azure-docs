@@ -10,26 +10,30 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Collect alerts from Nagios and Zabbix in Log Analytics from OMS Agent for Linux 
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools.  You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
+[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
  
+## Prerequisites
+The OMS Agent for Linux supports collecting alerts from Nagios up to version 4.2.x, and Zabbix up to version 2.x.
+
 ## Configure alert collection
 
 ### Configuring Nagios alert collection
-Perform the following steps on the Nagios server to collect alerts.
+To collect alerts, perform the following steps on the Nagios server.
 
-1. Grant the user **omsagent** read access to the Nagios log file (i.e. `/var/log/nagios/nagios.log`). Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
+1. Grant the user **omsagent** read access to the Nagios log file `/var/log/nagios/nagios.log`. Assuming the nagios.log file is owned by the group `nagios`, you can add the user **omsagent** to the **nagios** group. 
 
 	sudo usermod -a -G nagios omsagent
 
-2.	Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out:  
+2.	Modify the configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Ensure the following entries are present and not commented out:  
 
         <source>  
           type tail  
@@ -50,11 +54,11 @@ Perform the following steps on the Nagios server to collect alerts.
     ```
 
 ### Configuring Zabbix alert collection
-To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*. This is not ideal, but we recommend that you create the user and grant permissions to monitor onlu.
+To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create a Zabbix user with read-only permissions to catch relevant alarms.
 
-Perform the following steps on the Nagios server to collect alerts.
+To collect alerts on the Nagios server, perform the following steps.
 
-1. Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
+1. Modify the configuration file at `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
 
         <source>
 	     type zabbix_alerts
@@ -67,7 +71,7 @@ Perform the following steps on the Nagios server to collect alerts.
 
 2. Restart the omsagent daemon
 
-	sudo sh /opt/microsoft/omsagent/bin/service_control restart
+	`sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## Alert records
@@ -99,8 +103,8 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 | SourceSystem |*Zabbix* |
 | AlertName | Name of the alert. |
 | AlertPriority | Severity of the alert.<br><br>not classified<br>information<br>warning<br>average<br>high<br>disaster  |
-| AlertState | State of the alert.<br><br>0 - State is up to date.<br>1 - State is unknown.  |
-| AlertTypeNumber | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up to date.<br>1 - State is unknown.    |
+| AlertState | State of the alert.<br><br>0 - State is up-to-date.<br>1 - State is unknown.  |
+| AlertTypeNumber | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up-to-date.<br>1 - State is unknown.    |
 | Comments | Additional comments for alert. |
 | HostName | Name of the host that created the alert. |
 | PriorityNumber | Value indicating severity of the alert.<br><br>0 - not classified<br>1 - information<br>2 - warning<br>3 - average<br>4 - high<br>5 - disaster |

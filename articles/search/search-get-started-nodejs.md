@@ -1,20 +1,13 @@
 ---
 title: Get started with Azure Search in Node.js | Microsoft Docs
 description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
+author: jj09
+manager: jlembicz
 services: search
-documentationcenter: ''
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
+ms.author: jjed
 
 ---
 # Get started with Azure Search in Node.js
@@ -54,7 +47,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Go to [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements are made against files in this folder.
@@ -101,9 +94,9 @@ You could also try any of these terms:
 ## Next steps
 This is the first Azure Search tutorial based on Node.js and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or auto-complete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

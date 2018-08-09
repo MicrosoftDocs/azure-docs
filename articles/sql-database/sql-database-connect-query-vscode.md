@@ -1,22 +1,14 @@
 ---
 title: 'VS Code: Connect and query data in Azure SQL Database | Microsoft Docs'
 description: Learn how to connect to SQL Database on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
 keywords: connect to sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
@@ -36,7 +28,7 @@ Before you start, make sure you have installed the newest version of [Visual Stu
 ## Configure VS Code 
 
 ### **Mac OS**
-For macOS, you need to install OpenSSL which is a prerequiste for DotNet Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+For macOS, you need to install OpenSSL which is a prerequiste for .Net Core that mssql extention uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -179,5 +171,5 @@ Use the following code to delete the new product that you previously added using
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
-- To connect and query using the Azure portal, see [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL query editor](sql-database-connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

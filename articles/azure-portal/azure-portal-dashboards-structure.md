@@ -3,13 +3,13 @@ title: The structure of Azure Dashboards | Microsoft Docs
 description: This article explains the JSON structure of an Azure Dashboard
 services: azure-portal
 documentationcenter: ''
-author: adamab
-manager: timlt
+author: adamabmsft
+manager: dougeby
 editor: tysonn
 
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
@@ -21,7 +21,7 @@ This document walks through the structure of an Azure dashboard, using the follo
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Since shared [Azure dashboards are resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
+Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
 ```json
 
@@ -291,7 +291,7 @@ Let’s break down the relevant sections of the JSON.  The top-level properties,
 
 ### The id property
 
-The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
+The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
 
 ### The name property
 The name is the segment of the resource Id that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource id.
@@ -300,7 +300,7 @@ The name is the segment of the resource Id that does not include the subscriptio
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
 ### The location property
-Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### The tags property
 Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.

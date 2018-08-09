@@ -19,7 +19,7 @@ ms.author: ralfwi
 
 # Azure Germany networking services
 ## ExpressRoute (private connectivity)
-Azure ExpressRoute is generally available in Azure Germany. For more information (including partners and peering locations), see the [ExpressRoute global documentation](../expressroute/index.md).
+Azure ExpressRoute is generally available in Azure Germany. For more information (including partners and peering locations), see the [ExpressRoute global documentation](../expressroute/index.yml).
 
 ### Variations
 
@@ -48,9 +48,9 @@ If you use a private connectivity architecture, validate that an appropriate imp
 
 If you are connecting to Microsoft through ExpressRoute at any one peering location in the Azure Germany region, you will have access to all Microsoft Azure cloud services across all regions within the German boundary. For example, if you connect to Microsoft in Berlin through ExpressRoute, you will have access to all Microsoft cloud services hosted in Azure Germany.
 
-For details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations, see the **Overview** tab in the [ExpressRoute global documentation](../expressroute/index.md).
+For details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations, see the **Overview** tab in the [ExpressRoute global documentation](../expressroute/index.yml).
 
-You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network to Microsoft. This situation can potentially cause suboptimal routing decisions to be made in your network. As a result, you might experience suboptimal connectivity experiences to different services. For more information, see the **Get started** tab in the [ExpressRoute global documentation](../expressroute/index.md) and select **Optimize routing**.
+You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network to Microsoft. This situation can potentially cause suboptimal routing decisions to be made in your network. As a result, you might experience suboptimal connectivity experiences to different services. For more information, see the **How-to guides > Best practices** tab in the [ExpressRoute global documentation](../expressroute/index.yml) and select **Optimize routing**.
 
 ## Support for Load Balancer
 Azure Load Balancer is generally available in Azure Germany. For more information, see the [Load Balancer global documentation](../load-balancer/load-balancer-overview.md). 

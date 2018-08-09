@@ -8,18 +8,14 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: juliako;
+ms.date: 07/31/2018
+ms.author: juliako
 
 ---
 # Video Indexer concepts
  
 This topic describes some concepts of the Video Indexer service.
  	
-## Breakdowns
-
-The **breakdowns** element has the full list and details of everything. For example, it has a list of blocks where each block has its transcript lines, OCR lines, faces. In addition, transcript lines, OCR lines, faces have their timestamps and other details. This is where the full transcript comes from. However, the breadown can be too detailed and too long for most users, in which case you would look at **Summarized insights**.
-
 ## Summarized insights
 
 Summarized insights contain an aggregated view of the data: faces, keywords, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
@@ -46,5 +42,4 @@ For information about how to get started, see [How to sign up and upload your fi
 
 ## See also
 
-[Vider Indexer overview](video-indexer-overview.md)
-
+[Video Indexer overview](video-indexer-overview.md)

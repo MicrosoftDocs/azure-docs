@@ -1,23 +1,21 @@
 ---
-title: Add the Box connector to your Logic Apps | Microsoft Docs
-description: Overview of the Box connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 949579cf-a81c-4790-9ef5-fe39b4fbd0c5
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Box - Azure Logic Apps | Microsoft Docs
+description: Create and manage files with Box REST APIs and Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Box connector
 Connect to Box and create files, delete files, and more. With Box, you can:
 
@@ -25,7 +23,7 @@ Connect to Box and create files, delete files, and more. With Box, you can:
 * Use triggers when a file is created or updated.
 * Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Connector-specific details
 

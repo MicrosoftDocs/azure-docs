@@ -3,23 +3,25 @@ title: How to open the firewall ports required for an Application Proxy applicat
 description: Find out what ports to open for the Azure AD Application Proxy to work correctly
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.topic: conceptual
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
 
 ---
 
 # How to open the firewall ports required for an Application Proxy application
 
-To see a full list of the required ports and the function of each port, see the prerequisites section of the [Application Proxy documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). note that Application Proxy only uses outbound ports.
+To see a full list of the required ports and the function of each port, see the prerequisites section of the [Application Proxy documentation](manage-apps/application-proxy-enable.md). note that Application Proxy only uses outbound ports.
 
 You can also check whether you have all the required ports open by opening the [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) from your on-prem network. More green checkmarks means greater resiliency. 
 
@@ -34,4 +36,4 @@ To make sure the tool gives you the right results, be sure to:
 -   Ensure that any proxies or firewalls applicable to your Connector are also applied to this page. This can be done in Internet Explorer by going to **Settings** -&gt; **Internet Options** -&gt; **Connections** -&gt; **Lan Settings**. On this page, you see the field “Use a Proxy Server for your LAN”. Select this box, and put the proxy address into the “Address” field.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)

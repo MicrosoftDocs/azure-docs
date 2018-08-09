@@ -3,8 +3,8 @@ title: Azure Security Center threat intelligence report | Microsoft Docs
 description: This document helps you to use Azure Security Center Threat Intelligent Reports during an investigation to find more information regarding a security alert.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: terrylan
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484

@@ -13,8 +13,8 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/30/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -74,7 +74,7 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is completely deleted.
 
-If you need to remove your credit or debit card before the 90-day retention period ends, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you need to remove your credit or debit card before the 90-day retention period ends, [reactivate your subscription](billing-subscription-become-disable.md). If you can't reactivate, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Why do I keep getting "Your login session has expired. Please click here to log back in"?
 
@@ -93,6 +93,10 @@ If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payme
 ### How do I make a one-time payment?
 
 Unfortunately, Azure currently doesn't support one-time payments for credit or debit cards. 
+
+### How do I change the tax ID?
+
+To add or update tax ID, visit [**Profile** in Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Need help? Contact support
 

@@ -1,23 +1,22 @@
-﻿---
-title: 'Azure Active Directory B2C: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input'
+---
+title: Integrate REST API claim exchanges in your Azure Active Directory B2C user journey | Microsoft Docs
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
-manager: joroja
-editor: 
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 With the Identity Experience Framework, which underlies Azure Active Directory B2C (Azure AD B2C), you can integrate with a RESTful API in a user journey. In this walkthrough, you'll learn how Azure AD B2C interacts with .NET Framework RESTful services (web API).
 
 ## Introduction
@@ -85,7 +84,7 @@ Create a model that represents input claims by doing the following:
 
 3. Name the class `InputClaimsModel`, and then add the following properties to the `InputClaimsModel` class:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -99,7 +98,7 @@ Create a model that represents input claims by doing the following:
 
 4. Create a new model, `OutputClaimsModel`, and then add the following properties to the `OutputClaimsModel` class:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -111,7 +110,7 @@ Create a model that represents input claims by doing the following:
 
 5. Create one more model, `B2CResponseContent`, which you use to throw input-validation error messages. Add the following properties to the `B2CResponseContent` class, provide the missing references, and then save the file:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -149,7 +148,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 4. If the *IdentityController.cs* file is not open already, double-click it, and then replace the code in the file with the following code:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -212,7 +211,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 

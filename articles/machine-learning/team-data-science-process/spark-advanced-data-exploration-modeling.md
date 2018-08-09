@@ -3,18 +3,19 @@ title: Advanced data exploration and modeling with Spark | Microsoft Docs
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: deguhath;bradsev;gokuma
+ms.author: deguhath
 
 ---
 # Advanced data exploration and modeling with Spark
@@ -1121,7 +1122,7 @@ Time taken to execute above cell: 25.98 seconds
 ### Gradient boosting trees regression
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Train and evaluate **
+**Train and evaluate**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

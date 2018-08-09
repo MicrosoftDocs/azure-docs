@@ -2,18 +2,15 @@
 title: Import data for use with the Azure Cosmos DB Table API | Microsoft Docs
 description: Learn how import data to use with the Azure Cosmos DB Table API.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/28/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 
@@ -27,6 +24,10 @@ This tutorial covers the following tasks:
 > * Importing data with the Data Migration tool
 > * Importing data with AzCopy
 > * Migrating from Table API (preview) to Table API 
+
+## Prerequisites
+
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual container or a set of containers. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
 
 ## Data Migration tool
 

@@ -1,19 +1,18 @@
----
+﻿---
 title: Azure Stack datacenter integration - Security
 description: Learn how to integrate Azure Stack security with your datacenter security
 services: azure-stack
-author: troettinger
+author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/17/2017
-ms.author: victorh
+ms.date: 02/28/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords:
 ---
 
 # Azure Stack datacenter integration - Security
-
-*Applies to: Azure Stack integrated systems*
-
 Azure Stack was designed and built with security in mind. Azure Stack is a locked-down system, so software security agent installation is not supported.
 
 This article helps you integrate Azure Stack's security features with the security solutions already deployed in your datacenter.
@@ -33,23 +32,23 @@ You can retrieve events collected by Azure Stack using a tool called Azure Stora
 The following procedure is an example you can use to configure Azure Storage Explorer for Azure Stack:
 
 1. Sign in to the Azure Stack administrator portal as an operator.
-2. Browse **Storage accounts** and look for **frphealthaccount**. The **frphealthaccount** account is the general storage account used to store all operating system events.
+1. Browse **Storage accounts** and look for **frphealthaccount**. The **frphealthaccount** account is the general storage account used to store all operating system events.
 
    ![Storage accounts](media/azure-stack-integrate-security/storage-accounts.png)
 
-3. Select **frphealthaccount**, then click **Access Keys**.
+1. Select **frphealthaccount**, then click **Access Keys**.
 
    ![Access keys](media/azure-stack-integrate-security/access-keys.png)
 
-4. Copy the access key to your clipboard.
-5. Open Azure Storage Explorer.
-6. On the **Edit** menu, select **Target Azure Stack**.
-7. Select **Add Account**, and then select **Use a storage account name and key**.
+1. Copy the access key to your clipboard.
+1. Open Azure Storage Explorer.
+1. On the **Edit** menu, select **Target Azure Stack**.
+1. Select **Add Account**, and then select **Use a storage account name and key**.
 
    ![Connect storage](media/azure-stack-integrate-security/connect-storage.png)
 
-8. Click **Next**.
-9. On the **Attach External Storage** page:
+1. Click **Next**.
+1. On the **Attach External Storage** page:
 
    a. Type the account name **frphealthaccount**.
 
@@ -61,8 +60,8 @@ The following procedure is an example you can use to configure Azure Storage Exp
 
    ![Attach external storage](media/azure-stack-integrate-security/attach-storage.png)
 
-10. Click **Next**, review the summary, and **Finish** the Wizard.
-11. You can now browse the individual blob containers and download the events.
+1. Click **Next**, review the summary, and **Finish** the Wizard.
+1. You can now browse the individual blob containers and download the events.
 
    ![Browse blobs](media/azure-stack-integrate-security/browse-blob.png)
 
@@ -89,4 +88,4 @@ The Syslog destination address is an optional parameter collected for deployment
 
 ## Next steps
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
+[Servicing policy](azure-stack-servicing-policy.md)

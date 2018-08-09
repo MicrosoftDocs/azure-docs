@@ -4,7 +4,7 @@ description: How to use the AS2 encoder in the Enterprise Integration Pack for A
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
@@ -38,7 +38,7 @@ that's already defined in your integration account
 
 ## Encode AS2 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode AS2 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

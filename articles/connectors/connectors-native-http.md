@@ -1,9 +1,9 @@
----
+﻿---
 title: Communicate with any endpoint over HTTP - Azure Logic Apps | Microsoft Docs
 description: Create logic apps that can communicate with any endpoint over HTTP
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -27,7 +27,7 @@ You can:
 * Create logic app workflows that activate (trigger) when a website that you manage goes down.
 * Communicate to any endpoint over HTTP to extend your workflows into other services.
 
-To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+To get started using the HTTP action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the HTTP trigger
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
@@ -153,7 +153,7 @@ A * means that it is a required field.
 > [!TIP]
 > If you want to use a password that cannot be retrieved from the definition, 
 > use a `securestring` parameter and the `@parameters()` 
-> [workflow definition function](http://aka.ms/logicappdocs).
+> [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 For example:
 
@@ -179,7 +179,7 @@ A * means that it is a required field.
 > [!TIP]
 > To use a parameter that won't be readable in the definition after saving the logic app, 
 > you can use a `securestring` parameter and the `@parameters()` 
-> [workflow definition function](http://aka.ms/logicappdocs).
+> [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 For example:
 
@@ -203,7 +203,7 @@ The following authentication object is needed for Azure AD OAuth authentication.
 | Secret* |secret |The secret of the client that is requesting the token |
 
 > [!TIP]
-> You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
+> You can use a `securestring` parameter and the `@parameters()` [workflow definition function](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) to use a parameter that won't be readable in the definition after saving.
 > 
 > 
 
@@ -220,5 +220,5 @@ For example:
 ```
 
 ## Next steps
-Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
 

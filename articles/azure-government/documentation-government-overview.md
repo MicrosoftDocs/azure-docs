@@ -65,7 +65,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 * IaaS VMs: Use Azure Disk Encryption. Turn on Storage Service Encryption to encrypt the VHD files that are used to back up those disks in Azure Storage, but this only encrypts newly written data. This means that, if you create a VM and then enable Storage Service Encryption on the storage account that holds the VHD file, only the changes will be encrypted, not the original VHD file.
 * Client-Side Encryption: This is the most secure method for encrypting your data, because it encrypts it before transit, and encrypts the data at rest. However, it does require that you add code to your applications using storage, which you might not want to do. In those cases, you can use HTTPs for your data in transit, and Storage Service Encryption to encrypt the data at rest. Client-Side Encryption also involves more load on the client—you have to account for this in your scalability plans, especially if you are encrypting and transferring a lot of data.
 
-For more information on the encryption options in Azure see the [Storage Security Guide](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
+For more information on the encryption options in Azure see the [Storage Security Guide](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
 ## Protecting Customer Data by Managing Secrets
 Secure key management is essential for protecting data in the cloud. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data.

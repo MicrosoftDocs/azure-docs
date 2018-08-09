@@ -22,8 +22,7 @@ ms.author: jdial
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
@@ -58,7 +57,10 @@ Navigate to the [Azure portal](https://portal.azure.com) and click **Networking*
 The overview page shows a list of all packet captures that exist no matter the state.
 
 > [!NOTE]
-> Packet capture requires connectivity to the storage account over port 443.
+> Packet capture requires following conectivity.
+> * Outbound connectivity to the storage account over port 443.
+> * Inbound and Outbound connectivity to 169.254.169.254
+> * Inbound and Outbound connectivity to 168.63.129.16
 
 ![packet capture overview screen][1]
 
@@ -77,10 +79,11 @@ The properties that can be defined on a packet capture are:
 
 **Capture configuration**
 
+- **Local file path** - Local path on the virtual machine where packet capture is saved (valid only when **[file]** is selected). You must specify a valid path. If you are using a Linux virtual machine, the path must start with / var / captures.
 - **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
-- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
+- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied. For a Linux virtual machine, the path must start with */var/captures*.
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
 - **Maximum bytes per session** - Total number of bytes that are captured, once the value is reached the packet capture stops.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 18000 seconds.
@@ -136,7 +139,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

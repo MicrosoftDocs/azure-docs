@@ -3,7 +3,7 @@ title: Manage DNS zones in Azure DNS - Azure portal | Microsoft Docs
 description: You can manage DNS zones using the Azure portal. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: vhorne
 manager: timlt
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: gwallace
+ms.author: victorh
 ---
 # How to manage DNS Zones in the Azure portal
 
@@ -27,7 +27,7 @@ This article shows you how to manage your DNS zones by using the Azure portal. Y
 ## Create a DNS zone
 
 1. Sign in to the Azure portal
-2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
+2. On the Hub menu, click and click **Create a resource > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
 
     ![DNS zone](./media/dns-operations-dnszones-portal/openzone650.png)
 

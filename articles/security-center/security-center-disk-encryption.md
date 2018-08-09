@@ -1,10 +1,10 @@
-﻿---
+---
 title: Encrypt an Azure Virtual Machine | Microsoft Docs
 description: This document helps you to encrypt an Azure Virtual Machine after receiving an alert from Azure Security Center.
 services: security, security-center
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
@@ -23,7 +23,7 @@ Azure Security Center will alert you if you have virtual machines that are not e
 ![Disk encryption recommendation](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> The information in this document applies to encrypting virtual machines without using a Key Encryption Key (which is required for backing up virtual machines using Azure Backup). Please see the article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for information on how to use a Key Encryption Key to support Azure Backup for encrypted Azure Virtual Machines.
+> The information in this document applies to encrypting virtual machines without using a Key Encryption Key (which is required for backing up virtual machines using Azure Backup). Please see the article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) for information on how to use a Key Encryption Key to support Azure Backup for encrypted Azure Virtual Machines.
 >
 >
 
@@ -58,7 +58,7 @@ The Azure Disk Encryption Prerequisites Configuration Script will set up all the
 
 Now that the script content is saved, open the script in the PowerShell ISE:
 
-1. In the Start Menu, click **Cortana**. Ask **Cortana** “PowerShell” by typing **PowerShell** in the Cortana search text box.
+1. Start - Windows PowerShell ISE
 2. Right click **Windows PowerShell ISE** and click **Run as administrator**.
 3. In the **Administrator: Windows PowerShell ISE** window, click **View** and then click **Show Script Pane**.
 4. If you see the **Commands** pane on the right side of the window, click the **“x”** in the top right corner of the pane to close it. If the text is too small for you to see, use **CTRL+Add** (“Add” is the “+” sign). If the text is too large, use **CTRL+Subtract** (Subtract is the “-“ sign).
@@ -71,8 +71,8 @@ You should now see something like the figure below.
 
 The top pane is referred to as the “script pane” and the bottom pane is referred to as the “console”. We will use these terms later in this article.
 
-## Run the Azure disk encryption prerequisites PowerShell command
-The Azure Disk Encryption Prerequisites script will ask you for the following information after you start the script:
+## Run the Azure disk encryption prerequisites PowerShell script
+The Azure Disk Encryption Prerequisites script will accept the following parameters: 
 
 * **Resource Group Name** - Name of the Resource Group that you want to put the Key Vault into.  A new Resource Group with the name you enter will be created if there isn’t already one with that name created. If you already have a Resource Group that you want to use in this subscription, then enter the name of that Resource Group.
 * **Key Vault Name** - Name of the Key Vault in which encryption keys are to be placed. A new Key Vault with this name will be created if you don’t already have a Key Vault with this name. If you already have a Key Vault that you want to use, enter the name of the existing Key Vault.
@@ -94,13 +94,13 @@ Perform the following steps to encrypt an Azure Virtual Machine:
 
    ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Return to the PowerShell ISE. Set the subscription context in which the script will be run. In the console, type **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** (replace **< your_subscription_Id >** with your actual Subscription ID) and press **ENTER**. You will see information about the Environment, **Account**, **TenantId**, **SubscriptionId** and **CurrentStorageAccount**.
-7. You are now ready to run the script. Click the **Run Script** button or press **F5** on the keyboard.
+7. From within the command window, execute the script command passing the following as parameters: 
 
    ![Executing PowerShell Script](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. The script asks for **resourceGroupName:** - enter the name of *Resource Group* you want to use, then press **ENTER**. If you don’t have one, enter a name you want to use for a new one. If you already have a *Resource Group* that you want to use (such as the one that your virtual machine is in), enter the name of the existing Resource Group.
-9. The script asks for **keyVaultName:** - enter the name of the *Key Vault* you want to use, then press ENTER. If you don’t have one, enter a name you want to use for a new one. If you already have a Key Vault that you want to use, enter the name of the existing *Key Vault*.
+8. **-resourceGroupName:** - enter the name of *Resource Group* you want to use. If you don’t have one, enter a name you want to use for a new one. If you already have a *Resource Group* that you want to use (such as the one that your virtual machine is in), enter the name of the existing Resource Group.
+9. **-keyVaultName:** - enter the name of the *Key Vault* you want to use. If you don’t have one, enter a name you want to use for a new one. If you already have a Key Vault that you want to use, enter the name of the existing *Key Vault*.
 10. The script asks for **location:** - enter the name of the location in which the VM you want to encrypt is located, then press **ENTER**. If you don’t remember the location, go back to step #5.
-11. The script asks for **aadAppName:** - enter the name of the *Azure Active Directory* application you want to use, then press **ENTER**. If you don’t have one, enter a name you want to use for a new one. If you already have an *Azure Active Directory application* that you want to use, enter the name of the existing *Azure Active Directory application*.
+11. **-aadAppName:** - enter the name of the *Azure Active Directory* application you want to use. If you don’t have one, enter a name you want to use for a new one. If you already have an *Azure Active Directory application* that you want to use, enter the name of the existing *Azure Active Directory application*.
 12. A log in dialog box will appear. Provide your credentials (yes, you have logged in once, but now you need to do it again).
 13. The script runs and when complete it will ask you to copy the values of the **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**, and **keyVaultResourceId**. Copy each of these values to the clipboard and paste them into Notepad.
 14. Return to the PowerShell ISE and place the cursor at the end of the last line, and press **ENTER**.

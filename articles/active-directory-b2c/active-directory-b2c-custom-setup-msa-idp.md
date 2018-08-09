@@ -1,20 +1,16 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using custom Policies'
-description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol
+title: Add Microsoft Account (MSA) as an identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
-manager: joroja
-editor: 
+author: davidmu1
+manager: mtillman
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Add Microsoft Account (MSA) as an identity provider using custom policies
@@ -150,7 +146,7 @@ At this point, the identity provider has been set up, but it’s not available i
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
+4.  Paste the entire content of `<UserJourneys>` node that you copied as a child of the `<UserJourneys>` element.
 
 ### Display the button
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Microsoft account, a new button shows up when a user lands on the page. To add this element:
@@ -160,7 +156,7 @@ The `<ClaimsProviderSelections>` element defines the list of claims provider sel
 3.  Add following XML snippet under `<ClaimsProviderSelections>` node:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### Link the button to an action
@@ -170,7 +166,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 2.  Add following XML snippet under `<ClaimsExchanges>` node:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

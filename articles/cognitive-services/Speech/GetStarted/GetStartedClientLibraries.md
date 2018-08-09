@@ -4,9 +4,8 @@ description: Use the Microsoft Speech Service client libraries in Microsoft Cogn
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang

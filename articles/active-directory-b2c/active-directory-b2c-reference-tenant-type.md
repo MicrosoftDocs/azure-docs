@@ -1,22 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Region availability & data residency | Microsoft Docs'
-description: A topic on the types of Azure Active Directory B2C tenants
+title: Region availability & data residency in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the types of Azure Active Directory B2C tenants.
 services: active-directory-b2c
-documentationcenter: ''
-author: gsacavdm
-manager: krassk
-editor: bryanla
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
-ms.author: gsacavdm
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Region availability & data residency
 Region availability and data residency are two very different concepts that apply differently to Azure AD B2C from the rest of Azure. This article will explain the differences between these two concepts and compare how they apply to Azure versus Azure AD B2C.
 

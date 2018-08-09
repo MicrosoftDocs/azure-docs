@@ -25,11 +25,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure Portal
       href: /azure/postgresql/quickstart-create-server-database-portal
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
       text: Azure CLI
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
 - title: Step-by-Step Tutorials

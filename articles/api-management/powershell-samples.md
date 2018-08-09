@@ -3,7 +3,7 @@ title: Azure PowerShell samples | Microsoft Docs
 description: Learn about the Azure PowerShell scripts available for Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -11,14 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
+ms.custom: mvc
 ---
 
 # Azure PowerShell samples for API Management
 
-The following table includes links to bash scripts built using the Azure PowerShell.
+The following table contains sample scripts for working with the API Management service from PowerShell.
 
 | | |
 |-|-|

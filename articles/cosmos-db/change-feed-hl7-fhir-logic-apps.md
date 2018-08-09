@@ -1,21 +1,16 @@
-﻿---
+---
 title: Change feed for HL7 FHIR resources - Azure Cosmos DB | Microsoft Docs
 description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
 keywords: hl7 fhir
 services: cosmos-db
-author: hedidin
-manager: jhubbard
-editor: mimig
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
-ms.author: b-hoedid
+ms.author: sngun
 
 ---
 
@@ -36,7 +31,7 @@ At a high level, the project required the following workflow steps:
 1. Convert C-CDA documents to FHIR resources.
 2. Perform recurring trigger polling for modified FHIR resources. 
 2. Call a custom app, FhirNotificationApi, to connect to Azure Cosmos DB and query for new or modified documents.
-3. Save the response to to the Service Bus queue.
+3. Save the response to the Service Bus queue.
 4. Poll for new messages in the Service Bus queue.
 5. Send email notifications to patients.
 
@@ -52,7 +47,7 @@ This solution requires three Logic Apps to meet the above requirements and compl
 
 ### Azure services used in the solution
 
-#### Azure Cosmos DB DocumentDB API
+#### Azure Cosmos DB SQL API
 Azure Cosmos DB is the repository for the FHIR resources as shown in the following figure.
 
 ![The Azure Cosmos DB account used in this HL7 FHIR healthcare tutorial](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -87,7 +82,7 @@ An API app connects to Azure Cosmos DB and queries for new or modified FHIR
 documents By resource type. This app has one controller, **FhirNotificationApi** with a one
 operation **GetNewOrModifiedFhirDocuments**, see [source for API app](#api-app-source).
 
-We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB DocumentDB .NET API. For more information, see the [change feed article](change-feed.md). 
+We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB SQL .NET API. For more information, see the [change feed article](change-feed.md). 
 
 ##### GetNewOrModifiedFhirDocuments operation
 
@@ -106,7 +101,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 **Source for the API app**
 
-```C#
+```csharp
 
 	using System.Collections.Generic;
 	using System.Linq;
@@ -211,7 +206,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 ### Testing the FhirNotificationApi 
 
-The following image demonstrates how swagger was used to to test the [FhirNotificationApi](#api-app-source).
+The following image demonstrates how swagger was used to test the [FhirNotificationApi](#api-app-source).
 
 ![The Swagger file used to test the API app](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 

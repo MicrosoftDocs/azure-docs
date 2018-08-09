@@ -1,6 +1,6 @@
 ---
 title: 'Connect a virtual network to multiple sites using VPN Gateway and PowerShell : Classic | Microsoft Docs'
-description: This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model.
+description: Connect multiple local on-premises sites to a classic virtual network using a VPN Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 02/14/2018
 ms.author: yushwang
 
 ---

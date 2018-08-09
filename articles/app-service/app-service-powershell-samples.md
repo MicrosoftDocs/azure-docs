@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Azure PowerShell Samples
 
-The following table includes links to bash scripts built using the Azure PowerShell.
+The following table includes links to PowerShell scripts built using the Azure PowerShell.
 
 | | |
 |-|-|

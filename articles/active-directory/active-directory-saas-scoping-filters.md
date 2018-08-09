@@ -3,17 +3,16 @@ title: Provision apps with scoping filters | Microsoft Docs
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
-
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
+author: barbkess
+manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 
 ms.custom: H1Hack27Feb2017
 
@@ -27,12 +26,12 @@ A scoping filter allows the Azure Active Directory (Azure AD) provisioning servi
 
 Scoping filters can be used differently depending on the type of provisioning connector:
 
-* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](active-directory-coreapps-assign-user-azure-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
+* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
     > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.  
 
-* **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](active-directory-saas-workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
+* **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
 By default, Azure AD provisioning connectors do not have any attribute-based scoping filters configured. 
 
@@ -58,7 +57,7 @@ According to this scoping filter, users must satisfy the following criteria to b
 * Their job title must not be null or empty.
 
 ## Create scoping filters
-Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. The following procedure assumes that you already set up automatic provisioning for [one of the supported applications](active-directory-saas-tutorial-list.md) and are adding a scoping filter to it.
+Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. The following procedure assumes that you already set up automatic provisioning for [one of the supported applications](saas-apps/tutorial-list.md) and are adding a scoping filter to it.
 
 ### Create a scoping filter
 1. In the [Azure portal](https://portal.azure.com), go to the **Azure Active Directory** > **Enterprise Applications** > **All applications** section.
@@ -113,6 +112,6 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Customize attribute mappings for user provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Account provisioning notifications](active-directory-saas-account-provisioning-notifications.md)
-* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-* [List of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md)
+* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
+* [List of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md)
 

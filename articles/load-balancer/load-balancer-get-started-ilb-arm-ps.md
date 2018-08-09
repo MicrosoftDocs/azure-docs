@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Azure internal load balancer by using PowerShell | Microsoft Docs
 description: Learn how to create an internal load balancer by using the Azure PowerShell module with Azure Resource Manager
 services: load-balancer
@@ -25,7 +25,6 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -58,7 +57,7 @@ Make sure you have the latest production version of the Azure PowerShell module.
 Start the PowerShell module for Azure Resource Manager.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Step 2: View your subscriptions

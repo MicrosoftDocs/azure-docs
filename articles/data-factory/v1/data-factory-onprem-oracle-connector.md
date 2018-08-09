@@ -1,30 +1,30 @@
 ---
-title: Copy data to/from Oracle using Data Factory | Microsoft Docs
+title: Copy data to or from Oracle using Data Factory | Microsoft Docs
 description: Learn how to copy data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to/from on-premises Oracle using Azure Data Factory
+# Copy data to or from on-premises Oracle using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-oracle-connector.md)
-> * [Version 2 - Preview](../connector-oracle.md)
+> * [Version 1](data-factory-onprem-oracle-connector.md)
+> * [Version 2 (current version)](../connector-oracle.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Oracle connector in V2](../connector-oracle.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Oracle connector in V2](../connector-oracle.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises Oracle database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -55,6 +55,9 @@ This Oracle connector support two versions of drivers:
     - Oracle 10g R1, R2 (10.1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Oracle proxy server is not supported.
 
 > [!IMPORTANT]
 > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
@@ -94,9 +97,13 @@ The following table provides description for JSON elements specific to Oracle li
 | type |The type property must be set to: **OnPremisesOracle** |Yes |
 | driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
-| gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
+| gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
 **Example: using Microsoft driver:**
+
+>[!TIP]
+>If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

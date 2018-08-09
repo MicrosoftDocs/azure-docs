@@ -1,18 +1,17 @@
 ---
-title: "Security Trimming in Azure Search with Azure Active Directory | Microsoft Docs"
-description: Implement security trimming using Azure Search filter and Azure Active Directory.
-services: search
+title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
+description: Access control on Azure Search content using security filters and Active Directory identities.
 author: "revitalbarletz"
 manager: "jlembicz"
-
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
 ---
-# Security trimming in Azure Search with Azure Active Directory
+# Security filters for trimming Azure Search results using Active Directory identities
 
-This article demonstrates how to use Azure Active Directory (AAD) together with Azure Search to restrict document access based on user group membership.
+This article demonstrates how to use Azure Active Directory (AAD) security identities together with filters in Azure Search to trim search results based on user group membership.
 
 This article covers the following tasks:
 > [!div class="checklist"]
@@ -133,7 +132,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
@@ -183,5 +182,6 @@ In this walkthrough, you learned techniques for using AAD sign-ins to filter doc
 
 ## See also
 
-+ [Security trimming with Azure Search](search-security-trimming-for-azure-search.md)
++ [Identity-based access control using Azure Search filters](search-security-trimming-for-azure-search.md)
 + [Filters in Azure Search](search-filters.md)
++ [Data security and access control in Azure Search operations](search-security-overview.md)

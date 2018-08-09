@@ -3,17 +3,18 @@ title: How to determine what single-sign on method to use | Microsoft Docs
 description: Understand the single sign-on modes supported by Azure AD and how to pick which one to choose for the application you are interested in.
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -23,13 +24,13 @@ This article help you to understand the single sign-on modes supported by Azure 
 
 ## Single sign-on and provisioning modes supported by specific application types
 
-The table below describes the different single sign-on and provisioning modes supported by each of the above application types. You can use this table to help you to understand which application you need to add to support a specific goal.
+The following table describes the different single sign-on and provisioning modes supported by each of the preceding application types. You can use this table to help you to understand which application you need to add to support a specific goal.
 
   ![Ap types table](./media/application-tables/table1.png)
 
 ## How to choose a single sign-on mode
 
-The supported **single sign-on** modes for Azure AD applications are listed below.
+Following are the supported **single sign-on** modes for Azure AD applications.
 
 -   **Azure AD single sign-on disabled** – choose Azure AD single sign-on disabled **single sign-on mode** if you are not yet ready to integrate this application with single sign-on with Azure AD, or are simply testing it out
 
@@ -39,13 +40,13 @@ The supported **single sign-on** modes for Azure AD applications are listed belo
 
 -   **SAML-based Sign-on** – choose the [SAML-based Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) single-sign on mode if your application supports the SAML or OpenID Connect protocols, or you want to be able to map users to specific application roles based on rules you define in your SAML claims *(**Note:** this option is not available when the application proxy is configured for an application)*
 
--   **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header based authentication that you wish to perform single-sign on to *(**Note:** this option is only available when the application proxy and PingAccess is configured for an application)*
+-   **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to *(**Note:** this option is only available when the application proxy and PingAccess are configured for an application)*
 
 -   **Integrated Windows Authentication** – choose the [Integrated Windows Authentication](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) single-sign on mode when exposing an on-premises WIA application that you wish to perform single-sign on to *(**Note:** this option is only available when the application proxy is configured for an application)*
 
 ## Single sign-on modes for custom-developed applications
 
-Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not listed above. These include:
+Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not previously listed, which include:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) based sign-on
 
@@ -59,15 +60,15 @@ Read the [Azure Active Directory developer’s guide](https://docs.microsoft.com
 
 ## How to set an application’s single sign-on mode
 
-To set an application’s **single sign-on** mode, follow the instructions below:
+To set an application’s **single sign-on** mode, follow these instructions:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -75,8 +76,8 @@ To set an application’s **single sign-on** mode, follow the instructions below
 
 6.  Select the application you want to configure single sign-on
 
-7.  Once the application loads, click **Single sign-on** from the application’s left hand navigation menu.
+7.  Once the application loads, click **Single sign-on** from the application’s left-hand navigation menu.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

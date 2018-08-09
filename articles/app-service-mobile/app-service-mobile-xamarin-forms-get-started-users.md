@@ -4,7 +4,7 @@ description: Learn how to use Mobile Apps to authenticate users of your Xamarin 
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: ''
 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179

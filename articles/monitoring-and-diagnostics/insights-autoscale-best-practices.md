@@ -1,21 +1,13 @@
 ---
-title: Best practices for autoscale | Microsoft Docs
-description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
+title: Best practices for autoscale
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-
+ms.component: autoscale
 ---
 # Best practices for Autoscale
 This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.
@@ -41,9 +33,6 @@ If you manually update the instance count to a value above or below the maximum,
 
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
 If you use only one part of the combination, autoscale scale-in that single out, or in, until the maximum, or minimum, is reached.
-
-### Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PowerShell, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.

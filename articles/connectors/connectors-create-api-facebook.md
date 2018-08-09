@@ -1,23 +1,21 @@
 ---
-title: Add the Facebook connector in your Logic Apps | Microsoft Docs
-description: Overview of the Facebook connector with REST API parameters
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: f4d6f0ed-c09b-488c-be1c-8cf2b5b1d4b8
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Facebook - Azure Logic Apps | Microsoft Docs
+description: Manage your timeline and page with Facebook REST APIs and Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Facebook connector
 Connect to Facebook and post to a timeline, get a page feed, and more. With Facebook, you can:
 
@@ -25,7 +23,7 @@ Connect to Facebook and post to a timeline, get a page feed, and more. With Face
 * Use a trigger when a new post is received.
 * Use actions that post to your timeline, get a page feed, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new post on your timeline, you can take that post and push it to your Twitter feed. 
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Facebook
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Facebook.

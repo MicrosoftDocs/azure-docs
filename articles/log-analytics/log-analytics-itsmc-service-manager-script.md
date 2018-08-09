@@ -1,9 +1,9 @@
 ---
-title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in OMS | Microsoft Docs
-description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in OMS, and centrally monitor and manage the ITSM work items.  
+title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
+description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.  
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri 
 manager: riyazp
 editor: ''
 ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
@@ -11,13 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/15/2017
+ms.topic: conceptual
+ms.date: 01/23/2018
 ms.author: v-jysur
-
+ms.component: na
 ---
 
-# Create Service Manager Web app using the automated script (Preview)
+# Create Service Manager Web app using the automated script
 
 Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -26,18 +26,18 @@ Run the script by providing the following required details:
 - Azure subscription details
 - Resource group name
 - Location
-- Service Manager server details (server name,    domain, username and password)
+- Service Manager server details (server name, domain, username, and password)
 - Site name prefix for your Web app
 - ServiceBus Namespace.
 
-The script will create the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID** and **client secret**.
+The script will create the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID**, and **client secret**.
 
-Save these values, you will need these when you create a connection with IT Service Management Connector.
+Save these values, you will need these values when you create a connection with IT Service Management Connector.
 
 ## Prerequisites
 
  Windows Management Framework 5.0 or above.
- Windows 10 has 5.1 by default. You can download the framework from [here](https://www.microsoft.com/download/details.aspx?id=53347):
+ Windows 10 has 5.1 by default. You can download the framework from [here](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Use the following script:
 
@@ -123,7 +123,7 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 
@@ -189,6 +189,8 @@ Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
 
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
+
 try
 {
 
@@ -203,7 +205,7 @@ catch
     # Delete the deployed web app if Azure AD application fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-    Write-Host "Faiure occured in Azure AD application....Try again!!"
+    Write-Host "Failure occured in Azure AD application....Try again!!"
 
     exit
 

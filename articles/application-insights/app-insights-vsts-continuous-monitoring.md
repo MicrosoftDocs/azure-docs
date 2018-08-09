@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 
@@ -85,4 +85,4 @@ To observe this behavior, Select **Releases** > Right-click Release name **open*
 
 ## Next steps
 
-To learn more about VSTS Build and Release try these [quickstarts.](https://docs.microsoft.com/en-us/vsts/build-release/)
+To learn more about VSTS Build and Release try these [quickstarts.](https://docs.microsoft.com/vsts/build-release/)

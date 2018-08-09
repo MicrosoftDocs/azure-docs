@@ -4,27 +4,25 @@ description: Learn how to copy data from DB2 to supported sink data stores by us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 03/28/2018
+
 ms.author: jingwang
 
 ---
 # Copy data from DB2 by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-db2-connector.md)
-> * [Version 2 - Preview](connector-db2.md)
+> * [Version 1](v1/data-factory-onprem-db2-connector.md)
+> * [Current version](connector-db2.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [DB2 connector in V1](v1/data-factory-onprem-db2-connector.md).
 
 ## Supported capabilities
 
@@ -50,7 +48,8 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 To use copy data from a DB2 database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. To learn about Self-hosted integration runtimes, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article. The Integration Runtime provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to DB2 connector.
 
@@ -63,10 +62,9 @@ The following properties are supported for DB2 linked service:
 | type | The type property must be set to: **Db2** | Yes |
 | server |Name of the DB2 server. |Yes |
 | database |Name of the DB2 database. |Yes |
-| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
-| password |Specify password for the user account you specified for the username. Mark this field as SecureString. |Yes |
+| password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**

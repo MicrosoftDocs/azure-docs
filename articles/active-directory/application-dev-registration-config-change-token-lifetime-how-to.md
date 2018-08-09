@@ -3,17 +3,18 @@ title: How to change the token lifetime defaults for a custom-developed applicat
 description: How to update Token Lifetime policies for your application that you are developing on Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: barbkess
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -29,10 +30,10 @@ Azure AD Premium allows app developers and tenant admins to configure the lifeti
  * Here’s an example policy that sets the max age single factor refresh token. Create the policy: 
   ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Checkout the [Configuring token lifetime](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)   document to learn how to create other custom.
+ * Checkout the [Configuring token lifetime](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)   document to learn how to create other custom.
 
 ## Next steps
-[Configuring Token Lifetime](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
+[Configuring Token Lifetime](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Azure AD Token Reference](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
+[Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

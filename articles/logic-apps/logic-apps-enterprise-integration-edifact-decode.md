@@ -4,7 +4,7 @@ description: Validate EDI and generate acknowledgements with the EDIFACT message
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
@@ -38,7 +38,7 @@ that's already defined in your integration account
 
 ## Decode EDIFACT messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Decode EDIFACT message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

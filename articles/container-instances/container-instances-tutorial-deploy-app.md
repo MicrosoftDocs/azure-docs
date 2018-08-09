@@ -1,95 +1,108 @@
 ---
 title: Azure Container Instances tutorial - Deploy app
-description: Azure Container Instances tutorial - Deploy app
+description: Azure Container Instances tutorial part 3 of 3 - Deploy application
 services: container-instances
-author: seanmck
-manager: timlt
+author: mmacy
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
 ---
 
-# Deploy a container to Azure Container Instances
+# Tutorial: Deploy a container to Azure Container Instances
 
-This is the last of a three-part tutorial. In previous sections, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This section completes the tutorial by deploying the container to Azure Container Instances. Steps completed include:
+This is the final tutorial in a three-part series. Earlier in the series, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to Azure Container Registry](container-instances-tutorial-prepare-acr.md). This article completes the series by deploying the container to Azure Container Instances.
+
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Deploying the container from the Azure Container Registry using the Azure CLI
-> * Viewing the application in the browser
-> * Viewing the container logs
+> * Deploy the container from Azure Container Registry to Azure Container Instances
+> * View the running application in the browser
+> * Display the container's logs
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
-
-To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
-
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend a local installation of the Azure CLI and Docker development environment.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## Deploy the container using the Azure CLI
 
-The Azure CLI enables deployment of a container to Azure Container Instances in a single command. Since the container image is hosted in the private Azure Container Registry, you must include the credentials required to access it. If necessary, you can query them as shown below.
+In this section, you use the Azure CLI to deploy the image built in the [first tutorial](container-instances-tutorial-prepare-app.md) and pushed to Azure Container Registry in the [second tutorial](container-instances-tutorial-prepare-acr.md). Be sure you've completed those tutorials before proceeding.
 
-Container registry login server (update with your registry name):
+### Get registry credentials
+
+When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply the registry's credentials.
+
+First, get the full name of the container registry login server (replace `<acrName>` with the name of your registry):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Container registry password:
+Next, get the container registry password:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands.
+### Deploy container
+
+Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry.
 
 ```azurecli
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80 -g myResourceGroup
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. To view the state of the deployment, use [az container show](/cli/azure/container#az_container_show):
+Within a few seconds, you should receive an initial response from Azure. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
+
+### Verify deployment progress
+
+To view the state of the deployment, use [az container show][az-container-show]:
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Repeat the `az container show` command until the state changes from *Pending* to *Running*, which should take under a minute. When the container is *Running*, proceed to the next step.
+Repeat the [az container show][az-container-show] command until the state changes from *Pending* to *Running*, which should take under a minute. When the container is *Running*, proceed to the next step.
 
 ## View the application and container logs
 
-Once the deployment succeeds, display the container's public IP address with the [az container show](/cli/azure/container#az_container_show) command:
+Once the deployment succeeds, display the container's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
 
 ```bash
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Example output: `"13.88.176.27"`
+For example:
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
-To see the running application, navigate to the public IP address in your favorite browser.
+To see the running application, navigate to the displayed DNS name in your favorite browser:
 
 ![Hello world app in the browser][aci-app-browser]
 
 You can also view the log output of the container:
 
 ```azurecli
-az container logs --name aci-tutorial-app -g myResourceGroup
+az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Output:
+Example output:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## Clean up resources
 
-If you no longer need any of the resources you created in this tutorial series, you can execute the [az group delete](/cli/azure/group#delete) command to remove the resource group and all resources it contains. This command deletes the container registry you created, as well as the running container, and all related resources.
+If you no longer need any of the resources you created in this tutorial series, you can execute the [az group delete][az-group-delete] command to remove the resource group and all resources it contains. This command deletes the container registry you created, as well as the running container, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -97,15 +110,32 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this tutorial, you completed the process of deploying your containers to Azure Container Instances. The following steps were completed:
+In this tutorial, you completed the process of deploying your container to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deploying the container from the Azure Container Registry using the Azure CLI
-> * Viewing the application in the browser
-> * Viewing the container logs
+> * Deployed the container from Azure Container Registry using the Azure CLI
+> * Viewed the application in the browser
+> * Viewed the container logs
 
-<!-- LINKS -->
-[prepare-app]: ./container-instances-tutorial-prepare-app.md
+Now that you have the basics down, move on to learning more about Azure Container Instances, such as how container groups work:
+
+> [!div class="nextstepaction"]
+> [Container groups in Azure Container Instances](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-delete]: /cli/azure/group#az-group-delete
+[azure-cli-install]: /cli/azure/install-azure-cli
+[prepare-app]: ./container-instances-tutorial-prepare-app.md

@@ -3,7 +3,7 @@ title: Azure Policy json sample - Allow custom VM image from a resource group  |
 description: This json sample policy requires that custom images come from an approved resource group.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 
@@ -73,4 +73,4 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-Additional Azure Policy template samples can be found in the Azure Policy documentation
+- Review more examples at [Azure Policy samples](../json-samples.md).

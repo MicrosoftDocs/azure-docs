@@ -2,18 +2,19 @@
 title: Execute data science tasks - Azure Machine Learning | Microsoft Docs
 description: How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
+ms.author: deguhath
 
 ---
 
@@ -22,7 +23,7 @@ ms.author: bradsev;
 
 Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -31,7 +32,7 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images. 
 
-Products such as Azure Machine Learning Workbench also provide [advanced data preparation](../preview/tutorial-bikeshare-dataprep.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
+Products such as Azure Machine Learning Workbench also provide [advanced data preparation](../desktop-workbench/tutorial-bikeshare-dataprep.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
 
 The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step. The Team Data Science Process (TDSP) utilities discussed in the following sections for semi-automated exploration, modeling, and reporting also provide standardized data exploration and modeling reports. 
 
@@ -74,9 +75,9 @@ For more information, see [Automated Modeling and Reporting Utility in TDSP Data
 ### Model management
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
-1. [Azure Machine Learning - model management service](../preview/index.yml)
+1. [Azure Machine Learning - model management service](../service/index.yml)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Deployment
@@ -87,18 +88,21 @@ Production deployment enables a model to play an active role in a business. Pred
 There are various approaches and platforms to put models into production. Here are a few options:
 
 
-- [Model deployment in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Model deployment in Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 >
->
->NOTE: Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 >
 
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
-NOTE: For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+> [!NOTE]
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+>
+>
 
 ### A/B testing
 When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
@@ -107,6 +111,7 @@ When multiple models are in production, it can be useful to perform [A/B testing
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
- 
+
+[Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
 
 

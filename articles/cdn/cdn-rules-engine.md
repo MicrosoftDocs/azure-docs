@@ -3,8 +3,8 @@ title: Override HTTP behavior using the Azure CDN rules engine | Microsoft Docs
 description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: cfowler
 editor: ''
 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -13,72 +13,89 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: mazha
+ms.date: 06/11/2018
+ms.author: v-deasim
 
 ---
 # Override HTTP behavior using the Azure CDN rules engine
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Overview
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate creating a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
+The Azure CDN rules engine allows you to customize how HTTP requests are handled. For example, blocking the delivery of certain content types, defining a caching policy, or modifying an HTTP header. This tutorial demonstrates how to create a rule that changes the caching behavior of CDN assets. For more information about the rules engine syntax, see [Azure CDN rules engine reference](cdn-rules-engine-reference.md).
 
-   > [!TIP] 
-   > For a reference to the syntax in detail, see [Rules Engine Reference](cdn-rules-engine-reference.md).
-   > 
+## Access
+To access the rules engine, you must first select **Manage** from the top of the **CDN profile** page to access the Azure CDN management page. Depending on whether your endpoint is optimized for dynamic site acceleration (DSA), you then access the rules engine with the set of rules appropriate for your type of endpoint:
 
+- Endpoints optimized for general web delivery or other non-DSA optimization: 
+    
+    Select the **HTTP Large** tab, then select **Rules Engine**.
+
+    ![Rules engine for HTTP](./media/cdn-rules-engine/cdn-http-rules-engine.png)
+
+- Endpoints optimized for DSA: 
+    
+    Select the **ADN** tab, then select **Rules Engine**. 
+    
+    ADN is a term used by Verizon to specify DSA content. Any rules you create here are ignored by any endpoints in your profile that are not optimized for DSA. 
+
+    ![Rules engine for DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## Tutorial
-1. From the CDN profile blade, click the **Manage** button.
+1. From the **CDN profile** page, select **Manage**.
    
-    ![CDN profile blade manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN profile Manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     The CDN management portal opens.
-2. Click on the **HTTP Large** tab, followed by **Rules Engine**.
+
+2. Select the **HTTP Large** tab, then select **Rules Engine**.
    
-    Options for a new rule are displayed.
+    The options for a new rule are displayed.
    
     ![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
    > The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
    > 
-   > 
+
 3. Enter a name in the **Name / Description** textbox.
-4. Identify the type of requests the rule will apply to.  By default, the **Always** match condition is selected.  You'll use **Always** for this tutorial, so leave that selected.
+
+4. Identify the type of requests the rule applies to. Use the default match condition, **Always**. 
    
-   ![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
-   
-   > [!TIP]
-   > There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
-   > 
-   >  For the full list of conditional expressions in detail, see [Rules Engine Conditional Expressions](cdn-rules-engine-reference-match-conditions.md).
-   >  
-   > For the full list of match conditions in detail, see [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md).
-   > 
-   > 
-5. Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
-   
-   ![CDN feature](./media/cdn-rules-engine/cdn-new-feature.png)
+   ![CDN rule match condition](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
+   > Multiple match conditions are available in the dropdown list. For information about the currently selected match condition, select the blue informational icon to its left.
    > 
-   > For the full list of features in detail, see [Rules Engine Feature Details](cdn-rules-engine-reference-features.md).
+   >  For a detailed list of conditional expressions, see [Rules engine conditional expressions](cdn-rules-engine-reference-match-conditions.md).
+   >  
+   > For a detailed list of match conditions, see [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-6. Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
+
+5. To add a new feature, select the **+** button next to **Features**.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**. Do not change the remaining default values.
+   
+   ![CDN rule feature](./media/cdn-rules-engine/cdn-new-feature.png)
+   
+   > [!NOTE]
+   > Multiple features are available in the dropdown list. For information about the currently selected feature, select the blue informational icon to its left. 
+   >
+   > For **Force Internal Max-Age**, the asset's `Cache-Control` and `Expires` headers are overridden to control when the CDN edge node refreshes the asset from the origin. In this example, the CDN edge node caches the asset for 300 seconds, or 5 minutes, before it refreshes the asset from its origin.
+   > 
+   > For a detailed list of features, see [Rules engine features](cdn-rules-engine-reference-features.md).
+   > 
+   > 
+
+6. Select **Add** to save the new rule.  The new rule is now awaiting approval. After it has been approved, the status changes from **Pending XML** to **Active XML**.
    
    > [!IMPORTANT]
-   > Rules changes may take up to 90 minutes to propagate through the CDN.
+   > Rules changes can take up to 10 minutes to propagate through Azure CDN.
    > 
    > 
 
 ## See also
-* [Azure CDN Overview](cdn-overview.md)
-* [Rules Engine Reference](cdn-rules-engine-reference.md)
-* [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
-* [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
-* [Rules Engine Features](cdn-rules-engine-reference-features.md)
-* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
-* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
+* [Azure CDN overview](cdn-overview.md)
+* [Rules engine reference](cdn-rules-engine-reference.md)
+* [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
+* [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
+* [Rules engine features](cdn-rules-engine-reference-features.md)
+* [Azure Fridays: Azure CDN's powerful new premium features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

@@ -4,15 +4,16 @@ description: This article describes the current limitations of Azure Active Dire
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
-manager: femila
+author: billmath
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 07/25/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -23,38 +24,36 @@ ms.author: billmath
 
 ## Supported scenarios
 
-The following scenarios are fully supported:
+The following scenarios are supported:
 
-- User sign-ins to all web browser-based applications
-- User sign-ins to Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga)
-- Office 2016, and Office 2013 _with_ modern authentication
-- Azure AD domain joins for Windows 10 devices
-- Exchange ActiveSync support
+- User sign-ins to web browser-based applications.
+- User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, EAS, SMTP, POP and IMAP.
+- User sign-ins to legacy Office client applications and Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2010, 2013 and 2016 versions.
+- User sign-ins to legacy protocol applications such as PowerShell version 1.0 and others.
+- Azure AD joins for Windows 10 devices.
+- App passwords for Multi-Factor Authentication.
 
 ## Unsupported scenarios
 
 The following scenarios are _not_ supported:
 
-- User sign-ins to legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
-- User sign-ins to Skype for Business client applications, including Skype for Business 2016.
-- User sign-ins to PowerShell version 1.0. We recommended that you use PowerShell version 2.0.
-- Azure Active Directory Domain Services.
-- App passwords for Multi-Factor Authentication.
-- Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Detection of users with [leaked credentials](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
+- Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->As a workaround for unsupported scenarios _only_, enable password hash synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+>As a workaround for unsupported scenarios _only_ (except Azure AD Connect Health integration), enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. When users sign into applications listed in the "unsupported scenarios" section, those specific sign-in requests are _not_ handled by Pass-through Authentication Agents, and therefore will not be recorded in [Pass-through Authentication logs](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
-Enabling password hash synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
+Enabling Password Hash Synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Password Hash Synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.
 
 ## Next steps
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running with Azure AD Pass-through Authentication.
-- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions about the Pass-through Authentication feature.
 - [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
-

@@ -1,24 +1,20 @@
 ---
-title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs'
-description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C
+title: Multi-Factor Authentication in Azure Active Directory B2C | Microsoft Docs
+description: How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
-ms.author: swkrish
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Enable Multi-Factor Authentication in your consumer-facing applications
-Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
+Azure Active Directory (Azure AD) B2C integrates directly with [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) so that you can add a second layer of security to sign-up and sign-in experiences in your consumer-facing applications. And you can do this without writing a single line of code. Currently we support phone call and text message verification. If you already created sign-up and sign-in policies, you can still enable Multi-Factor Authentication.
 
 > [!NOTE]
 > Multi-Factor Authentication can also be enabled when you create sign-up and sign-in policies, not just by editing existing policies.

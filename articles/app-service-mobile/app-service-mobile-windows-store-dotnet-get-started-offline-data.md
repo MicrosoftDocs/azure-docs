@@ -2,8 +2,8 @@
 title: Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Microsoft Docs
 description: Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app.
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Enable offline sync for your Windows app
@@ -33,18 +33,16 @@ extension packages to your project. For more information about server extension 
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
-## Requirements
+## Requirements  
 This tutorial requires the following pre-requisites:
 
 * Visual Studio 2013 running on Windows 8.1 or later.
 * Completion of [Create a Windows app][create a windows app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
-* [SQLite for Universal Windows Platform development](http://www.sqlite.org/downloads)
+* [SQLite for Universal Windows Platform development](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## Update the client app to support offline features
-Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use
-these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through
-the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
+Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
 1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial.

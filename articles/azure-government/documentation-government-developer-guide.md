@@ -54,10 +54,10 @@ Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov 
 ### Quickstarts
 Navigate through the links below to get started using Azure Government.
 
-* [Login to Azure Government Portal](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-portal)
-* [Connect with Visual Studio](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-vs)
-* [Connect with PowerShell](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-ps)
-* [Connect with CLI](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
+* [Login to Azure Government Portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)
+* [Connect with Visual Studio](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs)
+* [Connect with PowerShell](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
+* [Connect with CLI](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-cli)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 
 ### Azure Government Video Library 
@@ -67,7 +67,7 @@ The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Gover
 
 The Azure Blueprint program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. 
 
-For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
+For more information on Azure Government Compliance, refer to the [compliance documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
 
 ## Endpoint mapping
 
@@ -76,21 +76,21 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
 
-| Name | Azure Government endpoint |
-| --- | --- |
-| Portal | https://portal.azure.us |
-| Active Directory Endpoint  | https://login-us.microsoftonline.com/ |
-| Active Directory Authority  | https://login.microsoftonline.us |
-| Active Directory Graph API | https://graph.windows.net/ |
-| Azure API | https://management.usgovcloudapi.net/ | 
-| SQL Database DNS Suffix | *.database.usgovcloudapi.net |
-| Storage Endpoint Suffix | *.core.usgovcloudapi.net |
-| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net |
-| Key Vault DNS Suffix | *.vault.usgovcloudapi.net |
-| *Classic* Portal | https://manage.windowsazure.us |
-| Gallery Url | https://gallery.usgovcloudapi.net/ |
-| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ |
-| Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
+| Name | Azure Government endpoint | Azure Commercial endpoint |
+| --- | --- | --- |
+| Portal | https://portal.azure.us | https://portal.azure.com |
+| Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
+| Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
+| Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
+| Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
+| SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
+| Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
+| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
+| Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
+| Service Bus DNS Suffix | *.servicebus.usgovcloudapi.net | *.servicebus.windows.net |
+| Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
+| Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
+| Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
 
 ## Next steps
 For more information about Azure Government, see the following resources:
@@ -100,4 +100,4 @@ For more information about Azure Government, see the following resources:
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)
 * [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
-* [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+* [Azure Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)

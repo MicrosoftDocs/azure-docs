@@ -1,19 +1,13 @@
 ---
-title: Understand the webhook schema used in activity log alerts | Microsoft Docs
+title: Understand the webhook schema used in activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-
+ms.component: alerts
 ---
 # Webhooks for Azure activity log alerts
 As part of the definition of an action group, you can configure webhook endpoints to receive activity log alert notifications. With webhooks, you can route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
@@ -28,7 +22,7 @@ The webhook can optionally use token-based authorization for authentication. The
 ## Payload schema
 The JSON payload contained in the POST operation differs based on the payload's data.context.activityLog.eventSource field.
 
-###Common
+### Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -55,7 +49,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
     }
 }
 ```
-###Administrative
+### Administrative
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -82,7 +76,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 
 ```
-###ServiceHealth
+### ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -151,7 +145,7 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | eventDataId |Unique identifier for the event. |
 | eventSource |Name of the Azure service or infrastructure that generated the event. |
 | httpRequest |The request usually includes the clientRequestId, clientIpAddress, and HTTP method (for example, PUT). |
-| level |One of the following values: Critical, Error, Warning, Informational, and Verbose. |
+| level |One of the following values: Critical, Error, Warning and Informational. |
 | operationId |Usually a GUID shared among the events corresponding to single operation. |
 | operationName |Name of the operation. |
 | properties |Properties of the event. |

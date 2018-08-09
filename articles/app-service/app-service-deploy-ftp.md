@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
 
 ---
@@ -25,34 +25,25 @@ or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
-> [!IMPORTANT]
-> We are continuously taking steps to improve Microsoft Azure Platform security. As part of this ongoing effort an upgrade of Web Applications is planned for Germany Central and Germany Northeast regions. During this Web Apps will be disabling the use of plain text FTP protocol for deployments. Our recommendation to our customers is to switch to FTPS for deployments. We do not expect any disruption to your service during this upgrade which is planned for 9/5. We appreciate you support in this effort.
+## Open FTP dashboard
 
-<a name="step1"></a>
-## Step 1: Set deployment credentials
+In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-To access the FTP server for your app, you first need deployment credentials. 
+To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > **Dashboard**.
 
-To set or reset your deployment credentials, see [Azure App Service Deployment Credentials](app-service-deployment-credentials.md). This tutorial demonstrates the use of user-level credentials.
+![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
-## Step 2: Get FTP connection information
+## Get FTP connection information
 
-1. In the [Azure portal](https://portal.azure.com), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
+In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentials.
 
-    ![FTP Connection Information](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+![Copy FTP information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-    > [!NOTE]
-    > The **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
-    > You can find the same information when you select **Properties** in the left menu. 
-    >
-    > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
-    >
-    >
+It's recommended that you use **App Credentials** to deploy to your app because it's unique to each app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
 
-## Step 3: Deploy files to Azure
+## Deploy files to Azure
 
-1. From your FTP client ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client), etc), 
+1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/) or [FileZilla](https://filezilla-project.org/download.php?type=client)), 
 use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
 4. Browse to your app's URL to verify the app is running properly. 
@@ -60,13 +51,56 @@ use the connection information you gathered to connect to your app.
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
 >
-> - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
+> - dependency restores (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
-> You must restore, build, and generate these necessary files manually on your local machine and deploy them together with your app.
+> Generate these necessary files manually on your local machine, and then deploy them together with your app.
 >
 >
+
+## Enforce FTPS
+
+For enhanced security, you should allow FTP over SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
+
+In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
+
+To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.1 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 is not supported with **FTPS Only**.
+
+![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
+
+## Automate with scripts
+
+For FTP deployment using [Azure CLI](/cli/azure), see [Create a web app and deploy files with FTP (Azure CLI)](./scripts/app-service-cli-deploy-ftp.md).
+
+For FTP deployment using [Azure PowerShell](/cli/azure), see [Upload files to a web app using FTP (PowerShell)](./scripts/app-service-powershell-deploy-ftp.md).
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## Troubleshoot FTP deployment
+
+- [How can I troubleshoot FTP deployment?](#how-can-i-troubleshoot-ftp-deployment)
+- [I'm not able to FTP and publish my code. How can I resolve the issue?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [How can I connect to FTP in Azure App Service via passive mode?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+
+### How can I troubleshoot FTP deployment?
+
+The first step for troubleshooting FTP deployment is isolating a deployment issue from a runtime application issue.
+
+A deployment issue typically results in no files or wrong files deployed to your app. You can troubleshoot by investigating your FTP deployment or selecting an alternate deployment path (such as source control).
+
+A runtime application issue typically results in the right set of files deployed to your app but incorrect app behavior. You can troubleshoot by focusing on code behavior at runtime and investigating specific failure paths.
+
+To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
+
+### I'm not able to FTP and publish my code. How can I resolve the issue?
+Check that you've entered the correct hostname and [credentials](#step-1--set-deployment-credentials). Check also that the following FTP ports on your machine are not blocked by a firewall:
+
+- FTP control connection port: 21
+- FTP data connection port: 989, 10001-10300
+ 
+### How can I connect to FTP in Azure App Service via passive mode?
+Azure App Service supports connecting via both Active and Passive mode. Passive mode is preferred because your deployment machines are usually behind a firewall (in the operating system or as part of a home or business network). See an [example from the WinSCP documentation](https://winscp.net/docs/ui_login_connection). 
 
 ## Next steps
 

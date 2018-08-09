@@ -3,12 +3,10 @@ title: Azure PowerShell Script-Multiregion replication for Azure Cosmos DB | Mic
 description: Azure PowerShell Script Sample - Multiregion replication for Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
 
-ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -16,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
 ---
 
 # Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using PowerShell

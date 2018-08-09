@@ -1,19 +1,13 @@
 ---
 title: Indexing Azure Blob Storage with Azure Search
 description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-
-ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
 ---
 
@@ -51,7 +45,7 @@ For blob indexing, the data source must have the following required properties:
 
 To create a data source:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -85,7 +79,7 @@ The index specifies the fields in a document, attributes, and other constructs t
 
 Here's how to create an index with a searchable `content` field to store the text extracted from blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -104,7 +98,7 @@ An indexer connects a data source with a target search index, and provides a sch
 
 Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -175,7 +169,7 @@ For this example, let's pick the `metadata_storage_name` field as the document k
 
 To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -201,7 +195,7 @@ You can control which blobs are indexed, and which are skipped.
 ### Index only the blobs with specific file extensions
 You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -213,7 +207,7 @@ You can index only the blobs with the file name extensions you specify by using 
 ### Exclude blobs with specific file extensions
 You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -223,28 +217,6 @@ You can exclude blobs with specific file name extensions from indexing by using 
     }
 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
-
-### Dealing with unsupported content types
-
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
-
-	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### Ignoring parsing errors
-
-Azure Search document extraction logic isn't perfect and will sometimes fail to parse documents of a supported content type, such as .DOCX or .PDF. If you do not want to interrupt the indexing in such cases, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to some reasonable values. For example:
-
-	{
-	  ... other parts of indexer definition
-	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-	}
 
 <a name="PartsOfBlobToIndex"></a>
 ## Controlling which parts of the blob are indexed
@@ -257,7 +229,7 @@ You can control which parts of the blobs are indexed using the `dataToExtract` c
 
 For example, to index only the storage metadata, use:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -275,8 +247,37 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 | AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
+<a name="DealingWithErrors"></a>
+## Dealing with errors
+
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+For some blobs, Azure Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure Search limits the size of blobs that are indexed. These limits are documented in [Service Limits in Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Oversized blobs are treated as errors by default. However, you can still index storage metadata of oversized blobs if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true: 
+
+	"parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+
+You can also continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. To ignore a specific number of errors, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to the desired values. For example:
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+	}
+
 ## Incremental indexing and deletion detection
-When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
+When you set up a blob indexer to run on a schedule, it reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
 
 > [!NOTE]
 > You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
@@ -289,7 +290,7 @@ To support deleting documents, use a "soft delete" approach. If you delete the b
 
 For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -336,7 +337,7 @@ For this to work, all indexers and other components need to agree on the documen
 
 If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
