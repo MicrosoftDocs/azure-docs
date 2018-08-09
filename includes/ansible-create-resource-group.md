@@ -4,7 +4,7 @@
     vi rg.yml
     ```
 
-1. Enter insert mode by selecting the I key.
+1. Enter insert mode by selecting the **I** key.
 
 1. Paste the following code into the editor:
 

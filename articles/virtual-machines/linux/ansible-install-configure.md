@@ -1,5 +1,5 @@
 ---
-title: Install and configure Ansible to manage virtual machines in Azure
+title: Install Ansible on Azure virtual machines
 description: Learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 services: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
@@ -10,7 +10,7 @@ ms.date: 08/07/2018
 ms.topic: article
 ---
 
-# Install and configure Ansible to manage virtual machines in Azure
+# Install Ansible on Azure virtual machines
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use.
 
