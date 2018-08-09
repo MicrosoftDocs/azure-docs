@@ -58,9 +58,8 @@ To configure machine-wide proxy settings, follow the steps below:
   C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
   C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-- Add the <system.net> section below the <system.serviceModel> section.  Change 127.0.01:8888 to the IP address and port for the proxy server. 
+- Add the <system.net> section in the machine.config files (section should be below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
 ```
-  </system.serviceModel>
     <system.net>
       <defaultProxy enabled="true" useDefaultCredentials="true">
         <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
