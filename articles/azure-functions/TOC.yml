@@ -172,6 +172,8 @@
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
       href: set-runtime-version.md
+    - name: Disable a function 
+      href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate

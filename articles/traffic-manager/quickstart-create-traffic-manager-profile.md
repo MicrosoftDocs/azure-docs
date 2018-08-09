@@ -60,16 +60,18 @@ Create a Traffic manager profile that directs user traffic based on endpoint pri
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+    
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, **trafficmanager.net** which is used to access your Traffic Manager profile.                                   |
-    | Routing method          | Select the **Priority** routing method.                                       |
-    | Subscription            | Select your subscription.                          |
-    | Resource group          | Select **Existing** and then select *myResourceGroupTM1*. |
-    | Location                | Select **East US**.  This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
-    |
-  
-    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile.png)
+    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, **trafficmanager.net** which is used to access your Traffic Manager profile.|
+    | Routing method          | Select the **Priority** routing method.|
+    | Subscription            | Select your subscription.|
+    | Resource group          | Select **Existing** and then select *myResourceGroupTM1*.|
+    |Location |This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.|
+    |||
+    
+    
+   ![Create a Traffic Manager profile](./media/quickstart-create-traffic-manager-profile/traffic-manager-profile.png)
 
 
 ## Add Traffic Manager endpoints
@@ -87,26 +89,26 @@ Add the website in the *East US* as primary endpoint to route all the user traff
     | Target resource type           | App Service                          |
     | Target resource          | **Choose an app service** to show the listing of the Web Apps under the same subscription. In **Resource**, pick the App service that you want to add as the first endpoint. |
     | Priority               | Select **1**. This results in all traffic going to this endpoint if it is healthy.    |
-    |        |           |
+    
+4. Repeat steps 2 and 3 for the next Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
+5.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
-     ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint2.png)
-
-
-1. Repeat steps 2 and 3 for the next Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
-6.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
+    ![Add a Traffic Manager endpoint](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint2.png)
 
 ## Test Traffic Manager profile
 In this section, you first determine the domain name of your Traffic Manager profile and then view how the Traffic Manager fails over to the secondary endpoint when the primary endpoint is unavailable.
 ### Determine the DNS name
 1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, click the traffic manager profile.
-1. Click **Overview**.
-2. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
-   ![Traffic Manager DNS name](./media/traffic-manager-create-profile/traffic-manager-dns-name.png)
+2. Click **Overview**.
+3. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
+  
+   ![Traffic Manager DNS name](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
 
- ### View Traffic Manager in action   
+### View Traffic Manager in action
+
 1. In a web browser, type the DNS name of your Traffic Manager profile to view your Web App's default website. In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
 
-      ![Test Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-test.png)
+![Test Traffic Manager profile](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
 
 2. To view Traffic Manager failover in action, disable your primary site as follows:
     1. In the Traffic Manager Profile page, select **Settings**>**Endpoints**>*MyPrimaryEndpoint*.
@@ -114,11 +116,15 @@ In this section, you first determine the domain name of your Traffic Manager pro
     3. The primary endpoint *MyPrimaryEndpoint* status now shows as **Disabled**.
 3. Copy the DNS name of your Traffic Manager Profile from the preceding step to successfully view the website in a web browser. When the primary endpoint is disabled, the user traffic gets routed to the secondary endpoint.
 
-## Delete the Traffic Manager profile
-When no longer needed, delete the resource groups *ResourceGroupTM1* and  *ResourceGroupTM2*.
+## Clean up resources
+When no longer needed, delete the resource groups, web applications, and all related resources. To do so, select the resource groups (*myResourceGroupTM1* and *myResourceGroupTM2*) and click **Delete**.
 
 ## Next steps
-In this quickstart, you created a Traffic Manager profile that allows you to direct user traffic for highly availability web application. Next, learn how to [direct user traffic to improve website performance](traffic-manager-configure-performance-routing-method.md).
+In this quickstart, you created a Traffic Manager profile that allows you to direct user traffic for highly availability web application. To learn more about routing traffic, continue to the tutorials for Traffic Manager.
+
+> [!div class="nextstepaction"]
+> [Traffic Manager tutorials](traffic-manager-configure-performance-routing-method.md)
+
 
 
 

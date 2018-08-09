@@ -39,9 +39,14 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Resolution**: Use an Azure subscription capable of creating storage resources. Azure AD subscriptions are not able to create Azure resources.
 
 ### Terminal output - Error: Failed to connect terminal: websocket cannot be established. Press `Enter` to reconnect.
-
 - **Details**: Cloud Shell requires the ability to establish a websocket connection to Cloud Shell infrastructure.
 - **Resolution**: Check you have configured your network settings to enable sending https requests and websocket requests to domains at *.console.azure.com.
+
+### Set your Cloud Shell connection to support using TLS 1.2
+ - **Details**: To define the version of TLS for your connection to Cloud Shell, you must set browser specific settings.
+ - **Resolution**: Navigate to the security settings of your browser and select the checkbox next to "Use TLS 1.2".
+
+## Bash troubleshooting
 
 ### Cannot run the docker daemon
 
@@ -74,7 +79,7 @@ Azure Cloud Shell has the following known limitations:
 
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires an Azure file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 
-- With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
+- With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$HOME` directory is also persisted.
 - Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   - In Bash, run `env` to find your region set as `ACC_LOCATION`.
 - Azure Files supports only locally redundant storage and geo-redundant storage accounts.
