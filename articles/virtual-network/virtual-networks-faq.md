@@ -226,7 +226,7 @@ Yes. Learn more about using:
 Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
-Currently it is not possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directories does not have tenants in each.
+Currently it is not possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants.
 
 ### My VNet peering connection is in *Initiated* state, why can't I connect?
 If your peering connection is in an Initiated state, this means you have created only one link. A bidirectional link must be created in order to establish a successfuly connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected.*
@@ -241,13 +241,13 @@ No. Address spaces must not overalap to enable VNet Peering.
 There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See] here(https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Is VNet peering traffic encrypted?
-No. Traffic between resources in peered VNets is private and isolated. It remains on the Microsoft Backbone.
+No. Traffic between resources in peered VNets is private and isolated. It remains completely on the Microsoft Backbone.
 
 ### Why is my peering connection in a disconnected state?
 VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
 
-### If I peer VNet A to VNet B and I peer VNet B to VNet C, does that mean VNet A and C are peered?
-No. Transitive peering is not supported. You must peer VNet A and VNet C for this to take place.
+### If I peer VNetA to VNetB and I peer VNetB to VNetC, does that mean VNetA and VNetC are peered?
+No. Transitive peering is not supported. You must peer VNetA and VNetC for this to take place.
 
 ### Are there any bandwidth limitations for peering connections?
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limites by the VM or compute resource.
