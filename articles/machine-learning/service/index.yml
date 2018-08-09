@@ -24,7 +24,7 @@ sections:
     className: cardsB
     columns: 1
     items:
-    - html: <p>Train and deploy your machine learning models using the SDK or CLI.</p>
+    - html: <p>Train and deploy your ML models in a fully-managed cloud service.</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning 
