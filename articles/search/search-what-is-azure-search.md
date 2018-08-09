@@ -10,7 +10,12 @@ ms.date: 07/09/2018
 ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. In Azure Search, queries execute over user-sourced index, sourced exclusively from data that you provide.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. In Azure Search, queries execute over user-sourced index.
+
++ Search corpus contains only your data, from multiple sources and platforms. 
++ Build an AI-powered indexing pipeline to extract text from images, entities and key phrases from undifferentiated text.
++ Create a rich user experience leveraging faceted navigation and filters, synonyms, auto-complete, and linguistic analysis for "did you mean" autocorrections.
++ Add geo-search for "find near me", language analyzers for non-English full text search, and scoring profiles to add logic to ranked search results.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
