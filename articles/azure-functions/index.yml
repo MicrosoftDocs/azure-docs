@@ -85,6 +85,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+    - html: <a href="/sandbox/functions-recipes/">Azure Functions Recipes</a>
 - title: Reference
   items:
   - type: list
