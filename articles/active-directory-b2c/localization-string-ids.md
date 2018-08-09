@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/17/2018
+ms.date: 09/08/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -135,6 +135,15 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **UserMessageIfInvalidInput** | {0} has invalid input. |
 | **ServiceThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
+The following example shows the use of some of the user interface elements in the sign-up page:
+
+![Sign-up page UX elements](./media/localization-string-ids/localization-sign-up.png)
+
+The following example shows the use of some of the user interface elements in the sign-up page, after user clicks on send verification code button:
+
+![Sign-up page email verification UX elements](./media/localization-string-ids/localization-email-verification.png)
+
+
 ## Phone factor authentication page user interface elements
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`. 
@@ -165,7 +174,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. |
 | **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. |
 | **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** | |
+| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. |
 | **requiredField_countryCode** | Please select your country code |
 | **requiredField_number** | Please enter your phone number |
 | **country_code_input_placeholder_text** |Country or region |
@@ -176,6 +185,14 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **error_448** | The phone number you provided is unreachable. |
 | **error_449** | User has exceeded the number of retry attempts. |
 | **verification_code_input_placeholder_text** | Verification code |
+
+The following example shows the use of some of the user interface elements in the MFA enrollment page:
+
+![Sign-up page email verification UX elements](./media/localization-string-ids/localization-mfa1.png)
+
+The following example shows the use of some of the user interface elements in the MFA validation page:
+
+![Sign-up page email verification UX elements](./media/localization-string-ids/localization-mfa2.png)
 
 
 
