@@ -163,7 +163,7 @@ public void keepAlive(
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
- ```
+```
 
 ## Attributes
 
