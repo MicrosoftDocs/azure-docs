@@ -39,11 +39,11 @@ If you don’t already have one, provision a new Log Analytics workspace by foll
 
 To start sending data into Log Analytics. Several options exist:
 
- - For a synchronous mechanism, you can either directly call the [data collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) or use our Logic App connector – simply look for “Azure Log Analytics” and pick the “Send Data” option:
+- For a synchronous mechanism, you can either directly call the [data collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) or use our Logic App connector – simply look for “Azure Log Analytics” and pick the “Send Data” option:
 
  ![Screenshot choose and action](./media/app-insights-custom-data-correlation/01-logic-app-connector.png)  
 
- - For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](Second doc about how to build a custom pipeline) for details.
+- For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](Second doc about how to build a custom pipeline) for details.
 
 ## Correlating data
 
@@ -61,5 +61,5 @@ app('myAI').requests
 
 ## Next Steps
 
-
-
+- Check out the [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) reference.
+- For more information on [cross-resource joins](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
