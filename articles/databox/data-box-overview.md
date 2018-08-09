@@ -40,7 +40,7 @@ Data Box is ideally suited to transfer data sizes larger than 30 TBs in scenario
 
 ## Benefits
 
-Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solutions has the following benefits:
+Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
  - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure in less than a week.
 

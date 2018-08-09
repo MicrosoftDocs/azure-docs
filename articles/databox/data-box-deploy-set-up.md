@@ -34,7 +34,7 @@ Before you begin, make sure that:
 2. You have received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to high speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds will be impacted. 
+    - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
 4. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7 U slot in your datacenter rack.
 5. You must have the following cables to connect your Data Box to the host computer.
     - One grounded power cord 100 TB storage device
