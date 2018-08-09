@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in C# under .NET Framework on Windows using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -14,6 +13,8 @@ ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in C# under .NET Framework on Windows using the Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a C# console application for .NET Framework on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
@@ -43,7 +44,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Install Nuget package")
 
-1. Accept the license in the dialog that appears.
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
 
@@ -71,7 +72,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Add the sample code
 
-1. Open `Program.cs` in your Visual Studio project and replace all the code in this file with the following.
+1. Open `Program.cs` and replace all the code in it with the following.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -100,6 +101,6 @@ Look for this sample in the `quickstart/csharp-dotnet-windows` folder.
 
 ## Next steps
 
-- [Translate speech](how-to-translate-speech.md)
+- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

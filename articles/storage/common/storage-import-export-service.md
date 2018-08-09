@@ -2,20 +2,20 @@
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: alkohli
-manager: jeconnoc
 services: storage
-
 ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-
+ms.component: common
 ---
 # What is Azure Import/Export service?
 
-Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disks can be imported either to Azure Blob storage or Azure Files. 
+Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. 
 
-Azure Import/Export service requires you to supply your own disks. If you want to transfer data using disks supplied by Microsoft, you can use Azure Data Box Disk to import data into Azure. Microsoft ships up to 5 encrypted solid-state disks (SSDs) with a 40 TB capacity per order, to your datacenter through a regional carrier. You can quickly configure disks, copy data to disks over a USB 3.0 connection, and ship the disks back to Azure. For more information, go to [Azure Data Box Disk overview](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Supply you own disk drives and transfer data with the Azure Import/Export service. You can also use disk drives supplied by Microsoft. 
+
+If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../../databox/data-box-disk-overview.md).
 
 ## Azure Import/Export usecases
 
@@ -30,23 +30,23 @@ Consider using Azure Import/Export service when uploading or downloading data ov
 
 Import/Export service uses the following components:
 
-- **Import/Export**service: This service available in Azure portal helps the user create and track import and export jobs.  
+- **Import/Export service**: This service available in Azure portal helps the user create and track data import (upload) and export (download) jobs.  
 
 - **WAImportExport tool**: This is a command-line tool that does the following: 
-    - Prepares your drives that are shipped for import.
+    - Prepares your disk drives that are shipped for import.
     - Facilitates copying your data to the drive.
     - Encrypts the data on the drive with BitLocker.
     - Generates the drive journal files used during import creation.
     - Helps identify numbers of drives needed for export jobs.
+    
+> [!NOTE]
+> The WAImportExport tool is available in two versions, version 1 and 2. We recommend that you use:
+> - Version 1 for import/export into Azure Blob storage. 
+> - Version 2 for importing data into Azure files.
+>
+> The WAImportExport tool is only compatible with 64-bit Windows operating system. For specific OS versions supported, go to [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems).
 
-    This tool is available in two versions, version 1 and 2. We recommend that you use:
-
-    - Version 1 for import/export into Azure Blob storage. 
-    - Version 2 for importing data into Azure files.
-
-    The WAImportExport tool is only compatible with 64-bit Windows operating system. For specific OS versions supported, go to [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems).
-
-- **Disks**: You can ship Solid-state drives (SSDs) or Hard disk drives (HDDs) to the Azure datacenter. When creating an import job, you ship disk drives containing your data. When creating an export job, you ship empty drives to the Azure datacenter. For specific disk types, go to [Supported disk types](storage-import-export-requirements.md#supported-hardware).
+- **Disk Drives**: You can ship Solid-state drives (SSDs) or Hard disk drives (HDDs) to the Azure datacenter. When creating an import job, you ship disk drives containing your data. When creating an export job, you ship empty drives to the Azure datacenter. For specific disk types, go to [Supported disk types](storage-import-export-requirements.md#supported-hardware).
 
 ## How does Import/Export work?
 
@@ -54,18 +54,12 @@ Azure Import/Export service allows data transfer into Azure Blobs and Azure File
 
 The jobs can be import or export jobs. An import job allows you to import data into Azure Blobs or Azure files whereas the export job allows data to be exported from Azure Blobs. For an import job, you ship drives containing your data. When you create an export job, you ship empty drives to an Azure datacenter. In each case, you can ship up to 10 disk drives per job.
 
-> [!IMPORTANT]
-> Exporting data into Azure Files is not supported.
-
-In this section, high level steps involved in import and export jobs are described. 
-
-
 ### Inside an import job
 
 At a high level, an import job involves the following steps:
 
 1. Determine data to be imported, number of drives you need, destination blob location for your data in Azure storage.
-2. Use the WAImportExport tool to copy data to disk drives. Encrypt the disks with BitLocker.
+2. Use the WAImportExport tool to copy data to disk drives. Encrypt the disk drives with BitLocker.
 3. Create an import job in your target storage account in Azure portal. Upload the drive journal files.
 4. Provide the return address and carrier account number for shipping the drives back to you.
 5. Ship the disk drives to the shipping address provided during job creation.

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Pega Systems | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Pega Systems.
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Pega Systems from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Pega Systems from the gallery
 To configure the integration of Pega Systems into Azure AD, you need to add Pega Systems from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Pega Systems into Azure AD, you need to add Pega
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Pega Systems**, select **Pega Systems** from result panel then click **Add** button to add the application.
+1. In the search box, type **Pega Systems**, select **Pega Systems** from result panel then click **Add** button to add the application.
 
 	![Pega Systems in the results list](./media/pegasystems-tutorial/tutorial_pegasystems_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Pega Systems, assign the value of the **user name** in Azure AD as the value 
 To configure and test Azure AD single sign-on with Pega Systems, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Pega Systems test user](#create-a-pega-systems-test-user)** - to have a counterpart of Britta Simon in Pega Systems that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create a Pega Systems test user](#create-a-pega-systems-test-user)** - to have a counterpart of Britta Simon in Pega Systems that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,11 +99,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/pegasystems-tutorial/tutorial_pegasystems_samlbase.png)
 
-3. On the **Pega Systems Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+1. On the **Pega Systems Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Pega Systems Domain and URLs single sign-on information](./media/pegasystems-tutorial/tutorial_pegasystems_url.png)
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Pega Systems Domain and URLs single sign-on information](./media/pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
@@ -120,11 +120,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Relay State URL. You can find the values of Identifier and Reply URL from Pega application which is explained later in this tutorial. For Relay State, please contact [Pega Systems Client support team](https://www.pega.com/contact-us) to get the value. 
 
-5. The Pega Systems application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+1. The Pega Systems application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. These claims are customer specific and depends on your requirement. Following optional claims are example only which you can configure for your application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
 	![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
@@ -153,20 +153,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
-8. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_general_400.png)
 	
-9. To configure single sign-on on **Pega Systems** side, open the **Pega Portal** with admin account in another browser window.
+1. To configure single sign-on on **Pega Systems** side, open the **Pega Portal** with admin account in another browser window.
 
-10. Select **Create** -> **SysAdmin** -> **Authentication Service**.
+1. Select **Create** -> **SysAdmin** -> **Authentication Service**.
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
 	
-11. Perform following actions on **Create Aauthentication Service** screen:
+1. Perform following actions on **Create Aauthentication Service** screen:
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
@@ -178,15 +178,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click on **Create and open** 
 	
-12. In **Identity Provider (IdP) information** section, click on **Import IdP metadata** and browse the metadata file which you have downloaded from the Azure portal. Click **Submit** to load the metadata.
+1. In **Identity Provider (IdP) information** section, click on **Import IdP metadata** and browse the metadata file which you have downloaded from the Azure portal. Click **Submit** to load the metadata.
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
 	
-13. This will populate the IdP data as shown below.
+1. This will populate the IdP data as shown below.
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
 	
-14. Perform following actions on **Service Provider (SP) settings** section:
+1. Perform following actions on **Service Provider (SP) settings** section:
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
@@ -196,7 +196,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Select **Disable request signing**.
 
-15. Click **Save**
+1. Click **Save**
 	
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -213,15 +213,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/pegasystems-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/pegasystems-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/pegasystems-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/pegasystems-tutorial/create_aaduser_04.png)
 
@@ -250,23 +250,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Pega Systems**.
+1. In the applications list, select **Pega Systems**.
 
 	![The Pega Systems link in the Applications list](./media/pegasystems-tutorial/tutorial_pegasystems_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

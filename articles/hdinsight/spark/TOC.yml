@@ -209,6 +209,8 @@
       items:
       - name: Manage cluster resources
         href: apache-spark-resource-manager.md
+      - name: Manage spark applications using extended History Server
+        href: apache-azure-spark-history-server.md
       - name: Configure Spark settings
         href: apache-spark-settings.md
       - name: Optimize Spark jobs
@@ -317,6 +319,8 @@
       items:
       - name: Debug Spark jobs
         href: apache-spark-job-debugging.md
+      - name: Debug Spark Jobs through Job Graph
+        href: apache-azure-spark-history-server.md
       - name: Use IntelliJ to debug Spark job
         href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Troubleshoot a slow or failing HDInsight cluster

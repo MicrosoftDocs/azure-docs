@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/11/2018
+ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt  
@@ -30,7 +30,7 @@ az extension remove --name mesh
 Install the Azure Service Fabric Mesh CLI extension module using following command. 
 
 ```azurecli-interactive
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.9.1-py2.py3-none-any.whl
 ```
 
 You can also set up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).

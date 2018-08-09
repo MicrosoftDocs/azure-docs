@@ -1,10 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech in C# in a UWP app the Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Quickstart: Recognize speech in C# in a UWP app using the Cognitive Services Speech SDK'
 titleSuffix: "Microsoft Cognitive Services"
 description: Learn how to recognize speech in a UWP app using the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 
 ms.service: cognitive-services
 ms.component: speech-service
@@ -14,6 +13,8 @@ ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in a UWP app using the Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a Universal Windows Platform (UWP) application using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is built with the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
@@ -55,7 +56,7 @@ The application is built with the [Microsoft Cognitive Services Speech SDK NuGet
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "Install Nuget package")
 
-1. Accept the license in the dialog that appears.
+1. Accept the displayed license.
 
     ![Accept the license](media/sdk/qs-csharp-uwp-06-nuget-license.png "Accept the license")
 
@@ -112,6 +113,6 @@ Look for this sample in the `quickstart/csharp-uwp` folder.
 
 ## Next steps
 
-- [Translate speech](how-to-translate-speech.md)
+- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

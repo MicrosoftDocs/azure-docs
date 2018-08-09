@@ -3,7 +3,7 @@ title: Enable public read access for containers and blobs in Azure Blob storage 
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 author: tamram
-manager: jeconnoc
+
 
 ms.service: storage
 ms.topic: article

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
 
 ---
@@ -23,10 +23,12 @@ This article provides an overview of the Azure SQL Database resource limits and 
 | Default number of servers per subscription in any region | 20 |
 | Max number of servers per subscription in any region | 200 |
 | DTU / eDTU quota per server | 54,000 |
+| vCore quota per server | 540 |
+| Max pools per server | limited by number of DTUs or vCores |
 |||
 
 > [!NOTE]
-> To obtain more DTU /eDTU quota or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
+> To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
@@ -51,6 +53,7 @@ When encountering high space utilization, mitigation options include:
 
 - Increasing the max size of the database or elastic pool, or add more storage. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
+- Shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md)
 
 ### Sessions and workers (requests) 
 

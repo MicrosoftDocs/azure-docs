@@ -35,6 +35,12 @@ In this article, you learn how to create, list and delete a user assigned identi
     - [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role to create, read (list), update, and delete a user assigned identity.
     - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to read (list) the properties of a user assigned identity.
 
+> [!NOTE]
+> While user assigned identities are still in preview you need to first manually install the AzureRM.ManagedServiceIdentity module using the following command. 
+```azurepowershell-interactive
+Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+```
+
 ## Create a user assigned identity
 
 To create a user assigned identity, use the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) command. The `ResourceGroupName` parameter specifies the resource group where to create the user assigned identity, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
@@ -59,7 +65,7 @@ In the response, user identities have `"Microsoft.ManagedIdentity/userAssignedId
 
 To delete a user identity, use the [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) command.  The `-ResourceGroupName` parameter specifies the resource group where the user assigned identity was created and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and the `<USER ASSIGNED IDENTITY NAME>` parameters values with your own values:
 
- ```azurecli-interactive
+ ```azurepowershell-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
@@ -68,6 +74,3 @@ Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USE
 ## Related content
 
 For a full list and more details of the Azure PowerShell MSI commands, see [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
-
-
- 
