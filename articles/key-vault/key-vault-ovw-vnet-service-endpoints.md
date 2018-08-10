@@ -7,7 +7,7 @@ ms.author: ambapat
 manager: mbaldwin
 ms.date: 08/09/2018
 ---
-# Virtual Network Service Endopints for Azure Key Vault
+# Virtual Network Service Endpoints for Azure Key Vault
 
 The virtual network service endpoints for Key Vault allow you to restrict access to key vault to specified Virtual Network and/or a list of IPv4 (Internet Protocol version 4) address ranges. Any caller connecting to that key vault from outside those sources will be denied access to this key vault. If customer has opted-in to allow "Trusted Microsoft services" such as Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, Azure Backup etc., connections from those services will be let through the firewall. Of course such callers still need to present a valid AAD token and must have the permissions to perform the requested operation. Read more technical details about [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -25,7 +25,7 @@ For example,
 
 ## Configuring Key Vault firewalls and virtual networks
 
-Here are the steps required to configure firewalls and virtual networks. These steps remain same irrespective of what interface (PowerShell, CLI, Azure Portal) you will use to setup the firewall and virtual network rules.
+Here are the steps required to configure firewalls and virtual networks. These steps remain same irrespective of what interface (PowerShell, CLI, Azure portal) you will use to set up the firewall and virtual network rules.
 * Optional but highly recommended: Enable [key vault logging](key-vault-logging.md) to see detailed access logs. This will help you in diagnostics when firewalls and virtual network rules prevent access to a key vault.
 * Enable 'service endpoints for key vault' for target virtual network(s) and subnet(s)
 * Set firewalls and virtual network rules for a key vault to restrict access to that key vault from specific virtual network(s), subnet(s) and IPv4 address ranges.
@@ -49,11 +49,11 @@ Here is a list of trusted services that are allowed to access a key vault if 'Al
 |Trusted service|Usage scenarios|
 | --- | --- |
 |Azure Virtual Machines deployment service|[Deploy Certificates to VMs from customer-managed Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
-|Azure Resource Manager (ARM) template deployment service|[Pass secure values during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
+|Azure Resource Manager template deployment service|[Pass secure values during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Azure Disk Encryption volume encryption service|Allow access to BitLocker Key (Windows VM) or DM Passphrase (Linux VM) and Key Encryption Key during VM deployment to enable [Azure Disk Encryption](../security/azure-security-disk-encryption.md)|
 |Azure Backup|Allow backup and restore of relevant keys and secrets during Azure VM backup, using [Azure Backup](../backup/backup-introduction-to-azure-backup.md)|
 |Exchange Online & SharePoint Online|Allow access to customer key for Service Encryption with [Customer Key](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
-|Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](../information-protection/what-is-information-protection/)|
+|Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |App Services|[Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 
 
