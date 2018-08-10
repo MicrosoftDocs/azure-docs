@@ -27,12 +27,11 @@ You'll learn how to:
 > * Traing multiple models on a remote GPU cluster
 > * Review training details and register the best model
 
-You'll train a simple logistic regression using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and TensorFlow with Azure Machine Learning. 
+You'll train a simple logistic regression using the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset and scikit-learn with Azure Machine Learning. 
 
-MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents.
+MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
 
-You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
-
+You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -52,7 +51,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    conda install -y matplotlib scikit-learn
    ``` 
 
-1. The files [tf_mnist.py]() and [utils.py]() downloaded into your docs-prj folder.
+1. The file [utils.py]() downloaded into your docs-prj folder.
 
 ## Get the sample notebook
 
