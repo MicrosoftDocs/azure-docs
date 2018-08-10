@@ -3,7 +3,7 @@ title: About keys, secrets and certificates
 description: Overview of REST interface and KV developer details
 services: key-vault
 documentationcenter:
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 08/10/2018
 ms.author: alleonar
 
 ---
@@ -254,8 +254,8 @@ Azure Key Vault also supports a contentType field for secrets. Clients may speci
 
 In addition to the secret data, the following attributes may be specified:  
 
-- *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data MUST NOT be retrieved, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data MUST NOT be retrieved, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Azure Key Vault MAY provide for some small leeway, usually no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *exp*: IntDate, optional, default is **forever**. The *exp* (expiration time) attribute identifies the expiration time on or after which the secret data SHOULD NOT be retrieved, except in [particular situations](about-keys--secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). This field is for **informational** purposes only as it informs users of key vault service that a particular secret may not be used. Its value MUST be a number containing an IntDate value.   
+- *nbf*: IntDate, optional, default is **now**. The *nbf* (not before) attribute identifies the time before which the secret data SHOULD NOT be retrieved, except in [particular situations](about-keys--secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). This field is for **informational** purposes only. Its value MUST be a number containing an IntDate value. 
 - *enabled*: boolean, optional, default is **true**. This attribute specifies whether or not the secret data can be retrieved. The enabled attribute is used in conjunction with and *exp* when an operation occurs between and exp, it will only be permitted if enabled is set to **true**. Operations outside the *nbf* and *exp* window are automatically disallowed, except in [particular situations](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
 
 There are additional read-only attributes that are included in any response that includes secret attributes:  
