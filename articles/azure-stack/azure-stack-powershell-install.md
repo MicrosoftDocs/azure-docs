@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 08/06/2018
+ms.date: 08/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -72,19 +72,15 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Before installing the required version, make sure that you uninstall any previously installed Azure Stack AzureRM PowerShell modules. You can uninstall them by using one of the following two methods:
 
-### Method one
+1. To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
 
-To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
+  ````PowerShell  
+    Uninstall-Module AzureRM.AzureStackAdmin -Force
+    Uninstall-Module AzureRM.AzureStackStorage -Force
+    Uninstall-Module -Name AzureStack -Force
+  ````
 
-````PowerShell  
-  Uninstall-Module AzureRM.AzureStackAdmin -Force
-  Uninstall-Module AzureRM.AzureStackStorage -Force
-  Uninstall-Module -Name AzureStack -Force
-````
-
-### Method two
-
-Delete all the folders that start with `Azure` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
+2. Delete all the folders that start with `Azure` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 
 ## 4. Connected: Install PowerShell for Azure Stack with Internet connectivity
 
@@ -118,7 +114,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.2.11 
     ```
 
-To confirm the installation, run the following command:
+Confirm the installation by running the following command:
 
 ```PowerShell  
 Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
@@ -134,7 +130,7 @@ Sign in to a computer where you have Internet connectivity and use the following
 
   - **Version 1.3.0** (Azure Stack 1804 or greater)
   
-    > ![!Note]  
+    > [!Note]  
     To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
     ````PowerShell  
@@ -178,7 +174,7 @@ Sign in to a computer where you have Internet connectivity and use the following
    Install-Module AzureStack -Repository $RepoName 
    ```
 
-## 6, Configure PowerShell to use a proxy server
+## 6. Configure PowerShell to use a proxy server
 
 In scenarios that require a proxy server to access the Internet, you must first configure the PowerShell to use an existing proxy server.
 
