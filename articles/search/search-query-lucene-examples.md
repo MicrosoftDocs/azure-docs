@@ -1,14 +1,14 @@
 ---
 title: Lucene query examples for Azure Search | Microsoft Docs
 description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
-author: LiamCa
-manager: pablocas
+author: HeidiSteen
+manager: cgronlun
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: liamca
+ms.date: 08/09/2018
+ms.author: heidist
 ---
 
 # Lucene syntax query examples for building advanced queries in Azure Search
@@ -24,7 +24,7 @@ The Lucene Query Parser supports more complex query constructs, such as field-sc
 
 The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://opendata.cityofnewyork.us/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Test with REST clients](search-fiddler.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Explore with REST clients](search-fiddler.md).
 
 ### Set the request header
 
