@@ -41,7 +41,7 @@
     - name: Disk encryption for IaaS VMs
       items:
       - name: Azure Disk Encryption overview
-      - href: azure-security-disk-encryption-overview.md
+        href: azure-security-disk-encryption-overview.md
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
@@ -49,7 +49,7 @@
         - name: Disk encryption for Windows VMs
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
-          href: azure-security-disk-encryption-linux.
+          href: azure-security-disk-encryption-linux.md
       - name: Azure Disk Encryption with Azure AD app (deprecated)
         items:
         - name: Disk encryption prerequisites
