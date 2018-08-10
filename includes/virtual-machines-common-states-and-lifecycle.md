@@ -5,7 +5,7 @@
  author: shandilvarun
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/02/2018
+ ms.date: 08/09/2018
  ms.author: vashan, cynthn, rajsqr
  ms.custom: include file
 ---
