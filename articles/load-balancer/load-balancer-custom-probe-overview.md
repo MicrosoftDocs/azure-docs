@@ -65,7 +65,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
 * The probe receives a TCP reset from the instance.
 
-### <a name="httpprobe"></a><a name="httpsprobe"></a> HTTP / HTTPS probe
+### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS probe
 
 > [!NOTE]
 > HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
