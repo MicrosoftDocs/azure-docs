@@ -46,11 +46,11 @@ You can choose from many machine learning frameworks available in open-source Py
 - [MXNet](http://mxnet.io)
 -->
 
-- <a href=http://scikit-learn.org/stable/ target=_blank>Scikit-learn</a>
-- <a href=https://www.tensorflow.org target=_blank>Tensorflow</a>
-- <a href=https://pytorch.org target=_blank>PyTorch</a>
-- <a href=https://www.microsoft.com/cognitive-toolkit/ target=_blank>CNTK</a>
-- <a href=http://mxnet.io target=_blank>MXNet</a>
+- <a href=http://scikit-learn.org/stable/ target=blank>Scikit-learn</a>
+- <a href=https://www.tensorflow.org target=blank>Tensorflow</a>
+- <a href=https://pytorch.org target=blank>PyTorch</a>
+- <a href=https://www.microsoft.com/cognitive-toolkit/ target=blank>CNTK</a>
+- <a href=http://mxnet.io target=blank>MXNet</a>
 
 Once you have a model, you use it to create a Docker container that can be deployed locally for testing, and then as a production web service in either Azure Container Instances or Azure Kubernetes Service.
 
@@ -68,7 +68,7 @@ Use Machine Learning Studio when you want to experiment with machine learning mo
 Use Machine Learning Services if you work in an R or Python environment, you want more control over your machine learning algorithms, or you want to use open-source machine learning libraries.
 
 > [!NOTE]
-> Models created in Azure Machine Learning Studio cannot be deployed or managed by Azure Machine Learning Services, and vice versa.
+> Models created in Azure Machine Learning Studio cannot be deployed or managed by Azure Machine Learning Services.
 
 ## Free trial
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
