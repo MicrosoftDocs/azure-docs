@@ -54,12 +54,13 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Before installing the required version, make sure that you uninstall any previously installed Azure Stack AzureRM PowerShell modules. You can uninstall them by using one of the following two methods:
 
- - To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions and run the following command:
+ - To uninstall the existing AzureStack and AzureRM PowerShell modules, close all the active PowerShell sessions and run the following command:
 
   ```PowerShell
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
+    Uninstall-Module -Name AzureStack -Force -Verbose
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force -Verbose
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force -Verbose
+    Get-Module -ListAvailable | Where Name -Like "Azs.*" | Uninstall-Module -Force -Verbose
   ```
 
  - Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
@@ -77,8 +78,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+# Install Module Version 1.4.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.4.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version than 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -97,7 +98,7 @@ If the installation is successful, the AzureRM and AzureStack modules are displa
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]  
-> The release of the Azure Stack 1.3.0 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
+> The release of 1.4.0 AzureStack module does not have any breaking changes with the earlier version 1.3.0. Please refer to the [release notes](https://aka.ms/azspsh140release) for the changes in release 1.4.0. However the version 1.3.0 of AzureStack module has a list of breaking changes. To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 
@@ -116,7 +117,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0 
    ```
 
   > [!Important]  
