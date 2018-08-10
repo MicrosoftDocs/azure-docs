@@ -4,7 +4,7 @@ description: In this tutorial, you deploy an Azure function as a module to an ed
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

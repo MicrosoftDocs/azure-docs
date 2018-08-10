@@ -35,6 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* C modules for Azure IoT Edge don't support Windows containers. If your IoT Edge device is a Windows machine, configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 Cloud resources:
 
@@ -47,9 +48,8 @@ Development resources:
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
-
-   >[!Note]
-   >C modules for Azure IoT Edge don't support Windows containers. 
+>[!Note]
+>C modules for Azure IoT Edge don't support Windows containers. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
