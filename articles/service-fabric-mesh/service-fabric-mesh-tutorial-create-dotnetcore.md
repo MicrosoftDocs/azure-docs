@@ -223,7 +223,7 @@ This minimal data context populates some sample to-do items and provides access 
 
 ### Add a controller
 
-A default controller, which handles the HTPP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
+A default controller, which handles the HTTP requests and creates the HTTP response, was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
 
 Right-click **ValuesController.cs** and then **Rename**. Rename the file to `ToDoController.cs`. If a prompt appears to rename all references, click **Yes**.
 

@@ -286,6 +286,11 @@ as can the tweak to switch it back to returning a 200 once the update is complet
 
 Full source for this usage example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
 
+## Related Articles
+* [Azure Automation DSC Overview](automation-dsc-overview.md)
+* [Azure Automation DSC cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
+
 ## Next steps
 
 - For an overview, see [Azure Automation State Configuration](automation-dsc-overview.md)
