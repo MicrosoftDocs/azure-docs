@@ -39,13 +39,13 @@ Instance usage billing
 </td>
 <td>
 <p>VM is starting up.</p>
-<code>"statuses": [</br>
-   {</br>
-      "code": "PowerState/starting",</br>
-       "level": "Info",</br>
-        "displayStatus": "VM starting"</br>
-    }</br>
-    ]</code></br>
+<code>"statuses": [<br>
+   {<br>
+      "code": "PowerState/starting",<br>
+       "level": "Info",<br>
+        "displayStatus": "VM starting"<br>
+    }<br>
+    ]</code><br>
 </td>
 <td>
 <p><b>Not billed</b></p>
@@ -57,13 +57,13 @@ Instance usage billing
 </td>
 <td>
 <p>Normal working state for a VM</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/running",</br>
- "level": "Info",</br>
- "displayStatus": "VM running"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/running",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM running"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Billed</b></p>
@@ -75,13 +75,13 @@ Instance usage billing
 </td>
 <td>
 <p>This is a transitional state. When completed, it will show as **Stopped**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopping",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopping"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopping",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopping"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Billed</b></p>
@@ -94,13 +94,13 @@ Instance usage billing
 <td>
 <p>The VM has been shut down from within the guest OS or using the PowerOff APIs.</p>
 <p>Hardware is still allocated to the VM and it remains on the host. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopped",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopped"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopped",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopped"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Not billed&#42;</b></p>
@@ -112,13 +112,13 @@ Instance usage billing
 </td>
 <td>
 <p>Transitional state. When completed, the VM will show as **Deallocated**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocating",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocating",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocating"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Not billed&#42;</b></p>
@@ -130,13 +130,13 @@ Instance usage billing
 </td>
 <td>
 <p>The VM has been stopped successfully and removed from the host. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocated",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocated"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocated",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocated"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Not billed</b></p>
@@ -181,12 +181,12 @@ Here are the transitional operation states after the platform has accepted a use
 <p><b>Creating</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating",</br>
- "level": "Info",</br>
- "displayStatus": "Creating"</br>
- }</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Creating"<br>
+ }</code><br>
 </td>
 </tr>
 <tr>
@@ -194,13 +194,13 @@ Here are the transitional operation states after the platform has accepted a use
 <p><b>Updating</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/updating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Updating"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -208,13 +208,13 @@ Here are the transitional operation states after the platform has accepted a use
 <p><b>Deleting</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/deleting",</br>
- "level": "Info",</br>
- "displayStatus": "Deleting"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/deleting",<br>
+ "level": "Info",<br>
+ "displayStatus": "Deleting"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -224,21 +224,21 @@ Here are the transitional operation states after the platform has accepted a use
 <td width="366">
 <p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning In progress"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning In progress"<br>
+ }<br>
+]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state. The VM quickly transitions to **Success** unless any extensions need to be installed. Installing extensions can take time. <br />
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning Complete"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning Complete"<br>
+ }<br>
+]</code><br>
 <p><b>Note</b>: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
 </td>
 </tr>
@@ -250,14 +250,14 @@ Once the operation is complete, the VM will transition into one of the following
 - **Succeeded** – the user-initiated actions have completed.
 
 	```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
 	```
 
  
@@ -273,6 +273,7 @@ Once the operation is complete, the VM will transition into one of the following
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+	]
 	```
 
 
