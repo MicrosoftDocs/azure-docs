@@ -250,14 +250,14 @@ Once the operation is complete, the VM will transition into one of the following
 - **Succeeded** – the user-initiated actions have completed.
 
 	```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
 	```
 
  
@@ -273,6 +273,7 @@ Once the operation is complete, the VM will transition into one of the following
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+	]
 	```
 
 
