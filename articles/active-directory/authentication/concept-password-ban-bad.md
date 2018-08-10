@@ -51,7 +51,7 @@ Each time a user resets or changes their Azure AD password it flows through this
 
 ## License requirements
 
-|   | Azure AD Password Protection with global banned password list | Azure AD Password Protection with custom banned password list|
+|   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
 | Cloud-only users | Azure AD Free | Azure AD Basic |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
