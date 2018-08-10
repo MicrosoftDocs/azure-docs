@@ -146,6 +146,8 @@ Instance usage billing
 </table>
 
 
+*Some Azure resources, such as Disks and Networking, incur charges regardless of the instance's state. 
+
 ## Provisioning states
 
 A provisioning state is the status of an user-initiated, control plane operation on the VM. These states are separate from the power state of a VM.
