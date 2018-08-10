@@ -64,33 +64,34 @@ Migrating data from StorSimple 5000-7000 to AFS is a two-step process:
 
 Perform the following steps to migrate the Windows file share configured on StorSimple volumes to an Azure File Sync share. 
 1.	Perform these steps on the same Windows Server host where the StorSimple volumes are mounted or use a different system. 
-    - Prepare Windows Server to use with Azure File Sync.
-    - Install the Azure File Sync agent.
-    - Deploy the Storage Sync service. 
-    - Register Windows Server with Storage Sync service. 
-    - Create a sync group and a cloud endpoint. Sync groups need to be made for each Windows file share that needs to be migrated from the host.
-    - Create a server endpoint. Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
+    - [Prepare Windows Server to use with Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
+    - [Install the Azure File Sync agent](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
+    - [Deploy the Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
+    - [Register Windows Server with Storage Sync service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
+    - [Create a sync group and a cloud endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Sync groups need to be made for each Windows file share that needs to be migrated from the host.
+    - [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Specify the path as the path of the StorSimple volume that contains your file share data. For example, if the StorSimple volume is drive `J`, and your data resides in `J:/<myafsshare>`, then add this path as a server endpoint. Leave the **Tiering** as **Disabled**.
 2.	Wait until the file server sync is complete. For each server in a given sync group, make sure:
     - The timestamps for the Last Attempted Sync for both upload and download are recent.
     - The status is green for both upload and download.
     - The Sync Activity shows very few or no files remaining to sync.
     - The Files Not Syncing is 0 for both upload and download.
-    For more information on when the server sync is complete, go to [Troubleshoot Azure File Sync](). The sync may take several hours to days, depending on your data size and bandwidth. Once the sync is complete, all your data is safely in the Azure File Share. 
+    For more information on when the server sync is complete, go to [Troubleshoot Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). The sync may take several hours to days, depending on your data size and bandwidth. Once the sync is complete, all your data is safely in the Azure File Share. 
 3.	Go to the shares on the StorSimple volumes. Select a share, right-click and select **Properties**. Note the share permissions under **Security**. These permissions will need to be manually applied to the new share in the later step.
 4.	Depending on whether you use the same Windows Server host or a different one, the next steps will be different.
 
     Skip this step and go to the next step if you are using a different Windows Server host. If you are using the same Windows File Server for AFS, you will now experience a few minutes of downtime. 
-    - Downtime starts - Delete the server endpoint that you created in step 1F. 
+    - **Downtime starts** - Delete the server endpoint that you created in *step 1F*. 
     - Create a new server endpoint with the path where you want the data to reside going forward.
-    - Once the server endpoint shows as Healthy (this may take a few minutes), you will see the data in this new location. You can now configure your Windows Server host to serve files from this new location. - Downtime ends.
+    - Once the server endpoint shows as Healthy (this may take a few minutes), you will see the data in this new location. You can now configure your Windows Server host to serve files from this new location. - **Downtime ends**.
 5.	If you are using another Windows File Server for Azure File Sync, then you will not experience any downtime. 
     - Add another server endpoint with the path of the local storage which you are prepared to use as a cache in lieu of the StorSimple device. 
     - You will be able to see the files in the new server in few minutes. You are free to make the switch from your StorSimple device to this new location on the host at any time.
 
-    >![TIP] Consider configuring this new file share with the same name and same path as the one it is replacing, to minimize disruption. If using DFS-N, this may require you to make changes in the configuration.
-6.	Reconfigure the sharing permissions as noted in step 3.
+    > [!TIP] 
+    > Consider configuring this new file share with the same name and same path as the one it is replacing, to minimize disruption. If using DFS-N, this may require you to make changes in the configuration.
+6.	Reconfigure the sharing permissions as noted in *step 3*.
 
-If you experience any issues during the data migration, please [Contact Microsoft Support](). 
+If you experience any issues during the data migration, please [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md). 
 
 
 
