@@ -13,6 +13,8 @@ ms.date: 04/23/2018
 
 # Improve the accuracy of computer vision models
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 With the **Azure Machine Learning Package for Computer Vision**, you can build and deploy image classification, object detection, and image similarity models. Learn more about this package and how to install it.
 
 In this article, you learn how to fine-tune these models to increase their accuracy. 
