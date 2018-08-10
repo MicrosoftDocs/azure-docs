@@ -3,14 +3,14 @@ title: Use DMS to migrate to Azure SQL Database Managed Instance | Microsoft Doc
 description: Learn to migrate from SQL Server on-premises to Azure SQL Database Managed Instance by using the Azure Database Migration Service.
 services: dms
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/13/2018
 ---
 
 # Migrate SQL Server to Azure SQL Database Managed Instance using DMS

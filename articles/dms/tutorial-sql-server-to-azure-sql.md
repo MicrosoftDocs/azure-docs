@@ -3,7 +3,7 @@ title: Use the Azure Database Migration Service to migrate SQL Server to Azure S
 description: Learn to migrate from SQL Server on-premises to Azure SQL Database offline by using the Azure Database Migration Service.
 services: dms
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: 
 ms.service: dms
