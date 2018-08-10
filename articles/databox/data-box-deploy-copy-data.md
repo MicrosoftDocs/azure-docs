@@ -197,22 +197,15 @@ To copy data from a Linux host computer, you will need to configure the device t
 
 1. Supply the IP addresses of the allowed clients that can access the share.
 
-2. Ensure that the Linux host has NFSv4 client installed. To install NFS client, use the following command:
+2. Ensure that the Linux host has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
-    `sudo apt-get install nfs-common` 
+3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
 
-    For more information, go to [Install NFSv4 client]().
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
-3. Once the NFS client is installed, use the following command to mount the NFS share you created on your Edge device:
+The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
 
-    `sudo mount <Edge device IP>:/<NFS share on Edge device> /home/username/<Folder on local Linux computer>`
-
-Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created. The directories should not contain any files or subfolders.
-
-The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is 10.161.23.130, the share mylinuxshare2 is mounted on the ubuntuVM, mount point being /home/databoxubuntuhost/databox.
-
-    `sudo mount -t nfs 10.161.23.130:/mylinuxshare2 /home/databoxubuntuhost/databox`
-
+    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
 #### Copy data to an NFS share
 
@@ -222,9 +215,15 @@ If you're using a Linux host computer, follow these guidelines:
 - Ensure that you have a multithreaded option with atleast 32 or 64 threads. 
 
 
-### Connect to and copy data from 3rd party software
+### Connect to and copy data using Azure Object connector
 
 If you are configuring your Data Box to copy data from other hosts that 
+
+#### Connect to ISV or modern applications
+
+
+#### Copy data from ISV or modern applications
+
 ## Prepare to ship
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start preparing the device to ship.
