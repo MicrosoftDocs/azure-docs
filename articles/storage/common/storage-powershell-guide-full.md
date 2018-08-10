@@ -210,7 +210,6 @@ Now that you understand how to manage your storage account with PowerShell, you 
 Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
 
 * For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
-* To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
 ## Independent cloud deployments of Azure
 
