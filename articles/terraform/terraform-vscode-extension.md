@@ -131,11 +131,11 @@ In this exercise, you create and execute a basic Terraform configuration file th
     ![main.tf file](media/terraform-vscode-extension/tf-main-tf.png)
 
 - From the Menu Bar, select **View > Command Palette... > Azure Terraform: Init**.
-- After a few moments, you're asked *Do you want to open Cloud Shell?* Click **OK**.
+- After a few moments, when asked *Do you want to open Cloud Shell?* Click **OK**.
 
     ![Do you want to open Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-- The first time you launch Cloud Shell from a new folder, you're asked to set up the web application https://shell.azure.com. Click **Open**.
+- The first time you launch Cloud Shell from a new folder, you will be asked to set up the web application. Click **Open**.
 
     ![First launch of Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -180,7 +180,7 @@ The Terraform *plan* command is used to check whether the execution plan for a s
 
 ### Run Terraform *apply* command
 
-After you're satisfied with the results of Terraform *plan*, you can run the *apply* command.
+After being satisfied with the results of Terraform *plan*, you can run the *apply* command.
 
 - From the Menu Bar, select **View** > **Command Palette** > **Azure Terraform: apply**.
 
@@ -287,7 +287,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
 
-After a few moments, you will see a listing in the Terminal pane similar to this example:
+After a few moments, you see a listing in the Terminal pane similar to this example:
 
 ![End-to-end test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
