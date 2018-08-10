@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
 
 ---
@@ -76,4 +76,4 @@ Now that you've verified your portal interface is working as expected, it's time
 
 ## Next steps
 
-After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](publish-marketplace-app).
+After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](publish-marketplace-app.md).
