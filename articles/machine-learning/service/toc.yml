@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning Services?
+  - name: What is Azure Machine Learning?
     href: overview-what-is-azure-ml.md
   - name: Choose an machine learning solution
     href: overview-more-machine-learning.md    
@@ -36,8 +36,10 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Choose an environment  
+    - name: Choose an environment 
+      href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
+      href: how-to-configure-environment.md
   - name: Set up training environments	
     items:    
     - name: VMs (Data Science/Deep Learning) 
@@ -245,18 +247,18 @@
       items:    
       - name: Computer vision package
         items:
-      - name: Package install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-      - name: Model and deploy
-        items:
-        - name: Image classification
-          href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
-        - name: Object detection
-          href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
-        - name: Image similarity
-          href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
-        - name: Improve model accuracy
-          href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Package install
+          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
+        - name: Model and deploy
+          items:
+          - name: Image classification
+            href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
+          - name: Object detection
+            href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
+          - name: Image similarity
+            href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
+          - name: Improve model accuracy
+            href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
       - name: Forecasting package
         items:
         - name: Overview and install

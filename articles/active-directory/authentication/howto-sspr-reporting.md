@@ -37,7 +37,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Power BI content pack
 
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
+If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 
