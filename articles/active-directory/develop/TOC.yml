@@ -149,6 +149,7 @@
     href: active-directory-authentication-libraries.md
   - name: Code samples by scenario
     href: sample-v1-code.md
+    displayName: ADAL
   - name: Glossary
     href: developer-glossary.md
   - name: Authentication protocols
@@ -184,6 +185,7 @@
   - name: Service limits
     href: ../active-directory-service-limits-restrictions.md
 - name: v2.0 endpoint
+  displayName: MSAL
   items:
   - name: Overview
     href: active-directory-appmodel-v2-overview.md
@@ -240,10 +242,13 @@
     items:
     - name: Authentication libraries
       href: reference-v2-libraries.md
+      displayName: MSAL
     - name: v2.0 code samples by scenario
       href: sample-v2-code.md
+      displayName: MSAL
     - name: v2.0 authentication protocols
       href: active-directory-v2-protocols.md
+      displayName: MSAL
       items:
       - name: OpenID Connect
         href: v2-protocols-oidc.md

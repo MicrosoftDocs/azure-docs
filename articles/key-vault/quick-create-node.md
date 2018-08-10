@@ -1,6 +1,6 @@
 ---
-title: Azure quickstart - Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
-description: In this quickstart you configure an Node.js application to set and retrieve a secret from Key vault
+title: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App | Microsoft Docs
+description: Quickstart- Set and retrieve a secret from Azure Key Vault using a Node Web App 
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault using a Node Web App 
 
-This QuickStart shows how to store a secret in Key Vault and how to retrieve it using a Web app. This web app may be  run locally or in Azure. The quickstart uses Node.js and Managed service identities (MSIs)
+This quickstart shows you how to store a secret in Key Vault and how to retrieve it using a Web app. To see the secret value you would have to run this on Azure. The quickstart uses Node.js and Managed service identities (MSIs)
 
 > [!div class="checklist"]
 > * Create a Key Vault.
@@ -122,8 +122,6 @@ Below are the few steps we need to do
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     When the web app has been created, the Azure CLI shows output similar to the following example:
     ```
