@@ -49,7 +49,7 @@ To complete the exercises in the article, you need to [install Git](https://git-
     - Verifying Terraform is correctly installed
 
     >[!Tip]
-    >Be sure to follow the instructions regarding setting your PATH system variable!
+    >Be sure to follow the instructions regarding setting your PATH system variable.
 
 ### Install Node.js
 
@@ -92,7 +92,7 @@ To use the Terraform visualize function, you need to [install GraphViz](http://g
 
     ![Installed Terraform extensions](media/terraform-vscode-extension/tf-installed-terraform-extension-button.png)
 
-- You can now run all supported Terraform commands in your Cloud Shell environment from within VS Code!
+- You can now run all supported Terraform commands in your Cloud Shell environment from within VS Code.
 
 ## Exercise 1: Basic Terraform commands walk-through
 
