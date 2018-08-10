@@ -12,7 +12,7 @@ ms.author: yizhon
 
 # Azure IoT SDKs Platform Support
 
-[Azure IoT SDKs][sdk-devguide] are a set of libraries to interact with IoT Hub and the Device Provisioning Service with broad language and platform support.  The SDKs run on most common platforms, and developers can port the C SDK to specific platform by following the [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md). 
+[Azure IoT SDKs](iot-hub-devguide-sdks.md) are a set of libraries to interact with IoT Hub and the Device Provisioning Service with broad language and platform support.  The SDKs run on most common platforms, and developers can port the C SDK to specific platform by following the [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md). 
 
 Microsoft supports a variety of operating systems/platforms/frameworks and can be extended using the Azure IoT C SDK.  Some are supported officially by the team, grouped into tiers that represent the level of support users can expect.  Fully supported platforms means that Microsoft:
     - Continuously build and end-to-end test against master and the LTS supported version(s)
@@ -81,8 +81,5 @@ In addition, a list of partners has ported our C SDK on to more platforms and th
 | Espressif           | ESP32                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  |
 
 ## Next steps
-[Device and service SDKs][sdk-devguide]
+[Device and service SDKs](iot-hub-devguide-sdks.md)
 [Porting Guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
-
-
-[sdk-devguide]:./iot-hub-devguide-sdks
