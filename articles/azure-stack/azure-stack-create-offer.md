@@ -55,7 +55,7 @@ ms.author: brenduns
      Select **All Resources**, search for your new offer, and then select the new offer. Select **Change State**, and then select **Public**.
 
    > [!NOTE]
-   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
+   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## Next steps
 
