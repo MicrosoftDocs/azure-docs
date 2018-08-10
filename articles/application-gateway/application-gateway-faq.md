@@ -120,6 +120,10 @@ Network Security Groups are supported on the Application Gateway subnet with the
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
 
+**Q. Are User-Defined Routes supported on the Application Gateway subnet?**
+
+User-Defined routes are supported on the Application Gateway subnet, with the exception of a default route (0.0.0.0/0). A default route on the Application Gateway subnet will prevent the [Backend Health report](../application-gateway/application-gateway-diagnostics#back-end-health) from functioning properly.
+
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
 Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
