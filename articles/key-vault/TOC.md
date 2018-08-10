@@ -21,6 +21,7 @@
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
+## [Virtual network service endpoints](key-vault-ovw-vnet-service-endpoints.md)
 
 
 # How-to guides
