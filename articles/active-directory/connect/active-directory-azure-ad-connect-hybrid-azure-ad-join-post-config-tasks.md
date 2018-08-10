@@ -6,7 +6,6 @@ documentationcenter: ''
 author: billmath
 manager: samueld
 editor: billmath
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
