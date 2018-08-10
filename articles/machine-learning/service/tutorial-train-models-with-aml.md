@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 # Tutorial #1: Train an image classification model with Azure Machine Learning
 
-This tutorial is **part one of a two-part series**. In this tutorial, you will train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part series**.  
+In this tutorial, you will train a machine learning model both locally and on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview).  This tutorial is **part one of a two-part series**.  
 
 You'll learn how to:
 
@@ -32,6 +32,7 @@ You'll train a simple logistic regression using the [MNIST](https://en.wikipedia
 MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28x28 pixels, representing a number from 0 to 9. The goal is to create a multi-class classifier to identify the digit a given image represents. For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
 
 You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. 
+
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
