@@ -17,7 +17,7 @@ ms.author: aahi
 
 The Bing Image Search API enables you to use Bing's cognitive image search capabilities in your application. By sending user search queries with the API, you can get and display relevant and high-quality images similar to [Bing Images](https://www.bing.com/images).
 
-Be aware that the Bing Image Search API provides image-only search results. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) and [News Search API](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search) for other types of web content.
+Be aware that the Bing Image Search API provides image-only search results. Use the [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) and [News Search API](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search) for other types of web content.
 
 ## Bing Image Search features
 
@@ -34,9 +34,9 @@ While Bing Image Search primarily finds and returns relevant images from a searc
 
 ## Workflow
 
-The Bing Image Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/quickstarts/csharp?), or the [SDK](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+The Bing Image Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the [REST API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?), or the [SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api) for free. 
+1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free. 
 2. Send a request to the API, with a valid [search query](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries).
 3. Process the API response by parsing the returned JSON message. 
 
@@ -58,6 +58,6 @@ To quickly get started with your first API request, you can learn to:
 
 * The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
 
-* The [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) topic describes how to search and get images from the web.
+* The [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) topic describes how to search and get images from the web.
 
-* The [Sending and working with search queries](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) topic describes how to make, customize, and pivot search queries. 
+* The [Sending and working with search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) topic describes how to make, customize, and pivot search queries. 
