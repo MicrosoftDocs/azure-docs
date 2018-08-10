@@ -16,7 +16,7 @@ Query composition in Azure Search is a full specification of a request: match cr
 
 ## A first look at query requests
 
-Examples are useful for introducing new concepts. As a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), this example targets the [real estate demo index](search-get-started-portal.md) and demonstrates key elements: parser type, match criteria, and which fields to search and bring back.
+Examples are useful for introducing new concepts. As a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), this example targets the [real estate demo index](search-get-started-portal.md) and demonstrates key elements: parser type, match criteria, which fields to search, and which to bring back.
 
 ```
 {  
@@ -30,11 +30,11 @@ Examples are useful for introducing new concepts. As a representative query cons
  } 
 ```
 
-**`queryType`** sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
++ **`queryType`** sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
-**`search`** is the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase queries. Search could be undefined, as in **`search=*`**, but more likely consists of terms, phrases, and operators similar what appears in the example.
++ **`search`** is the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase queries. Search could be undefined, as in **`search=*`**, but more likely consists of terms, phrases, and operators similar what appears in the example.
 
-**`searchFields`** is optional, used to limit query execution to specific fields.
++ **`searchFields`** is optional, used to limit query execution to specific fields.
 
 Responses are subject to parameters you include in the query. In this case, the result set consists of fields listed in the **`select`** statement. Only the top 10 are returned in this query, but **`count`** tells you how many documents match overall. In this example, rows are sorted by the listing 
 
@@ -46,9 +46,9 @@ To run this query, use [Search explorer and the real estate demo index](search-g
 
 You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### Enable operations through index attributes
+### How query operations are enabled by the index
 
-Index design and query design are tightly coupled in Azure Search. One critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example, `"$orderby": "daysOnMarket"` only works because the daysOnMarket field is marked as *sortable* in the index schema. 
+Index design and query design are tightly coupled in Azure Search. One critical point to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example query string, `"$orderby": "daysOnMarket"` only works because the daysOnMarket field is marked as *sortable* in the index schema. 
 
 ![Index definition for the real estate sample](./media/search-query-overview/realestate-sample-index-definition.png "Index definition for the real estate sample")
 
@@ -71,17 +71,15 @@ Required elements on a query request include the following components:
 + query string expressed as `search`, which can be unspecified if you want to perform an empty search. You can also send just a filter expression as `$filter`.
 + `queryType`, either simple or full, which can be omitted if you are using the built-in default simple syntax.
 
-All other search parameters are optional.
+All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-## Choose a syntax: simple|full
+## Choose a syntax: simple | full
 
-Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Typical search requests are formulated using the efficient default [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search). This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
+Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Requests using the simple parser are formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), selected as the default for its speed and effectiveness in free form text queries. This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
-The [full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+The [full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Full syntax extends the simple syntax. Any query you write for the simple syntax runs under the full Lucene parser. 
 
-Full syntax extends the simple syntax. Any query you write for the simple syntax runs under the full Lucene parser. The following examples illustrate the point: same query, but with different queryType settings, yield different results.
-
-In the first query, the `^3` is treated as part of the search term.
+The following examples illustrate the point: same query, but with different queryType settings, yield different results. In the first query, the `^3` is treated as part of the search term.
 
 ```
 queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
@@ -111,23 +109,6 @@ Azure Search supports a broad range of query types.
 | [term boosting](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) | Full parser | [Term boosting example](search-query-lucene-examples.md#example-5-term-boosting) |
 | [regular expression search](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex) | Full parser | [Regular expression example](search-query-lucene-examples.md#example-6-regex) |
 |  [wildcard search](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard) | Full parser | [Wildcard search example](search-query-lucene-examples.md#example-7-wildcard-search) |
-
-
-### Simple search and filter expressions
-
-You can use search and filter together or separately. A standalone filter, without a query string, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
-
-```
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
-      "search": "",
-      "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "count": "true"
-    }
-```
-
-Used together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
-
 
 ## Manage search results 
 
