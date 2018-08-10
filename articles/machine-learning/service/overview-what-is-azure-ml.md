@@ -46,11 +46,13 @@ You can choose from many machine learning frameworks available in open-source Py
 - [MXNet](http://mxnet.io)
 -->
 
-- <a href=http://scikit-learn.org/stable/ target=blank>Scikit-learn</a>
-- <a href=https://www.tensorflow.org target=blank>Tensorflow</a>
-- <a href=https://pytorch.org target=blank>PyTorch</a>
-- <a href=https://www.microsoft.com/cognitive-toolkit/ target=blank>CNTK</a>
-- <a href=http://mxnet.io target=blank>MXNet</a>
+<ul>
+<li><a href=http://scikit-learn.org/stable/ target=blank>Scikit-learn</a></li>
+<li><a href=https://www.tensorflow.org target=blank>Tensorflow</a></li>
+<li><a href=https://pytorch.org target=blank>PyTorch</a></li>
+<li><a href=https://www.microsoft.com/cognitive-toolkit/ target=blank>CNTK</a></li>
+<li><a href=http://mxnet.io target=blank>MXNet</a></li>
+</ul>
 
 Once you have a model, you use it to create a Docker container that can be deployed locally for testing, and then as a production web service in either Azure Container Instances or Azure Kubernetes Service.
 
