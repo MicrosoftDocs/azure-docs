@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/02/2018 
+ms.date: 08/10/2018 
 ms.author: alkohli
 
 ---
@@ -33,9 +33,22 @@ The customers using StorSimple 5000-7000 series have the following two key optio
 
 ## Migration - Frequently asked questions
 
-### Q. When do the StorSimple 5000 and 7000 series devices reach end of life? 
+### Q. When do the StorSimple 5000 and 7000 series devices reach end of service? 
 
-A. StorSimple 5000-7000 series reach [end of support life](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. After this time, the devices will be out of support. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
+A. StorSimple 5000-7000 series reach [end of service](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in July 2019. The end of service implies that Microsoft will no longer be able to provide support for both hardware and software of these device after July 2019. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
+
+### Q. What happens to the data I have stored in Azure?  
+
+A. You can continue to use the data in Azure once you migrate it to a newer service. 
+
+
+### Q.	What happens to the data I have stored locally on my StorSimple device? 
+
+A. The data that is on the local device can be copied to the newer service as described in the migration documents.
+
+###	What happens if I want to keep my StorSimple 5000/7000 series appliance? 
+
+A. While the services might continue to work, Microsoft will no longer be able to provide hardware and software support. Migration is strongly recommended for business continuity.
 
 ### Q. What options are available to migrate data from StorSimple 5000-7000 series devices? 
 
@@ -44,7 +57,7 @@ A. Depending on their scenario, StorSimple 5000-7000 series users have the follo
  - **Upgrade to 8000 series**: Use this option when you want to continue on StorSimple platform. 
  - **Migrate to Azure File Sync**: Use this option when you want to switch to Azure native format. You can use Azure File Sync for centralized management of file shares. 
 
-You can contact Microsoft Support ot discuss migration options not listed here.
+You can contact Microsoft Support to discuss migration options not listed here.
 
 ### Q. Is migration to other storage solutions supported?
 
@@ -58,6 +71,10 @@ A. Migrating from 5000 or 7000 series is a fully supported operation. In fact, M
 
 A. Cost of migration varies depending on the option you choose. While migration itself is free, if you decide to upgrade to a StorSimple 8000 series, there will be the cost of the hardware device. Similarly, when using Azure File Sync, the subscription fees for the service may apply. In each case, customers will also have to pay ongoing storage costs. Refer to [Microsoft pricing calculator for the respective services](https://azure.microsoft.com/pricing/#product-picker) for an estimate.  
 
+### Q.	How long does it take to complete a migration?
+
+A. The time to migrate data depends on the amount of the data and the upgrade option selected. 
+
 ## Next steps
  - [Migrate data from a StorSimple 5000-7000 series to an 8000 series device](storsimple-8000-migrate-from-5000-7000.md).
- - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS)
+ - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md)
