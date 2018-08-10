@@ -137,13 +137,13 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
-**Q: How do I integrate Azure AD activity logs with my Splunk instance? 
+**Q: How do I integrate Azure AD activity logs with my Splunk instance?**
 
 **A**: First, [route the Azure AD activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md), then follow the steps to [Integrate activity logs with Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
 ---
 
-**Q: How do I integrate Azure AD activity logs with Sumo Logic? 
+**Q: How do I integrate Azure AD activity logs with Sumo Logic?** 
 
 **A**: First, [route the Azure AD activity logs to an event hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), then follow the steps to [Install the Azure AD application and view the dashboards in SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
