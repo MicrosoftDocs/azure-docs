@@ -87,7 +87,7 @@ As illustrated above, every throttling error includes the `Retry-After` header, 
 
 ## Best practices 
 
-- Do not retry Azure service API errors unconditionally. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retriable. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 
+- Do not retry Azure service API errors unconditionally. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retry-able. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 
 - In high-volume API automation cases, consider implementing proactive client-side self-throttling when the available call count for a target operation group drops below some low threshold. 
 - When tracking async operations, respect the Retry-After header hints. 
 - If the client code needs information about a particular Virtual Machine, a query that VM directly instead of listing all VMs in the containing resource group or the entire subscription and then picking the needed VM on the client side. 
