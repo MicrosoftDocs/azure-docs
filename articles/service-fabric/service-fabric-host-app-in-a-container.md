@@ -222,7 +222,7 @@ Follow the deployment progress in the output window.  When the application is de
 
 ## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
 To learn how to use VSTS to configure CI/CD application deployment to a Service Fabric cluster, see 
-[Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). The process described in the tutorial is the same for this (Fabrikam.Fiber) project, just skip downloading the Voting sample and substitute Fabrikam.Fiber as the repository name instead of Voting.
+[Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). The process described in the tutorial is the same for this (FabrikamFiber) project, just skip downloading the Voting sample and substitute FabrikamFiber as the repository name instead of Voting.
 
 ## Clean up resources
 If you're done, be sure to remove all the resources you created.  The simplest way to is to remove the resources groups that contain the Service Fabric cluster, Azure SQL DB, and Azure Container Registry.
