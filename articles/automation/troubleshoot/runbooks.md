@@ -73,7 +73,7 @@ In order to determine if you have properly authenticated to Azure and have acces
 
 #### Issue
 
-You receive the the following error when authenticating to Azure with your Azure username and password:
+You receive the following error when authenticating to Azure with your Azure username and password:
 
 ```
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
@@ -88,6 +88,26 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
+
+### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
+
+#### Issue
+
+Your runbook fails with an error similar to the following example:
+
+```
+Exception: A task was canceled.
+```
+
+#### Cause
+
+This error can be caused by using outdated Azure modules.
+
+#### Resolution
+
+This error can be resolved by updating your Azure modules to the latest version.
+
+In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing.
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: The runbook fails because of a missing cmdlet
 

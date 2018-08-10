@@ -59,7 +59,7 @@ An Azure credential is needed to execute Azure CLI.
 
 ## Create an Azure App Service for deploying the Java web app
 
-Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
+Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -88,7 +88,7 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
 ### Create an Azure Web app
 
- Use the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
+ Use the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -118,7 +118,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 ### Configure Java 
 
-Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update) command.
+Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update) command.
 
 The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

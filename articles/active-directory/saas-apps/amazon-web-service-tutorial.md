@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Web Services (AWS).
 services: active-directory
@@ -50,7 +50,7 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Amazon Web Services (AWS) from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Configuring and testing Azure AD single sign-on
 
 ## Adding Amazon Web Services (AWS) from the gallery
 To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
@@ -61,15 +61,15 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 
 	![The Azure Active Directory button][1]
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+1. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
 
-4. In the search box, type **Amazon Web Services (AWS)**, select **Amazon Web Services (AWS)** from result panel then click **Add** button to add the application.
+1. In the search box, type **Amazon Web Services (AWS)**, select **Amazon Web Services (AWS)** from result panel then click **Add** button to add the application.
 
 	![Amazon Web Services (AWS) in the results list](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -84,10 +84,10 @@ In Amazon Web Services (AWS), assign the value of the **user name** in Azure AD 
 To configure and test Azure AD single sign-on with Amazon Web Services (AWS), you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Amazon Web Services (AWS) test user](#create-an-amazon-web-services-aws-test-user)** - to have a counterpart of Britta Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+1. **[Create an Amazon Web Services (AWS) test user](#create-an-amazon-web-services-aws-test-user)** - to have a counterpart of Britta Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -99,19 +99,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
 	![Single sign-on dialog box](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
 
-3. On the **Amazon Web Services (AWS) Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+1. On the **Amazon Web Services (AWS) Domain and URLs** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
 	![Amazon Web Services (AWS) Domain and URLs single sign-on information](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-4. The Amazon Web Services (AWS) Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
+1. The Amazon Web Services (AWS) Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 
 	![Configure Single Sign-On attb](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)	
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 	
 	| Attribute Name  | Attribute Value | Namespace |
 	| --------------- | --------------- | --------------- |
@@ -135,29 +135,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**.
 
-6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-7. Click **Save** button.
+1. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/amazon-web-service-tutorial/tutorial_general_400.png)
 
-8. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
+1. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
 
-9. Click **AWS Home**.
+1. Click **AWS Home**.
    
     ![Configure Single Sign-On home][11]
 
-10. Click **Identity and Access Management**. 
+1. Click **Identity and Access Management**. 
    
     ![Configure Single Sign-On Identity][12]
 
-11. Click **Identity Providers**, and then click **Create Provider**. 
+1. Click **Identity Providers**, and then click **Create Provider**. 
    
     ![Configure Single Sign-On Provider][13]
 
-12. On the **Configure Provider** dialog page, perform the following steps: 
+1. On the **Configure Provider** dialog page, perform the following steps: 
    
     ![Configure Single Sign-On dialog][14]
  
@@ -169,15 +169,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
   	d. Click **Next Step**.
 
-13. On the **Verify Provider Information** dialog page, click **Create**. 
+1. On the **Verify Provider Information** dialog page, click **Create**. 
     
     ![Configure Single Sign-On Verify][15]
 
-14. Click **Roles**, and then click **Create role**. 
+1. Click **Roles**, and then click **Create role**. 
     
     ![Configure Single Sign-On Roles][16]
 
-15. On the **Create role** page, perform the following steps:  
+1. On the **Create role** page, perform the following steps:  
     
     ![Configure Single Sign-On Trust][19] 
 
@@ -189,11 +189,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
     d. Click **Next: Permissions**.
 
-16. On the **Attach Permissions Policies** dialog, you don't need to attach any policy. Click **Next: Review**.  
+1. On the **Attach Permissions Policies** dialog, you don't need to attach any policy. Click **Next: Review**.  
     
     ![Configure Single Sign-On Policy][33]
 
-17. On the **Review** dialog, perform the following steps:   
+1. On the **Review** dialog, perform the following steps:   
     
     ![Configure Single Sign-On Review][34] 
 
@@ -205,21 +205,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. Create as many roles as needed and map them to the Identity Provider.
 
-18. Use AWS service account credentials for fetching the roles from AWS account in Azure AD User Provisioning. For this, open the AWS console home.
+1. Use AWS service account credentials for fetching the roles from AWS account in Azure AD User Provisioning. For this, open the AWS console home.
 
-19. Click on **Services** -> **Security, Identity& Compliance** -> **IAM**.
+1. Click on **Services** -> **Security, Identity& Compliance** -> **IAM**.
 
 	![fetching the roles from AWS account](./media/amazon-web-service-tutorial/fetchingrole1.png)
 
-20. Select the **Policies** tab in the IAM section.
+1. Select the **Policies** tab in the IAM section.
 
 	![fetching the roles from AWS account](./media/amazon-web-service-tutorial/fetchingrole2.png)
 
-21. Create a new policy by clicking on **Create policy** for fetching the roles from AWS account in Azure AD User Provisioning.
+1. Create a new policy by clicking on **Create policy** for fetching the roles from AWS account in Azure AD User Provisioning.
 
 	![Creating new policy](./media/amazon-web-service-tutorial/fetchingrole3.png)
 
-22. Create your own policy to fetch all the roles from AWS accounts by performing the following steps:
+1. Create your own policy to fetch all the roles from AWS accounts by performing the following steps:
 
 	![Creating new policy](./media/amazon-web-service-tutorial/policy1.png)
 
@@ -259,7 +259,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Define the new policy](./media/amazon-web-service-tutorial/policy5.png)
 
-23. Define the **new policy** by performing the following steps:
+1. Define the **new policy** by performing the following steps:
 
 	![Define the new policy](./media/amazon-web-service-tutorial/policy2.png)
 
@@ -269,7 +269,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Click on **“Create Policy”** button.
 
-24.	Create a new user account in the AWS IAM Service by performing the following steps:
+1.	Create a new user account in the AWS IAM Service by performing the following steps:
 
 	a. Click on **Users** navigation in the AWS IAM console.
 
@@ -289,7 +289,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	* Click on the **Next Permissions** button in the bottom right corner.
 
-25. Now create a new policy for this user by performing the following steps:
+1. Now create a new policy for this user by performing the following steps:
 
 	![Add user](./media/amazon-web-service-tutorial/adduser2.png)
 	
@@ -299,7 +299,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Select the **policy** and then click on the **Next: Review** button.
 
-26.	Review the policy to the attached user by performing following steps:
+1.	Review the policy to the attached user by performing following steps:
 
 	![Add user](./media/amazon-web-service-tutorial/adduser3.png)
 	
@@ -307,7 +307,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Click on the **Create user** button at the bottom right corner to create the user.
 
-27. Download the user credentials of a user by performing following steps:
+1. Download the user credentials of a user by performing following steps:
 
 	![Add user](./media/amazon-web-service-tutorial/adduser4.png)
 	
@@ -317,11 +317,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Click on **Close** button at the bottom.
 
-28. Navigate to **User Provisioning** section of Amazon Web Services app in Azure AD Management Portal.
+1. Navigate to **User Provisioning** section of Amazon Web Services app in Azure AD Management Portal.
 
 	![Add user](./media/amazon-web-service-tutorial/provisioning.png)
 
-29. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** field respectively.
+1. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** field respectively.
 
 	![Add user](./media/amazon-web-service-tutorial/provisioning1.png)
 	
@@ -333,7 +333,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Save the setting by clicking on the **Save** button at the top.
  
-30. Now make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
+1. Now make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
 
 	![Add user](./media/amazon-web-service-tutorial/provisioning2.png)
 
@@ -353,15 +353,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The Azure Active Directory button](./media/amazon-web-service-tutorial/create_aaduser_01.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+1. To display the list of users, go to **Users and groups**, and then click **All users**.
 
     ![The "Users and groups" and "All users" links](./media/amazon-web-service-tutorial/create_aaduser_02.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
 
     ![The Add button](./media/amazon-web-service-tutorial/create_aaduser_03.png)
 
-4. In the **User** dialog box, perform the following steps:
+1. In the **User** dialog box, perform the following steps:
 
     ![The User dialog box](./media/amazon-web-service-tutorial/create_aaduser_04.png)
 
@@ -389,23 +389,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][201] 
 
-2. In the applications list, select **Amazon Web Services (AWS)**.
+1. In the applications list, select **Amazon Web Services (AWS)**.
 
 	![The Amazon Web Services (AWS) link in the Applications list](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
 
-3. In the menu on the left, click **Users and groups**.
+1. In the menu on the left, click **Users and groups**.
 
 	![The "Users and groups" link][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
 	![The Add Assignment pane][203]
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
-6. Click **Select** button on **Users and groups** dialog.
+1. Click **Select** button on **Users and groups** dialog.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+1. Click **Assign** button on **Add Assignment** dialog.
 	
 ### Test single sign-on
 

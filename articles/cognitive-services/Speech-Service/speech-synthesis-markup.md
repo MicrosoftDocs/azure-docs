@@ -1,10 +1,9 @@
 ---
-title: The Speech Synthesis Markup Language | Microsoft Docs
+title: The Speech Synthesis Markup Language
 description: Using the Speech Synthesis Markup language to control pronunciation and prosody in text-to-speech.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 
 ms.service: cognitive-services
 ms.component: speech-service

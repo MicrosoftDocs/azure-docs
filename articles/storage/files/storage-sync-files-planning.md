@@ -2,19 +2,12 @@
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Planning for an Azure File Sync deployment
@@ -145,13 +138,17 @@ For more information, see [DFS Replication overview](https://technet.microsoft.c
 Using sysprep on a server which has the Azure File Sync agent installed is not supported and can lead to unexpected results. Agent installation and server registration should occur after deploying the server image and completing sysprep mini-setup.
 
 ### Windows Search
-If cloud tiering is enabled on a server endpoint, files that are tired are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
 
 The following solutions are known to support skipping offline files:
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender automatically skips reading such files. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP works the same as Defender; see above
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (see "Scan only what you need to" on page 90 of the PDF)
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
@@ -176,7 +173,7 @@ Azure File Sync is known not to work with:
 
 - NTFS Encrypted File System (EFS)
 
-In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as BitLocker. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
+In general, Azure File Sync should support interoperability with encryption solutions that sit below the file system, such as BitLocker, and with solutions that are implemented in the file format, such as Azure Information Protection. No special interoperability has been made for solutions that sit above the file system (like NTFS EFS).
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
