@@ -135,19 +135,19 @@ The steps in this section are for devices running **Ubuntu 16.04**. To access th
 
 The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
 
-Update **apt-get**.
+1. Update **apt-get**.
 
    ```bash
    sudo apt-get update
    ```
 
-Install **Moby**, a container runtime.
+2. Install **Moby**, a container runtime.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Install the CLI commands for Moby. 
+3. Install the CLI commands for Moby. 
 
    ```bash
    sudo apt-get install moby-cli
