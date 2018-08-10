@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: iot-edge
-author: wesmc7777
+author: kgremban
 ms.service: iot-edge
 ms.topic: include
 ms.date: 06/26/2018
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: include file
 ---
 

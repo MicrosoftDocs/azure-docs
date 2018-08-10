@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -40,7 +40,7 @@ Ensure that the following prerequisites are in place.
 ### In your on-premises environment
 
 1. Identify a server running Windows Server 2012 R2 or later to run Azure AD Connect. Add the server to the same Active Directory forest as the users whose passwords you need to validate.
-2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.644.0 or later.
+2. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in the preceding step. If you already have Azure AD Connect running, ensure that the version is 1.1.750.0 or later.
 
     >[!NOTE]
     >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
@@ -57,6 +57,7 @@ Ensure that the following prerequisites are in place.
     | --- | --- |
     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
     | **443** | Handles all outbound communication with the service |
+    | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
    
     If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
@@ -68,7 +69,7 @@ Ensure that the following prerequisites are in place.
 Enable Pass-through Authentication through [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->You can enable Pass-through Authentication on the Azure AD Connect primary or staging server. It is recommended that you enable it from the primary server.
+>You can enable Pass-through Authentication on the Azure AD Connect primary or staging server. It is highly recommended that you enable it from the primary server. If you are setting up an Azure AD Connect staging server in the future, you **must** continue to choose Pass-through Authentication as the sign-in option; choosing another option will **disable** Pass-through Authentication on the tenant and override the setting in the primary server.
 
 If you're installing Azure AD Connect for the first time, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, choose **Pass-through Authentication** as the **Sign On method**. On successful completion, a Pass-through Authentication Agent is installed on the same server as Azure AD Connect. In addition, the Pass-through Authentication feature is enabled on your tenant.
 

@@ -1,6 +1,7 @@
 ---
 title: Review your access | Microsoft Docs
 description: Review your access with Azure Active Directory 
+services: active-directory
 author: rolyon
 manager: mtillman
 editor: markwahl-msft
@@ -9,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl

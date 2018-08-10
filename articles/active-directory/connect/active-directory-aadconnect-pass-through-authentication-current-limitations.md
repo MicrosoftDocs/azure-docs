@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -30,19 +30,19 @@ The following scenarios are supported:
 - User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, EAS, SMTP, POP and IMAP.
 - User sign-ins to legacy Office client applications and Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2010, 2013 and 2016 versions.
 - User sign-ins to legacy protocol applications such as PowerShell version 1.0 and others.
-- Azure AD domain joins for Windows 10 devices.
+- Azure AD joins for Windows 10 devices.
 - App passwords for Multi-Factor Authentication.
 
 ## Unsupported scenarios
 
 The following scenarios are _not_ supported:
 
-- Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Detection of users with [leaked credentials](../reports-monitoring/concept-risk-events.md#leaked-credentials).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->As a workaround for unsupported scenarios _only_, enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. When users sign into applications listed in the "unsupported scenarios" section, those specific sign-in requests are _not_ handled by Pass-through Authentication Agents, and therefore will not be recorded in [Pass-through Authentication logs](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>As a workaround for unsupported scenarios _only_ (except Azure AD Connect Health integration), enable Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. When users sign into applications listed in the "unsupported scenarios" section, those specific sign-in requests are _not_ handled by Pass-through Authentication Agents, and therefore will not be recorded in [Pass-through Authentication logs](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Enabling Password Hash Synchronization gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Password Hash Synchronization is not automatic. You'll need to switch the sign-in method manually using Azure AD Connect. If the server running Azure AD Connect goes down, you'll require help from Microsoft Support to turn off Pass-through Authentication.

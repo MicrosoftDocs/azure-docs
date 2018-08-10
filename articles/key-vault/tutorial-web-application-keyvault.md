@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure an Azure web application to read a secret from Key vault tutorial | Microsoft Docs
 description: Tutorial Configure an ASP.Net core application to read a secret from Key vault
 services: key-vault
@@ -40,7 +40,7 @@ az login
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 

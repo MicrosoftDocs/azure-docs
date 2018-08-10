@@ -23,7 +23,7 @@ There are currently five effects that are supported in a policy definition:
 - Audit
 - AuditIfNotExists
 - Deny
-- DeployIfNotExists
+- DeployIfNotExists (only available to **built-in** policies)
 
 ## Order of Evaluation
 
@@ -245,6 +245,9 @@ when missing.
 
 Similar to AuditIfNotExists, DeployIfNotExists executes a template deployment when the condition
 is met.
+
+> [!WARNING]
+> DeployIfNotExists is only available to **built-in** policies.
 
 ### DeployIfNotExists Evaluation
 

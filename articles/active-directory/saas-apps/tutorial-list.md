@@ -326,7 +326,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate - User Provisioning](linkedinelevate-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - User Provisioning](linkedinlearning-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - User Provisioning](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|
@@ -458,7 +458,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](safetynet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|[Salesforce - User Provisioning](salesforce-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [Salesforce Sandbox](salesforce-sandbox-tutorial.md)|[Salesforce Sandbox - User Provisioning](salesforce-sandbox-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|[Samanage - User Provisioning](samanage-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-saml-tutorial.png)| [SAML 1.1 Token enabled LOB App](saml-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bamboo-tutorial.png)| [SAML SSO for Bamboo by resolution GmbH](bamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bitbucket-tutorial.png)| [SAML SSO for Bitbucket by resolution GmbH](bitbucket-tutorial.md)|

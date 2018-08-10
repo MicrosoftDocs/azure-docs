@@ -13,39 +13,57 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 08/03/2018
 ms.author: damaerte
 ---
 
 # PowerShell in Azure Cloud Shell for Windows users
 
-In May 2018, changes were [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) to PowerShell in Azure Cloud Shell.  The PowerShell experience in Azure Cloud Shell is now PowerShell Core 6 in Linux.
-With this change, there are some aspects of PowerShell in Cloud Shell that may be different than what is expected in Windows PowerShell 5.1.
+In May 2018, changes were [announced](https://azure.microsoft.com/blog/pscloudshellrefresh/) to PowerShell in Azure Cloud Shell.
+The PowerShell experience in Azure Cloud Shell now runs [PowerShell Core 6](https://github.com/powershell/powershell) in a Linux environment.
+With this change, there may be some differences in the PowerShell experience in Cloud Shell compared to what is expected in a Windows PowerShell experience.
 
-## Case sensitivity
+## File system case sensitivity
 
-In Windows, the file system is case-insensitive.  In Linux, the file system is case-sensitive.
-This means that previously `file.txt` and `FILE.txt` were considered to be the same file, now they are considered to be different files.
-Proper casing must be used while `tab` completing in the file system.  PowerShell specific experiences, such as `tab` cmdlets, are not case-sensitive. 
+The file system is case-insensitive in Windows, whereas on Linux, the file system is case-sensitive.
+Previously `file.txt` and `FILE.txt` were considered to be the same file, but now they are considered to be different files.
+Proper casing must be used while `tab-completing` in the file system.
+PowerShell specific experiences, such as `tab-completing` cmdlet names, parameters, and values, are not case-sensitive.
 
-## Windows PowerShell alias vs Linux utilities
+## Windows PowerShell aliases vs Linux utilities
 
-Existing commands in Linux, such as `ls`, `sort`, and `sleep` take precedence over their PowerShell aliases.  Below are common removed aliases as well as the equivalent commands:  
+Some existing PowerShell aliases have the same names as built-in Linux commands, such as `cat`,`ls`, `sort`, `sleep`, etc.
+In PowerShell Core 6, aliases that collide with built-in Linux commands have been removed.
+Below are the common aliases that have been removed as well as their equivalent commands:  
 
 |Removed Alias   |Equivalent Command   |
 |---|---|
+|`cat`    | `Get-Content` |
+|`curl`   | `Invoke-WebRequest` |
+|`diff`   | `Compare-Object` |
 |`ls`     | `dir` <br> `Get-ChildItem` |
-|`sort`   | `Sort-Object` |
+|`mv`     | `Move-Item`   |
+|`rm`     | `Remove-Item` |
 |`sleep`  | `Start-Sleep` |
+|`sort`   | `Sort-Object` |
+|`wget`   | `Invoke-WebRequest` |
 
-## Persisting $home vs $home\clouddrive
+## Persisting $HOME
 
-For users of who persisted scripts and other files in their Cloud Drive, the $HOME directory is now persisted across sessions.
+Earlier users could only persist scripts and other files in their Cloud Drive.
+Now, the user's $HOME directory is also now persisted across sessions.
 
 ## PowerShell profile
 
-By default, a PowerShell profile is not created.  To create your profile, create a `PowerShell` directory under `$HOME/.config`.  In `$HOME/.config/PowerShell`, you can create your profile under the name `Microsoft.PowerShell_profile.ps1`.
+By default, a user's PowerShell profile is not created.
+To create your profile, create a `PowerShell` directory under `$HOME/.config`.
+
+```azurepowershell-interactive
+mkdir (Split-Path $profile.CurrentUserAllHosts)
+```
+
+Under `$HOME/.config/PowerShell`, you can create your profile files - `profile.ps1` and/or `Microsoft.PowerShell_profile.ps1`.
 
 ## What's new in PowerShell Core 6
 
-For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post
+For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post.

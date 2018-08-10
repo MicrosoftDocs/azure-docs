@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 08/02/2018
 ms.author: jaredro
 ---
 # ExpressRoute partners and peering locations
@@ -56,8 +56,9 @@ The table below provides information on regions and geopolitical boundaries for 
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China** |China North, China East |Beijing, Shanghai |
+| **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **China East** |China East, China East2 |Shanghai |
+| **China North** |China North, China North2 |Beijing |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -116,7 +117,7 @@ The following table shows connectivity locations and the service providers for e
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
-| **New York** |Equinix, Level 3 Communications+, Verizon |
+| **New York** |Equinix, CenturyLink Cloud Connect, Verizon |
 | **Phoenix** | CenturyLink Cloud Connect |
 | **San Antonio** | Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications |
@@ -134,7 +135,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 ### Germany
 | **Location** | **Service Providers** |
 | --- | --- |
-| **Berlin** |Colt+, e-shelter, Megaport+, T-Systems |
+| **Berlin** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivity Through Exchange Providers

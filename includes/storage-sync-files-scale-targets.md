@@ -19,7 +19,7 @@
 | Server endpoints per server | 33-99 server endpoints | Yes, but varies based on configuration |
 | Endpoint size | 4 TiB | No |
 | File system objects (directories and files) per sync group | 25 million objects | No |
-| Maximum number of file system objects (directories and files) in a directory | 200,000 objects | No |
+| Maximum number of file system objects (directories and files) in a directory | 200,000 objects | Yes |
 | Maximum object (directories and files) name length | 255 characters | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | 64 KiB | Yes |
