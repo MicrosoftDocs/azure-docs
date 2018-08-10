@@ -27,8 +27,8 @@ After [creating the createUiDefinition.json file](create-uidefinition-overview.m
 
 To test your interface in the portal, copy one of the following scripts to your local machine:
 
-* [PowerShell side load](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1)
-* [Azure CLI side load](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
+* [PowerShell side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [Azure CLI side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
 ## Run script
 
@@ -39,37 +39,41 @@ Provide a location for the storage account, and specify the folder that has your
 For PowerShell, use:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 -StorageResourceGroupLocation southcentralus -ArtifactsStagingDirectory <path-to-folder>
+.\SideLoad-CreateUIDefinition.ps1 `
+  -StorageResourceGroupLocation southcentralus `
+  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
 ```
 
 For Azure CLI, use:
 
 ```azurecli
-./sideload-createuidef.sh -l southcentralus -a <path-to-folder>
+./sideload-createuidef.sh \
+  -l southcentralus \
+  -a <path-to-folder-with-createuidefinition>
 ```
 
 ## Test your interface
 
-Your interface for creating the managed application is displayed in the portal.
+The script opens a new tab in your browser. It displays the portal with your interface for creating the managed application.
 
 ![View portal](./media/test-createuidefinition/view-portal.png)
 
-Before filling out the fields, open the developer tools in your browser. To see important messages about your interface, select **Console**.
+Before filling out the fields, open the Web Developer Tools in your browser. The **Console** displays important messages about your interface.
 
 ![Select console](./media/test-createuidefinition/select-console.png)
-
-Provide values for the fields. When finished, you see the values that are passed to the template.
-
-![Show values](./media/test-createuidefinition/show-json.png)
 
 If your interface definition has an error, you see the description in the console.
 
 ![Show error](./media/test-createuidefinition/show-error.png)
 
+Provide values for the fields. When finished, you see the values that are passed to the template.
+
+![Show values](./media/test-createuidefinition/show-json.png)
+
+## Test your solution files
+
+Now that you've verified your portal interface is working as expected, it's time to validate that your createUiDefinition file is properly integrated with your mainTemplate.json file. You can run a validation script test to test the content of your solution files, including the createUiDefinition file. The script validates the JSON syntax, checks for regex expressions on text fields, and makes sure the output values of the portal interface match the parameters of your template. For information on running this script, see [Run static validation checks for templates](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests).
+
 ## Next steps
-The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
 
-- [Elements](create-uidefinition-elements.md)
-- [Functions](create-uidefinition-functions.md)
-
-A current JSON schema for createUiDefinition is available here: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](publish-marketplace-app).
