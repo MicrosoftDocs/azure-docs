@@ -15,7 +15,7 @@ ms.author: heidist
 
 [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an Azure Search index. The simple query analyzer is fast and handles common scenarios in Azure Search, including full text search, filtered and faceted search, and geo-search. In this article, step through examples demonstrating query operations available when using the simple syntax.
 
-The alternative query syntax is [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Lucene syntax query examples](search-query-lucene-examples.md).
+The alternative query syntax is [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Lucene syntax query examples](search-query-lucene-examples.md).
 
 ## Formulate requests in Postman
 

@@ -88,7 +88,7 @@ Response for this query should look similar to the following screenshot.
 
 You might have noticed that the search score is also returned for every document even though search score is not specified. This is because search score is metadata, with the value indicating rank order of results. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because there is no criteria to apply. For null search, there is no criteria and the rows coming back are in arbitrary order. As the search criteria takes on more definition, you will see search scores evolve into meaningful values.
 
-## Example 2: In-field filtering
+## Example 2: Intra-field filtering
 
 Full Lucene syntax supports expressions within a field. This query searches for business titles with the term senior in them, but not junior:
 
