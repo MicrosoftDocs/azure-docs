@@ -330,6 +330,8 @@ items:
           href: mongodb-readpreference.md
         - name: Indexing
           href: mongodb-indexing.md
+        - name: Time to live - MongoDB
+          href: mongodb-time-to-live.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
       - name: Resources
@@ -436,7 +438,7 @@ items:
         href: manage-account.md
       - name: Throughput
         href: set-throughput.md
-      - name: Expire data automatically
+      - name: Time to live
         href: time-to-live.md
       - name: Diagnostic logging
         href: logging.md

@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## Create an application gateway with a WAF
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPSddress* that you previously created.
 
 ```azurecli-interactive
 az network application-gateway create \
