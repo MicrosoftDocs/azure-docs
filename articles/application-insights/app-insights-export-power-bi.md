@@ -26,7 +26,7 @@ There are three methods of exporting Application Insights data to Power BI:
 * [**Power BI adapter**](#power-pi-adapter). The set of charts is predefined, but you can add your own queries from any other sources.
 
 > [!NOTE]
-> The Power BI adapter is now deprecated. The predefined charts for this solution are populated by static uneditable queries. You do not have the ability to edit these queries and depending on certain properties of your data it is possible for the connection to Power BI to be successful, but no data is populated. This is due to exclusion criteria that are set within the hardcoded query. While this solution may still work for some customers, due to the lack of flexiblity of the adapter the recommended solution is to use the [**export Analytics query**](#export-analytics-queries) functionality.
+> The Power BI adapter is now **deprecated**. The predefined charts for this solution are populated by static uneditable queries. You do not have the ability to edit these queries and depending on certain properties of your data it is possible for the connection to Power BI to be successful, but no data is populated. This is due to exclusion criteria that are set within the hardcoded query. While this solution may still work for some customers, due to the lack of flexiblity of the adapter the recommended solution is to use the [**export Analytics query**](#export-analytics-queries) functionality.
 
 ## Power BI adapter
 This method creates a complete dashboard of telemetry for you. The initial dataset is predefined, but you can add more data to it.
