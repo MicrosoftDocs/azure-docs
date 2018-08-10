@@ -19,6 +19,7 @@ Microsoft provides a variety of products and services to build, deploy, and mana
 
 In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), there are a variety of options at Microsoft to build, deploy, and manage your machine learning models.
 
+<!--
 | Use this option...                                                            | if you want to do this... |
 | ----------------------------------------------------------------------------- | ---------------- |
 | [Azure Machine Learning Services](#azure-machine-learning-services) | build and deploy models in the cloud using Python and CLI |
@@ -33,6 +34,7 @@ In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), 
 | | |
 | [Azure Cognitive Services](#azure-cognitive-services)                         | use pre-built machine learning models in applications     |
 | | |
+-->
 
 <!-- Trying a different kind of table
 | | | | | | | |
@@ -44,7 +46,10 @@ In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), 
 | Visual Studio Code & other IDEs |   |   |   |   | High | ✓ |
 -->
 
+<!--
 | Microsoft machine learning product/service | What it is | What you do with it |
+-->
+| | | |
 |-|-|-|
 | [Azure Machine Learning Services](#azure-machine-learning-services) | Managed machine learning cloud service | Build, experiment, and deploy models in the cloud using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag-and-drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
