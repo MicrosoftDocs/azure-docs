@@ -116,7 +116,7 @@ The `<service principal ID>` can be the service principal's **appId**, **objectI
 
 ## Push a trusted image
 
-To push a trusted image to your container registry, enable content trust and push the image with `docker push`. The first time you push a signed image, you're asked to create a passphrase for both a root (or "offline") signing key and a repository signing key.
+To push a trusted image to your container registry, enable content trust and push the image with `docker push`. The first time you push a signed tag, you're asked to create a passphrase for both a root (or "offline") signing key and a repository signing key.
 
 ```console
 $ docker push myregistry.azurecr.io/myimage:v1
@@ -142,7 +142,7 @@ Successfully signed myregistry.azurecr.io/myimage:v1
 
 ## Next steps
 
-See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, additional important content trust topics can be found here:
+See the Docker documentation for valuable information about content trust. While several key points were touched on in this article, content trust is an extensive topic and is covered in-depth here:
 
 [Content trust in Docker][docker-content-trust]
 
