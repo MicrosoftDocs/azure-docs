@@ -26,7 +26,7 @@ For example,
 ## Configuring Key Vault firewalls and virtual networks
 
 Here are the steps required to configure firewalls and virtual networks. These steps remain same irrespective of what interface (PowerShell, CLI, Azure Portal) you will use to setup the firewall and virtual network rules.
-* Optional but highly recommended: Enable key vault logging to see detailed access logs. This will help you in diagnostics when firewalls and virtual network rules prevent access to a key vault.
+* Optional but highly recommended: Enable [key vault logging](key-vault-logging.md) to see detailed access logs. This will help you in diagnostics when firewalls and virtual network rules prevent access to a key vault.
 * Enable 'service endpoints for key vault' for target virtual network(s) and subnet(s)
 * Set firewalls and virtual network rules for a key vault to restrict access to that key vault from specific virtual network(s), subnet(s) and IPv4 address ranges.
 * If this key vault needs to be accessible by any trusted Microsoft services, you need to enable the option to allow 'Trusted Azure Services' to connect to key vault.
