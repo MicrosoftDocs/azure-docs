@@ -29,7 +29,7 @@ Then you may have to create and align some box-colliders to turn reverb zones of
 Finally, engage the developer team to add ray-tracing logic to get the right occlusion/obstruction filtering throughout the scene.
 
 ## Materials-based design
-In materials-based design, you mark up a scene’s architecture and its materials, then use physics to calculate sound propagation from all possible sound and player locations. The results are occlusion, obstruction, and reverberation parameters that you can use as-is, or as a starting point for your own design.
+With our approach, you provide a static scene’s shape and its materials. A simplified or watertight acoustics mesh is not required. Azure then analyzes and "bakes" the scene’s acoustics using numerous volumetric wave simulations. At runtime, for a dynamic source and listener location, we lookup the baked data for occlusion, obstruction, direction, and reverberation parameters. The effects can be used as-is, or designed using our tools to meet your artistic goals.
 
 This Designer Preview is your portal to materials-based design for your Unity title. Its design process helps you scale faster to large scenes, respond quickly to level-design changes, and achieve greater player immersion through more detailed designs.
 ![Design View](media/GearsWithVoxels.jpg)

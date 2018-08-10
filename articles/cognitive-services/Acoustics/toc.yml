@@ -1,13 +1,20 @@
-- name: Acoustics
-  href: What-Is-Acoustics.md
+- name: Overview
+  items:
+  - name: What is Acoustics?
+    href: What-Is-Acoustics.md
+- name: Quickstarts
   items:
   - name: Getting Started
     href: GettingStarted.md
-  - name: Create Azure Batch Account
+- name: How-Tos
+  items:
+  - name: Create an Azure Batch Account
     href: CreateAzureAccount.md
-  - name: Bake Walkthru
+  - name: Bake Walk-through
     href: BakeUIWalkthrough.md
-  - name: Sample Walkthru
+  - name: Sample Walk-through
     href: SampleWalkthrough.md
+- name: Resources
+  items:
   - name: Frequently Asked Questions
     href: faq.md
