@@ -85,18 +85,18 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 
 ## Next steps
 
-1. Create a machine learning workspace using one of our "Get started with Azure Machine Learning Services" quickstarts:
+- Create a machine learning workspace using one of the "Get started with Azure Machine Learning Services" quickstarts:
 
    - [Use Azure Portal to get started](quickstart-get-started.md) 
    - [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
 
-1. Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services. 
+- Follow the full-length [tutorial](tutorial-train-models-with-aml.md) to learn how to train and deploy models with Azure Machine Learning Services
 
-1. For a more technical, in-depth look at Azure Machine Learning Services, see [Azure Machine Learning Services architecture and concepts](concept-azure-machine-learning-architecture.md).
+- For a more technical, in-depth look at Azure Machine Learning Services, see [Azure Machine Learning Services architecture and concepts](concept-azure-machine-learning-architecture.md)
 
 <!-- 
 
-Check with Serina to see if she is planning a video that could go here. Basically an intro to AML or an end-to-end quickstart.
+An intro to AML or an end-to-end quickstart video could go here.
 
 In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
 

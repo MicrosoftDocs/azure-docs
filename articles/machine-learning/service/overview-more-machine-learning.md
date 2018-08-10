@@ -1,5 +1,5 @@
 ---
-title: Machine learning products from Microsoft - Azure Machine Learning | Microsoft Docs
+title: Machine learning products and servcies from Microsoft - Azure | Microsoft Docs
 description: Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. 
 services: machine-learning
 author: haining
@@ -15,9 +15,7 @@ ms.date: 08/10/2018
 
 # Machine learning products and services from Microsoft
 
-Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. 
-
-In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), there are a variety of options at Microsoft to build, deploy, and manage your machine learning models.
+Microsoft provides a variety of products and services to build, deploy, and manage your machine learning models. Choose the product or service you need to develop your machine learning solutions most effectively.
 
 <!--
 | Use this option...                                                            | if you want to do this... |
@@ -60,9 +58,9 @@ In addition to [Azure Machine Learning Services](overview-what-is-azure-ml.md), 
 | [ML.NET](#ml-net) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
 | | | |
-| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools |  |
+| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop machine learning solutions in a pre-configured environment |
 | | | |
-| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built machine learning models | Add machine learning to applications quickly |
+| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built machine learning models | Easily add intelligent features to your apps |
 
 ## Azure Machine Learning Services
 
@@ -137,8 +135,8 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Next steps
 
-Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).
+- Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md)
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
