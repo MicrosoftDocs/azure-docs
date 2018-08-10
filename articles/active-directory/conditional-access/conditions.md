@@ -25,7 +25,7 @@ ms.reviewer: calebb
 
 # What are conditions in Azure Active Directory conditional access? 
 
-You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response to the reason for triggering your policy. An example response is **Then do this**. An example reason is **When this happens**.
+You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens"). 
 
 ![Reason and response](./media/conditions/10.png)
 
@@ -69,9 +69,11 @@ The **cloud apps** condition is mandatory in a conditional access policy. In you
 
 ![Include cloud apps](./media/conditions/03.png)
 
-- Select **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
+Select:
 
-- Select individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
+- **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
+
+- Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
 
 You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
 
@@ -79,7 +81,8 @@ You can exclude specific apps from a policy. However, these apps are still subje
 
 ## Sign-in risk
 
-A sign-in risk is an indicator of the high, medium, or low likelihood that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. The calculated sign-in risk level can be a condition in a conditional access policy. 
+A sign-in risk is an indicator of the likelihood (high, medium, or low) that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. 
+You can use the calculated sign-in risk level as condition in a conditional access policy.
 
 ![Sign-in risk levels](./media/conditions/22.png)
 
