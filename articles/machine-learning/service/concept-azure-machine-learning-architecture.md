@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 
 # Azure Machine Learning Services architecture and concepts
 
-The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning, including run history records, compute targets, models, Docker images, and deployments, among other things. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an AppInsights instance. It is also the security boundary for enabling secured sharing and collaboration among multiple users. 
+The __Azure Machine Learning workspace__ is the top-level Azure resource for Azure Machine Learning. It's a logical container for all artifacts created by users when using Azure Machine Learning, including run history records, compute targets, models, Docker images, and deployments, among other things. Each workspace is supported by a list of associated Azure sources including a blob storage account, a KeyVault, an Azure Container Registry, and an Application Insights instance. It is also the security boundary for enabling secured sharing and collaboration among multiple users. 
 
 The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
 
@@ -105,7 +105,7 @@ Azure IoT Edge will ensure that your module is running and monitor the device th
 
 A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores. 
 
-You can use the Python SDK API or Azure ML CLI to store and retrieve files from the datastore. 
+You can use the Python SDK API or Azure Machine Learning CLI to store and retrieve files from the datastore. 
 
 ## Run
 A run is an execution record stored in a run history under a workspace.
@@ -130,7 +130,7 @@ A run configuration can be persisted into a file inside your project, or can be 
 
 ## Compute target
 
-A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure ML Python SDK or CLI. You can also attach existing compute targeted in Azure. The supported compute targets are: 
+A compute target is the compute resource used to execute your training script or host your web service deployment. They can be created and managed by using Azure Machine Learning Python SDK or CLI. You can also attach existing compute targeted in Azure. The supported compute targets are: 
 
 * Your local computer
 * A Linux VM in Azure (such as the Data Science Virtual Machine)
