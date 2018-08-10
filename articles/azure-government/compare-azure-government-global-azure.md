@@ -22,9 +22,7 @@ ms.author: juliako
 
 Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Azure Government includes Geo-Synchronous data replication, auto scaling, network, storage, data management, identity management, among other services. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](documentation-government-developer-guide.md).
 
-As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. To see variations between Azure Government and global Azure, see [Compare Azure Government and global Azure](compare-azure-government-and-global-azure.md) and click on individual service.
-
-This aticle lists and links to the services that are currently available in Azure Government. The services specific articles including two key types of information:
+As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. This document describes variations between Azure Government and global Azure. To see variations of a specific service, click on the link of that service. The services specific articles including two key types of information:
 
 * **Variations**: Variations due to features that are not deployed yet or properties (for example, URLs) that are unique to the government environment.  
 * **Considerations**: Government-specific implementation detail to ensure that data stays within your compliance boundary.
@@ -127,7 +125,7 @@ For the most current list of services, see the [Products available by region](ht
 
 * [DevTest Labs](documentation-government-services-devtools.md#devtest-labs) 
 
-## Next Steps
+## Next steps
 
 Learn more about Azure Government:
 
