@@ -31,7 +31,7 @@ The following video gives a good introduction of Azure Government.
 
 Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Azure Government includes Geo-Synchronous data replication, auto scaling, network, storage, data management, identity management, among other services. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](documentation-government-developer-guide.md).
 
-As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. To see variations between Azure Government and global Azure, see [Compare Azure Government and global Azure](compare-azure-government-and-global-azure.md) and click on individual service.
+As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as global Azure. To see variations between Azure Government and global Azure, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on individual service.
 
 ## Get started
 
@@ -45,7 +45,7 @@ To start using Azure Government, first check out [Guidance for developers](docum
 * [Connect with SQL Server Management Studio](documentation-government-connect-ssms.md)
 * [Connect to Storage in Azure Government](documentation-government-get-started-connect-to-storage.md)
 
-## Next Steps
+## Next steps
 
 Learn more about Azure Government: [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
 
