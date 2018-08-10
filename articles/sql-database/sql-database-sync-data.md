@@ -173,7 +173,10 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
 -   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 -   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
-   
+
+### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China)?
+Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them?
 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
