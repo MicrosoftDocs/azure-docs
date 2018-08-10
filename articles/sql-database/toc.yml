@@ -478,7 +478,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS reference architecture
+  - name: Multi-tenant SaaS sample application
     items:
     - name: Wingtip Tickets sample
       href: saas-tenancy-welcome-wingtip-tickets-app.md
