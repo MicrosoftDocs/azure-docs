@@ -83,9 +83,9 @@ with the corresponding `function.json`:
 
 ```
 
-## Using third party libraries 
+## Third-party libraries 
 
-Azure Functions supports the use of 3rd party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries that are not specified as dependencies in the `pom.xml` file, you may place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
+Azure Functions supports the use of third party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries that are not specified as dependencies in the `pom.xml` file, you may place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
 
 ## Data Types
 
@@ -141,7 +141,7 @@ Empty input values could be `null` as your functions argument, but a recommended
 
 ## Function method overloading
 
-You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in one class, and Azure Functions runtime decides which one to invoke by examine the actual input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class, and Azure Functions runtime will decide which to invoke by examining the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
@@ -174,9 +174,9 @@ When this function is invoked, the HTTP request payload will be passed as the St
 
 Outputs can be expressed both in return value or output parameters. If there is only one output, you are recommended to use the return value. For multiple outputs, you have to use output parameters.
 
-Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
+Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as a HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
 
-To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make a HTTP response and push a message to a queue as well, you can write something like:
 
 For example, a blob content copying function could be defined as the following code. `@StorageAccount` annotation is used here to prevent the duplicating of the connection property for both `@BlobTrigger` and `@BlobOutput`.
 
@@ -260,9 +260,9 @@ public class Function {
 
 ## Environment variables
 
-It is often desirable to extract out secret information from source code for security reasons. This allows code to be published to source code repos without accidentally providing credentials to other developers. This can be achieved simply by using environment variables, both when running Azure Functions locally, and when deploying your functions to Azure.
+You should keep secret information such as keys or tokens out of your source code for security reasons. This can be achieved by putting this values in environment variables and reading the value of the variables when your function executes.
 
-To easily set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, feel free to create one. Here is what the file should look like:
+To set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, you should create one. Here is what the file should look like:
 
 ```xml
 {
@@ -277,9 +277,9 @@ To easily set environment variables when running Azure Functions locally, you ma
 Each key / value mapping in the `values` map will be made available at runtime as an environment variable, accessible by calling `System.getenv("<keyname>")`, for example, `System.getenv("AzureWebJobsStorage")`. Adding additional key / value pairs is accepted and recommended practice.
 
 > [!NOTE]
-> If this approach is taken, be sure to consider whether adding the local.settings.json file to your repository ignore file, so that it is not committed.
+> If this approach is taken, be sure to add the local.settings.json file to your repository ignore file, so that it is not committed.
 
-With your code now depending on these environment variables, you can log in to the Azure Portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
+With your code now depending on these environment variables, you can sign in to the Azure portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
 
 ## Next steps
 For more information, see the following resources:
