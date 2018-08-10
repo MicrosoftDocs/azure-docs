@@ -94,7 +94,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, you use the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](http://azure.github.io/azure-documentdb-js-server/).  
+The context object provides access to all operations that can be performed on Cosmos DB storage, as well as access to the request and response objects. In this case, you use the response object to set the body of the response that was sent back to the client. For more information, see the [Azure Cosmos DB JavaScript server SDK documentation](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Let us expand on this example and add more database-related functionality to the stored procedure. Stored procedures can create, update, read, query, and delete documents and attachments inside the collection.    
 
