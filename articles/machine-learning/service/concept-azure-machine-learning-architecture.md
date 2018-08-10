@@ -72,6 +72,7 @@ When you submit a project for training, the entire folder is copied to the compu
 A model is a scoring logic operation materialized in one or more files. A model can be produced by a run in Azure Machine Learning. You can also use a model trained outside of Azure Machine Learning. A model can be registered under a Workspace, and can be version-managed. It is used to create a Docker image and deployment. You can use any popular machine learning framework of your choice, including scikit-learn, xgboost, TensorFlow, CNTK etc. Azure Machine Learning takes a framework-agnostic approach when it comes to model type and model file format.
 
 ## Image
+
 We use images to group all the assets for your deployment. We currently support only Docker images but new image types will be introduced in the future. A Docker image is created from your project, and registered with the workspace. It encapsulates:
 * A model file, or a folder of model files
 * A scoring script or application for device deployments
@@ -82,18 +83,26 @@ We use images to group all the assets for your deployment. We currently support 
 ## Deployment
 
 A deployment is an instantiation of your image into either a Web Service that may be hosted in the cloud or and IoT Module for integrated device deployments. 
+
 ### Web Services
-A deployed web service in either Azure Container Instances or Azure Kubernetes Service.
-It is a live Docker container created from a Docker image that encapsulates your model, script, and associated files, with an HTTP Load balanced endpoint to send scoring request to.
-We will help you monitor your Web service deployment by  collecting app-insights telemetry and/or model telemetry if you have chosen to enable this features during deployment. All the telemetry data is only accessible to you and stored in your own app-insights and storage account.
-In addition, we will automatically scale your deployment if you have chosen this option. 
+
+A deployed web service can use either Azure Container Instances or Azure Kubernetes Service.
+It is a Docker container created from a Docker image, and encapsulates your model, script, and associated files. The image has an HTTP Load balanced endpoint to send scoring request to.
+
+Azure helps you monitor your Web service deployment by collecting Application Insight telemetry and/or model telemetry if you have chosen to enable this feature. The telemetry data is only accessible to you, and stored in your Application Insights and storage account instances.
+
+If you have enbled automatic scaling, Azure will automatically scale your deployment.
+
 ### IoT Modules
-A deployed  IoT Module is also a Docker container that includes your model and associated script or application and any additional dependencies. 
-These modules are deployed using Azure IoT edge on edge devices. 
-We will help you monitor the models inside the Azure IoT module using our model monitoring SDK if you have chosen to enable this feature during the image creation. All the telemetry data is only accessible to you and stored in your own storage account.
-Azure IoT edge will ensure that your module is running and monitor the device that is hosting it.
+
+A deployed IoT Module is a Docker container that includes your model and associated script or application and any additional dependencies. These modules are deployed using Azure IoT Edge on edge devices. 
+
+If you have enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is only accessible to you, and stored in your storage account isntance.
+
+Azure IoT Edge will ensure that your module is running and monitor the device that is hosting it.
 
 ## Datastore
+
 A datastore is a storage abstraction over an Azure Storage Account. The datastore can use either an Azure blob container or an Azure file share as the backend storage. Each workspace has a default datastore, and you may register additional datastores. 
 
 You can use the Python SDK API or Azure ML CLI to store and retrieve files from the datastore. 
