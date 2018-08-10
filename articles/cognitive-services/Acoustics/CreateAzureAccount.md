@@ -12,7 +12,7 @@ ms.author: kegodin
 ---
 
 # Setup Azure Accounts for Acoustics
-Follow this guide for setting up Azure Batch and Storage accounts necessary for working with Microsoft Acoustics. For information about Microsoft Acoustics, see [Introduction to Microsoft Acoustics](AcousticsIntro.md). For information about how to incorporate Microsoft Acoustics into your Unity project, see [Getting Started](GettingStarted.md).  
+Follow this guide for setting up Azure Batch and Storage accounts necessary for working with Microsoft Acoustics. For information about Microsoft Acoustics, see [Introduction to Microsoft Acoustics](What-Is-Acoustics.md). For information about how to incorporate Microsoft Acoustics into your Unity project, see [Getting Started](GettingStarted.md).  
 
 
 ### **Step 1 -** Get an Azure Subscription
