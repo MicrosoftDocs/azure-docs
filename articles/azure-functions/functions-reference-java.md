@@ -21,17 +21,17 @@ ms.author: routlaw
 
 ## Programming model 
 
-Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
+Your Azure function should be a stateless class method that processes input and produces output. Although you can write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
 
-You can put multiple functions in one single project (or specifically speaking, one single jar). We strongly recommend you not to put your functions in separate jars (or `pom.xml`).
+You can put more than one functions in one project. We recommend avoiding putting your functions into separate jars.
 
 ## Triggers and annotations
 
-Typically an Azure function is invoked through one trigger. Your function needs to process that trigger and any other inputs to produce one or more outputs.
+ Azure functions are usually invoked by a trigger. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs]((/java/api/com.microsoft.azure.functions.annotation) for each annotation as well as in the Azure Functions binding reference documentation for each category of bindings, such as [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs]((/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
 
-Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your function instead of through annotations, nut doing so is not recommended.
+Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your function instead of through annotations. Using `function.json` instead of annotations in this way is not recommended.
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -85,11 +85,11 @@ with the corresponding `function.json`:
 
 ## Third-party libraries 
 
-Azure Functions supports the use of third party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries that are not specified as dependencies in the `pom.xml` file, you may place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
+Azure Functions supports the use of third party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
 
 ## Data Types
 
-You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+You can use any data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
