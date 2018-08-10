@@ -20,6 +20,7 @@ The information in this document demonstrates how to use a REST client to work w
 > [!div class="checklist"]
 > * Get keys
 > * Create a project
+> * Create tags
 > * Add images
 > * Use your own model
 
@@ -89,6 +90,9 @@ The response to the request is similar to the following JSON document:
 }
 ```
 
+> [!TIP]
+> The `id` entry in the response is the ID of the new project. This is used in other examples later in this document.
+
 ### Specific domains
 
 To create a project for a specific domain, you can provide the __domain Id__ as an optional paramter. The following examples show how to retrieve a list of available domains:
@@ -143,6 +147,24 @@ curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2
 ```powershell
 $resp = Invoke-WebRequest -Method 'POST' `
     -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject&domainId=ca455789-012d-4b50-9fec-5bb63841c793" `
+    -UseBasicParsing `
+    -Headers @{ "Training-Key"=$trainingKey }
+$resp.Content
+```
+
+## Create tags
+
+When tagging images, you use a tag Id. To get a tag Id, you must create a tag or get the information for an existing tag.
+
+The following example demonstrates how to create a new tag:
+
+```bash
+curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" -H "Training-Key: $TRAININGKEY" --data-ascii ""
+```
+
+```powershell
+$resp = Invoke-WebRequest -Method 'POST' `
+    -Uri "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" `
     -UseBasicParsing `
     -Headers @{ "Training-Key"=$trainingKey }
 $resp.Content
