@@ -244,8 +244,8 @@
         href: transparent-data-encryption-byok-azure-sql-key-rotation.md
       - name: Remove TDE protector
         href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
-   - name: Elastic scalability
-     items:
+  - name: Elastic scalability
+    items:
     - name: Resource scalability
       href: sql-database-scale-resources.md
     - name: Read Scale-Out
