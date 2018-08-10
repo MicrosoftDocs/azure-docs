@@ -155,6 +155,8 @@ This update contains fixes for the following Common Vulnerabilities and Exposure
 
 - <!-- 2489559 - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
+- <!-- 2830461 - IS --> In certain circumstances when an update requires attention, the corresponding alert may not be generated. The accurate status will still be reflected in the portal and is not impacted.
+
 ### Post-update steps
 
 *There are no post-update steps for update 1807.*
