@@ -73,3 +73,41 @@ You can use **Get-HashFile** cmdlet to get the hash value for the downloaded pub
 | Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+
+## Failure occurs when uploading VM image in the VaaSPreReq script
+
+First verify that the environment is healthy:
+
+1. From the DVM / jump box, verify that you can successfully sign in to the admin portal using the admin credentials.
+1. Confirm that there are no alerts or warnings.
+
+If the environment is healthy, manually upload the 5 VM Images required for VaaS test runs:
+
+1. Sign in as the service admin to the admin portal. You can find the admin portal URL from ECE store or your stamp information file. For instructions, see [Environment parameters](azure-stack-vaas-parameters.md#environment-parameters).
+1. Click on **More services** > **Resource Providers** > **Compute** > **VM Images**.
+1. Click on the **+ Add** button at the top of the **VM Images** blade.
+1. Modify or verify values of the following fields for the first VM image:
+    > [!IMPORTANT]
+    > Not all defaults are correct for the existing Marketplace Item.
+
+    | Field  | Value  |
+    |---------|---------|
+    | Publisher | MicrosoftWindowsServer |
+    | Offer | WindowsServer |
+    | OS Type | Windows |
+    | SKU | 2012-R2-Datacenter |
+    | Version | 1.0.0 |
+    | OS Disk Blob URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+
+1. Click on the **Create** button.
+1. Repeat for the remaining VM images.
+
+The properties of all 5 VM images are as follows:
+
+| Publisher  | Offer  | OS Type | SKU | Version | OS Disk Blob URI |
+|---------|---------|---------|---------|---------|---------|
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |

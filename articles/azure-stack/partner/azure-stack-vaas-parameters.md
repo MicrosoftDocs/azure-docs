@@ -42,6 +42,10 @@ Environment parameters describe the Azure Stack environment under test. These va
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 
+### Locate values in the ECE configuration file
+
+Environment parameter values can also be manually located in the **ECE configuration file** located at `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` on the DVM.
+
 ## Test parameters
 
 Common test parameters include sensitive information that can't stored in configuration files. These must be manually provided.
