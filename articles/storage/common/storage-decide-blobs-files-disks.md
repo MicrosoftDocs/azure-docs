@@ -59,8 +59,8 @@ The following table compares Azure Files with Azure Disks.
 |Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
 |Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
-|Max 8KB IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MiB/s per Disk|Up to 60 MiB/s per File Share|  
+|Max IOps|500 IOps|1000 IOps|  
+|Throughput|Up to 60 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
 
 ## Next steps
 
