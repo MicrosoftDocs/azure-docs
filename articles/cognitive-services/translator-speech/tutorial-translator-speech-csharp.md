@@ -351,7 +351,7 @@ private void Connect()
 }
 ```
 
-A substantial portion of `Connect()` involves the creation of a `SpeechClientOptions` instance (see `SpeechClientOptions.cs`) to hold the options for translation. Options include the information needed to connect to the service (such as authentication key and hostname) and the features used for the translation. The fields here map to the header fields and HTTP parameters exposed by [the Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html).
+A substantial portion of `Connect()` involves the creation of a `SpeechClientOptions` instance (see `SpeechClientOptions.cs`) to hold the options for translation. Options include the information needed to connect to the service (such as authentication key and hostname) and the features used for the translation. The fields here map to the header fields and HTTP parameters exposed by [the Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
 `Connect()` also creates and initializes the audio input device (variable `sampleProvider`) that serves as the source of the speech to be translated. This device is either a hardware input device such as a microphone, or a file containing WAVE audio data.
 
@@ -425,4 +425,4 @@ Binary data is audio (text-to-speech output) sent by the service when TTS is ena
 This code sample is a feature-rich application demonstrating the use of the Translator Speech API. As such, there are a fair number of moving parts to understand. You've walked through the most important bits. For the rest, it can be instructive to set a few breakpoints in Visual Studio and walk through the translation process. When you understand the sample application, you're equipped to use the Translator Speech service in your own applications.
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech API reference](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

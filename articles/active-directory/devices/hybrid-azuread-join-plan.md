@@ -93,6 +93,13 @@ If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, 
 
 The registration of Windows down-level devices is not supported for devices configured for user profile roaming or credential roaming. If you are relying on roaming of profiles or settings, use Windows 10.
 
+- The registration of Windows down-level devices **is** supported in non-federated environments through Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- The registration of Windows down-level devices **is not** supported when using Azure AD Pass-through Authentication without Seamless Single Sign On.
+
+- The registration of Windows down-level devices **is not** supported for devices using roaming profiles. If you are relying on roaming of profiles or settings, use Windows 10.
+
+
 The registration of Windows Server running the Domain Controller (DC) role is not supported.
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context.
