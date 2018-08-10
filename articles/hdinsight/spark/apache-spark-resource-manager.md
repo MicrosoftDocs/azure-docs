@@ -1,22 +1,15 @@
 ---
-title: Manage resources for Apache Spark cluster on Azure HDInsight | Microsoft Docs
+title: Manage resources for Apache Spark cluster on Azure HDInsight 
 description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 
-ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Manage resources for Apache Spark cluster on Azure HDInsight 
@@ -33,7 +26,7 @@ Apache Ambari is used to monitor the cluster and make configuration changes. For
 
 ## Open the Spark History Server
 
-Spark History Server is the web UI for completed and running Spark applications. It is an extension of Sparkl's Web UI.
+Spark History Server is the web UI for completed and running Spark applications. It is an extension of Spark's Web UI.
 
 **To open the Spark History Server Web UI**
 
@@ -73,7 +66,7 @@ The three key parameters that can be used for Spark configuration depending on a
 The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
 
 ### Change the parameters using Ambari UI
-1. From the Ambari UI click **Spark**, click **Contigs**, and then expand **Custom spark-defaults**.
+1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
     ![Set parameters using Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. The default values are good to have four Spark applications run concurrently on the cluster. You can change these values from the user interface, as shown in the following screenshot:
@@ -172,7 +165,6 @@ Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics 
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](apache-spark-livy-rest-interface.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)

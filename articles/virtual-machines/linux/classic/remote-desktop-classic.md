@@ -3,8 +3,8 @@ title: Remote Desktop to a Linux VM | Microsoft Docs
 description: Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM for the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: SuperScottz
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: mingzhan
+ms.author: cynthn
 
 ---
 # Using Remote Desktop to connect to a Microsoft Azure Linux VM

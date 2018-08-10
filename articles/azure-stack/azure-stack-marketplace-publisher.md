@@ -3,8 +3,8 @@ title: Use the Marketplace toolkit to create and publish marketplace items | Mic
 description: Learn how to quickly create marketplace items with the publishing Toolkit
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 

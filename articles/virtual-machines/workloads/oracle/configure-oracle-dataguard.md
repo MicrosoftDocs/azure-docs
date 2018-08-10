@@ -3,8 +3,8 @@ title: Implement Oracle Data Guard on an Azure Linux virtual machine | Microsoft
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/10/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
@@ -36,7 +36,7 @@ The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-E
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription by using the [az login](/cli/azure/#login) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -44,7 +44,7 @@ az login
 
 ### Create a resource group
 
-Create a resource group by using the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
+Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location:
 
@@ -66,7 +66,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM by using the [az vm create](/cli/azure/vm#create) command. 
+Create a VM by using the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 

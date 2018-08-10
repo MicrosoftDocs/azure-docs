@@ -1,24 +1,21 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using Node.js | Microsoft Docs
 description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Node.js service SDK
-services: iot-dps 
-keywords: 
-author: JimacoMS2
-ms.author: v-jamebr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/21/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
- 
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
 ---
  
 # Enroll TPM device to IoT Hub Device Provisioning Service using Node.js service SDK
-> [!div class="op_single_selector"]
-> * [Java](quick-enroll-device-tpm-java.md)
-> * [Node.js](quick-enroll-device-tpm-node.md)
+
+[!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
+
 
 These steps show how to programmatically create an individual enrollment for a TPM device in the Azure IoT Hub Device Provisioning Service using the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node) and a sample Node.js application. You can optionally enroll a simulated TPM device to the provisioning service using this individual enrollment entry. Although these steps will work on both Windows and Linux machines, we will use a Windows development machine for the purpose of this article.
 

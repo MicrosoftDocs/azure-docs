@@ -4,21 +4,19 @@ description: Use Azure portal and Azure Resource Manage to deploy your resources
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 08/03/2018
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure portal
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
+This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
 ## Create resource group
 
@@ -44,7 +42,7 @@ This topic shows how to use the [Azure portal](https://portal.azure.com) with [A
 
 After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenarios.
 
-1. To start a deployment, select **New**.
+1. To start a deployment, select **Create a resource**.
 
    ![New resource](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -52,7 +50,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
    ![Select resource type](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. If you do not see the particular solution you would like to deploy, you can search the Marketplace for it. For example, to find a Wordpress solution, start typing **Wordpress** and select the option you want.
+1. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. For example, to find a Wordpress solution, start typing **Wordpress** and select the option you want.
 
    ![Search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
@@ -76,7 +74,10 @@ After you create a resource group, you can deploy resources to it from the Marke
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-1. To deploy a customized template through the portal, select **New**, and search for **Template Deployment** until you can select it from the options.
+> [!NOTE]
+> The portal interface doesn't support referencing a [secret from a Key Vault](resource-manager-keyvault-parameter.md). Instead, use [PowerShell](resource-group-template-deploy.md) or [Azure CLI](resource-group-template-deploy-cli.md) to deploy your template locally or from an external URI.
+
+1. To deploy a customized template through the portal, select **Create a resource**, and search for **Template Deployment** until you can select it from the options.
 
    ![Search template deployment](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -110,7 +111,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 ## Deploy resources from a template saved to your account
 
-The portal enables you to save a template to your Azure account, and redeploy it later. For more information about working with these saved templates, [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md).
+The portal enables you to save a template to your Azure account, and redeploy it later. For more information on templates, see [Create and deploy your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 1. To find your saved templates, select **More services**.
 
@@ -132,4 +133,4 @@ The portal enables you to save a template to your Azure account, and redeploy it
 * To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To troubleshoot deployment errors, see [View deployment operations](resource-manager-deployment-operations.md).
 * To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

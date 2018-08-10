@@ -3,7 +3,7 @@ title: Redeploy Linux Virtual Machines in Azure | Microsoft Docs
 description: How to redeploy Linux virtual machines in Azure to mitigate SSH connection issues.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Redeploy Linux virtual machine to new Azure node
@@ -30,9 +30,9 @@ You can redeploy a VM using one of the following options. You only need to choos
 - [Azure portal](#using-azure-portal)
 
 ## Use the Azure CLI 2.0
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/#login).
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index#az_login).
 
-Redeploy your VM with [az vm redeploy](/cli/azure/vm#redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
+Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

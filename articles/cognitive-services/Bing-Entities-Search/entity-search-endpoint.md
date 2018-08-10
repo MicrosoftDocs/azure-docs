@@ -5,7 +5,7 @@ services: cognitive-services
 author: v-jaswel
 manager: kaiq
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: v-jaswel
@@ -14,7 +14,7 @@ ms.author: v-jaswel
 # Entity Search endpoints
 The **Entity Search API**  includes one endpoint.
 
-##Endpoint
+## Endpoint
 To request entity search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint `GET`: 

@@ -2,7 +2,7 @@
 title: Build approval workflows to process mailing list requests - Azure Logic Apps | Microsoft Docs
 description: This tutorial shows how to create automated approval workflows for processing mailing list subscriptions with Azure Logic Apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: 
 services: logic-apps
 documentationcenter: 
@@ -69,7 +69,7 @@ with your Azure account credentials.
 ## Create your logic app
 
 1. From the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 

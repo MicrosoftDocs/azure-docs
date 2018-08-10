@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 You can use either a root certificate that was generated using an enterprise solution (recommended), or you can generate a self-signed certificate. After creating the root certificate, export the public certificate data (not the private key) as a Base-64 encoded X.509 .cer file and upload the public certificate data to Azure.
 
 * **Enterprise certificate:** If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.

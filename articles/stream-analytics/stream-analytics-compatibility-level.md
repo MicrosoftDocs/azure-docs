@@ -1,22 +1,13 @@
 ---
-title: Understand compatibility level for Azure Stream Analytics jobs. | Microsoft Docs
+title: Understand compatibility level for Azure Stream Analytics jobs
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
-keywords: Compatibility level, streaming data
-documentationcenter: ''
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-editor: 
-
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: sngun
-
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -55,7 +46,10 @@ The following major changes are introduced in compatibility level 1.1:
   * **previous versions:** Field names were changed to lower case when processed by the Azure Stream Analytics engine. 
 
   * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
- 
+
+  > [!NOTE] 
+  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **previous versions:** CREATE TABLE command did not filter events with NaN (Not-a-Number. For example, Infinity, -Infinity) in a FLOAT column type because they are out of the documented range for these numbers.

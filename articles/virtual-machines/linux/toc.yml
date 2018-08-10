@@ -33,21 +33,23 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor and update VMs
+  - name: 10 - Govern VMs
+    href: tutorial-govern-resources.md
+  - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 11 - Manage VM security
+  - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 12 - Deploy Jenkins
+  - name: 13 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 13 - CI/CD with Team Services
+  - name: 14 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
-  - name: 14a - Create LAMP stack
+  - name: 15a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 14b - Create LEMP stack
+  - name: 15b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 14c - Create MEAN stack
+  - name: 15c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 15 - Secure web server with SSL
+  - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -84,9 +86,13 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md       
     - name: Azure compute units (ACU)
-      href: acu.md        
+      href: acu.md 
+    - name: Benchmark scores
+      href: compute-benchmark-scores.md             
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
@@ -105,7 +111,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md 
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -134,6 +140,8 @@
       href: create-cli-complete.md
     - name: Use a template
       href: create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
   - name: Secure VMs
@@ -141,7 +149,7 @@
     - name: Encrypt
       href: encrypt-disks.md
     - name: Use access controls
-      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -167,8 +175,6 @@
         href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
     - name: Common CLI tasks
@@ -177,14 +183,29 @@
       href: move-vm.md
     - name: Change VM size
       href: change-vm-size.md
+    - name: Swap the OS disk
+      href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-linux.md
+        - name: Run Command
+          href: run-command.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+      items:
+        - name: Red Hat Enteprise Linux
+          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+        - name: CentOS
+          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+        - name: Ubuntu
+          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+    - name: Log in with Azure Active Directory credentials
+      href: login-using-aad.md
     - name: Updates and patches
       items:
       - name: Red Hat Update Infrastructure
@@ -192,19 +213,27 @@
     - name: Azure VM agent
       items:
       - name: Overview
-        href: agent-user-guide.md
+        href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
     - name: Planned maintenance
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Accelerated maintenance FAQ
-      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Get usage metrics with REST
+      href: metrics-vm-usage-rest.md
+  - name: Manage costs
+    items:
+    - name: Prepay for VMs - Azure reservations
+      href: prepay-reserved-vm-instances.md
+    - name: What are Azure reservations?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Find and use images
@@ -377,6 +406,8 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Optimize performance
       href: optimization.md
       items:
@@ -398,25 +429,15 @@
       href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Assign public DNS name
       href: portal-create-fqdn.md
+    - name: Find and delete unattached NICs
+      href: find-unattached-nics.md
     - name: DNS resolution
       href: azure-dns.md
       items:
       - name: Use internal DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
   - name: Use VM extensions
-    items:
-    - name: VM Extension overview
-      href: extensions-features.md
-    - name: Custom Script Extension
-      href: extensions-customscript.md
-    - name: OMS Agent Extension
-      href: extensions-oms.md
-    - name: Linux Diagnostic Extension
-      href: diagnostic-extension.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
-    - name: VMAccess Extension
-      href: using-vmaccess-extension.md
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -456,10 +477,14 @@
       href: understand-vm-reboot.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
     - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Allocation failures
+    - name: Allocation failures 
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Deployment issues
       href: troubleshoot-deploy-vm.md
     - name: Creating a VM
@@ -476,6 +501,12 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
 - name: Reference
   items:
   - name: Azure CLI

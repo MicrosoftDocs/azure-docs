@@ -3,7 +3,7 @@ title: Monitor Surface Hubs with Azure Log Analytics | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: banders
-ms.custom: H1Hack27Feb2017
-
+ms.author: magoedte
+ms.component: na
 ---
+
 # Monitor Surface Hubs with Log Analytics to track their health
 
 ![Surface Hub symbol](./media/log-analytics-surface-hubs/surface-hub-symbol.png)

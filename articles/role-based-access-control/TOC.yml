@@ -1,0 +1,76 @@
+- name: Role-based access control documentation
+  href: index.yml
+  items:
+- name: Overview
+  items:
+  - name: What is RBAC?
+    href: overview.md
+  - name: Understand the different roles
+    href: rbac-and-directory-admin-roles.md
+- name: Quickstarts
+  items:
+  - name: Grant access for a user
+    href: quickstart-assign-role-user-portal.md
+- name: Tutorials
+  items:
+  - name: Grant access for a user - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Grant access for a group - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Create a custom role - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Create a custom role - CLI
+    href: tutorial-custom-role-cli.md
+- name: Concepts
+  items:
+  - name: Understand role definitions
+    href: role-definitions.md
+  - name: Privileged Identity Management (PIM) for RBAC
+    href: pim-azure-resource.md
+  - name: Conditional access for Azure management
+    href: conditional-access-azure-management.md
+- name: How-to guides
+  items:
+  - name: Manage access
+    items:
+    - name: Portal
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: REST API
+      href: role-assignments-rest.md
+    - name: Template
+      href: role-assignments-template.md
+  - name: Custom roles
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure CLI
+      href: custom-roles-cli.md
+    - name: REST API
+      href: custom-roles-rest.md
+  - name: View activity logs
+    href: change-history-report.md
+  - name: Elevate access for Global admin
+    href: elevate-access-global-admin.md
+  - name: Manage access for external users
+    href: role-assignments-external-users.md
+  - name: Troubleshoot
+    href: troubleshooting.md
+- name: Reference
+  items:
+  - name: Built-in roles
+    href: built-in-roles.md
+  - name: Resource provider operations
+    href: resource-provider-operations.md
+  - name: RBAC limits
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: Azure CLI
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: REST API
+    href: /rest/api/authorization/

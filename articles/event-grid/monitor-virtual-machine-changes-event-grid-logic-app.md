@@ -9,7 +9,7 @@ manager: anneta
 ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
 ---
@@ -70,7 +70,7 @@ monitors the resource group for your virtual machine.
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 2. From the upper left corner of the main Azure menu, 
-choose **New** > **Enterprise Integration** > **Logic App**.
+choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 

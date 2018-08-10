@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -30,7 +31,7 @@ The **Status** column is the most important information and shows the most sever
 
 | Status | Comment |
 | --- | --- |
-| stopped-* |The run could not complete. For example, if the remote system is down and cannot be contacted. |
+| stopped-\* |The run could not complete. For example, if the remote system is down and cannot be contacted. |
 | stopped-error-limit |There are more than 5,000 errors. The run was automatically stopped due to the large number of errors. |
 | completed-\*-errors |The run completed, but there are errors (fewer than 5,000) that should be investigated. |
 | completed-\*-warnings |The run completed, but some data is not in the expected state. If you have errors, then this message is usually only a symptom. Until you have addressed errors, you should not investigate warnings. |

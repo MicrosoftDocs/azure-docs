@@ -3,8 +3,8 @@ title: Create a VM (Classic) with multiple NICs - Azure PowerShell | Microsoft D
 description: Learn how to create a VM (Classic) with multiple NICs using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
-ms.author: jdial
+ms.date: 05/22/2018
+ms.author: genli
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -195,4 +195,10 @@ Now that you downloaded and changed the script based on your needs, runt the scr
 
 ### Step 5 - Configure routing within the VM's operating system
 
-Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md).
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see the following articles:
+
+- [Configure a Windows VM for multiple NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Configure a Linux VM for multiple NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

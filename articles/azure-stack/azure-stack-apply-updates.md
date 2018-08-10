@@ -22,11 +22,11 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems*
 
-As an Azure Stack operator, you can apply Microsoft update packages for Azure Stack by using the Update tile in the administrator portal. You must download the Microsoft update package, import the package files to Azure Stack, and then install the update package. 
+As an Azure Stack operator, you can apply Microsoft or OEM update packages for Azure Stack by using the Update tile in the administrator portal. You must download the update package, import the package files to Azure Stack, and then install the update package. 
 
 ## Download the update package
 
-When a Microsoft update package for Azure Stack is available, download the package to a location that's reachable from Azure Stack, and review the package contents. An update package typically consists of the following files:
+When a Microsoft or OEM update package for Azure Stack is available, download the package to a location that's reachable from Azure Stack, and review the package contents. An update package typically consists of the following files:
 
 - A self-extracting *PackageName*.exe file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.   
 - Corresponding *PackageName*.bin files. These files provide compression for the payload that's associated with the *PackageName*.exe file. 
@@ -65,7 +65,7 @@ The following procedure shows how to import and install update packages in the a
  
     ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. 
+8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
 9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed. 
 10. Navigate back to the Update tile on the dashboard. The tile should indicate that an update is available. Click the tile to review the newly added update package.
 11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.

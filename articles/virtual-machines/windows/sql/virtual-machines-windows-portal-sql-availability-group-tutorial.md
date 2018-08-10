@@ -4,7 +4,7 @@ description: "This tutorial shows how to create a SQL Server Always On Availabil
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -55,7 +55,7 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 <a name="CreateCluster"></a>
 ## Create the cluster
 
-After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
+After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.
 
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
@@ -83,7 +83,8 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
+3. Select **Static IP Address** and specify an available address from the same subnet as your virtual machines.
+
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
 ### <a name="addNode"></a>Add the other SQL Server to cluster
@@ -337,7 +338,7 @@ At this point, you have an Availability Group with replicas on two instances of 
 
 ## Create an Azure load balancer
 
-On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal.
+On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP addresses for the Availability Group listeners and the Windows Server Failover Cluster. This section summarizes how to create the load balancer in the Azure portal.
 
 1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
 2. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
@@ -354,7 +355,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    | **Virtual network** |Use the name of the Azure virtual network. |
    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
    | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. |
+   | **IP address** |Use an available address from subnet. Note that this is different from your cluster IP address |
    | **Subscription** |Use the same subscription as the virtual machine. |
    | **Location** |Use the same location as the virtual machine. |
 
@@ -366,28 +367,20 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
 
 To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal.
 
-### Add backend pool
+### Add backend pool for the availability group listener
 
 1. In the Azure portal, go to your availability group. You might need to refresh the view to see the newly created load balancer.
 
    ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Click the load balancer, click **Backend pools**, and click **+Add**. Set the backend pool as follows:
+1. Click the load balancer, click **Backend pools**, and click **+Add**. 
 
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Type a text name | SQLLBBE
-   | **Associated to** | Pick from list | Availability set
-   | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
-   | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
+1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Type the name for the back end pool.
+1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
 
-1. Click **+ Add a virtual machine**.
-
-1. For the availability set, choose the availability set that the SQL Servers are in.
-
-1. For virtual machines, include both of the SQL Servers. Do not include the file share witness server.
+   >[!NOTE]
+   >If both virtual machines are not specified, connections will only succeed to the primary replica.
 
 1. Click **OK** to create the backend pool.
 
@@ -417,9 +410,49 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
    | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the SQL Server instance | 1433 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
+   | **Port** | Use the port for the availability group listener | 1435 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1435 |
    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
+   | **Session Persistence** | Drop down list | **None** |
+   | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
+   | **Floating IP (direct server return)** | |Enabled |
+
+   > [!WARNING]
+   > Direct server return is set during creation. It cannot be changed.
+
+1. Click **OK** to set the load balancing rules.
+
+### Add the front end IP address for the WSFC
+
+The WSFC IP address also needs to be on the load balancer. 
+
+1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static. 
+
+1. Click the load balancer, click **Health probes**, and click **+Add**.
+
+1. Set the health probe as follows:
+
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | WSFCEndPointProbe |
+   | **Protocol** | Choose TCP | TCP |
+   | **Port** | Any unused port | 58888 |
+   | **Interval**  | The amount of time between probe attempts in seconds |5 |
+   | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
+
+1. Click **OK** to set the health probe.
+
+1. Set the load balancing rules. Click **Load balancing rules**, and click **+Add**.
+
+1. Set the load balancing rules as follows.
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | WSFCPointListener |
+   | **Frontend IP address** | Choose an address |Use the address that you created when you configured the WSFC IP address. |
+   | **Protocol** | Choose TCP |TCP |
+   | **Port** | Use the port for the availability group listener | 58888 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 58888 |
+   | **Probe** |The name you specified for the probe | WSFCEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
    | **Floating IP (direct server return)** | |Enabled |

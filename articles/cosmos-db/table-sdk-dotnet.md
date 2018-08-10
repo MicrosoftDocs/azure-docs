@@ -1,20 +1,16 @@
 ---
-title: Azure CosmosDB Table API .NET SDK & Resources | Microsoft Docs
+title: Azure Cosmos DB Table API .NET SDK & Resources | Microsoft Docs
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 12/12/2017
-ms.author: mimig
+ms.topic: reference
+ms.date: 03/26/2018
+ms.author: rnagpal
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
@@ -30,13 +26,26 @@ ms.author: mimig
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)|
-|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Current supported framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes
+
+### <a name="1.1.3"/>1.1.3
+* Fixed Nuget package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
+* Bug fixes on table serialization when JsonConvert.DefaultSettings is configured.
+
+### <a name="1.1.1"/>1.1.1
+* Added validation for malformed ETAGs in Direct Mode.
+* Fixed LINQ query bug in Gateway Mode.
+* Synchronous APIs now run on the thread pool with SynchronizationContext.
+
+### <a name="1.1.0"/>1.1.0
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
+* Bug Fixes
 
 ### <a name="1.0.0"/>1.0.0
 * General availability release
@@ -56,6 +65,9 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |July 17, 2018|--- |
+| [1.1.1](#1.1.1) |March 26, 2018|--- |
+| [1.1.0](#1.1.0) |February 21, 2018|--- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
 | [0.9.0-preview](#0.9.0-preview) |November 11, 2017 |--- |
 

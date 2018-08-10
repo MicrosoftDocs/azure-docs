@@ -1,13 +1,17 @@
+# [Service Bus Relay Documentation](index.md)
+
 # Overview
 ## [What is Relay?](relay-what-is-it.md)
 ## [FAQ](relay-faq.md)
 
-# Get Started
+# Quickstarts
 ## [Create a namespace](relay-create-namespace-portal.md)
 ## [Create a hybrid on-premises/cloud application](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybrid Connections
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [.NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Node Websockets](relay-hybrid-connections-node-get-started.md)
+### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [WCF Relay](relay-wcf-dotnet-get-started.md)
 ## [WCF Relay tutorial](service-bus-relay-tutorial.md)
 ## [WCF Relay REST tutorial](service-bus-relay-rest-tutorial.md)

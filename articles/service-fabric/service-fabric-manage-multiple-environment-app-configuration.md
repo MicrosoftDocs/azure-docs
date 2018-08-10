@@ -11,11 +11,11 @@ ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
 
 ---
@@ -47,15 +47,15 @@ The configuration you provide can be divided in two categories:
 
 When creating a named application instances in Service Fabric, you have the option to pass in parameters. The way you do it depends on how you create the application instance.
 
-  - In PowerShell, the [`New-ServiceFabricApplication`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
-  - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
+  - In PowerShell, the [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
+  - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
   - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Visual Studio Team Service or Team Foundation Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
 
 ## Next steps
 The following articles show you how to use some of the concepts described here:
 
-- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [How to specify environment variables for services in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [How to specify the port number of a service using parameters in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [How to parameterize configuration files](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Environment variable reference](service-fabric-environment-variables-reference.md)

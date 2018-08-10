@@ -4,9 +4,8 @@ description: Use the Microsoft Speech Recognition API in Cognitive Services to d
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
@@ -43,7 +42,7 @@ To try the sample locally, clone this repository:
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-compile the TypeScript sources and bundle/browserfy them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
+compile the TypeScript sources and bundle them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle

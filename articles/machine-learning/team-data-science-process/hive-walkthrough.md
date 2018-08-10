@@ -6,18 +6,19 @@ title: Explore data in a Hadoop cluster and create models in Azure Machine Learn
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
@@ -104,10 +105,10 @@ Here, we describe how to use AzCopy to transfer the files containing data. To do
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***&#60;path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
-* ***&#60;storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
-* ***&#60;default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
-* ***&#60;storage account key>*** The key for the storage account used by your cluster.
+* ***<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
+* ***<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
+* ***<storage account key>*** The key for the storage account used by your cluster.
 
 From a command prompt or a Windows PowerShell window, run the following two AzCopy commands.
 
@@ -826,7 +827,7 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 ## References
 •    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•    [NYC Taxi and Limousine Commission Research and Statistics](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

@@ -4,7 +4,7 @@ description: Basic Azure CLI 1.0 commands to get you started managing your VMs i
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

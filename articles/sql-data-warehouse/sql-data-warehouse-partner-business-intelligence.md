@@ -1,23 +1,18 @@
----
+﻿---
 title: SQL Data Warehouse Business Intelligence partners | Microsoft Docs
 description: Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-
-ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
+services: sql-data-warehouse
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
 ---
+
 # SQL Data Warehouse business intelligence partners
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools.  This article highlights Microsoft partner companies with business intelligence (BI) solutions supporting Azure SQL Data Warehouse.
 
@@ -82,7 +77,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Datasheet Links-->
 <!--[birst_datasheet]:-->
 [clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
-[dell_statistica_datasheet]:https://software.dell.com/documents/statistica-data-miner-datasheet-69284.pdf
+[dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
 [dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
 [jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
@@ -96,16 +91,16 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Marketplace Links -->
 [birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
-[dell_statistica_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dell-software/statistica-data-miner/ 
-[dundas_bi_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dundas/dundas-bi/ 
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/ 
+[dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 <!--[jinfonet_marketplace]:-->
-[logianalytics_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/logi-analytics/logi-info-11/ 
-[looker_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/looker/looker-analytics-platform-326/ 
-<!--[qlik_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/qliktech-international-ab/qlikview/ -->
-[sisense_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/sisense/sisense-byol/ 
-[tableau_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/tableau/tableau-server/
-[targit_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/targit/targit-decision-suite/ 
-[yellowfin_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
+[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/ 
+[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/ 
+<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
+[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/ 
+[tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
+[targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
+[yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
 
 <!--Press links-->
 <!--[birst_press]:-->
@@ -138,7 +133,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Twitter links-->
 [birst_twitter]:https://twitter.com/BirstBI
 [clearstory_twitter]:https://twitter.com/ClearStoryData
-[dell_statistica_twitter]:https://twitter.com/DellStatistica
+[dell_statistica_twitter]:https://twitter.com/hashtag/DellStatistica
 [dundas_bi_twitter]:https://twitter.com/dundasdata
 [jinfonet_twitter]:https://twitter.com/Jinfonet
 [logianalytics_twitter]:https://twitter.com/LogiAnalytics

@@ -4,7 +4,7 @@ description: Learn how to create a custom Linux virtual machine from the Azure p
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

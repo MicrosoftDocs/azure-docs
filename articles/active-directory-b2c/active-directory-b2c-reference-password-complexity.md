@@ -1,26 +1,22 @@
 ---
-title: 'Password complexity - Azure AD B2C | Microsoft Docs'
-description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C
+title: Password complexity in Azure Active Directory B2C | Microsoft Docs
+description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
 
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
-ms.author: saeeda
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Configure complexity requirements for passwords
 
 > [!NOTE]
-> **This feature is in preview.**  Contact [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) to have your test tenant enabled with this feature.  Do not test this on production tenants.
+> **This feature is in public preview.**
 
 Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requirements for passwords supplied by an end user when creating an account.  By default, Azure AD B2C uses `Strong` passwords.  Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
 

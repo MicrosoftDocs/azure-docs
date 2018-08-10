@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
@@ -19,7 +19,7 @@ ms.author: rapatchi
 ---
 # Azure Service Fabric Java Client APIs
 
-Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premise, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs
+Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premises, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs
 
 ## Generate the client code using AutoRest
 
@@ -130,5 +130,5 @@ For every API you will find four overloads of implementation. If there are optio
 	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
 
 ## Next steps
-* Learn about [Service Fabric REST APIs](https://docs.microsoft.com/en-us/rest/api/servicefabric/)
+* Learn about [Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)
 

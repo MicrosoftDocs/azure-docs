@@ -3,7 +3,7 @@ title: Optimize your Active Directory environment with Azure Log Analytics | Mic
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/27/2017
-ms.author: magoedte;banders
-ms.custom: H1Hack27Feb2017
+ms.author: magoedte
+ms.component: na
 
 ---
 # Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics
@@ -37,7 +37,7 @@ After you've added the solution and a check is completed, summary information fo
 
 ## Prerequisites
 
-* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service. 
+* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service.
 * The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
 * A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal.  There is no further configuration required.
 
@@ -50,7 +50,7 @@ To perform the health check against your domain controllers that are members of 
 
 1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the domain controller can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 
@@ -58,13 +58,13 @@ The agent on your domain controller which reports to an Operations Manager manag
 
 Active Directory Health Check collects data from the following sources using the agent that you have enabled:
 
-- Registry 
-- LDAP 
+- Registry
+- LDAP
 - .NET Framework
-- Event log 
+- Event log
 - Active Directory Service interfaces (ADSI)
 - Windows PowerShell
-- File data 
+- File data
 - Windows Management Instrumentation (WMI)
 - DCDIAG tool API
 - File Replication Service (NTFRS) API
@@ -104,10 +104,8 @@ After it is installed, you can view the summary of recommendations by using the 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select a workspace and then click the **OMS Portal** tile.  
-4. On the **Overview** page, click the **AD Health Check** tile. 
+3. Click the **Overview** tile for your Log Analytics workspace in the Azure portal.
+4. On the **Overview** page, click the **Active Directory Health Check** tile.
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
@@ -120,13 +118,8 @@ If you have recommendations that you want to ignore, you can create a text file 
 2. Use the following query to list recommendations that have failed for computers in your environment.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
     Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
@@ -136,7 +129,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 2. Paste or type each RecommendationId for each recommendation that you want Log Analytics to ignore on a separate line and then save and close the file.
 3. Put the file in the following folder on each computer where you want Log Analytics to ignore recommendations.
    * On computers with the Microsoft Monitoring Agent (connected directly or through Operations Manager) - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * On the Operations Manager 2016 management server - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### To verify that recommendations are ignored
@@ -145,12 +138,8 @@ After the next scheduled health check runs, by default every seven days, the spe
 1. You can use the following Log Search queries to list all the ignored recommendations.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 

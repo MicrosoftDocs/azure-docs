@@ -10,10 +10,11 @@ editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 06/26/2018
 ms.author: terrylan
 
 ---
@@ -41,7 +42,7 @@ You can view and filter the list of subscriptions by clicking the **Subscription
 Within minutes of launching Security Center the first time, you may see:
 
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
-- An inventory of **Compute**, **Networking**, **Storage & data**, and **Applications** resources that are now being assessed by Security Center along with the security posture of each.
+- An inventory of **Compute & apps**, **Networking**, **Data security**, and **Identity & access** resources that are now being assessed by Security Center along with the security posture of each.
 
 To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
 

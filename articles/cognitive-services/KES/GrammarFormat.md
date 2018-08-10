@@ -4,9 +4,8 @@ description: Learn about the grammar format in the Knowledge Exploration Service
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu
@@ -56,7 +55,7 @@ When an `item` element is not a child of a `one-of` element, it can specify repe
 <item repeat="1-" repeat-logprob="-10">...</item>
 ```
 
-When `item` elements appear as children of a `one-of` element, they define the set of expansion alternatives.  In this usage, the optional `logprob` attribute specifies the relative log probability among the different choices.  Given a probability *p* between 0 and 1, the corresponding log probability can be computed as log(*p*), where log() is the the natural log function.  If not specified, `logprob` defaults to 0, which does not alter the interpretation probability.  Note that log probability is always a negative floating-point value or 0.
+When `item` elements appear as children of a `one-of` element, they define the set of expansion alternatives.  In this usage, the optional `logprob` attribute specifies the relative log probability among the different choices.  Given a probability *p* between 0 and 1, the corresponding log probability can be computed as log(*p*), where log() is the natural log function.  If not specified, `logprob` defaults to 0, which does not alter the interpretation probability.  Note that log probability is always a negative floating-point value or 0.
 
 ```xml
 <one-of>

@@ -4,7 +4,7 @@ description: Deploy an application to Cloud Foundry on Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags:
 keywords: ''

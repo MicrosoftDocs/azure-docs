@@ -3,7 +3,7 @@ title: Azure regions and availability for Linux VMs | Microsoft Docs
 description: Learn about the regions and availability features for running Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
-ms.author: iainfou
+ms.date: 03/27/2018
+ms.author: cynthn
 
 ---
 

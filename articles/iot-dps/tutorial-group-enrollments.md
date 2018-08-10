@@ -1,15 +1,12 @@
 ---
 title: Provision a simulated X.509 device to Azure IoT Hub using Java and enrollment groups | Microsoft Docs
 description: Azure Tutorial - Create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service
-services: iot-dps 
-keywords: 
-author: msebolt
-ms.author: v-masebo
+author: wesmc7777
+ms.author: wesmc
 ms.date: 01/04/2018
 ms.topic: tutorial
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
@@ -30,15 +27,13 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
 
     > [!NOTE]
     > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
     >
 
-1. Create the enrollment group information:
-
-    1. Run through **Step 1** and **Step 2** to create your _root_ and _intermediate_ certificates.
+    1. Run through the first two steps to create your _root_ and _intermediate_ certificates.
 
     1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
@@ -53,16 +48,16 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
-            - Run through **Step 3**. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
+            - Run the verification step. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
             - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
 
             ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Finish by running **Step 4** and **Step 5** to create your device certificates and clean-up resources.
+    1. Finish by running the steps to create your device certificates and clean-up resources.
 
-> [!NOTE]
-> When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
->
+    > [!NOTE]
+    > When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
+    >
 
 
 ## Create a device enrollment entry

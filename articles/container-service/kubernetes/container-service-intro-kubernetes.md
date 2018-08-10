@@ -3,7 +3,7 @@ title: Introduction to Azure Container Service for Kubernetes
 description: Azure Container Service for Kubernetes makes it simple to deploy and manage container-based applications on Azure.
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview

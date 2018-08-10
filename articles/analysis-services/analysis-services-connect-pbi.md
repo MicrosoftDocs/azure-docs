@@ -1,21 +1,13 @@
 ---
 title: Connect to Azure Analysis Services with Power BI | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Power BI.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/10/2018
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Connect with Power BI
@@ -35,7 +27,9 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank and select a database or perspective later.
 
-4. Leave the default **Connect live** option, then press **Connect**. Import connections are not currently supported.
+4. Select a connection option and then press **Connect**. 
+
+    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI** setting applies only when choosing **Connect live**.
 
 5. If prompted, enter your login credentials. 
 

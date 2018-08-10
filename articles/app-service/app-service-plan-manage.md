@@ -1,6 +1,6 @@
 ---
 title: Manage an App Service plan in Azure | Microsoft Docs
-description: Learn how to App Service plans perform different tasks to manage an App Service plan.
+description: Learn how to perform different tasks to manage an App Service plan.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 services: app-service
 documentationcenter: ''
@@ -20,40 +20,48 @@ ms.author: cephalin
 ---
 # Manage an App Service plan in Azure
 
-An [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources an App Service app needs to run. This how-to guide shows how to manage an App Service plan.
+An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
 > [!TIP]
 > If you have an App Service Environment, see [Create an App Service plan in an App Service Environment](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-You can create an empty App Service plan or as part of app creation.
+You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-In the [Azure portal](https://portal.azure.com), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
+1. In the [Azure portal](https://portal.azure.com), select **New** > **Web + mobile**, and then select **Web App** or another kind of App Service app.
 
-![Create an app in the Azure portal.][createWebApp]
+1. Select an existing App Service plan or create a plan for the new app.
 
-You can then select an existing App Service plan or create a plan for the new app.
+   ![Create an app in the Azure portal.][createWebApp]
 
- ![Create an App Service plan.][createASP]
+   To create a plan:
 
-To create an App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. 
+   a. Select **[+] Create New**.
 
-After you have selected the pricing tier, click the **Select** button.
+      ![Create an App Service plan.][createASP] 
+
+   b. For **App Service plan**, enter the name of the plan.
+
+   c. For **Location**, select an appropriate location.
+
+   d. For **Pricing tier**, select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
 
 <a name="move"></a>
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan as long as the source plan and the target plan are in the _same resource group and geographical region_.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region_.
 
-To move an app to another plan, navigate to the app that you want to move in the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), browse to the app that you want to move.
 
-In the **Menu**, look for the **App Service Plan** section.
+1. On the menu, look for the **App Service Plan** section.
 
-Select **Change App Service plan** to start the process.
+1. Select **Change App Service plan** to open the **App Service plan** selector.
 
-**Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. 
+   ![App Service plan selector.][change] 
+
+1. In the **App Service plan** selector, select an existing plan to move this app into.   
 
 > [!IMPORTANT]
 > The **Select App Service plan** page is filtered by the following criteria: 
@@ -61,14 +69,20 @@ Select **Change App Service plan** to start the process.
 > - Exists in the same geographical region 
 > - Exists in the same webspace  
 > 
-> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers using App Service. Currently, App Service resources aren’t able to be moved between webspaces. 
+> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers who use App Service. Currently, you can't move App Service resources between webspaces. 
 > 
-
-![App Service plan selector.][change]
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier, enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher tiered plan to a lower tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. For example, if one of your apps uses SSL certificates, you might see the error message: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`In this case, you need to scale up the pricing tier of the target plan to **Basic** or higher, or you need to remove all SSL connections to your app, before you can move the app to the target plan.
+Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher-tiered plan to a lower-tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. 
+
+For example, if one of your apps uses SSL certificates, you might see this error message:
+
+`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+In this case, before you can move the app to the target plan, you need to either:
+- Scale up the pricing tier of the target plan to **Basic** or higher.
+- Remove all SSL connections to your app.
 
 ## Move an app to a different region
 
@@ -77,7 +91,7 @@ The region in which your app runs is the region of the App Service plan it's in.
 You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
-> Cloning has some limitations that you can read about at [Azure App Service App cloning](app-service-web-app-cloning.md).
+> Cloning has some limitations. You can read about them in [Azure App Service App cloning](app-service-web-app-cloning.md).
 
 ## Scale an App Service plan
 
@@ -89,10 +103,10 @@ To scale out an app's instance count, see [Scale instance count manually or auto
 
 ## Delete an App Service plan
 
-To avoid unexpected charges, when you delete the last app in an App Service plan, App Service also deletes the plan by default. If choose to keep the plan instead, you should change the plan to **Free** tier so that you don't get charged.
+To avoid unexpected charges, when you delete the last app in an App Service plan, App Service also deletes the plan by default. If you choose to keep the plan instead, you should change the plan to **Free** tier so you're not charged.
 
 > [!IMPORTANT]
-> **App Service plans** that have no apps associated to them still incur charges since they continue to reserve the configured VM instances.
+> App Service plans that have no apps associated with them still incur charges because they continue to reserve the configured VM instances.
 
 ## Next steps
 

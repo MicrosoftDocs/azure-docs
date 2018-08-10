@@ -1,18 +1,17 @@
 ---
 title: Share Azure Time Series Insights custom views with parameterized URLs | Microsoft Docs
 description: This article describes how to develop parameterized URLs in Azure Time Series Insights, so that a customer view can easily be shared.
-services: time-series-insights
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: MarkMcGeeAtAquent
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: rest-api
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ---
+
 # Share a custom view using a parameterized URL
 
 To share a custom view in Time Series Insights explorer, you can programmatically create a parameterized URL of the custom view.
@@ -58,14 +57,16 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the terms of a Time Series Insights view, where:
 
-- `name=<string>`
+- "name":"<string>"
   - The name of the *term*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - The column name to *split by*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - The column name of *measure*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - The *where* clause for server-side filtering.
+-  "useSum":"true"
+  - This is an optional parameter that specifies using sum for your measure.  Note, if "Events" is the selected measure, count is selected by default.  If "Events" is not selected, average is selected by default.  
 
 The 'multiChartStack=<true/false>' parameter enables stacking in the chart and the 'multiChartSameScale=<true/false>' parameter enables the same Y-axis scale across terms within an optional parameter.  
 

@@ -1,12 +1,11 @@
 ---
 title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
 description: Access control on Azure Search content using security filters and Active Directory identities.
-services: search
 author: "revitalbarletz"
 manager: "jlembicz"
-
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
 ---
@@ -133,7 +132,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

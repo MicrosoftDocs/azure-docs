@@ -3,15 +3,16 @@ title: Investigate and share usage data with interactive Workbooks in Azure Appl
 description: Demographic analysis of users of your web app.
 services: application-insights
 documentationcenter: ''
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/12/2017
+ms.reviewer: daviste
 ms.author: mbullwin
 ---
 

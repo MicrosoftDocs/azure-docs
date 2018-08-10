@@ -167,15 +167,7 @@ when making changes in one don't forget the other two.
 
 ## CRON expressions
 
-A [CRON expression](https://en.wikipedia.org/wiki/Cron) is composed of six fields: `{second} {minute} {hour} {day} {month} {day of the week}`.  Here are some examples:
-
-* Every 15 minutes: `0 */15 * * * *`
-* Every hour (that is, whenever the count of minutes is 0): `0 0 * * * *` 
-* Every hour from 9 AM to 5 PM: `0 0 9-17 * * *` 
-* At 9:30 AM every day: `0 30 9 * * *`
-* At 9:30 AM every weekday: `0 30 9 * * 1-5`
-
-You can enter the CRON expression in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#cron-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {

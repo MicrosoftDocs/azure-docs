@@ -3,7 +3,7 @@ title: Troubleshoot Azure Log Analytics Linux Agent | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics Linux agent.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/17/2017
+ms.topic: conceptual
+ms.date: 03/14/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # How to troubleshoot issues with the Linux agent for Log Analytics
@@ -30,15 +31,15 @@ This article provides help troubleshooting errors you might experience with the 
 1. Reonboard to the Log Analytics service with the OMS Agent for Linux by using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Review the section [Configuring the agent for use with a proxy server or OMS Gateway](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) to verify you have properly configured the agent to communicate through a proxy server.    
+2. Review the section [Update proxy settings](log-analytics-agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following Log Analytics service endpoints are whitelisted:
 
-    |Agent Resource| Ports |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Port 443|   
-    |*.oms.opinsights.azure.com | Port 443|   
-    |ods.systemcenteradvisor.com | Port 443|   
-    |*.blob.core.windows.net/ | Port 443|   
+    |Agent Resource| Ports | Direction |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
+    |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
+    |*.blob.core.windows.net | Port 443| Inbound and outbound |  
+    |*.azure-automation.net | Port 443| Inbound and outbound | 
 
 ## Issue: You receive a 403 error when trying to onboard
 

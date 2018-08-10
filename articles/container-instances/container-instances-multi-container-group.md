@@ -2,13 +2,13 @@
 title: Deploy multi-container groups in Azure Container Instances
 description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
 services: container-instances
-author: neilpeterson
-manager: timlt
+author: mmacy
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
-ms.author: nepeters
+ms.date: 06/08/2018
+ms.author: marsma
 ms.custom: mvc
 ---
 
@@ -16,22 +16,37 @@ ms.custom: mvc
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-This document walks you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
+There are two methods for deploying multi-container groups using the Azure CLI:
+
+* Resource Manager template deployment (this article)
+* [YAML file deployment](container-instances-multi-container-yaml.md)
+
+Deployment with a Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an Azure Files share) at the time of container instance deployment. Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes *only* container instances.
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## Configure the template
 
-Create a file named `azuredeploy.json` and copy the following JSON into it.
+The sections in this article walk you through running a simple multi-container sidecar configuration by deploying an Azure Resource Manager template.
 
-In this sample, a container group with two containers, a public IP address, and two exposed ports is defined. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+Start by creating a file named `azuredeploy.json`, then copy the following JSON into it.
 
-```json
+This Resource Manager template defines a container group with two containers, a public IP address, and two exposed ports. The first container in the group runs an internet-facing application. The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
@@ -40,9 +55,9 @@ In this sample, a container group with two containers, a public IP address, and 
   },
   "resources": [
     {
-      "name": "myContainerGroup",
+      "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -99,15 +114,15 @@ In this sample, a container group with two containers, a public IP address, and 
   "outputs": {
     "containerIPv4Address": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
     }
   }
 }
 ```
 
-To use a private container image registry, add an object to the JSON document with the following format.
+To use a private container image registry, add an object to the JSON document with the following format. For an example implementation of this configuration, see the [ACI Resource Manager template reference][template-reference] documentation.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -128,20 +143,20 @@ az group create --name myResourceGroup --location eastus
 Deploy the template with the [az group deployment create][az-group-deployment-create] command.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Within a few seconds, you should receive an initial response from Azure.
 
 ## View deployment state
 
-To view the state of the deployment, use the [az container show][az-container-show] command. This returns the provisioned public IP address by which the application can be accessed.
+To view the state of the deployment, use the following [az container show][az-container-show] command:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Output:
+If you'd like to view the running application, navigate to its IP address in your browser. For example, the IP is `52.168.26.124` in this example output:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -203,7 +218,8 @@ This article covered the steps needed for deploying a multi-container Azure cont
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

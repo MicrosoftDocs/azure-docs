@@ -3,18 +3,19 @@ title: What's new in Azure Machine Learning | Microsoft Docs
 description: New features that are available in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: raymondl
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: v-donglo
 
 ---
 # What's New in Azure Machine Learning

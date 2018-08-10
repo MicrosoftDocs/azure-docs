@@ -1,21 +1,13 @@
 ---
-title: Best practices for autoscale | Microsoft Docs
-description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services 
+title: Best practices for autoscale
+description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-
+ms.component: autoscale
 ---
 # Best practices for Autoscale
 This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.

@@ -1,21 +1,14 @@
 ---
-title: Runbook settings | Microsoft Docs
+title: Runbook settings in Azure Automation
 description: Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure portal and Windows PowerShell.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: stevenka
-editor: tysonn
-
-ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/11/2016
-ms.author: bwren
-
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 # Runbook settings
 Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior. Each of these settings is described below followed by procedures on how to modify them.
@@ -35,12 +28,12 @@ By default, Verbose and Progress records are not written to job history. You can
 ### Changing runbook settings with the Azure portal
 You can change settings for a runbook in the Azure portal from the **Settings** blade for the runbook.
 
-1. In the Azure portal, select **Automation** and then then click the name of an automation account.
+1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. Select the **Runbooks** tab.
 3. Click the name of a runbook and you are directed to the settings blade for the runbook. From here you can specify or modify tags, the runbook description, configure logging and tracing settings, and access support tools to help you solve problems.     
 
 ### Changing runbook settings with Windows PowerShell
-You can use the [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+You can use the [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
 

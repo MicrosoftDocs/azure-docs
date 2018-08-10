@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2017

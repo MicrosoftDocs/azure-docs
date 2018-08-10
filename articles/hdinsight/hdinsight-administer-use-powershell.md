@@ -1,22 +1,15 @@
 ---
-title: Manage Hadoop clusters in HDInsight with PowerShell - Azure | Microsoft Docs
+title: Manage Hadoop clusters in HDInsight with PowerShell - Azure 
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
+editor: jasonwhowell
+author: jasonwhowell
 
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2017
-ms.author: jgao
+ms.topic: conceptual
+ms.date: 05/14/2018
+ms.author: jasonh
 
 ---
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -175,7 +168,7 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access). If
 The following PowerShell script demonstrates how to get the default storage account name and the related information:
 
 ```powershell
-#Login-AzureRmAccount
+#Connect-AzureRmAccount
 $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName

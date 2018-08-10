@@ -1,24 +1,18 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using PowerShell | Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using PowerShell
+title: Azure Quickstart - Create a blob in object storage using Azure PowerShell | Microsoft Docs
+description: In this quickstart, you use Azure PowerShell  in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-documentationcenter: storage
-author: tamram
-manager: timlt
-editor: tysonn
+author: roygara
 
-ms.assetid: 
+
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
-ms.author: tamram
+ms.date: 04/09/2018
+ms.author: rogarana
 ---
 
-# Transfer objects to/from Azure Blob storage using Azure PowerShell
+# Quickstart: Upload, download, and list blobs using Azure PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to transfer files between local disk and Azure Blob storage.
 
@@ -115,13 +109,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage. To learn more about working with Blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage. To learn more about working with Blob storage using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](storage-how-to-use-blobs-powershell.md)
+> [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
+
 * [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
 
 ### Microsoft Azure Storage Explorer
+
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

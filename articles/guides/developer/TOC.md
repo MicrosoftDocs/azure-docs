@@ -1,7 +1,5 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-## [Overview of Azure services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Portal overview](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -24,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Create an Azure connected function](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Samples
 ## Azure CLI
@@ -98,9 +96,9 @@
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
-### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
+### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
+### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Command line interfaces
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)

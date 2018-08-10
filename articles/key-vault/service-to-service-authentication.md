@@ -10,7 +10,7 @@ ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
 ms.prod:
-ms.service: microsoft-keyvault
+ms.service: key-vault
 ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
@@ -186,7 +186,7 @@ To use a certificate to sign into Azure AD:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}.
+          CertificateStoreLocation={LocalMachine or CurrentUser}
     ```
  
     Replace _{AppId}_, _{TenantId}_, and _{Thumbprint}_ with values generated in Step 1.
@@ -202,7 +202,7 @@ To sign in using an Azure AD shared secret credential:
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
-    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
+    RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
     Replace _{AppId}_, _{TenantId}_, and _{ClientSecret}_ with values generated in Step 1.

@@ -4,9 +4,8 @@ description: Source code for tutorial showing how to use the Bing Video Search A
 services: cognitive-services
 author: mikedodaro
 manager: rosh
-
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
@@ -15,7 +14,7 @@ ms.author: v-gedod
 
 This is the complete source code discussed in the [single-page app tutorial](tutorial-bing-video-search-single-page-app.md) for Bing Video Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing.html`. Then open the saved file in Microsoft Edge or another popular browser.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -610,3 +609,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

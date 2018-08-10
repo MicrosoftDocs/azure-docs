@@ -4,9 +4,8 @@ description: Learn about sentence separation and tokenization in the Linguistic 
 services: cognitive-services
 author: DavidLiCIG
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguisticanalysisapi
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl
@@ -66,4 +65,4 @@ This tokenization allows us to handle the word *didn't* and the phrase *did not*
 ## Specification
 
 It is important to make consistent decisions about what comprises a sentence and a token.
-We rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (some additional details are available  here: [https://www.cis.upenn.edu/~treebank/tokenization.html]).
+We rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (some additional details are available at ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

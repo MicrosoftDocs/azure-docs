@@ -1,6 +1,6 @@
----
+﻿---
 title: 'Connect Azure VPN gateways to multiple on-premises policy-based VPN devices: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: This article walks you through configuring Azure route-based VPN gateway to multiple policy-based VPN devices using Azure Resource Manager and PowerShell.
+description: Configure an Azure route-based VPN gateway to multiple policy-based VPN devices using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2017
+ms.date: 02/14/2018
 ms.author: yushwang
 
 ---
@@ -110,7 +110,7 @@ To use the Resource Manager cmdlets, make sure you switch to PowerShell mode. Fo
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

@@ -3,7 +3,7 @@ title: Deploy Azure API Management services to multiple Azure regions | Microsof
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -48,13 +48,12 @@ Click **Add** to place your selection in the Locations table.
 Repeat this process until you have all locations configured and click **Save** from the toolbar to start the deployment process.
 
 ## <a name="remove-region"> </a>Delete an API Management service instance from a location
+
 In the Azure Portal navigate to the **Scale and pricing** page for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
 
 For the location you would like to remove open the context menu using the **...** button at the right end of the table. Select the **Delete** option.
-
-![Remove region][api-management-remove-region]
 
 Confirm the deletion and click **Save** to apply the changes.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
 description: 
 services: Azure-government
@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Azure Government Documentation
+# Azure Government Documentation
 
 Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
 
@@ -38,7 +38,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?tag=azure-government">
+        <a href="https://azure.microsoft.com/resources/videos/index/?tag=azure-government">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

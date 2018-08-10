@@ -3,8 +3,8 @@ title: Add the Yammer Connector in your Azure Logic Apps | Microsoft Docs
 description: Overview of the Yammer Connector with REST API parameters
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
+author: ecfan
+manager: jeconnoc
 editor: ''
 tags: connectors
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Yammer connector

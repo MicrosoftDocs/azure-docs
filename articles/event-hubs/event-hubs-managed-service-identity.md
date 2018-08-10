@@ -3,18 +3,14 @@ title: Managed Service Identity with Azure Event Hubs preview | Microsoft Docs
 description: Use Managed Service Identities with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
 
-ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/18/2017
-ms.author: sethm
+ms.date: 07/05/2018
+ms.author: shvija
 
 ---
 
@@ -50,19 +46,22 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 ### Create a new Event Hubs namespace
 
-Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that have preview support for MSI: **US East**, **US East 2**, or **West Europe**. 
+Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that has preview support for MSI: **US East**, **US East 2**, or **West Europe**. 
 
 Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed service identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 
 ![](./media/event-hubs-managed-service-identity/msi2.png)
  
-The web application's managed service identity now has access to the Event Hubs namespace, and to the event hub you previously created. 
+The managed service identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
 
 ### Run the app
 
 Now modify the default page of the ASP.NET application you created. You can also use the web application code from [this GitHub repository](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
 
-Once you start your app, point your browser to EventHubsMSIDemo.aspx. Alternatively, set it as your start page. The code can be found in the EventHubsMSIDemo.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Event Hubs to either send or receive messages. 
+>[!NOTE] 
+> While the MSI feature is in preview, be sure to use the [preview version of the Service Bus library](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) in order to access the new APIs. 
+
+Once you start the app, point your browser to EventHubsMSIDemo.aspx. Alternatively, set it as your start page. The code can be found in the EventHubsMSIDemo.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Event Hubs to either send or receive events. 
 
 Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) object is initialized. Instead of using the Shared Access Token (SAS) token provider, the code creates a token provider for the managed service identity with the `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` call. As such, there are no secrets to retain and use. The flow of the managed service identity context to Event Hubs and the authorization handshake are automatically handled by the token provider, which is a simpler model than using SAS.
 

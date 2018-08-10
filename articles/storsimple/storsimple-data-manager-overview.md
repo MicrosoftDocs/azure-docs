@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
 ---
 
@@ -53,9 +53,9 @@ The StorSimple Data Manager is available in the following 7 regions:
 
 However, the StorSimple Data Manager can be used to transform data in the following regions. 
 
-![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 26 regions, you can transform your data using this service.
+This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 19 regions, you can transform your data using this service.
 
 
 ## Choosing a region
@@ -77,6 +77,18 @@ This key is used by the compute resources to perform the transformation. These c
 If your Data Manager region is different from your job definition region, it is important that you understand what data/metadata resides in each of these regions. The following diagram illustrates the effect of having different regions for Data Manager and job definition.
 
 ![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## Managing personal information
+
+The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
+## Known Limitations
+
+The service currently has the following limitations:
+- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- Some metadata of files (including ACLs) will not be retained in the transformed data.
+- This service works only with NTFS volumes.
+- File path lengths need to be less than 256 characters else the job will fail.
 
 ## Next steps
 

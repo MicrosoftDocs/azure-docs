@@ -35,10 +35,10 @@ This script uses the following command to create the managed application definit
 
 | Command | Notes |
 |---|---|
-| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az_managedapp_definition_create) | Create a managed application definition. Provide the package that contains the required files. |
+| [az managedapp definition create](https://docs.microsoft.com/cli/azure/managedapp/definition#az-managedapp-definition-create) | Create a managed application definition. Provide the package that contains the required files. |
 
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).

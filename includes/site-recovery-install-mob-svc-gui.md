@@ -1,15 +1,21 @@
 1. Copy the installation to the server, and then open the installer.
-2. On the **Installation Option** blade, select **Install Mobility Service**.
+2. On **Installation Option**, select **Install mobility service**.
 
-    ![Mobility Service Install Option Page ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Select the install location  and click **Install** to being the installation procedure.
+    ![Mobility Service installation option page](./media/site-recovery-install-mob-svc-gui/mobility1.png)
 
-    ![Mobility Service Install Location Page ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. You can use **Installation Progress** page to monitor the installer's progress.
-    ![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+3. Select the installation location, and then select **Install** to start the installation procedure.
 
-5. Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.
-    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+    ![Mobility Service installation location page](./media/site-recovery-install-mob-svc-gui/mobility2.png)
 
-6. Click on the **Register** button to complete the registration.
-    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+4. Use the **Installation Progress** page to monitor the installer's progress.
+
+    ![Mobility Service installation progress page](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+
+5. After the installation is finished, select **Proceed to Configuration** to register Mobility Service with your configuration server.
+
+    ![Mobility Service registration page](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Select **Register** to finish the registration.
+
+    ![Mobility Service registration final page](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+

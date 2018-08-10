@@ -3,21 +3,23 @@ title: Azure AD access reviews| Microsoft Docs
 description: You can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization by using Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/26/2017
-ms.author: billmath
+ms.topic: conceptual
+ms.component: compliance
+ms.date: 05/02/2018
+ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
-# Azure AD access reviews (preview)
+# Azure AD access reviews
 
-Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships and access to enterprise applications. 
+Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and privileged role assignments. 
 
 ## What can you do with access reviews?
    
@@ -26,6 +28,8 @@ Azure Active Directory (Azure AD) access reviews enable organizations to efficie
 - You can recertify employee access to applications and group memberships with access reviews.
    
 - You can collect access review controls into programs that are relevant for your organization to track reviews for compliance or risk-sensitive applications.
+
+- You can recertify the role assignment of administrative users who are assigned to Azure AD roles such as Global Administrator, or Azure subscription roles.  This capability is included in Azure AD Privileged Identity Management.
     
 
 ## Next steps
@@ -34,4 +38,4 @@ Azure Active Directory (Azure AD) access reviews enable organizations to efficie
 - [Manage guest access with Azure AD access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Create an access review of users in an Azure AD administrative role](privileged-identity-management/pim-how-to-start-security-review.md)

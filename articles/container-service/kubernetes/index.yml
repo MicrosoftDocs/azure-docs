@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Container Service with Kubernetes Documentation
 metadata:
-  document_id: 
+  document_id:
   title: Azure Container Service with Kubernetes Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.
   services: container-service
@@ -23,8 +23,8 @@ sections:
     text: 'Learn how to deploy Kubernetes clusters using Azure Container Service:'
   - type: list
     style: icon48
-    items: 
-    - image: 
+    items:
+    - image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Create a Kubernetes cluster
       href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
@@ -41,8 +41,8 @@ sections:
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
     - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitor Kubernetes with OMS</a>
-- title: Samples 
+    - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>
+- title: Samples
   items:
   - type: list
     style: unordered
