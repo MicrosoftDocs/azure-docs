@@ -156,37 +156,9 @@
       href: licensing-groups-resolve-problems.md
 - name: Reference
   items:
-  - name: Code samples    
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
-  - name: Azure PowerShell cmdlets    
-    href: /powershell/azure/overview
-  - name: .NET API    
-    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
-- name: Related
-  items:
-  - name: Multi-Factor Authentication    
-    href: ../authentication/multi-factor-authentication.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure AD Connect    
-    href: ../connect/active-directory-aadconnect.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Azure AD Connect Health    
-    href: ../connect-health/active-directory-aadconnect-health.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Privileged Identity Management    
-    href: ../privileged-identity-management/pim-configure.md?context=azure/active-directory/users-groups-roles/context/ugr-context
-- name: Resources
-  items:
-  - name: Azure feedback forum    
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Azure Roadmap    
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: MSDN forum    
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-  - name: Pricing    
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Pricing calculator    
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates    
-    href: https://azure.microsoft.com/updates/?product=active-directory
-  - name: Stack Overflow    
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Videos    
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+  - name: Graph API  
+    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
+  - name: Azure AD CLI    
+    href: https://docs.microsoft.com/cli/azure/ad
+  - name:  Azure AD PowerShell for Graph
+    href: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0

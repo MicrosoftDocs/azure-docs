@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: Azure AD user management tools such as groups and administrator role assignments help you accomplish your top tasks more quickly and accommodate growth. You can assign licenses or access to SaaS apps to groups instead of individuals, or delegate permissions to distribute the overhead of Azure AD identity management. 
 sections:
-- title: 5-Minute quickstarts
+- title: 5-minute quickstarts
   items:
   - type: paragraph
     text: Learn to use management tools in Azure Active Directory
@@ -45,5 +45,5 @@ sections:
     className: cardsD
     items:
     - title: Reference links
-      html: <p><a href="https://azure.microsoft.com/resources/samples/?service=active-directory">Code samples</a></p><p><a href="https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlets</a></p><p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET API</a></p>
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlets</a></p>
 

@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Fundamentals
+  - name: Active Directory
     tocHref: /azure/active-directory/fundamentals/
     topicHref: /azure/active-directory/index
     items:
@@ -14,7 +14,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Role-based access control
+  - name: Active Directory
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/active-directory/index
     items:
@@ -38,7 +38,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Connect
+  - name: Active Directory
     tocHref: /azure/active-directory/connect/
     topicHref: /azure/active-directory/index
     items:
@@ -50,7 +50,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Connect Health
+  - name: Active Directory
     tocHref: /azure/active-directory/connect-health/
     topicHref: /azure/active-directory/index
     items:
@@ -62,7 +62,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: B2B collaboration
+  - name: Active Directory
     tocHref: /azure/active-directory/b2b/
     topicHref: /azure/active-directory/index
     items:
@@ -74,7 +74,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Privileged Identity Management
+  - name: Active Directory
     tocHref: /azure/active-directory/privileged-identity-management/
     topicHref: /azure/active-directory/index
     items:
@@ -86,7 +86,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Authentication
+  - name: Active Directory
     tocHref: /azure/active-directory/authentication/
     topicHref: /azure/active-directory/index
     items:
