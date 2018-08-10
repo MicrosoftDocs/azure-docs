@@ -11,7 +11,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/10/2018
 ms.author: routlaw
 ---
 
@@ -23,25 +23,15 @@ ms.author: routlaw
 
 Your Azure function should be a stateless class method that processes input and produces output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
 
+You can put multiple functions in one single project (or specifically speaking, one single jar). We strongly recommend you not to put your functions in separate jars (or `pom.xml`).
+
 ## Triggers and annotations
 
-Typically an Azure function is invoked because of an external trigger. Your function needs to process that trigger and its associated inputs and produce one or more outputs.
+Typically an Azure function is invoked through one trigger. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Java annotations are included in the `azure-functions-java-core` package to bind input and outputs to your methods. The supported input triggers and output binding annotations are included in the following table:
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs]((/java/api/com.microsoft.azure.functions.annotation) for each annotation as well as in the Azure Functions binding reference documentation for each category of bindings, such as [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
 
-Binding | Annotation
----|---
-CosmosDB | N/A
-HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N/A
-Notification Hubs | N/A
-Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-Storage Queue | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
-Storage Table | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
-Timer | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N/A
-
-Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your application.
+Trigger inputs and outputs can also be defined in the [function.json](/azure/azure-functions/functions-reference#function-code) for your function instead of through annotations, nut doing so is not recommended.
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -49,9 +39,6 @@ Trigger inputs and outputs can also be defined in the [function.json](/azure/azu
 Example using annotations:
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
-
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
@@ -96,9 +83,13 @@ with the corresponding `function.json`:
 
 ```
 
+## Using third party libraries 
+
+Azure Functions supports the use of 3rd party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries that are not specified as dependencies in the `pom.xml` file, you may place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader for your function application at runtime.
+
 ## Data Types
 
-You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-core` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+You are free to use all the data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
@@ -145,7 +136,7 @@ public static String echoLength(byte[] content) {
 }
 ```
 
-Use `OutputBinding<byte[]>` type to make a binary output binding.
+Empty input values could be `null` as your functions argument, but a recommended way to deal with potential empty values is to use `Optional<T>`.
 
 
 ## Function method overloading
@@ -159,109 +150,53 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
-import java.util.Optional;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
+    @FunctionName("echo")
+    public static String echo(
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+    ) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
     }
 
-    private static class MyObject {
+    public static class MyObject {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
 }
 ```
 
-The `@BindingName` annotation accepts a `String` property that represents the name of the binding/trigger defined in `function.json`:
-
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "put" ],
-      "route": "items/{id}"
-    },
-    {
-      "type": "table",
-      "name": "item",
-      "direction": "in",
-      "tableName": "items",
-      "partitionKey": "Example",
-      "rowKey": "{id}",
-      "connection": "ExampleStorageAccount"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
-
-So when this function is invoked, the HTTP request payload passes an optional `String` for argument `in` and an Azure Table Storage `MyObject` type passed to argument `obj`. Use the `Optional<T>` type to handle inputs into your functions that can be null.
+When this function is invoked, the HTTP request payload will be passed as the String for argument in; and one entry will be retrieved from the Azure Table Storage and be passed to argument obj as MyObject type.
 
 ## Outputs
 
 Outputs can be expressed both in return value or output parameters. If there is only one output, you are recommended to use the return value. For multiple outputs, you have to use output parameters.
 
-Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response). In `functions.json`, you use `$return` as the name of the output binding.
+Return value is the simplest form of output, you just return the value of any type, and Azure Functions runtime will try to marshal it back to the actual type (such as an HTTP response).  You could apply any output annotations to the function method (the name property of the annotation has to be $return) to define the return value output.
 
-To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-core` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+To produce multiple output values, use `OutputBinding<T>` type defined in the `azure-functions-java-library` package. If you need to make an HTTP response and push a message to a queue as well, you can write something like:
+
+For example, a blob content copying function could be defined as the following code. `@StorageAccount` annotation is used here to prevent the duplicating of the connection property for both `@BlobTrigger` and `@BlobOutput`.
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputBinding;
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(String body, 
-    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
-        String result = "Hello, " + body + ".";
-        queue.setValue(result);
-        return result;
+    @FunctionName("copy")
+    @StorageAccount("AzureWebJobsStorage")
+    @BlobOutput(name = "$return", path = "samples-output-java/{name}")
+    public static String copy(@BlobTrigger(name = "blob", path = "samples-input-java/{name}") String content) {
+        return content;
     }
 }
 ```
 
-which should define the output binding in `function.json`:
+Use `OutputBinding<byte[]`>  to make a binary output value (for parameters); for return values, just use `byte[]`.
 
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "post" ]
-    },
-    {
-      "type": "queue",
-      "name": "queue",
-      "direction": "out",
-      "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
 ## Specialized Types
 
 Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of a HTTP trigger:
@@ -284,7 +219,8 @@ For example, the `queryValue` in the following code snippet will be `"test"` if 
 package com.example;
 
 import java.util.Optional;
-import com.microsoft.azure.serverless.functions.annotation.*;
+import com.microsoft.azure.functions.annotation.*;
+
 
 public class MyClass {
     @FunctionName("metadata")
@@ -297,9 +233,9 @@ public class MyClass {
 }
 ```
 
-## Functions execution context
+## Execution context
 
-You interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-core` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
+Interact with Azure Functions execution environment via the `ExecutionContext` object defined in the `azure-functions-java-library` package. Use the `ExecutionContext` object to use invocation information and functions runtime information in your code.
 
 ### Logging
 
@@ -308,8 +244,9 @@ Access to the Functions runtime logger is available through the `ExecutionContex
 The following example code logs a warning message when the request body received is empty.
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
