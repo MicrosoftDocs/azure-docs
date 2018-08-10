@@ -302,12 +302,12 @@
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
-   - name: Intelligent query processing
-     items:
-     - name: Intelligent query processing
-       href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-     - name: Adaptive query processing
-       href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+    - name: Intelligent query processing
+      items:
+      - name: Intelligent query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: Automatic tuning
       items:
       - name: Automatic tuning
