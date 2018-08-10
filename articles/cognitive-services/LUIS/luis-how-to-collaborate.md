@@ -35,6 +35,17 @@ An app has a single author, the owner, but can have many collaborators. To allow
 
 While LUIS doesn't currently support transfer of ownership, you can export your app, and another LUIS user can import the app. There may be minor differences in LUIS scores between the two applications. 
 
+## LUIS permission to access Azure active directory resources in your organization
+
+If you use Azure active directory (Azure AD) in your organization, LUIS needs permission to the access information about your users when they want to use LUIS. The resources that LUIS requires are minimal. 
+
+You see the detailed description when you attempt to sign up with an account that has admin consent or does not require admin consent, such as administrator consent:
+
+* Allows you to sign in to the app with your organizational account and let the app read your profile. It also allows the app to read basic company information.
+* Allows the app to see and update your data, even when you are not currently using the app.
+
+The first permission gives LUIS permission to read basic profile data, such as user ID, email, name. The second permission is required to refresh the access token of the user.
+
 ## Azure Active Directory tenant user
 
 LUIS uses standard Azure Active Directory (Azure AD) consent flow. 
