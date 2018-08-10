@@ -6950,16 +6950,6 @@
             "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
-        { 
-            "source_path": "articles/azure-stack/azure-stack-add-scale-node.md",
-            "redirect_url": "/azure/azure-stack",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
@@ -8383,6 +8373,11 @@
         {
             "source_path": "articles/documentdb/documentdb-change-feed.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/change-feed",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/documentdb/table-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/cosmos-db/table-introduction",
             "redirect_document_id": false
         },
         {

@@ -178,7 +178,7 @@ You can also use PowerShell to explicitly override the retention period and imme
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-For more information, see [Azure Stack PowerShell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+For more information, see [Azure Stack PowerShell documentation.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
  
 
 ## Next steps
