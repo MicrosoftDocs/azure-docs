@@ -19,7 +19,7 @@ Azure platform fully manages every Azure SQL Database and guarantees no data los
 There are two high-availability models applied in Azure SQL:
 
 - Standard/general purpose model that provides 99.99% of availability but with some potential performance degradation during maintenance activities.
-- Premium/business critical model that provides also provides 99.99% availability with minimal performance impact on your workload even during maintenance activities.
+- Premium/business critical model that also provides 99.99% availability with minimal performance impact on your workload even during maintenance activities.
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server Database Engine transparently with the minimal down-time for end users. Azure SQL Database runs on the latest stable version of SQL Server Database Engine and Windows OS, and most of the users would not notice that the upgrades are performed continuously.
 
