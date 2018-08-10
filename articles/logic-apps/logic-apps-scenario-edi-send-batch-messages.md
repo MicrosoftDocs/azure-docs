@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/09/18
+ms.date: 08/13/18
 ms.reviewer: estfan, LADocs
 ---
 
@@ -103,7 +103,7 @@ Select this trigger: **Batch messages**
    | **Frequency** | minute | Available only with **Schedule based** release criteria | 
    ||| 
 
-   ![Provide Batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
+   ![Provide batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
 
    > [!NOTE]
    > This example doesn't set up a partition for the batch, 

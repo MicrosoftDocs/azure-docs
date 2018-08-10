@@ -1,21 +1,21 @@
 ---
 title: Batch process messages as a group or collection - Azure Logic Apps | Microsoft Docs
-description: Send and receive messages for batch processing in logic apps
+description: Send and receive messages as batches in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: jonfancey
 ms.author: jonfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 08/09/2018
-ms.reviewer: LADocs
+ms.date: 08/13/2018
+ms.reviewer: estfan, LADocs
 ms.suite: integration
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
 
 To group messages and process them together in a specific way, 
-you can create a batching solution that holds messages in a *batch* 
+you can create a batching solution that collects messages into a *batch* 
 until your specified criteria are met and then releases the batched 
 messages for processing. Batching reduces how often your logic app 
 processes messages. This article shows how to create a batching 
@@ -80,7 +80,7 @@ Select this trigger: **Batch messages**
 
    | Property | Description | 
    |----------|-------------|
-   | **Batch Mode** | - **Inline**: <br>- **Integration Account**: |  
+   | **Batch Mode** | - **Inline**: For when you define a single release criteria configuration inside the batch trigger <br>- **Integration Account**: For when you define multiple release criteria configurations through an integration account |  
    | **Batch Name** | The name for your batch, which is "TestBatch" in this example. Applies only to **Inline** batch mode. |  
    | **Release Criteria** | Applies only to **Inline** batch mode and specifies the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. You can also specify a start date and time. <br>- **Select all**: Use all the specified criteria. | 
    ||| 
