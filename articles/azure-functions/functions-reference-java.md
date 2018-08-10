@@ -97,7 +97,7 @@ Values passed into function methods will be cast to Strings if the corresponding
 
 ### Plain old Java objects (POJOs)
 
-Strings formatted with JSON will be cast to Java types if the input of the function method expects that Java type. This conversion allows you to pass JSON inputs into your functions and work with Java types in your code without having to implement the conversion in your own code.
+Strings formatted with JSON will be cast to Java types if the input signature of the function expects that Java type. This conversion allows you to pass in JSON and work with Java types.
 
 POJO types used as inputs to functions must the same `public` access modifier as the function methods they are being used in. You don't have to declare POJO class fields `public`. For example, a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
 
@@ -141,7 +141,7 @@ Empty input values could be `null` as your functions argument, but a recommended
 
 ## Function method overloading
 
-You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class, and Azure Functions runtime will decide which to invoke by examining the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
+You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class. Azure Functions will decides which method to invoke based on the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
 
 ## Inputs
 
@@ -168,7 +168,7 @@ public class MyClass {
 }
 ```
 
-When this function is invoked, the HTTP request payload will be passed as the String for argument in; and one entry will be retrieved from the Azure Table Storage and be passed to argument obj as MyObject type.
+When this function is triggered, the HTTP request is passed to the function by `String in`. An entry will be retrieved from the Azure Table Storage based on the ID in the route URL and made avaialble as `obj` in the function body.
 
 ## Outputs
 
