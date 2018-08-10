@@ -73,7 +73,7 @@ az mesh network show --resource-group myResourceGroup --name visualObjectsNetwor
 
 ## Scale `worker` service
 
-Scale the `worker` service to three instances using the following command. The following example deploys a Linux application using the [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). To deploy a Windows application, use the [mesh_rp.scaleout.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
+Scale the `worker` service to three instances using the following command. The following example deploys a Linux application using the [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). To deploy a Windows application, use the [mesh_rp.scaleout.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.windows.json). Be aware that larger container images may take longer to deploy.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"

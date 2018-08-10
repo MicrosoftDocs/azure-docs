@@ -45,7 +45,7 @@ Create an Azure file share by following these [instructions](/azure/storage/file
 
 ## Create a resource group
 
-Create a resource group to deploy the application to.
+Create a resource group to deploy the application to. The following command creates a resource group named `myResourceGroup` in a location in the eastern United States.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
@@ -57,7 +57,7 @@ Create the application and related resources using the following command, and pr
 
 The `storageAccountKey` parameter in the template is a secure string. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
 
-The following command deploys a Linux application using the [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). To deploy a Windows application, use the [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
+The following command deploys a Linux application using the [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). To deploy a Windows application, use the [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Be aware that larger container images may take longer to deploy.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
