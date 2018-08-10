@@ -112,6 +112,7 @@ All registrations for template GUIDs will be done via the Azure Marketplace Clou
  *	Partners will also be able to register a GUID for the non-Marketplace solution templates/offers
  
 2. Sign into [Cloud Partner Portal](https://cloudpartner.azure.com/)
+
 3. On the upper right corner of the portal, click your account icon and then click **Publisher profile**
 
 ![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
@@ -220,7 +221,7 @@ For issues on accessing Azure Marketplace Cloud Partner Portal - select Problem 
  3. Complete the required fields on the next page and click **Continue.**
  4. Complete the free text fields on the next page. **Important**: Fill in Incident title with **“ISV Usage Tracking”** and describe your issue in detail in the large free text field after.  Complete the rest of the form and click **Submit**. 
  
-  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+  ![](https://github.com/qianw211/azure-docs-pr/blob/HiResImgAdded/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
  
 
