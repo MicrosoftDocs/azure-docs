@@ -23,6 +23,7 @@ More information about how security is integrated into every aspect of Azure is 
 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
+> 
 > On August 14th, 2018, the industry disclosed a new speculative execution side channel vulnerability known as L1 Terminal Fault (L1TF) which has been assigned multiple CVEs (CVE-2018-3615, CVE-20183620, and CVE-2018-3646). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between deployments. 
 >  
 
@@ -40,8 +41,8 @@ In the following offerings, here are our recommended actions to update your Oper
 | Offering | Recommended Action  |
 |----------|---------------------|
 | Azure Cloud Services  | Enable auto update or ensure you are running the newest Guest OS. |
-| Azure Linux Virtual Machines | Install updates from your operating system provider (more information below) |
-| Azure Windows Virtual Machines  | Install the latest security rollup 
+| Azure Linux Virtual Machines | Install updates from your operating system provider (more information below). |
+| Azure Windows Virtual Machines  | Install the latest security rollup.
 | Other Azure PaaS Services | There is no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
 
 ## Additional guidance if you are running untrusted code 
@@ -56,17 +57,11 @@ Example scenarios where additional security features are recommended:
 
 Customers who do not implement a scenario involving untrusted code do not need to enable these additional security features. 
 
-## Eneabling additional security features inside your VM or Cloud Service
+## Enabling additional security features inside your VM or Cloud Service
 
 ### Windows 
 
-If you are using Windows and hosting untrusted code, you should also enable a Windows feature called Kernel Virtual Address (KVA) Shadowing which provides additional protection against speculative execution side-channel vulnerabilities (specifically for variant 3 Meltdown, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), or rogue data cache load). This feature is turned off by default and may impact performance if enabled. 
-Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructions for Enabling Protections on the Server. If you are running Azure Cloud Services, verify that you are running WA-GUEST-OS-5.15_201801-01 or WA-GUEST-OS-4.50_201801-01 (available starting on January 10, 2018) and enable the registry key via a startup task.
-
-
----
-
-Your target operating system must be up to date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
+Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
 **Step 1**: Contact Azure Support to expose updated firmware (microcode) into your Virtual Machines 
 
@@ -75,7 +70,7 @@ Your target operating system must be up to date to enable these additional secur
 **Step 3**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): 
 These instructions apply inside the VM you are using as a Hyper-V host. 
 
-1. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the MinVmVersionForCpuBasedMitigationsregistry keys.  
+1. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `MinVmVersionForCpuBasedMitigations` registry keys.  
  
 2. Set the hypervisor scheduler type to Core by following the instructions here. 
 
@@ -91,7 +86,7 @@ All VMs should show:
 
 ### Linux
 
-Enabling the set of additional security features inside requires that the target operating system be fully up to date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions. 
+Enabling the set of additional security features inside requires that the target operating system is fully up-to-date. Some mitigations will be enabled by default. The following section describes the features that are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions. 
  
 **Step 1**: Contact Azure Support to expose updated firmware (microcode) into your Virtual Machines.
  
