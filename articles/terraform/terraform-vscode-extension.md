@@ -143,8 +143,8 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
     ![Welcome to Azure Cloud Shell](media/terraform-vscode-extension/tf-welcome-to-azure-cloud-shell.png)
 
-      >[!NOTE]
-      >In this example, Bash (Linux) was selected.
+>[!NOTE]
+>In this example, Bash (Linux) was selected.
 
 - If you have not already set up an Azure storage account, the following screen appears. Click **Create storage**.
 
