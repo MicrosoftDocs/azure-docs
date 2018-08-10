@@ -9,27 +9,27 @@
   - name: "Send search queries using the REST API"
     expanded: true
     items:
-    - name: "C#"
+    - name: "Using C#"
       href: "quickstarts/csharp.md"
-    - name: "Java"
+    - name: "Using Java"
       href: quickstarts/java.md
-    - name: "Node.js"
+    - name: "Using Node.js"
       href: quickstarts/nodejs.md
-    - name: "PHP"
+    - name: "Using PHP"
       href: quickstarts/php.md
-    - name: "Python"
+    - name: "Using Python"
       href: quickstarts/python.md
-    - name: "Ruby"
+    - name: "Using Ruby"
       href: quickstarts/ruby.md
   - name: "Request and filter images using the SDK"
     items:
-    - name: "C#"
+    - name: "Using C#"
       href: image-search-sdk-quickstart.md
-    - name: "Node.js"
+    - name: "Using Node.js"
       href: image-search-sdk-node-quickstart.md
-    - name: "Python"
+    - name: "Using Python"
       href: image-sdk-python-quickstart.md
-    - name: "Java"
+    - name: "Using Java"
       href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:

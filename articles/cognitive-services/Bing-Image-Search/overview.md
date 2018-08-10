@@ -56,8 +56,8 @@ To quickly get started with your first API request, you can learn to:
 
 * The [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) reference section contains definitions and information on the endpoints, headers, API responses, and query parameters that you can use to request image-based search results.
 
-* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) topic specifies acceptable uses of the content and information gained through the Bing search APIs.
+* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
 
-* [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)
+* The [Getting images from the web with the Bing Image Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) topic describes how to search and get images from the web.
 
-* [Sending and working with search queries](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)
+* [Sending and working with search queries](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) describes how to make, customize, and pivot search queries. 

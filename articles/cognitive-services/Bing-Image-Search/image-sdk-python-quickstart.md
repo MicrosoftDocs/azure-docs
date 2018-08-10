@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
 ---
- # Quickstart: Request and filter images using the SDK in Python
+ # Quickstart: Request and filter images using the SDK and Python
 
 The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results. 
 

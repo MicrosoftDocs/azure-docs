@@ -12,7 +12,7 @@ ms.date: 02/16/2018
 ms.author: v-gedod
 ---
 
-# Quickstart: Request and filter images using the SDK in Java
+# Quickstart: Request and filter images using the SDK and Java
 
 The Bing Image Search SDK provides the REST API functionality for image queries and parsing results. 
 

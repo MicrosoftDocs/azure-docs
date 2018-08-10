@@ -12,7 +12,7 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Quickstart: Request and filter images using the SDK in Node.js
+# Quickstart: Request and filter images using the SDK and Node.js
 
 The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
 
