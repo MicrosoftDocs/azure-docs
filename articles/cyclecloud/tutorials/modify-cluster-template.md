@@ -127,7 +127,7 @@ raid_level = 0
 
 Save your changes.
 
-![Edit Cluster Template window](~/../images/edit-cluster-template.png)
+![Edit Cluster Template window](~/images/edit-cluster-template.png)
 
 The lines added tell CycleCloud that two premium 512 GB disks (SSD = True) with a RAID 0 config should be added to the master node when it is provisioned, then mount the volume at `/mnt/exports/` and format the lot as an `ext4` filesystem.
 
@@ -143,13 +143,13 @@ cyclecloud import_template -f templates/extended_nfs.template.txt
 
 Once it is complete, return to the CycleCloud web interface and create a new cluster. You should see the a new application type called azurecyclecloud_tutorial:
 
-![New Cluster Type](~/../images/new-cluster-type.png)
+![New Cluster Type](~/images/new-cluster-type.png)
 
 ## Start the Cluster
 
 Start a new cluster using your new application template. When selecting your Virtual Machine settings, ensure you choose one that supports attached premium storage such as **Standard_D2s_v3**.
 
-![VM Machine Type SSD Yes](~/../images/SSD-VM.png)
+![VM Machine Type SSD Yes](~/images/SSD-VM.png)
 
 When your cluster is up, log into the master node and verify that `/mnt/exports/` is a 1TB volume with:
 
