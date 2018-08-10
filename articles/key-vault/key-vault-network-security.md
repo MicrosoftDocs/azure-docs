@@ -100,5 +100,5 @@ Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
 ```
 
 ## Next steps
-* [Virtual network service endpoints for Key Vault](key-vault-vnet-service-endpoints.md)
+* [Virtual network service endpoints for Key Vault](key-vault-ovw-vnet-service-endpoints.md)
 * [Secure your key vault](key-vault-secure-your-key-vault.md)
