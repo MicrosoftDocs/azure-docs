@@ -20,12 +20,12 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 
 |FQDN tag  |Description  |
 |---------|---------|
-|Azure Backup     |         |
-|Windows Update     |         |
-|SQL     |         |
-|App Service Environment     |         |
+|Azure Backup     |xxx         |
+|Windows Update     |xxx         |
+|SQL     |xxx         |
+|App Service Environment     |xxx         |
 
 
-### Next steps
+## Next steps
 
 TBD
