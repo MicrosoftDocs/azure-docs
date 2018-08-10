@@ -90,7 +90,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informs the runtime that your code has finished. You must call `context.done`, or else the runtime never knows that your function is complete, and the execution will time out. 
+Informs the runtime that your code has finished. If your function uses the `async function` declaration (available using Node 8+ in Functions version 2.x), you do not need to use `context.done()`. The `context.done` callback is implicitly called.
+
+If your function is not an async function, **you must call `context.done`** to inform the runtime that your function is complete. The execution will time out if it is missing.
 
 The `context.done` method allows you to pass back both a user-defined error to the runtime and a property bag of properties that overwrite the properties on the `context.bindings` object.
 

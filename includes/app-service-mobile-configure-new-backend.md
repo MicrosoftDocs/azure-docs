@@ -17,7 +17,7 @@ ms.custom: "include file"
 
     ![Azure portal with Mobile Apps Connect to database][connect]
 
-    a. Create a new SQL database and server.
+    a. Create a new SQL database and server. You may need to leave the connection string name field to the default value of MS_TableConnectionString in order to complete step 3 below.
 
     ![Azure portal with Mobile Apps create new database and server][server]
 
