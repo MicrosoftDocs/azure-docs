@@ -123,7 +123,7 @@
   - name: Security and policy
     href: security-policy.md
   - name: States and lifecycle
-    href: states-and-lifecycle.md
+    href: states-lifecycle.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery

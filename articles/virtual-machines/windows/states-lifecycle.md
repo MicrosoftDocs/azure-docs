@@ -19,7 +19,7 @@ ms.author: vashan
 
 # Virtual machines lifecycle and states
 
-[!INCLUDE [virtual-machines-common-states-and-lifecycle](../../../includes/virtual-machines-common-states-and-lifecycle.md)]
+[!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 
 
 ## Next steps

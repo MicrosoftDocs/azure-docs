@@ -12,11 +12,11 @@
 
 Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
 
-## Power States
+## Power states
 
 The power state represents the last known state of the VM.
 
-![VM power state diagram](./media/virtual-machines-common-states-and-lifecycle/vm-power-states.png)
+![VM power state diagram](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
