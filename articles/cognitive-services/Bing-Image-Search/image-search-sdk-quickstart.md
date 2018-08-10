@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Request and filter images using the SDK in C#"
+title: "Quickstart: Request and filter images using the SDK using C#"
 description: In this quickstart, you request and filter the images returned by Bing Image Search, using C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services

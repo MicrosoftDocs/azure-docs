@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send search queries using the REST API for the Bing Image Search API in Ruby"
+title: "Quickstart: Send search queries using the REST API for the Bing Image Search API using Ruby"
 description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Ruby.
 services: cognitive-services
 documentationcenter: ''
