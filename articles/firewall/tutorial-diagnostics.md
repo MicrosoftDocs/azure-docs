@@ -28,31 +28,6 @@ In this tutorial, you learn how to:
 
 Before starting this tutorial, you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
-## Diagnostic logs
-
- The following diagnostic logs are available for Azure Firewall:
-
-* **Application rule log**
-* **Network rule log**
-
-You have three options for storing your logs:
-
-* **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
-* **Log Analytics**: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
-
-## Activity logs
-
-   Activity log entries are collected by default, and you can view them in the Azure portal.
-
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
-
-## Metrics
-
-The following metrics are available for Azure Firewall:
-
-- **ApplicationRuleHit**
-- **NetworkRuleHit**
 
 ## Enable diagnostic logging through the Azure portal
 
