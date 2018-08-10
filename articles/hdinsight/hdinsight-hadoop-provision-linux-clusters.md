@@ -1,21 +1,16 @@
 ---
-title: Cluster setup for Hadoop, Spark, Kafka, HBase, or ML Services - Azure HDInsight | Microsoft Docs
+title: Cluster setup for Hadoop, Spark, Kafka, HBase, or ML Services - Azure HDInsight 
 description: Set up Hadoop, Kafka, Spark, HBase, ML Services, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: jasonh
 
 ---
 # Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more

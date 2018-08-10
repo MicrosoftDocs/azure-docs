@@ -390,7 +390,7 @@ client.replaceDocumentAsync(docToReplace.self,
 Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
 The following example shows post-triggers in action:
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -430,7 +430,7 @@ var updateMetadataTrigger = {
 
 ```
 The trigger can be registered as shown in the following sample.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -840,4 +840,3 @@ You may also find the following references and resources useful in your path to 
 * [Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
 * [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
-

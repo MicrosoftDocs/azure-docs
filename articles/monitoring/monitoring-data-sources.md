@@ -39,7 +39,7 @@ You can view the Activity Log for a particular resource on its page in the Azure
 
 
 ### Azure Active Directory Audit Logs
-[Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. You can't currently combine Azure Active Directory audit data with other monitoring data as it's only accessible through Azure Active Directory and the [Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Azure Active Directory reporting](../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. You can't currently combine Azure Active Directory audit data with other monitoring data as it's only accessible through Azure Active Directory and the [Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## Azure Services

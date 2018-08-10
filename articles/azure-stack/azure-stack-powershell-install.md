@@ -97,9 +97,9 @@ Run the following PowerShell script to install these modules on your development
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-    # Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
-    Install-Module -Name AzureStack -RequiredVersion 1.3.0 
-    ```
+# Install Module Version 1.4.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.4.0 
+
 
 - **Version 1.2.11** (before 1804)
 
@@ -127,6 +127,7 @@ If the installation is successful, the AzureRM and AzureStack modules are displa
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 Sign in to a computer where you have Internet connectivity and use the following scripts to download the Azure Resource Manager and AzureStack packages onto your local computer depending on your version of Azure Stack.
+
 
   - **Version 1.3.0** (Azure Stack 1804 or greater)
   
