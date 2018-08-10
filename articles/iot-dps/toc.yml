@@ -97,16 +97,18 @@
     href: how-to-connect-mxchip-iot-devkit.md
   - name: Manage device provisioning configuration
     items:
-    - name: Configure verified CA certificates
-      href: how-to-verify-certificates.md
-    - name: Manage deprovisioning
-      href: how-to-unprovision-devices.md    
-    - name: Manage disenrollment
-      href: how-to-revoke-device-access-portal.md 
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
     - name: Manage enrollments - Service SDKs
       href: how-to-manage-enrollments-sdks.md
+    - name: Configure verified CA certificates
+      href: how-to-verify-certificates.md
+    - name: Rolling device certificates
+      href: how-to-roll-certificates.md
+    - name: Manage disenrollment
+      href: how-to-revoke-device-access-portal.md 
+    - name: Manage deprovisioning
+      href: how-to-unprovision-devices.md    
   - name: Manage device provisioning service
     items:
     - name: Configure device provisioning service using Azure CLI

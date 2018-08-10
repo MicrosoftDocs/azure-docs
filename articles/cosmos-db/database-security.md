@@ -3,14 +3,14 @@ title: Database security - Azure Cosmos DB | Microsoft Docs
 description: Learn how Azure Cosmos DB provides database protection and data security for your data.
 keywords: nosql database security, information security, data security, database encryption, database protection, security policies, security testing
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
+ms.author: rafats
 
 ---
 
@@ -44,6 +44,7 @@ We recommend the following checklist of requirements on which to compare databas
 - Responding to attacks
 - Ability to geo-fence data to adhere to data governance restrictions
 - Physical protection of servers in protected data centers
+- Certifications
 
 And although it may seem obvious, recent [large-scale database breaches](http://thehackernews.com/2017/01/mongodb-database-security.html) remind us of the simple but critical importance of the following requirements:
 - Patched servers that are kept up to date
@@ -76,7 +77,7 @@ Let's dig into each one in detail.
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](.\database-encryption-at-rest.md)|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via SSL and HMAC secret based authentication is baked in by default.|
-|Security and data protection certifications|Azure Cosmos DB has [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [European Model Clauses (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses), and [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certifications. Additional certifications are in progress.|
+|Security and data protection certifications|For the most up to data list of certifications see the overall (Azure Compliance site)[https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings] as well as the lastest (Azure Compliance Document)[https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] with all certifications (search for Cosmos). For a more focused read check out the April 25th, 2018 post (Azure #CosmosDB: Secure, private, compliant)[https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] which includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High, and many others.
 
 The following screenshot shows Active directory integration (RBAC) using access control (IAM) in the Azure portal:
 ![Access control (IAM) in the Azure portal - demonstrating database security](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)

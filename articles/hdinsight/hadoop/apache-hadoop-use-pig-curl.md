@@ -1,20 +1,13 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight - Azure | Microsoft Docs
+title: Use Hadoop Pig with REST in HDInsight - Azure 
 description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: jasonwhowell
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 
-ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
 ms.author: jasonh
 
