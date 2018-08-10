@@ -32,7 +32,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  1. Create conda environment
 
-    Open command line editor, and enter following commands
+    Open command-line editor, and enter following commands
 
      ```shell
     # create a new conda environment with Python 3.6, numpy and cython
@@ -89,7 +89,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
  1. Create conda environment
 
-    Open command line editor, and enter following commands
+    Open command-line editor, and enter following commands
 
     ```shell
     # create a new conda environment with Python 3.6, numpy and cython
@@ -122,7 +122,7 @@ The recommended approach is to use Continuum Anaconda [conda virtual environment
 
     Launch VS Code, and enter CTRL-SHIFT-P to get to Command Palette. Then invoke *Python: Select Interpreter*. and select the conda environment you created.
 
-    VS Code is automatically aware of conda environments on your computer, see [VS code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments) for additional information.
+    VS Code is automatically aware of conda environments on your computer. For more information, see [VS code documentation](https://code.visualstudio.com/docs/python/environments#_conda-environments).
 
  6. Validate Azure ML SDK installation
 
