@@ -43,13 +43,14 @@ To complete the exercises in the article, you need to [install Git](https://git-
 
 ### Install HashiCorp Terraform
 
-- Follow the instructions on the HashiCorp [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) webpage, which covers:
-    - Downloading Terraform
-    - Installing Terraform
-    - Verifying Terraform is correctly installed
+Follow the instructions on the HashiCorp [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) webpage, which covers:
 
-    >[!Tip]
-    >Be sure to follow the instructions regarding setting your PATH system variable.
+- Downloading Terraform
+- Installing Terraform
+- Verifying Terraform is correctly installed
+
+>[!Tip]
+>Be sure to follow the instructions regarding setting your PATH system variable.
 
 ### Install Node.js
 
