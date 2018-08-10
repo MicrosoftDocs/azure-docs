@@ -151,9 +151,9 @@ If you have multiple interfaces on your VM, you need to insure you respond to th
 
 ## Monitoring
 
-All [Standard Load Balancer](load-balancer-standard-overview.md) exposes health probe status as multi-dimensional metrics per instance via Azure Monitor.
+Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend instance health probe status as multi-dimensional metrics through Azure Monitor. This can then be consumed by other Azure services or 3rd party applications. 
 
-Basic Load Balancer exposes health probe status per backend pool via Log Analytics.  This is only available for public Basic Load Balancers and not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Basic public Load Balancer exposes health probe status summarized per backend pool via Log Analytics.  This is not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
 
 ## Limitations
 
