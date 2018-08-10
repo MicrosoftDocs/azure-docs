@@ -54,7 +54,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.  
 
 1. In the connectors and triggers search bar, type **HTTP**.
-2. Select **Request - When a HTTP request is received** as the trigger. 
+2. Select **Request - When an HTTP request is received** as the trigger. 
 
    ![Select HTTP request trigger](./media/publish-iot-hub-events-to-logic-apps/http-request-trigger.png)
 
@@ -64,8 +64,8 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 4. Paste the following sample JSON code into the text box, then select **Done**:
 
-   ```json
-   [{
+```json
+[{
   "id": "56afc886-767b-d359-d59e-0da7877166b2",
   "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
   "subject": "devices/LogicAppTestDevice",
@@ -107,8 +107,8 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
   },
   "dataVersion": "1",
   "metadataVersion": "1"
-   }]
-   ```
+}]
+```
 
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
 
