@@ -32,6 +32,8 @@
     maintainContext: true
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
+  - name: Deployment modes
+    href: deployment-modes.md
 - name: How to
   items:
   - name: Create templates
@@ -57,6 +59,8 @@
       href: resource-group-create-multiple.md
     - name: Create resource group in template
       href: create-resource-group-in-template.md
+    - name: Create resources in subscription
+      href: deploy-to-subscription.md
     - name: Update resource
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy
