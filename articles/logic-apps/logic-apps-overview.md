@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Enterprise integration solutions with Azure Logic Apps | Microsoft Docs
-description: Learn how Logic Apps helps you build automated workflows and business processes that integrate data, services, apps, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
+title: What is Azure Logic Apps? | Microsoft Docs
+description: Learn how to build enterprise integration solutions with automated workflows and business processes that integrate data, services, apps, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,24 +18,25 @@ ms.suite: integration
 
 # What is Azure Logic Apps?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) helps you build solutions 
-that integrate apps, data, systems, and services across enterprises or organizations 
-by automating tasks and business processes as [workflows](#logic-app-concepts). 
-Logic Apps is cloud service in Azure that simplifies how you design and create 
-scalable solutions for app integration, data integration, system integration, 
+[Logic Apps](https://azure.microsoft.com/services/logic-apps) 
+is a cloud service for helping you automate [workflows](#logic-app-concepts), 
+tasks, and business processes when you need to integrate apps, data, systems, 
+and services across enterprises or organizations. 
+Logic Apps simplifies how you design and build scalable 
+solutions for app integration, data integration, system integration, 
 enterprise application integration (EAI), and business-to-business (B2B) communication, 
 whether in the cloud, on premises, or both.
 
-For example, here are just a few workloads that you can automate with logic apps:
+For example, here are just a few workloads you can automate with logic apps:
 
 * Process and route orders across on-premises systems and cloud services.
-* Move uploaded files from an SFTP or FTP server to Azure Storage. 
 * Send email notifications with Office 365 when events happen in various systems, apps, and services.
+* Move uploaded files from an SFTP or FTP server to Azure Storage. 
 * Monitor tweets for a specific subject, analyze the sentiment, 
 and create alerts or tasks for items that need review.
 
-To build integration solutions with logic apps, choose from 
-a growing gallery that has [200+ connectors](../connectors/apis-list.md), 
+To build enterprise integration solutions with Azure Logic Apps, you can choose 
+from a growing gallery with [200+ connectors](../connectors/apis-list.md), 
 including other Azure services such as Service Bus, Functions, and Storage; 
 SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, 
 file shares, and many more. These [connectors](#logic-app-concepts) provide 

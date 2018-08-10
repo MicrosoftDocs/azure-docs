@@ -58,19 +58,6 @@ Here are the limits for a single logic app run:
 | Maximum recurrence interval | 500 days | | 
 |||| 
 
-<a name="disable-delete"></a>
-
-## Disabling or deleting logic apps
-
-When you disable a logic app, no new runs are instantiated. 
-All in-progress and pending runs will continue until they finish, 
-which might take time to complete. 
-
-When you delete a logic app, no new runs are instantiated. 
-All in-progress and pending runs are canceled. 
-If you have thousands of runs, cancellation might 
-take significant time to complete. 
-
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
@@ -88,6 +75,19 @@ choose **Workflow settings**.
 choose **Custom**. 
 
 3. Enter or drag the slider for the number of days you want.
+
+<a name="disable-delete"></a>
+
+## Disabling or deleting logic apps
+
+When you disable a logic app, no new runs are instantiated. 
+All in-progress and pending runs will continue until they finish, 
+which might take time to complete.
+
+When you delete a logic app, no new runs are instantiated. 
+All in-progress and pending runs are canceled. 
+If you have thousands of runs, cancellation might 
+take significant time to complete.
 
 <a name="looping-debatching-limits"></a>
 
