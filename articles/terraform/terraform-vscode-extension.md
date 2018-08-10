@@ -13,7 +13,7 @@ ms.topic: article
 
 # Azure Terraform VS Code extension
 
-The Microsoft Azure Terraform Visual Studio Code (VS Code) extension is designed to increase developer productivity while authoring, testing, and using Terraform with Azure. The extension provides Terraform command support, resource graph visualization, and CloudShell integration within the VS Code IDE.
+The Microsoft Azure Terraform Visual Studio Code (VS Code) extension is designed to increase developer productivity while authoring, testing, and using Terraform with Azure. The extension provides Terraform command support, resource graph visualization, and CloudShell integration within VS Code.
 
 ## What you do
 
@@ -22,33 +22,34 @@ The Microsoft Azure Terraform Visual Studio Code (VS Code) extension is designed
 
 ## What you learn
 
-In this tutorial, you'll learn:
+In this tutorial, you learn:
 
-* How Terraform can automate and simplify the provisioning of Azure services.
-* How to install and use the Microsoft Terraform VS Code extension for Azure services.
-* How to use VS Code to write, plan, and execute Terraform plans.
+- How Terraform can automate and simplify the provisioning of Azure services.
+- How to install and use the Microsoft Terraform VS Code extension for Azure services.
+- How to use VS Code to write, plan, and execute Terraform plans.
 
 ## What you need
 
-* A computer running Windows 10, Linux, or macOS 10.10+.
-* [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US).
-* An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/).
-* An installation of the [Terraform](https://www.terraform.io/) open-source tool on your local machine.
+- A computer running Windows 10, Linux, or macOS 10.10+.
+- [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US).
+- An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/).
+- An installation of the [Terraform](https://www.terraform.io/) open-source tool on your local machine.
   
 ## Prepare your dev environment
 
 ### Install Git
 
-To complete the exercises in the article, you'll need to [install Git](https://git-scm.com/).
+To complete the exercises in the article, you need to [install Git](https://git-scm.com/).
 
 ### Install HashiCorp Terraform
 
-- Follow the instructions on the HashiCorp [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) webpage. There you'll find detailed instructions covering the downloading and installation of Terraform.
+- Follow the instructions on the HashiCorp [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) webpage, which covers:
+    - Downloading Terraform
+    - Installing Terraform
+    - Verifying Terraform is correctly installed
 
-    ![Install Terraform](media/terraform-vscode-extension/tf-install-terraform.png)
-
->[!Tip]
->Be sure to follow the instructions regarding setting your PATH system variable!
+    >[!Tip]
+    >Be sure to follow the instructions regarding setting your PATH system variable!
 
 ### Install Node.js
 
@@ -95,23 +96,30 @@ To use the Terraform visualize function, you need to [install GraphViz](http://g
 
 ## Exercise 1: Basic Terraform commands walk-through
 
-In this exercise, you create and execute a basic Terraform test plan that provisions a new Azure resource group.
+In this exercise, you create and execute a basic Terraform configuration file that provisions a new Azure resource group.
 
 ### Prepare a test plan file
 
 - In VS Code, select **File > New File** from the Menu Bar.
 - Navigate to the [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) and copy the code in the **Example Usage** code block:
 - Paste the copied code into the new file you created in VS Code.
+
     ![Paste Example Usage code](media/terraform-vscode-extension/tf-paste-example-usage-code.png)
+
     >[!NOTE]
     >You may change the **name** value of the resource group, but it must be unique to your Azure subscription.
+
 - From the Menu Bar, select **File > Save As**.
 - In the **Save As** dialog, navigate to a location of your choice and then click **New folder**. (Change the name of the new folder to something more descriptive than *New folder*.)
+
     >[!NOTE]
     >In this example, the folder is named TERRAFORM-TEST-PLAN.
+
 - Make sure your new folder is highlighted (selected) and then click **Open**.
 - In the **Save As** dialog, change the default name of the file to *main.tf*.
+
     ![Save as main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
+
 - Click **Save**.
 - In the Menu Bar, select **File > Open Folder**. Navigate to and select the new folder you created.
 
@@ -137,6 +145,7 @@ In this exercise, you create and execute a basic Terraform test plan that provis
 
       >[!NOTE]
       >In this example, Bash (Linux) was selected.
+
 - If you have not already set up an Azure storage account, the following screen appears. Click **Create storage**.
 
     ![You have no storage mounted](media/terraform-vscode-extension/tf-you-have-no-storage-mounted.png)
@@ -193,7 +202,7 @@ To see if your new Azure resource group was successfully created:
 Your new resource group should be listed in the **NAME** column.
 
 >[!NOTE]
->You may leave your Azure Portal window open for now; we'll be useing it in the next step.
+>You may leave your Azure Portal window open for now; we will be using it in the next step.
 
 ### Run Terraform *destroy* command
 
@@ -216,7 +225,7 @@ To confirm that Terraform successfully destroyed your new resource group:
 
 ## Exercise 2: Terraform *compute* module
 
-In this exercise, you'll learn how to load the Terraform *compute* module into the VS Code environment.
+In this exercise, you learn how to load the Terraform *compute* module into the VS Code environment.
 
 ### Clone the terraform-azurerm-compute module
 
@@ -241,7 +250,9 @@ Before you can begin using the Terraform commands from within VS Code, you downl
 
 - In the Terminal pane of the VS Code IDE, type:
 `terraform init`
+
 ![terraform init command](media/terraform-vscode-extension/tf-terraform-init-command.png)
+
 - Type `az login` and follow the on-screen instructions.
 
 ### Module test: *lint*
@@ -258,7 +269,7 @@ Before you can begin using the Terraform commands from within VS Code, you downl
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
 
-After a few moments, you'll see a listing in the Terminal pane similar to this:
+After a few moments, you see a listing in the Terminal pane similar to this example:
 
 ![Lint test results](media/terraform-vscode-extension/tf-lint-test-results.png)
 
@@ -276,13 +287,13 @@ After a few moments, you'll see a listing in the Terminal pane similar to this:
 >[!NOTE]
 >When you execute either the **lint** or **end to end** test, Azure uses a container service to provision a test machine to perform the actual test. For this reason, your test results may typically take several minutes to be returned.
 
-After a few moments, you'll see a listing in the Terminal pane similar to this:
+After a few moments, you will see a listing in the Terminal pane similar to this example:
 
 ![End-to-end test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## Next steps
 
-You've seen some of the ways Terraform can simplify your provisioning of Azure services from within Visual Studio Code. Now, you may want to review some of these resources:
+You have seen some of the ways Terraform can simplify your provisioning of Azure services from within Visual Studio Code. Now, you may want to review some of these resources:
 - The [Terraform Module Registry](https://registry.terraform.io/) lists all of the Terraform modules available for Azure and other supported providers.
 
 For each of these modules, the following information is provided:
