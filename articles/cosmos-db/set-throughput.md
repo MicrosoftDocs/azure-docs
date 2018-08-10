@@ -260,20 +260,6 @@ One method for estimating the amount of reserved throughput required by your app
 > 
 > 
 
-## <a id="RequestchargeGraphAPI"></a>Get request charge for Gremlin API accounts 
-
-Here is a sample on how to get request charge for Gremlin API accounts by using the Gremlin.Net library. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-In addition to the above method, you can also use “x-ms-total-request-charge” header for Request Units calculations.
-
-
 ## Throughput FAQ
 
 **Can I set my throughput to less than 400 RU/s?**
