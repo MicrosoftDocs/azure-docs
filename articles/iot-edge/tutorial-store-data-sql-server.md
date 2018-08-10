@@ -33,8 +33,7 @@ In this tutorial, you learn how to:
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* Python modules for IoT Edge don't support ARM processors or Windows devices.
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
 Cloud resources:
 
@@ -338,45 +337,13 @@ From inside the SQL command tool, run the following command to view your formatt
 
 ## Clean up resources
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Remove the IoT Edge service runtime based on your IoT device platform (Linux or Windows).
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
-#### Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Remove the IoT Edge runtime.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-#### Linux
-
-Remove the IoT Edge runtime.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-Remove the container runtime.
-
-```bash
-sudo apt-get remove --purge moby
-```
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 
