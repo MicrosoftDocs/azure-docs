@@ -130,7 +130,7 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the `ViewBag.Message` line.
+4. [Set a breakpoint](../app-service/app-service-web-get-started-dotnet-framework.md) on the `ViewBag.Message` line.
 
 5. In **Solution Explorer**, right-click the project, and click **Publish**.
 
@@ -181,7 +181,7 @@ Remote debugging only works with continuous WebJobs. Scheduled and on-demand Web
 
 2. In the ContosoAdsWebJob project, open *Functions.cs*.
 
-3. [Set a breakpoint](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) on the first statement in the `GnerateThumbnail` method.
+3. [Set a breakpoint](../app-service/app-service-web-get-started-dotnet-framework.md) on the first statement in the `GnerateThumbnail` method.
 
     ![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
