@@ -5,11 +5,11 @@ ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
-author: "ghogen"
-ms.author: "ghogen"
+author: ghogen
+ms.author: ghogen
 ms.date: "05/11/2018"
 ms.topic: "include"
-manager: "douge"
+manager: douge
 ---
 ## Get Kubernetes debugging for VS Code
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
